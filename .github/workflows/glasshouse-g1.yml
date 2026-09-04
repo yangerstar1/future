@@ -1,0 +1,113 @@
+name: Glasshouse G1 material risk study
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g1.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-g1
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Provision validated official toolchain
+        run: |
+          mkdir -p workspaces/glasshouse-terminus/output/g1
+          bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee workspaces/glasshouse-terminus/output/g1/provision.log
+      - name: Acquire selected public CC0 maps and derive wet roughness
+        timeout-minutes: 7
+        run: |
+          python3 workspaces/glasshouse-terminus/fetch_assets.py 2>&1 | tee workspaces/glasshouse-terminus/output/g1/assets-download.log
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          p=Path('workspaces/glasshouse-terminus/output/g1/assets')
+          im=Image.open(p/'slate_floor_rough_2k.jpg').convert('L')
+          im.point(lambda x:round(20+x*.19)).save(p/'slate_wet_rough_2k.jpg',quality=96)
+          (p/'DERIVATION.txt').write_text('slate_wet_rough_2k.jpg derives from CC0 slate_floor roughness: output=round(20+0.19*input). Same UVs; no generative image alterations.\n')
+          PY
+      - name: Build save and render actual G1 scene
+        timeout-minutes: 20
+        run: |
+          blender -b --factory-startup -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/build_g1.py 2>&1 | tee workspaces/glasshouse-terminus/output/g1/blender.log
+          ffmpeg -y -framerate 12 -pattern_type glob -i 'workspaces/glasshouse-terminus/output/g1/reflection-frames/*.png' -c:v libx264 -crf 18 -pix_fmt yuv420p workspaces/glasshouse-terminus/output/g1/risk-motion.mp4
+      - name: Build same-source material diagnostic with pinned dependencies
+        run: |
+          ROOT=workspaces/glasshouse-terminus/output/g1
+          npm install --prefix "$RUNNER_TEMP/g1-web" --no-audit --no-fund three@0.180.0 playwright@1.57.0
+          mkdir -p "$ROOT/browser/vendor/addons/loaders" "$ROOT/browser/vendor/addons/utils" "$ROOT/browser/vendor/addons/environments"
+          cp workspaces/glasshouse-terminus/g1_material_viewer.html "$ROOT/browser/index.html"
+          cp "$RUNNER_TEMP/g1-web/node_modules/three/build/three.module.js" "$ROOT/browser/vendor/"
+          cp "$RUNNER_TEMP/g1-web/node_modules/three/build/three.core.js" "$ROOT/browser/vendor/"
+          cp "$RUNNER_TEMP/g1-web/node_modules/three/examples/jsm/loaders/GLTFLoader.js" "$ROOT/browser/vendor/addons/loaders/"
+          cp "$RUNNER_TEMP/g1-web/node_modules/three/examples/jsm/utils/BufferGeometryUtils.js" "$ROOT/browser/vendor/addons/utils/"
+          cp "$RUNNER_TEMP/g1-web/node_modules/three/examples/jsm/environments/RoomEnvironment.js" "$ROOT/browser/vendor/addons/environments/"
+          cp "$RUNNER_TEMP/g1-web/package-lock.json" "$ROOT/browser/package-lock.json"
+      - name: Inspect real browser material transport
+        timeout-minutes: 6
+        run: |
+          ROOT=workspaces/glasshouse-terminus/output/g1
+          python3 -m http.server 8765 --directory "$ROOT" > "$RUNNER_TEMP/g1-http.log" 2>&1 &
+          SERVER=$!
+          trap 'kill "$SERVER" 2>/dev/null || true' EXIT
+          export PW_ROOT="$RUNNER_TEMP/g1-web"
+          timeout 240s node <<'JS'
+          const {chromium}=require(process.env.PW_ROOT+'/node_modules/playwright');const fs=require('fs');
+          (async()=>{
+            const root='workspaces/glasshouse-terminus/output/g1';
+            const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',timeout:20000,headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+            try{
+              const page=await browser.newPage({viewport:{width:1280,height:800}});const logs=[];
+              page.on('console',m=>logs.push({type:m.type(),text:m.text()}));page.on('pageerror',e=>logs.push({type:'pageerror',text:String(e)}));
+              await page.goto('http://127.0.0.1:8765/browser/',{waitUntil:'networkidle',timeout:30000});
+              await page.waitForFunction(()=>window.__G1_READY||window.__G1_ERROR,{},{timeout:180000});
+              const error=await page.evaluate(()=>window.__G1_ERROR);if(error)throw new Error(error);
+              const report=await page.evaluate(()=>window.__G1_REPORT);report.browser=browser.version();report.renderer='SwiftShader software; not desktop GPU performance';
+              fs.writeFileSync(root+'/browser-report.json',JSON.stringify(report,null,2));
+              await page.screenshot({path:root+'/browser-materials.png'});
+              fs.writeFileSync(root+'/browser-console.json',JSON.stringify(logs,null,2));
+              if(logs.some(l=>l.type==='pageerror'))throw new Error('Browser page error');
+            }finally{await browser.close();}
+          })().catch(e=>{console.error(e);process.exit(1)});
+          JS
+      - name: Store recoverable source and evidence, never mark art passed
+        if: always()
+        run: |
+          ROOT=workspaces/glasshouse-terminus/output/g1
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,hashlib,os
+          root=Path('workspaces/glasshouse-terminus/output/g1')
+          data={'phase':'G1','status':'REVIEW_REQUIRED_NOT_AUTO_PASS','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':{}}
+          total=0
+          for p in root.rglob('*'):
+              if p.is_file():
+                  assert p.stat().st_size<90_000_000, str(p)+' exceeds Git evidence file budget'
+                  total+=p.stat().st_size
+                  data['files'][str(p.relative_to(root))]={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+          assert total<180_000_000, 'Evidence transfer budget exceeded'
+          data['total_bytes']=total
+          (root/'DELIVERY.json').write_text(json.dumps(data,indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/g1-${GITHUB_RUN_ID}
+          git add "$ROOT"
+          git diff --staged --quiet || git commit -m "evidence: actual G1 ${GITHUB_RUN_ID}; visual review pending"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g1-material-study-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g1
+          retention-days: 1
+          if-no-files-found: error
