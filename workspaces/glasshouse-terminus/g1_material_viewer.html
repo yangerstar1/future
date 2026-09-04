@@ -7,39 +7,37 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
-const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
-renderer.setPixelRatio(1);renderer.setSize(innerWidth,innerHeight);
-renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.AgXToneMapping;
-renderer.toneMappingExposure=1;document.body.appendChild(renderer.domElement);
-const scene=new THREE.Scene();scene.background=new THREE.Color(.085,.11,.135);
-const pmrem=new THREE.PMREMGenerator(renderer);scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;
-scene.environmentIntensity=.65;
-scene.add(new THREE.AmbientLight(0xcbd8e4,.38));
-const warm=new THREE.PointLight(0xffe0b6,48,20,2);warm.position.set(0,4.2,2.3);scene.add(warm);
-const cool=new THREE.DirectionalLight(0xc4d6f2,1.3);cool.position.set(-3,6,-3.7);scene.add(cool);
 try {
-  const asset=await new GLTFLoader().loadAsync('../g1-risk-study.glb');scene.add(asset.scene);
-  asset.scene.updateMatrixWorld(true);
-  const camera=asset.scene.getObjectByName('G1_BEAUTY')||asset.cameras[0];
-  if(!camera?.isCamera)throw new Error('Source camera was not transported');
-  camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();
-  const materials=new Map();asset.scene.traverse(o=>{if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])materials.set(m.name,m)});
-  const report={source:'g1-risk-study.glb',sourceCamera:camera.name,three:THREE.REVISION,
-    resolution:[innerWidth,innerHeight],pixelRatio:1,extensions:asset.parser.json.extensionsUsed,
-    materials:[...materials.values()].map(m=>({name:m.name,type:m.type,transmission:m.transmission||0,map:!!m.map,normalMap:!!m.normalMap,roughnessMap:!!m.roughnessMap})),
-    lightingAdaptation:'Blender area lights replaced for this diagnostic by RoomEnvironment plus point/directional/ambient; not pixel-equivalent offline lighting',
-    scope:'G1 MATERIAL TRANSPORT ONLY, NOT G6 WEBSITE ACCEPTANCE',timingSamples:[]};
-  let frames=0,last=performance.now();
-  function frame(now){
-    const delta=now-last;last=now;renderer.render(scene,camera);frames++;
-    if(frames>60&&frames<=240)report.timingSamples.push(delta);
-    if(frames===240){
-      const sorted=[...report.timingSamples].sort((a,b)=>a-b);
-      report.p95ms=sorted[Math.floor(sorted.length*.95)];
-      window.__G1_REPORT=report;window.__G1_READY=true;
-    }
-    requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
+ const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+ renderer.setPixelRatio(1);renderer.setSize(innerWidth,innerHeight);
+ renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.AgXToneMapping;
+ renderer.toneMappingExposure=1;document.body.appendChild(renderer.domElement);
+ const scene=new THREE.Scene();scene.background=new THREE.Color(.085,.11,.135);
+ const pmrem=new THREE.PMREMGenerator(renderer);scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;
+ scene.environmentIntensity=.65;
+ scene.add(new THREE.AmbientLight(0xcbd8e4,.38));
+ const warm=new THREE.PointLight(0xffe0b6,48,20,2);warm.position.set(0,4.2,2.3);scene.add(warm);
+ const cool=new THREE.DirectionalLight(0xc4d6f2,1.3);cool.position.set(-3,6,-3.7);scene.add(cool);
+ const asset=await new GLTFLoader().loadAsync('../g1-risk-study.glb');scene.add(asset.scene);
+ asset.scene.updateMatrixWorld(true);
+ const camera=asset.scene.getObjectByName('G1_BEAUTY')||asset.cameras[0];
+ if(!camera?.isCamera)throw new Error('Source camera was not transported');
+ camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();
+ const materials=new Map();asset.scene.traverse(o=>{if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])materials.set(m.name,m)});
+ const report={source:'g1-risk-study.glb',sourceCamera:camera.name,three:THREE.REVISION,
+  resolution:[innerWidth,innerHeight],pixelRatio:1,extensions:asset.parser.json.extensionsUsed,
+  materials:[...materials.values()].map(m=>({name:m.name,type:m.type,transmission:m.transmission||0,map:!!m.map,normalMap:!!m.normalMap,roughnessMap:!!m.roughnessMap})),
+  lightingAdaptation:'Area lights replaced by RoomEnvironment plus point/directional/ambient; not pixel-equivalent offline lighting',
+  scope:'G1 MATERIAL TRANSPORT ONLY, NOT G6 WEBSITE OR FRAME-RATE ACCEPTANCE',renderedFrames:0,timingSamples:[]};
+ window.__G1_REPORT=report;
+ // Software transmission can be very slow. Obtain actual pixels first; do not require 240 frames to expose diagnostic errors.
+ for(let i=0;i<3;i++){
+  await new Promise(requestAnimationFrame);
+  const start=performance.now();renderer.render(scene,camera);
+  renderer.getContext().finish();
+  report.timingSamples.push(performance.now()-start);report.renderedFrames++;
+ }
+ report.performanceConclusion='INSUFFICIENT_FOR_G6; only three actual material-transport frames measured';
+ window.__G1_READY=true;
 }catch(e){window.__G1_ERROR=String(e);console.error(e);document.getElementById('label').textContent=String(e)}
 </script></html>
