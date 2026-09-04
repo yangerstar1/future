@@ -1,0 +1,62 @@
+name: Glasshouse G0 actual runner reconnaissance
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g0.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-g0
+  cancel-in-progress: false
+jobs:
+  recon:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Read actual machine and repository without installing dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence/g0
+          python3 - <<'PY'
+          import json, os, platform, shutil, subprocess, datetime, glob
+          from pathlib import Path
+          def run(a):
+              if not shutil.which(a[0]): return {'available':False}
+              try:
+                  p=subprocess.run(a,capture_output=True,text=True,timeout=15)
+                  return {'rc':p.returncode,'stdout':p.stdout[:14000],'stderr':p.stderr[:2000]}
+              except Exception as e:return {'error':str(e)}
+          def text(p):
+              return Path(p).read_text() if Path(p).is_file() else None
+          root=Path.cwd(); disk=shutil.disk_usage(root)
+          report={'task':'glasshouse-terminus-premium-scene','phase':'G0','art_status':'NOT_STARTED',
+            'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            'runner':{k:os.getenv(k) for k in ['GITHUB_REPOSITORY','GITHUB_REF','GITHUB_SHA','GITHUB_RUN_ID','RUNNER_OS','RUNNER_ARCH','ImageOS','ImageVersion']},
+            'root':str(root),'output_root':str(root/'workspaces/glasshouse-terminus/output'),
+            'repository':run(['git','ls-files']),'git_status':run(['git','status','--porcelain']),
+            'cpu':run(['lscpu']),'memory':run(['free','-b']), 'disk':dict(zip(['total','used','free'],disk)),
+            'cgroups':{'memory':text('/sys/fs/cgroup/memory.max'),'cpu':text('/sys/fs/cgroup/cpu.max')},
+            'gpu_nodes':glob.glob('/dev/dri/*')+glob.glob('/dev/nvidia[0-9]*'),
+            'tools':{n:run([n,*a]) for n,a in [('blender',['--version']),('python3',['--version']),('ffmpeg',['-version']),('node',['--version']),('npm',['--version']),('google-chrome',['--version']),('chromium',['--version']),('Xvfb',['-help'])]},
+            'blender_package_candidate':run(['apt-cache','policy','blender']),
+            'reviewer':'SAME_CONTEXT_ONLY; independent agent unavailable',
+            'budget':{'external_spend':0,'standard_public_runner':True,'timeout_minutes':5,'concurrency':1,'downloads':0,'render_frames':0,'artifact_cache_upload':0},
+            'write_scope':'new task branch and versioned evidence branches; protect main and Leaf',
+            'next':'review this evidence, then bounded dependency provisioning and save/render/reopen proof; no G1/G2 automatic PASS'}
+          s=json.dumps(report,ensure_ascii=False,indent=2)
+          Path('evidence/g0/environment.json').write_text(s)
+          print(s)
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('# G0 actual runner\n```json\n'+s+'\n```\n')
+          PY
+      - name: Persist evidence without Actions artifact or cache storage
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/g0-${GITHUB_RUN_ID}
+          git add evidence/g0
+          git commit -m "evidence: actual G0 runner ${GITHUB_RUN_ID}"
+          git push origin HEAD
