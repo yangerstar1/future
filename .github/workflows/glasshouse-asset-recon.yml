@@ -1,0 +1,44 @@
+name: Glasshouse selected asset reconnaissance
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-asset-recon.yml]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  inspect:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Read selected public asset metadata only, not bulk download
+        run: |
+          python3 - <<'PY'
+          import json,urllib.request,time
+          from pathlib import Path
+          root=Path('evidence/asset-recon');root.mkdir(parents=True,exist_ok=True)
+          for asset in ['GreenChair_01','potted_plant_01']:
+              for kind in ['info','files']:
+                  url='https://api.polyhaven.com/'+kind+'/'+asset
+                  req=urllib.request.Request(url,headers={'User-Agent':'GlasshouseTerminus-Future/1.0 (https://github.com/yangerstar1/future; selected-asset-build)','Referer':'https://github.com/yangerstar1/future'})
+                  with urllib.request.urlopen(req,timeout=45) as r:data=r.read(3000001)
+                  assert len(data)<=3000000
+                  parsed=json.loads(data)
+                  (root/(asset+'-'+kind+'.json')).write_text(json.dumps(parsed,indent=2))
+                  print(asset,kind, list(parsed))
+                  time.sleep(1)
+          (root/'SCOPE.md').write_text('Selected Poly Haven asset metadata only. Powered by Poly Haven. Asset files CC0 per provider; no model imported or G3 constructed by this inspection. No scene acceptance. External spend zero; 5 minutes maximum.\n')
+          PY
+      - name: Persist read-only asset-source observations
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/assets-${GITHUB_RUN_ID}
+          git add evidence/asset-recon
+          git commit -m "evidence: selected asset metadata ${GITHUB_RUN_ID}"
+          git push origin HEAD
