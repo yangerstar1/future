@@ -1,0 +1,105 @@
+{
+  "task": "glasshouse-terminus-premium-scene",
+  "phase": "G0",
+  "art_status": "NOT_STARTED",
+  "utc": "2026-09-04T22:29:00.361956+00:00",
+  "runner": {
+    "GITHUB_REPOSITORY": "yangerstar1/future",
+    "GITHUB_REF": "refs/heads/codex/glasshouse-terminus",
+    "GITHUB_SHA": "9966e486086dc856a55967624fda1d3d9e013cb1",
+    "GITHUB_RUN_ID": "33925686525",
+    "RUNNER_OS": "Linux",
+    "RUNNER_ARCH": "X64",
+    "ImageOS": "ubuntu24",
+    "ImageVersion": "20260831.293.1"
+  },
+  "root": "/home/runner/work/future/future",
+  "output_root": "/home/runner/work/future/future/workspaces/glasshouse-terminus/output",
+  "repository": {
+    "rc": 0,
+    "stdout": ".github/workflows/glasshouse-g0.yml\nREADME.md\n",
+    "stderr": ""
+  },
+  "git_status": {
+    "rc": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "cpu": {
+    "rc": 0,
+    "stdout": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               AuthenticAMD\nModel name:                              AMD EPYC 9V74 80-Core Processor\nCPU family:                              25\nModel:                                   17\nThread(s) per core:                      2\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                5192.25\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves user_shstk avx512_bf16 clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm\nVirtualization:                          AMD-V\nHypervisor vendor:                       Microsoft\nVirtualization type:                     full\nL1d cache:                               64 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                2 MiB (2 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Vulnerable: Safe RET, no microcode\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Vulnerable: No microcode\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
+    "stderr": ""
+  },
+  "memory": {
+    "rc": 0,
+    "stdout": "               total        used        free      shared  buff/cache   available\nMem:     16766414848   989921280 13553033216    43286528  2599825408 15776493568\nSwap:     3221221376           0  3221221376\n",
+    "stderr": ""
+  },
+  "disk": {
+    "total": 154894188544,
+    "used": 62393323520,
+    "free": 92484087808
+  },
+  "cgroups": {
+    "memory": null,
+    "cpu": null
+  },
+  "gpu_nodes": [
+    "/dev/dri/card1"
+  ],
+  "tools": {
+    "blender": {
+      "available": false
+    },
+    "python3": {
+      "rc": 0,
+      "stdout": "Python 3.12.3\n",
+      "stderr": ""
+    },
+    "ffmpeg": {
+      "available": false
+    },
+    "node": {
+      "rc": 0,
+      "stdout": "v22.23.2\n",
+      "stderr": ""
+    },
+    "npm": {
+      "rc": 0,
+      "stdout": "10.9.8\n",
+      "stderr": ""
+    },
+    "google-chrome": {
+      "rc": 0,
+      "stdout": "Google Chrome 152.0.7977.64 \n",
+      "stderr": ""
+    },
+    "chromium": {
+      "rc": 0,
+      "stdout": "Chromium 152.0.7977.0 \n",
+      "stderr": ""
+    },
+    "Xvfb": {
+      "rc": 0,
+      "stdout": "",
+      "stderr": "use: X [:<display>] [option]\n-a #                   default pointer acceleration (factor)\n-ac                    disable access control restrictions\n-audit int             set audit trail level\n-auth file             select authorization file\n-br                    create root window with black background\n+bs                    enable any backing store support\n-bs                    disable any backing store support\n+byteswappedclients    Allow clients with endianess different to that of the server\n-byteswappedclients    Prohibit clients with endianess different to that of the server\n-c                     turns off key-click\nc #                    key-click volume (0-100)\n-cc int                default color visual class\n-nocursor              disable the cursor\n-core                  generate core dump on fatal error\n-displayfd fd          file descriptor to write display number to when ready to connect\n-dpi int               screen resolution in dots per inch\n-dpms                  disables VESA DPMS monitor control\n-deferglyphs [none|all|16] defer loading of [no|all|16-bit] glyphs\n-f #                   bell base (0-100)\n-fakescreenfps #       fake screen default fps (1-600)\n-fp string             default font path\n-help                  prints message with these options\n+iglx                  Allow creating indirect GLX contexts\n-iglx                  Prohibit creating indirect GLX contexts (default)\n-I                     ignore all remaining arguments\n-ld int                limit data space to N Kb\n-lf int                limit number of open files to N\n-ls int                limit stack space to N Kb\n-nolock                disable the locking mechanism\n-maxclients n          set maximum number of clients (power of two)\n-nolisten string       don't listen on protocol\n-listen string         listen on protocol\n-noreset               don't reset after last client exists\n-background [none]     create root window with no background\n-reset                 reset afte"
+    }
+  },
+  "blender_package_candidate": {
+    "rc": 0,
+    "stdout": "blender:\n  Installed: (none)\n  Candidate: 4.0.2+dfsg-1ubuntu8\n  Version table:\n     4.0.2+dfsg-1ubuntu8 500\n        500 mirror+file:/etc/apt/apt-mirrors.txt noble/universe amd64 Packages\n",
+    "stderr": ""
+  },
+  "reviewer": "SAME_CONTEXT_ONLY; independent agent unavailable",
+  "budget": {
+    "external_spend": 0,
+    "standard_public_runner": true,
+    "timeout_minutes": 5,
+    "concurrency": 1,
+    "downloads": 0,
+    "render_frames": 0,
+    "artifact_cache_upload": 0
+  },
+  "write_scope": "new task branch and versioned evidence branches; protect main and Leaf",
+  "next": "review this evidence, then bounded dependency provisioning and save/render/reopen proof; no G1/G2 automatic PASS"
+}
