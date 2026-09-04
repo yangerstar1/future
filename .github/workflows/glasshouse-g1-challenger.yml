@@ -1,0 +1,94 @@
+name: Glasshouse G1 reviewed challenger
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g1-challenger.yml]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  refine:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore the real previous G1 source without replacing project code
+        run: |
+          git fetch --depth=1 origin evidence/g1-33927238957
+          git checkout FETCH_HEAD -- workspaces/glasshouse-terminus/output/g1
+          git reset
+          rm -f workspaces/glasshouse-terminus/output/g1/browser-materials.png
+      - name: Validated toolchain
+        run: bash workspaces/glasshouse-terminus/provision.sh
+      - name: Derive explicit material finishes while retaining original CC0 maps
+        run: |
+          python3 - <<'PY'
+          from PIL import Image,ImageOps
+          from pathlib import Path
+          import json,hashlib
+          root=Path('workspaces/glasshouse-terminus/output/g1/assets')
+          recipes={
+           'american_walnut_veneer':{'source':'american_walnut_veneer_diff_2k.jpg','method':'sRGB channel multiplication','multipliers':[.62,.43,.26],'purpose':'warm brown finished walnut from pale neutral veneer scan'},
+           'slate_floor':{'source':'slate_floor_diff_2k.jpg','method':'Pillow luminance, then sRGB tint multiplication','multipliers':[.50,.56,.60],'purpose':'blue-gray charcoal stone; preserve relief and vein distribution'}
+          }
+          for asset,r in recipes.items():
+              im=Image.open(root/r['source']).convert('RGB')
+              channels=im.split() if asset=='american_walnut_veneer' else [ImageOps.grayscale(im)]*3
+              tinted=Image.merge('RGB',[channel.point(lambda v,m=m:round(v*m)) for channel,m in zip(channels,r['multipliers'])])
+              path=root/(asset+'_finished_diff_2k.jpg');tinted.save(path,quality=97)
+              r['output']=path.name;r['sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+          (root/'FINISH-RECIPES.json').write_text(json.dumps({'original_maps_unchanged':True,'not_render_postprocessing':True,'recipes':recipes},indent=2))
+          PY
+      - name: Reopen actual saved scene, correct optics and render fixed evidence
+        timeout-minutes: 16
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g1/g1-risk-study.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g1.py 2>&1 | tee workspaces/glasshouse-terminus/output/g1/challenger.log
+          ffmpeg -y -framerate 12 -pattern_type glob -i 'workspaces/glasshouse-terminus/output/g1/reflection-frames/*.png' -c:v libx264 -crf 18 -pix_fmt yuv420p workspaces/glasshouse-terminus/output/g1/risk-motion.mp4
+      - name: Actual same-source material browser diagnostic
+        timeout-minutes: 4
+        run: |
+          ROOT=workspaces/glasshouse-terminus/output/g1
+          cp workspaces/glasshouse-terminus/g1_material_viewer.html "$ROOT/browser/index.html"
+          npm install --prefix "$RUNNER_TEMP/g1-web" --no-audit --no-fund playwright@1.57.0
+          python3 -m http.server 8765 --directory "$ROOT" > "$RUNNER_TEMP/g1-http.log" 2>&1 &
+          SERVER=$!
+          trap 'kill "$SERVER" 2>/dev/null || true' EXIT
+          export PW_ROOT="$RUNNER_TEMP/g1-web" PROBE_ROOT="$ROOT"
+          timeout 145s node workspaces/glasshouse-terminus/capture_material_probe.cjs
+      - name: Preserve immutable challenger source and evidence
+        if: always()
+        run: |
+          ROOT=workspaces/glasshouse-terminus/output/g1
+          find "$ROOT" -name '*.blend1' -delete
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,hashlib,os
+          root=Path('workspaces/glasshouse-terminus/output/g1')
+          files={};total=0
+          for p in root.rglob('*'):
+              if p.is_file():
+                  total+=p.stat().st_size
+                  assert p.stat().st_size<90_000_000
+                  files[str(p.relative_to(root))]={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+          assert total<180_000_000
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G1','status':'CHALLENGER_REVIEW_REQUIRED','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'parent_run_id':'33927238957','files':files,'total_bytes':total},indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/g1-${GITHUB_RUN_ID}
+          git add "$ROOT"
+          git commit -m "evidence: G1 reviewed challenger ${GITHUB_RUN_ID}; no automatic visual pass"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g1-challenger-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g1
+          retention-days: 1
+          if-no-files-found: error
