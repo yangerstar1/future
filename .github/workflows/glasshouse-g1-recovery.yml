@@ -1,0 +1,56 @@
+name: Glasshouse G1 artifact recovery
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g1-recovery.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  recover:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact successful artifact, not a regenerated substitute
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import urllib.request,os,hashlib,zipfile,io,json
+          from pathlib import Path
+          class RedirectWithoutCredentials(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,req,fp,code,msg,headers,newurl):
+                  redirected=super().redirect_request(req,fp,code,msg,headers,newurl)
+                  if redirected:redirected.remove_header('Authorization')
+                  return redirected
+          url='https://api.github.com/repos/yangerstar1/future/actions/artifacts/9958006611/zip'
+          req=urllib.request.Request(url,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','User-Agent':'GlasshouseTerminus-Recovery/1.0'})
+          with urllib.request.build_opener(RedirectWithoutCredentials()).open(req,timeout=90) as r:data=r.read(115000001)
+          assert len(data)==107716850
+          assert hashlib.sha256(data).hexdigest()=='039d6e001c043e1e820bc2d5d9fcb96f33e685ad1869d8c66496330cd64c90afc8bc'
+          root=Path('workspaces/glasshouse-terminus/output/g1').resolve();root.mkdir(parents=True,exist_ok=True)
+          with zipfile.ZipFile(io.BytesIO(data)) as z:
+              assert sum(i.file_size for i in z.infolist())<180000000
+              for i in z.infolist():
+                  target=(root/i.filename).resolve()
+                  assert target.is_relative_to(root) and not Path(i.filename).is_absolute()
+                  assert i.file_size<90000000
+              z.extractall(root)
+          assert (root/'g1-risk-study.blend').is_file()
+          (root/'RECOVERY.json').write_text(json.dumps({'original_run':33928926761,'artifact':9958006611,'archive_sha256':hashlib.sha256(data).hexdigest(),'recovery_run':os.environ['GITHUB_RUN_ID'],'status':'Recovered actual rendered candidate; browser remains BLOCKED; not final artwork'},indent=2))
+          PY
+      - name: Push a new evidence reference only, never replace existing work
+        run: |
+          TARGET="evidence/g1-recovered-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          if git ls-remote --heads origin "$TARGET" | grep -q .; then echo 'Evidence target already exists; refusing overwrite'; exit 1; fi
+          git switch --detach "$GITHUB_SHA"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add workspaces/glasshouse-terminus/output/g1
+          git commit -m "recovery: exact G1 challenger artifact 9958006611"
+          git push origin "HEAD:refs/heads/$TARGET"
