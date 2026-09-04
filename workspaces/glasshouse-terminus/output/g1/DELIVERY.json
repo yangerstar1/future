@@ -1,0 +1,25 @@
+{
+  "phase": "G1",
+  "status": "REVIEW_REQUIRED_NOT_AUTO_PASS",
+  "source_sha": "15360c6d70719779c4595efa5a7eea4a25b7536d",
+  "run_id": "33926703962",
+  "files": {
+    "assets-download.log": {
+      "bytes": 632,
+      "sha256": "676ac56bf9cf1e5990101e68394760f32de5608191cc4b7e4a77eee89547bfe6"
+    },
+    "provision.log": {
+      "bytes": 41063,
+      "sha256": "9a10b5d8e92a8324e523d53ec0735aa0e345634f2d168696db569b93da1f7567"
+    },
+    "assets/american_walnut_veneer-files.json": {
+      "bytes": 39696,
+      "sha256": "219d01aa944cd26539da101858e5ef96381a3c0d0edb939d787ca6618ddef848"
+    },
+    "assets/american_walnut_veneer-info.json": {
+      "bytes": 1140,
+      "sha256": "e568b59f589ec6fd2285e1503af18ec95c23e4ddca455a3e81d2b9134ef552b3"
+    }
+  },
+  "total_bytes": 82531
+}

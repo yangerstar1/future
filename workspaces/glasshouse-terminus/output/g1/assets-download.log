@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/runner/work/future/future/workspaces/glasshouse-terminus/fetch_assets.py", line 39, in <module>
+    try: variant=files[role]['2k']['jpg']
+                 ~~~~~^^^^^^
+KeyError: 'diff'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/future/future/workspaces/glasshouse-terminus/fetch_assets.py", line 41, in <module>
+    raise RuntimeError('Selected map unavailable; no silent substitution: '+asset+' '+role)
+RuntimeError: Selected map unavailable; no silent substitution: american_walnut_veneer diff
