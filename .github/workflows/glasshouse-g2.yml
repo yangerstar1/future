@@ -36,15 +36,25 @@ jobs:
         run: |
           mkdir -p workspaces/glasshouse-terminus/output/g2
           bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee workspaces/glasshouse-terminus/output/g2/provision.log
-      - name: Build complete A-E geometry and fixed C01-C09 observations
+      - name: Build complete A-E geometry and fixed Cycles C01-C09 observations
         timeout-minutes: 30
         run: |
           blender -b --factory-startup -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/build_g2.py 2>&1 | tee workspaces/glasshouse-terminus/output/g2/build.log
-      - name: Reopen saved source and render full 28-second low-cost animatic
+      - name: Return fixed-view contact evidence before motion rendering
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g2-fixed-views-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g2/C*.png
+            workspaces/glasshouse-terminus/output/g2/render-metrics.json
+            workspaces/glasshouse-terminus/output/g2/layout-and-route.json
+          retention-days: 1
+          if-no-files-found: error
+      - name: Reopen Cycles master and render native low-cost whitebox movement
         timeout-minutes: 22
         run: |
-          blender -b workspaces/glasshouse-terminus/output/g2/g2-complete-whitebox.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/render_animatic.py 2>&1 | tee workspaces/glasshouse-terminus/output/g2/animatic.log
-          ffmpeg -y -framerate 10 -i workspaces/glasshouse-terminus/output/g2/animatic-frames/%04d.png -c:v libx264 -crf 18 -pix_fmt yuv420p -metadata comment='G2 WHITEBOX PREVIEW: native 640x360 10FPS, not the final 4K30 film' workspaces/glasshouse-terminus/output/g2/whitebox-28s.mp4
+          xvfb-run -a -s '-screen 0 1280x720x24' blender -b workspaces/glasshouse-terminus/output/g2/g2-complete-whitebox.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/render_animatic.py 2>&1 | tee workspaces/glasshouse-terminus/output/g2/animatic.log
+          ffmpeg -y -framerate 10 -i workspaces/glasshouse-terminus/output/g2/animatic-frames/%04d.png -c:v libx264 -crf 18 -pix_fmt yuv420p -metadata comment='G2 WORKBENCH WHITEBOX PREVIS: native 640x360 10FPS, not final 4K30 film or material evidence' workspaces/glasshouse-terminus/output/g2/whitebox-28s.mp4
           ffprobe -v error -show_streams -show_format -of json workspaces/glasshouse-terminus/output/g2/whitebox-28s.mp4 > workspaces/glasshouse-terminus/output/g2/animatic-media.json
       - name: Preserve actual scene observations and selected raw continuity frames
         if: always()
@@ -54,8 +64,6 @@ jobs:
           import json,os,hashlib,shutil
           root=Path('workspaces/glasshouse-terminus/output/g2');root.mkdir(parents=True,exist_ok=True)
           src=root/'animatic-frames';selected=root/'continuity-frames';selected.mkdir(exist_ok=True)
-          # Save first/last and uniformly spaced frames, plus dense door/walk observations.
-          # The complete rendered motion is retained in the H.264 animatic.
           indices=set(range(0,280,20))|set(range(95,121,5))|set(range(130,221,5))|{0,29,30,69,70,129,130,219,220,279}
           if src.exists():
               for i in sorted(indices):
