@@ -2,7 +2,9 @@ name: Glasshouse G1 material risk study
 on:
   push:
     branches: [codex/glasshouse-terminus]
-    paths: [.github/workflows/glasshouse-g1.yml]
+    paths:
+      - .github/workflows/glasshouse-g1.yml
+      - workspaces/glasshouse-terminus/g1-request.json
   workflow_dispatch:
 permissions:
   contents: write
