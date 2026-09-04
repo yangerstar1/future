@@ -10,6 +10,8 @@ ROOT.mkdir(parents=True, exist_ok=True)
 AGENT = 'GlasshouseTerminus-Future/1.0 (https://github.com/yangerstar1/future; selected-asset-build)'
 MAX_TOTAL = 120_000_000
 used = 0
+# Names verified from actual files metadata in evidence/g1-33926703962.
+API_ROLE = {'diff':'Diffuse','rough':'Rough','nor_gl':'nor_gl'}
 
 def fetch(url, limit=30_000_000):
     global used
@@ -36,7 +38,7 @@ for asset, maps in [('american_walnut_veneer',['diff','nor_gl','rough']), ('slat
             'license_source':'https://polyhaven.com/license','author':info.get('authors',info.get('author','SEE_INFO_JSON')),
             'downloads':{}}
     for role in maps:
-        try: variant=files[role]['2k']['jpg']
+        try: variant=files[API_ROLE[role]]['2k']['jpg']
         except (KeyError,TypeError):
             raise RuntimeError('Selected map unavailable; no silent substitution: '+asset+' '+role)
         url=variant['url']; data=fetch(url)
