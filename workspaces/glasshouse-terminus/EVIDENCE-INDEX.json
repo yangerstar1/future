@@ -1,0 +1,22 @@
+{
+  "task": "glasshouse-terminus-premium-scene",
+  "source_of_truth": "Current GitHub artifact metadata plus SHA-256 and DELIVERY.json from downloaded bytes; these replace inconsistent earlier transcribed archive sizes and timings in G1-REVIEW-02.md",
+  "g1_challenger": {
+    "run_id": 33928926761,
+    "artifact_id": 9958006611,
+    "source_commit": "18c044402aaa01a358b541c58d92e181236bffdd",
+    "zip_bytes": 72606208,
+    "zip_sha256": "c968a995843ccbcbe04a3d4ef84ea7fef903fa816e6bebc426b66f617c5d50ad",
+    "delivery_json_sha256": "c737eae1fb51cf931359f177df9775ee843fee12bcb5390dfab281b57fde19ce",
+    "blend": {"file": "g1-risk-study.blend", "bytes": 15517924, "sha256": "4c53a851663ff3eac46f7c9e362d9bc3145d07e70d1df813dec25ea15915a4b3"},
+    "glb": {"file": "g1-risk-study.glb", "bytes": 22551788, "sha256": "855f6ac493bde36e66dcbc8ab229adfb48054e2515f96a86adc9b0f83ed651aa"},
+    "native_preview_resolution": [1280, 800],
+    "actual_seconds_from_render_metrics": {"beauty.png": 48.906108212, "glass-node.png": 73.351175974, "materials.png": 69.376685983, "neutral.png": 39.925381825, "moving-reflection.png": 47.717203952},
+    "visual_scope": "G1 risk coupon, not full whitebox or final-quality asset",
+    "browser_status": "BLOCKED_BY_ADMINISTRATOR; no attempt to clear authentication or bypass the security restriction",
+    "persistent_git_copy": "Recovery workflow pending; original artifact and downloaded local ZIP retained"
+  },
+  "g2": {"run_id": 33930258391, "status": "RUNNING_NOT_REVIEWED", "scope": "Complete A-E whitebox only; no final art claim"},
+  "final_contract_status": "IN_PROGRESS_WITH_P1_BROWSER_BLOCKER",
+  "human_acceptance": false
+}
