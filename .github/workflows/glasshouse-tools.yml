@@ -1,0 +1,58 @@
+name: Glasshouse tool readiness
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-tools.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-tools
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Install official pinned Blender and OS tools within zero external spend
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence/tool-probe
+          bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee evidence/tool-probe/provision.log
+      - name: Save and render a technical scene
+        run: blender -b --factory-startup -t 4 -P workspaces/glasshouse-terminus/tool_probe.py 2>&1 | tee evidence/tool-probe/render.log
+      - name: Reopen in a separate process and render the saved scene
+        run: |
+          blender -b evidence/tool-probe/diagnostic.blend -t 4 -o //reopened- -f 1 2>&1 | tee evidence/tool-probe/reopen.log
+          python3 - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          p=Path('evidence/tool-probe')
+          a=p/'diagnostic.png';b=p/'reopened-0001.png'
+          assert a.is_file() and b.is_file()
+          result={'fresh_process':True,'original_sha256':hashlib.sha256(a.read_bytes()).hexdigest(),'reopened_sha256':hashlib.sha256(b.read_bytes()).hexdigest()}
+          result['pixel_file_equal']=result['original_sha256']==result['reopened_sha256']
+          (p/'cold-start.json').write_text(json.dumps(result,indent=2))
+          PY
+      - name: Launch actual browser and probe WebGL2
+        shell: bash
+        run: |
+          cat > "$RUNNER_TEMP/probe.html" <<'HTML'
+          <!doctype html><canvas id="c" width="320" height="180"></canvas><pre id="r"></pre><script>const g=document.getElementById('c').getContext('webgl2');let v={webgl2:!!g};if(g){const d=g.getExtension('WEBGL_debug_renderer_info');v.renderer=d?g.getParameter(d.UNMASKED_RENDERER_WEBGL):g.getParameter(g.RENDERER);g.clearColor(.12,.18,.22,1);g.clear(g.COLOR_BUFFER_BIT)}document.getElementById('r').textContent=JSON.stringify(v);</script>
+          HTML
+          google-chrome --headless --no-sandbox --disable-dev-shm-usage --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --dump-dom "file://$RUNNER_TEMP/probe.html" > evidence/tool-probe/browser.html 2> evidence/tool-probe/browser.log
+          grep -q '"webgl2":true' evidence/tool-probe/browser.html
+          xvfb-run -a glxinfo -B > evidence/tool-probe/opengl.txt
+          ffmpeg -version > evidence/tool-probe/ffmpeg.txt
+      - name: Persist technical evidence even on failed step
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/tools-${GITHUB_RUN_ID}
+          git add evidence/tool-probe
+          git diff --staged --quiet || git commit -m "evidence: tool readiness ${GITHUB_RUN_ID}; not art acceptance"
+          git push origin HEAD
