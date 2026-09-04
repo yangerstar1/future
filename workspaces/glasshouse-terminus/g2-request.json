@@ -1,0 +1,18 @@
+{
+  "stage": "G2",
+  "g1_visual_gate": "PROCEED_TO_WHITEBOX",
+  "gate_scope": "P0 offline spatial work only; G1 full gate is not passed and browser material transport remains BLOCKED by explicit administrator safety check",
+  "review": "G1-REVIEW-02.md",
+  "evidence_run_id": 33928926761,
+  "parent_artifact_id": 9958006611,
+  "external_spend_usd": 0,
+  "job_minutes": 60,
+  "concurrent_render_jobs": 1,
+  "max_download_bytes": 1500000000,
+  "max_working_disk_bytes": 8000000000,
+  "fixed_views": ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09"],
+  "whitebox_previs": {"seconds": 28, "native_resolution": [640, 360], "fps": 10, "source_fps": 30, "source_frames": 840, "renderer": "native Blender Workbench", "not_final_film": true},
+  "reserve_for_save_and_retrieval_minutes": 5,
+  "must_not": ["publish placeholder website", "bypass browser safety check", "claim full G1 or G2 art pass from CI", "overwrite prior evidence or main", "start whole-scene final detailing before G3"],
+  "reviewer": "Same-context actual-image review, not an independent agent or user acceptance"
+}
