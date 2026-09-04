@@ -1,0 +1,16 @@
+{
+  "blender": "4.5.13 LTS",
+  "python": "3.11.15 (main, Apr 25 2025, 12:39:20) [GCC 11.2.1 20220127 (Red Hat 11.2.1-9)]",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "probe_seconds": 0.7339218129999949,
+  "samples": 8,
+  "resolution": [
+    320,
+    180
+  ],
+  "build_hash": "daeeeca98fb0",
+  "scene_saved": true,
+  "original_png_bytes": 50118,
+  "visual_status": "FACTORY_SCENE_TECHNICAL_PROBE_NOT_ART"
+}
