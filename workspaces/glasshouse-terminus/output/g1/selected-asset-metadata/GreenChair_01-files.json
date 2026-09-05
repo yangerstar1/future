@@ -1,0 +1,676 @@
+{
+  "Diffuse": {
+    "4k": {
+      "jpg": {
+        "size": 2167849,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_diff_4k.jpg",
+        "md5": "3f7b9664d829bd291b5047cd6eabf239"
+      },
+      "png": {
+        "size": 43195961,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/GreenChair_01/GreenChair_01_diff_4k.png",
+        "md5": "a6b35a25d0e0737c408c20ebe0b4e461"
+      },
+      "exr": {
+        "size": 18209263,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/GreenChair_01/GreenChair_01_diff_4k.exr",
+        "md5": "04e4d021e0c7641323ca5b0891540586"
+      }
+    },
+    "2k": {
+      "jpg": {
+        "size": 512406,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_diff_2k.jpg",
+        "md5": "25e63a758adb82eb13930925e364ca1e"
+      },
+      "png": {
+        "size": 14195454,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/GreenChair_01/GreenChair_01_diff_2k.png",
+        "md5": "67aac7da6e2df22deb189001b25cbf2c"
+      },
+      "exr": {
+        "size": 4002922,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/GreenChair_01/GreenChair_01_diff_2k.exr",
+        "md5": "dae6bbf7304fa84a2d0c0111cc22abe3"
+      }
+    },
+    "1k": {
+      "jpg": {
+        "size": 131727,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_diff_1k.jpg",
+        "md5": "7304f991bdcd2c534243bc7e86c62c43"
+      },
+      "png": {
+        "size": 4169338,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/GreenChair_01/GreenChair_01_diff_1k.png",
+        "md5": "fa860e55a79901bc303b8ddb7ad61a54"
+      },
+      "exr": {
+        "size": 1046352,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/GreenChair_01/GreenChair_01_diff_1k.exr",
+        "md5": "05321a31fffdfec85ecb5403e40a2b9a"
+      }
+    }
+  },
+  "nor_dx": {
+    "4k": {
+      "jpg": {
+        "size": 3455905,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_nor_dx_4k.jpg",
+        "md5": "2d6d5caedc9747fe98774347d1563044"
+      },
+      "png": {
+        "size": 46103775,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/GreenChair_01/GreenChair_01_nor_dx_4k.png",
+        "md5": "86faa270b96656259c4bd6a331b7111a"
+      },
+      "exr": {
+        "size": 19685251,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/GreenChair_01/GreenChair_01_nor_dx_4k.exr",
+        "md5": "3ce2a6fb8baf1c03f4eac0b679eec8ab"
+      }
+    },
+    "2k": {
+      "jpg": {
+        "size": 830352,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_nor_dx_2k.jpg",
+        "md5": "835caa1063a352acd90c393c79a1552c"
+      },
+      "png": {
+        "size": 13893106,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/GreenChair_01/GreenChair_01_nor_dx_2k.png",
+        "md5": "70781256483f3b8962712e9bfddeed62"
+      },
+      "exr": {
+        "size": 5464192,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/GreenChair_01/GreenChair_01_nor_dx_2k.exr",
+        "md5": "71baea8d73bd68addcb851792246183a"
+      }
+    },
+    "1k": {
+      "jpg": {
+        "size": 208181,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_nor_dx_1k.jpg",
+        "md5": "0172bad3554322ff3aa15b986c81687c"
+      },
+      "png": {
+        "size": 3932867,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/GreenChair_01/GreenChair_01_nor_dx_1k.png",
+        "md5": "b54073093fac335a402e83f008a050c1"
+      },
+      "exr": {
+        "size": 1376249,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/GreenChair_01/GreenChair_01_nor_dx_1k.exr",
+        "md5": "dfb463568649a29da4626a49de603bf7"
+      }
+    }
+  },
+  "nor_gl": {
+    "4k": {
+      "jpg": {
+        "size": 3724210,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_nor_gl_4k.jpg",
+        "md5": "31486ecfaf68d18ddca1cccd7571642d"
+      },
+      "png": {
+        "size": 46101428,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/GreenChair_01/GreenChair_01_nor_gl_4k.png",
+        "md5": "e900784d768405f0adecffcfdae6ace5"
+      },
+      "exr": {
+        "size": 19721694,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/GreenChair_01/GreenChair_01_nor_gl_4k.exr",
+        "md5": "0c4520d05cba566ece1d73b932976d2f"
+      }
+    },
+    "2k": {
+      "jpg": {
+        "size": 895278,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_nor_gl_2k.jpg",
+        "md5": "7512e07b1414e4e78a32335d60750629"
+      },
+      "png": {
+        "size": 13894100,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/GreenChair_01/GreenChair_01_nor_gl_2k.png",
+        "md5": "4538521afa8beae3647d1d812484b56d"
+      },
+      "exr": {
+        "size": 5409559,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/GreenChair_01/GreenChair_01_nor_gl_2k.exr",
+        "md5": "a7ff11d0db7634e8015eeb41c0a9aa30"
+      }
+    },
+    "1k": {
+      "jpg": {
+        "size": 213507,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_nor_gl_1k.jpg",
+        "md5": "19a8e67d3bf9153e9f68a28f1507aaee"
+      },
+      "png": {
+        "size": 3933106,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/GreenChair_01/GreenChair_01_nor_gl_1k.png",
+        "md5": "6d9643cf67d58fa8ca7fb8bfb5b641e0"
+      },
+      "exr": {
+        "size": 1378538,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/GreenChair_01/GreenChair_01_nor_gl_1k.exr",
+        "md5": "cf5ee3c772489aed564271bd1e279f63"
+      }
+    }
+  },
+  "blend": {
+    "4k": {
+      "blend": {
+        "include": {
+          "textures/GreenChair_01_roughness_4k.jpg": {
+            "size": 1861358,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_roughness_4k.jpg",
+            "md5": "c256d4201a289e80f3875ba30769cdd1"
+          },
+          "textures/GreenChair_01_nor_gl_4k.exr": {
+            "size": 19721694,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/GreenChair_01/GreenChair_01_nor_gl_4k.exr",
+            "md5": "0c4520d05cba566ece1d73b932976d2f"
+          },
+          "textures/GreenChair_01_diff_4k.jpg": {
+            "size": 2167849,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_diff_4k.jpg",
+            "md5": "3f7b9664d829bd291b5047cd6eabf239"
+          },
+          "textures/GreenChair_01_metallic_4k.exr": {
+            "size": 42864,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/GreenChair_01/GreenChair_01_metallic_4k.exr",
+            "md5": "0d9864a2e9a4620814a4817d488976ef"
+          }
+        },
+        "size": 295652,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/blend/4k/GreenChair_01/GreenChair_01_4k.blend",
+        "md5": "f5e56c9c9e3cbbd67bbd5c434f6caa28"
+      }
+    },
+    "2k": {
+      "blend": {
+        "include": {
+          "textures/GreenChair_01_metallic_2k.exr": {
+            "size": 13296,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/GreenChair_01/GreenChair_01_metallic_2k.exr",
+            "md5": "c9f5fef0bf9fe8219b9bfeb9203f1cae"
+          },
+          "textures/GreenChair_01_roughness_2k.jpg": {
+            "size": 424086,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_roughness_2k.jpg",
+            "md5": "67dde2eb02960edde37bc9f795fa7699"
+          },
+          "textures/GreenChair_01_nor_gl_2k.exr": {
+            "size": 5409559,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/GreenChair_01/GreenChair_01_nor_gl_2k.exr",
+            "md5": "a7ff11d0db7634e8015eeb41c0a9aa30"
+          },
+          "textures/GreenChair_01_diff_2k.jpg": {
+            "size": 512406,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_diff_2k.jpg",
+            "md5": "25e63a758adb82eb13930925e364ca1e"
+          }
+        },
+        "size": 295870,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/blend/2k/GreenChair_01/GreenChair_01_2k.blend",
+        "md5": "91e12dcc70e830045d1324392e474164"
+      }
+    },
+    "1k": {
+      "blend": {
+        "include": {
+          "textures/GreenChair_01_diff_1k.jpg": {
+            "size": 131727,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_diff_1k.jpg",
+            "md5": "7304f991bdcd2c534243bc7e86c62c43"
+          },
+          "textures/GreenChair_01_roughness_1k.jpg": {
+            "size": 115623,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_roughness_1k.jpg",
+            "md5": "8c671b3f46a7eea311033706b1f86c8e"
+          },
+          "textures/GreenChair_01_metallic_1k.exr": {
+            "size": 4784,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/GreenChair_01/GreenChair_01_metallic_1k.exr",
+            "md5": "b57bf97c9a28040c82814c443d2117f6"
+          },
+          "textures/GreenChair_01_nor_gl_1k.exr": {
+            "size": 1378538,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/GreenChair_01/GreenChair_01_nor_gl_1k.exr",
+            "md5": "cf5ee3c772489aed564271bd1e279f63"
+          }
+        },
+        "size": 295948,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/blend/1k/GreenChair_01/GreenChair_01_1k.blend",
+        "md5": "b0a906f103fca11f763abdb32b93762f"
+      }
+    }
+  },
+  "gltf": {
+    "4k": {
+      "gltf": {
+        "include": {
+          "textures/GreenChair_01_nor_gl_4k.jpg": {
+            "size": 3724210,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_nor_gl_4k.jpg",
+            "md5": "31486ecfaf68d18ddca1cccd7571642d"
+          },
+          "textures/GreenChair_01_arm_4k.jpg": {
+            "size": 1691021,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_arm_4k.jpg",
+            "md5": "4feac5552316e608baf8f233e7362290"
+          },
+          "GreenChair_01.bin": {
+            "size": 119168,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/GreenChair_01/GreenChair_01.bin",
+            "md5": "9c84856d32c4d61b87fb5eba1f8339a3"
+          },
+          "textures/GreenChair_01_diff_4k.jpg": {
+            "size": 2167849,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_diff_4k.jpg",
+            "md5": "3f7b9664d829bd291b5047cd6eabf239"
+          }
+        },
+        "size": 2695,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/GreenChair_01/GreenChair_01_4k.gltf",
+        "md5": "9f4640d5f4fdceffe3ff47068c6e95cf"
+      }
+    },
+    "2k": {
+      "gltf": {
+        "include": {
+          "GreenChair_01.bin": {
+            "size": 119168,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/GreenChair_01/GreenChair_01.bin",
+            "md5": "9c84856d32c4d61b87fb5eba1f8339a3"
+          },
+          "textures/GreenChair_01_nor_gl_2k.jpg": {
+            "size": 895278,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_nor_gl_2k.jpg",
+            "md5": "7512e07b1414e4e78a32335d60750629"
+          },
+          "textures/GreenChair_01_arm_2k.jpg": {
+            "size": 455369,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_arm_2k.jpg",
+            "md5": "02cec28a60bf52262a01339bb7434a1d"
+          },
+          "textures/GreenChair_01_diff_2k.jpg": {
+            "size": 512406,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_diff_2k.jpg",
+            "md5": "25e63a758adb82eb13930925e364ca1e"
+          }
+        },
+        "size": 2695,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/GreenChair_01/GreenChair_01_2k.gltf",
+        "md5": "7aaf6e9d83220f3b07e0248455b5ad7d"
+      }
+    },
+    "1k": {
+      "gltf": {
+        "include": {
+          "textures/GreenChair_01_arm_1k.jpg": {
+            "size": 140947,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_arm_1k.jpg",
+            "md5": "b986c428c4db443ed08f7925a08531f1"
+          },
+          "textures/GreenChair_01_nor_gl_1k.jpg": {
+            "size": 213507,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_nor_gl_1k.jpg",
+            "md5": "19a8e67d3bf9153e9f68a28f1507aaee"
+          },
+          "textures/GreenChair_01_diff_1k.jpg": {
+            "size": 131727,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_diff_1k.jpg",
+            "md5": "7304f991bdcd2c534243bc7e86c62c43"
+          },
+          "GreenChair_01.bin": {
+            "size": 119168,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/GreenChair_01/GreenChair_01.bin",
+            "md5": "9c84856d32c4d61b87fb5eba1f8339a3"
+          }
+        },
+        "size": 2695,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/GreenChair_01/GreenChair_01_1k.gltf",
+        "md5": "a891e84c1aa77d8f163609b347c1b421"
+      }
+    }
+  },
+  "usd": {
+    "4k": {
+      "usd": {
+        "include": {
+          "textures/GreenChair_01_roughness_4k.jpg": {
+            "size": 1861358,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_roughness_4k.jpg",
+            "md5": "c256d4201a289e80f3875ba30769cdd1"
+          },
+          "textures/GreenChair_01_nor_gl_4k.exr": {
+            "size": 19721694,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/GreenChair_01/GreenChair_01_nor_gl_4k.exr",
+            "md5": "0c4520d05cba566ece1d73b932976d2f"
+          },
+          "textures/GreenChair_01_diff_4k.jpg": {
+            "size": 2167849,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_diff_4k.jpg",
+            "md5": "3f7b9664d829bd291b5047cd6eabf239"
+          },
+          "textures/GreenChair_01_metallic_4k.exr": {
+            "size": 42864,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/GreenChair_01/GreenChair_01_metallic_4k.exr",
+            "md5": "0d9864a2e9a4620814a4817d488976ef"
+          }
+        },
+        "size": 300952,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/usd/4k/GreenChair_01/GreenChair_01_4k.usdc",
+        "md5": "7b161f1e4a7a1b8d3e2e9d05a50e8bdc"
+      }
+    },
+    "2k": {
+      "usd": {
+        "include": {
+          "textures/GreenChair_01_metallic_2k.exr": {
+            "size": 13296,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/GreenChair_01/GreenChair_01_metallic_2k.exr",
+            "md5": "c9f5fef0bf9fe8219b9bfeb9203f1cae"
+          },
+          "textures/GreenChair_01_roughness_2k.jpg": {
+            "size": 424086,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_roughness_2k.jpg",
+            "md5": "67dde2eb02960edde37bc9f795fa7699"
+          },
+          "textures/GreenChair_01_nor_gl_2k.exr": {
+            "size": 5409559,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/GreenChair_01/GreenChair_01_nor_gl_2k.exr",
+            "md5": "a7ff11d0db7634e8015eeb41c0a9aa30"
+          },
+          "textures/GreenChair_01_diff_2k.jpg": {
+            "size": 512406,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_diff_2k.jpg",
+            "md5": "25e63a758adb82eb13930925e364ca1e"
+          }
+        },
+        "size": 300952,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/usd/2k/GreenChair_01/GreenChair_01_2k.usdc",
+        "md5": "dbbd225cd62d8d897e3a7a1d957b28c2"
+      }
+    },
+    "1k": {
+      "usd": {
+        "include": {
+          "textures/GreenChair_01_diff_1k.jpg": {
+            "size": 131727,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_diff_1k.jpg",
+            "md5": "7304f991bdcd2c534243bc7e86c62c43"
+          },
+          "textures/GreenChair_01_roughness_1k.jpg": {
+            "size": 115623,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_roughness_1k.jpg",
+            "md5": "8c671b3f46a7eea311033706b1f86c8e"
+          },
+          "textures/GreenChair_01_metallic_1k.exr": {
+            "size": 4784,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/GreenChair_01/GreenChair_01_metallic_1k.exr",
+            "md5": "b57bf97c9a28040c82814c443d2117f6"
+          },
+          "textures/GreenChair_01_nor_gl_1k.exr": {
+            "size": 1378538,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/GreenChair_01/GreenChair_01_nor_gl_1k.exr",
+            "md5": "cf5ee3c772489aed564271bd1e279f63"
+          }
+        },
+        "size": 300952,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/usd/1k/GreenChair_01/GreenChair_01_1k.usdc",
+        "md5": "34adaa2fbe53ad7b09727d58aaff6715"
+      }
+    }
+  },
+  "Metal": {
+    "4k": {
+      "jpg": {
+        "size": 197004,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_metallic_4k.jpg",
+        "md5": "921d904a81bd79b20edf344db2775b2c"
+      },
+      "png": {
+        "size": 32742,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/GreenChair_01/GreenChair_01_metallic_4k.png",
+        "md5": "b0f303826984180760dd56907d0440e9"
+      },
+      "exr": {
+        "size": 42864,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/GreenChair_01/GreenChair_01_metallic_4k.exr",
+        "md5": "0d9864a2e9a4620814a4817d488976ef"
+      }
+    },
+    "2k": {
+      "jpg": {
+        "size": 49548,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_metallic_2k.jpg",
+        "md5": "55a2f4c6c290ccc7dca012bae0d5413e"
+      },
+      "png": {
+        "size": 8264,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/GreenChair_01/GreenChair_01_metallic_2k.png",
+        "md5": "d1b4236811cde253fe1d58c79386c101"
+      },
+      "exr": {
+        "size": 13296,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/GreenChair_01/GreenChair_01_metallic_2k.exr",
+        "md5": "c9f5fef0bf9fe8219b9bfeb9203f1cae"
+      }
+    },
+    "1k": {
+      "jpg": {
+        "size": 12684,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_metallic_1k.jpg",
+        "md5": "e8c0e6464de97eac1caa382a44a2682f"
+      },
+      "png": {
+        "size": 2155,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/GreenChair_01/GreenChair_01_metallic_1k.png",
+        "md5": "3984ebd3e0aff11d149c2c40985d22f3"
+      },
+      "exr": {
+        "size": 4784,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/GreenChair_01/GreenChair_01_metallic_1k.exr",
+        "md5": "b57bf97c9a28040c82814c443d2117f6"
+      }
+    }
+  },
+  "arm": {
+    "4k": {
+      "jpg": {
+        "size": 1691021,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_arm_4k.jpg",
+        "md5": "4feac5552316e608baf8f233e7362290"
+      },
+      "png": {
+        "size": 12766154,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/GreenChair_01/GreenChair_01_arm_4k.png",
+        "md5": "d94f97b5d3789bb5b2747d1effbb3020"
+      },
+      "exr": {
+        "size": 16095311,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/GreenChair_01/GreenChair_01_arm_4k.exr",
+        "md5": "c0ee66cb41aff630df4a6a4778c67074"
+      }
+    },
+    "2k": {
+      "jpg": {
+        "size": 455369,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_arm_2k.jpg",
+        "md5": "02cec28a60bf52262a01339bb7434a1d"
+      },
+      "png": {
+        "size": 7788657,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/GreenChair_01/GreenChair_01_arm_2k.png",
+        "md5": "952457a502c58f998309870dd10683dd"
+      },
+      "exr": {
+        "size": 4049669,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/GreenChair_01/GreenChair_01_arm_2k.exr",
+        "md5": "82fd1a762b44986fab28a31bfa485591"
+      }
+    },
+    "1k": {
+      "jpg": {
+        "size": 140947,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_arm_1k.jpg",
+        "md5": "b986c428c4db443ed08f7925a08531f1"
+      },
+      "png": {
+        "size": 2656176,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/GreenChair_01/GreenChair_01_arm_1k.png",
+        "md5": "c7657292dcb3a6f50c8f11b42e4df4ac"
+      },
+      "exr": {
+        "size": 1053740,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/GreenChair_01/GreenChair_01_arm_1k.exr",
+        "md5": "a91b0f23c0b1ecfc8f1a92cd261b375c"
+      }
+    }
+  },
+  "fbx": {
+    "4k": {
+      "fbx": {
+        "include": {
+          "textures/GreenChair_01_roughness_4k.jpg": {
+            "size": 1861358,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_roughness_4k.jpg",
+            "md5": "c256d4201a289e80f3875ba30769cdd1"
+          },
+          "textures/GreenChair_01_nor_gl_4k.exr": {
+            "size": 19721694,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/GreenChair_01/GreenChair_01_nor_gl_4k.exr",
+            "md5": "0c4520d05cba566ece1d73b932976d2f"
+          },
+          "textures/GreenChair_01_diff_4k.jpg": {
+            "size": 2167849,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_diff_4k.jpg",
+            "md5": "3f7b9664d829bd291b5047cd6eabf239"
+          },
+          "textures/GreenChair_01_metallic_4k.exr": {
+            "size": 42864,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/GreenChair_01/GreenChair_01_metallic_4k.exr",
+            "md5": "0d9864a2e9a4620814a4817d488976ef"
+          }
+        },
+        "size": 226428,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/4k/GreenChair_01/GreenChair_01_4k.fbx",
+        "md5": "484e6edfdd15125279a82cab059fd11e"
+      }
+    },
+    "2k": {
+      "fbx": {
+        "include": {
+          "textures/GreenChair_01_metallic_2k.exr": {
+            "size": 13296,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/GreenChair_01/GreenChair_01_metallic_2k.exr",
+            "md5": "c9f5fef0bf9fe8219b9bfeb9203f1cae"
+          },
+          "textures/GreenChair_01_roughness_2k.jpg": {
+            "size": 424086,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_roughness_2k.jpg",
+            "md5": "67dde2eb02960edde37bc9f795fa7699"
+          },
+          "textures/GreenChair_01_nor_gl_2k.exr": {
+            "size": 5409559,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/GreenChair_01/GreenChair_01_nor_gl_2k.exr",
+            "md5": "a7ff11d0db7634e8015eeb41c0a9aa30"
+          },
+          "textures/GreenChair_01_diff_2k.jpg": {
+            "size": 512406,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_diff_2k.jpg",
+            "md5": "25e63a758adb82eb13930925e364ca1e"
+          }
+        },
+        "size": 226428,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/2k/GreenChair_01/GreenChair_01_2k.fbx",
+        "md5": "51b60cedbc50fd18e955fd85cfe2176c"
+      }
+    },
+    "1k": {
+      "fbx": {
+        "include": {
+          "textures/GreenChair_01_diff_1k.jpg": {
+            "size": 131727,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_diff_1k.jpg",
+            "md5": "7304f991bdcd2c534243bc7e86c62c43"
+          },
+          "textures/GreenChair_01_roughness_1k.jpg": {
+            "size": 115623,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_roughness_1k.jpg",
+            "md5": "8c671b3f46a7eea311033706b1f86c8e"
+          },
+          "textures/GreenChair_01_metallic_1k.exr": {
+            "size": 4784,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/GreenChair_01/GreenChair_01_metallic_1k.exr",
+            "md5": "b57bf97c9a28040c82814c443d2117f6"
+          },
+          "textures/GreenChair_01_nor_gl_1k.exr": {
+            "size": 1378538,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/GreenChair_01/GreenChair_01_nor_gl_1k.exr",
+            "md5": "cf5ee3c772489aed564271bd1e279f63"
+          }
+        },
+        "size": 226428,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/GreenChair_01/GreenChair_01_1k.fbx",
+        "md5": "cc4f1d611123a86f5dfd380907b73799"
+      }
+    }
+  },
+  "Rough": {
+    "4k": {
+      "jpg": {
+        "size": 1861358,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/4k/GreenChair_01/GreenChair_01_roughness_4k.jpg",
+        "md5": "c256d4201a289e80f3875ba30769cdd1"
+      },
+      "png": {
+        "size": 8343047,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/4k/GreenChair_01/GreenChair_01_roughness_4k.png",
+        "md5": "692a7640e87e20ac0ad0e5be48a0dea0"
+      },
+      "exr": {
+        "size": 9536017,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/4k/GreenChair_01/GreenChair_01_roughness_4k.exr",
+        "md5": "accf6da9c23393c003b7705775d28076"
+      }
+    },
+    "2k": {
+      "jpg": {
+        "size": 424086,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_roughness_2k.jpg",
+        "md5": "67dde2eb02960edde37bc9f795fa7699"
+      },
+      "png": {
+        "size": 4091646,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/GreenChair_01/GreenChair_01_roughness_2k.png",
+        "md5": "637e40212fb97ad8e10c8877720ba908"
+      },
+      "exr": {
+        "size": 3107226,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/GreenChair_01/GreenChair_01_roughness_2k.exr",
+        "md5": "6ee849525b5206cb0451ab8b5b508103"
+      }
+    },
+    "1k": {
+      "jpg": {
+        "size": 115623,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/GreenChair_01/GreenChair_01_roughness_1k.jpg",
+        "md5": "8c671b3f46a7eea311033706b1f86c8e"
+      },
+      "png": {
+        "size": 1326294,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/GreenChair_01/GreenChair_01_roughness_1k.png",
+        "md5": "39229613826ebaee938cd3bc490212a0"
+      },
+      "exr": {
+        "size": 915124,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/GreenChair_01/GreenChair_01_roughness_1k.exr",
+        "md5": "35f4caa3c0aa0246d88cdb26f5fb1f07"
+      }
+    }
+  }
+}

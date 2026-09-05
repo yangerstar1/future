@@ -1,0 +1,10 @@
+{
+  "original_run": 33928926761,
+  "artifact": 9958006611,
+  "archive": {
+    "bytes": 72606208,
+    "sha256": "c968a995843ccbcbe04a3d4ef84ea7fef903fa816e6bebc426b66f617c5d50ad"
+  },
+  "recovery_run": "33930445031",
+  "status": "Recovered actual candidate; browser remains BLOCKED; not final artwork"
+}

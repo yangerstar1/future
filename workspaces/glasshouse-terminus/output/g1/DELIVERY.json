@@ -1,0 +1,258 @@
+{
+  "stage": "G1",
+  "status": "CHALLENGER_REVIEW_REQUIRED",
+  "source_sha": "18c044402aaa01a358b541c58d92e181236bffdd",
+  "run_id": "33928926761",
+  "parent_run_id": "33927238957",
+  "files": {
+    "moving-reflection.png": {
+      "bytes": 1257855,
+      "sha256": "66e59d6b66f6de1e4cb187f7efbeb98643c1cc3d467418ff187a5510af27dd95"
+    },
+    "neutral.png": {
+      "bytes": 1228707,
+      "sha256": "913652ad2915ef3171bda08acc4143f8721679e7eb17a8800fc2c0959c27026e"
+    },
+    "manifest.json": {
+      "bytes": 9730,
+      "sha256": "4bc492a1de4f2e9965eda2cea5c601cdfb2ed69d2b4c53e114155fea295b69be"
+    },
+    "render-metrics.json": {
+      "bytes": 12548,
+      "sha256": "470ad70fe7be88409c2c0c67922a46ae6e2a132b25188729d3c02413ab5a0941"
+    },
+    "challenger.log": {
+      "bytes": 1460322,
+      "sha256": "515a9bf8579bea46a47e4bb1f03dd1243057e27b8745ae42aab4b7f3c83d7441"
+    },
+    "DELIVERY.json": {
+      "bytes": 8690,
+      "sha256": "9bb94b0046baa2315c31aa8a8396e0fde4bcdc7000ff4d4d217ffe3662a0c109"
+    },
+    "g1-risk-study.glb": {
+      "bytes": 22551788,
+      "sha256": "855f6ac493bde36e66dcbc8ab229adfb48054e2515f96a86adc9b0f83ed651aa"
+    },
+    "risk-motion.mp4": {
+      "bytes": 94773,
+      "sha256": "63a8470bdbdf57f8f3ca452b8e4c0a4441c0e5f3b0597c24d7a823d6017204db"
+    },
+    "glass-node.png": {
+      "bytes": 1207400,
+      "sha256": "1e11248eaf72bf64215b02856f281fee00e8e16260c505d410d36dba9032abb6"
+    },
+    "assets-download.log": {
+      "bytes": 2767,
+      "sha256": "e437ad84beb40a11d00f81f3b5fc31112e588d7e86841707a2213af82aa66fd2"
+    },
+    "provision.log": {
+      "bytes": 41062,
+      "sha256": "7126a14ee3e0064d2666ebfa893c8ce7cb2843b04a023d2cbfaa237bb5829636"
+    },
+    "blender.log": {
+      "bytes": 1457653,
+      "sha256": "c13a8bf59187352cd6b525cc63563571a5db8e39b3f202ea7ffe0e150646ab58"
+    },
+    "materials.png": {
+      "bytes": 1436440,
+      "sha256": "dc88399db1173b5afe190714a6686ff5eff5d40acd08c83526dda0dada3de1ec"
+    },
+    "g1-risk-study.blend": {
+      "bytes": 15517924,
+      "sha256": "4c53a851663ff3eac46f7c9e362d9bc3145d07e70d1df813dec25ea15915a4b3"
+    },
+    "beauty.png": {
+      "bytes": 1289505,
+      "sha256": "42ab900d7450ee9930869ec5ae1c4f331ae4f00d7998dbad8929683fd56fb66c"
+    },
+    "browser/index.html": {
+      "bytes": 3316,
+      "sha256": "64219c948164ce1264a69c9971e33d5805be56929748fc96c79eae881081f7f8"
+    },
+    "browser/package-lock.json": {
+      "bytes": 1897,
+      "sha256": "06c3fefb6444b5da6b555d8bbcbe6bcee2e4c75c757bd08c1e879916f22a0c7b"
+    },
+    "reflection-frames/0001.png": {
+      "bytes": 349082,
+      "sha256": "f05f896483bcf24be9173dd6d5428d4c2e5410469f2a505f786bcf3841a1bfd9"
+    },
+    "reflection-frames/0033.png": {
+      "bytes": 340644,
+      "sha256": "1978c363e8a62e6dde276c5a31fd397e81b33c9b2a53a042627bf7ba8852a794"
+    },
+    "reflection-frames/0023.png": {
+      "bytes": 349717,
+      "sha256": "62667405a2b05e31d3d3fc1f4102615a644b9aadc3bf1d8a5d013ad3b7fd8c6d"
+    },
+    "reflection-frames/0017.png": {
+      "bytes": 349310,
+      "sha256": "c5322589abedab873af5408d5cc24fccc08a6bc01463c10dc110509c069f0137"
+    },
+    "reflection-frames/0025.png": {
+      "bytes": 350770,
+      "sha256": "0f94a9cafcc8f6dd3e9456f639fbbe4d3e1d90487a10b0e036de86c83fa9019b"
+    },
+    "reflection-frames/0045.png": {
+      "bytes": 347163,
+      "sha256": "e52d98416f53c89b57edabb173f71e8c7abbf3cf327a0311fbbad0e78d49c75c"
+    },
+    "reflection-frames/0037.png": {
+      "bytes": 338767,
+      "sha256": "0bdadb7ae1ff20aa5fd10f31c5e2bdf1c8203be06b5ba1efab166d7be53bac9e"
+    },
+    "reflection-frames/0005.png": {
+      "bytes": 348613,
+      "sha256": "4d5ba6c956cf6cfb04471546a96d9b1c179c5333c8d00dc455b2bc9bffd91d5c"
+    },
+    "reflection-frames/0009.png": {
+      "bytes": 349359,
+      "sha256": "bf9c7dc233c821d4ab23147ba34dfa02b2516b0364da0cbcb46e6786375d809c"
+    },
+    "reflection-frames/0007.png": {
+      "bytes": 349324,
+      "sha256": "24f0dbfe1a88f6596cd0d2d8e18e24ef65a8a12adb8228c3d06a331a97488259"
+    },
+    "reflection-frames/0047.png": {
+      "bytes": 347480,
+      "sha256": "5f873b9d58f89fafb137afb0cd4fa994afbf05d717e3d7ea1eda28b0a9515d28"
+    },
+    "reflection-frames/0003.png": {
+      "bytes": 348197,
+      "sha256": "badaa2468957b4c81f8061f929349861150139500b59cff7e958eb003aa4d33f"
+    },
+    "reflection-frames/0035.png": {
+      "bytes": 339757,
+      "sha256": "66204bd92413114257b34df66357b1edab1e00a5db123fc484a659e6705c4fcc"
+    },
+    "reflection-frames/0013.png": {
+      "bytes": 348731,
+      "sha256": "a54d8b7d2ab737a345bcd664bb44ca0e5ba96a9b4214bc87f062a624ba21dbb1"
+    },
+    "reflection-frames/0027.png": {
+      "bytes": 349629,
+      "sha256": "157ba33849b3726ba10b39a05f124bc12f97d6f6c38ada92129d23b87cca11b7"
+    },
+    "reflection-frames/0039.png": {
+      "bytes": 339821,
+      "sha256": "9d667689e7bedecea3337ec3758a5459fa344411a9f2b82b1ae15800610a0a37"
+    },
+    "reflection-frames/0031.png": {
+      "bytes": 342900,
+      "sha256": "95465eddf85c65a24bff768831e88d3d8faf3039eb87b3fa158f6ee30c9feacc"
+    },
+    "reflection-frames/0019.png": {
+      "bytes": 349580,
+      "sha256": "7ca01c3b4e47956b05794a108b43e4bc799b43251599754210dd01c154786163"
+    },
+    "reflection-frames/0021.png": {
+      "bytes": 350018,
+      "sha256": "8d3825d75396cc32358d2e5807229e57438f28860de3ef8e4509b6cf637e5676"
+    },
+    "reflection-frames/0043.png": {
+      "bytes": 344643,
+      "sha256": "12c962f017e43e9319809ce5b9ce68ad9e00abee9391c14e986f3f887f2ae4c5"
+    },
+    "reflection-frames/0011.png": {
+      "bytes": 349010,
+      "sha256": "e94d38c57f25750eb12141326e3fa36fd7b79cb6cabffab84066a05370939f6b"
+    },
+    "reflection-frames/0029.png": {
+      "bytes": 346689,
+      "sha256": "239e731f2bf87ccea054a1beb3caf45fd81c6e81f22e8c8e979ef0f65eec87b1"
+    },
+    "reflection-frames/0015.png": {
+      "bytes": 348879,
+      "sha256": "44b2ccc2e217c5131bf279b832a4c997fa6a6f1505a095a7979842f37b7128fd"
+    },
+    "reflection-frames/0041.png": {
+      "bytes": 343421,
+      "sha256": "986c9f3d24689fd042cd3259378e53c962ec7b0e18a3492b3732850f835ee474"
+    },
+    "assets/slate_floor_nor_gl_2k.jpg": {
+      "bytes": 3408456,
+      "sha256": "cfa50bd8c911030d5aed7e611f7a07eef51829ccabf1c0a424c2e0fc605a5515"
+    },
+    "assets/american_walnut_veneer_diff_2k.jpg": {
+      "bytes": 2418767,
+      "sha256": "278ed3382b3a28a95861a84ccf4f3b591abf96a203698152064d65fcc6425271"
+    },
+    "assets/slate_floor-files.json": {
+      "bytes": 33727,
+      "sha256": "3bc19b18f3f4ad4ee83c3fab8cbb728208884b9a5baaf1f97a3a33b29265d1e7"
+    },
+    "assets/manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "assets/slate_wet_rough_2k.jpg": {
+      "bytes": 1100871,
+      "sha256": "6b98b684f4cfa3a4db0c73f69b8311265766c41075e5d447d7b8f8bee5902d3b"
+    },
+    "assets/slate_floor_rough_2k.jpg": {
+      "bytes": 3444520,
+      "sha256": "35b7f070aa4101522e1bf71fe221887d14c548fde1b06e9dc07b63b97c5423ac"
+    },
+    "assets/american_walnut_veneer-files.json": {
+      "bytes": 39696,
+      "sha256": "219d01aa944cd26539da101858e5ef96381a3c0d0edb939d787ca6618ddef848"
+    },
+    "assets/slate_floor_finished_diff_2k.jpg": {
+      "bytes": 1345674,
+      "sha256": "4caa1f5f26d2b4c70e6a62901141618ba8cd265ecae642f04c0fc817d17e03d4"
+    },
+    "assets/slate_floor_diff_2k.jpg": {
+      "bytes": 3009643,
+      "sha256": "a50c8f5aa3a78195cc001997dfc7b2ff0aef8fca0d30b0fdab115c03ad949e71"
+    },
+    "assets/american_walnut_veneer_nor_gl_2k.jpg": {
+      "bytes": 1959270,
+      "sha256": "1a78784fc40a10f72582cd91dadce3ba2dbe9ab08f8622c909d1c0647162a130"
+    },
+    "assets/american_walnut_veneer_rough_2k.jpg": {
+      "bytes": 2865130,
+      "sha256": "9a4df282cf8ea10e005c2c28abc77ee5287793738c1e1db619b600c9e9caa4f8"
+    },
+    "assets/FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "assets/american_walnut_veneer-info.json": {
+      "bytes": 1140,
+      "sha256": "e568b59f589ec6fd2285e1503af18ec95c23e4ddca455a3e81d2b9134ef552b3"
+    },
+    "assets/DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "assets/slate_floor-info.json": {
+      "bytes": 1079,
+      "sha256": "ce08a87ceb693228430b3265d7dee7d5fdbcad1a29acb34b220834c1815de650"
+    },
+    "assets/american_walnut_veneer_finished_diff_2k.jpg": {
+      "bytes": 1152151,
+      "sha256": "c0ba49a1fbc7b6ef93dd87abd83eee21eab611a6b291a0bdc6e4cf67b468158f"
+    },
+    "browser/vendor/three.module.js": {
+      "bytes": 603113,
+      "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a"
+    },
+    "browser/vendor/three.core.js": {
+      "bytes": 1403455,
+      "sha256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20"
+    },
+    "browser/vendor/addons/loaders/GLTFLoader.js": {
+      "bytes": 114739,
+      "sha256": "67ac5551fdafa6e349bd80c8f8e5e39c136d6b2fb1ad647db9abb21dc86f9e4a"
+    },
+    "browser/vendor/addons/utils/BufferGeometryUtils.js": {
+      "bytes": 35539,
+      "sha256": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751"
+    },
+    "browser/vendor/addons/environments/RoomEnvironment.js": {
+      "bytes": 4899,
+      "sha256": "c20f0b4677f6128a138d7152b85cbef9091f4f45cdfa05adca04d40c1697c7ae"
+    }
+  },
+  "total_bytes": 78849608
+}

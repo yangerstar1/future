@@ -1,0 +1,48 @@
+{
+  "type": 2,
+  "tags": [
+    "vintage",
+    "wood",
+    "gothic",
+    "furniture",
+    "chair",
+    "fabric",
+    "decorative"
+  ],
+  "date_published": 1585605600,
+  "name": "Green Chair 01",
+  "old_id": 24,
+  "categories": [
+    "furniture",
+    "seating"
+  ],
+  "authors": {
+    "Kirill Sannikov": "All"
+  },
+  "max_resolution": [
+    4096,
+    4096
+  ],
+  "polycount": 4213,
+  "texel_density": 2359.4248090455103,
+  "dimensions": [
+    673.0944514274597,
+    664.3875539302826,
+    1058.5118799936026
+  ],
+  "files_hash": "71a65e8de6b5547fb605a460c87f3d37c5b8fe5b",
+  "description": "Free 4K model of a vintage Gothic wooden armchair with carved decorative details, green fabric upholstery and elegant curved legs; ideal for period interiors.",
+  "category_id": "11261ec6-df2b-5150-9904-684d2558070d",
+  "category": "Furniture/Seating/Chairs",
+  "attributes": {
+    "condition": [
+      "worn"
+    ],
+    "material": [
+      "wood",
+      "fabric"
+    ]
+  },
+  "download_count": 41362,
+  "thumbnail_url": "https://cdn.polyhaven.com/asset_img/thumbs/GreenChair_01.png?width=256&height=256"
+}
