@@ -1,0 +1,111 @@
+name: Glasshouse G3 targeted material and light repair
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g3-refine-request.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  repair:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    env:
+      G3_OUTPUT_ROOT: workspaces/glasshouse-terminus/output/g3-r02
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Check actual image review and recover immutable saved candidate
+        timeout-minutes: 3
+        run: |
+          echo "G3_PRODUCTION_DEADLINE=$(( $(date +%s) + 45*60 ))" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          root=Path('workspaces/glasshouse-terminus')
+          q=json.loads((root/'g3-refine-request.json').read_text())
+          assert q['stage']=='G3' and q['max_runs']==1 and q['external_spend_usd']==0
+          assert q['g4_allowed'] is False and q['job_minutes']==60
+          assert q['parent_evidence_commit']=='0dc1d2e9df7d044081a82756218250a4ddd6bfa2'
+          assert (root/'G3-REVIEW-01.md').is_file()
+          print(json.dumps(q,indent=2))
+          PY
+          python3 -m py_compile workspaces/glasshouse-terminus/refine_g3.py workspaces/glasshouse-terminus/render_g3.py
+          git fetch --depth=1 origin 0dc1d2e9df7d044081a82756218250a4ddd6bfa2
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3 | tar -x
+          echo 'e95b37d7f2d8a28efc8bca32815b0624acae7a787e2c7bbe7565eb30e3588027  workspaces/glasshouse-terminus/output/g3/g3-bay-candidate.blend' | sha256sum --check
+          mkdir -p "$G3_OUTPUT_ROOT"
+      - name: Reuse the validated pinned toolchain without model redownloads
+        timeout-minutes: 8
+        run: |
+          bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$G3_OUTPUT_ROOT/provision.log"
+      - name: Diagnose actual light and correct only reviewed candidate defects
+        timeout-minutes: 4
+        run: |
+          remaining=$((G3_PRODUCTION_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=15 "${remaining}s" blender -b workspaces/glasshouse-terminus/output/g3/g3-bay-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g3.py 2>&1 | tee "$G3_OUTPUT_ROOT/repair.log"
+      - name: Preserve editable revision before rendering
+        timeout-minutes: 3
+        run: |
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$G3_OUTPUT_ROOT" g3-r02-source
+      - name: Reopen revision and render same-camera paired overview
+        timeout-minutes: 12
+        env:
+          G3_RENDER_SET: overview
+        run: |
+          remaining=$((G3_PRODUCTION_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=15 "${remaining}s" blender -b "$G3_OUTPUT_ROOT/g3-bay-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/render_g3.py 2>&1 | tee "$G3_OUTPUT_ROOT/overview.log"
+      - name: Return real overview and light-isolation pixels
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g3-r02-overview-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g3-r02/*.png
+            workspaces/glasshouse-terminus/output/g3-r02/*.json
+          retention-days: 1
+          if-no-files-found: error
+      - name: Reopen for original detail cameras and actual closed-moving-open states
+        timeout-minutes: 22
+        env:
+          G3_RENDER_SET: details
+        run: |
+          remaining=$((G3_PRODUCTION_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=15 "${remaining}s" blender -b "$G3_OUTPUT_ROOT/g3-bay-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/render_g3.py 2>&1 | tee "$G3_OUTPUT_ROOT/details.log"
+      - name: Preserve actual completion status and immutable evidence
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['G3_OUTPUT_ROOT']);root.mkdir(parents=True,exist_ok=True)
+          files={};total=0
+          for p in root.rglob('*'):
+              if p.is_file() and p.name not in ['DELIVERY.json','manifest.json']:
+                  size=p.stat().st_size;total+=size
+                  assert size<90_000_000,str(p)+' exceeds evidence bound'
+                  files[str(p.relative_to(root))]={'bytes':size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+          assert total<180_000_000
+          required=['g3-bay-candidate.blend','build-report.json','repair-report.json','reopen-and-space-check.json','G3-bay-night.png','G3-bay-neutral.png','C03-neutral-context.png','D01-glass-metal.png','D02-joinery.png','D03-upholstery.png','D05-door-interface.png','D06-plant.png','QA-reverse.png','QA-door-301.png','QA-door-330.png','QA-door-348.png','QA-L01-without-rim.png']
+          complete=all((root/n).is_file() for n in required)
+          state={'stage':'G3','revision':'R02','status':'CANDIDATE_REVIEW_PENDING_NOT_A_PASS' if complete else 'PARTIAL_REPAIR_NOT_A_PASS',
+            'source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'run_attempt':os.environ['GITHUB_RUN_ATTEMPT'],
+            'parent_evidence_commit':'0dc1d2e9df7d044081a82756218250a4ddd6bfa2','parent_master_sha256':'e95b37d7f2d8a28efc8bca32815b0624acae7a787e2c7bbe7565eb30e3588027',
+            'files':files,'total_bytes':total,'g4_allowed':False,'human_acceptance':False,'g1_browser_gate':'BLOCKED_UNCHANGED',
+            'scope':'Same saved G3 bay, physical lamp placement and dry/wet correction; no full-scene final art or final film.'}
+          (root/'DELIVERY.json').write_text(json.dumps(state,indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$G3_OUTPUT_ROOT" g3-r02
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g3-r02-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g3-r02
+          retention-days: 1
+          if-no-files-found: error
