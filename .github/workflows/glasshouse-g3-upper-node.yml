@@ -1,0 +1,85 @@
+name: Glasshouse G3 R06 physical upper-node correction
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g3-upper-node-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  upper-node:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g3-r06
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact R05 and already-reviewed geometric diagnosis
+        timeout-minutes: 2
+        run: |
+          echo "G3_UPPER_DEADLINE=$(( $(date +%s) + 23*60 ))" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          q=json.loads(Path('workspaces/glasshouse-terminus/g3-upper-node-request.json').read_text())
+          assert q['stage']=='G3' and q['revision']=='R06' and q['max_runs']==1 and q['job_minutes']==30
+          assert q['external_spend_usd']==0 and q['g4_allowed'] is False
+          assert q['diagnosis_evidence_commit']=='4cb68d0db15031059ea05054847ae75491569e64'
+          assert q['parent_evidence_commit']=='4436b5cb5f870e834ff65639d1a1fbd365b9d4e3'
+          print(json.dumps(q,indent=2))
+          PY
+          python3 -m py_compile workspaces/glasshouse-terminus/relight_g3_upper_nodes.py
+          git fetch --depth=1 origin 4436b5cb5f870e834ff65639d1a1fbd365b9d4e3
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3-r05 | tar -x
+          git fetch --depth=1 origin 4cb68d0db15031059ea05054847ae75491569e64
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3-r05-node-diagnosis | tar -x
+          echo '8ca4ca940a98e80d980fbd895f5ae7c27568b28ee361422bfe4ed267b7b8f02e  workspaces/glasshouse-terminus/output/g3-r05/g3-bay-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+      - name: Reuse official locked Blender and original packed assets
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Prove mount and unobstructed incidence before saving local candidate
+        timeout-minutes: 3
+        env:
+          G3_UPPER_MODE: build
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g3-r05/g3-bay-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/relight_g3_upper_nodes.py 2>&1 | tee "$OUT/build.log"
+          test "$(du -sb workspaces/glasshouse-terminus | cut -f1)" -lt 8000000000
+      - name: Preserve editable candidate before any beauty rendering
+        timeout-minutes: 2
+        run: bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g3-r06-source
+      - name: Fresh process native D01 and five unchanged-camera regressions
+        timeout-minutes: 23
+        env:
+          G3_UPPER_MODE: render
+        run: |
+          remaining=$((G3_UPPER_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g3-bay-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/relight_g3_upper_nodes.py 2>&1 | tee "$OUT/render.log"
+      - name: Preserve native evidence with truthful coverage, never auto art pass
+        if: always()
+        timeout-minutes: 4
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<80000000
+          required=['g3-bay-candidate.blend','upper-node-report.json','reopen-check.json','D01-roof-node.png','R06-complete-bay-night.png','D01-glass-metal.png','G3-bay-night.png','R06-complete-bay-neutral.png','D05-unoccluded-interface.png']
+          missing=[n for n in required if not (root/n).is_file()]
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G3','revision':'R06','status':'SIX_NATIVE_VIEWS_REVIEW_PENDING_NOT_ART_PASS' if not missing else 'PARTIAL_OR_FAILED_NOT_A_PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'parent_evidence_commit':'4436b5cb5f870e834ff65639d1a1fbd365b9d4e3','parent_master_sha256':'8ca4ca940a98e80d980fbd895f5ae7c27568b28ee361422bfe4ed267b7b8f02e','diagnosis_evidence_commit':'4cb68d0db15031059ea05054847ae75491569e64','files':files,'missing':missing,'g4_allowed':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED'},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g3-r06
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g3-r06-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g3-r06
+          retention-days: 1
+          if-no-files-found: error
