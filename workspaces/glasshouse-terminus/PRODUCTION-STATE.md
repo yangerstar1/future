@@ -1,42 +1,35 @@
-# 雨幕终点站 — 当前制作状态
+# 雨幕终点站 — 当前真实制作状态
 
-## 原生海面/岩体已经完成模型整合，禁止被旧雨材质模型覆盖
+本条覆盖此前仍写COAST-R02排队的过期摘要。历史原文保留在900ee566be2f28d307ef970837004180c5b95c24。
 
-用户明确纠正：不是生成图片，而是改真实项目，并追加真实海面和山体。生成图不计证据。
+## 已经实际保存、下载和核验的父版：COAST-R05
 
-最新已保存的综合候选为 **COAST-R02**：真实JONSWAP海浪几何、OceanFoam与基于实际岩体距离的岸边泡沫、许可清晰的扫描海崖及表面细节、原R03全部材质/玻璃水珠，再合入已检查的R04圆雨滴与快门修正。它不是旧平面海面版。实际native图像仍待已排队运行结束，不宣称艺术通过。
+- 证据commit：3bb182b7b9b1860b3e410f98fc3a098331455fce。
+- 目录：workspaces/glasshouse-terminus/output/g4-coast-r05。
+- master：g4-full-scene-candidate.blend，151,750,411 bytes。
+- 实际SHA-256：232a602326d2519d8f3bb5fe125a416c4d36149885173563df1297092e493445。
+- artifact10030867140，195,928,303 bytes，ZIP SHA-2563550ef51903213d7473a93bff569e0efc946f68864d3d627bc2ed80982cd8b8d。
 
-- 综合源码：`2eafacb420814b72c7b7170ea60e6889396eea4e`
-- 综合源checkpoint：**`071ba6959335f094209fbc4537d2ce2b1246d2dc`**
-- 根目录：`workspaces/glasshouse-terminus/output/g4-coast-r02`
-- master：`g4-full-scene-candidate.blend`，构建记录105,907,025 bytes
-- 构建记录SHA-256：**`b8cea93e7511088f418afbc843b66ddd4dcd0e82f34860b192150341f258ef64`**
-- 现有运行：**34150153500**；integrate-source101830554160已success，native-render101830847684等待前序雨任务。不要重复启动。
+本会话已下载上述原字节并核对，不是仅引用构建日志。该源同时包含原生海浪、扫描岩体、圆雨滴/水珠、扫描羊毛、已修正坐标的木作；不能退回旧R02或孤立雨材质场景。R05源构建success，但其旧native-paired-review101846897282被取消且未开始，不能写成美术已通过。
 
-Git evidence存放无损分块：恢复该output目录后运行`python3 restore_master.py restore .`，每块与合并字节都有SHA验证；Actions下载包包含完整.blend，无需分块。不能因为超过Git单文件自定98MB上限而删贴图、降质或重建。前一COAST-R01原始完整字节已实际下载核验，SHA1be3507f7c31ed2f8e5431aefaf787ff414a29fdce696b596a2baff68b0789c6；当前COAST-R02的结束包仍待下载复核。
+## 当前实际执行，先读结果，不重复建请求
 
-## 必须保住队列和不同修改范围
+只读审计与原机位基线run34156628127，源码8838deee952af12dcceb18686118ee001dae99a3。审计已完成，证据8c9af5ae59ebd0283941840c8708487cbb9da26e；artifact10031192401 ZIP SHA-2565c732d16ad246f3bb32541be12deb96100f5436de06b02f067632d370f71cb44。本会话已下载并读取真实对象/雨节点/玻璃表面/材质。基线两张1152×720是诊断原生分辨率，不冒称最终4K图。
 
-所有新建的共享生产渲染请求使用GitHub官方支持的`group: glasshouse-production`、`cancel-in-progress: false`、**`queue: max`**。这仍只有一个生产renderer，但允许多个任务按等待顺序排队，避免default-single自动取消旧pending。原coast34149501788的native-review101828652348曾被R04排队替换，尚未开始、没有产图；其源已安全保存。不要再次用default-single请求取消当前综合海景观察。
+新的COAST-R06局部雨水接触候选：run34157160255，源码f49f9f67d269ee776c2deccb8b2fcef0b5aaa908；入口refine_g4_integrated_water_contact.py与.github/workflows/glasshouse-g4-water-contact.yml。目前已提交执行，源构建与新图结果须实时查询，尚不宣称完成。15分钟源构建；52分钟单生产渲染（45分钟生产、7分钟保存），公开标准runner、外部费用0、磁盘8GB、证据300MB，不自动无限重跑。
 
-R04圆雨滴运行34149669782正继承R03进行独立玻璃/运动观察，本会话没有取消或覆盖它。它的源没有新的海浪/扫描岩体。后续织物、木作、湿石修正若从R04生产，应明确记录为材料分支，再把具体已验证的修改合入上述COAST-R02，而不能用R04整场替换综合场景。最终源必须同时包含雨、材料、海和山，不能各有一份互相缺失的版本。
+干预范围由实测审计决定：516块屋面/侧墙/雨棚玻璃增加绑定真实表面的米制水膜/水珠；保留旧圆雨滴与stable SetID，补真实室外体积的降雨路径；五个旧水洼保留轮廓、几何边缘贴合石面；室外露台顶面复用原扫描石材作干湿响应。海浪、扫描岩体、木作/羊毛、原相机/灯/曝光/空间不重建。材质节点和水珠数量不是视觉通过证据。后续必须看实际原图，确认没有变成磨砂玻璃、黑雨杆、室内漏雨或整地镜面。
 
-详见COAST-CURRENT-STATE.md与COAST-RAIN-COORDINATION.md。两份记录也区分源保存和实际图像通过。
+## 本会话核对并处理的队列故障
 
-## R03实际取回情况
+旧workflow glasshouse-g4-weather-r03.yml从R02重新建孤立分支，且未设置queue:max；最新查询显示它创建后R04/R05原图任务被取消。只读审计中的精确守卫确认run34156239773仍pending且jobs为空后取消了它，没有取消正在渲染的任务，源文件保留。不要再触发该旧R02请求。
 
-R03源码6ad3c7c0fbcc66a013ddf42b9ab2a6cec616932d；运行34147780955，源checkpoint0e0f56888549e27900070a83b9830f81c3313c4b；master SHA dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5，实际34,013,306 bytes。
+COAST-R04综合动态观察run34154436353当时仍在运行，其结果保留并单独取回，不冒称R06证据。新建生产渲染必须使用group:glasshouse-production、cancel-in-progress:false、queue:max，串行执行，不覆盖pending。
 
-已实际取回结束artifact10029248613，43,573,583 bytes，ZIP SHA43ce831c344648704029ff7b39b6be41e2fb7c9483150d62bb970af2ff0ca726。19项清单匹配；实际六张PNG（玻璃雨、厅景、木作、湿石、织物、外景）已查看。缺D01-node-regression.png和detail-reopen-check.json，上传状态PARTIAL_OR_FAILED_NOT_A_PASS，不写成完整七图通过。
+COAST-R03原生结束包artifact10030806597本会话已实际下载，113,674,607 bytes，ZIP SHA-2560a997184068b8132296ce4139dd0c0eca2f0f0d00c33cf3be78c16f06ad31df9。42项文件校验全部匹配、四张图与十张海浪序列实际存在。海浪近景仍偏暗/圆滑，不能因运动和文件齐全自动通过；它也不是新R06版本。
 
-R03原尺寸审查：玻璃出现尖锐黑雨杆，因此才做R04光学修正；湿石观察整体过暗、积水边界过硬；织物显得过于均匀、微结构不足以独立读出；木作有可见纹理，但曲边条带及反光层次仍有问题。C01大景降雨也不够显著。不要把“节点已增加”写成顶级材质完成。这些是已见图的问题，并非所有后续修正都已完成。
+## 门槛及恢复
 
-原R03在运行时的完整状态保存在commit38de05879dec51d8e533676da16a15e13e201756的本文件。其未释放内存警告、缺图与原黑雨杆证据保留，不重写失败历史。
+G4仍PAUSED_UNMET，stage_best=null，human_acceptance=false。生成图一律不是项目证据。原合同的雨夜、真实材质、同源海与山要求不降低；G3阶段例外按G4-AUTHORIZATION.md保留，不追溯PASS。最终进站动态碰撞、原生4K主片/短版/证据片/网页尚未验收，浏览器管理员阻断不绕过。
 
-## 历史保护与未完成项
-
-R02完整证据12ae1030686d97823548b2967805d85853d12ab2，master SHA173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc。G2 BEST、R07、所有原图/失败/工件、main和Leaf均不改。G4阶段顺序例外仍见G4-AUTHORIZATION.md，G3不追溯PASS。
-
-海浪是原生深水谱与几何接触范围的受控泡沫，不是岸边冲击流体求解；雨的屋顶截断基于停稳451帧，不是完整进站动态碰撞验证。G4仍未通过，最终4K主片/短版/空间证据片/同源网页未完成，human_acceptance=false。浏览器BLOCKED_BY_ADMINISTRATOR不绕过。
-
-综合候选单次源15分钟、渲染50分钟（43分钟生产+7分钟保存余量），标准公开runner、单生产并发、外部费用0、磁盘8GB、证据180MB。待已安排的原生观察返回后再判断具体修改，不自动启动无限轮次。
+大型master在Git证据中以无损分块保存，先运行同目录restore_master.py恢复并核验；Actions包提供完整.blend。main、Leaf、G2 BEST及全部父版/失败证据均保留。恢复者先核对本条已有run，不根据陈旧SESSION-HANDOFF把当前工程回退R02。
