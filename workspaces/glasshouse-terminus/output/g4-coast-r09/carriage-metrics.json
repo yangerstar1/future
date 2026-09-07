@@ -1,0 +1,28 @@
+{
+  "view": "C09_car_aisle_failure_check",
+  "file": "R09-carriage-interior.png",
+  "frame": 451,
+  "seconds": 482.8041068770001,
+  "resolution": [
+    1280,
+    800
+  ],
+  "samples": 48,
+  "engine": "CYCLES",
+  "exposure": 0.0,
+  "lens_mm": 30.0,
+  "position": [
+    -3.0,
+    12.100000381469727,
+    2.700000047683716
+  ],
+  "rotation": [
+    1.522290825843811,
+    -0.0,
+    -1.5707963705062866
+  ],
+  "master_sha256": "001a708dda2744a0f9db2994937982d121ce766aab6768746e884a72c4feaeef",
+  "native_render": true,
+  "motion_blur": true,
+  "revision": "COAST-R09"
+}

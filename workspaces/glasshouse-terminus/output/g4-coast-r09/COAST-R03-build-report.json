@@ -1,0 +1,57 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R03",
+  "parent_master_sha256": "b8cea93e7511088f418afbc843b66ddd4dcd0e82f34860b192150341f258ef64",
+  "parent_evidence_commit": "071ba6959335f094209fbc4537d2ce2b1246d2dc",
+  "reviewed_native_artifact": 10029611593,
+  "reviewed_zip_sha256": "4f3fa0c03fdff1be15465163367fa8d91f90d037f5c858f24b14659b19f9e0dc",
+  "observations": [
+    "Native C01/C02 show long distant triangles from sparse displaced grid, not realistic sea.",
+    "Water looked plastic because surface had78percent diffuse rather than a dielectric optical body."
+  ],
+  "changes": [
+    "Only Ocean_extent geometry, owned node group and water shader. No station/cliff/rain/material/light/camera/exposure changes.",
+    "Native spectral geometry full within max-XY137m, smooth137..207m transition. Farther water uses continuous animated surface normals, not camera-dependent hiding.",
+    "Closed90m deep optical body, full dielectric transmission/IOR1.333 and absorption, retained non-emissive crest/coastal foam."
+  ],
+  "motion": [
+    {
+      "frame": 451,
+      "near_z_range": [
+        -1.344887137413025,
+        1.7049262523651123
+      ],
+      "far_top_max_abs_z": 0.0,
+      "near_position_sha256": "a48401173ea502ddab0fd28dd80e63962d8338c173f14189a9a288961e1502f2",
+      "closed_optical_boundary": true
+    },
+    {
+      "frame": 460,
+      "near_z_range": [
+        -1.3190269470214844,
+        1.846052646636963
+      ],
+      "far_top_max_abs_z": 0.0,
+      "near_position_sha256": "243db4b16f93dbc5e771efb897fcd85dcdef5ba8f31b5d83f99de81035bb56f9",
+      "closed_optical_boundary": true
+    },
+    {
+      "frame": 451,
+      "near_z_range": [
+        -1.344887137413025,
+        1.7049262523651123
+      ],
+      "far_top_max_abs_z": 0.0,
+      "near_position_sha256": "a48401173ea502ddab0fd28dd80e63962d8338c173f14189a9a288961e1502f2",
+      "closed_optical_boundary": true
+    }
+  ],
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "source_sha": "9086347b23e69c2d2105ec88e592c4047376c322",
+  "run_id": "34152626028",
+  "protected_before": "5bc8e32c4211f424e338cbd524734089450f4af57fd880ed26a664483c584d83",
+  "protected_after": "5bc8e32c4211f424e338cbd524734089450f4af57fd880ed26a664483c584d83",
+  "candidate_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+  "master_bytes": 106023391
+}

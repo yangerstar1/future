@@ -1,0 +1,28 @@
+{
+  "view": "QA_R08_cab_unoccluded",
+  "file": "R09-cab-shell.png",
+  "frame": 451,
+  "seconds": 215.04471434700002,
+  "resolution": [
+    1280,
+    800
+  ],
+  "samples": 64,
+  "engine": "CYCLES",
+  "exposure": 0.0,
+  "lens_mm": 48.0,
+  "position": [
+    12.550000190734863,
+    9.600000381469727,
+    4.429999828338623
+  ],
+  "rotation": [
+    1.3709858655929565,
+    -1.206757502814071e-07,
+    0.8644230365753174
+  ],
+  "master_sha256": "001a708dda2744a0f9db2994937982d121ce766aab6768746e884a72c4feaeef",
+  "native_render": true,
+  "motion_blur": true,
+  "revision": "COAST-R09"
+}

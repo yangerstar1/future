@@ -1,0 +1,28 @@
+{
+  "view": "C01_exterior_hero",
+  "file": "R09-complete-coast.png",
+  "frame": 451,
+  "seconds": 300.39145715899997,
+  "resolution": [
+    1440,
+    900
+  ],
+  "samples": 48,
+  "engine": "CYCLES",
+  "exposure": 0.0,
+  "lens_mm": 34.5,
+  "position": [
+    32.0,
+    52.0,
+    23.0
+  ],
+  "rotation": [
+    1.2386444807052612,
+    5.874365882618804e-08,
+    2.422762870788574
+  ],
+  "master_sha256": "001a708dda2744a0f9db2994937982d121ce766aab6768746e884a72c4feaeef",
+  "native_render": true,
+  "motion_blur": true,
+  "revision": "COAST-R09"
+}
