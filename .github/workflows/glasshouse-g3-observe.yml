@@ -1,4 +1,4 @@
-name: Glasshouse G3 additional interface witnesses
+name: Glasshouse G3 source diagnosis
 on:
   push:
     branches: [codex/glasshouse-terminus]
@@ -8,49 +8,50 @@ permissions:
   contents: write
 concurrency:
   group: glasshouse-production
+  queue: max
   cancel-in-progress: false
 jobs:
   observe:
     if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 20
     defaults:
       run:
         shell: bash
     env:
       OBS_ROOT: workspaces/glasshouse-terminus/output/g3-observations
+      G3_OBS_SOURCE: workspaces/glasshouse-terminus/output/g3-r03/g3-bay-candidate.blend
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Validate observation-only scope and retrieve immutable R02 master
+      - name: Validate observed R03 defect and immutable source
         timeout-minutes: 3
         run: |
-          echo "G3_OBSERVATION_DEADLINE=$(( $(date +%s) + 15*60 ))" >> "$GITHUB_ENV"
+          echo "G3_OBSERVATION_DEADLINE=$(( $(date +%s) + 12*60 ))" >> "$GITHUB_ENV"
           python3 - <<'PY'
           import json
           from pathlib import Path
-          root=Path('workspaces/glasshouse-terminus')
-          q=json.loads((root/'g3-observe-request.json').read_text())
-          assert q['stage']=='G3' and q['max_runs']==1 and q['external_spend_usd']==0
+          q=json.loads(Path('workspaces/glasshouse-terminus/g3-observe-request.json').read_text())
+          assert q['stage']=='G3' and q['mode']=='R03_LIGHT_DIAGNOSIS'
+          assert q['max_runs']==1 and q['external_spend_usd']==0
           assert q['geometry_edits'] is False and q['g4_allowed'] is False
-          assert q['parent_evidence_commit']=='87d75e3b90d6b330fb378d1fc2200f5d1a52e418'
-          assert (root/'G3-R01-DETAIL-AUDIT.md').is_file()
+          assert q['parent_evidence_commit']=='22dceca579c272b51767c70c153c540f7defc547'
           print(json.dumps(q,indent=2))
           PY
-          python3 -m py_compile workspaces/glasshouse-terminus/observe_g3.py
-          git fetch --depth=1 origin 87d75e3b90d6b330fb378d1fc2200f5d1a52e418
-          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3-r02 | tar -x
-          echo '3162ba27fbeb3055c5fbe94a6fc2422cc9cca11f68dda381b06627ebcaf6d680  workspaces/glasshouse-terminus/output/g3-r02/g3-bay-candidate.blend' | sha256sum --check
+          python3 -m py_compile workspaces/glasshouse-terminus/diagnose_g3_light.py
+          git fetch --depth=1 origin 22dceca579c272b51767c70c153c540f7defc547
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3-r03 | tar -x
+          echo 'cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe  workspaces/glasshouse-terminus/output/g3-r03/g3-bay-candidate.blend' | sha256sum --check
           mkdir -p "$OBS_ROOT"
-      - name: Reuse pinned Blender without new model downloads
+      - name: Reuse pinned tools without model downloads
         timeout-minutes: 6
         run: |
           bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OBS_ROOT/provision.log"
-      - name: Render additional fitted views from unchanged candidate
-        timeout-minutes: 14
+      - name: Isolate actual light contributions and render source interface witnesses
+        timeout-minutes: 10
         run: |
           remaining=$((G3_OBSERVATION_DEADLINE-$(date +%s))); test "$remaining" -gt 0
-          timeout --signal=TERM --kill-after=15 "${remaining}s" blender -b workspaces/glasshouse-terminus/output/g3-r02/g3-bay-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/observe_g3.py 2>&1 | tee "$OBS_ROOT/observations.log"
-      - name: Preserve actual observations and source recovery information
+          timeout --signal=TERM --kill-after=15 "${remaining}s" blender -b "$G3_OBS_SOURCE" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/diagnose_g3_light.py 2>&1 | tee "$OBS_ROOT/observations.log"
+      - name: Preserve diagnostic pixels and exact source binding
         if: always()
         timeout-minutes: 4
         run: |
@@ -65,21 +66,20 @@ jobs:
                   files[str(p.relative_to(root))]={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
           assert total<50_000_000
           complete=False
-          if (root/'observation-report.json').exists():
-              r=json.loads((root/'observation-report.json').read_text())
-              complete=r['status']=='EXTRA_OBSERVATIONS_RENDERED_REVIEW_PENDING' and len(r['views'])==7
-          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G3','type':'additional_witnesses','status':'REVIEW_PENDING_NOT_A_PASS' if complete else 'PARTIAL_WITNESSES_NOT_A_PASS',
+          if (root/'light-diagnosis.json').is_file():
+              r=json.loads((root/'light-diagnosis.json').read_text())
+              complete=r.get('status')=='DIAGNOSTICS_RENDERED_REVIEW_PENDING' and len(r['views'])==6
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G3','type':'R03_light_diagnosis','status':'DIAGNOSTICS_REVIEW_PENDING' if complete else 'PARTIAL_DIAGNOSTICS',
             'source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
-            'parent_evidence_commit':'87d75e3b90d6b330fb378d1fc2200f5d1a52e418',
-            'master_path':'workspaces/glasshouse-terminus/output/g3-r02/g3-bay-candidate.blend',
-            'master_sha256':'3162ba27fbeb3055c5fbe94a6fc2422cc9cca11f68dda381b06627ebcaf6d680',
+            'parent_evidence_commit':'22dceca579c272b51767c70c153c540f7defc547','master_path':os.environ['G3_OBS_SOURCE'],
+            'master_sha256':'cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe',
             'files':files,'total_bytes':total,'original_master_in_parent_commit':True,'geometry_edits':False,'g4_allowed':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED'},indent=2))
           PY
-          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OBS_ROOT" g3-observations
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OBS_ROOT" g3-light-diagnosis
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: g3-observations-${{ github.run_id }}
+          name: g3-light-diagnosis-${{ github.run_id }}
           path: workspaces/glasshouse-terminus/output/g3-observations
           retention-days: 1
           if-no-files-found: error
