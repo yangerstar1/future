@@ -1,0 +1,8 @@
+{
+  "stage": "G3_CANDIDATE",
+  "revision": "R07",
+  "parent_sha256": "65ef58c38685aa6ef26aa0f2d5116e1535e879f4a2b01975100d71be7cb7de26",
+  "candidate_sha256": "1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e",
+  "revision_report": "calibration-report.json",
+  "blender": "4.5.13 LTS"
+}
