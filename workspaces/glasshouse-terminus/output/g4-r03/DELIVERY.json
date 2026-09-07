@@ -1,0 +1,95 @@
+{
+  "stage": "G4",
+  "revision": "R03",
+  "status": "PARTIAL_OR_FAILED_NOT_A_PASS",
+  "source_sha": "6ad3c7c0fbcc66a013ddf42b9ab2a6cec616932d",
+  "run_id": "34147780955",
+  "parent_evidence_commit": "12ae1030686d97823548b2967805d85853d12ab2",
+  "parent_master_sha256": "173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc",
+  "files": {
+    "hero-reopen-check.json": {
+      "bytes": 273,
+      "sha256": "5ab8b94f1eedaa7085a843073b4154298b6c847d974ae2a48d1de19caf18121d"
+    },
+    "build.log": {
+      "bytes": 447,
+      "sha256": "2d9025e81664def9970a8b2792f9378f53a1697df2307c3491cdf1a3ae69439a"
+    },
+    "C01-rain-night.png": {
+      "bytes": 1605053,
+      "sha256": "d79fd93aa192de5c451cb6f8f6613f67327f6d43f6f315c9238f11d14d2a9030"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "render-metrics.json": {
+      "bytes": 3888,
+      "sha256": "6a0218f4e08011dd9fb868ed3c847a070e985d3ba912987a1721a3837ea47fa6"
+    },
+    "M02-woodwork.png": {
+      "bytes": 2148870,
+      "sha256": "74fdff4f60567aae9df5ac839f0f8638aca62b1ec34c0445b3ed63ed1f916d37"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "C03-hall-rain.png": {
+      "bytes": 1759978,
+      "sha256": "1a3457e225bee3178bf58764857b8d3f85c7ae2ad5ddd9eefe983083af8cda53"
+    },
+    "detail-render.log": {
+      "bytes": 2342488,
+      "sha256": "6706e65e9dce5380a16a404a5826d98f211196d6ba3bf81bbc526fe09ae7ab9d"
+    },
+    "g4-full-scene-candidate.blend": {
+      "bytes": 34013306,
+      "sha256": "dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5"
+    },
+    "M04-woven-seat.png": {
+      "bytes": 1502084,
+      "sha256": "37fc916dfa2592faa64443f594974ffad386a9b2faf6d5e56e6a9eef43b9131a"
+    },
+    "M01-rain-glass.png": {
+      "bytes": 1850669,
+      "sha256": "55f8880494fa81bae319a909f8fb77017ea325e113fd3a1244883b9a78e425a0"
+    },
+    "M03-wet-stone.png": {
+      "bytes": 1241841,
+      "sha256": "57188f8fd51782bfd0b158a97e715f0a66ab10baca68480633243b42c4fb0c6a"
+    },
+    "provision.log": {
+      "bytes": 41062,
+      "sha256": "e6610ab9882558c7a0140a60ea7d8be34bc0508c800710525ce759cff3b657bb"
+    },
+    "hero-render.log": {
+      "bytes": 939524,
+      "sha256": "5930004d6d2397a246e6936b392efbe8ea53df11e9f20911a90ca37f7d87394f"
+    },
+    "build-report.json": {
+      "bytes": 136727,
+      "sha256": "c5eaf036bbb1eec865ce6ff8d506de204241497cc813bf4d88a0774156c49bf1"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    }
+  },
+  "missing": [
+    "detail-reopen-check.json",
+    "D01-node-regression.png"
+  ],
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "browser_gate": "BLOCKED_UNCHANGED",
+  "scope": "Native rain/material still challenger. No final rain simulation, film or browser acceptance."
+}

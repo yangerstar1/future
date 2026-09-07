@@ -1,0 +1,170 @@
+[
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "M01-rain-glass.png",
+    "frame": 451,
+    "seconds": 699.8402994190001,
+    "resolution": [
+      1600,
+      1000
+    ],
+    "samples": 96,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "master_sha256": "dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5",
+    "native_render": true,
+    "revision": "G4_R03",
+    "scope": "Parked-frame weather/material observation"
+  },
+  {
+    "view": "C03_hall_to_platform",
+    "file": "C03-hall-rain.png",
+    "frame": 451,
+    "seconds": 324.73498760200005,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 35.0,
+    "position": [
+      8.0,
+      -4.5,
+      3.0
+    ],
+    "rotation": [
+      1.5506188869476318,
+      7.001838753240008e-08,
+      0.7378150224685669
+    ],
+    "master_sha256": "dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5",
+    "native_render": true,
+    "revision": "G4_R03",
+    "scope": "Parked-frame weather/material observation"
+  },
+  {
+    "view": "G3_D02",
+    "file": "M02-woodwork.png",
+    "frame": 451,
+    "seconds": 597.256028243,
+    "resolution": [
+      1600,
+      1000
+    ],
+    "samples": 96,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 60.0,
+    "position": [
+      -1.600000023841858,
+      1.850000023841858,
+      2.6500000953674316
+    ],
+    "rotation": [
+      1.2634847164154053,
+      2.3310434471568442e-08,
+      0.7952988743782043
+    ],
+    "master_sha256": "dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5",
+    "native_render": true,
+    "revision": "G4_R03",
+    "scope": "Parked-frame weather/material observation"
+  },
+  {
+    "view": "G4R03_wet_stone_macro",
+    "file": "M03-wet-stone.png",
+    "frame": 451,
+    "seconds": 326.65946153699997,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 80,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 55.0,
+    "position": [
+      -4.0,
+      -8.479999542236328,
+      0.6299999952316284
+    ],
+    "rotation": [
+      1.1598464250564575,
+      5.411650505493526e-08,
+      0.8803502917289734
+    ],
+    "master_sha256": "dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5",
+    "native_render": true,
+    "revision": "G4_R03",
+    "scope": "Parked-frame weather/material observation"
+  },
+  {
+    "view": "G4R03_textile_macro",
+    "file": "M04-woven-seat.png",
+    "frame": 451,
+    "seconds": 420.99493836600004,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 80,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 72.0,
+    "position": [
+      -5.75,
+      -2.880000114440918,
+      2.1700000762939453
+    ],
+    "rotation": [
+      1.0627944469451904,
+      5.6330932807213685e-08,
+      -2.987884998321533
+    ],
+    "master_sha256": "dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5",
+    "native_render": true,
+    "revision": "G4_R03",
+    "scope": "Parked-frame weather/material observation"
+  },
+  {
+    "view": "C01_exterior_hero",
+    "file": "C01-rain-night.png",
+    "frame": 451,
+    "seconds": 162.81610252600012,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 34.5,
+    "position": [
+      32.0,
+      52.0,
+      23.0
+    ],
+    "rotation": [
+      1.2386444807052612,
+      5.874365882618804e-08,
+      2.422762870788574
+    ],
+    "master_sha256": "dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5",
+    "native_render": true,
+    "revision": "G4_R03",
+    "scope": "Parked-frame weather/material observation"
+  }
+]
