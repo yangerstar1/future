@@ -1,0 +1,10 @@
+{
+  "master_sha256": "590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738",
+  "master_unchanged": true,
+  "missing_external_images": [],
+  "native_new_images": 2,
+  "original_run_id": 34157793290,
+  "original_run_still_failed": true,
+  "g4_stage_pass": false,
+  "human_acceptance": false
+}

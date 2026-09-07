@@ -1,0 +1,35 @@
+{
+  "run_id": "34162646428",
+  "source_sha": "5bc928c98a179fa09db6175124d090bdd449055e",
+  "files": {
+    "M02-aligned-walnut.png": {
+      "bytes": 2138774,
+      "sha256": "4ea4ee2fd36d2de5ca0719333e16efbb97a75f358989d51491564edfbe3ca650"
+    },
+    "render.log": {
+      "bytes": 971696,
+      "sha256": "709a385e1fc93719eef701f99f9d17b718ceb7b0f017cde804a8b698ba582941"
+    },
+    "reopen-check.json": {
+      "bytes": 302,
+      "sha256": "b674f2a9dc032f3f09ff48a77bc5842ac72e1a1200cbea6d40d31cdce8184fcb"
+    },
+    "provision.log": {
+      "bytes": 8856,
+      "sha256": "cdc1720c3d51ae2fffd8d87286df336c79e69da2d77c9783072db676cbafb2d0"
+    },
+    "metrics.json": {
+      "bytes": 1151,
+      "sha256": "cc9881f9bc2d5c00df2dc7126f89a4d655e647c06d5675f3ca8868d06ed41633"
+    },
+    "D01-node-regression.png": {
+      "bytes": 1511417,
+      "sha256": "069735763a5d875c363b6bb44b73496c380129d3ca1d9d1fe6fb158169bd1599"
+    }
+  },
+  "missing": [],
+  "master_sha256": "590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738",
+  "source_evidence_commit": "8edab03563070bc62a1a768aaf1f6389d72a68f6",
+  "g4_stage_pass": false,
+  "human_acceptance": false
+}

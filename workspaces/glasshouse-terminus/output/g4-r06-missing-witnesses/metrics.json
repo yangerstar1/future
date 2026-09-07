@@ -1,0 +1,54 @@
+[
+  {
+    "view": "G3_D02",
+    "file": "M02-aligned-walnut.png",
+    "frame": 451,
+    "seconds": 478.39666762300004,
+    "resolution": [
+      1600,
+      1000
+    ],
+    "samples": 80,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 60.0,
+    "position": [
+      -1.600000023841858,
+      1.850000023841858,
+      2.6500000953674316
+    ],
+    "rotation": [
+      1.2634847164154053,
+      2.3310434471568442e-08,
+      0.7952988743782043
+    ],
+    "master_sha256": "590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738",
+    "recovery_only": true
+  },
+  {
+    "view": "G3R03_roof_node",
+    "file": "D01-node-regression.png",
+    "frame": 451,
+    "seconds": 271.611605102,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 55.0,
+    "position": [
+      -1.0,
+      3.9000000953674316,
+      5.150000095367432
+    ],
+    "rotation": [
+      1.5990432500839233,
+      -1.4562282046881592e-08,
+      0.9702551960945129
+    ],
+    "master_sha256": "590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738",
+    "recovery_only": true
+  }
+]
