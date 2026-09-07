@@ -1,6 +1,6 @@
 {
   "task": "glasshouse-terminus-premium-scene",
-  "source_of_truth": "Current GitHub run metadata, persistent evidence refs, SHA-256 and DELIVERY.json from actual downloaded bytes. This index supersedes stale stage labels in the original PRODUCTION-STATE.md.",
+  "source_of_truth": "Actual downloaded bytes and reviewed images/motion, immutable evidence commits, GitHub run metadata. Upload-time DELIVERY status is historical; this index and G2-REVIEW-03.md record the subsequent stage review, not human final acceptance.",
   "contract_sha256": "0101fa0f69edc3e261ead088c447818168c397e5ca8dbc26b0de341ad7f7c23f",
   "g1_challenger": {
     "run_id": 33928926761,
@@ -23,16 +23,43 @@
     }
   },
   "g2": {
-    "prior_run_id": 33930258391,
-    "prior_result": "Render steps succeeded; evidence Git push failed because the new ref inherited workflow files. One-day artifacts 9958728552 and 9958464088 are expired.",
-    "run_id": 34106817235,
-    "source_commit": "a40810d2861a2582499db410c6b41881f1199d18",
-    "status": "RECOVERY_RUNNING_NOT_REVIEWED",
-    "scope": "Complete A-E whitebox only; regenerate from unchanged saved geometry/camera source, not recovered expired artifact bytes",
-    "fix": "Use existing publish_evidence.sh for data-only fixed-view and final evidence refs; no workflows permission escalation",
-    "stage_best": null,
-    "next_action": "Read actual C01-C09 and the full 28-second native whitebox animatic; inspect evaluated walk/floor/door state, then decide G2 gate. Do not begin G3 before this review."
+    "status": "WHITEBOX_STAGE_BEST_SELF_REVIEW",
+    "stage_best": "G2-BEST-20260907-R01",
+    "scope": "Complete A-E whitebox, nine fixed views and 28-second low-cost native animatic only. Not final materials, final film, complete website or user acceptance.",
+    "run_id": 34109215120,
+    "run_conclusion": "success",
+    "source_commit": "91d414fb8ac9aadf74e5a86d4fc74f9ac7ab234a",
+    "review": "G2-REVIEW-03.md",
+    "review_commit": "0160ce32b94be240269b6ed4079bd0ea6277d071",
+    "reviewer": "Same-context actual-image self-review, no independent agent",
+    "persistent_git_copy": {
+      "branch": "evidence/g2-repair-34109215120-1",
+      "commit": "6520a8b6056cd7582e4bfc09367cd37fdfb193a1",
+      "directory": "workspaces/glasshouse-terminus/output/g2-review"
+    },
+    "artifact": {
+      "id": 10014580129,
+      "bytes": 25784156,
+      "sha256": "5bef8306c0ed602b8f176366377a98590a740fee26ce4554c9b7f464dac8702d",
+      "actual_download_verified": true,
+      "retention_days": 1,
+      "persistent_recovery_must_use_git_copy": true
+    },
+    "blend": {"file": "g2-complete-whitebox.blend", "bytes": 1050044, "sha256": "0468b615b2d6ebeab7d641ad70c97a3efd62c7f31d1009fbc245c3c9b0f5c8be", "actual_bytes_verified": true, "fresh_process_reopened_in_actions": true},
+    "animatic": {"file": "whitebox-28s.mp4", "bytes": 2036781, "sha256": "39d964c64d797b261793667d51462a25efdf9be8b4fd2c2d62186545f7b839ee", "native_resolution": [640,360], "fps": 10, "frames": 280, "seconds": 28, "renderer": "Blender Workbench", "full_decode_verified": true, "all_frames_contact_sheet_reviewed": true, "native_critical_frames_reviewed": true, "not_final_4k_film": true},
+    "fixed_views": {"ids": ["C01","C02","C03","C04","C05","C06","C07","C08","C09"], "native_resolution": [1280,800], "engine": "Cycles", "samples": 24, "all_native_originals_reviewed": true, "frozen_in_master_and_render_metrics": true},
+    "diagnostics": {"manifest_entries_verified": 65, "manifest_mismatches": 0, "sampled_walk_collisions": 0, "sampled_floor_hits": 18, "not_exhaustive_human_collision_solver": true},
+    "fixed_checkpoint_commit": "80d87990b0711a0d0e761b041b24c6694d589f31",
+    "parent_checkpoint_commit": "453a74c1d0eb668ed483219eb684bf57798d4a8c",
+    "history": [
+      {"run_id": 33930258391, "result": "Rendering completed; evidence push inherited workflow files and was rejected. Old one-day artifacts expired."},
+      {"run_id": 34106817235, "source_commit": "a40810d2861a2582499db410c6b41881f1199d18", "result": "Fixed views and editable master durably recovered. Animatic step timed out after 278 frames; not a complete video or stage pass.", "partial_evidence_commit": "f2cfa64fe7fa490fdde7b8fb56ba7ea6b404b696"}
+    ],
+    "remaining_final_stage_issues": ["Bridge arch joint V-shaped close-up seam", "Proxy furniture/plants and unfinished glass/materials", "Final detail-shot and door-opening readability not yet validated"],
+    "next_action": "Follow G3-NEXT-STEP.md: reopen verified G2 BEST, record finite G3 budget, then make only the existing hall/platform doorway bay final-quality before full-scene expansion. Do not rerun G0 or overwrite BEST."
   },
-  "final_contract_status": "IN_PROGRESS_WITH_P1_BROWSER_BLOCKER",
+  "g3": {"status": "NOT_STARTED", "handoff": "G3-NEXT-STEP.md", "automatic_background_job": false},
+  "final_contract_status": "PAUSED_UNMET",
+  "final_scope_remaining": ["G3 final-quality bay", "G4 full-scene final art", "Native 4K30 main film", "Short and evidence films", "G1/P1 browser blocker and same-source website", "Final validation and human acceptance"],
   "human_acceptance": false
 }
