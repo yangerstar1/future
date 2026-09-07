@@ -1,0 +1,174 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R07",
+  "status": "PARTIAL_OR_FAILED_NOT_ART_PASS",
+  "source_sha": "ec0bfc4e1c263c6ea53bb29fd36974f4eb8920ae",
+  "run_id": "34159322356",
+  "files": {
+    "MASTER-PARTS.json": {
+      "bytes": 970,
+      "sha256": "4e22739e6082daf6cd1acd092cc270e4caa48faa523ca0347cb20ed204cb26b5"
+    },
+    "build.log": {
+      "bytes": 387,
+      "sha256": "7d86b537b03036896a12318514d4296ae0dc1efd450995b8e8f1bd0fde1139f4"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "hall.log": {
+      "bytes": 497595,
+      "sha256": "332ee8a8364b72e6c8bd1f8e1cbb6240ea4ba365d1587de0de158e528c68adc9"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "MASTER-RESTORE.txt": {
+      "bytes": 308,
+      "sha256": "9f84813ca2379a0e1390eb5657c394dd5a81cc21eb9e844f45fc10b341999e25"
+    },
+    "PARENT-R03-build-report.json": {
+      "bytes": 136727,
+      "sha256": "c5eaf036bbb1eec865ce6ff8d506de204241497cc813bf4d88a0774156c49bf1"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "volume-diagnostics.json": {
+      "bytes": 373,
+      "sha256": "7ba51b3465f51af79ba0bfdc4fd614fb28066c3b4419d97cb44e94749df8bec9"
+    },
+    "hall-metrics.json": {
+      "bytes": 599,
+      "sha256": "43fa04269263a533e8449c64ea141bb22a82d0b8b2d6cb71a47ec0362e37560e"
+    },
+    "ASSET-AND-API-PROBE.json": {
+      "bytes": 26320,
+      "sha256": "4ce7ed749df485ceac44e0913a0e1b3ef1e6bc6afb665b3277c26e1cb85344a9"
+    },
+    "restore_master.py": {
+      "bytes": 3552,
+      "sha256": "36eb86b8f1156065112bb5ff350a9c6e606cc34f127bdc4f7db1bbcff94071f6"
+    },
+    "g4-full-scene-candidate.blend": {
+      "bytes": 156237845,
+      "sha256": "fbfe1bb1340c29dc8a45a746f2ddc86c3e4d019ccd8d868be3c3692305ed99ee"
+    },
+    "COAST-R04-build-report.json": {
+      "bytes": 18831,
+      "sha256": "37803d3a967ec8d42b4ee0ad045426372ea169960151ef3ca97d699731450cec"
+    },
+    "COAST-R05-build-report.json": {
+      "bytes": 6076,
+      "sha256": "e21bc4c16a7d02edcaac65f534f6e1e4267cd9aca376d75dbccf35bc3e79031d"
+    },
+    "COAST-R01-build-report.json": {
+      "bytes": 13117,
+      "sha256": "f4f902b3ac176672abf1a20032324b67da3c8bb8afdb9f20c1f9580ff4d80afb"
+    },
+    "STORM-ASSET-SOURCES.json": {
+      "bytes": 5222,
+      "sha256": "cf382970397232ae1ec7ac025f73469731816d68730233e0ec916a8742993370"
+    },
+    "normal-preflight.json": {
+      "bytes": 886,
+      "sha256": "b4258ca45d6e94b868519c554628e1bebd13a42be5b2506c43453981169aae06"
+    },
+    "COAST-R06-checked-build-report.json": {
+      "bytes": 201266,
+      "sha256": "949d642f9c585ac560e76481bf53534d2800ef40765aa157d6e11e01d1d0f5d8"
+    },
+    "COAST-R02-build-report.json": {
+      "bytes": 2239,
+      "sha256": "79eab19add15f235f4547d8330fa75c7dcf475c4bda91bfb5bee645591e3671b"
+    },
+    "FINITE-REQUEST.txt": {
+      "bytes": 564,
+      "sha256": "ce6288d779576541f6fae164653b0eb599eebb7db9c3b29c6118f4b62dec4f7a"
+    },
+    "C03-airborne-rain.png": {
+      "bytes": 1850088,
+      "sha256": "396620ba8ffa57656bfa1c43abc0cd4e3908f1925c4b1e01574ce7004df57066"
+    },
+    "COAST-R03-build-report.json": {
+      "bytes": 2350,
+      "sha256": "fd4065009b83102f7047137591255b71db6112639b767781345fcfa1229992ea"
+    },
+    "provision-source.log": {
+      "bytes": 8856,
+      "sha256": "168581e74ed9e024644ec71d511dc04ba738f3bf578347d36504c5e67e19b2cc"
+    },
+    "hall-reopen.json": {
+      "bytes": 252,
+      "sha256": "7167f4f7a08c5e782a978ae9108a7e99e5ba7a39b8d586df84ac2ca08ed3834c"
+    },
+    "macro.log": {
+      "bytes": 485771,
+      "sha256": "56b77cc3bc079dc3cf1c99521695edd005313be4ab47960425b9de3ad6fa450c"
+    },
+    "provision-render.log": {
+      "bytes": 8856,
+      "sha256": "9742d8436b8556aadfea7722e188075cd3772d13125374b01a503b342f003924"
+    },
+    "build-report.json": {
+      "bytes": 2409,
+      "sha256": "47153d1d4c917965d5ccc38fb445b782036dcb87e45043f428ef1185bb421366"
+    },
+    "SURFACE-ASSET-SOURCES.json": {
+      "bytes": 2994,
+      "sha256": "3700333aaac1b4d99ee438a8b31db0b1f664a141e8c70d241fc769e140164422"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_diff_4k.jpg": {
+      "bytes": 13605843,
+      "sha256": "a72582be1337c11e2e59a03e01ef0270f2c0f455a410c5cc667df9682e2c76ce"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_nor_gl_4k.jpg": {
+      "bytes": 14307275,
+      "sha256": "d58370b656d08316b9aca02c3f627e0ffcf2dd22873c4cbeb343321ccd044620"
+    },
+    "assets/poly_wool_herringbone/upstream-info.json": {
+      "bytes": 1126,
+      "sha256": "faa965db26931d0ed3a341b8d3c6b6fe5cfbb1f9f55f4236a3fba8cf6391e377"
+    },
+    "assets/poly_wool_herringbone/upstream-files.json": {
+      "bytes": 59902,
+      "sha256": "e551a61f9486aeec7efa27e9e009bf12c52497e6718341335c0b5acbd37f77f1"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_rough_4k.jpg": {
+      "bytes": 15049055,
+      "sha256": "04ba7ce77111a715fd689aa420a6e880b3d166a11e2e9068ae52c0235f2c3329"
+    },
+    "assets/kloofendal_overcast_puresky/kloofendal_overcast_puresky_2k.hdr": {
+      "bytes": 4335717,
+      "sha256": "312b1b04b7f10057a4f1418abc59d1166c8933cc93fc72051502edaf8d6b2fcd"
+    },
+    "assets/kloofendal_overcast_puresky/upstream-info.json": {
+      "bytes": 1345,
+      "sha256": "fd079df4389329cb1393a2ba7a2dbe153d6ecf3d1d12de2c6543c9a20ea625b6"
+    },
+    "assets/kloofendal_overcast_puresky/upstream-files.json": {
+      "bytes": 2830,
+      "sha256": "0eba63450bfabd5d0fbfdc562107fb5ee40ea23bfe2ff00f13829ca6a11d265d"
+    }
+  },
+  "missing": [
+    "M01-airborne-and-attached-rain.png",
+    "macro-reopen.json"
+  ],
+  "native_motion_frames": 0,
+  "native_motion_complete": false,
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "scope": "Only airborne density differs. This is not complete G4 coverage or a final storm film."
+}

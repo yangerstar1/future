@@ -1,0 +1,45 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R07",
+  "source_sha": "ec0bfc4e1c263c6ea53bb29fd36974f4eb8920ae",
+  "run_id": "34159322356",
+  "parent_master_sha256": "590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738",
+  "parent_source_evidence_commit": "8edab03563070bc62a1a768aaf1f6389d72a68f6",
+  "basis": "Actually opened original R06 C03/C01 from artifact10031880766. Surface rain is now visible on windows but airborne rain remains too weak. Change density only; the native R04 motion proof also showed very weak airborne visibility. This is one explicit optical-density trial, not a presumed art improvement.",
+  "edits": [
+    {
+      "object": "G4R03_roof_clipped_rain",
+      "old_paths": 28000,
+      "new_instances": 308000,
+      "trajectory_positions_unchanged": true,
+      "all_original_trajectories_and_original_phase_replicas_retained": true,
+      "velocities_sizes_materials_and_prototype_unchanged": true,
+      "lifetime_ID": "Native Integer Math, no float precision collisions",
+      "close_volume_multiplier": 2,
+      "broad_volume_multiplier": 16
+    },
+    {
+      "object": "G4COAST_R06_exterior_round_rain",
+      "old_paths": 7200,
+      "new_instances": 57600,
+      "trajectory_positions_unchanged": true,
+      "all_original_trajectories_and_original_phase_replicas_retained": true,
+      "velocities_sizes_materials_and_prototype_unchanged": true,
+      "lifetime_ID": "Native Integer Math, no float precision collisions",
+      "close_volume_multiplier": null,
+      "broad_volume_multiplier": 8
+    }
+  ],
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "protected_before": "68fa8fbd89c6d29fbf48c581dd9fc41a3294a5d0ae91d8946159b4df19d74d50",
+  "protected_after": "68fa8fbd89c6d29fbf48c581dd9fc41a3294a5d0ae91d8946159b4df19d74d50",
+  "limits": [
+    "This changes visual particle concentration, not a calibrated rainfall-rate simulation.",
+    "Original parked-frame rain supports are reused without spatial jitter. Moving-train collision still unverified.",
+    "No change to environment, exposure, practical lamps, glass, water contact, ocean, cliff, wool or wood.",
+    "If originals still do not show sufficient rain, stop increasing density and investigate radiance/reconstruction instead of an unbounded particle escalation."
+  ],
+  "candidate_sha256": "fbfe1bb1340c29dc8a45a746f2ddc86c3e4d019ccd8d868be3c3692305ed99ee",
+  "master_bytes": 156237845
+}
