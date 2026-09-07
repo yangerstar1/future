@@ -55,7 +55,7 @@ stone=bpy.data.materials['G3_slate_dry'].copy();stone.name='G3R04_dry_slate_arch
 p=stone.node_tree.nodes.get('Principled BSDF')
 for edge in list(p.inputs['Roughness'].links):stone.node_tree.links.remove(edge)
 p.inputs['Roughness'].default_value=.65;p.inputs['Coat Weight'].default_value=0
-# Use full X bounds with tolerance, never midpoint-Y sign to select a whole arch.
+# Use full X bounds with tolerance; record actual materials rather than guessing omissions.
 def finish(ob,mat):
     old=ob.active_material;lo,hi=box(ob)
     if lo[0]>=-4.20 and hi[0]<=.20:new=mat
@@ -106,7 +106,7 @@ for ob in arches:
             for z in [4.925,5.205]:
                 cylinder('G3R04_splice_washer',(x+.118,yy,z),(x+.122,yy,z),.015,bronze,32)
                 cylinder('G3R04_splice_hex_head',(x+.122,yy,z),(x+.130,yy,z),.010,bronze,6)
-# Retire the unmotivated studio card after actual source attribution, not by hiding rays.
+# Retire the unmotivated studio card after actual attribution, not by hiding rays.
 for name,power in [('G3_interior_softbox',0),('G3_pendant_light',260),('G3_cafe_practical',14),('G3_door_practical',90)]:
     lamp=bpy.data.objects[name];report['light_edits'].append({'object':name,'before':lamp.data.energy,'after':power});lamp.data.energy=power
 opal=material('G3R04_opal_sconce',(.76,.70,.59),rough=.37,emission=2.0);new_lights=[]
@@ -118,16 +118,23 @@ for x in [-4,0]:
     light=area('G3R04_sconce_light',(x,6.025,3.72),(-2,2.6,2.1),24,.28,(1,.84,.66));new_lights.append(light.name)
 s['g3_night_lights']=json.dumps(json.loads(s['g3_night_lights'])+new_lights)
 report['lighting_design']='Studio fill retired after isolated attribution. Existing real pendant/table/train fixtures strengthened; attached opal column sconces added. No light-path exclusions or exposure changes.'
-# Supplementary observer stands beyond the hall leaves. Original failed view stays.
+# Evaluate the new camera transform before projecting bounds. The failed execution
+# tested its stale identity matrix; this retry preserves the same requested view.
 s.timeline_markers.clear();s.frame_set(451);bpy.context.view_layer.update()
 door=camera('G3R04_unobstructed_interface',(-2,8.25,2.58),(-2,10.72,2.26),30)
+report['new_camera_matrix_before_update']=[list(row) for row in door.matrix_world]
+bpy.context.view_layer.update()
+report['new_camera_matrix_after_update']=[list(row) for row in door.matrix_world]
 threshold=bpy.data.objects['Car_door_threshold'];housing=bpy.data.objects['G3_door_track_housing']
 lo1,hi1=box(threshold);lo2,hi2=box(housing);s.render.resolution_x=1280;s.render.resolution_y=800
 pts=[o.matrix_world@Vector(v) for o in [threshold,housing] for v in o.bound_box]
+report['interface_framing_trials']=[]
 for lens in range(34,19,-1):
     door.data.lens=lens;q=[world_to_camera_view(s,door,p) for p in pts]
+    report['interface_framing_trials'].append({'lens':lens,'x':[min(v.x for v in q),max(v.x for v in q)],'y':[min(v.y for v in q),max(v.y for v in q)],'depth':min(v.z for v in q)})
+    (OUT/'art-progress.json').write_text(json.dumps(report,indent=2))
     if all(v.z>0 and .04<=v.x<=.96 and .04<=v.y<=.96 for v in q):break
-else:raise RuntimeError('Interface frame does not fit; stop, never move source objects')
+else:raise RuntimeError('Evaluated interface frame does not fit; stop, never move source objects')
 report['supplemental_interface']={'camera':door.name,'lens':door.data.lens,'position':list(door.location),'visibility':[]}
 deps=bpy.context.evaluated_depsgraph_get()
 for target,point in [('threshold',Vector(((lo1[0]+hi1[0])/2,lo1[1]+.04,hi1[2]))),('guide_housing',Vector(((lo2[0]+hi2[0])/2,lo2[1],(lo2[2]+hi2[2])/2)))]:
