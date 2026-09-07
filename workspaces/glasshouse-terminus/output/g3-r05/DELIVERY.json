@@ -1,0 +1,92 @@
+{
+  "stage": "G3",
+  "revision": "R05",
+  "status": "TARGETED_REVIEW_PENDING_NOT_ART_PASS",
+  "run_id": "34128911415",
+  "source_sha": "8a5eb925c4e88c4155b2148059898b3736386895",
+  "parent_evidence_commit": "a2b7d9d3c90e928a00bca7898247d764c83afe8a",
+  "parent_master_sha256": "18348be4c401601706e10e4346a32bf5e0c406fec2448e1a53290f7840b8a854",
+  "files": {
+    "build.log": {
+      "bytes": 359,
+      "sha256": "2634f470b38c7860e878ed60eb9453949a821fa2ace053376115418c84792ec4"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "D01-glass-metal.png": {
+      "bytes": 1134508,
+      "sha256": "c153ea7f40b430d602b817e375e4a82f59b592dbb176334d21155433ca3184e2"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "G3-bay-night.png": {
+      "bytes": 1675785,
+      "sha256": "e02e5496a8d00f010e524138c94685f5fe6ef47831390cffd0c15f8a5e09556f"
+    },
+    "render-metrics.json": {
+      "bytes": 3772,
+      "sha256": "353ef5a821a5e50cd08bafe2baf29117a727e7f94261103c90fab7fb3735c302"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "render.log": {
+      "bytes": 1962753,
+      "sha256": "36662755680865f16916c5136f5ff4cadb9a3c77b5eac0015e950e16a7f2e7c8"
+    },
+    "R05-complete-bay-night.png": {
+      "bytes": 1637635,
+      "sha256": "7bbc0b45e844dbf52e7b7fa9ba806345a0416d75ea0b78c64c993e8e067578c0"
+    },
+    "D05-unoccluded-interface.png": {
+      "bytes": 1103970,
+      "sha256": "91faff292127382d3b01b29020dfc960077e50f4989cf2a0359bf01b9bb1717b"
+    },
+    "node-light-report.json": {
+      "bytes": 3657,
+      "sha256": "1a3edf8d050fb9fd857eff0341a272d47be5d166caa68b5c1035e74714479ab9"
+    },
+    "reopen-check.json": {
+      "bytes": 300,
+      "sha256": "a1980dda14fcdd1428f8afaf22b381e3669c8f2eef02b2f6f4556faf39322205"
+    },
+    "D01-roof-node.png": {
+      "bytes": 1112962,
+      "sha256": "13365ace9e363ca13d483bc7e27b9734a48fd67a7776d91a91d88542aefbdc3c"
+    },
+    "provision.log": {
+      "bytes": 41141,
+      "sha256": "546c44162f9546c1787ff13d22f77f799388ab72902aa3270539d9ff261c85d1"
+    },
+    "R05-complete-bay-neutral.png": {
+      "bytes": 1730837,
+      "sha256": "73cdfe596d3fa82be59db7bb59bf84869c1dca507c8094118eb4638fee36265e"
+    },
+    "build-report.json": {
+      "bytes": 5610,
+      "sha256": "84363aa6b35255e60cbdfb845819f92a6261ee0e5f5cb5d91030877197c5f32a"
+    },
+    "g3-bay-candidate.blend": {
+      "bytes": 26457653,
+      "sha256": "8ca4ca940a98e80d980fbd895f5ae7c27568b28ee361422bfe4ed267b7b8f02e"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    }
+  },
+  "missing": [],
+  "g4_allowed": false,
+  "human_acceptance": false,
+  "browser_gate": "BLOCKED_UNCHANGED",
+  "scope": "Six targeted regressions of the saved bay; not full scene or final film."
+}

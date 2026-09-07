@@ -1,0 +1,9 @@
+{
+  "fresh_process": true,
+  "master_sha256": "8ca4ca940a98e80d980fbd895f5ae7c27568b28ee361422bfe4ed267b7b8f02e",
+  "master_unchanged": true,
+  "missing_external_images": [],
+  "images": 6,
+  "scope": "Six targeted real images; not whole-scene acceptance or a new film",
+  "human_acceptance": false
+}
