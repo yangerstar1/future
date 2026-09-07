@@ -1,0 +1,126 @@
+name: Glasshouse R07 evidence-based airborne rain density
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-airborne-density.yml]
+permissions:
+  contents: write
+jobs:
+  density-source:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      evidence: ${{ steps.persist.outputs.evidence }}
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r07
+      BLENDER_PROVISION_PROFILE: render-only
+      G4_AIR_MODE: build
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Exact checked parent and finite visibility-only request
+        run: |
+          git fetch --depth=1 origin 8edab03563070bc62a1a768aaf1f6389d72a68f6
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r06-checked | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r06-checked
+          echo '590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738  workspaces/glasshouse-terminus/output/g4-coast-r06-checked/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf 'One bounded airborne-density trial after actually opening R06 C03/C01 from artifact10031880766. Source10min; renderer32min with26min production and6min source/evidence reserve. Public standard runner, one production renderer, external spend0, download1.5GB,disk8GB,evidence300MB. Same drops, velocities, materials, trajectories, cameras, shutter, light and exposure. Different temporal phases increase density; native integer lifetime IDs protect motion blur. Original R06 details continue without cancellation. No automatic further density escalation or G4 pass.\n' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/refine_g4_airborne_rain_density.py
+      - run: bash workspaces/glasshouse-terminus/provision.sh > "$OUT/provision-source.log" 2>&1
+      - name: Change only two rain point fields and exact lifecycle arithmetic
+        timeout-minutes: 4
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-coast-r06-checked/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_airborne_rain_density.py > "$OUT/build.log" 2>&1
+          test "$(du -sb workspaces/glasshouse-terminus | cut -f1)" -lt 8000000000
+      - name: Save native source before visibility tests
+        id: persist
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r07-source | tee "$RUNNER_TEMP/r07-save.log"
+          c=$(sed -n 's/^PERSISTED_EVIDENCE_COMMIT=//p' "$RUNNER_TEMP/r07-save.log");test -n "$c";echo "evidence=$c" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-r07-source-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r07
+          retention-days: 1
+          if-no-files-found: error
+  native-visibility:
+    needs: density-source
+    runs-on: ubuntu-24.04
+    timeout-minutes: 32
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r07
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - env:
+          EVIDENCE: ${{ needs.density-source.outputs.evidence }}
+        run: |
+          echo "G4_AIR_DEADLINE=$(( $(date +%s) + 26*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin "$EVIDENCE"
+          git archive FETCH_HEAD "$OUT" | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore "$OUT"
+          rm -r "$OUT/master-parts"
+          bash workspaces/glasshouse-terminus/provision.sh > "$OUT/provision-render.log" 2>&1
+      - name: Exact original hall observation first
+        timeout-minutes: 18
+        env:
+          G4_AIR_MODE: hall
+        run: |
+          remaining=$((G4_AIR_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_airborne_rain_density.py > "$OUT/hall.log" 2>&1
+      - name: Publish first native image immediately
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-r07-hall-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r07/C03-airborne-rain.png
+            workspaces/glasshouse-terminus/output/g4-coast-r07/hall-metrics.json
+            workspaces/glasshouse-terminus/output/g4-coast-r07/build-report.json
+          retention-days: 1
+      - name: Rain macro at the exact native R06 observation
+        timeout-minutes: 15
+        env:
+          G4_AIR_MODE: macro
+        run: |
+          remaining=$((G4_AIR_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_airborne_rain_density.py > "$OUT/macro.log" 2>&1
+      - name: Optional native motion only with a measured-time reserve
+        timeout-minutes: 15
+        env:
+          G4_AIR_MODE: motion
+        run: |
+          remaining=$((G4_AIR_DEADLINE-$(date +%s)))
+          if [ "$remaining" -gt 1000 ]; then
+            timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_airborne_rain_density.py > "$OUT/motion.log" 2>&1
+          else
+            printf 'No new completed R07 motion sequence claimed; remaining time reserved for preserving native source and still evidence.\n' > "$OUT/motion-not-attempted.txt"
+          fi
+      - name: Preserve actual visibility results without count-based acceptance
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py prepare "$OUT"
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          r=Path(os.environ['OUT']);files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<300000000
+          required=['g4-full-scene-candidate.blend','build-report.json','C03-airborne-rain.png','M01-airborne-and-attached-rain.png','hall-reopen.json','macro-reopen.json']
+          missing=[n for n in required if not (r/n).exists()];frames=list((r/'motion').glob('*.png')) if (r/'motion').exists() else []
+          (r/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R07','status':'TWO_NATIVE_VISIBILITY_VIEWS_REVIEW_PENDING' if not missing else 'PARTIAL_OR_FAILED_NOT_ART_PASS','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':files,'missing':missing,'native_motion_frames':len(frames),'native_motion_complete':len(frames)==10 and (r/'motion-reopen.json').exists(),'g4_stage_pass':False,'human_acceptance':False,'scope':'Only airborne density differs. This is not complete G4 coverage or a final storm film.'},indent=2))
+          PY
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r07
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-r07-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r07
+          retention-days: 1
+          if-no-files-found: error
