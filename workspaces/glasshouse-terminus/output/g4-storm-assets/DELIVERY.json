@@ -1,0 +1,54 @@
+{
+  "stage": "G4_ASSET_PREFLIGHT_NO_RENDER",
+  "source_sha": "12d6399ebf525e2cbbb83943cd779e6ad53919f6",
+  "run_id": "34148268409",
+  "files": {
+    "FINITE-REQUEST.txt": {
+      "bytes": 325,
+      "sha256": "66e59d89461edb97fc213f8896e05c63c4063c5457ea15e0aa0f2674c44540ba"
+    },
+    "asset-download.log": {
+      "bytes": 339,
+      "sha256": "f873ae5df076f6ec5eb3344443d97d76c683137eb569937fb47794510e1ed244"
+    },
+    "seaside_rock/source-files.json": {
+      "bytes": 34048,
+      "sha256": "4dc0de73a8f0179a82762e74f32b4079619f0d78df79d7f0ac0a87444f85c5aa"
+    },
+    "seaside_rock/source-info.json": {
+      "bytes": 1055,
+      "sha256": "16372893299f8f4f03a912332dda6a6fff4b45709c878dda7aa28bb95a110d12"
+    },
+    "coastal_cliff_04/coastal_cliff_04.bin": {
+      "bytes": 43704136,
+      "sha256": "f7c3a18acc848552b91b0de931ba8439d5f2a8849bd0d4ac718878aa4a90abcf"
+    },
+    "coastal_cliff_04/source-files.json": {
+      "bytes": 34604,
+      "sha256": "c79a266abaaf201ecd9efd255581ed26a7489234566a5e2bbe06a2f52173549a"
+    },
+    "coastal_cliff_04/coastal_cliff_04_2k.gltf": {
+      "bytes": 2828,
+      "sha256": "b0b1298ae7399404a8be7e894ae68c120ebe55835b6ea6bba6c29bbc211b2919"
+    },
+    "coastal_cliff_04/source-info.json": {
+      "bytes": 1417,
+      "sha256": "d129457a98e436f570abdd95ddb7ef6a93d5e410c45721505a563c1039b4249f"
+    },
+    "coastal_cliff_04/textures/coastal_cliff_04_arm_2k.jpg": {
+      "bytes": 2753906,
+      "sha256": "d341cd1cbb32d3d5e06d4f17bc500fe50d330cef5546fd3559f2a8aa08714446"
+    },
+    "coastal_cliff_04/textures/coastal_cliff_04_nor_gl_2k.jpg": {
+      "bytes": 4733530,
+      "sha256": "66c0d6e808c9f4d5ce36608b253e54eea3bfff913f80902d64fe52ff2f5ee571"
+    },
+    "coastal_cliff_04/textures/coastal_cliff_04_diff_2k.jpg": {
+      "bytes": 2900951,
+      "sha256": "ffb03e9b43a4c5c44b5894bb79db473acd1b9119a3243c60ccee2a3d834bec75"
+    }
+  },
+  "complete": false,
+  "renderer_calls": 0,
+  "human_acceptance": false
+}
