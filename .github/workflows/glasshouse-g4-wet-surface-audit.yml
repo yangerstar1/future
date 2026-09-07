@@ -1,0 +1,100 @@
+name: Glasshouse integrated R05 wet-surface continuation audit
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-wet-surface-audit.yml]
+permissions:
+  contents: write
+jobs:
+  audit-source:
+    runs-on: ubuntu-24.04
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: write
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-wet-surface-audit
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Cancel only obsolete unstarted R02 rebuild, preserve all active work
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$OUT"
+          python3 - <<'PY'
+          import urllib.request,json,os
+          from pathlib import Path
+          base='https://api.github.com/repos/yangerstar1/future'
+          def api(path,method='GET'):
+              req=urllib.request.Request(base+path,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'},method=method,data=b'' if method=='POST' else None)
+              with urllib.request.urlopen(req,timeout=30) as r:
+                  b=r.read();return json.loads(b) if b else {'status':r.status}
+          decision={'target_run':34156239773,'cancelled':False,'reason':'Obsolete isolated R02 rebuild would omit integrated coast/R04 scans/R05 wood. Source scripts retained; all active tasks protected.'}
+          try:
+              run=api('/actions/runs/34156239773');jobs=api('/actions/runs/34156239773/jobs')['jobs']
+              assert run['head_sha']=='900ee566be2f28d307ef970837004180c5b95c24' and run['head_branch']=='codex/glasshouse-terminus'
+              decision['observed_status']=run['status'];decision['jobs']=[{'id':j['id'],'status':j['status']} for j in jobs]
+              if run['status'] in ['pending','queued'] and not jobs:
+                  decision['result']=api('/actions/runs/34156239773/cancel','POST');decision['cancelled']=True
+              else:decision['note']='Already started/finished: leave untouched; never use as the integrated source.'
+          except Exception as exc:decision['error']=str(exc)
+          Path(os.environ['OUT'],'queue-decision.json').write_text(json.dumps(decision,indent=2));print(json.dumps(decision))
+          PY
+      - name: Restore exact integrated native source without changing it
+        run: |
+          git fetch --depth=1 origin 3bb182b7b9b1860b3e410f98fc3a098331455fce
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r05 | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r05
+          echo '232a602326d2519d8f3bb5fe125a416c4d36149885173563df1297092e493445  workspaces/glasshouse-terminus/output/g4-coast-r05/g4-full-scene-candidate.blend' | sha256sum --check
+          printf 'One read-only audit10min and baseline18min, no master save. Public standard runner, single production renderer, external spend0,download1.5GB,disk8GB. Native rain and inherited shaders must be inspected before local correction. No G4 art pass.\n' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/inspect_g4_wet_surface_continuation.py
+      - name: Reuse native Blender
+        run: bash workspaces/glasshouse-terminus/provision.sh > "$OUT/provision.log" 2>&1
+      - name: Inspect real weather graph, materials, surface geometry and renderer settings
+        env:
+          WET_AUDIT_MODE: audit
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-coast-r05/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/inspect_g4_wet_surface_continuation.py > "$OUT/audit.log" 2>&1
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-wet-surface-audit
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-wet-audit-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-wet-surface-audit
+          retention-days: 1
+          if-no-files-found: error
+  baseline:
+    needs: audit-source
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-wet-surface-audit
+      BLENDER_PROVISION_PROFILE: render-only
+      WET_AUDIT_MODE: baseline
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - run: |
+          git fetch --depth=1 origin 3bb182b7b9b1860b3e410f98fc3a098331455fce
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r05 | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r05
+          mkdir -p "$OUT"
+          bash workspaces/glasshouse-terminus/provision.sh > "$OUT/baseline-provision.log" 2>&1
+      - name: Original hall and exterior, native diagnostic resolution, unchanged source
+        timeout-minutes: 12
+        run: blender -b workspaces/glasshouse-terminus/output/g4-coast-r05/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/inspect_g4_wet_surface_continuation.py > "$OUT/baseline-render.log" 2>&1
+      - name: Save all actual output even on timeout
+        if: always()
+        run: bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-wet-surface-baseline
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-wet-baseline-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-wet-surface-audit
+          retention-days: 1
+          if-no-files-found: error
