@@ -1,0 +1,8 @@
+{
+  "target_run": 34156239773,
+  "cancelled": true,
+  "reason": "Obsolete isolated R02 rebuild would omit integrated coast/R04 scans/R05 wood. Source scripts retained; all active tasks protected.",
+  "observed_status": "pending",
+  "jobs": [],
+  "result": {}
+}
