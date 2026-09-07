@@ -1,0 +1,96 @@
+{
+  "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+  "objects": [
+    {
+      "name": "G3_walnut_cafe_top",
+      "active_uv": "UVMap",
+      "affected_faces": 384,
+      "member_mapping_counts": {
+        "U": 0,
+        "V": 0
+      }
+    },
+    {
+      "name": "G4_cafe_G3_walnut_cafe_top",
+      "active_uv": "UVMap",
+      "affected_faces": 384,
+      "member_mapping_counts": {
+        "U": 0,
+        "V": 0
+      }
+    },
+    {
+      "name": "G4_cafe_G3_walnut_cafe_top.001",
+      "active_uv": "UVMap",
+      "affected_faces": 384,
+      "member_mapping_counts": {
+        "U": 0,
+        "V": 0
+      }
+    },
+    {
+      "name": "G3_sideboard_carcass",
+      "active_uv": "UVMap",
+      "affected_faces": 6,
+      "member_mapping_counts": {
+        "U": 0,
+        "V": 4
+      }
+    },
+    {
+      "name": "G3_cabinet_stile",
+      "active_uv": "UVMap",
+      "affected_faces": 6,
+      "member_mapping_counts": {
+        "U": 0,
+        "V": 4
+      }
+    },
+    {
+      "name": "G3_cabinet_stile.001",
+      "active_uv": "UVMap",
+      "affected_faces": 6,
+      "member_mapping_counts": {
+        "U": 0,
+        "V": 4
+      }
+    },
+    {
+      "name": "G3_cabinet_rail",
+      "active_uv": "UVMap",
+      "affected_faces": 6,
+      "member_mapping_counts": {
+        "U": 0,
+        "V": 4
+      }
+    },
+    {
+      "name": "G3_cabinet_rail.001",
+      "active_uv": "UVMap",
+      "affected_faces": 6,
+      "member_mapping_counts": {
+        "U": 0,
+        "V": 4
+      }
+    },
+    {
+      "name": "G3_cabinet_recessed_panel",
+      "active_uv": "UVMap",
+      "affected_faces": 6,
+      "member_mapping_counts": {
+        "U": 0,
+        "V": 4
+      }
+    },
+    {
+      "name": "G3_cabinet_recessed_panel.001",
+      "active_uv": "UVMap",
+      "affected_faces": 6,
+      "member_mapping_counts": {
+        "U": 0,
+        "V": 4
+      }
+    }
+  ],
+  "source_master_unchanged": true
+}

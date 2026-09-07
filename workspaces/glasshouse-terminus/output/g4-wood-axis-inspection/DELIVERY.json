@@ -1,0 +1,36 @@
+{
+  "stage": "G4",
+  "mode": "READ_ONLY_WOOD_AXIS_INSPECTION",
+  "run_id": "34155095899",
+  "source_sha": "690ee0a5f361031232454a3ec911a861cc0e975b",
+  "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+  "files": {
+    "verified-source-walnut-scan.jpg": {
+      "bytes": 1152151,
+      "sha256": "c0ba49a1fbc7b6ef93dd87abd83eee21eab611a6b291a0bdc6e4cf67b468158f"
+    },
+    "wood-axis-summary.json": {
+      "bytes": 1947,
+      "sha256": "888378044d38615bc37d3554bb324700ab88a3aa0c4debf65db32873c3e93ddc"
+    },
+    "FINITE-REQUEST.txt": {
+      "bytes": 460,
+      "sha256": "2534c6c0b1e186a88e04b0bcdef226029eb1623ff96a0101aa97465c09f6d13a"
+    },
+    "wood-axis-inspection.json": {
+      "bytes": 147922,
+      "sha256": "c2a81b991fc1abb1eefd9258dcf38f84d72746e5a326dcdbe40f623a4d11b4c6"
+    },
+    "provision.log": {
+      "bytes": 8856,
+      "sha256": "2996a938cda37f3fd7b4fbeb57d15483c9006184e63cbcde3d7c85fe9e050ce3"
+    },
+    "inspection.log": {
+      "bytes": 1602,
+      "sha256": "b107990f230bdd3509b5fc7f6d27218dea4aa3faf06baa9cf136d8122f621b64"
+    }
+  },
+  "complete": true,
+  "g4_stage_pass": false,
+  "human_acceptance": false
+}
