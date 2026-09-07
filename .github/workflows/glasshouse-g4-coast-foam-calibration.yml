@@ -1,0 +1,157 @@
+name: Glasshouse combined native coast foam and material verification
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-coast-foam-calibration.yml]
+permissions:
+  contents: write
+  actions: write
+jobs:
+  correct-native-range:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    outputs:
+      evidence: ${{ steps.persist.outputs.evidence }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r05
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore fully integrated native parent, no reconstruction
+        run: |
+          git fetch --depth=1 origin def004d60bb37a58a043a3506fb2bbda5c3a0e5c
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r04 | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r04
+          echo '51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c  workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf 'One final bounded candidate after read-only QA34154213591 proved native foam0.0168..0222 suppressed entirely by old0.12 threshold. Source12min,render50min/production43min/reserve7min,publicstandard,singleproductionrenderer,externalspend0,download1.5GB,disk8GB,evidence240MB. Only native-foam shader range changes; no new geometry/environment/rain/materials or camera changes. If own previous surface renderer is still unstarted, coalesce it after its source def004 is protected; never cancel running production or other authors runs.\n' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/calibrate_g4_native_foam.py
+      - name: Reuse installed native prerequisites and pinned Blender
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-source.log"
+      - name: Validate exact foam range then adjust only its owned mapping
+        timeout-minutes: 4
+        env:
+          G4_FOAM_MODE: build
+        run: blender -b workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/calibrate_g4_native_foam.py 2>&1 | tee "$OUT/build.log"
+      - name: Preserve combined editable source losslessly before scheduling observations
+        id: persist
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r05-source | tee "$RUNNER_TEMP/foam-save.log"
+          c=$(sed -n 's/^PERSISTED_EVIDENCE_COMMIT=//p' "$RUNNER_TEMP/foam-save.log");test -n "$c"
+          echo "evidence=$c" >> "$GITHUB_OUTPUT"
+      - name: Coalesce only our still-unstarted predecessor after source preservation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import urllib.request,os,json
+          base='https://api.github.com/repos/yangerstar1/future/actions/runs/34153713427'
+          headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','User-Agent':'Glasshouse own pending observation coalescing'}
+          def get(url):return json.load(urllib.request.urlopen(urllib.request.Request(url,headers=headers)))
+          run=get(base);assert run['head_sha']=='a530d5ae0a4fcd6f29b9d07939af3584e0ec6994'
+          jobs=get(base+'/jobs')['jobs'];native=[j for j in jobs if j['name']=='native-surface-review'];built=[j for j in jobs if j['name']=='surface-source']
+          record={'source_run':34153713427,'source_preserved':'def004d60bb37a58a043a3506fb2bbda5c3a0e5c','native_jobs':[(j['id'],j['status']) for j in native]}
+          if len(native)==1 and native[0]['status'] in ['pending','queued','waiting','requested'] and len(built)==1 and built[0]['conclusion']=='success':
+              with urllib.request.urlopen(urllib.request.Request(base+'/cancel',headers=headers,data=b'',method='POST')) as response:record['only_own_unstarted_run_coalesced']=response.status
+          else:record['unchanged']='Predecessor already started/completed; do not cancel. Preserve its distinct images.'
+          from pathlib import Path
+          (Path(os.environ['OUT'])/'OWN-OBSERVATION-COALESCING.json').write_text(json.dumps(record,indent=2));print(record)
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r05-source-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r05
+          retention-days: 1
+  native-combined-observations:
+    needs: correct-native-range
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r05
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact combined source after earlier production renderer completes
+        env:
+          EVIDENCE: ${{ needs.correct-native-range.outputs.evidence }}
+        run: |
+          echo "G4_FOAM_DEADLINE=$(( $(date +%s) + 43*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin "$EVIDENCE"
+          git archive FETCH_HEAD "$OUT" | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore "$OUT"
+          rm -r "$OUT/master-parts"
+      - name: Reuse official native renderer without codec dependencies
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-render.log"
+      - name: Actual original exterior, close water and failed rock camera
+        timeout-minutes: 22
+        env:
+          G4_FOAM_MODE: context
+        run: |
+          remaining=$((G4_FOAM_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/calibrate_g4_native_foam.py 2>&1 | tee "$OUT/context-render.log"
+      - name: Early native coast originals, not generated illustrations
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g4-coast-r05-early-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r05/C01-native-storm-coast.png
+            workspaces/glasshouse-terminus/output/g4-coast-r05/E02-native-wave-foam.png
+            workspaces/glasshouse-terminus/output/g4-coast-r05/E01-native-coastal-rock.png
+            workspaces/glasshouse-terminus/output/g4-coast-r05/build-report.json
+            workspaces/glasshouse-terminus/output/g4-coast-r05/context-render-metrics.json
+          retention-days: 1
+      - name: Native scanned fabric, rain glass and full hall views
+        timeout-minutes: 28
+        env:
+          G4_FOAM_MODE: closeups
+        run: |
+          remaining=$((G4_FOAM_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/calibrate_g4_native_foam.py 2>&1 | tee "$OUT/closeups-render.log"
+      - name: Actual short native wave sequence if remaining time permits
+        timeout-minutes: 12
+        env:
+          G4_FOAM_MODE: motion
+        run: |
+          remaining=$((G4_FOAM_DEADLINE-$(date +%s)))
+          if [ "$remaining" -gt 240 ]; then
+            timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/calibrate_g4_native_foam.py 2>&1 | tee "$OUT/motion-render.log"
+          else
+            printf 'Native motion clip not attempted within finite budget. No animation visual pass claimed.\n' > "$OUT/motion-not-attempted.txt"
+          fi
+      - name: Preserve full editable scene and exact native coverage without automatic acceptance
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py prepare "$OUT"
+          python3 - <<'PY'
+          from pathlib import Path
+          import os,json,hashlib
+          r=Path(os.environ['OUT']);files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<240000000
+          required=['g4-full-scene-candidate.blend','build-report.json','C01-native-storm-coast.png','E02-native-wave-foam.png','E01-native-coastal-rock.png','M04-native-scanned-wool.png','M01-native-rain-glass.png','C03-native-rain-hall.png','context-reopen-check.json','closeups-reopen-check.json']
+          missing=[n for n in required if not (r/n).is_file()]
+          frames=sorted(str(p.relative_to(r)) for p in (r/'motion').glob('*.png')) if (r/'motion').exists() else []
+          (r/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R05','status':'SIX_NATIVE_COMBINED_VIEWS_REVIEW_PENDING' if not missing else 'PARTIAL_OR_FAILED_NOT_ART_PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'missing':missing,'native_motion_frames':frames,'native_motion_complete':len(frames)==10,'source':'Original editable geometry, licensed scans, native procedural sea/rain. No generated images.','storage':'Full blend in ZIP, lossless verified chunks in Git. Restore before checking canonical manifest.','g4_stage_pass':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED'},indent=2))
+          PY
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r05
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r05-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r05
+          retention-days: 1
+          if-no-files-found: error
