@@ -1,0 +1,134 @@
+name: Glasshouse G4 integrated coast continuation and native motion proof
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-combined-motion-proof.yml]
+permissions:
+  contents: read
+jobs:
+  consolidate-pending-review:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Remove only an unstarted superseded intermediate review, never active rendering
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import urllib.request,urllib.error,json,os,base64
+          base='https://api.github.com/repos/yangerstar1/future'
+          def api(path,method='GET'):
+              req=urllib.request.Request(base+path,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},method=method,data=b'' if method=='POST' else None)
+              with urllib.request.urlopen(req,timeout=30) as response:
+                  raw=response.read();return json.loads(raw) if raw else {'http_status':response.status}
+          decision={'scope':'One pending COAST-R03 review only. Its source is already preserved and inherited by COAST-R04. Latest R04 review remains queued; active rain run is never cancelled. Current integrated water and motion coverage is explicitly restored by this workflow.','target_run':34152626028,'cancelled':False}
+          try:
+              latest=api('/actions/runs/34153713427/jobs')['jobs']
+              source=next(j for j in latest if j['name']=='surface-source')
+              assert source['conclusion']=='success'
+              raw=api('/contents/workspaces/glasshouse-terminus/output/g4-coast-r04/build-report.json?ref=def004d60bb37a58a043a3506fb2bbda5c3a0e5c')
+              report=json.loads(base64.b64decode(raw['content']))
+              assert report['candidate_sha256']=='51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c'
+              assert report['parent_master_sha256']=='1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b'
+              run=api('/actions/runs/34152626028');jobs=api('/actions/runs/34152626028/jobs')['jobs']
+              assert run['head_sha']=='9086347b23e69c2d2105ec88e592c4047376c322' and run['head_branch']=='codex/glasshouse-terminus'
+              child=next(j for j in jobs if j['name']=='native-water-review')
+              decision['observed_status']=child['status'];decision['child_job_id']=child['id']
+              if run['status']=='pending' and child['status']=='pending' and not child.get('steps'):
+                  decision['cancel_response']=api('/actions/runs/34152626028/cancel','POST');decision['cancelled']=True
+              else:
+                  decision['skipped']='No cancellation: intermediate review already started or finished. Preserve its actual output.'
+          except Exception as exc:
+              decision['skipped']='No further cancellation attempt: '+type(exc).__name__+': '+str(exc)
+          open('queue-decision.json','w').write(json.dumps(decision,indent=2));print(json.dumps(decision,indent=2))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-continuation-queue-${{ github.run_id }}
+          path: queue-decision.json
+          retention-days: 1
+          if-no-files-found: error
+  integrated-observations:
+    needs: consolidate-pending-review
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r04-motion-proof
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore the already saved combined scene, do not build another revision
+        timeout-minutes: 3
+        run: |
+          echo "G4_COMBINED_PROOF_DEADLINE=$(( $(date +%s) + 24*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin def004d60bb37a58a043a3506fb2bbda5c3a0e5c
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r04 | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r04
+          echo '51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c  workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf 'One finite same-master observation: one1440x900 water still and10native water plus10native rain frames640x400, sampled from30FPS source every3frames, shown at10FPS. No interpolation, generated image, scene save, art revision or final-film claim.30min job/24min production/6min save reserve. Standard public runner, one production renderer, external spend0, downloads1.5GB, disk8GB, proof evidence60MB. Preserve integrated model and old candidates.\n' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/observe_g4_coast_combined_motion.py
+      - name: Reuse locked Blender, no codec or unrelated dependencies
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Missing current-integrated-source water closeup, native resolution
+        timeout-minutes: 10
+        env:
+          G4_COMBINED_PROOF_MODE: water
+        run: |
+          remaining=$((G4_COMBINED_PROOF_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/observe_g4_coast_combined_motion.py 2>&1 | tee "$OUT/water-render.log"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g4-integrated-water-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r04-motion-proof/E02-integrated-water.png
+            workspaces/glasshouse-terminus/output/g4-coast-r04-motion-proof/water-source-check.json
+            workspaces/glasshouse-terminus/output/g4-coast-r04-motion-proof/water-render-metrics.json
+          retention-days: 1
+          if-no-files-found: error
+      - name: Native moving sea and round-rain proof, interleaved and bounded
+        timeout-minutes: 20
+        env:
+          G4_COMBINED_PROOF_MODE: motion
+        run: |
+          remaining=$((G4_COMBINED_PROOF_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/observe_g4_coast_combined_motion.py 2>&1 | tee "$OUT/motion-render.log"
+      - name: Persist actual coverage, source identity and partial frames without art-pass claims
+        if: always()
+        timeout-minutes: 4
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          r=Path(os.environ['OUT']);r.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<60000000
+          counts={k:len(list((r/k).glob('*.png'))) for k in ['ocean','rain']}
+          required=['E02-integrated-water.png','water-reopen-check.json','motion-reopen-check.json']
+          missing=[n for n in required if not (r/n).is_file()]
+          (r/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R04_SAME_MASTER_MOTION_PROOF','status':'NATIVE_PROOF_REVIEW_PENDING' if not missing and all(v==10 for v in counts.values()) else 'PARTIAL_NATIVE_PROOF_NOT_ART_PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'master_sha256':'51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c','source_evidence_commit':'def004d60bb37a58a043a3506fb2bbda5c3a0e5c','source_directory':'workspaces/glasshouse-terminus/output/g4-coast-r04','files':files,'missing':missing,'native_frame_counts':counts,'source_fps':30,'frame_step':3,'display_fps':10,'final_film':False,'g4_stage_pass':False,'human_acceptance':False},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-coast-r04-motion-proof
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r04-motion-proof-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r04-motion-proof
+          retention-days: 1
+          if-no-files-found: error
