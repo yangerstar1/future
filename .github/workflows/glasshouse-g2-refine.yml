@@ -1,0 +1,99 @@
+name: Glasshouse G2 targeted spatial repair
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g2-refine-request.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  refine:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    env:
+      G2_OUTPUT_ROOT: workspaces/glasshouse-terminus/output/g2-review
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Check bounded visual repair and retrieve exact parent master
+        timeout-minutes: 3
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          q=json.loads(Path('workspaces/glasshouse-terminus/g2-refine-request.json').read_text())
+          assert q['stage']=='G2' and q['max_runs']==1 and q['external_spend_usd']==0
+          assert q['parent_evidence_commit']=='453a74c1d0eb668ed483219eb684bf57798d4a8c'
+          assert q['g3_allowed'] is False and q['job_minutes']==60
+          print(json.dumps(q,indent=2))
+          PY
+          git fetch --depth=1 origin 453a74c1d0eb668ed483219eb684bf57798d4a8c
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g2 | tar -x
+          echo 'ef6fa3dd7e291564f2d1c158cb002f07dcf05c071c6f72e34e95c68ca2a22bf0  workspaces/glasshouse-terminus/output/g2/g2-complete-whitebox.blend' | sha256sum --check
+          mkdir -p "$G2_OUTPUT_ROOT"
+      - name: Install the same validated tools
+        timeout-minutes: 8
+        run: |
+          bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$G2_OUTPUT_ROOT/provision.log"
+      - name: Repair only verified support family and framing then render all observations
+        timeout-minutes: 20
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g2/g2-complete-whitebox.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g2.py 2>&1 | tee "$G2_OUTPUT_ROOT/build.log"
+      - name: Return real fixed views for same-condition comparison
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g2-repair-fixed-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g2-review/*.png
+            workspaces/glasshouse-terminus/output/g2-review/*.json
+          if-no-files-found: error
+          retention-days: 1
+      - name: Durable fixed-view candidate checkpoint
+        timeout-minutes: 3
+        run: |
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$G2_OUTPUT_ROOT" g2-repair-fixed
+      - name: Reopen candidate and reuse actual full-route animatic verifier
+        timeout-minutes: 20
+        run: |
+          xvfb-run -a -s '-screen 0 1280x720x24' blender -b "$G2_OUTPUT_ROOT/g2-complete-whitebox.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/render_animatic.py 2>&1 | tee "$G2_OUTPUT_ROOT/animatic.log"
+          ffmpeg -y -framerate 10 -i "$G2_OUTPUT_ROOT/animatic-frames/%04d.png" -c:v libx264 -crf 18 -pix_fmt yuv420p -metadata comment='G2 WHITEBOX REVIEW CANDIDATE: native Workbench 640x360 10FPS, NOT final 4K film' "$G2_OUTPUT_ROOT/whitebox-28s.mp4"
+          ffprobe -v error -count_frames -show_streams -show_format -of json "$G2_OUTPUT_ROOT/whitebox-28s.mp4" > "$G2_OUTPUT_ROOT/animatic-media.json"
+      - name: Preserve candidate and truthful completion state without workflow files
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib,shutil
+          from pathlib import Path
+          root=Path(os.environ['G2_OUTPUT_ROOT']);root.mkdir(parents=True,exist_ok=True)
+          frames=root/'animatic-frames';selected=root/'continuity-frames';selected.mkdir(exist_ok=True)
+          indices=set(range(0,280,20))|set(range(95,121,5))|set(range(130,221,5))|{0,29,30,69,70,129,130,219,220,279}
+          if frames.exists():
+              for i in sorted(indices):
+                  p=frames/f'{i:04d}.png'
+                  if p.is_file():shutil.copy2(p,selected/p.name)
+              if (root/'whitebox-28s.mp4').exists():shutil.rmtree(frames)
+          files={};total=0
+          for p in root.rglob('*'):
+              if p.is_file():
+                  b=p.stat().st_size;total+=b
+                  assert b<90_000_000
+                  files[str(p.relative_to(root))]={'bytes':b,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+          assert total<180_000_000
+          complete=(root/'whitebox-28s.mp4').is_file() and (root/'repair-report.json').is_file() and len(list(root.glob('C0[1-9].png')))==9
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G2','status':'CHALLENGER_REVIEW_PENDING_NOT_FINAL_ART' if complete else 'PARTIAL_REPAIR_NOT_A_PASS','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'parent_evidence_commit':'453a74c1d0eb668ed483219eb684bf57798d4a8c','files':files,'total_bytes':total,'g1_browser_gate':'BLOCKED_UNCHANGED','human_acceptance':False},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$G2_OUTPUT_ROOT" g2-repair
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g2-repair-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g2-review
+          retention-days: 1
+          if-no-files-found: error
