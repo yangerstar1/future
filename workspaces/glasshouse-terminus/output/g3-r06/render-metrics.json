@@ -1,0 +1,170 @@
+[
+  {
+    "view": "G3R03_roof_node",
+    "file": "D01-roof-node.png",
+    "frame": 451,
+    "seconds": 102.03183275200001,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 55.0,
+    "position": [
+      -1.0,
+      3.9000000953674316,
+      5.150000095367432
+    ],
+    "rotation": [
+      1.5990432500839233,
+      -1.4562282046881592e-08,
+      0.9702551960945129
+    ],
+    "lighting": "night",
+    "native_render": true,
+    "source_master_sha256": "65ef58c38685aa6ef26aa0f2d5116e1535e879f4a2b01975100d71be7cb7de26",
+    "adaptive_threshold": 0.04
+  },
+  {
+    "view": "G3R03_complete_bay",
+    "file": "R06-complete-bay-night.png",
+    "frame": 451,
+    "seconds": 157.251630743,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      0.800000011920929,
+      -3.0,
+      3.0999999046325684
+    ],
+    "rotation": [
+      1.50106680393219,
+      -3.242253754365265e-08,
+      0.43240782618522644
+    ],
+    "lighting": "night",
+    "native_render": true,
+    "source_master_sha256": "65ef58c38685aa6ef26aa0f2d5116e1535e879f4a2b01975100d71be7cb7de26",
+    "adaptive_threshold": 0.04
+  },
+  {
+    "view": "G3_D01",
+    "file": "D01-glass-metal.png",
+    "frame": 451,
+    "seconds": 115.97290842000007,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 60.0,
+    "position": [
+      -1.899999976158142,
+      4.5,
+      3.0999999046325684
+    ],
+    "rotation": [
+      1.7133949995040894,
+      4.118040664025102e-08,
+      0.7803220152854919
+    ],
+    "lighting": "night",
+    "native_render": true,
+    "source_master_sha256": "65ef58c38685aa6ef26aa0f2d5116e1535e879f4a2b01975100d71be7cb7de26",
+    "adaptive_threshold": 0.04
+  },
+  {
+    "view": "G3_bay",
+    "file": "G3-bay-night.png",
+    "frame": 451,
+    "seconds": 141.68696432799993,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 42.0,
+    "position": [
+      0.30000001192092896,
+      0.25,
+      2.700000047683716
+    ],
+    "rotation": [
+      1.5203306674957275,
+      2.7329100760198344e-08,
+      0.4493412971496582
+    ],
+    "lighting": "night",
+    "native_render": true,
+    "source_master_sha256": "65ef58c38685aa6ef26aa0f2d5116e1535e879f4a2b01975100d71be7cb7de26",
+    "adaptive_threshold": 0.04
+  },
+  {
+    "view": "G3R03_complete_bay",
+    "file": "R06-complete-bay-neutral.png",
+    "frame": 451,
+    "seconds": 127.10423774200001,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      0.800000011920929,
+      -3.0,
+      3.0999999046325684
+    ],
+    "rotation": [
+      1.50106680393219,
+      -3.242253754365265e-08,
+      0.43240782618522644
+    ],
+    "lighting": "neutral",
+    "native_render": true,
+    "source_master_sha256": "65ef58c38685aa6ef26aa0f2d5116e1535e879f4a2b01975100d71be7cb7de26",
+    "adaptive_threshold": 0.04
+  },
+  {
+    "view": "G3R04_door_unoccluded",
+    "file": "D05-unoccluded-interface.png",
+    "frame": 451,
+    "seconds": 106.23766696799998,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 28.0,
+    "position": [
+      -2.0,
+      7.400000095367432,
+      2.4600000381469727
+    ],
+    "rotation": [
+      1.528652548789978,
+      -0.0,
+      0.0
+    ],
+    "lighting": "night",
+    "native_render": true,
+    "source_master_sha256": "65ef58c38685aa6ef26aa0f2d5116e1535e879f4a2b01975100d71be7cb7de26",
+    "adaptive_threshold": 0.04
+  }
+]
