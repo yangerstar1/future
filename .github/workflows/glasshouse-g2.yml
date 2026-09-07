@@ -19,7 +19,7 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Check explicit prior visual gate and finite request
+      - name: Check prior visual gate and bounded recovery request
         run: |
           python3 - <<'PY'
           import json
@@ -30,14 +30,16 @@ jobs:
           assert request['external_spend_usd']==0
           assert 0<request['job_minutes']<=60
           assert request['evidence_run_id']
+          assert request['reserve_for_save_and_retrieval_minutes']>=18
           print(json.dumps(request,indent=2))
           PY
       - name: Install validated tools in ephemeral standard runner
+        timeout-minutes: 8
         run: |
           mkdir -p workspaces/glasshouse-terminus/output/g2
           bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee workspaces/glasshouse-terminus/output/g2/provision.log
       - name: Build complete A-E geometry and fixed Cycles C01-C09 observations
-        timeout-minutes: 30
+        timeout-minutes: 15
         run: |
           blender -b --factory-startup -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/build_g2.py 2>&1 | tee workspaces/glasshouse-terminus/output/g2/build.log
       - name: Return fixed-view contact evidence before motion rendering
@@ -50,14 +52,19 @@ jobs:
             workspaces/glasshouse-terminus/output/g2/layout-and-route.json
           retention-days: 1
           if-no-files-found: error
+      - name: Persist fixed-view checkpoint without workflow files
+        timeout-minutes: 3
+        run: |
+          bash workspaces/glasshouse-terminus/publish_evidence.sh workspaces/glasshouse-terminus/output/g2 g2-fixed
       - name: Reopen Cycles master and render native low-cost whitebox movement
-        timeout-minutes: 22
+        timeout-minutes: 17
         run: |
           xvfb-run -a -s '-screen 0 1280x720x24' blender -b workspaces/glasshouse-terminus/output/g2/g2-complete-whitebox.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/render_animatic.py 2>&1 | tee workspaces/glasshouse-terminus/output/g2/animatic.log
           ffmpeg -y -framerate 10 -i workspaces/glasshouse-terminus/output/g2/animatic-frames/%04d.png -c:v libx264 -crf 18 -pix_fmt yuv420p -metadata comment='G2 WORKBENCH WHITEBOX PREVIS: native 640x360 10FPS, not final 4K30 film or material evidence' workspaces/glasshouse-terminus/output/g2/whitebox-28s.mp4
           ffprobe -v error -show_streams -show_format -of json workspaces/glasshouse-terminus/output/g2/whitebox-28s.mp4 > workspaces/glasshouse-terminus/output/g2/animatic-media.json
-      - name: Preserve actual scene observations and selected raw continuity frames
+      - name: Preserve observations with the existing contents-only publisher
         if: always()
+        timeout-minutes: 5
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -77,14 +84,10 @@ jobs:
                   assert p.stat().st_size<90_000_000,str(p)+' exceeds per-file recovery bound'
                   files[str(p.relative_to(root))]={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
           assert total<180_000_000,'Transfer budget exceeded; do not silently drop evidence'
-          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G2','status':'WHITEBOX_REVIEW_PENDING_NOT_FINAL_ART','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':files,'total_bytes':total},indent=2))
+          complete=(root/'whitebox-28s.mp4').is_file() and (root/'evaluated-space-check.json').is_file() and len(list(root.glob('C*.png')))>=9
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G2','status':'WHITEBOX_REVIEW_PENDING_NOT_FINAL_ART' if complete else 'PARTIAL_RECOVERY_NOT_A_PASS','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'run_attempt':os.environ['GITHUB_RUN_ATTEMPT'],'prior_failed_run':33930258391,'g1_browser_gate':'BLOCKED_UNCHANGED','files':files,'total_bytes':total},indent=2))
           PY
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git switch -c evidence/g2-${GITHUB_RUN_ID}
-          git add workspaces/glasshouse-terminus/output/g2
-          git diff --staged --quiet || git commit -m "evidence: complete G2 candidate ${GITHUB_RUN_ID}; review pending"
-          git push origin HEAD
+          bash workspaces/glasshouse-terminus/publish_evidence.sh workspaces/glasshouse-terminus/output/g2 g2
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
