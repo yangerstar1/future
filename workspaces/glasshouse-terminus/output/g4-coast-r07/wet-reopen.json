@@ -1,0 +1,9 @@
+{
+  "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+  "master_unchanged": true,
+  "missing_external_images": [],
+  "fresh_process": true,
+  "new_frames": 1,
+  "g4_stage_pass": false,
+  "human_acceptance": false
+}

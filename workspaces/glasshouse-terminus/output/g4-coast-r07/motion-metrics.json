@@ -1,0 +1,272 @@
+[
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "0000.png",
+    "frame": 451,
+    "seconds": 69.48958369799993,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": true
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "0001.png",
+    "frame": 454,
+    "seconds": 69.37511836399995,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": true
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "0002.png",
+    "frame": 457,
+    "seconds": 69.4924427630001,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": true
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "0003.png",
+    "frame": 460,
+    "seconds": 69.6837739250002,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": true
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "0004.png",
+    "frame": 463,
+    "seconds": 69.38479886299979,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": true
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "0005.png",
+    "frame": 466,
+    "seconds": 69.73883545700005,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": true
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "0006.png",
+    "frame": 469,
+    "seconds": 69.91870130000007,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": true
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "0007.png",
+    "frame": 472,
+    "seconds": 69.77938730899996,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": true
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "0008.png",
+    "frame": 475,
+    "seconds": 69.50719105299981,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": true
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "0009.png",
+    "frame": 478,
+    "seconds": 69.56219135999982,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": true
+  }
+]

@@ -1,0 +1,248 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R07",
+  "run_id": "34163114491",
+  "source_sha": "35b17c626513893b54113cabefad9225d4fea297",
+  "files": {
+    "motion-metrics.json": {
+      "bytes": 5920,
+      "sha256": "75f34290b7389ef8a2a766f7fc773d0df4c65ac4bc45f01b38df89d8f6d527cd"
+    },
+    "wet-reopen.json": {
+      "bytes": 249,
+      "sha256": "797b8dbb277ddedb9262867027d2d2d17141806b87133d5c0abce9f7d03261ce"
+    },
+    "MASTER-PARTS.json": {
+      "bytes": 970,
+      "sha256": "b7acc2c04baaf620a400e0980b235249464dbdd52bcdebe0db8c58ea59d0cb88"
+    },
+    "build.log": {
+      "bytes": 401,
+      "sha256": "2fc1e604b160b05e0bb02e11bda71b4fd59d6f2e20c3489bf224b95f34854ab2"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "MASTER-RESTORE.txt": {
+      "bytes": 308,
+      "sha256": "9f84813ca2379a0e1390eb5657c394dd5a81cc21eb9e844f45fc10b341999e25"
+    },
+    "wet-metrics.json": {
+      "bytes": 605,
+      "sha256": "5ff383a84d86fd6eb7cea1fb4c9928f9f13de2d865af2c5f3dfe86281bee92f4"
+    },
+    "PARENT-R03-build-report.json": {
+      "bytes": 136727,
+      "sha256": "c5eaf036bbb1eec865ce6ff8d506de204241497cc813bf4d88a0774156c49bf1"
+    },
+    "context-metrics.json": {
+      "bytes": 571,
+      "sha256": "702d49bf9b74544476b800623c04bf985934f0b891fa1d52c624ebaa6d4afd2f"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "volume-diagnostics.json": {
+      "bytes": 373,
+      "sha256": "7ba51b3465f51af79ba0bfdc4fd614fb28066c3b4419d97cb44e94749df8bec9"
+    },
+    "motion-reopen.json": {
+      "bytes": 250,
+      "sha256": "7a07c7d278514c692e8036d28b39065b15100a8f3dd4185f7096f0117f4fbd44"
+    },
+    "M03-lit-wet-stone.png": {
+      "bytes": 1184393,
+      "sha256": "3a838945a62a16156922e90cd306650cc67357a00964806fe4d2e8572d740201"
+    },
+    "motion.log": {
+      "bytes": 4817898,
+      "sha256": "7895f98aac11628f37ae4b2fea4de0805d80575310f765171d3e25d8b6dd4854"
+    },
+    "M01-moving-surface-rain.png": {
+      "bytes": 2193448,
+      "sha256": "7d3d3bcbc55a00f60c2b769f7b3fcae93fdd7476e8078857a634c1204feb9636"
+    },
+    "rain.log": {
+      "bytes": 492042,
+      "sha256": "d50d8c79ff39171d062feae17084ecfcd39a3fec626a71795ff0d2966df7cb26"
+    },
+    "ASSET-AND-API-PROBE.json": {
+      "bytes": 26320,
+      "sha256": "4ce7ed749df485ceac44e0913a0e1b3ef1e6bc6afb665b3277c26e1cb85344a9"
+    },
+    "restore_master.py": {
+      "bytes": 3552,
+      "sha256": "36eb86b8f1156065112bb5ff350a9c6e606cc34f127bdc4f7db1bbcff94071f6"
+    },
+    "g4-full-scene-candidate.blend": {
+      "bytes": 154130427,
+      "sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396"
+    },
+    "COAST-R04-build-report.json": {
+      "bytes": 18831,
+      "sha256": "37803d3a967ec8d42b4ee0ad045426372ea169960151ef3ca97d699731450cec"
+    },
+    "COAST-R05-build-report.json": {
+      "bytes": 6076,
+      "sha256": "e21bc4c16a7d02edcaac65f534f6e1e4267cd9aca376d75dbccf35bc3e79031d"
+    },
+    "COAST-R01-build-report.json": {
+      "bytes": 13117,
+      "sha256": "f4f902b3ac176672abf1a20032324b67da3c8bb8afdb9f20c1f9580ff4d80afb"
+    },
+    "STORM-ASSET-SOURCES.json": {
+      "bytes": 5222,
+      "sha256": "cf382970397232ae1ec7ac025f73469731816d68730233e0ec916a8742993370"
+    },
+    "normal-preflight.json": {
+      "bytes": 886,
+      "sha256": "b4258ca45d6e94b868519c554628e1bebd13a42be5b2506c43453981169aae06"
+    },
+    "COAST-R02-build-report.json": {
+      "bytes": 2239,
+      "sha256": "79eab19add15f235f4547d8330fa75c7dcf475c4bda91bfb5bee645591e3671b"
+    },
+    "FINITE-REQUEST.txt": {
+      "bytes": 535,
+      "sha256": "78dd2c2ee91129c86cba3ae8c3eade6ae1222f08d4ccb3420070396c88784092"
+    },
+    "COAST-R06-build-report.json": {
+      "bytes": 201266,
+      "sha256": "949d642f9c585ac560e76481bf53534d2800ef40765aa157d6e11e01d1d0f5d8"
+    },
+    "rain-reopen.json": {
+      "bytes": 249,
+      "sha256": "797b8dbb277ddedb9262867027d2d2d17141806b87133d5c0abce9f7d03261ce"
+    },
+    "C03-runoff-hall.png": {
+      "bytes": 1850576,
+      "sha256": "61c1f69686f42aaebf43b3d39c7e341d0bf72f243cc97abe49097203cef76e95"
+    },
+    "rain-metrics.json": {
+      "bytes": 612,
+      "sha256": "15b450f5b5587d93e9fb3d9fd76cc3222ef87eff652073cafb44fbd600ec2545"
+    },
+    "COAST-R03-build-report.json": {
+      "bytes": 2350,
+      "sha256": "fd4065009b83102f7047137591255b71db6112639b767781345fcfa1229992ea"
+    },
+    "provision-source.log": {
+      "bytes": 8856,
+      "sha256": "0fced9b18f479863418630320881fe3a16b8195a53f79a4a05221493a183c9a7"
+    },
+    "context.log": {
+      "bytes": 969236,
+      "sha256": "123701c42673bf80ab0bfed42b055b039ac24da5191bcf9aa1acf81c82b5bbaa"
+    },
+    "provision-render.log": {
+      "bytes": 8777,
+      "sha256": "19a47dd0c564f51c9f6a0e97f231f01ab55679a210ce2f4179c785f602e12616"
+    },
+    "build-report.json": {
+      "bytes": 148550,
+      "sha256": "675a91facd85746c0591e4c73e7e14b275272b59fd364f62a425ad26e5966f55"
+    },
+    "wet.log": {
+      "bytes": 487872,
+      "sha256": "66da997b958dc9c8591f2306cfdbb68ca1c85707fb4b06c29a88bccf54983f45"
+    },
+    "SURFACE-ASSET-SOURCES.json": {
+      "bytes": 2994,
+      "sha256": "3700333aaac1b4d99ee438a8b31db0b1f664a141e8c70d241fc769e140164422"
+    },
+    "motion/0001.png": {
+      "bytes": 406586,
+      "sha256": "e47c892786b35cee22ac9a226763476978e415073278ba7c65416521dd229570"
+    },
+    "motion/0002.png": {
+      "bytes": 406104,
+      "sha256": "0dc15dc5eee8d647366f63b5d40ce0501eac2a9f64588e87dea2cb96a2e2c30f"
+    },
+    "motion/0005.png": {
+      "bytes": 405724,
+      "sha256": "c2f11062f16cca26c7584a4bf6b4db8e51ef3de0a0a240709d02725d405a9da5"
+    },
+    "motion/0009.png": {
+      "bytes": 406527,
+      "sha256": "eca7ec70e8370bb6f9ce382e107f2b19e42dc1dc23c3b48f997a1f820e2aba58"
+    },
+    "motion/0004.png": {
+      "bytes": 405604,
+      "sha256": "435b9f926eb198a364d1151ddaf5facc9485dc09fd37dd428fcb65c779ff5dce"
+    },
+    "motion/0007.png": {
+      "bytes": 405722,
+      "sha256": "5b07957c8455e7d17faf4cc3bb22380f548d0c41b3249d9764568efb4200865e"
+    },
+    "motion/0003.png": {
+      "bytes": 406201,
+      "sha256": "ba00403a56370f9d9d17e7ddfaa56ff6a5f665e4745a9be06fb61d6acf533b9e"
+    },
+    "motion/0006.png": {
+      "bytes": 405834,
+      "sha256": "ac4eb2afe2e2004602ae442db94932f065320f2bf1f26ff1b278418829733b07"
+    },
+    "motion/0000.png": {
+      "bytes": 406117,
+      "sha256": "fa608b8bd79878de6cc5a25ef69a5627f972557fb9b3ff1d6e7fcad6da315d8b"
+    },
+    "motion/0008.png": {
+      "bytes": 406200,
+      "sha256": "42689e76691d6bbbb409e4a9b1408481e350b1a8e501b1f61569e2b0711cec32"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_diff_4k.jpg": {
+      "bytes": 13605843,
+      "sha256": "a72582be1337c11e2e59a03e01ef0270f2c0f455a410c5cc667df9682e2c76ce"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_nor_gl_4k.jpg": {
+      "bytes": 14307275,
+      "sha256": "d58370b656d08316b9aca02c3f627e0ffcf2dd22873c4cbeb343321ccd044620"
+    },
+    "assets/poly_wool_herringbone/upstream-info.json": {
+      "bytes": 1126,
+      "sha256": "faa965db26931d0ed3a341b8d3c6b6fe5cfbb1f9f55f4236a3fba8cf6391e377"
+    },
+    "assets/poly_wool_herringbone/upstream-files.json": {
+      "bytes": 59902,
+      "sha256": "e551a61f9486aeec7efa27e9e009bf12c52497e6718341335c0b5acbd37f77f1"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_rough_4k.jpg": {
+      "bytes": 15049055,
+      "sha256": "04ba7ce77111a715fd689aa420a6e880b3d166a11e2e9068ae52c0235f2c3329"
+    },
+    "assets/kloofendal_overcast_puresky/kloofendal_overcast_puresky_2k.hdr": {
+      "bytes": 4335717,
+      "sha256": "312b1b04b7f10057a4f1418abc59d1166c8933cc93fc72051502edaf8d6b2fcd"
+    },
+    "assets/kloofendal_overcast_puresky/upstream-info.json": {
+      "bytes": 1345,
+      "sha256": "fd079df4389329cb1393a2ba7a2dbe153d6ecf3d1d12de2c6543c9a20ea625b6"
+    },
+    "assets/kloofendal_overcast_puresky/upstream-files.json": {
+      "bytes": 2830,
+      "sha256": "0eba63450bfabd5d0fbfdc562107fb5ee40ea23bfe2ff00f13829ca6a11d265d"
+    }
+  },
+  "missing": [
+    "C01-runoff-coast.png",
+    "context-reopen.json"
+  ],
+  "status": "PARTIAL_OR_FAILED_NOT_ART_PASS",
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "scope": "Four original-camera native stills and ten640x400 motion frames from the same integrated scene. Source30fps sampled every3frames; not final movie, no generated frames or interpolated motion."
+}

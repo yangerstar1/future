@@ -1,0 +1,29 @@
+[
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "M01-moving-surface-rain.png",
+    "frame": 451,
+    "seconds": 760.592453705,
+    "resolution": [
+      1600,
+      1000
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": false
+  }
+]

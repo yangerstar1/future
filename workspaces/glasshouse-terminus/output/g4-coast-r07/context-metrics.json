@@ -1,0 +1,29 @@
+[
+  {
+    "view": "C03_hall_to_platform",
+    "file": "C03-runoff-hall.png",
+    "frame": 451,
+    "seconds": 465.8438758709999,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 35.0,
+    "position": [
+      8.0,
+      -4.5,
+      3.0
+    ],
+    "rotation": [
+      1.5506188869476318,
+      7.001838753240008e-08,
+      0.7378150224685669
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": false
+  }
+]

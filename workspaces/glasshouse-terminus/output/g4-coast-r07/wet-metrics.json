@@ -1,0 +1,29 @@
+[
+  {
+    "view": "G4R03_wet_stone_macro",
+    "file": "M03-lit-wet-stone.png",
+    "frame": 451,
+    "seconds": 250.55719405199997,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 55.0,
+    "position": [
+      -4.0,
+      -8.479999542236328,
+      0.6299999952316284
+    ],
+    "rotation": [
+      1.1598464250564575,
+      5.411650505493526e-08,
+      0.8803502917289734
+    ],
+    "native_render": true,
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "proof_only": false
+  }
+]
