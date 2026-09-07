@@ -1,0 +1,133 @@
+{
+  "credit": "Powered by Poly Haven",
+  "scope": "Selected cliff scan and rock surface only; station/train remain original. No generated image textures.",
+  "assets": [
+    {
+      "asset_id": "coastal_cliff_04",
+      "source": "https://polyhaven.com/a/coastal_cliff_04",
+      "authors": {
+        "Rob Tuytel": "Photography, processing",
+        "Rico Cilliers": "cleanup"
+      },
+      "license": "CC0-1.0",
+      "license_source": "https://polyhaven.com/license",
+      "upstream_dimensions": [
+        86773.23913574219,
+        24247.532844543457,
+        10999.708712100983
+      ],
+      "files": [
+        {
+          "path": "coastal_cliff_04/coastal_cliff_04_2k.gltf",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/coastal_cliff_04/coastal_cliff_04_2k.gltf",
+          "bytes": 2828,
+          "sha256": "b0b1298ae7399404a8be7e894ae68c120ebe55835b6ea6bba6c29bbc211b2919",
+          "md5_verified": true,
+          "reused_bytes": true
+        },
+        {
+          "path": "coastal_cliff_04/coastal_cliff_04.bin",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/coastal_cliff_04/coastal_cliff_04.bin",
+          "bytes": 43704136,
+          "sha256": "f7c3a18acc848552b91b0de931ba8439d5f2a8849bd0d4ac718878aa4a90abcf",
+          "md5_verified": true,
+          "reused_bytes": true
+        },
+        {
+          "path": "coastal_cliff_04/textures/coastal_cliff_04_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/coastal_cliff_04/coastal_cliff_04_arm_2k.jpg",
+          "bytes": 2753906,
+          "sha256": "d341cd1cbb32d3d5e06d4f17bc500fe50d330cef5546fd3559f2a8aa08714446",
+          "md5_verified": true,
+          "reused_bytes": true
+        },
+        {
+          "path": "coastal_cliff_04/textures/coastal_cliff_04_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/coastal_cliff_04/coastal_cliff_04_diff_2k.jpg",
+          "bytes": 2900951,
+          "sha256": "ffb03e9b43a4c5c44b5894bb79db473acd1b9119a3243c60ccee2a3d834bec75",
+          "md5_verified": true,
+          "reused_bytes": true
+        },
+        {
+          "path": "coastal_cliff_04/textures/coastal_cliff_04_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/coastal_cliff_04/coastal_cliff_04_nor_gl_2k.jpg",
+          "bytes": 4733530,
+          "sha256": "66c0d6e808c9f4d5ce36608b253e54eea3bfff913f80902d64fe52ff2f5ee571",
+          "md5_verified": true,
+          "reused_bytes": true
+        }
+      ],
+      "entry": "coastal_cliff_04/coastal_cliff_04_2k.gltf",
+      "gltf_nodes": [
+        "coastal_cliff_04"
+      ],
+      "gltf_materials": [
+        "coastal_cliff_04"
+      ]
+    },
+    {
+      "asset_id": "seaside_rock",
+      "source": "https://polyhaven.com/a/seaside_rock",
+      "authors": {
+        "Dimitrios Savva": "All"
+      },
+      "license": "CC0-1.0",
+      "license_source": "https://polyhaven.com/license",
+      "upstream_dimensions": [
+        2000,
+        2000
+      ],
+      "files": [
+        {
+          "path": "seaside_rock/seaside_rock_diff_4k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/seaside_rock/seaside_rock_diff_4k.jpg",
+          "bytes": 14287458,
+          "sha256": "dcdeecd9efcabbe96b2f8f04a659370a7eb3a576526bbeec9a0c161d59af607d",
+          "md5_verified": true,
+          "reused_bytes": false,
+          "role": "diff",
+          "resolution": "4k",
+          "metadata_key": "Diffuse"
+        },
+        {
+          "path": "seaside_rock/seaside_rock_nor_gl_4k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/seaside_rock/seaside_rock_nor_gl_4k.jpg",
+          "bytes": 17564940,
+          "sha256": "82195858363e168fac235c5c369d27896523798f937197b98d9b9780408a2cee",
+          "md5_verified": true,
+          "reused_bytes": false,
+          "role": "nor_gl",
+          "resolution": "4k",
+          "metadata_key": "nor_gl"
+        },
+        {
+          "path": "seaside_rock/seaside_rock_rough_4k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/seaside_rock/seaside_rock_rough_4k.jpg",
+          "bytes": 6185893,
+          "sha256": "c012c69f70ce3bb5719c299b68c169f8f8755fcdbb051175a5d4a73c0f473e56",
+          "md5_verified": true,
+          "reused_bytes": false,
+          "role": "rough",
+          "resolution": "4k",
+          "metadata_key": "Rough"
+        },
+        {
+          "path": "seaside_rock/seaside_rock_disp_2k.png",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/seaside_rock/seaside_rock_disp_2k.png",
+          "bytes": 6170255,
+          "sha256": "c80a1449d2e32d29bab0730f5369fc355825f20873e37ffe16e3357ad606e648",
+          "md5_verified": true,
+          "reused_bytes": false,
+          "role": "disp",
+          "resolution": "2k",
+          "metadata_key": "Displacement"
+        }
+      ]
+    }
+  ],
+  "downloaded_bytes_this_recovery": 44208546,
+  "max_bytes": 180000000,
+  "recovery_from": "8a458ecbc1a345189bef0efb99e1caffb5c3ea1f",
+  "corrected_failure": "Official channel keys are Diffuse/Rough/Displacement rather than assumed lowercase aliases."
+}

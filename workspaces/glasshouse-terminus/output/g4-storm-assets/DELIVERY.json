@@ -1,0 +1,98 @@
+{
+  "stage": "G4_ASSET_PREFLIGHT_NO_RENDER",
+  "source_sha": "2c6ac6a58b3abc595b14a55e54c5d61a513cef99",
+  "run_id": "34148596427",
+  "files": {
+    "RECOVERY-REQUEST.txt": {
+      "bytes": 326,
+      "sha256": "7e917c479332ab353e561179a6f00dc72d8f869037031b7969b96d1bdb2bdee1"
+    },
+    "probe.log": {
+      "bytes": 26683,
+      "sha256": "76482f7e41dbc89d3c424c4d29e1912349c1f24fd71ac9b39998bc1efda69b7c"
+    },
+    "ASSET-AND-API-PROBE.json": {
+      "bytes": 26320,
+      "sha256": "4ce7ed749df485ceac44e0913a0e1b3ef1e6bc6afb665b3277c26e1cb85344a9"
+    },
+    "PRIOR-FAILED-DELIVERY.json": {
+      "bytes": 1969,
+      "sha256": "492cfb8533fc735f908942722a516aeff017bc9dd2f5f8a296cb33e260b312df"
+    },
+    "STORM-ASSET-SOURCES.json": {
+      "bytes": 5222,
+      "sha256": "cf382970397232ae1ec7ac025f73469731816d68730233e0ec916a8742993370"
+    },
+    "FINITE-REQUEST.txt": {
+      "bytes": 325,
+      "sha256": "66e59d89461edb97fc213f8896e05c63c4063c5457ea15e0aa0f2674c44540ba"
+    },
+    "provision.log": {
+      "bytes": 41062,
+      "sha256": "5048750e4716c2d73c0d48172e0947d45c8c7ff4f2443a5cecfde2c0e74b9b4b"
+    },
+    "PRIOR-FAILED-asset-download.log": {
+      "bytes": 339,
+      "sha256": "f873ae5df076f6ec5eb3344443d97d76c683137eb569937fb47794510e1ed244"
+    },
+    "asset-download.log": {
+      "bytes": 5223,
+      "sha256": "b68c169f4e2d3780a9a6b394727b07cc579707a83e312993df561ed8a883893c"
+    },
+    "seaside_rock/source-files.json": {
+      "bytes": 34048,
+      "sha256": "4dc0de73a8f0179a82762e74f32b4079619f0d78df79d7f0ac0a87444f85c5aa"
+    },
+    "seaside_rock/seaside_rock_disp_2k.png": {
+      "bytes": 6170255,
+      "sha256": "c80a1449d2e32d29bab0730f5369fc355825f20873e37ffe16e3357ad606e648"
+    },
+    "seaside_rock/seaside_rock_diff_4k.jpg": {
+      "bytes": 14287458,
+      "sha256": "dcdeecd9efcabbe96b2f8f04a659370a7eb3a576526bbeec9a0c161d59af607d"
+    },
+    "seaside_rock/source-info.json": {
+      "bytes": 1055,
+      "sha256": "16372893299f8f4f03a912332dda6a6fff4b45709c878dda7aa28bb95a110d12"
+    },
+    "seaside_rock/seaside_rock_rough_4k.jpg": {
+      "bytes": 6185893,
+      "sha256": "c012c69f70ce3bb5719c299b68c169f8f8755fcdbb051175a5d4a73c0f473e56"
+    },
+    "seaside_rock/seaside_rock_nor_gl_4k.jpg": {
+      "bytes": 17564940,
+      "sha256": "82195858363e168fac235c5c369d27896523798f937197b98d9b9780408a2cee"
+    },
+    "coastal_cliff_04/coastal_cliff_04.bin": {
+      "bytes": 43704136,
+      "sha256": "f7c3a18acc848552b91b0de931ba8439d5f2a8849bd0d4ac718878aa4a90abcf"
+    },
+    "coastal_cliff_04/source-files.json": {
+      "bytes": 34604,
+      "sha256": "c79a266abaaf201ecd9efd255581ed26a7489234566a5e2bbe06a2f52173549a"
+    },
+    "coastal_cliff_04/coastal_cliff_04_2k.gltf": {
+      "bytes": 2828,
+      "sha256": "b0b1298ae7399404a8be7e894ae68c120ebe55835b6ea6bba6c29bbc211b2919"
+    },
+    "coastal_cliff_04/source-info.json": {
+      "bytes": 1417,
+      "sha256": "d129457a98e436f570abdd95ddb7ef6a93d5e410c45721505a563c1039b4249f"
+    },
+    "coastal_cliff_04/textures/coastal_cliff_04_arm_2k.jpg": {
+      "bytes": 2753906,
+      "sha256": "d341cd1cbb32d3d5e06d4f17bc500fe50d330cef5546fd3559f2a8aa08714446"
+    },
+    "coastal_cliff_04/textures/coastal_cliff_04_nor_gl_2k.jpg": {
+      "bytes": 4733530,
+      "sha256": "66c0d6e808c9f4d5ce36608b253e54eea3bfff913f80902d64fe52ff2f5ee571"
+    },
+    "coastal_cliff_04/textures/coastal_cliff_04_diff_2k.jpg": {
+      "bytes": 2900951,
+      "sha256": "ffb03e9b43a4c5c44b5894bb79db473acd1b9119a3243c60ccee2a3d834bec75"
+    }
+  },
+  "complete": true,
+  "renderer_calls": 0,
+  "human_acceptance": false
+}

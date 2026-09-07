@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/runner/work/future/future/workspaces/glasshouse-terminus/prepare_g4_storm_assets.py", line 58, in <module>
+    assert fmt in variants,(asset,role,res,'Actual descriptor unavailable')
+           ^^^^^^^^^^^^^^^
+AssertionError: ('seaside_rock', 'diff', '4k', 'Actual descriptor unavailable')
