@@ -1,0 +1,17 @@
+{
+  "object": "G4COAST_R06_roof_and_leeward_water_caps",
+  "cap_count": 2752,
+  "signed_volume_before": {
+    "positive": 0,
+    "negative": 2752,
+    "zero": 0
+  },
+  "reversed_caps": 2752,
+  "all_closed_cap_volumes_positive": true,
+  "absolute_canonical_volumes_unchanged": true,
+  "vertex_positions_sha256": "1b74950a3a6a6e09340daff5ec7a23acc30a95fe2ce34cb4ff6d8d22c0a79be7",
+  "unordered_topology_sha256": "6a81f0c4f5015ef25e71f22a4c1b6d8b4fdd4b979c1ed993d4e9ae766f3472fe",
+  "only_polygon_winding_changed": true,
+  "reason": "The cap tangent/across frame was left-handed; corrected actual mesh normals, not ray flags or material visibility.",
+  "preflight_retry": "Previous run34157504720 stopped before save because automatic loop triangulation changed its polygon diagonals after reversal. This method compares the same canonical fan without relaxing the geometric invariants."
+}

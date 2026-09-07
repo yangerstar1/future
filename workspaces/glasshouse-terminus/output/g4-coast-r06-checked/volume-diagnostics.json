@@ -1,0 +1,12 @@
+{
+  "signed_volume_before": {
+    "positive": 0,
+    "negative": 2752,
+    "zero": 0
+  },
+  "positive_after": 2752,
+  "positions_equal": true,
+  "unordered_topology_equal": true,
+  "max_absolute_canonical_volume_difference": 1.3234889800848443e-23,
+  "volume_method": "Canonical polygon fan anchored at smallest saved vertex ID; double precision after local translation."
+}

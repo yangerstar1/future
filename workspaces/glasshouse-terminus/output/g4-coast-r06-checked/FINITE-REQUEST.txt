@@ -1,0 +1,1 @@
+First diagnosed preflight retry: canonical vertex-anchored triangulation replaces orientation-dependent loop triangulation; not a relaxed geometry criterion. Source10min, replacement renderer52min with45min production/7min reserve, single public standard renderer,external spend0,download1.5GB,disk8GB,evidence300MB. No full rebuild or automatic art pass.
