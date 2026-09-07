@@ -1,0 +1,24 @@
+# One-time queue handoff: preserve the running R04 art job 34125489162.
+# Supersede only pending duplicate 34125804881 using the existing single queue.
+# Does not cancel a running render, modify artifacts, or grant any art gate.
+name: Glasshouse R04 queue handoff only
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-r04-queue-handoff.yml]
+permissions:
+  contents: read
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  acknowledge:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 1
+    steps:
+      - run: |
+          printf '%s\n' 'No rendering or scene edits in this coordination job.'
+          printf '%s\n' 'R04 visual candidate: run 34125489162, source 5df7808221aea777899562807bacc6bbd1c3f49a.'
+          printf '%s\n' 'Recovery script preserved; pending duplicate intentionally superseded, not claimed successful.'
+          printf '%s\n' 'Actual native images and source bytes still require review. G3/G4 not accepted by this job.'
