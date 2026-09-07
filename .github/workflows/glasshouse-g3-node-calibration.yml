@@ -1,0 +1,96 @@
+name: Glasshouse G3 R07 verified-node calibration
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g3-node-calibration-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  calibrate:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g3-r07
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Validate one finite calibration and restore verified R06
+        timeout-minutes: 2
+        run: |
+          echo "G3_CALIBRATION_DEADLINE=$(( $(date +%s) + 14*60 ))" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          q=json.loads(Path('workspaces/glasshouse-terminus/g3-node-calibration-request.json').read_text())
+          assert q['stage']=='G3' and q['revision']=='R07' and q['max_runs']==1 and q['job_minutes']==18
+          assert q['external_spend_usd']==0 and q['g4_allowed'] is False
+          assert q['parent_evidence_commit']=='719b77ac1678b0ede8edcc9bd86193e1d0db9362'
+          print(json.dumps(q,indent=2))
+          PY
+          python3 -m py_compile workspaces/glasshouse-terminus/calibrate_g3_node_wash.py
+          git fetch --depth=1 origin 719b77ac1678b0ede8edcc9bd86193e1d0db9362
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3-r06 | tar -x
+          echo '65ef58c38685aa6ef26aa0f2d5116e1535e879f4a2b01975100d71be7cb7de26  workspaces/glasshouse-terminus/output/g3-r06/g3-bay-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+      - name: Reuse pinned official Blender
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Change exactly two allowed light powers and save candidate
+        timeout-minutes: 2
+        env:
+          G3_CALIBRATION_MODE: build
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g3-r06/g3-bay-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/calibrate_g3_node_wash.py 2>&1 | tee "$OUT/build.log"
+          test "$(du -sb workspaces/glasshouse-terminus | cut -f1)" -lt 8000000000
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g3-r07-source
+      - name: Fresh-process native D01 first
+        timeout-minutes: 4
+        env:
+          G3_CALIBRATION_MODE: node
+        run: blender -b "$OUT/g3-bay-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/calibrate_g3_node_wash.py 2>&1 | tee "$OUT/node-render.log"
+      - name: Early native node for actual visual review, not automatic acceptance
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g3-r07-node-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g3-r07/D01-roof-node.png
+            workspaces/glasshouse-terminus/output/g3-r07/calibration-report.json
+            workspaces/glasshouse-terminus/output/g3-r07/node-reopen-check.json
+            workspaces/glasshouse-terminus/output/g3-r07/render-metrics.json
+          retention-days: 1
+          if-no-files-found: error
+      - name: Original bay and glass regressions in another fresh process
+        timeout-minutes: 10
+        env:
+          G3_CALIBRATION_MODE: context
+        run: |
+          remaining=$((G3_CALIBRATION_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g3-bay-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/calibrate_g3_node_wash.py 2>&1 | tee "$OUT/context-render.log"
+      - name: Preserve exact coverage and editable source regardless of artistic status
+        if: always()
+        timeout-minutes: 3
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<80000000
+          required=['g3-bay-candidate.blend','calibration-report.json','reopen-check.json','D01-roof-node.png','R07-complete-bay-night.png','G3-bay-night.png','D01-glass-metal.png']
+          missing=[n for n in required if not (root/n).is_file()]
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G3','revision':'R07','status':'FOUR_TARGETED_NATIVE_VIEWS_REVIEW_PENDING_NOT_G3_PASS' if not missing else 'PARTIAL_OR_FAILED_NOT_A_PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'parent_evidence_commit':'719b77ac1678b0ede8edcc9bd86193e1d0db9362','parent_master_sha256':'65ef58c38685aa6ef26aa0f2d5116e1535e879f4a2b01975100d71be7cb7de26','files':files,'missing':missing,'coverage_note':'Four targeted R07 night views. Neutral and D05 remain separately reviewed R06 evidence, not new R07 renders. D02/D03 remain separately identified historical craft review.','g4_allowed':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED'},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g3-r07
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g3-r07-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g3-r07
+          retention-days: 1
+          if-no-files-found: error
