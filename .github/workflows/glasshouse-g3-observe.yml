@@ -1,0 +1,85 @@
+name: Glasshouse G3 additional interface witnesses
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g3-observe-request.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  observe:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    defaults:
+      run:
+        shell: bash
+    env:
+      OBS_ROOT: workspaces/glasshouse-terminus/output/g3-observations
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Validate observation-only scope and retrieve immutable R02 master
+        timeout-minutes: 3
+        run: |
+          echo "G3_OBSERVATION_DEADLINE=$(( $(date +%s) + 15*60 ))" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('workspaces/glasshouse-terminus')
+          q=json.loads((root/'g3-observe-request.json').read_text())
+          assert q['stage']=='G3' and q['max_runs']==1 and q['external_spend_usd']==0
+          assert q['geometry_edits'] is False and q['g4_allowed'] is False
+          assert q['parent_evidence_commit']=='87d75e3b90d6b330fb378d1fc2200f5d1a52e418'
+          assert (root/'G3-R01-DETAIL-AUDIT.md').is_file()
+          print(json.dumps(q,indent=2))
+          PY
+          python3 -m py_compile workspaces/glasshouse-terminus/observe_g3.py
+          git fetch --depth=1 origin 87d75e3b90d6b330fb378d1fc2200f5d1a52e418
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3-r02 | tar -x
+          echo '3162ba27fbeb3055c5fbe94a6fc2422cc9cca11f68dda381b06627ebcaf6d680  workspaces/glasshouse-terminus/output/g3-r02/g3-bay-candidate.blend' | sha256sum --check
+          mkdir -p "$OBS_ROOT"
+      - name: Reuse pinned Blender without new model downloads
+        timeout-minutes: 6
+        run: |
+          bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OBS_ROOT/provision.log"
+      - name: Render additional fitted views from unchanged candidate
+        timeout-minutes: 14
+        run: |
+          remaining=$((G3_OBSERVATION_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=15 "${remaining}s" blender -b workspaces/glasshouse-terminus/output/g3-r02/g3-bay-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/observe_g3.py 2>&1 | tee "$OBS_ROOT/observations.log"
+      - name: Preserve actual observations and source recovery information
+        if: always()
+        timeout-minutes: 4
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['OBS_ROOT']);root.mkdir(parents=True,exist_ok=True)
+          files={};total=0
+          for p in root.rglob('*'):
+              if p.is_file() and p.name!='DELIVERY.json':
+                  total+=p.stat().st_size
+                  files[str(p.relative_to(root))]={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+          assert total<50_000_000
+          complete=False
+          if (root/'observation-report.json').exists():
+              r=json.loads((root/'observation-report.json').read_text())
+              complete=r['status']=='EXTRA_OBSERVATIONS_RENDERED_REVIEW_PENDING' and len(r['views'])==7
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G3','type':'additional_witnesses','status':'REVIEW_PENDING_NOT_A_PASS' if complete else 'PARTIAL_WITNESSES_NOT_A_PASS',
+            'source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
+            'parent_evidence_commit':'87d75e3b90d6b330fb378d1fc2200f5d1a52e418',
+            'master_path':'workspaces/glasshouse-terminus/output/g3-r02/g3-bay-candidate.blend',
+            'master_sha256':'3162ba27fbeb3055c5fbe94a6fc2422cc9cca11f68dda381b06627ebcaf6d680',
+            'files':files,'total_bytes':total,'original_master_in_parent_commit':True,'geometry_edits':False,'g4_allowed':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED'},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OBS_ROOT" g3-observations
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g3-observations-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g3-observations
+          retention-days: 1
+          if-no-files-found: error
