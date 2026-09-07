@@ -1,0 +1,191 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R02",
+  "status": "NATIVE_INTEGRATED_REVIEW_PENDING",
+  "run_id": "34150153500",
+  "source_sha": "2eafacb420814b72c7b7170ea60e6889396eea4e",
+  "files": {
+    "wave-video-probe.json": {
+      "bytes": 2717,
+      "sha256": "b0f579ba9f1e8aa39a76165eff5b7a9693492da5efc56abc2e03d0c258a43729"
+    },
+    "MASTER-PARTS.json": {
+      "bytes": 780,
+      "sha256": "1f7a377d358a702f698518dc6645ee10ec20d90cb31a5eae274889a1e4fc32e6"
+    },
+    "build.log": {
+      "bytes": 384,
+      "sha256": "6fe5b7133d9ea8d70f689a65890f599b5e0fb3b4752a49b4ea9ea0100d9a329f"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "MASTER-RESTORE.txt": {
+      "bytes": 308,
+      "sha256": "9f84813ca2379a0e1390eb5657c394dd5a81cc21eb9e844f45fc10b341999e25"
+    },
+    "PARENT-R03-build-report.json": {
+      "bytes": 136727,
+      "sha256": "c5eaf036bbb1eec865ce6ff8d506de204241497cc813bf4d88a0774156c49bf1"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "exterior-render-metrics.json": {
+      "bytes": 1248,
+      "sha256": "1bf042b9cb714ff732482cf42541931879299f880597775c7d49122a061608a0"
+    },
+    "detail-render-metrics.json": {
+      "bytes": 1896,
+      "sha256": "bd9b77b40c0c1bdff92c08533213ff73ea4e9ecbb22b2573a9bc5e91df154136"
+    },
+    "E02-wave-and-foam.png": {
+      "bytes": 1266890,
+      "sha256": "d80bcbc4f65c8c6b2cbd02412350f63a2f2c87055419a87eb59dc105ab3a443f"
+    },
+    "motion-render-metrics.json": {
+      "bytes": 6144,
+      "sha256": "e251a1f992d6c53e71b860cc40a20261e41cb980c96e5afe9f1263bba231911c"
+    },
+    "ASSET-AND-API-PROBE.json": {
+      "bytes": 26320,
+      "sha256": "4ce7ed749df485ceac44e0913a0e1b3ef1e6bc6afb665b3277c26e1cb85344a9"
+    },
+    "restore_master.py": {
+      "bytes": 3552,
+      "sha256": "36eb86b8f1156065112bb5ff350a9c6e606cc34f127bdc4f7db1bbcff94071f6"
+    },
+    "detail-render.log": {
+      "bytes": 1435143,
+      "sha256": "bba1265ec2ab1c2a9732c844af79793322506129853c5a36ea2191d3390311d3"
+    },
+    "g4-full-scene-candidate.blend": {
+      "bytes": 105907025,
+      "sha256": "b8cea93e7511088f418afbc843b66ddd4dcd0e82f34860b192150341f258ef64"
+    },
+    "exterior-render.log": {
+      "bytes": 959220,
+      "sha256": "b95327f3027cf15cb85a61b020290e3b02fba6f22c1f483f214eed4c3008a605"
+    },
+    "COAST-R01-build-report.json": {
+      "bytes": 13117,
+      "sha256": "f4f902b3ac176672abf1a20032324b67da3c8bb8afdb9f20c1f9580ff4d80afb"
+    },
+    "STORM-ASSET-SOURCES.json": {
+      "bytes": 5222,
+      "sha256": "cf382970397232ae1ec7ac025f73469731816d68730233e0ec916a8742993370"
+    },
+    "exterior-reopen-check.json": {
+      "bytes": 252,
+      "sha256": "d7a5146ada6b19ee693afe7b62a406fd77dada4f801c8743ca0a10660e61bb26"
+    },
+    "native-wave-proof.mp4": {
+      "bytes": 53197,
+      "sha256": "b65d422a9e395f81bc6f75793e3b1198bc543cc2a41826e11acfa4546bdc7d75"
+    },
+    "FINITE-REQUEST.txt": {
+      "bytes": 423,
+      "sha256": "39c0afcba3ab9bd4b429a696694512b5b4ba18003c9e830c1d80d0f18e7a1ae9"
+    },
+    "E01-rock-and-water.png": {
+      "bytes": 1400276,
+      "sha256": "c49124a44f1b407848818d3dd6214f62d989a5f0e4059f217cc2207c0a5bbeb3"
+    },
+    "C01-coast-rain.png": {
+      "bytes": 1670316,
+      "sha256": "d0d0b0b2588aff0dcf35af8e6ded05e61e057758138430947d811ef2eedf25ca"
+    },
+    "motion-reopen-check.json": {
+      "bytes": 253,
+      "sha256": "be314d11d095a300a13634522f58cefbd367cee4cf94da2c627205cf7cedf875"
+    },
+    "C03-rain-hall-regression.png": {
+      "bytes": 1761878,
+      "sha256": "74d7b9ee43325f5f5fee7b49c3b15a94b7ca7b6e1b0d29e67f6bdea5ff03b2c4"
+    },
+    "provision-source.log": {
+      "bytes": 41062,
+      "sha256": "aec84f0757c23ff4e04f1a7a4af1efd3d01ddeaff3da18b07307c606c3c12cc3"
+    },
+    "motion-render.log": {
+      "bytes": 4764768,
+      "sha256": "b1c5a2d55a70cdb51ea1e4c6ba663151728db7463afc7c636b59543b9a107a13"
+    },
+    "C02-reverse-coast.png": {
+      "bytes": 1396355,
+      "sha256": "ae0c59525d2d701216709d4fceb35e55f3744fd8d7ed0d0e7053b351b6216a6e"
+    },
+    "provision-render.log": {
+      "bytes": 41063,
+      "sha256": "316ce15564794a4e0209f73b0e5cb892cc96307f2343248f89ee2db6ca9f4a5c"
+    },
+    "build-report.json": {
+      "bytes": 2239,
+      "sha256": "79eab19add15f235f4547d8330fa75c7dcf475c4bda91bfb5bee645591e3671b"
+    },
+    "detail-reopen-check.json": {
+      "bytes": 252,
+      "sha256": "b95c2eb4c1673a0a725f9196f8bbe9601239c8b200ce366ef2f837c5f97f739d"
+    },
+    "motion/0001.png": {
+      "bytes": 273135,
+      "sha256": "42dd04ca224f368fb6a8078a2940a4f39b292b247123f0a405886e0f7733bcfc"
+    },
+    "motion/0002.png": {
+      "bytes": 272908,
+      "sha256": "66bdf0c0af161db6160fa236a777f922b0d09fb0b619a1274efe4586910d29e4"
+    },
+    "motion/0005.png": {
+      "bytes": 271214,
+      "sha256": "5fbb3151d957e94bc907cf130804be98fb56938f5f0ed4a6cfc685e2332c2ef4"
+    },
+    "motion/0009.png": {
+      "bytes": 270751,
+      "sha256": "ed643880055f35d50b471fbfd277559d6275c8fde9d42f1c2a73a5473fc847c7"
+    },
+    "motion/0004.png": {
+      "bytes": 271683,
+      "sha256": "ff80a26ef26b72861e5e1d668303cabc40ff15683713edeb72aad014dc123f71"
+    },
+    "motion/0007.png": {
+      "bytes": 270964,
+      "sha256": "39ef25fb8d1e7fd17c2c0b022baf1b43ed7d13f1b5d5e1d9d477e48b7a0c8862"
+    },
+    "motion/0003.png": {
+      "bytes": 272501,
+      "sha256": "8155ec80c7e098830d4b0ab4eb82d98af1e78aaa304ac3ddb0fc5a232934c279"
+    },
+    "motion/0006.png": {
+      "bytes": 272214,
+      "sha256": "7799058e1080b3827fa374446e4c917aeb236bd2fc73b259e2cc429e135919b4"
+    },
+    "motion/0000.png": {
+      "bytes": 272356,
+      "sha256": "4bd9278a448550b57af60d44609f3b1d6836f8c87de412f5396e9b9d6423ca01"
+    },
+    "motion/0008.png": {
+      "bytes": 270901,
+      "sha256": "a06250c500ede71837eca82ae5749dfb458632d43a4cc4b7fcfba4f948e0d32a"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    }
+  },
+  "missing": [],
+  "native_wave_clip_complete": true,
+  "storage": "Actions ZIP has full blend. Git archive has verified lossless parts; run restore_master.py restore . before file verification.",
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "browser_gate": "BLOCKED_UNCHANGED"
+}

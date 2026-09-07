@@ -1,0 +1,51 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R02",
+  "parent_master_sha256": "1be3507f7c31ed2f8e5431aefaf787ff414a29fdce696b596a2baff68b0789c6",
+  "parent_evidence_commit": "84570c8224f709784b580a23d330b2a0f522fcf9",
+  "source_sha": "2eafacb420814b72c7b7170ea60e6889396eea4e",
+  "run_id": "34150153500",
+  "candidate_sha256": "b8cea93e7511088f418afbc843b66ddd4dcd0e82f34860b192150341f258ef64",
+  "master_bytes": 105907025,
+  "edits": [
+    {
+      "object": "G4R03_roof_clipped_rain",
+      "old_group": "G4R03_roof_clipped_rain_native_time",
+      "new_group": "G4COAST_R02_G4R03_roof_clipped_rain_round_drop",
+      "prototype_scale": [
+        0.0021,
+        0.0021,
+        0.0024
+      ],
+      "smooth_drop_surface": true,
+      "lifetime_aware_ID": true,
+      "paths_and_source_points_unchanged": true
+    },
+    {
+      "object": "G4R03_eave_drips",
+      "old_group": "G4R03_eave_drips_native_time",
+      "new_group": "G4COAST_R02_G4R03_eave_drips_round_drop",
+      "prototype_scale": [
+        0.0021,
+        0.0021,
+        0.0024
+      ],
+      "smooth_drop_surface": true,
+      "lifetime_aware_ID": true,
+      "paths_and_source_points_unchanged": true
+    }
+  ],
+  "protected_before": "a7c41e481752901b438e967db8ab872c58c59454d4fae655688e528252de11cf",
+  "protected_after": "a7c41e481752901b438e967db8ab872c58c59454d4fae655688e528252de11cf",
+  "shutter_fraction": 0.7,
+  "shutter_seconds": 0.02333333333333333,
+  "reuse": "Inspected R04 correct_g4_rain_optics.py at e53df4ba7e86469c301fb40707015d3e90716803, adapted only after checking actual R03 prototype on the preserved coast source. Not a claim that separate R04 render already passed.",
+  "basis": "Actual R03 M01 original shows dark refractive rods; round drops plus native temporal integration replace static optical rods.",
+  "limitations": [
+    "Rain shelter still evaluated against parked-frame451 geometry, not dynamic collision for arriving train.",
+    "Attached glass water static. Ocean is native spectral water plus art-directed 3D proximity wash, not fluid coast-impact solver.",
+    "Coast R01 has not been visually accepted. This integrated native candidate still requires real-image review."
+  ],
+  "g4_stage_pass": false,
+  "human_acceptance": false
+}

@@ -1,0 +1,60 @@
+[
+  {
+    "view": "C01_exterior_hero",
+    "file": "C01-coast-rain.png",
+    "frame": 451,
+    "seconds": 219.024145215,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 34.5,
+    "position": [
+      32.0,
+      52.0,
+      23.0
+    ],
+    "rotation": [
+      1.2386444807052612,
+      5.874365882618804e-08,
+      2.422762870788574
+    ],
+    "master_sha256": "b8cea93e7511088f418afbc843b66ddd4dcd0e82f34860b192150341f258ef64",
+    "native_render": true,
+    "revision": "COAST-R02",
+    "native_shutter": 0.7,
+    "proof_only": false
+  },
+  {
+    "view": "C02_reverse_exterior",
+    "file": "C02-reverse-coast.png",
+    "frame": 451,
+    "seconds": 189.281660585,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 40,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 43.0,
+    "position": [
+      -31.0,
+      -38.0,
+      20.0
+    ],
+    "rotation": [
+      1.210662603378296,
+      -1.157344939883842e-07,
+      -0.6518692374229431
+    ],
+    "master_sha256": "b8cea93e7511088f418afbc843b66ddd4dcd0e82f34860b192150341f258ef64",
+    "native_render": true,
+    "revision": "COAST-R02",
+    "native_shutter": 0.7,
+    "proof_only": false
+  }
+]
