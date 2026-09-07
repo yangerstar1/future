@@ -1,0 +1,86 @@
+[
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "M01-attached-rain.png",
+    "frame": 451,
+    "seconds": 851.370218758,
+    "resolution": [
+      1600,
+      1000
+    ],
+    "samples": 80,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "master_sha256": "590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738",
+    "native_render": true,
+    "revision": "COAST-R06",
+    "proof_only": false
+  },
+  {
+    "view": "G4R03_wet_stone_macro",
+    "file": "M03-contact-wet-stone.png",
+    "frame": 451,
+    "seconds": 245.41579619799995,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 55.0,
+    "position": [
+      -4.0,
+      -8.479999542236328,
+      0.6299999952316284
+    ],
+    "rotation": [
+      1.1598464250564575,
+      5.411650505493526e-08,
+      0.8803502917289734
+    ],
+    "master_sha256": "590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738",
+    "native_render": true,
+    "revision": "COAST-R06",
+    "proof_only": false
+  },
+  {
+    "view": "G4R03_textile_macro",
+    "file": "M04-scanned-wool.png",
+    "frame": 451,
+    "seconds": 420.7886169740002,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 72.0,
+    "position": [
+      -5.75,
+      -2.880000114440918,
+      2.1700000762939453
+    ],
+    "rotation": [
+      1.0627944469451904,
+      5.6330932807213685e-08,
+      -2.987884998321533
+    ],
+    "master_sha256": "590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738",
+    "native_render": true,
+    "revision": "COAST-R06",
+    "proof_only": false
+  }
+]

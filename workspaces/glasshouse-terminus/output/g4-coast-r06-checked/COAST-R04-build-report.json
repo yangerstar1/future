@@ -1,0 +1,525 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R04",
+  "parent_master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+  "parent_evidence_commit": "563ecf127826cf0b93faf72443c19e6a271401d9",
+  "source_sha": "a530d5ae0a4fcd6f29b9d07939af3584e0ec6994",
+  "run_id": "34153713427",
+  "assets": [
+    {
+      "asset_id": "kloofendal_overcast_puresky",
+      "authors": {
+        "Greg Zaal": "All"
+      },
+      "license": "CC0-1.0",
+      "license_source": "https://polyhaven.com/license",
+      "source": "https://polyhaven.com/a/kloofendal_overcast_puresky",
+      "files": {
+        "environment": {
+          "file": "assets/kloofendal_overcast_puresky/kloofendal_overcast_puresky_2k.hdr",
+          "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/kloofendal_overcast_puresky_2k.hdr",
+          "bytes": 4335717,
+          "sha256": "312b1b04b7f10057a4f1418abc59d1166c8933cc93fc72051502edaf8d6b2fcd",
+          "native_resolution": [
+            2048,
+            1024
+          ],
+          "color_space": "Linear Rec.709",
+          "image_name": "kloofendal_overcast_puresky_2k.hdr",
+          "metadata_key": "hdri"
+        }
+      }
+    },
+    {
+      "asset_id": "poly_wool_herringbone",
+      "authors": {
+        "colormass": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "license": "CC0-1.0",
+      "license_source": "https://polyhaven.com/license",
+      "source": "https://polyhaven.com/a/poly_wool_herringbone",
+      "files": {
+        "diff": {
+          "file": "assets/poly_wool_herringbone/poly_wool_herringbone_diff_4k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/poly_wool_herringbone/poly_wool_herringbone_diff_4k.jpg",
+          "bytes": 13605843,
+          "sha256": "a72582be1337c11e2e59a03e01ef0270f2c0f455a410c5cc667df9682e2c76ce",
+          "native_resolution": [
+            4096,
+            4181
+          ],
+          "color_space": "sRGB",
+          "image_name": "poly_wool_herringbone_diff_4k.jpg",
+          "metadata_key": "Diffuse"
+        },
+        "normal": {
+          "file": "assets/poly_wool_herringbone/poly_wool_herringbone_nor_gl_4k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/poly_wool_herringbone/poly_wool_herringbone_nor_gl_4k.jpg",
+          "bytes": 14307275,
+          "sha256": "d58370b656d08316b9aca02c3f627e0ffcf2dd22873c4cbeb343321ccd044620",
+          "native_resolution": [
+            4096,
+            4181
+          ],
+          "color_space": "Non-Color",
+          "image_name": "poly_wool_herringbone_nor_gl_4k.jpg",
+          "metadata_key": "nor_gl"
+        },
+        "rough": {
+          "file": "assets/poly_wool_herringbone/poly_wool_herringbone_rough_4k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/poly_wool_herringbone/poly_wool_herringbone_rough_4k.jpg",
+          "bytes": 15049055,
+          "sha256": "04ba7ce77111a715fd689aa420a6e880b3d166a11e2e9068ae52c0235f2c3329",
+          "native_resolution": [
+            4096,
+            4181
+          ],
+          "color_space": "Non-Color",
+          "image_name": "poly_wool_herringbone_rough_4k.jpg",
+          "metadata_key": "Rough"
+        }
+      }
+    }
+  ],
+  "credit": "Powered by Poly Haven",
+  "basis": "Actually viewed COAST-R02 E01: rock relief exists but near-black; R03 M04: cloth response nearly uniform. Use licensed measured overcast directional environment and scanned fabric surface, not more noise or generated image enhancement.",
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "edits": [
+    {
+      "object": "Car_seat_back.001",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Rear_luggage_bench",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_back",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_back.008",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_back.007",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_back.009",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_back.006",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_cushion.001",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_back.005",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Cab_driver_seat",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_back.004",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_cushion",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_back.003",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_cushion.009",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_cushion.008",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_cushion.007",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_cushion.006",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_cushion.005",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_cushion.004",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_back.002",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_cushion.003",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "Car_seat_cushion.002",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_seat_cushion",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_back_cushion",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_seat_cushion.001",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_back_cushion.001",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_seat_cushion.002",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_back_cushion.002",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_seat_cushion.003",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_back_cushion.003",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_seat_cushion.004",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_back_cushion.004",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_seat_cushion.005",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_back_cushion.005",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_seat_cushion.006",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_back_cushion.006",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_seat_cushion.007",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_back_cushion.007",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_seat_cushion.008",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_back_cushion.008",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_seat_cushion.009",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_back_cushion.009",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_seat_cushion.010",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_back_cushion.010",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_seat_cushion.011",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    },
+    {
+      "object": "G4_bench_back_cushion.011",
+      "old_material": "G4R03_G4_moss_woven_upholstery",
+      "new_material": "G4COAST_R04_scanned_moss_wool",
+      "added_UV": "ClothPhysicalMeters",
+      "original_UV_retained": true,
+      "physical_tile_metres": 0.3,
+      "geometry_unchanged": true
+    }
+  ],
+  "environment": {
+    "old_world": "G4R02_clouded_night_environment",
+    "new_world": "G4COAST_R04_adapted_overcast_sky",
+    "source_upper_hemisphere_tinted_mean": 1.0618730786836033,
+    "design_target_mean": 0.36,
+    "strength": 0.33902356809562356,
+    "tint": [
+      0.7799999713897705,
+      0.8799999952316284,
+      1.0
+    ],
+    "rotation_radians": 0.35,
+    "shared_camera_lighting_reflections": true,
+    "not_daylight_or_measured_night_claim": "The source is an overcast daylight HDRI; strength and tint are an artistic night adaptation, not a calibrated moonlight simulation.",
+    "no_global_exposure_change": true
+  },
+  "protected_before": "dd5d2f8f07c19eef2c938bbbde3c2baa28830d1a3194f3fe15f572f8d9e44c15",
+  "protected_after": "dd5d2f8f07c19eef2c938bbbde3c2baa28830d1a3194f3fe15f572f8d9e44c15",
+  "candidate_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+  "master_bytes": 151742376
+}

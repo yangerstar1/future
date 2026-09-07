@@ -1,0 +1,192 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R06_CHECKED",
+  "status": "PARTIAL_OR_FAILED_NOT_ART_PASS",
+  "source_sha": "391b85b38e5c81b124fbd89bf90233387944d44d",
+  "run_id": "34157793290",
+  "files": {
+    "preflight-provision.log": {
+      "bytes": 8856,
+      "sha256": "d738e7c14d356d9b14e29890e0f61778df684f55fc482b8c76262a53ef1fa562"
+    },
+    "MASTER-PARTS.json": {
+      "bytes": 970,
+      "sha256": "adac3a788036fb7ee7f79098a06eb74c9af5ff1211b28d317c50de2e3583789d"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "M04-scanned-wool.png": {
+      "bytes": 2156804,
+      "sha256": "5e1c36af16884f1cef9a267f834a4e4bc77e6ed6ed42dd000301c71265134b92"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "MASTER-RESTORE.txt": {
+      "bytes": 308,
+      "sha256": "9f84813ca2379a0e1390eb5657c394dd5a81cc21eb9e844f45fc10b341999e25"
+    },
+    "M01-attached-rain.png": {
+      "bytes": 2193534,
+      "sha256": "680764640234b9550ef1dff74acc4f159ba8d010ecd4961272d8bd92805274c1"
+    },
+    "PARENT-R03-build-report.json": {
+      "bytes": 136727,
+      "sha256": "c5eaf036bbb1eec865ce6ff8d506de204241497cc813bf4d88a0774156c49bf1"
+    },
+    "checked-render-provision.log": {
+      "bytes": 8856,
+      "sha256": "bee33b2ba197bb997f58c706a73438ed7b81ef9aaa73e51b3c6ea5dc3c3cdd75"
+    },
+    "context-metrics.json": {
+      "bytes": 1204,
+      "sha256": "2c505376c8b0fd20377ca916f1df56e55bae198086527662cc718a52a0a6b808"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "volume-diagnostics.json": {
+      "bytes": 373,
+      "sha256": "7ba51b3465f51af79ba0bfdc4fd614fb28066c3b4419d97cb44e94749df8bec9"
+    },
+    "C01-surface-rain-coast.png": {
+      "bytes": 1742321,
+      "sha256": "98e00c9e6870198262236014693ecd94a63762d1552cb5e567b59c2bbaf21a65"
+    },
+    "C03-surface-rain-hall.png": {
+      "bytes": 1849926,
+      "sha256": "2e69263f8dbe429d8d42de6c10048ee5fad30756b34190680f6dfeda9c1a511d"
+    },
+    "ASSET-AND-API-PROBE.json": {
+      "bytes": 26320,
+      "sha256": "4ce7ed749df485ceac44e0913a0e1b3ef1e6bc6afb665b3277c26e1cb85344a9"
+    },
+    "restore_master.py": {
+      "bytes": 3552,
+      "sha256": "36eb86b8f1156065112bb5ff350a9c6e606cc34f127bdc4f7db1bbcff94071f6"
+    },
+    "g4-full-scene-candidate.blend": {
+      "bytes": 155045521,
+      "sha256": "590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738"
+    },
+    "details.log": {
+      "bytes": 1904652,
+      "sha256": "609f9b6690e4db75e41f8cd3efda93ca886305790972312c2394194986976779"
+    },
+    "COAST-R04-build-report.json": {
+      "bytes": 18831,
+      "sha256": "37803d3a967ec8d42b4ee0ad045426372ea169960151ef3ca97d699731450cec"
+    },
+    "COAST-R05-build-report.json": {
+      "bytes": 6076,
+      "sha256": "e21bc4c16a7d02edcaac65f534f6e1e4267cd9aca376d75dbccf35bc3e79031d"
+    },
+    "COAST-R01-build-report.json": {
+      "bytes": 13117,
+      "sha256": "f4f902b3ac176672abf1a20032324b67da3c8bb8afdb9f20c1f9580ff4d80afb"
+    },
+    "STORM-ASSET-SOURCES.json": {
+      "bytes": 5222,
+      "sha256": "cf382970397232ae1ec7ac025f73469731816d68730233e0ec916a8742993370"
+    },
+    "normal-preflight.json": {
+      "bytes": 886,
+      "sha256": "b4258ca45d6e94b868519c554628e1bebd13a42be5b2506c43453981169aae06"
+    },
+    "COAST-R02-build-report.json": {
+      "bytes": 2239,
+      "sha256": "79eab19add15f235f4547d8330fa75c7dcf475c4bda91bfb5bee645591e3671b"
+    },
+    "FINITE-REQUEST.txt": {
+      "bytes": 356,
+      "sha256": "1282049360cdc002e8dbfa2a6d182d11576bfcd2ab1d6dd6125ed7474bc62f40"
+    },
+    "details-metrics.json": {
+      "bytes": 1901,
+      "sha256": "dc395f3915d6b525c4dbf56e213ebffb02df811621ee08e50b256c35c0b1ddcf"
+    },
+    "COAST-R03-build-report.json": {
+      "bytes": 2350,
+      "sha256": "fd4065009b83102f7047137591255b71db6112639b767781345fcfa1229992ea"
+    },
+    "M03-contact-wet-stone.png": {
+      "bytes": 1171505,
+      "sha256": "c9a467d22be6dec752799fd636eaa743860d8c0d8780951357141cce02a28e08"
+    },
+    "context.log": {
+      "bytes": 957535,
+      "sha256": "b35b35676e6228152675b02e1d93a9f495cfbfed64b054a577ebe30a77816c25"
+    },
+    "normal-preflight.log": {
+      "bytes": 379,
+      "sha256": "2aa9b488e0176ba78c4369defba9075ba3208ea397b4a17ddf5c3445b9e2cdb2"
+    },
+    "build-report.json": {
+      "bytes": 201266,
+      "sha256": "949d642f9c585ac560e76481bf53534d2800ef40765aa157d6e11e01d1d0f5d8"
+    },
+    "context-reopen.json": {
+      "bytes": 252,
+      "sha256": "78b512e4c83e408e3b12089a15429e915ec8ed72946c961b416417bdbdf9ffcd"
+    },
+    "SURFACE-ASSET-SOURCES.json": {
+      "bytes": 2994,
+      "sha256": "3700333aaac1b4d99ee438a8b31db0b1f664a141e8c70d241fc769e140164422"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_diff_4k.jpg": {
+      "bytes": 13605843,
+      "sha256": "a72582be1337c11e2e59a03e01ef0270f2c0f455a410c5cc667df9682e2c76ce"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_nor_gl_4k.jpg": {
+      "bytes": 14307275,
+      "sha256": "d58370b656d08316b9aca02c3f627e0ffcf2dd22873c4cbeb343321ccd044620"
+    },
+    "assets/poly_wool_herringbone/upstream-info.json": {
+      "bytes": 1126,
+      "sha256": "faa965db26931d0ed3a341b8d3c6b6fe5cfbb1f9f55f4236a3fba8cf6391e377"
+    },
+    "assets/poly_wool_herringbone/upstream-files.json": {
+      "bytes": 59902,
+      "sha256": "e551a61f9486aeec7efa27e9e009bf12c52497e6718341335c0b5acbd37f77f1"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_rough_4k.jpg": {
+      "bytes": 15049055,
+      "sha256": "04ba7ce77111a715fd689aa420a6e880b3d166a11e2e9068ae52c0235f2c3329"
+    },
+    "assets/kloofendal_overcast_puresky/kloofendal_overcast_puresky_2k.hdr": {
+      "bytes": 4335717,
+      "sha256": "312b1b04b7f10057a4f1418abc59d1166c8933cc93fc72051502edaf8d6b2fcd"
+    },
+    "assets/kloofendal_overcast_puresky/upstream-info.json": {
+      "bytes": 1345,
+      "sha256": "fd079df4389329cb1393a2ba7a2dbe153d6ecf3d1d12de2c6543c9a20ea625b6"
+    },
+    "assets/kloofendal_overcast_puresky/upstream-files.json": {
+      "bytes": 2830,
+      "sha256": "0eba63450bfabd5d0fbfdc562107fb5ee40ea23bfe2ff00f13829ca6a11d265d"
+    }
+  },
+  "missing": [
+    "M02-aligned-walnut.png",
+    "D01-node-regression.png",
+    "details-reopen.json"
+  ],
+  "native_motion_frames": 0,
+  "native_motion_complete": false,
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "generated_images_are_evidence": false,
+  "browser_gate": "BLOCKED_UNCHANGED"
+}
