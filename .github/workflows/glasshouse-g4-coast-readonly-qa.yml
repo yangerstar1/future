@@ -1,0 +1,80 @@
+name: Glasshouse native coast read-only field verification
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-coast-readonly-qa.yml]
+permissions:
+  contents: write
+jobs:
+  readonly-fields:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-field-qa
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact saved combined model without changing any scene data
+        run: |
+          git fetch --depth=1 origin def004d60bb37a58a043a3506fb2bbda5c3a0e5c
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r04 | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r04
+          echo '51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c  workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf 'One8minute non-rendering read-only check: actual evaluated foam values, geometry normals, and protected cameras. No save, no renderer, no art change, no new production renderer, standard publicrunner, external spend0, evidence2MB.\n' > "$OUT/FINITE-REQUEST.txt"
+      - name: Reuse locked Blender with actual dependency validation
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Read native evaluated scalar fields and original rock observation
+        timeout-minutes: 2
+        run: |
+          cat > "$RUNNER_TEMP/read_coast.py" <<'PY'
+          import bpy,json,hashlib,os,math,numpy as np
+          from pathlib import Path
+          from mathutils import Vector
+          out=Path(os.environ['OUT']);p=Path(bpy.data.filepath);expected='51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c'
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==expected
+          s=bpy.context.scene;sea=bpy.data.objects['Ocean_extent'];rows=[]
+          for frame in [451,460]:
+              s.frame_set(frame);bpy.context.view_layer.update();ev=sea.evaluated_get(bpy.context.evaluated_depsgraph_get());m=ev.to_mesh();q={'frame':frame,'fields':{}}
+              xyz=np.empty(len(m.vertices)*3,np.float32);m.vertices.foreach_get('co',xyz);xyz=xyz.reshape(-1,3)
+              for name in ['CoastalWash','OceanFoam','OceanGeometryWeight']:
+                  a=m.attributes.get(name);assert a,name
+                  prop='color' if a.data_type in ['BYTE_COLOR','FLOAT_COLOR'] else 'value';width=4 if prop=='color' else 1
+                  v=np.empty(len(a.data)*width,np.float32);a.data.foreach_get(prop,v)
+                  if width==4:v=v.reshape(-1,4)[:,:3].mean(1)
+                  record={'type':a.data_type,'domain':a.domain,'count':len(v),'min':float(v.min()),'max':float(v.max()),'mean':float(v.mean()),'percentiles':np.percentile(v,[25,50,75,90,95,99,99.9]).tolist(),'fraction_above_001':float((v>.01).mean()),'fraction_above_012':float((v>.12).mean())}
+                  if a.domain=='POINT':
+                      near=(abs(xyz[:,0])<80)&(abs(xyz[:,1])<60)&(xyz[:,2]>-5)
+                      record['near_mean']=float(v[near].mean());record['near_max']=float(v[near].max())
+                  q['fields'][name]=record
+              rows.append(q);ev.to_mesh_clear()
+          s.frame_set(451);bpy.context.view_layer.update();dg=bpy.context.evaluated_depsgraph_get();cam=bpy.data.objects['G4COAST_rock_water_close'];origin=cam.matrix_world.translation;direction=cam.matrix_world.to_3x3()@Vector((0,0,-1))
+          hit,at,normal,face,obj,matrix=s.ray_cast(dg,origin,direction,distance=200);rock={'hit':hit,'camera':cam.name,'position':list(origin),'lens':cam.data.lens,'depth_of_field':cam.data.dof.use_dof}
+          if hit:
+              rock.update(object=obj.name,surface=list(at),normal=list(normal),camera_facing_dot=normal.dot((origin-at).normalized()),materials=[m.name for m in obj.data.materials])
+              other=normal.cross(Vector((0,0,1)))
+              if other.length<.01:other=normal.cross(Vector((0,1,0)))
+              other.normalize();up=normal.cross(other);rays=[]
+              for i in range(24):
+                  z=math.sqrt((i+.5)/24);r=math.sqrt(1-z*z);angle=i*2.399963;d=normal*z+other*(r*math.cos(angle))+up*(r*math.sin(angle))
+                  h,where,n,f,o,m=s.ray_cast(dg,at+normal*.02,d,distance=10000)
+                  rays.append({'geometric_hit':o.name if h else None,'distance':float((where-at).length) if h else None})
+              rock['hemisphere_first_hits']=rays;rock['geometric_world_open_fraction']=sum(x['geometric_hit'] is None for x in rays)/len(rays)
+          report={'source_master_sha256':expected,'source_evidence_commit':'def004d60bb37a58a043a3506fb2bbda5c3a0e5c','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'fields':rows,'rock_sample':rock,'roof_glass_objects':sum(o.name.startswith('Curved_roof_glazing') for o in s.objects),'source_unchanged':hashlib.sha256(p.read_bytes()).hexdigest()==expected,'limits':'No image rendering. Geometric first hits do not integrate transparent transport or shader bump normals; not automatic quality acceptance.','g4_stage_pass':False,'human_acceptance':False}
+          assert report['source_unchanged'];(out/'NATIVE-FIELD-QA.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))
+          PY
+          blender -b workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend -t 2 --python-exit-code 1 -P "$RUNNER_TEMP/read_coast.py" 2>&1 | tee "$OUT/read.log"
+      - name: Persist only small read-only measurements
+        if: always()
+        run: bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-coast-field-qa
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-field-qa-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-field-qa
+          retention-days: 1
