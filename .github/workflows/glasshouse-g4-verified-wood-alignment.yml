@@ -1,0 +1,128 @@
+name: Glasshouse G4 integrated coast with verified wood-grain alignment
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-verified-wood-alignment.yml]
+permissions:
+  contents: write
+jobs:
+  local-art-source:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    outputs:
+      evidence: ${{ steps.persist.outputs.evidence }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r05
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact integrated parent and actually reviewed UV inspection
+        timeout-minutes: 3
+        run: |
+          git fetch --depth=1 origin def004d60bb37a58a043a3506fb2bbda5c3a0e5c
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r04 | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r04
+          git fetch --depth=1 origin 48f41c9f388ceeac396281ee682c9c5240e1348b
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-wood-axis-inspection | tar -x
+          echo '51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c  workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf 'One local artwork candidate after actual read-only inspection34155095899 and packed-scan pixel review. Only3table rims and7sideboard members: explicit90degree UV alignment and matching grain-direction micro-normal on copied materials. Retain all old UVs and all integrated native sea, scans, rain, wool, cameras and lighting. Source18min non-rendering; native before/after wood plus latest full coast30min job/24min production/6min save. Public standard runner, one production renderer, external spend0, downloads1.5GB,disk8GB,evidence240MB. A logical UV correction is not an art-pass guarantee. No automatic follow-on candidate.\n' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/align_g4_verified_wood_grain.py
+      - name: Reuse pinned native Blender
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-source.log"
+      - name: Apply only the measured member-axis correction, preserving parent bytes
+        timeout-minutes: 6
+        env:
+          G4_WOOD_MODE: build
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/align_g4_verified_wood_grain.py 2>&1 | tee "$OUT/build.log"
+          cp -a workspaces/glasshouse-terminus/output/g4-coast-r04/assets "$OUT/assets"
+          test "$(du -sb workspaces/glasshouse-terminus | cut -f1)" -lt 8000000000
+      - name: Preserve full editable candidate and licensed source assets before rendering
+        id: persist
+        timeout-minutes: 3
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r05-source | tee "$RUNNER_TEMP/wood-save.log"
+          c=$(sed -n 's/^PERSISTED_EVIDENCE_COMMIT=//p' "$RUNNER_TEMP/wood-save.log");test -n "$c"
+          echo "evidence=$c" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r05-source-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r05
+          retention-days: 1
+          if-no-files-found: error
+  native-paired-review:
+    needs: local-art-source
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r05
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore both immutable masters for an actual same-camera comparison
+        timeout-minutes: 4
+        env:
+          EVIDENCE: ${{ needs.local-art-source.outputs.evidence }}
+        run: |
+          echo "G4_WOOD_DEADLINE=$(( $(date +%s) + 24*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin "$EVIDENCE"
+          git archive FETCH_HEAD "$OUT" | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore "$OUT"
+          rm -r "$OUT/master-parts"
+          git fetch --depth=1 origin def004d60bb37a58a043a3506fb2bbda5c3a0e5c
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r04 | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r04
+      - name: Reuse native renderer, no new dependencies
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-render.log"
+      - name: Baseline wood closeup from real unmodified COAST-R04
+        timeout-minutes: 10
+        env:
+          G4_WOOD_MODE: before
+        run: |
+          remaining=$((G4_WOOD_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/align_g4_verified_wood_grain.py 2>&1 | tee "$OUT/before-render.log"
+      - name: Same wood camera after correction and full integrated coast context
+        timeout-minutes: 17
+        env:
+          G4_WOOD_MODE: after
+        run: |
+          remaining=$((G4_WOOD_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/align_g4_verified_wood_grain.py 2>&1 | tee "$OUT/after-render.log"
+      - name: Preserve exact source lineage and actual coverage, including any failure
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py prepare "$OUT"
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          r=Path(os.environ['OUT']);r.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<240000000
+          required=['g4-full-scene-candidate.blend','build-report.json','M02-before-native.png','M02-aligned-wood-native.png','C01-integrated-coast-native.png','before-reopen-check.json','after-reopen-check.json']
+          missing=[n for n in required if not (r/n).is_file()]
+          (r/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R05','status':'NATIVE_WOOD_COMPARISON_AND_INTEGRATED_CONTEXT_REVIEW_PENDING' if not missing else 'PARTIAL_OR_FAILED_NOT_ART_PASS','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':files,'missing':missing,'parent_master_sha256':'51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c','scope':'One true R04 baseline image and two R05 images. R04 wave/rain clips remain explicitly parent-version proof, not newly rendered R05 motion. Full integrated geometry and sources retained.','g4_stage_pass':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED'},indent=2))
+          PY
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r05
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r05-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r05
+          retention-days: 1
+          if-no-files-found: error
