@@ -1,0 +1,1643 @@
+{
+  "stage": "G3",
+  "revision": "R06",
+  "status": "BUILD_NOT_ART_PASS",
+  "parent_master_sha256": "8ca4ca940a98e80d980fbd895f5ae7c27568b28ee361422bfe4ed267b7b8f02e",
+  "diagnosis_evidence_commit": "4cb68d0db15031059ea05054847ae75491569e64",
+  "diagnosis_report_sha256": "ad0aa333ac7cb567aee6e4a0ee730b8539268a4e595062c5de39bb0af3ce802d",
+  "diagnosed_root": "Capital/column shadowing plus grazing incidence; upper-node points are inside the near floor spotlight cone.",
+  "proposed_intervention": "Two compact projectors clamped to the existing eave-level roof purlin, aimed obliquely downward at the two bay nodes. Preserve both existing floor uplights and all source surfaces.",
+  "mount_object": "Longitudinal_roof_purlin.001",
+  "mount_bounds": [
+    [
+      -16.09000015258789,
+      6.241017818450928,
+      6.277477264404297
+    ],
+    [
+      16.09000015258789,
+      6.3160176277160645,
+      6.3624773025512695
+    ]
+  ],
+  "specifications": [
+    {
+      "pivot": [
+        -2.700000047683716,
+        5.949999809265137,
+        6.199999809265137
+      ],
+      "target": [
+        -3.9649999141693115,
+        6.400000095367432,
+        5.449999809265137
+      ],
+      "axis": [
+        -0.8225347399711609,
+        0.29260149598121643,
+        -0.48766887187957764
+      ],
+      "emitter": [
+        -2.7583999633789062,
+        5.9707746505737305,
+        6.165375232696533
+      ],
+      "mount_contact": {
+        "object": "Longitudinal_roof_purlin.001",
+        "position": [
+          -2.700000047683716,
+          6.241017818450928,
+          6.319977283477783
+        ],
+        "distance": 0.09000015121354539,
+        "gap": 0.05999994489891351,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "energy": 36,
+      "spot_degrees": 70,
+      "spot_blend": 0.55,
+      "radius": 0.028,
+      "light_object": "G3R06_upper_node_wash",
+      "clamp_object": "G3R06_purlin_clamp",
+      "clamp_bounds": [
+        [
+          -2.765000104904175,
+          6.233017921447754,
+          6.279977321624756
+        ],
+        [
+          -2.634999990463257,
+          6.2590179443359375,
+          6.3599772453308105
+        ]
+      ]
+    },
+    {
+      "pivot": [
+        -1.2999999523162842,
+        5.949999809265137,
+        6.199999809265137
+      ],
+      "target": [
+        -0.03500000014901161,
+        6.400000095367432,
+        5.449999809265137
+      ],
+      "axis": [
+        0.8225347995758057,
+        0.29260149598121643,
+        -0.48766887187957764
+      ],
+      "emitter": [
+        -1.2416000366210938,
+        5.9707746505737305,
+        6.165375232696533
+      ],
+      "mount_contact": {
+        "object": "Longitudinal_roof_purlin.001",
+        "position": [
+          -1.2999999523162842,
+          6.241017818450928,
+          6.319977283477783
+        ],
+        "distance": 0.09000015121354539,
+        "gap": 0.05999994489891351,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "energy": 36,
+      "spot_degrees": 70,
+      "spot_blend": 0.55,
+      "radius": 0.028,
+      "light_object": "G3R06_upper_node_wash.001",
+      "clamp_object": "G3R06_purlin_clamp.001",
+      "clamp_bounds": [
+        [
+          -1.3650000095367432,
+          6.233017921447754,
+          6.279977321624756
+        ],
+        [
+          -1.2349998950958252,
+          6.2590179443359375,
+          6.3599772453308105
+        ]
+      ]
+    }
+  ],
+  "pre_fixture_paths": [
+    {
+      "sample_id": 44,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.0984039306640625,
+        6.338837623596191,
+        5.040028095245361
+      ],
+      "normal": [
+        0.0,
+        -0.9996213912963867,
+        -0.027514899149537086
+      ],
+      "normal_dot_to_light": 0.18844026699662209,
+      "angle_degrees": 10.414670604962572,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.098402976989746,
+          6.338837623596191,
+          5.0400285720825195
+        ],
+        "distance": 1.7881508590937778,
+        "gap": 1.0333263800177406e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 45,
+      "object": "G3R04_eave_splice_plate.001",
+      "point": [
+        -3.883031129837036,
+        6.365000247955322,
+        5.044581413269043
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.2409740835428238,
+      "angle_degrees": 14.057240508441327,
+      "first_hit": {
+        "object": "G3R04_eave_splice_plate.001",
+        "position": [
+          -3.883030414581299,
+          6.364999771118164,
+          5.044582366943359
+        ],
+        "distance": 1.6359656702219472,
+        "gap": 1.2797409916220914e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 47,
+      "object": "G3R04_eave_splice_plate.001",
+      "point": [
+        -3.882887125015259,
+        6.365029811859131,
+        5.083075523376465
+      ],
+      "normal": [
+        0.25844788551330566,
+        -0.966025173664093,
+        0.0
+      ],
+      "normal_dot_to_light": 0.4171352833509445,
+      "angle_degrees": 13.062321899146731,
+      "first_hit": {
+        "object": "G3R04_eave_splice_plate.001",
+        "position": [
+          -3.882887840270996,
+          6.365029811859131,
+          5.083075046539307
+        ],
+        "distance": 1.6097465058570355,
+        "gap": -8.146018719568104e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 48,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.095350742340088,
+        6.336625099182129,
+        5.120388984680176
+      ],
+      "normal": [
+        0.0,
+        -0.9996213912963867,
+        -0.027514899149537086
+      ],
+      "normal_dot_to_light": 0.19411434791982174,
+      "angle_degrees": 8.60409278012237,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.0953521728515625,
+          6.336625576019287,
+          5.120388031005859
+        ],
+        "distance": 1.7358820141526767,
+        "gap": -1.7468859081493093e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 49,
+      "object": "G3R04_eave_splice_plate.001",
+      "point": [
+        -3.8827507495880127,
+        6.3650665283203125,
+        5.121589183807373
+      ],
+      "normal": [
+        0.25844788551330566,
+        -0.966025173664093,
+        0.0
+      ],
+      "normal_dot_to_light": 0.4239099323749542,
+      "angle_degrees": 12.034008367333444,
+      "first_hit": {
+        "object": "G3R04_eave_splice_plate.001",
+        "position": [
+          -3.882750988006592,
+          6.3650665283203125,
+          5.121588706970215
+        ],
+        "distance": 1.5840207247437916,
+        "gap": -4.891732094947088e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 50,
+      "object": "G3R04_eave_splice_plate.001",
+      "point": [
+        -3.875999927520752,
+        6.409987449645996,
+        5.1214399337768555
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.7023878693580627,
+      "angle_degrees": 11.913005963823615,
+      "first_hit": {
+        "object": "G3R04_eave_splice_plate.001",
+        "position": [
+          -3.875999927520752,
+          6.409987449645996,
+          5.1214399337768555
+        ],
+        "distance": 1.59114376313553,
+        "gap": 0.0,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 56,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.088842868804932,
+        6.331789493560791,
+        5.240758419036865
+      ],
+      "normal": [
+        0.0,
+        -0.9965288043022156,
+        -0.08324819058179855
+      ],
+      "normal_dot_to_light": 0.17036327719688416,
+      "angle_degrees": 5.982979625132215,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.088841915130615,
+          6.331789016723633,
+          5.240758895874023
+        ],
+        "distance": 1.659916427344109,
+        "gap": 1.1266200299342444e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 57,
+      "object": "G3R04_eave_splice_plate.001",
+      "point": [
+        -3.8761074542999268,
+        6.462116718292236,
+        5.238401412963867
+      ],
+      "normal": [
+        0.9660238027572632,
+        0.0,
+        0.2584531903266907
+      ],
+      "normal_dot_to_light": 0.8606297373771667,
+      "angle_degrees": 8.735770624965518,
+      "first_hit": {
+        "object": "G3R04_eave_splice_plate.001",
+        "position": [
+          -3.876107692718506,
+          6.462116718292236,
+          5.238401412963867
+        ],
+        "distance": 1.5329605493782075,
+        "gap": -1.5552819743192003e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 58,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.9000000953674316,
+        6.330014705657959,
+        5.275674343109131
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.7655245661735535,
+      "angle_degrees": 7.64802539199319,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.9000000953674316,
+          6.330014705657959,
+          5.275674343109131
+        ],
+        "distance": 1.4912652366160366,
+        "gap": 0.0,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 59,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.991999864578247,
+        6.5119309425354,
+        5.281638145446777
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.7656928896903992,
+      "angle_degrees": 5.379771818367262,
+      "first_hit": {
+        "object": "Curved_roof_glazing.144",
+        "position": [
+          -3.935161590576172,
+          6.486997127532959,
+          5.322356224060059
+        ],
+        "distance": 1.536858660598282,
+        "gap": 0.07423105824095932,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": false,
+      "direct_possible": false
+    },
+    {
+      "sample_id": 60,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.0801286697387695,
+        6.325119972229004,
+        5.320601940155029
+      ],
+      "normal": [
+        0.0,
+        -0.9965288043022156,
+        -0.08324819058179855
+      ],
+      "normal_dot_to_light": 0.1758469082415104,
+      "angle_degrees": 4.669563176249661,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.080125331878662,
+          6.3251190185546875,
+          5.320603847503662
+        ],
+        "distance": 1.6081531478903213,
+        "gap": 3.956580883368588e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 61,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.9000000953674316,
+        6.33015251159668,
+        5.314244270324707
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.7773315906524658,
+      "angle_degrees": 6.480429734952653,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.9000000953674316,
+          6.33015251159668,
+          5.314244270324707
+        ],
+        "distance": 1.4686140545365645,
+        "gap": 0.0,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 62,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.992000102996826,
+        6.512107849121094,
+        5.3220391273498535
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.7761675119400024,
+      "angle_degrees": 4.548331013362029,
+      "first_hit": {
+        "object": "Curved_roof_glazing.144",
+        "position": [
+          -3.9269940853118896,
+          6.48358154296875,
+          5.366479873657227
+        ],
+        "distance": 1.5055952124936822,
+        "gap": 0.08375268075343278,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": false,
+      "direct_possible": false
+    },
+    {
+      "sample_id": 66,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.8999998569488525,
+        6.330289840698242,
+        5.352838039398193
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.7891481518745422,
+      "angle_degrees": 5.295231768861293,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.9000000953674316,
+          6.330289840698242,
+          5.352838039398193
+        ],
+        "distance": 1.446623228466756,
+        "gap": -2.0601303729606002e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 71,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.05210542678833,
+        6.303529739379883,
+        5.5178985595703125
+      ],
+      "normal": [
+        0.0,
+        -0.9903985857963562,
+        -0.13824088871479034
+      ],
+      "normal_dot_to_light": 0.16171011701226234,
+      "angle_degrees": 5.655179215740827,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.052106857299805,
+          6.303530216217041,
+          5.517897605895996
+        ],
+        "distance": 1.4844632373483648,
+        "gap": -1.764193662712188e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 72,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.9920003414154053,
+        6.407957553863525,
+        5.518792629241943
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.8450571298599243,
+      "angle_degrees": 2.897011785116719,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.992000102996826,
+          6.407957553863525,
+          5.518792629241943
+        ],
+        "distance": 1.4597832868292069,
+        "gap": 2.0415578494414888e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 74,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.0450897216796875,
+        6.298099517822266,
+        5.556803226470947
+      ],
+      "normal": [
+        0.0,
+        -0.9903985857963562,
+        -0.13824088871479034
+      ],
+      "normal_dot_to_light": 0.1643628105521202,
+      "angle_degrees": 6.5728115469865065,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.045090675354004,
+          6.298099517822266,
+          5.556802749633789
+        ],
+        "distance": 1.4605050645441373,
+        "gap": -1.0508831449485e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 77,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.094435691833496,
+        6.28631591796875,
+        5.640645980834961
+      ],
+      "normal": [
+        0.0,
+        -0.9812970161437988,
+        -0.19249999523162842
+      ],
+      "normal_dot_to_light": 0.141957625746727,
+      "angle_degrees": 10.039015094279096,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.094432830810547,
+          6.286314964294434,
+          5.6406474113464355
+        ],
+        "distance": 1.4696560281956441,
+        "gap": 3.315520176405684e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 81,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.074709892272949,
+        6.27126407623291,
+        5.717372894287109
+      ],
+      "normal": [
+        0.0,
+        -0.9812970161437988,
+        -0.19249999523162842
+      ],
+      "normal_dot_to_light": 0.1466575600206852,
+      "angle_degrees": 12.449056382305708,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.074709415435791,
+          6.27126407623291,
+          5.717372894287109
+        ],
+        "distance": 1.4225577428734941,
+        "gap": 4.608958683594011e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 82,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.8999998569488525,
+        6.281685829162598,
+        5.697138786315918
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.8971578478813171,
+      "angle_degrees": 8.549466236836516,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.9000000953674316,
+          6.281685829162598,
+          5.697138786315918
+        ],
+        "distance": 1.2724629839092436,
+        "gap": -2.3420976091870216e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 83,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.992000102996826,
+        6.408669471740723,
+        5.718749523162842
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.8919025659561157,
+      "angle_degrees": 10.34831177454411,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.992000102996826,
+          6.408669471740723,
+          5.718749523162842
+        ],
+        "distance": 1.3831108708873086,
+        "gap": 0.0,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 84,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.9000000953674316,
+        6.281808376312256,
+        5.735681533813477
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.9068806767463684,
+      "angle_degrees": 10.034909929492068,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.9000000953674316,
+          6.281808376312256,
+          5.735681533813477
+        ],
+        "distance": 1.2588207072208304,
+        "gap": 0.0,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 91,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.084272384643555,
+        6.2289958000183105,
+        5.914220333099365
+      ],
+      "normal": [
+        0.0,
+        -0.9693344831466675,
+        -0.2457450032234192
+      ],
+      "normal_dot_to_light": 0.137257382273674,
+      "angle_degrees": 20.298202138426554,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.084271430969238,
+          6.228995323181152,
+          5.914220809936523
+        ],
+        "distance": 1.373932903915837,
+        "gap": 1.0872734863554001e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 92,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.991999864578247,
+        6.35787296295166,
+        5.913567066192627
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.936530590057373,
+      "angle_degrees": 18.278065342766475,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.992000102996826,
+          6.35787296295166,
+          5.913567066192627
+        ],
+        "distance": 1.3172022425006404,
+        "gap": -2.2625473894422043e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 94,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.9000000953674316,
+        6.233218193054199,
+        5.922958850860596
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.9543560147285461,
+      "angle_degrees": 18.555496772759607,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.9000000953674316,
+          6.233218193054199,
+          5.922958850860596
+        ],
+        "distance": 1.1961994931690951,
+        "gap": 0.0,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    }
+  ],
+  "g4_allowed": false,
+  "human_acceptance": false,
+  "post_fixture_paths": [
+    {
+      "sample_id": 44,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.0984039306640625,
+        6.338837623596191,
+        5.040028095245361
+      ],
+      "normal": [
+        0.0,
+        -0.9996213912963867,
+        -0.027514899149537086
+      ],
+      "normal_dot_to_light": 0.18844026699662209,
+      "angle_degrees": 10.414670604962572,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.098402976989746,
+          6.338837623596191,
+          5.0400285720825195
+        ],
+        "distance": 1.7881508590937778,
+        "gap": 1.0333263800177406e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 45,
+      "object": "G3R04_eave_splice_plate.001",
+      "point": [
+        -3.883031129837036,
+        6.365000247955322,
+        5.044581413269043
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.2409740835428238,
+      "angle_degrees": 14.057240508441327,
+      "first_hit": {
+        "object": "G3R04_eave_splice_plate.001",
+        "position": [
+          -3.883030414581299,
+          6.364999771118164,
+          5.044582366943359
+        ],
+        "distance": 1.6359656702219472,
+        "gap": 1.2797409916220914e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 47,
+      "object": "G3R04_eave_splice_plate.001",
+      "point": [
+        -3.882887125015259,
+        6.365029811859131,
+        5.083075523376465
+      ],
+      "normal": [
+        0.25844788551330566,
+        -0.966025173664093,
+        0.0
+      ],
+      "normal_dot_to_light": 0.4171352833509445,
+      "angle_degrees": 13.062321899146731,
+      "first_hit": {
+        "object": "G3R04_eave_splice_plate.001",
+        "position": [
+          -3.882887840270996,
+          6.365029811859131,
+          5.083075046539307
+        ],
+        "distance": 1.6097465058570355,
+        "gap": -8.146018719568104e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 48,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.095350742340088,
+        6.336625099182129,
+        5.120388984680176
+      ],
+      "normal": [
+        0.0,
+        -0.9996213912963867,
+        -0.027514899149537086
+      ],
+      "normal_dot_to_light": 0.19411434791982174,
+      "angle_degrees": 8.60409278012237,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.0953521728515625,
+          6.336625576019287,
+          5.120388031005859
+        ],
+        "distance": 1.7358820141526767,
+        "gap": -1.7468859081493093e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 49,
+      "object": "G3R04_eave_splice_plate.001",
+      "point": [
+        -3.8827507495880127,
+        6.3650665283203125,
+        5.121589183807373
+      ],
+      "normal": [
+        0.25844788551330566,
+        -0.966025173664093,
+        0.0
+      ],
+      "normal_dot_to_light": 0.4239099323749542,
+      "angle_degrees": 12.034008367333444,
+      "first_hit": {
+        "object": "G3R04_eave_splice_plate.001",
+        "position": [
+          -3.882750988006592,
+          6.3650665283203125,
+          5.121588706970215
+        ],
+        "distance": 1.5840207247437916,
+        "gap": -4.891732094947088e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 50,
+      "object": "G3R04_eave_splice_plate.001",
+      "point": [
+        -3.875999927520752,
+        6.409987449645996,
+        5.1214399337768555
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.7023878693580627,
+      "angle_degrees": 11.913005963823615,
+      "first_hit": {
+        "object": "G3R04_eave_splice_plate.001",
+        "position": [
+          -3.875999927520752,
+          6.409987449645996,
+          5.1214399337768555
+        ],
+        "distance": 1.59114376313553,
+        "gap": 0.0,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 56,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.088842868804932,
+        6.331789493560791,
+        5.240758419036865
+      ],
+      "normal": [
+        0.0,
+        -0.9965288043022156,
+        -0.08324819058179855
+      ],
+      "normal_dot_to_light": 0.17036327719688416,
+      "angle_degrees": 5.982979625132215,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.088841915130615,
+          6.331789016723633,
+          5.240758895874023
+        ],
+        "distance": 1.659916427344109,
+        "gap": 1.1266200299342444e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 57,
+      "object": "G3R04_eave_splice_plate.001",
+      "point": [
+        -3.8761074542999268,
+        6.462116718292236,
+        5.238401412963867
+      ],
+      "normal": [
+        0.9660238027572632,
+        0.0,
+        0.2584531903266907
+      ],
+      "normal_dot_to_light": 0.8606297373771667,
+      "angle_degrees": 8.735770624965518,
+      "first_hit": {
+        "object": "G3R04_eave_splice_plate.001",
+        "position": [
+          -3.876107692718506,
+          6.462116718292236,
+          5.238401412963867
+        ],
+        "distance": 1.5329605493782075,
+        "gap": -1.5552819743192003e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 58,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.9000000953674316,
+        6.330014705657959,
+        5.275674343109131
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.7655245661735535,
+      "angle_degrees": 7.64802539199319,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.9000000953674316,
+          6.330014705657959,
+          5.275674343109131
+        ],
+        "distance": 1.4912652366160366,
+        "gap": 0.0,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 59,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.991999864578247,
+        6.5119309425354,
+        5.281638145446777
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.7656928896903992,
+      "angle_degrees": 5.379771818367262,
+      "first_hit": {
+        "object": "Curved_roof_glazing.144",
+        "position": [
+          -3.935161590576172,
+          6.486997127532959,
+          5.322356224060059
+        ],
+        "distance": 1.536858660598282,
+        "gap": 0.07423105824095932,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": false,
+      "direct_possible": false
+    },
+    {
+      "sample_id": 60,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.0801286697387695,
+        6.325119972229004,
+        5.320601940155029
+      ],
+      "normal": [
+        0.0,
+        -0.9965288043022156,
+        -0.08324819058179855
+      ],
+      "normal_dot_to_light": 0.1758469082415104,
+      "angle_degrees": 4.669563176249661,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.080125331878662,
+          6.3251190185546875,
+          5.320603847503662
+        ],
+        "distance": 1.6081531478903213,
+        "gap": 3.956580883368588e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 61,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.9000000953674316,
+        6.33015251159668,
+        5.314244270324707
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.7773315906524658,
+      "angle_degrees": 6.480429734952653,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.9000000953674316,
+          6.33015251159668,
+          5.314244270324707
+        ],
+        "distance": 1.4686140545365645,
+        "gap": 0.0,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 62,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.992000102996826,
+        6.512107849121094,
+        5.3220391273498535
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.7761675119400024,
+      "angle_degrees": 4.548331013362029,
+      "first_hit": {
+        "object": "Curved_roof_glazing.144",
+        "position": [
+          -3.9269940853118896,
+          6.48358154296875,
+          5.366479873657227
+        ],
+        "distance": 1.5055952124936822,
+        "gap": 0.08375268075343278,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": false,
+      "direct_possible": false
+    },
+    {
+      "sample_id": 66,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.8999998569488525,
+        6.330289840698242,
+        5.352838039398193
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.7891481518745422,
+      "angle_degrees": 5.295231768861293,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.9000000953674316,
+          6.330289840698242,
+          5.352838039398193
+        ],
+        "distance": 1.446623228466756,
+        "gap": -2.0601303729606002e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 71,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.05210542678833,
+        6.303529739379883,
+        5.5178985595703125
+      ],
+      "normal": [
+        0.0,
+        -0.9903985857963562,
+        -0.13824088871479034
+      ],
+      "normal_dot_to_light": 0.16171011701226234,
+      "angle_degrees": 5.655179215740827,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.052106857299805,
+          6.303530216217041,
+          5.517897605895996
+        ],
+        "distance": 1.4844632373483648,
+        "gap": -1.764193662712188e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 72,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.9920003414154053,
+        6.407957553863525,
+        5.518792629241943
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.8450571298599243,
+      "angle_degrees": 2.897011785116719,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.992000102996826,
+          6.407957553863525,
+          5.518792629241943
+        ],
+        "distance": 1.4597832868292069,
+        "gap": 2.0415578494414888e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 74,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.0450897216796875,
+        6.298099517822266,
+        5.556803226470947
+      ],
+      "normal": [
+        0.0,
+        -0.9903985857963562,
+        -0.13824088871479034
+      ],
+      "normal_dot_to_light": 0.1643628105521202,
+      "angle_degrees": 6.5728115469865065,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.045090675354004,
+          6.298099517822266,
+          5.556802749633789
+        ],
+        "distance": 1.4605050645441373,
+        "gap": -1.0508831449485e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 77,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.094435691833496,
+        6.28631591796875,
+        5.640645980834961
+      ],
+      "normal": [
+        0.0,
+        -0.9812970161437988,
+        -0.19249999523162842
+      ],
+      "normal_dot_to_light": 0.141957625746727,
+      "angle_degrees": 10.039015094279096,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.094432830810547,
+          6.286314964294434,
+          5.6406474113464355
+        ],
+        "distance": 1.4696560281956441,
+        "gap": 3.315520176405684e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 81,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.074709892272949,
+        6.27126407623291,
+        5.717372894287109
+      ],
+      "normal": [
+        0.0,
+        -0.9812970161437988,
+        -0.19249999523162842
+      ],
+      "normal_dot_to_light": 0.1466575600206852,
+      "angle_degrees": 12.449056382305708,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.074709415435791,
+          6.27126407623291,
+          5.717372894287109
+        ],
+        "distance": 1.4225577428734941,
+        "gap": 4.608958683594011e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 82,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.8999998569488525,
+        6.281685829162598,
+        5.697138786315918
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.8971578478813171,
+      "angle_degrees": 8.549466236836516,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.9000000953674316,
+          6.281685829162598,
+          5.697138786315918
+        ],
+        "distance": 1.2724629839092436,
+        "gap": -2.3420976091870216e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 83,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.992000102996826,
+        6.408669471740723,
+        5.718749523162842
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.8919025659561157,
+      "angle_degrees": 10.34831177454411,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.992000102996826,
+          6.408669471740723,
+          5.718749523162842
+        ],
+        "distance": 1.3831108708873086,
+        "gap": 0.0,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 84,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.9000000953674316,
+        6.281808376312256,
+        5.735681533813477
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.9068806767463684,
+      "angle_degrees": 10.034909929492068,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.9000000953674316,
+          6.281808376312256,
+          5.735681533813477
+        ],
+        "distance": 1.2588207072208304,
+        "gap": 0.0,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 91,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -4.084272384643555,
+        6.2289958000183105,
+        5.914220333099365
+      ],
+      "normal": [
+        0.0,
+        -0.9693344831466675,
+        -0.2457450032234192
+      ],
+      "normal_dot_to_light": 0.137257382273674,
+      "angle_degrees": 20.298202138426554,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -4.084271430969238,
+          6.228995323181152,
+          5.914220809936523
+        ],
+        "distance": 1.373932903915837,
+        "gap": 1.0872734863554001e-06,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 92,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.991999864578247,
+        6.35787296295166,
+        5.913567066192627
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.936530590057373,
+      "angle_degrees": 18.278065342766475,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.992000102996826,
+          6.35787296295166,
+          5.913567066192627
+        ],
+        "distance": 1.3172022425006404,
+        "gap": -2.2625473894422043e-07,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    },
+    {
+      "sample_id": 94,
+      "object": "Primary_elliptical_arch.003",
+      "point": [
+        -3.9000000953674316,
+        6.233218193054199,
+        5.922958850860596
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "normal_dot_to_light": 0.9543560147285461,
+      "angle_degrees": 18.555496772759607,
+      "first_hit": {
+        "object": "Primary_elliptical_arch.003",
+        "position": [
+          -3.9000000953674316,
+          6.233218193054199,
+          5.922958850860596
+        ],
+        "distance": 1.1961994931690951,
+        "gap": 0.0,
+        "hide_render": false,
+        "visible_shadow": true
+      },
+      "clear": true,
+      "direct_possible": true
+    }
+  ],
+  "post_fixture_direct_count": 23,
+  "upper_sample_count": 25,
+  "protected_before": "deb556c4b92a0a80d8705f371ba007f1482a85ae296be61c3b6a3107d2b56082",
+  "protected_after": "deb556c4b92a0a80d8705f371ba007f1482a85ae296be61c3b6a3107d2b56082",
+  "candidate_sha256": "65ef58c38685aa6ef26aa0f2d5116e1535e879f4a2b01975100d71be7cb7de26",
+  "source_master_unchanged": true,
+  "source_materials_unchanged": true,
+  "source_lights_unchanged": true
+}
