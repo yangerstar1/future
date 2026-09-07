@@ -2,46 +2,82 @@
 
 仓库yangerstar1/future；制作分支codex/glasshouse-terminus；工作根workspaces/glasshouse-terminus。
 
-## 当前：COAST-R08源已实际保存、下载核验，前后原图正在渲染
+## 当前已完成状态：COAST-R09源与原生观察均已取回
 
-用户要求继续优化各部分、达到商业顶尖建模真实感。本轮按原合同优先改模型本体，不再连续只堆灯光与雨滴。**最新恢复候选为COAST-R08，不能退回R02、孤立雨材质版或未检查水珠法线的R06。G4仍未通过。**
+用户要求继续优化各部分、达到商业顶尖建模真实感。本轮实际从R07综合场景继续，完成R08构造优化和原生对照，再完成R09主顶壳体局部修正。**最新可恢复版本是COAST-R09，三张该版本原图已实际审查。不是只有脚本，不再等待旧R07/R08渲染，不得回退R02或孤立雨材质版。**
 
-源证据commit **caf093e65db1e364e2403e6a7807a3ef5da88b5b**；分支evidence/g4-coast-r08-source-34165514100-1；目录 **workspaces/glasshouse-terminus/output/g4-coast-r08**。
+G4仍PAUSED_UNMET，stage_best=null、human_acceptance=false。源完整、CI成功和局部改善均不等于商业顶尖或最终验收。
 
-主文件g4-full-scene-candidate.blend，实际 **154411214 bytes**，SHA-256 **c96c202a13c5ecd342a7b614a77b1e24ec9889bdb79cc328a255607467d7e877**。实际源artifact10034038296，198608122 bytes，ZIP SHA-256f1f2e033026c7c9b43643e7b492db1028e3ac451de5646ee06c14b5fb0cdd9a3。本会话已核对完整主文件、三个无损分块对应SHA、九项共享资产/来源文件与父版逐字节一致。源保存不代表艺术通过。
+## 唯一优先恢复点
 
-制作源码 **d1db8a6e1ee005db14f145e7a1b402620bab4ae6**；唯一当前制作run **34165514100**。source job101875644193已success；native-craft-review **101875989506**已进入父版同机位原图渲染，尚未收齐本轮图片。先查询这一现有run，不重建或重复触发。
+完整证据commit：**3b66a604c65b8c98162450a73640c847f2734474**。
+证据分支：evidence/g4-coast-r09-34168580326-1。
+目录：**workspaces/glasshouse-terminus/output/g4-coast-r09**。
+主文件：g4-full-scene-candidate.blend。
+实际主文件大小：**154401842 bytes**。
+实际SHA-256：**001a708dda2744a0f9db2994937982d121ce766aab6768746e884a72c4feaeef**。
 
-入口：refine_g4_r08_craft.py、render_g4_r08_baseline.py、.github/workflows/glasshouse-g4-r08-craft.yml。额外诊断相机QA_R08_cab_joinery保存在候选中；baseline脚本只将这台确切相机读入未保存的R07会话，以保证前后镜头完全一致，原C01/C09及其他所有旧相机保留。
+最终artifact10035316043，202948721 bytes，实际ZIP SHA-2564dc902738a01b21c9f40220c56feaef4d83e249f1cab8c20ff58c0fbfc413ce1。**51项文件清单全部匹配，missing=[]**。三张原图为R09-cab-shell.png、R09-complete-coast.png、R09-carriage-interior.png，均已实际打开。三个新进程渲染退出码0、重开外部图片缺失0、master前后相同。
 
-目标观察：R07 BEFORE-cab/BEFORE-upholstery；R08 AFTER-cab/AFTER-upholstery；R08 C09车厢、C01海岸、E02海面。实际完成与缺项必须读最终DELIVERY；当前不得声称七图已齐或已通过。这些是1280×800/1440×900原生诊断图，不是最终4K影片。
+源checkpoint9aaf262f3db4c78b85dcd314e22a382ee6c9db4b。源artifact10034983310，198604092 bytes，ZIP SHA63e12decaa93c98e5a75c1e0b6a4963c075a652664f6945d3ec1dfe86e6d788f；实际主文件、三块无损运输SHA和十项共享资产/来源记录均核验。
 
-## 本轮实际构造修改
+Git证据是以main为基底的data-only分支，不含最新制作代码；不要整分支替换制作分支。大主文件在Git中是53MB无损分块，Actions ZIP含完整.blend。临时artifact只有一天保留，长期恢复用上面的完整证据commit。
 
-只读审计run34164882942已success，证据 **fabf97ac9fa264a741429c0dc01c75e63f322381**；artifact10033826717、71503 bytes、ZIP SHAa8e2c037aaab421b61b3e9fbaa33ad0eb07fd80f6258e964cc906445af144cf6。已下载并读取真实顶点、面、修改器、材质节点和实际源码。
+在已确认位于真实仓库根、工作树无目标冲突的环境：
 
-两端Cab_complete_roof_loft原为50顶点、24个未平滑拼面，正端法线向下。R08改成边界锚定的连续四边面曲面，保持50个原始接口采样点完全不动、70mm壳厚保留，统一外法线并补窄卷边。轮廓/曲面必须以原图判断，不以1536面计分。
+```bash
+git fetch --depth=1 origin 3b66a604c65b8c98162450a73640c847f2734474
+git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r09 | tar -x
+python3 workspaces/glasshouse-terminus/output/g4-coast-r09/restore_master.py restore workspaces/glasshouse-terminus/output/g4-coast-r09
+echo '001a708dda2744a0f9db2994937982d121ce766aab6768746e884a72c4feaeef  workspaces/glasshouse-terminus/output/g4-coast-r09/g4-full-scene-candidate.blend' | sha256sum --check
+```
 
-十个车厢座垫、十个靠垫、十二个长椅座垫原为倒圆八顶点盒体。R08改成有侧围、隆起裁片、2mm缝边和细针脚的闭合软包，保持原外廓容差1.5mm和移动父对象；继承原扫描羊毛、0.3m纹理米制尺度。旧网格保留为源数据，不是丢掉原场景重建。
+主文件默认打开相机已经设回原C01_exterior_hero；所有诊断和失败机位仍在，不删除原角度遮丑。
 
-海面保留原完整光学水体、主波谱、岸边距离泡沫与207m远景渐变，加入35m短风程波谱和0.11–0.51m方向细波纹。451→466→451求值可复现、远处稀疏网格保持平坦。它是受控谱叠加，不声称撞岸流体模拟。原雨/玻璃/木作/岩体、世界环境、灯光、曝光及旧相机不改。保护摘要前后一致，仍不代替视觉验收。
+## 本轮运行已经结束，不重复提交触发
 
-## R07已完整取回的事实，不再写成仍在运行
+R09 run34168580326，制作源码3309dc100fa082926643888c53f03c9f762f1a36；source101884403819和native-review101884649817均已完成success。脚本correct_g4_r09_barrel_shell.py；工作流.github/workflows/glasshouse-g4-r09-roof-shell.yml。本次12分钟source+24分钟review（20分钟生产、4分钟保存）的有限请求已完成。
 
-父版R07源91b5bcc932c58e5a43b20061299bb6a6f606aaaa，master SHA386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396。其run34163114491现已结束：source成功，native-review因最后海岸图未完成为failure。完整保存证据 **37b91cc3bddbfaae64d1f34bf4951e16146be1b1** / output/g4-coast-r07。
+R08 source run34165514100建模成功，原组合渲染失败已保留；独立原图恢复run34167314803实际八张观察已齐，无缺图/失败视图。脚本refine_g4_r08_craft.py、observe_g4_r08_craft.py；不要重复启动这些请求。
 
-实际下载最终artifact10034156270：208017010 bytes，ZIP SHA43ac065b58f54b75146a6c176a4ce5635194d5ba3b2af5b3efd877183b6116a3。58项清单全部匹配。完成三张原尺寸图（厅景、雨玻璃、湿石）和十张640×400实际雨水帧；缺C01-runoff-coast.png、context-reopen.json，最后海岸停于sample36/48。原失败不改写。
+R07 run34163114491也已结束，最后海岸图超时，其三张完成图与十张雨水帧保留。R06缺失木作/节点早已通过run34162646428补齐，不再重跑旧恢复。
 
-本会话实际逐张/逐帧读图：附着水局部流动已存在但分布偏均匀、圆粒化；四盏低位灯仍未让湿石近景达到可读质量；完整暴雨身份仍弱。详见 **G4-COAST-R07-NATIVE-REVIEW.md**，提交bb92531aabd2b62d6925653a9b4189a1b372d8d3。已用十张原帧编码1秒10fps本地证据片并完整解码；不是最终30fps电影，不是R08运动验收。
+## 实际建模与验收结论
 
-R06缺失木作/节点已通过run34162646428补齐，证据f0569934f05ec2b94c4b44e3ee00f250ff8e548b；不再重新启动旧恢复请求。R06原失败及其五张原图保留。
+本轮两次只读侦察均读取真实当前master，而非编造结构：
 
-## 恢复、资源与门槛
+R07工艺审计34164882942，证据fabf97ac9fa264a741429c0dc01c75e63f322381，确认两端车头各50顶点/24个未平滑面、32个八顶点倒角软包以及当前海面修改器/材质。R08把车头改为锚定接口的平滑四边面曲面，软包改为有侧围/隆起裁片/缝边针脚的闭合形体，海面保留原光学水体并增加短风浪和11–51厘米细波。原雨、玻璃、扫描山崖、木作、扫描羊毛、世界、灯光和原相机保留。
 
-R08一次14分钟源构建、52分钟单生产渲染（45分钟生产截止、7分钟保存余量）；公开标准runner、外部支出0、下载1.5GB、磁盘8GB、证据350MB。无无限自动重试授权。生产队列必须group:glasshouse-production、cancel-in-progress:false、queue:max；禁止旧default-single请求挤掉待渲工件。
+R08原图对照确认车头折面改善，但暴露主顶高台阶。追加只读界面审计34168368119，证据3171758a15f1aacba0c5fa14807f23bfba5b2637，实测Car_complete_barrel_roof法线朝内，使65mm Solidify厚度长到外面。源网格接口采样吻合曾遗漏求值实体外皮错位，不能再只用基网格误差判几何通过。
 
-大主文件在Git中为无损53MB分块。恢复相应output目录后，用其中restore_master.py restore .合并并核对SHA；Actions ZIP含完整.blend。证据分支不是制作代码分支，不整分支覆盖当前制作分支。
+R09只反转主顶48面并平滑，98个顶点坐标和无向连接保持不变、65mm厚度不变，主顶求值高度4.135→4.070m，与未再改动的车头相齐。原图确认宽台阶消除、放射折面未恢复；C01/C09原机位回归保持。少量收口高光与细部仍粗，不能声称完整制造级公差通过。
 
-当前实际判断入口为本文件、G4-R08-CURRENT.md及R07原图评审。仍停在R02/R05的旧PRODUCTION-STATE/G4-EVIDENCE-INDEX在本次渲染结束后统一刷新，不能据其旧摘要回退工程。更早完整交接保留在60c3855e0e4f00fbf66ab8ecb87911360a03ee2f的同名文件。
+R08八张原生观察包含三组R07/R08同机位前后对照及R08 C01/C09。完整观察证据49d4c68a788a0fc8bff0bcbf7eeed49fae69bdd6 / output/g4-r08-observations，artifact10035011283，12758534 bytes，ZIP SHAaf1443b9ffc25dbacfea23636c4c83428ede024c0f2582ccc3b5ef55ba524e29。49项清单全匹配，三组镜头/位置/焦距/帧/samples/尺寸/曝光/快门逐项一致；两份master均未save。它们是父版观察，不冒称R09新渲。
 
-R08原图回来后必须比较曲面/缝边是否真改善，检查车厢、外景、风浪有没有退步。湿石压黑、暴雨识别、崖顶与基础接口、岸边泡沫和完整动态遮雨尚未关闭，本轮不冒称已同时解决。原合同本会话完整读取；G4顺序例外保留，不追溯G3 PASS。main/Leaf/G2 BEST及旧失败证据不改，浏览器管理员阻断不绕过。最终4K主片/短版/空间证据片/同源网页未交付；stage_best=null、human_acceptance=false。
+当前三张R09也分别对照了相同机位和设置。所有图为原生1280×800或1440×900诊断图，不调色、不增强、不超分，不冒称最终4K。评审详见 **G4-COAST-R09-REVIEW.md**（提交9cdd3791ad2aa41f4c1b8baea7c69e6afbd646a5）及G4-COAST-R08-REVIEW.md。最新G4-EVIDENCE-INDEX.json已同步，不再以其中旧R02标签回退。
+
+## 必须继续的真实弱项
+
+雨：贴面水流及雨滴已有源和原生帧，但大景暴雨身份仍弱、部分水珠分布偏均匀。原雨轨迹终点来自更早的停稳场景，本轮车顶实体外皮改变后，须重新检查当前停稳/进站动态的遮雨、落点及浮空间距，不能把保留雨数据当成已通过当前碰撞。
+
+海与山：细波层次增加，但排列仍规则；远海尺度、地平线和岸边泡沫/冲击关系不足。扫描崖壁上方的大轮廓、基座接口和桥拱接头仍不够自然。不要再用盲目加光或噪声代替实际构造。
+
+材质与软包：实际缝边/织物保留，但软包受压、裁片收束、使用痕迹及一些小五金/收口仍需深化。R07湿石原图仍太暗，四只基座灯没有解决；不能因它们存在就关闭该问题。室内保持干燥，不靠全地面镜面化制造高级感。
+
+下一次先从R09只读定位以上待改对象及实际节点/遮挡，挑真正影响全景和近景的高优先问题，做新的有限局部任务并返回当前源原图。不要恢复R02、重复G0/G2、无限加雨、重建已经有的谱海面或重复本轮已完成任务。
+
+## 保留失败与历史恢复
+
+R08初始失败观察证据134985500b8ad25499fde9f7409e1c31203e11bb：新车头仪器被湿雨棚挡住，16分钟组合基线随后在第二张图超时。原artifact10034470859清单38项中37项匹配，baseline-render.log在终止后多138bytes；master与PNG正确，未重写失败包。后续独立观察把内部超时设得短于步骤时限，确保进程退出后再算清单，现49项正确。原失败PNG/相机保留，新无遮挡机位只增加仪器，不删除几何。
+
+R07完整失败保存37b91cc3bddbfaae64d1f34bf4951e16146be1b1，58项清单匹配，三图+十帧，缺最后C01及context-reopen。R07动态由十张640×400原帧直接编码1秒10fps，无插帧；明确属于R07，不冒称R09或最终30fps。
+
+R08父源caf093e65db1e364e2403e6a7807a3ef5da88b5b，masterc96c202a13c5ecd342a7b614a77b1e24ec9889bdb79cc328a255607467d7e877。
+R07父源91b5bcc932c58e5a43b20061299bb6a6f606aaaa，master386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396。
+更早COAST-R04/R05/R06和完整G4-R01/R02索引通过G4-EVIDENCE-INDEX.json的不可变历史链接保留；完整上一轮交接在bb15afcca8f2794b7c983a8ab3a94e02973e49da的同名文件。原G1–G3 EVIDENCE-INDEX.json没有改写。
+
+## 硬边界
+
+生产必须glasshouse-production / cancel-in-progress:false / queue:max，一个生产renderer，保留所有历史候选和失败。官方固定Blender4.5.13 LTS、现有scene_common/provision/publish_evidence/无损运输脚本继续复用，不另起框架。有限请求不是无限重跑授权。
+
+原合同SHA0101fa0f69edc3e261ead088c447818168c397e5ca8dbc26b0de341ad7f7c23f已完整阅读；视觉目标不降低。用户G4阶段顺序例外保留，不追溯G3 PASS。main/Leaf/G2 BEST不改，浏览器管理员阻断不绕过。原生4K30主片、短版、完整空间证据片、同源网页及最终验收仍未交付。
