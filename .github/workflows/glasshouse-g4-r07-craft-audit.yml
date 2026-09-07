@@ -1,0 +1,47 @@
+name: Glasshouse R07 read-only construction and surface audit
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-r07-craft-audit.yml]
+permissions:
+  contents: write
+jobs:
+  read-only:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 9
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-r07-craft-audit
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Recover exact existing R07 master, no reconstruction
+        run: |
+          git fetch --depth=1 origin 91b5bcc932c58e5a43b20061299bb6a6f606aaaa
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r07 | tar -x
+          python3 workspaces/glasshouse-terminus/output/g4-coast-r07/restore_master.py restore workspaces/glasshouse-terminus/output/g4-coast-r07
+          echo '386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396  workspaces/glasshouse-terminus/output/g4-coast-r07/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf '%s\n' 'One read-only request,9min job,7min production+2min preservation. No rendering, no scene save, external spend0, download1.5GB,disk8GB,evidence10MB. Existing R07 render34163114491 untouched. User asks commercial top-tier realism: inspect actual roof/seating/ocean construction before further modifications.' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/audit_g4_r07_craft.py
+      - name: Reuse locked Blender
+        timeout-minutes: 4
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Read topology modifiers real coordinates and material links
+        timeout-minutes: 2
+        run: blender -b workspaces/glasshouse-terminus/output/g4-coast-r07/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/audit_g4_r07_craft.py 2>&1 | tee "$OUT/audit.log"
+      - name: Persist diagnosis without art acceptance
+        if: always()
+        run: |
+          test "$(du -sb "$OUT" | cut -f1)" -lt 10000000
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r07-craft-audit
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: r07-craft-audit-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-r07-craft-audit
+          retention-days: 1
+          if-no-files-found: error
