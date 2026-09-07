@@ -1,5 +1,5 @@
-"""Adapt the existing fetch_models.py selected-asset workflow, never crawl a library.
-Powered by Poly Haven. One coastal cliff scan plus one coastal rock material.
+"""Reuse existing selected-asset workflow; official metadata names verified after a stopped preflight.
+One bounded recovery: reuse downloaded coastal scan, fetch missing seaside surface maps.
 """
 import json,hashlib,time,urllib.request
 from pathlib import Path
@@ -14,24 +14,27 @@ def get(url,limit=80000000):
  u=urlparse(url);assert u.scheme=='https' and u.hostname in HOSTS,url
  req=urllib.request.Request(url,headers={'User-Agent':AGENT,'Referer':'https://github.com/yangerstar1/future'})
  with urllib.request.urlopen(req,timeout=90) as r:
-  assert urlparse(r.url).hostname in HOSTS
-  b=r.read(limit+1)
+  assert urlparse(r.url).hostname in HOSTS;b=r.read(limit+1)
  assert len(b)<=limit and used+len(b)<=MAX_TOTAL,'Finite download cap reached'
  used+=len(b);time.sleep(.2);return b
 
 def write_descriptor(desc,path):
- b=get(desc['url']);assert not desc.get('md5') or hashlib.md5(b).hexdigest()==desc['md5'],'Upstream checksum mismatch'
- path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(b)
- return {'path':str(path.relative_to(ROOT)),'url':desc['url'],'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'md5_verified':bool(desc.get('md5'))}
+ reused=path.exists()
+ b=path.read_bytes() if reused else get(desc['url'])
+ assert not desc.get('md5') or hashlib.md5(b).hexdigest()==desc['md5'],'Upstream checksum mismatch'
+ if not reused:path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(b)
+ return {'path':str(path.relative_to(ROOT)),'url':desc['url'],'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'md5_verified':bool(desc.get('md5')),'reused_bytes':reused}
 
 records=[]
 for asset in ['coastal_cliff_04','seaside_rock']:
  folder=ROOT/asset;folder.mkdir(exist_ok=True)
- info=json.loads(get('https://api.polyhaven.com/info/'+asset,3000000));files=json.loads(get('https://api.polyhaven.com/files/'+asset,3000000))
- (folder/'source-info.json').write_text(json.dumps(info,indent=2));(folder/'source-files.json').write_text(json.dumps(files,indent=2))
+ for tag,endpoint in [('source-info','info'),('source-files','files')]:
+  path=folder/(tag+'.json')
+  if not path.exists():path.write_text(json.dumps(json.loads(get('https://api.polyhaven.com/'+endpoint+'/'+asset,3000000)),indent=2))
+ info=json.loads((folder/'source-info.json').read_text());files=json.loads((folder/'source-files.json').read_text())
  record={'asset_id':asset,'source':'https://polyhaven.com/a/'+asset,'authors':info.get('authors'),'license':'CC0-1.0','license_source':'https://polyhaven.com/license','upstream_dimensions':info.get('dimensions'),'files':[]}
  if asset=='coastal_cliff_04':
-  variant=files.get('gltf',{}).get('2k',{}).get('gltf');assert variant and 'url' in variant,'No observed 2k glTF descriptor; stop, do not guess'
+  variant=files.get('gltf',{}).get('2k',{}).get('gltf');assert variant and 'url' in variant
   name=Path(unquote(urlparse(variant['url']).path)).name
   record['files'].append(write_descriptor(variant,folder/name));record['entry']=str((folder/name).relative_to(ROOT))
   doc=json.loads((folder/name).read_text());assert doc['asset']['version']=='2.0'
@@ -48,16 +51,16 @@ for asset in ['coastal_cliff_04','seaside_rock']:
   for uri in sorted(needed):
    assert not urlparse(uri).scheme and not urlparse(uri).netloc
    path=(folder/unquote(uri)).resolve();assert path.is_relative_to(folder)
-   desc=descriptors.get(uri,{'url':urljoin(variant['url'],uri)})
-   record['files'].append(write_descriptor(desc,path))
+   record['files'].append(write_descriptor(descriptors.get(uri,{'url':urljoin(variant['url'],uri)}),path))
   record['gltf_nodes']=[n.get('name') for n in doc.get('nodes',[])];record['gltf_materials']=[m.get('name') for m in doc.get('materials',[])]
  else:
-  for role,res in [('diff','4k'),('nor_gl','4k'),('rough','4k'),('disp','2k')]:
-   variants=files.get(role,{}).get(res,{})
+  # Exact keys read from persisted official source-files.json, not filename guessing.
+  for role,key,res in [('diff','Diffuse','4k'),('nor_gl','nor_gl','4k'),('rough','Rough','4k'),('disp','Displacement','2k')]:
+   variants=files.get(key,{}).get(res,{})
    fmt='png' if role=='disp' and 'png' in variants else 'jpg'
-   assert fmt in variants,(asset,role,res,'Actual descriptor unavailable')
+   assert fmt in variants,(asset,key,res,'Actual descriptor unavailable')
    desc=variants[fmt];path=folder/Path(unquote(urlparse(desc['url']).path)).name
-   row=write_descriptor(desc,path);row.update(role=role,resolution=res);record['files'].append(row)
+   row=write_descriptor(desc,path);row.update(role=role,resolution=res,metadata_key=key);record['files'].append(row)
  records.append(record)
-manifest={'credit':'Powered by Poly Haven','scope':'Selected cliff scan and rock surface only, station/train remain original project geometry. No generated image textures.','assets':records,'downloaded_bytes':used,'max_bytes':MAX_TOTAL}
+manifest={'credit':'Powered by Poly Haven','scope':'Selected cliff scan and rock surface only; station/train remain original. No generated image textures.','assets':records,'downloaded_bytes_this_recovery':used,'max_bytes':MAX_TOTAL,'recovery_from':'8a458ecbc1a345189bef0efb99e1caffb5c3ea1f','corrected_failure':'Official channel keys are Diffuse/Rough/Displacement rather than assumed lowercase aliases.'}
 (ROOT/'STORM-ASSET-SOURCES.json').write_text(json.dumps(manifest,indent=2));print(json.dumps(manifest,indent=2))
