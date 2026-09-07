@@ -1,0 +1,19 @@
+10:55:54 | INFO: Data are loaded, start creating Blender stuff
+10:55:54 | INFO: Blender create Mesh node classic-chair.003
+10:55:54 | INFO: glTF import finished in 0.14s
+10:55:54 | INFO: Data are loaded, start creating Blender stuff
+10:55:54 | INFO: Blender create Mesh node classic-chair.003
+10:55:54 | INFO: glTF import finished in 0.14s
+10:55:54 | INFO: Data are loaded, start creating Blender stuff
+10:55:54 | INFO: Blender create Mesh node potted_plant_01_base_low
+10:55:54 | INFO: Blender create Mesh node Circle.008
+10:55:54 | INFO: Blender create Mesh node Circle.002
+10:55:54 | INFO: Blender create Mesh node Plane.070
+10:55:54 | INFO: glTF import finished in 0.34s
+Info: Packed 8 file(s)
+Info: Saved as "g3-bay-candidate.blend"
+G3_BAY_CANDIDATE_SAVED_NOT_ACCEPTED e95b37d7f2d8a28efc8bca32815b0624acae7a787e2c7bbe7565eb30e3588027
+Blender 4.5.13 LTS (hash daeeeca98fb0 built 2026-08-25 01:31:19)
+Read blend: "/home/runner/work/future/future/workspaces/glasshouse-terminus/output/g2-review/g2-complete-whitebox.blend"
+
+Blender quit
