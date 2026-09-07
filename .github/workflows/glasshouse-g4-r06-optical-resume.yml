@@ -1,0 +1,105 @@
+name: Glasshouse checked R06 optical diagnosis and missing witnesses
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-r06-optical-resume.yml]
+permissions:
+  contents: write
+jobs:
+  audit:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 9
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-r06-optical-audit
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore checked integrated R06 only
+        shell: bash
+        run: |
+          git fetch --depth=1 origin 8edab03563070bc62a1a768aaf1f6389d72a68f6
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r06-checked | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r06-checked
+          echo '590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738  workspaces/glasshouse-terminus/output/g4-coast-r06-checked/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf 'One read-only diagnosis9min, no Blender save. Separate source-identical missing-view recovery25min with20min production and5min preservation reserve. One native renderer, public standard runner, external spend0, total download1.5GB,disk8GB,diagnostic evidence30MB. Original R06 failure and its five completed PNGs not rewritten.\n' > "$OUT/FINITE-REQUEST.txt"
+          bash workspaces/glasshouse-terminus/provision.sh > "$OUT/provision.log" 2>&1
+      - name: Inspect actual wet-face orientation, mapping and ray paths
+        timeout-minutes: 3
+        shell: bash
+        run: blender -b workspaces/glasshouse-terminus/output/g4-coast-r06-checked/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/inspect_r06_wet_optical_path.py 2>&1 | tee "$OUT/audit.log"
+      - name: Preserve diagnosis, not an art pass
+        if: always()
+        shell: bash
+        run: bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r06-optical-audit
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: r06-optical-audit-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-r06-optical-audit
+          retention-days: 1
+  recover-missing-witnesses:
+    needs: audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-r06-missing-witnesses
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Reopen same checked master without recreating completed images
+        shell: bash
+        run: |
+          echo "R06_RECOVERY_DEADLINE=$(( $(date +%s) + 20*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin 8edab03563070bc62a1a768aaf1f6389d72a68f6
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r06-checked | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r06-checked
+          mkdir -p "$OUT"
+          bash workspaces/glasshouse-terminus/provision.sh > "$OUT/provision.log" 2>&1
+      - name: Native missing wood and original node, no scene save
+        timeout-minutes: 20
+        shell: bash
+        run: |
+          cat > "$RUNNER_TEMP/missing.py" <<'PY'
+          import bpy,sys,os,json,time,hashlib
+          from pathlib import Path
+          root=Path('workspaces/glasshouse-terminus').resolve();sys.path.insert(0,str(root))
+          from scene_common import render
+          master=root/'output/g4-coast-r06-checked/g4-full-scene-candidate.blend';expected='590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738';out=Path(os.environ['OUT'])
+          assert hashlib.sha256(master.read_bytes()).hexdigest()==expected and Path(bpy.data.filepath).resolve()==master
+          s=bpy.context.scene;s.timeline_markers.clear();s.render.use_border=False;s.render.use_crop_to_border=False
+          s.cycles.use_adaptive_sampling=True;s.cycles.adaptive_min_samples=16;s.cycles.adaptive_threshold=.04;s.cycles.max_bounces=10;s.cycles.transmission_bounces=8
+          assert s.view_settings.exposure==0 and s.view_settings.view_transform=='AgX'
+          metrics=[]
+          for name,file,res,samples in [('G3_D02','M02-aligned-walnut.png',(1600,1000),80),('G3R03_roof_node','D01-node-regression.png',(1280,800),64)]:
+              assert time.time()<float(os.environ['R06_RECOVERY_DEADLINE'])
+              row=render(s,bpy.data.objects[name],out/file,res=res,samples=samples,frame=451);row.update(master_sha256=expected,recovery_only=True);metrics.append(row);(out/'metrics.json').write_text(json.dumps(metrics,indent=2))
+          assert hashlib.sha256(master.read_bytes()).hexdigest()==expected
+          missing=[i.filepath for i in bpy.data.images if i.source=='FILE' and not i.packed_file and not Path(bpy.path.abspath(i.filepath)).is_file()];assert not missing
+          (out/'reopen-check.json').write_text(json.dumps({'master_sha256':expected,'master_unchanged':True,'missing_external_images':missing,'native_new_images':2,'original_run_id':34157793290,'original_run_still_failed':True,'g4_stage_pass':False,'human_acceptance':False},indent=2))
+          PY
+          left=$(( R06_RECOVERY_DEADLINE-$(date +%s) ));test "$left" -gt 0
+          timeout --kill-after=10 "${left}s" blender -b workspaces/glasshouse-terminus/output/g4-coast-r06-checked/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P "$RUNNER_TEMP/missing.py" 2>&1 | tee "$OUT/render.log"
+      - name: Preserve exact coverage even after failure
+        if: always()
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,os,json
+          r=Path(os.environ['OUT']);r.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file()}
+          (r/'DELIVERY.json').write_text(json.dumps({'run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'missing':[f for f in ['M02-aligned-walnut.png','D01-node-regression.png','reopen-check.json'] if not (r/f).exists()],'master_sha256':'590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738','source_evidence_commit':'8edab03563070bc62a1a768aaf1f6389d72a68f6','g4_stage_pass':False,'human_acceptance':False},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r06-missing-witnesses
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: r06-missing-witnesses-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-r06-missing-witnesses
+          retention-days: 1
