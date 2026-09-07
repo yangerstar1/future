@@ -12,7 +12,15 @@
   "max_working_disk_bytes": 8000000000,
   "fixed_views": ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09"],
   "whitebox_previs": {"seconds": 28, "native_resolution": [640, 360], "fps": 10, "source_fps": 30, "source_frames": 840, "renderer": "native Blender Workbench", "not_final_film": true},
-  "reserve_for_save_and_retrieval_minutes": 5,
+  "reserve_for_save_and_retrieval_minutes": 20,
   "must_not": ["publish placeholder website", "bypass browser safety check", "claim full G1 or G2 art pass from CI", "overwrite prior evidence or main", "start whole-scene final detailing before G3"],
-  "reviewer": "Same-context actual-image review, not an independent agent or user acceptance"
+  "reviewer": "Same-context actual-image review, not an independent agent or user acceptance",
+  "recovery_request": {
+    "id": "G2-RECOVER-20260907-01",
+    "failed_run_id": 33930258391,
+    "reason": "Geometry, fixed views and native animatic rendered; final evidence push inherited workflow files and was rejected; one-day artifacts are expired.",
+    "strategy": "Reuse existing publish_evidence.sh; persist fixed-view checkpoint and final evidence as data-only unique refs. No scene geometry/camera/material edits in this recovery.",
+    "max_recovery_runs": 1,
+    "prior_run_is_not_an_art_pass": true
+  }
 }
