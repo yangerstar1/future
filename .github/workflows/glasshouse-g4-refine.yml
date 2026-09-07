@@ -1,0 +1,79 @@
+name: Glasshouse G4 R02 dry-floor and sky refinement
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g4-refine-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  refine:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 26
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-r02
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore saved R01, never rebuild the full scene
+        timeout-minutes: 2
+        run: |
+          echo "G4_FINISH_DEADLINE=$(( $(date +%s) + 22*60 ))" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          q=json.loads(Path('workspaces/glasshouse-terminus/g4-refine-request.json').read_text())
+          assert q['stage']=='G4' and q['max_runs']==1 and q['job_minutes']==26 and q['external_spend_usd']==0
+          assert q['parent_source_evidence_commit']=='b5611004d3f224a2a41e2d589264ce6b3923f5ca'
+          assert q['user_authorized_stage_exception'] and not q['g3_pass']
+          print(json.dumps(q,indent=2))
+          PY
+          python3 -m py_compile workspaces/glasshouse-terminus/refine_g4_environment.py
+          git fetch --depth=1 origin b5611004d3f224a2a41e2d589264ce6b3923f5ca
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-r01 | tar -x
+          echo '2a7197af8f42ae6a543d1b028b4617a4784ec4fb262874e3b46f945216955819  workspaces/glasshouse-terminus/output/g4-r01/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+      - name: Reuse official locked Blender
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Apply observed floor correction and native environmental-light redesign
+        timeout-minutes: 3
+        env:
+          G4_FINISH_MODE: build
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-r01/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_environment.py 2>&1 | tee "$OUT/build.log"
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r02-source
+      - name: Fresh-process five native original-camera regressions
+        timeout-minutes: 22
+        env:
+          G4_FINISH_MODE: render
+        run: |
+          remaining=$((G4_FINISH_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_environment.py 2>&1 | tee "$OUT/render.log"
+      - name: Preserve candidate and truthful view coverage
+        if: always()
+        timeout-minutes: 3
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<100000000
+          required=['g4-full-scene-candidate.blend','build-report.json','reopen-check.json','C01-full-night.png','C03-hall-night.png','G3-bay-context-night.png','D01-roof-node-regression.png','C09-car-aisle-night.png']
+          missing=[n for n in required if not (root/n).is_file()]
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'R02','status':'NATIVE_REVIEW_PENDING_NOT_STAGE_PASS' if not missing else 'PARTIAL_OR_FAILED_NOT_A_PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'parent_source_evidence_commit':'b5611004d3f224a2a41e2d589264ce6b3923f5ca','parent_master_sha256':'2a7197af8f42ae6a543d1b028b4617a4784ec4fb262874e3b46f945216955819','files':files,'missing':missing,'user_authorized_stage_exception':True,'g3_historical_pass':False,'g4_stage_pass':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED','coverage':'Five R02 native night views. Other R01 evidence remains historical, not relabelled R02.'},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r02
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-r02-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-r02
+          retention-days: 1
+          if-no-files-found: error
