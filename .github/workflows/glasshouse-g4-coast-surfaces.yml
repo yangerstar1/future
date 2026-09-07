@@ -1,0 +1,130 @@
+name: Glasshouse G4 native coast and scanned surface readability
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-coast-surfaces.yml]
+permissions:
+  contents: write
+jobs:
+  surface-source:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    outputs:
+      evidence: ${{ steps.persist.outputs.evidence }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r04
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Preserve latest spectral water and rock geometry, no reconstruction
+        timeout-minutes: 3
+        run: |
+          git fetch --depth=1 origin 563ecf127826cf0b93faf72443c19e6a271401d9
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r03 | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r03
+          echo '1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b  workspaces/glasshouse-terminus/output/g4-coast-r03/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf 'One surface-readability candidate based on actual near-black rock E01 and uniform textile M04 originals. Reuse selected CC0 overcast HDRI and wool maps. Source18min non-rendering, renderer45min/production39min/reserve6min; one production renderer, standard public runner, external spend0, total download1.5GB,disk8GB,evidence240MB. Preserve original lens/transform/exposure and sea/cliff/rain geometry. Global environment and dedicated wool material/added UV are actual edited variables; not an identical-light comparison or automatic art pass.\n' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/finish_g4_coast_surface_readability.py
+      - name: Reuse official locked native Blender, inspect actual dynamic dependencies
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-source.log"
+      - name: Retrieve selected native CC0 sources and adapt owned surface response
+        timeout-minutes: 8
+        env:
+          G4_SURFACE_MODE: build
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-coast-r03/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_coast_surface_readability.py 2>&1 | tee "$OUT/build.log"
+          test "$(du -sb workspaces/glasshouse-terminus | cut -f1)" -lt 8000000000
+      - name: Preserve editable source and original asset provenance losslessly
+        id: persist
+        timeout-minutes: 3
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r04-source | tee "$RUNNER_TEMP/surface-save.log"
+          c=$(sed -n 's/^PERSISTED_EVIDENCE_COMMIT=//p' "$RUNNER_TEMP/surface-save.log");test -n "$c"
+          echo "evidence=$c" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r04-source-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r04
+          retention-days: 1
+          if-no-files-found: error
+  native-surface-review:
+    needs: surface-source
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r04
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact combined source after preceding native render
+        env:
+          EVIDENCE: ${{ needs.surface-source.outputs.evidence }}
+        run: |
+          echo "G4_SURFACE_DEADLINE=$(( $(date +%s) + 39*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin "$EVIDENCE"
+          git archive FETCH_HEAD "$OUT" | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore "$OUT"
+          rm -r "$OUT/master-parts"
+      - name: Reuse pinned native renderer without video dependencies
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-render.log"
+      - name: Original exterior and previously failed dark-rock camera
+        timeout-minutes: 18
+        env:
+          G4_SURFACE_MODE: context
+        run: |
+          remaining=$((G4_SURFACE_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_coast_surface_readability.py 2>&1 | tee "$OUT/context-render.log"
+      - name: Early native surface context for actual art judgement
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g4-coast-r04-early-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r04/C01-native-surface-coast.png
+            workspaces/glasshouse-terminus/output/g4-coast-r04/E01-native-wet-rock.png
+            workspaces/glasshouse-terminus/output/g4-coast-r04/build-report.json
+            workspaces/glasshouse-terminus/output/g4-coast-r04/context-render-metrics.json
+          retention-days: 1
+      - name: Native fabric, glass rain and full hall observations at original cameras
+        timeout-minutes: 32
+        env:
+          G4_SURFACE_MODE: closeups
+        run: |
+          remaining=$((G4_SURFACE_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_coast_surface_readability.py 2>&1 | tee "$OUT/closeups-render.log"
+      - name: Persist full scene with truthful scope and failures preserved
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py prepare "$OUT"
+          python3 - <<'PY'
+          from pathlib import Path
+          import os,json,hashlib
+          r=Path(os.environ['OUT']);files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<240000000
+          required=['g4-full-scene-candidate.blend','build-report.json','C01-native-surface-coast.png','E01-native-wet-rock.png','M04-scanned-wool.png','M01-native-rain-glass.png','C03-native-rain-hall.png','context-reopen-check.json','closeups-reopen-check.json']
+          missing=[n for n in required if not (r/n).is_file()]
+          (r/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R04','status':'FIVE_NATIVE_SURFACE_VIEWS_REVIEW_PENDING' if not missing else 'PARTIAL_OR_FAILED_NOT_ART_PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'missing':missing,'storage':'Native blend in Actions artifact; verified lossless chunks in Git. Restore first, then verify canonical files.','scope':'Actual complete coast/rain source, selected scanned wool and adapted HDR environment. Not a final movie or independent artistic acceptance.','g4_stage_pass':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED'},indent=2))
+          PY
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r04
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r04-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r04
+          retention-days: 1
+          if-no-files-found: error
