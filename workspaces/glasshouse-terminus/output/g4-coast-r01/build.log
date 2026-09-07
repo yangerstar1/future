@@ -1,0 +1,16 @@
+17:49:58 | INFO: Data are loaded, start creating Blender stuff
+17:49:58 | INFO: Blender create Mesh node Plane.002
+17:50:00 | INFO: glTF import finished in 1.92s
+Blender 4.5.13 LTS (hash daeeeca98fb0 built 2026-08-25 01:31:19)
+Read blend: "/home/runner/work/future/future/workspaces/glasshouse-terminus/output/g4-r03/g4-full-scene-candidate.blend"
+Traceback (most recent call last):
+  File "/home/runner/work/future/future/workspaces/glasshouse-terminus/finish_g4_coastal_environment.py", line 164, in <module>
+    report['candidate_sha256']=sha(OUT/'g4-full-scene-candidate.blend');report['master_bytes']=(OUT/'g4-full-scene-candidate.blend').stat().st_size;(OUT/'build-report.json').write_text(json.dumps(report,indent=2));assert report['master_bytes']<98000000,'Git file budget exceeded'
+                                                                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Git file budget exceeded
+Info: Packed 3 file(s)
+Info: Saved as "g4-full-scene-candidate.blend"
+
+Error: script failed, file: 'workspaces/glasshouse-terminus/finish_g4_coastal_environment.py', exiting.
+
+Blender quit

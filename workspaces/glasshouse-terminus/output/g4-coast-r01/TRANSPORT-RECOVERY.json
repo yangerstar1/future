@@ -1,0 +1,14 @@
+{
+  "source_run": 34149137700,
+  "source_artifact": 10028760007,
+  "failure": "Saved model exceeds98MB per-Git-file guard. Geometry, native ocean replay and preservation checks succeeded. No beauty renders ran.",
+  "recovery": "Lossless verified53MB Git chunks; artifact keeps complete original blend. No model resave, LOD reduction, missing textures or scene rebuild.",
+  "max_runs": 1,
+  "storage_job_minutes": 8,
+  "render_job_minutes": 45,
+  "production_deadline_minutes": 38,
+  "save_reserve_minutes": 7,
+  "external_spend_usd": 0,
+  "g4_stage_pass": false,
+  "human_acceptance": false
+}
