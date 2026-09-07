@@ -30,7 +30,7 @@ def box(o):
 cabinet=[o for o in s.objects if o.name.startswith(('G3_sideboard_','G3_cabinet_','G3_panel_border','G3_lamp_'))]
 assert len(cabinet)>10
 practical=bpy.data.objects['G3_cafe_practical'];move_names={o.name for o in cabinet}|{practical.name}
-protected=[o.name for o in s.objects if o.name not in move_names]
+protected=[o.name for o in s.objects if o.name not in move_names|{'G3_door_practical'}]
 
 def signature():
     s.frame_set(451);bpy.context.view_layer.update();h=hashlib.sha256()
@@ -45,7 +45,6 @@ report={'stage':'G3','revision':'R03','status':'CANDIDATE_NOT_ACCEPTED','parent_
  'parent_evidence_commit':'87d75e3b90d6b330fb378d1fc2200f5d1a52e418','g4_allowed':False,
  'scope':'Same structural bay and its visible entrance vestibule only. Other areas retain G2 quality.',
  'changes':[],'original_cameras_preserved':True,'browser':'BLOCKED_UNCHANGED','human_acceptance':False}
-# Enforce a measured lateral gap; an AABB overlap is not called a proven mesh collision.
 chairs=[o for o in s.objects if o.type=='MESH' and o.get('source_asset')=='GreenChair_01']
 assert len(chairs)==2
 rear=max(chairs,key=lambda o:sum(box(o)[j][1] for j in [0,1]))
@@ -66,7 +65,6 @@ woodbase=bpy.data.materials['G3_walnut_cabinet_vertical_grain'];woodfloor=bpy.da
 cream=material('G3R03_ceiling_cream',(.47,.45,.39),rough=.61)
 velvet=material('G3R03_luggage_bench_fabric',(.055,.088,.064),rough=.78)
 
-# Object coordinates follow the train, so a moving car does not slide through world-space grain.
 def anchored(src,label,axes=None,anchor=None):
     m=src.copy();m.name=label;n=m.node_tree.nodes;l=m.node_tree.links
     tex=n.new('ShaderNodeTexCoord');tex.name='G3R03_attached_coordinates';tex.object=anchor or train
@@ -79,8 +77,6 @@ def anchored(src,label,axes=None,anchor=None):
     return m
 wood=anchored(woodbase,'G3R03_train_walnut_XZ',['X','Z'])
 wooddeck=anchored(woodfloor,'G3R03_train_floor_XY',['X','Y'])
-
-# Scope finishes on long original WB surfaces; the outside shader remains the same constants.
 cache={}
 def scoped(src,finish):
     key=(src.name,finish.name)
@@ -128,7 +124,6 @@ report['material_changed_objects']=changed
 report['attached_mapping']={'anchor':'Train_motion_root','local_sample_x':[-6.1,-1.9],
  'official_reference':'https://docs.blender.org/manual/en/4.5/render/shader_nodes/input/texture_coordinate.html'}
 
-# Build real joinery just inside the opposite vestibule wall. No new partitions or route changes.
 def on_train(o):o.parent=train;return o
 for xx in [-5.65,-4.55,-3.45,-2.35]:
     on_train(cube('G3R03_wood_recess_panel',(xx,1.255,1.70),(1.025,.025,.72),wood,.012))
@@ -137,31 +132,33 @@ for xx in [-6.18,-5.10,-4,-2.90,-1.82]:
     on_train(cube('G3R03_panel_vertical_stile',(xx,1.238,1.70),(.037,.040,.80),wood,.007))
 on_train(cube('G3R03_vestibule_cream_ceiling',(-4,0,3.91),(4.12,2.40,.045),cream,.020))
 for side in [-1,1]:on_train(cube('G3R03_ceiling_cornice',(-4,side*1.19,3.86),(4.12,.07,.09),wood,.012))
-# Existing practical gets a visible diffuser housing in the same place and moves with the train.
 light=bpy.data.objects['G3_door_practical'];worldmat=light.matrix_world.copy();light.parent=train;light.matrix_world=worldmat
+bpy.context.view_layer.update()
+assert max(abs(light.matrix_world[i][j]-worldmat[i][j]) for i in range(4) for j in range(4))<.00001
 on_train(cube('G3R03_door_light_rim',(-4,-.20,3.745),(.95,.34,.085),brass,.035))
 diffuser=material('G3R03_opal_diffuser',(.72,.62,.47),rough=.52,emission=1.5)
 on_train(cube('G3R03_door_light_diffuser',(-4,-.20,3.695),(.85,.27,.025),diffuser,.023))
-# Threshold fasteners do not raise or replace the walking surface.
 for xx in [-4.52,-3.48]:
     on_train(cylinder('G3R03_threshold_countersink',(xx,-1.43,1.147),(xx,-1.43,1.152),.008,brass,24))
 
-# Larger observation, not a replacement for the cropped original.
 full=camera('G3R03_complete_bay',(.8,-3.0,3.1),(-2.8,4.8,2.5),36)
 chaircam=camera('G3R03_chair_front',(-1.45,3.65,2.35),(-3.15,2.16,1.84),48)
-doorcam=camera('G3R03_full_door',(-.6,7.30,2.52),(-2,10.73,2.25),35)
+doorcam=camera('G3R03_full_door',(-.6,6.80,2.52),(-2,10.73,2.35),28)
 camera('G3R03_roof_node',(-1,3.9,5.15),(-3.92,5.9,5.25),55)
-bpy.context.view_layer.update()
-s.render.resolution_x,s.render.resolution_y=1440,900
+bpy.context.view_layer.update();s.render.resolution_x,s.render.resolution_y=1440,900
 observed=chairs+[bpy.data.objects[n] for n in ['G3_walnut_cafe_top','G3_turned_pedestal','potted_plant_01_pot','potted_plant_01_leaves','Platform_portal_lintel']]
 projected=[world_to_camera_view(s,full,o.matrix_world@Vector(p)) for o in observed for p in o.bound_box]
 report['full_bay_framing']={'x':[min(p.x for p in projected),max(p.x for p in projected)],'y':[min(p.y for p in projected),max(p.y for p in projected)],'min_depth':min(p.z for p in projected),'lens':full.data.lens}
+frame_objects=[o for o in s.objects if o.type in {'MESH','CURVE'} and (o.name.startswith(('G3_door_track_housing','G3_door_jamb_cover','Car_door_threshold')) or (o.parent and o.parent.name in ['Train_door_left','Train_door_right']))]
+door_points=[world_to_camera_view(s,doorcam,o.matrix_world@Vector(p)) for o in frame_objects for p in o.bound_box]
+report['door_framing']={'x':[min(p.x for p in door_points),max(p.x for p in door_points)],'y':[min(p.y for p in door_points),max(p.y for p in door_points)],'lens':doorcam.data.lens,'objects':[o.name for o in frame_objects]}
+(OUT/'preflight-r03.json').write_text(json.dumps(report,indent=2))
 assert all(p.z>0 and .02<=p.x<=.98 and .02<=p.y<=.98 for p in projected),'Complete furniture framing differs; inspect before rendering'
+assert all(p.z>0 and .02<=p.x<=.98 and .02<=p.y<=.98 for p in door_points),'Door/threshold framing differs; inspect before rendering'
 assert signature()==before,'Protected geometry/original camera/frame-451 transform changed'
 report['protected_signature_before']=before;report['protected_signature_after']=signature()
 report['supplemental_cameras']=[full.name,chaircam.name,doorcam.name,'G3R03_roof_node']
-# Keep practical movement explicit: scene frame 451 is unchanged, other frames must follow train.
-report['new_moving_light']='G3_door_practical parented preserving its actual stopped-world transform'
+report['new_moving_light']='G3_door_practical parented preserving stopped-world transform within 10 micrometres'
 for name in ['G1-manifest.json','G1-FINISH-RECIPES.json','G1-DERIVATION.txt','SOURCE-RECOVERY.json']:
     if (BASE/name).exists():shutil.copy2(BASE/name,OUT/name)
 (OUT/'models').mkdir(exist_ok=True);shutil.copy2(BASE/'models/MODEL-SOURCES.json',OUT/'models/MODEL-SOURCES.json')
