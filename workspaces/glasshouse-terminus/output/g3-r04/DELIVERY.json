@@ -1,0 +1,26 @@
+{
+  "stage": "G3",
+  "revision": "R04",
+  "status": "PARTIAL_ART_CHALLENGER_NOT_A_PASS",
+  "source_sha": "10b81ab4bb2b796589f2892b85ae3368bcd97212",
+  "run_id": "34125276363",
+  "parent_evidence_commit": "22dceca579c272b51767c70c153c540f7defc547",
+  "files": {
+    "art-preflight.json": {
+      "bytes": 2555,
+      "sha256": "1be1f7a7c1d28bcfe271d7673c594a3f7b9ee9e27cef33479bb903426072bbff"
+    },
+    "provision.log": {
+      "bytes": 40983,
+      "sha256": "6289822b9c586c832c686cb71bf23014c3921614be77b38127e645160de1056f"
+    },
+    "art-build.log": {
+      "bytes": 691,
+      "sha256": "ea020e2f0ae0b0dbcb4d689e2eeb598e8368b64d4d775f07179879bbd2c188a2"
+    }
+  },
+  "g4_allowed": false,
+  "human_acceptance": false,
+  "browser_gate": "BLOCKED_UNCHANGED",
+  "quality_priority": "Original contract art quality, not test counts or CI green"
+}

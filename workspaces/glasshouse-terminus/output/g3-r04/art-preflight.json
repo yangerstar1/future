@@ -1,0 +1,103 @@
+{
+  "stage": "G3",
+  "revision": "R04",
+  "status": "ART_CHALLENGER_NOT_ACCEPTED",
+  "source_master_sha256": "cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe",
+  "source_evidence_commit": "22dceca579c272b51767c70c153c540f7defc547",
+  "contract_sha256": "0101fa0f69edc3e261ead088c447818168c397e5ca8dbc26b0de341ad7f7c23f",
+  "scope": "One existing x=-4..0 structural bay, including both sides of its vault; not full hall.",
+  "diagnosis_run": 34121257143,
+  "diagnosis_zip_sha256": "e4d28113c0f9204326a2e14aeed927262b8c12bac8e07c61f2ac47b08282d88a",
+  "source_arches": [
+    {
+      "name": "Secondary_glazing_rib.009",
+      "bounds": [
+        [
+          -3.0429999828338623,
+          -6.53198766708374,
+          4.999082565307617
+        ],
+        [
+          -2.9570000171661377,
+          6.53198766708374,
+          10.131999969482422
+        ]
+      ],
+      "center_y": 0.0,
+      "material": "G3_satin_aged_brass"
+    },
+    {
+      "name": "Primary_elliptical_arch.003",
+      "bounds": [
+        [
+          -4.099999904632568,
+          -6.659938335418701,
+          4.995552062988281
+        ],
+        [
+          -3.9000000953674316,
+          6.659938335418701,
+          10.260000228881836
+        ]
+      ],
+      "center_y": 0.0,
+      "material": "G3_bottle_green_enamel"
+    },
+    {
+      "name": "Secondary_glazing_rib.010",
+      "bounds": [
+        [
+          -2.0429999828338623,
+          -6.53198766708374,
+          4.999082565307617
+        ],
+        [
+          -1.9570000171661377,
+          6.53198766708374,
+          10.131999969482422
+        ]
+      ],
+      "center_y": 0.0,
+      "material": "G3_satin_aged_brass"
+    },
+    {
+      "name": "Primary_elliptical_arch.004",
+      "bounds": [
+        [
+          -0.10000000149011612,
+          -6.659938335418701,
+          4.995552062988281
+        ],
+        [
+          0.10000000149011612,
+          6.659938335418701,
+          10.260000228881836
+        ]
+      ],
+      "center_y": 0.0,
+      "material": "G3_bottle_green_enamel"
+    },
+    {
+      "name": "Secondary_glazing_rib.011",
+      "bounds": [
+        [
+          -1.0429999828338623,
+          -6.53198766708374,
+          4.999082565307617
+        ],
+        [
+          -0.9570000171661377,
+          6.53198766708374,
+          10.131999969482422
+        ]
+      ],
+      "center_y": 0.0,
+      "material": "G3_satin_aged_brass"
+    }
+  ],
+  "material_edits": [],
+  "light_edits": [],
+  "g4_allowed": false,
+  "human_acceptance": false,
+  "browser_gate": "BLOCKED_UNCHANGED"
+}
