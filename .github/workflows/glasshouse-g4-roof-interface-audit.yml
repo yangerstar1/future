@@ -1,0 +1,42 @@
+name: Glasshouse R08 evaluated roof-interface audit
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-roof-interface-audit.yml]
+permissions:
+  contents: write
+jobs:
+  read-only:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-r08-roof-interface-audit
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore actual saved R08; no scene rebuild or render
+        run: |
+          git fetch --depth=1 origin caf093e65db1e364e2403e6a7807a3ef5da88b5b
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r08 | tar -x
+          python3 workspaces/glasshouse-terminus/output/g4-coast-r08/restore_master.py restore workspaces/glasshouse-terminus/output/g4-coast-r08
+          mkdir -p "$OUT"
+          printf '%s\n' 'One8min read-only request,6min production+2min preservation. Actual R08 native cab comparison revealed rear step. Inspect actual Car_complete_barrel_roof and both cab evaluated shells before any correction. Existing renderer34167314803 untouched. External cost0,download1.5GB,disk8GB,evidence5MB.' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/audit_g4_roof_interfaces.py
+          bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Read base and evaluated interfaces, normals and shell thickness
+        timeout-minutes: 2
+        run: blender -b workspaces/glasshouse-terminus/output/g4-coast-r08/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/audit_g4_roof_interfaces.py 2>&1 | tee "$OUT/audit.log"
+      - name: Persist actual diagnosis only
+        if: always()
+        run: bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r08-roof-interface-audit
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: r08-roof-interface-audit-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-r08-roof-interface-audit
+          retention-days: 1
+          if-no-files-found: error
