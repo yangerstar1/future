@@ -1,0 +1,83 @@
+[
+  {
+    "view": "G3R03_roof_node",
+    "file": "D01-roof-node.png",
+    "frame": 451,
+    "seconds": 181.41493188200002,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 55.0,
+    "position": [
+      -1.0,
+      3.9000000953674316,
+      5.150000095367432
+    ],
+    "rotation": [
+      1.5990432500839233,
+      -1.4562282046881592e-08,
+      0.9702551960945129
+    ],
+    "lighting": "night",
+    "native_render": true,
+    "source_master_sha256": "1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e"
+  },
+  {
+    "view": "G3R03_complete_bay",
+    "file": "R07-complete-bay-night.png",
+    "frame": 451,
+    "seconds": 256.712876101,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      0.800000011920929,
+      -3.0,
+      3.0999999046325684
+    ],
+    "rotation": [
+      1.50106680393219,
+      -3.242253754365265e-08,
+      0.43240782618522644
+    ],
+    "lighting": "night",
+    "native_render": true,
+    "source_master_sha256": "1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e"
+  },
+  {
+    "view": "G3_bay",
+    "file": "G3-bay-night.png",
+    "frame": 451,
+    "seconds": 233.49249966600007,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 42.0,
+    "position": [
+      0.30000001192092896,
+      0.25,
+      2.700000047683716
+    ],
+    "rotation": [
+      1.5203306674957275,
+      2.7329100760198344e-08,
+      0.4493412971496582
+    ],
+    "lighting": "night",
+    "native_render": true,
+    "source_master_sha256": "1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e"
+  }
+]

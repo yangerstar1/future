@@ -1,0 +1,49 @@
+{
+  "stage": "G3",
+  "revision": "R07",
+  "parent_evidence_commit": "719b77ac1678b0ede8edcc9bd86193e1d0db9362",
+  "parent_master_sha256": "65ef58c38685aa6ef26aa0f2d5116e1535e879f4a2b01975100d71be7cb7de26",
+  "candidate_sha256": "1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e",
+  "source_commit": "d7bc41bc02832106da8c6c3c6543e0df8f9a7937",
+  "run_id": "34136755760",
+  "changes": [
+    {
+      "object": "G3R06_upper_node_wash",
+      "before": 36,
+      "after": 144,
+      "location": [
+        -2.7583999633789062,
+        5.9707746505737305,
+        6.165375232696533
+      ],
+      "rotation": [
+        1.061378836631775,
+        -5.014658910340586e-08,
+        1.229024887084961
+      ]
+    },
+    {
+      "object": "G3R06_upper_node_wash.001",
+      "before": 36,
+      "after": 144,
+      "location": [
+        -1.2416000366210938,
+        5.9707746505737305,
+        6.165375232696533
+      ],
+      "rotation": [
+        1.061378836631775,
+        5.5136986532033916e-08,
+        -1.229024887084961
+      ]
+    }
+  ],
+  "protected_before": "0f425fbf6cb63764a08f99232e92d340bc62f74de6c89efba0aa7e4a0fb320e2",
+  "protected_after": "0f425fbf6cb63764a08f99232e92d340bc62f74de6c89efba0aa7e4a0fb320e2",
+  "no_new_geometry_or_lights": true,
+  "basis": "R06 original D01 was actually viewed. 23/25 upper geometric samples have direct paths. Visible web/plate recovered but remain underlit. Local projector power only increased by two stops; global exposure and original floor lamps untouched.",
+  "limits": "Two R06 first hits are curved roof glazing; geometric visibility is not full refracted-light transport. Do not claim all 25 paths open, or use power to fix these two paths. This is a bounded visual calibration, no automatic PASS.",
+  "parent_master_unchanged": true,
+  "g4_allowed": false,
+  "human_acceptance": false
+}

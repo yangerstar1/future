@@ -1,0 +1,1 @@
+slate_wet_rough_2k.jpg derives from CC0 slate_floor roughness: output=round(20+0.19*input). Same UVs; no generative image alterations.
