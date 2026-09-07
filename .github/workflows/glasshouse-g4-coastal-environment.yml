@@ -1,0 +1,143 @@
+name: Glasshouse G4 actual coastal environment continuation
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g4-coastal-environment-request.json]
+permissions:
+  contents: write
+jobs:
+  build-coast:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    concurrency:
+      group: glasshouse-coast-copy-build
+      cancel-in-progress: false
+    outputs:
+      evidence_commit: ${{ steps.persist.outputs.evidence_commit }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r01
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Validate exact R03 rain parent and selected inspected assets
+        timeout-minutes: 3
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          q=json.loads(Path('workspaces/glasshouse-terminus/g4-coastal-environment-request.json').read_text())
+          assert q['parent_master_sha256']=='dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5'
+          assert q['max_runs']==1 and q['external_spend_usd']==0 and not q['g4_stage_pass']
+          print(json.dumps(q,indent=2))
+          PY
+          git fetch --depth=1 origin 0e0f56888549e27900070a83b9830f81c3313c4b
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-r03 | tar -x
+          git fetch --depth=1 origin 01ba5eb4464fac76450cf68f2eccb0b0366bb840
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-storm-assets | tar -x
+          echo 'dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5  workspaces/glasshouse-terminus/output/g4-r03/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          python3 -m py_compile workspaces/glasshouse-terminus/finish_g4_coastal_environment.py
+      - name: Reuse locked native Blender, no rendering in this build job
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-build.log"
+      - name: Adapt scanned rock and evaluate real moving ocean on a source copy
+        timeout-minutes: 10
+        env:
+          G4_COAST_MODE: build
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-r03/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_coastal_environment.py 2>&1 | tee "$OUT/build.log"
+          test "$(du -sb workspaces/glasshouse-terminus | cut -f1)" -lt 8000000000
+      - name: Preserve editable coast source before rendering
+        id: persist
+        timeout-minutes: 3
+        run: |
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-coast-r01-source | tee "$RUNNER_TEMP/coast-persist.log"
+          commit=$(sed -n 's/^PERSISTED_EVIDENCE_COMMIT=//p' "$RUNNER_TEMP/coast-persist.log")
+          test -n "$commit"
+          echo "evidence_commit=$commit" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r01-source-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r01
+          retention-days: 1
+          if-no-files-found: error
+  render-coast:
+    needs: build-coast
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r01
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore immutable new master; keep one production renderer
+        env:
+          SOURCE_EVIDENCE: ${{ needs.build-coast.outputs.evidence_commit }}
+        run: |
+          echo "G4_COAST_DEADLINE=$(( $(date +%s) + 38*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin "$SOURCE_EVIDENCE"
+          git archive FETCH_HEAD "$OUT" | tar -x
+          python3 - <<'PY'
+          from pathlib import Path
+          import os,json,hashlib
+          r=Path(os.environ['OUT']);q=json.loads((r/'build-report.json').read_text())
+          assert hashlib.sha256((r/'g4-full-scene-candidate.blend').read_bytes()).hexdigest()==q['candidate_sha256']
+          PY
+      - name: Reuse pinned Blender for fresh-process native observations
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-render.log"
+      - name: Native fixed exterior and reverse observations first
+        timeout-minutes: 24
+        env:
+          G4_COAST_MODE: preview
+        run: |
+          remaining=$((G4_COAST_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_coastal_environment.py 2>&1 | tee "$OUT/preview-render.log"
+      - name: Early original renders for actual visual judgement
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g4-coast-r01-early-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r01/C01-coast-rain.png
+            workspaces/glasshouse-terminus/output/g4-coast-r01/C02-reverse-coast.png
+            workspaces/glasshouse-terminus/output/g4-coast-r01/build-report.json
+            workspaces/glasshouse-terminus/output/g4-coast-r01/preview-render-metrics.json
+          retention-days: 1
+      - name: Native wave and cliff detail plus inherited rainy hall regression
+        timeout-minutes: 30
+        env:
+          G4_COAST_MODE: detail
+        run: |
+          remaining=$((G4_COAST_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_coastal_environment.py 2>&1 | tee "$OUT/detail-render.log"
+      - name: Preserve truthful coverage and source regardless of visual result
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,hashlib,os
+          r=Path(os.environ['OUT']);r.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<180000000 and all(v['bytes']<98000000 for v in files.values())
+          required=['g4-full-scene-candidate.blend','build-report.json','C01-coast-rain.png','C02-reverse-coast.png','E01-rock-and-water.png','E02-wave-and-foam.png','C03-rain-hall-regression.png','preview-reopen-check.json','detail-reopen-check.json']
+          missing=[n for n in required if not (r/n).exists()]
+          (r/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R01','status':'NATIVE_COAST_REVIEW_PENDING_NOT_ART_PASS' if not missing else 'PARTIAL_OR_FAILED_NOT_A_PASS','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':files,'missing':missing,'g4_stage_pass':False,'human_acceptance':False,'scope':'Native ocean and rock continuation on preserved R03 rain/material source. No final film or full fluid claim.'},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-coast-r01
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r01-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r01
+          retention-days: 1
+          if-no-files-found: error
