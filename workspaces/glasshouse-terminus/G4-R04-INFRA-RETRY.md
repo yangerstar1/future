@@ -1,0 +1,7 @@
+# R04 single infrastructure retry
+
+Original run34149669782 / job101832302810 failed before any Blender scene construction or rendering. Actual job log shows official Blender archive and SHA verification succeeded, but the Ubuntu package mirror fetched64.8MB of ffmpeg dependencies extremely slowly and exceeded the existing5-minute provision step. No R04 master or R04 image was produced in attempt1. Failure evidence4958ddd27f6222de4efd18282696b9c460647ee3 / evidence/g4-r04-34149669782-1 retained; artifact10029367488 contains only the provision log and missing-file manifest.
+
+One same-job retry was explicitly invoked after reading the full failure log. The retry uses the identical saved R03 master, identical R04 code and existing public standard runner, with the same32-minute job /27-minute production deadline /5-minute save reserve and external spend0. This is a single diagnosed infrastructure retry, not an extra art iteration or authorization for indefinite retries. No relaxation of package checksum, authentication, security or art gates. Evidence publisher includes run_attempt, so attempt1 cannot be overwritten. If the same infrastructure dependency fails again, change to a minimal verified install route or record the external blocker rather than repeatedly running the same setup.
+
+The original R03 source remains preserved. Original R03 images reveal refractive rain-needle artifacts; R04 has not visually passed. All raw rendered images, failure logs and parent sources remain available; G4 and human acceptance remain false.
