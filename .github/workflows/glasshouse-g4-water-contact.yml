@@ -1,0 +1,135 @@
+name: Glasshouse COAST-R06 integrated water contact and material review
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-water-contact.yml]
+permissions:
+  contents: write
+jobs:
+  integrated-source:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      evidence: ${{ steps.persist.outputs.evidence }}
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r06
+      BLENDER_PROVISION_PROFILE: render-only
+      G4_CONTACT_MODE: build
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore latest integrated R05 and actually read wet-surface audit
+        timeout-minutes: 3
+        run: |
+          git fetch --depth=1 origin 3bb182b7b9b1860b3e410f98fc3a098331455fce
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r05 | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r05
+          git fetch --depth=1 origin 8c9af5ae59ebd0283941840c8708487cbb9da26e
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-wet-surface-audit | tar -x
+          echo '232a602326d2519d8f3bb5fe125a416c4d36149885173563df1297092e493445  workspaces/glasshouse-terminus/output/g4-coast-r05/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf 'One integrated COAST-R06 candidate based on inspected R05 water coverage, source15min and render52min with45min production/7min retrieval reserve. Public standard runner,single production renderer,external spend0,download1.5GB,disk8GB,evidence300MB. Preserve sea,scanned geology,wood,wool,space,cameras,lights and exposure. Add only physically supported surface water, outside rainfall and terrace/puddle contact. No arbitrary noise dirt or generating images. Native still and motion review required, no automatic art pass or final-film claim.\n' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/refine_g4_integrated_water_contact.py
+      - name: Reuse locked Blender and existing packed material scans
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh > "$OUT/provision-source.log" 2>&1
+      - name: Local native surface-water intervention with protected-source assertions
+        timeout-minutes: 7
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-coast-r05/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_integrated_water_contact.py > "$OUT/build.log" 2>&1
+          test "$(du -sb workspaces/glasshouse-terminus | cut -f1)" -lt 8000000000
+      - name: Save exact full-quality source before rendering
+        id: persist
+        timeout-minutes: 3
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r06-source | tee "$RUNNER_TEMP/contact-source.log"
+          c=$(sed -n 's/^PERSISTED_EVIDENCE_COMMIT=//p' "$RUNNER_TEMP/contact-source.log");test -n "$c";echo "evidence=$c" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r06-source-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r06
+          retention-days: 1
+          if-no-files-found: error
+  native-review:
+    needs: integrated-source
+    runs-on: ubuntu-24.04
+    timeout-minutes: 52
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r06
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore this exact integrated candidate after previous renderer finishes
+        env:
+          SOURCE_EVIDENCE: ${{ needs.integrated-source.outputs.evidence }}
+        run: |
+          echo "G4_CONTACT_DEADLINE=$(( $(date +%s) + 45*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin "$SOURCE_EVIDENCE"
+          git archive FETCH_HEAD "$OUT" | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore "$OUT"
+          rm -r "$OUT/master-parts"
+          bash workspaces/glasshouse-terminus/provision.sh > "$OUT/provision-render.log" 2>&1
+      - name: First actual full hall and coast under the original cameras
+        timeout-minutes: 20
+        env:
+          G4_CONTACT_MODE: context
+        run: |
+          remaining=$((G4_CONTACT_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_integrated_water_contact.py > "$OUT/context.log" 2>&1
+      - name: Early untouched originals for actual visual judgement
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r06-early-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r06/C03-surface-rain-hall.png
+            workspaces/glasshouse-terminus/output/g4-coast-r06/C01-surface-rain-coast.png
+            workspaces/glasshouse-terminus/output/g4-coast-r06/build-report.json
+            workspaces/glasshouse-terminus/output/g4-coast-r06/context-metrics.json
+            workspaces/glasshouse-terminus/output/g4-coast-r06/context.log
+          retention-days: 1
+      - name: Actual attached rain, wet stone, scanned wool, wood and protected node
+        timeout-minutes: 30
+        env:
+          G4_CONTACT_MODE: details
+        run: |
+          remaining=$((G4_CONTACT_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_integrated_water_contact.py > "$OUT/details.log" 2>&1
+      - name: Native weather motion only within the finite budget
+        timeout-minutes: 15
+        env:
+          G4_CONTACT_MODE: motion
+        run: |
+          remaining=$((G4_CONTACT_DEADLINE-$(date +%s)))
+          if [ "$remaining" -gt 180 ]; then
+            timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_integrated_water_contact.py > "$OUT/motion.log" 2>&1
+          else
+            printf 'Finite time reserved for preserving source. No completed R06 weather clip claimed.\n' > "$OUT/motion-not-attempted.txt"
+          fi
+      - name: Preserve truthful coverage and exact master, never auto acceptance
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py prepare "$OUT"
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          r=Path(os.environ['OUT']);files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<300000000
+          required=['g4-full-scene-candidate.blend','build-report.json','C03-surface-rain-hall.png','C01-surface-rain-coast.png','M01-attached-rain.png','M03-contact-wet-stone.png','M04-scanned-wool.png','M02-aligned-walnut.png','D01-node-regression.png','context-reopen.json','details-reopen.json']
+          missing=[n for n in required if not (r/n).is_file()];frames=list((r/'motion').glob('*.png')) if (r/'motion').exists() else []
+          (r/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R06','status':'NATIVE_VIEWS_REVIEW_PENDING' if not missing else 'PARTIAL_OR_FAILED_NOT_ART_PASS','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'parent_master_sha256':'232a602326d2519d8f3bb5fe125a416c4d36149885173563df1297092e493445','files':files,'missing':missing,'native_motion_frames':len(frames),'native_motion_complete':len(frames)==8 and (r/'motion-reopen.json').exists(),'storage':'Native packed .blend in ZIP; verified lossless chunks in Git.','g4_stage_pass':False,'human_acceptance':False,'generated_images_are_evidence':False,'browser_gate':'BLOCKED_UNCHANGED'},indent=2))
+          PY
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r06
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r06-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r06
+          retention-days: 1
+          if-no-files-found: error
