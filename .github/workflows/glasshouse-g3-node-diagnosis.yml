@@ -1,0 +1,74 @@
+name: Glasshouse G3 R05 read-only node path diagnosis
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g3-node-diagnosis-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  diagnose:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g3-r05-node-diagnosis
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Validate finite request and restore exact R05 bytes
+        timeout-minutes: 2
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          q=json.loads(Path('workspaces/glasshouse-terminus/g3-node-diagnosis-request.json').read_text())
+          assert q['stage']=='G3' and q['mode']=='READ_ONLY_DIAGNOSIS' and q['max_runs']==1
+          assert q['job_minutes']==12 and q['external_spend_usd']==0 and not q['g4_allowed']
+          print(json.dumps(q,indent=2))
+          PY
+          python3 -m py_compile workspaces/glasshouse-terminus/diagnose_g3_r05_node_paths.py
+          git fetch --depth=1 origin 4436b5cb5f870e834ff65639d1a1fbd365b9d4e3
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3-r05 | tar -x
+          echo '8ca4ca940a98e80d980fbd895f5ae7c27568b28ee361422bfe4ed267b7b8f02e  workspaces/glasshouse-terminus/output/g3-r05/g3-bay-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+      - name: Reuse locked official Blender installation
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Read real evaluated surfaces and trace finite-source first hits
+        timeout-minutes: 3
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g3-r05/g3-bay-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/diagnose_g3_r05_node_paths.py 2>&1 | tee "$OUT/diagnosis.log"
+          echo '8ca4ca940a98e80d980fbd895f5ae7c27568b28ee361422bfe4ed267b7b8f02e  workspaces/glasshouse-terminus/output/g3-r05/g3-bay-candidate.blend' | sha256sum --check
+      - name: Native sample annotation and data-only evidence checkpoint
+        if: always()
+        timeout-minutes: 2
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,hashlib,os
+          from PIL import Image,ImageDraw
+          root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
+          report=root/'node-path-diagnosis.json'
+          if report.exists():
+            r=json.loads(report.read_text());im=Image.open('workspaces/glasshouse-terminus/output/g3-r05/D01-roof-node.png').convert('RGB')
+            d=ImageDraw.Draw(im)
+            for p in r['samples'][::8]:
+              x,y=p['pixel'];d.ellipse((x-3,y-3,x+3,y+3),outline='white');d.text((x+5,y),str(p['id']),fill='white')
+            im.save(root/'D01-native-geometric-samples-ANNOTATION.png')
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<30000000
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G3','status':'READ_ONLY_DIAGNOSIS_NOT_ART_PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'diagnosis_complete':report.exists(),'source_master_sha256':'8ca4ca940a98e80d980fbd895f5ae7c27568b28ee361422bfe4ed267b7b8f02e','g4_allowed':False,'human_acceptance':False},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g3-r05-node-diagnosis
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g3-r05-node-diagnosis-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g3-r05-node-diagnosis
+          retention-days: 1
+          if-no-files-found: error
