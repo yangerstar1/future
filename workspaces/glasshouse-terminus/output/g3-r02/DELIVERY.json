@@ -1,0 +1,125 @@
+{
+  "stage": "G3",
+  "revision": "R02",
+  "status": "CANDIDATE_REVIEW_PENDING_NOT_A_PASS",
+  "source_sha": "d146517b4abbe82d236a11b86880dc5384eab3f9",
+  "run_id": "34115854145",
+  "run_attempt": "1",
+  "parent_evidence_commit": "0dc1d2e9df7d044081a82756218250a4ddd6bfa2",
+  "parent_master_sha256": "e95b37d7f2d8a28efc8bca32815b0624acae7a787e2c7bbe7565eb30e3588027",
+  "files": {
+    "D05-door-interface.png": {
+      "bytes": 1110990,
+      "sha256": "e7c5ec1f5bd5a46ed89bbb82fd3d0482c9feec317684ef6e6f627ec11e188688"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "D01-glass-metal.png": {
+      "bytes": 1105789,
+      "sha256": "eb33feb7cab51c5ddf8d5b5f4312d7de65fa617a390bb2093416e1e0ead9607e"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "G3-bay-night.png": {
+      "bytes": 1691633,
+      "sha256": "75ec241dbe7ae523ac8b5c37b62fd17f42613f138b1fd29a5822397394c679c9"
+    },
+    "render-metrics.json": {
+      "bytes": 5919,
+      "sha256": "407001db82db8594216510bbd2cafedb34b6de3dbf6cb79cc06caf2d1e08f665"
+    },
+    "QA-reverse.png": {
+      "bytes": 857062,
+      "sha256": "302981c5d256220fdfe4d246e57568e7f96bf1c718f3880b103dca001aa11fe6"
+    },
+    "D02-joinery.png": {
+      "bytes": 1350572,
+      "sha256": "e9d492867704f0fa6c91504b611a50fc9868ff4677e3a7e9ed178e5f9e1c44c6"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "repair-report.json": {
+      "bytes": 2934,
+      "sha256": "dc4f75d73006a2d8a4b3709084f677bb42c78910be2cbe9bb4d4e907004cfaf9"
+    },
+    "overview.log": {
+      "bytes": 940848,
+      "sha256": "dcbf7e1d6e5d294377f07274fb86c955f887712ee14f08d355cbc028e6dd23c0"
+    },
+    "C03-neutral-context.png": {
+      "bytes": 1387841,
+      "sha256": "2d9339389e9e4056cf3e3f5b74fb7ba3187844f87c946959e96dffdefcd07ead"
+    },
+    "details.log": {
+      "bytes": 2817564,
+      "sha256": "94fc9d0cc6d36911bca76bd2197610c18f67737e1a3ac5d54c2c34bd6bdba558"
+    },
+    "provision.log": {
+      "bytes": 41063,
+      "sha256": "6f70bc18943a547732287d631f03b0f085baec3f65a2df4d101b180cc39052a2"
+    },
+    "D06-plant.png": {
+      "bytes": 1562204,
+      "sha256": "d7caa99e4fa101a9ecd391a6888878b61eb4cdfd957c14157da6fe3c36718364"
+    },
+    "QA-door-330.png": {
+      "bytes": 334752,
+      "sha256": "8bcae9030875de8bce77a179d87a03ef5aaa7929cc6f2d41a750e8364cddbb6e"
+    },
+    "repair.log": {
+      "bytes": 314377,
+      "sha256": "47b93c28f98b16626a482bf9bc4a0beec15b22662ee21e095c2535e5505bd1be"
+    },
+    "QA-door-301.png": {
+      "bytes": 334848,
+      "sha256": "a82e74bf792cc0a0b756fc2a1d406a095a86da08a8d994bb4fc0d3ebbda5e7bd"
+    },
+    "reopen-and-space-check.json": {
+      "bytes": 6658,
+      "sha256": "19503919b0521a8c65620dd39011b050bda855bc00656320454283633032e4db"
+    },
+    "QA-L01-without-rim.png": {
+      "bytes": 463381,
+      "sha256": "0d65fa8d16033edfdb02def50d604baceee574dd45c26f0606cd56d2cd569115"
+    },
+    "D03-upholstery.png": {
+      "bytes": 1263965,
+      "sha256": "cf4d4df61dbb02d862ac85b6802104572df447588023dce2cd456dc2a1003d8b"
+    },
+    "build-report.json": {
+      "bytes": 5606,
+      "sha256": "d1be899c5aea1244e56e963752b39fb08884c3ff7a5a1b8284375875fb257b56"
+    },
+    "G3-bay-neutral.png": {
+      "bytes": 1762468,
+      "sha256": "67dbf7ada03bab329e85e6b47b7cdb2faf0760fe67f0f87270799ea9465c9447"
+    },
+    "g3-bay-candidate.blend": {
+      "bytes": 26346368,
+      "sha256": "3162ba27fbeb3055c5fbe94a6fc2422cc9cca11f68dda381b06627ebcaf6d680"
+    },
+    "QA-door-348.png": {
+      "bytes": 325035,
+      "sha256": "6bd5bc2f4f06c6c3f92ef368dda00b686b179eb7a46727cbc02e31c78c5ce68c"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    }
+  },
+  "total_bytes": 44041558,
+  "g4_allowed": false,
+  "human_acceptance": false,
+  "g1_browser_gate": "BLOCKED_UNCHANGED",
+  "scope": "Same saved G3 bay, physical lamp placement and dry/wet correction; no full-scene final art or final film."
+}

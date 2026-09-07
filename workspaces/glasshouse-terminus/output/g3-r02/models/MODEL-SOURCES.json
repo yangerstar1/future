@@ -1,0 +1,136 @@
+{
+  "credit": "Powered by Poly Haven",
+  "assets_license": "CC0-1.0",
+  "downloaded_bytes": 11114639,
+  "scope": "Selected generic chair and potted plant only; original station/train remain project assets",
+  "assets": [
+    {
+      "asset_id": "GreenChair_01",
+      "source": "https://polyhaven.com/a/GreenChair_01",
+      "license": "CC0-1.0",
+      "license_source": "https://polyhaven.com/license",
+      "authors": {
+        "Kirill Sannikov": "All"
+      },
+      "upstream_dimensions": [
+        673.0944514274597,
+        664.3875539302826,
+        1058.5118799936026
+      ],
+      "entry": "GreenChair_01/GreenChair_01_2k.gltf",
+      "files": [
+        {
+          "path": "GreenChair_01_2k.gltf",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/GreenChair_01/GreenChair_01_2k.gltf",
+          "bytes": 2695,
+          "sha256": "ee4a04d41aa2ac7faf33b1a77c908983e6c7899a6ad6a36d4732fb3871f80f7a"
+        },
+        {
+          "path": "GreenChair_01.bin",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/GreenChair_01/GreenChair_01.bin",
+          "bytes": 119168,
+          "sha256": "9070a41bcf38005997fe71a49e50b942b427ec05938413c9dc204df0b781e410"
+        },
+        {
+          "path": "textures/GreenChair_01_arm_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_arm_2k.jpg",
+          "bytes": 455369,
+          "sha256": "1ff03d6731f1ebacc13c1797163d283de8ba99f059f774ea7eeeed3838385d6d"
+        },
+        {
+          "path": "textures/GreenChair_01_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_diff_2k.jpg",
+          "bytes": 512406,
+          "sha256": "5b4cc60aa7fe00f2ba3062aa5dc451cd06349c00be0c179894fd549e9ef13c13"
+        },
+        {
+          "path": "textures/GreenChair_01_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/GreenChair_01/GreenChair_01_nor_gl_2k.jpg",
+          "bytes": 895278,
+          "sha256": "fe96fa21a863291bf8b1e5699e2f09013df8b75cd04fe9b8b28ec12a6a01b3ec"
+        }
+      ],
+      "gltf_nodes": [
+        "GreenChair_01"
+      ],
+      "gltf_materials": [
+        "GreenChair_01"
+      ]
+    },
+    {
+      "asset_id": "potted_plant_01",
+      "source": "https://polyhaven.com/a/potted_plant_01",
+      "license": "CC0-1.0",
+      "license_source": "https://polyhaven.com/license",
+      "authors": {
+        "Rico Cilliers": "All"
+      },
+      "upstream_dimensions": [
+        588.9185070991516,
+        636.6117596626282,
+        1350.7787585258484
+      ],
+      "entry": "potted_plant_01/potted_plant_01_2k.gltf",
+      "files": [
+        {
+          "path": "potted_plant_01_2k.gltf",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/potted_plant_01/potted_plant_01_2k.gltf",
+          "bytes": 7969,
+          "sha256": "41357028b8a7861c596cadc51c8793448c18c42e8d84d834ebe7993b5b30c924"
+        },
+        {
+          "path": "potted_plant_01.bin",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/potted_plant_01/potted_plant_01.bin",
+          "bytes": 5345188,
+          "sha256": "a8dd1f7ce75f50dc25bbedc20809da02ee4193815c155b883a329925fa5548f7"
+        },
+        {
+          "path": "textures/potted_plant_01_leaves_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_01/potted_plant_01_leaves_diff_2k.jpg",
+          "bytes": 400273,
+          "sha256": "6ff5a44117b77a0ad570a333aea71f04ee735ed9cab9668936f8775da1614c6b"
+        },
+        {
+          "path": "textures/potted_plant_01_leaves_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_01/potted_plant_01_leaves_nor_gl_2k.jpg",
+          "bytes": 764246,
+          "sha256": "8cde55f644e9092bcaa7976b005c6df1b452714f1e1c57ede8abb8b7c8bb4a1a"
+        },
+        {
+          "path": "textures/potted_plant_01_leaves_rough_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_01/potted_plant_01_leaves_rough_2k.jpg",
+          "bytes": 348164,
+          "sha256": "77c990375720dcdfd801592c9f0546bc5a2ec99a825879945225080ba291d694"
+        },
+        {
+          "path": "textures/potted_plant_01_pot_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_01/potted_plant_01_pot_diff_2k.jpg",
+          "bytes": 745276,
+          "sha256": "5c85fa6020e1b5a84ea1e6da84261e4fb6f0a94bf48cd6d56fa603de234336fa"
+        },
+        {
+          "path": "textures/potted_plant_01_pot_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_01/potted_plant_01_pot_nor_gl_2k.jpg",
+          "bytes": 827724,
+          "sha256": "22792283d310a057553e7428739be073720a492c2a288440ab690124462de1e3"
+        },
+        {
+          "path": "textures/potted_plant_01_pot_rough_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_01/potted_plant_01_pot_rough_2k.jpg",
+          "bytes": 610864,
+          "sha256": "95154a5693f70802d36691cc284e378e173c56d416506c187725c08a96260503"
+        }
+      ],
+      "gltf_nodes": [
+        "potted_plant_01_stem",
+        "potted_plant_01_pebbles",
+        "potted_plant_01_pot",
+        "potted_plant_01_leaves"
+      ],
+      "gltf_materials": [
+        "potted_plant_01_pot",
+        "potted_plant_01_leaves"
+      ]
+    }
+  ]
+}

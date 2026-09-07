@@ -1,0 +1,123 @@
+{
+  "stage": "G3",
+  "status": "R02_CANDIDATE_NOT_ACCEPTED",
+  "parent_blend_sha256": "e95b37d7f2d8a28efc8bca32815b0624acae7a787e2c7bbe7565eb30e3588027",
+  "parent_evidence_commit": "0dc1d2e9df7d044081a82756218250a4ddd6bfa2",
+  "review": "G3-REVIEW-01.md",
+  "issues": [
+    "G3-L01",
+    "G3-M01",
+    "G3-M02"
+  ],
+  "unchanged": [
+    "all cameras and lenses",
+    "exposure and color management",
+    "all train/door/walk keyframes",
+    "building/track/vehicle geometry",
+    "glass reflection and transmission",
+    "all light ray visibility settings"
+  ],
+  "independent_reviewer": false,
+  "human_acceptance": false,
+  "g4_allowed": false,
+  "light_isolation_render": {
+    "view": "G3_bay",
+    "file": "QA-L01-without-rim.png",
+    "frame": 451,
+    "seconds": 31.832660364999995,
+    "resolution": [
+      720,
+      450
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 42.0,
+    "position": [
+      0.30000001192092896,
+      0.25,
+      2.700000047683716
+    ],
+    "rotation": [
+      1.5203306674957275,
+      2.7329100760198344e-08,
+      0.4493412971496582
+    ],
+    "scope": "R01 geometry/materials, only G3_window_rim disabled; diagnostic only, not candidate"
+  },
+  "light_before": {
+    "position": [
+      -6.0,
+      8.0,
+      5.0
+    ],
+    "energy": 300.0,
+    "size": 3.0,
+    "projected_center": [
+      0.21915878355503082,
+      1.0425962209701538,
+      9.588836669921875
+    ]
+  },
+  "light_after": {
+    "position": [
+      -6.0,
+      8.0,
+      11.0
+    ],
+    "energy": 300.0,
+    "size": 3.0,
+    "projected_center": [
+      0.21000522375106812,
+      2.2648403644561768,
+      9.286170959472656
+    ],
+    "method": "Physical relocation/re-aim; all ray visibility and light energy preserved"
+  },
+  "hall_dry": {
+    "range": [
+      0.52,
+      0.78
+    ],
+    "original_map": "slate_floor_rough_2k.jpg",
+    "coat": 0
+  },
+  "platform_dry": {
+    "range": [
+      0.52,
+      0.78
+    ],
+    "original_map": "slate_floor_rough_2k.jpg",
+    "coat": 0
+  },
+  "platform_scope": {
+    "x": [
+      -4.1,
+      0.1
+    ],
+    "y": [
+      6.5,
+      10.7
+    ],
+    "wet_edge_starts_y": 9.85,
+    "wet_roughness": 0.19,
+    "geometry_unchanged": true,
+    "outside_bay_mask_preserved": true
+  },
+  "saucer_contact": {
+    "before_gap_metres": 0.003000020980834961,
+    "after_gap_metres": 0.0,
+    "moved_together": [
+      "G3_porcelain_saucer",
+      "G3_porcelain_cup",
+      "G3_coffee_meniscus",
+      "G3_cup_handle"
+    ],
+    "reason": "Verified support contact; no tabletop or camera movement"
+  },
+  "protected_geometry_signature_before": "d18cee63b23d7aff2ad7e9e5e342300b14cfde7498584283ccf82f97fe0d8959",
+  "protected_geometry_signature_after": "d18cee63b23d7aff2ad7e9e5e342300b14cfde7498584283ccf82f97fe0d8959",
+  "exposure": 0.0,
+  "view_transform": "AgX",
+  "candidate_sha256": "3162ba27fbeb3055c5fbe94a6fc2422cc9cca11f68dda381b06627ebcaf6d680"
+}
