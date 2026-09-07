@@ -1,0 +1,148 @@
+name: Glasshouse R07 supported runoff and wet walkway
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-runoff-walkway.yml]
+permissions:
+  contents: write
+jobs:
+  source:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 14
+    outputs:
+      evidence: ${{ steps.persist.outputs.evidence }}
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r07
+      BLENDER_PROVISION_PROFILE: render-only
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact checked integrated source and reviewed diagnosis
+        timeout-minutes: 3
+        run: |
+          git fetch --depth=1 origin 8edab03563070bc62a1a768aaf1f6389d72a68f6
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r06-checked | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r06-checked
+          git fetch --depth=1 origin fa5eadee301d2fd38f97990c5c22bfd05a51f634
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-r06-optical-audit | tar -x
+          echo '590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738  workspaces/glasshouse-terminus/output/g4-coast-r06-checked/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf 'One evidence-based R07 candidate. Source14min, native renderer48min with42min production and6min preservation reserve. Standard public runner, one production renderer, external spend0, total download1.5GB,disk8GB,evidence300MB. Existing source geometry/sea/scan/wood/wool/lights/cameras/exposure kept except an explicitly transferred subset of static rain caps. New4 shielded practical fixtures are visible physical additions, not hidden light/exposure trick. Actual native stills and10 motion frames required; no auto art acceptance.\n' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/finish_g4_runoff_and_wet_walkway.py
+      - name: Reuse official pinned renderer without unrelated codec installation
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh > "$OUT/provision-source.log" 2>&1
+      - name: Build guarded native runoff and mount-verified practical lights
+        timeout-minutes: 4
+        env:
+          G4_RUNOFF_MODE: build
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-coast-r06-checked/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_runoff_and_wet_walkway.py 2>&1 | tee "$OUT/build.log"
+          test "$(du -sb workspaces/glasshouse-terminus | cut -f1)" -lt 8000000000
+      - name: Preserve editable integrated source before any beauty render
+        id: persist
+        timeout-minutes: 3
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r07-source | tee "$RUNNER_TEMP/r07-save.log"
+          c=$(sed -n 's/^PERSISTED_EVIDENCE_COMMIT=//p' "$RUNNER_TEMP/r07-save.log");test -n "$c";echo "evidence=$c" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: coast-r07-source-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r07
+          retention-days: 1
+  native-review:
+    needs: source
+    runs-on: ubuntu-24.04
+    timeout-minutes: 48
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r07
+      BLENDER_PROVISION_PROFILE: render-only
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Reopen the exact saved source
+        env:
+          EVIDENCE: ${{ needs.source.outputs.evidence }}
+        timeout-minutes: 6
+        run: |
+          echo "G4_RUNOFF_DEADLINE=$(( $(date +%s) + 42*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin "$EVIDENCE"
+          git archive FETCH_HEAD "$OUT" | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore "$OUT"
+          rm -r "$OUT/master-parts"
+          bash workspaces/glasshouse-terminus/provision.sh > "$OUT/provision-render.log" 2>&1
+      - name: Original previously dark wet-stone camera first
+        timeout-minutes: 8
+        env:
+          G4_RUNOFF_MODE: wet
+        run: blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_runoff_and_wet_walkway.py 2>&1 | tee "$OUT/wet.log"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: coast-r07-wet-early-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r07/M03-lit-wet-stone.png
+            workspaces/glasshouse-terminus/output/g4-coast-r07/wet-metrics.json
+            workspaces/glasshouse-terminus/output/g4-coast-r07/build-report.json
+          retention-days: 1
+      - name: Native same-camera attached-rain still
+        timeout-minutes: 14
+        env:
+          G4_RUNOFF_MODE: rain
+        run: |
+          left=$(( G4_RUNOFF_DEADLINE-$(date +%s) ));test "$left" -gt 0
+          timeout --kill-after=10 "${left}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_runoff_and_wet_walkway.py 2>&1 | tee "$OUT/rain.log"
+      - name: Ten actual runoff motion frames before remaining context
+        timeout-minutes: 14
+        env:
+          G4_RUNOFF_MODE: motion
+        run: |
+          left=$(( G4_RUNOFF_DEADLINE-$(date +%s) ));test "$left" -gt 0
+          timeout --kill-after=10 "${left}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_runoff_and_wet_walkway.py 2>&1 | tee "$OUT/motion.log"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: coast-r07-rain-motion-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r07/motion
+            workspaces/glasshouse-terminus/output/g4-coast-r07/motion-metrics.json
+            workspaces/glasshouse-terminus/output/g4-coast-r07/motion-reopen.json
+            workspaces/glasshouse-terminus/output/g4-coast-r07/M01-moving-surface-rain.png
+          retention-days: 1
+      - name: Original hall and coast context regression
+        timeout-minutes: 16
+        env:
+          G4_RUNOFF_MODE: context
+        run: |
+          left=$(( G4_RUNOFF_DEADLINE-$(date +%s) ));test "$left" -gt 0
+          timeout --kill-after=10 "${left}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_runoff_and_wet_walkway.py 2>&1 | tee "$OUT/context.log"
+      - name: Persist all exact bytes and truthful observation coverage
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py prepare "$OUT"
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,os,hashlib
+          root=Path(os.environ['OUT'])
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(q['bytes'] for q in files.values())<300000000
+          required=['g4-full-scene-candidate.blend','build-report.json','M03-lit-wet-stone.png','M01-moving-surface-rain.png','C03-runoff-hall.png','C01-runoff-coast.png','wet-reopen.json','rain-reopen.json','context-reopen.json','motion-reopen.json']+[f'motion/{i:04d}.png' for i in range(10)]
+          missing=[f for f in required if not (root/f).exists()]
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R07','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'missing':missing,'status':'NATIVE_REVIEW_PENDING' if not missing else 'PARTIAL_OR_FAILED_NOT_ART_PASS','g4_stage_pass':False,'human_acceptance':False,'scope':'Four original-camera native stills and ten640x400 motion frames from the same integrated scene. Source30fps sampled every3frames; not final movie, no generated frames or interpolated motion.'},indent=2))
+          PY
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r07
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: coast-r07-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r07
+          retention-days: 1
