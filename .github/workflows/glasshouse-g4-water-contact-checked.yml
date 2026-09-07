@@ -1,0 +1,152 @@
+name: Glasshouse R06 checked water normals and native evidence
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-water-contact-checked.yml]
+permissions:
+  contents: write
+jobs:
+  optical-preflight:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: write
+    outputs:
+      evidence: ${{ steps.persist.outputs.evidence }}
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r06-checked
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore already saved R06, do not rebuild the scene
+        run: |
+          git fetch --depth=1 origin de436b4f51993ac12b47ec3c9c34b27d672dec34
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r06 | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r06
+          mkdir -p "$OUT"
+          bash workspaces/glasshouse-terminus/provision.sh > "$OUT/preflight-provision.log" 2>&1
+      - name: Actual signed-volume check and only necessary water-cap winding repair
+        timeout-minutes: 3
+        env:
+          G4_CAP_MODE: build
+        run: |
+          python3 -m py_compile workspaces/glasshouse-terminus/check_g4_water_cap_winding.py
+          blender -b workspaces/glasshouse-terminus/output/g4-coast-r06/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/check_g4_water_cap_winding.py > "$OUT/normal-preflight.log" 2>&1
+          printf 'One narrow optical geometry preflight10min, then replacement native review52min/45min production/7min reserve. No full scene rebuild. Only new closed water cap polygon winding is eligible for correction, verified per component by signed volume and unchanged vertex buffers. Public standard renderer, one production job,external spend0,download1.5GB,disk8GB,evidence300MB. Superseded source and any images retained, no art pass.\n' > "$OUT/FINITE-REQUEST.txt"
+      - name: Preserve checked master before superseding the unchecked render
+        id: persist
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r06-checked-source | tee "$RUNNER_TEMP/checked-source.log"
+          c=$(sed -n 's/^PERSISTED_EVIDENCE_COMMIT=//p' "$RUNNER_TEMP/checked-source.log");test -n "$c";echo "evidence=$c" >> "$GITHUB_OUTPUT"
+      - name: Stop only this turn's superseded unchecked-normal render after successful source preservation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import os,json,urllib.request
+          from pathlib import Path
+          r=Path(os.environ['OUT']);p=json.loads((r/'normal-preflight.json').read_text());assert p['all_closed_cap_volumes_positive'] and p['only_polygon_winding_changed']
+          root='https://api.github.com/repos/yangerstar1/future'
+          def api(path,method='GET'):
+              q=urllib.request.Request(root+path,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'},method=method,data=b'' if method=='POST' else None)
+              with urllib.request.urlopen(q,timeout=30) as s:
+                  data=s.read();return json.loads(data) if data else {'status':s.status}
+          decision={'target':34157160255,'cancelled':False,'reason':'Actual geometry preflight confirmed wrong water-cap winding. Corrected source already persisted; avoid spending remaining render budget on known optical error. All prior source and any partial views retained.'}
+          try:
+              q=api('/actions/runs/34157160255');assert q['head_sha']=='f49f9f67d269ee776c2deccb8b2fcef0b5aaa908'
+              jobs=api('/actions/runs/34157160255/jobs')['jobs'];assert next(j for j in jobs if j['name']=='integrated-source')['conclusion']=='success'
+              decision['observed_status']=q['status']
+              if p['reversed_caps']>0 and q['status'] in ['in_progress','pending','queued']:
+                  decision['response']=api('/actions/runs/34157160255/cancel','POST');decision['cancelled']=True
+          except Exception as e:decision['error']=str(e)
+          (r/'superseded-render-decision.json').write_text(json.dumps(decision,indent=2));print(json.dumps(decision))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-r06-checked-source-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r06-checked
+          retention-days: 1
+  native-review:
+    needs: optical-preflight
+    runs-on: ubuntu-24.04
+    timeout-minutes: 52
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r06-checked
+      BLENDER_PROVISION_PROFILE: render-only
+      G4_CAP_MODE: render
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - env:
+          SOURCE_EVIDENCE: ${{ needs.optical-preflight.outputs.evidence }}
+        run: |
+          echo "G4_CONTACT_DEADLINE=$(( $(date +%s) + 45*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin "$SOURCE_EVIDENCE"
+          git archive FETCH_HEAD "$OUT" | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore "$OUT"
+          rm -r "$OUT/master-parts"
+          bash workspaces/glasshouse-terminus/provision.sh > "$OUT/checked-render-provision.log" 2>&1
+      - name: Native full hall and coast first
+        timeout-minutes: 20
+        env:
+          G4_CONTACT_MODE: context
+        run: |
+          remaining=$((G4_CONTACT_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/check_g4_water_cap_winding.py > "$OUT/context.log" 2>&1
+      - name: Early untouched native context
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-r06-checked-early-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r06-checked/C03-surface-rain-hall.png
+            workspaces/glasshouse-terminus/output/g4-coast-r06-checked/C01-surface-rain-coast.png
+            workspaces/glasshouse-terminus/output/g4-coast-r06-checked/context-metrics.json
+            workspaces/glasshouse-terminus/output/g4-coast-r06-checked/build-report.json
+          retention-days: 1
+      - name: Actual rain contact, wet stone, wool, walnut and node originals
+        timeout-minutes: 30
+        env:
+          G4_CONTACT_MODE: details
+        run: |
+          remaining=$((G4_CONTACT_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/check_g4_water_cap_winding.py > "$OUT/details.log" 2>&1
+      - name: Short native weather motion within remaining budget only
+        timeout-minutes: 15
+        env:
+          G4_CONTACT_MODE: motion
+        run: |
+          remaining=$((G4_CONTACT_DEADLINE-$(date +%s)))
+          if [ "$remaining" -gt 180 ]; then
+            timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/check_g4_water_cap_winding.py > "$OUT/motion.log" 2>&1
+          else
+            printf 'Not enough finite time for native motion; no clip claimed.\n' > "$OUT/motion-not-attempted.txt"
+          fi
+      - name: Preserve source and actual coverage even if a view fails
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py prepare "$OUT"
+          python3 - <<'PY'
+          from pathlib import Path
+          import os,hashlib,json
+          r=Path(os.environ['OUT']);files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<300000000
+          names=['g4-full-scene-candidate.blend','build-report.json','normal-preflight.json','C03-surface-rain-hall.png','C01-surface-rain-coast.png','M01-attached-rain.png','M03-contact-wet-stone.png','M04-scanned-wool.png','M02-aligned-walnut.png','D01-node-regression.png','context-reopen.json','details-reopen.json']
+          missing=[n for n in names if not (r/n).is_file()];frames=list((r/'motion').glob('*.png')) if (r/'motion').exists() else []
+          (r/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R06_CHECKED','status':'NATIVE_VIEWS_REVIEW_PENDING' if not missing else 'PARTIAL_OR_FAILED_NOT_ART_PASS','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':files,'missing':missing,'native_motion_frames':len(frames),'native_motion_complete':len(frames)==8 and (r/'motion-reopen.json').exists(),'g4_stage_pass':False,'human_acceptance':False,'generated_images_are_evidence':False,'browser_gate':'BLOCKED_UNCHANGED'},indent=2))
+          PY
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r06-checked
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-r06-checked-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r06-checked
+          retention-days: 1
+          if-no-files-found: error
