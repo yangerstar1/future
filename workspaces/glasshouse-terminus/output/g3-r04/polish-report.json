@@ -1,0 +1,1297 @@
+{
+  "stage": "G3",
+  "revision": "R04",
+  "status": "CHALLENGER_NOT_ACCEPTED",
+  "parent_master_sha256": "cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe",
+  "parent_evidence_commit": "22dceca579c272b51767c70c153c540f7defc547",
+  "light_diagnostic_artifact": 10019119528,
+  "light_diagnostic_zip_sha256": "e4d28113c0f9204326a2e14aeed927262b8c12bac8e07c61f2ac47b08282d88a",
+  "scope": "Same x=-4..0 structural bay and doorway. No whole-scene expansion.",
+  "materials": [
+    {
+      "object": "Primary_elliptical_arch.003",
+      "old": "G3_bottle_green_enamel",
+      "new": "G3_bottle_green_enamel",
+      "bounds": [
+        [
+          -4.099999904632568,
+          -6.659938335418701,
+          4.995552062988281
+        ],
+        [
+          -3.9000000953674316,
+          6.659938335418701,
+          10.260000228881836
+        ]
+      ]
+    },
+    {
+      "object": "Primary_elliptical_arch.004",
+      "old": "G3_bottle_green_enamel",
+      "new": "G3_bottle_green_enamel",
+      "bounds": [
+        [
+          -0.10000000149011612,
+          -6.659938335418701,
+          4.995552062988281
+        ],
+        [
+          0.10000000149011612,
+          6.659938335418701,
+          10.260000228881836
+        ]
+      ]
+    },
+    {
+      "object": "Secondary_glazing_rib.009",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -3.0429999828338623,
+          -6.53198766708374,
+          4.999082565307617
+        ],
+        [
+          -2.9570000171661377,
+          6.53198766708374,
+          10.131999969482422
+        ]
+      ]
+    },
+    {
+      "object": "Secondary_glazing_rib.010",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -2.0429999828338623,
+          -6.53198766708374,
+          4.999082565307617
+        ],
+        [
+          -1.9570000171661377,
+          6.53198766708374,
+          10.131999969482422
+        ]
+      ]
+    },
+    {
+      "object": "Secondary_glazing_rib.011",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -1.0429999828338623,
+          -6.53198766708374,
+          4.999082565307617
+        ],
+        [
+          -0.9570000171661377,
+          6.53198766708374,
+          10.131999969482422
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.133",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -4.005000114440918,
+          6.460000038146973,
+          3.3475000858306885
+        ],
+        [
+          -3.2750000953674316,
+          6.539999961853027,
+          3.4125001430511475
+        ]
+      ]
+    },
+    {
+      "object": "Column_capital.008",
+      "old": "WB_structure",
+      "new": "G3_bottle_green_enamel",
+      "bounds": [
+        [
+          -0.20999999344348907,
+          -6.71999979019165,
+          4.829999923706055
+        ],
+        [
+          0.20999999344348907,
+          -6.28000020980835,
+          5.010000228881836
+        ]
+      ]
+    },
+    {
+      "object": "Load_column.009",
+      "old": "G3_bottle_green_enamel",
+      "new": "G3_bottle_green_enamel",
+      "bounds": [
+        [
+          -0.11999999731779099,
+          6.340000152587891,
+          1.149999976158142
+        ],
+        [
+          0.11999999731779099,
+          6.659999847412109,
+          5.0
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.137",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -2.005000114440918,
+          6.460000038146973,
+          4.887500286102295
+        ],
+        [
+          -0.9950000047683716,
+          6.539999961853027,
+          4.952499866485596
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.047",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -1.0049999952316284,
+          -6.539999961853027,
+          4.887500286102295
+        ],
+        [
+          0.004999995231628418,
+          -6.460000038146973,
+          4.952499866485596
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.141",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -0.7250000238418579,
+          6.460000038146973,
+          4.887500286102295
+        ],
+        [
+          0.004999995231628418,
+          6.539999961853027,
+          4.952499866485596
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.039",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -3.005000114440918,
+          -6.539999961853027,
+          1.497499942779541
+        ],
+        [
+          -1.9950000047683716,
+          -6.460000038146973,
+          1.5625
+        ]
+      ]
+    },
+    {
+      "object": "Column_capital.007",
+      "old": "G3_bottle_green_enamel",
+      "new": "G3_bottle_green_enamel",
+      "bounds": [
+        [
+          -4.210000038146973,
+          6.28000020980835,
+          4.829999923706055
+        ],
+        [
+          -3.7899999618530273,
+          6.71999979019165,
+          5.010000228881836
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.138",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -1.0049999952316284,
+          6.460000038146973,
+          4.887500286102295
+        ],
+        [
+          -0.7150000333786011,
+          6.539999961853027,
+          4.952499866485596
+        ]
+      ]
+    },
+    {
+      "object": "Wall_glazing_mullion.018",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -3.0304999351501465,
+          -6.538000106811523,
+          1.2400000095367432
+        ],
+        [
+          -2.9695000648498535,
+          -6.461999893188477,
+          4.859999656677246
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.040",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -3.005000114440918,
+          -6.539999961853027,
+          3.3475000858306885
+        ],
+        [
+          -1.9950000047683716,
+          -6.460000038146973,
+          3.4125001430511475
+        ]
+      ]
+    },
+    {
+      "object": "Column_capital.009",
+      "old": "G3_bottle_green_enamel",
+      "new": "G3_bottle_green_enamel",
+      "bounds": [
+        [
+          -0.20999999344348907,
+          6.28000020980835,
+          4.829999923706055
+        ],
+        [
+          0.20999999344348907,
+          6.71999979019165,
+          5.010000228881836
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.042",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -2.005000114440918,
+          -6.539999961853027,
+          1.497499942779541
+        ],
+        [
+          -0.9950000047683716,
+          -6.460000038146973,
+          1.5625
+        ]
+      ]
+    },
+    {
+      "object": "Portal_transom_mullion",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -3.0304999351501465,
+          6.461999893188477,
+          4.375
+        ],
+        [
+          -2.9695000648498535,
+          6.538000106811523,
+          4.965000152587891
+        ]
+      ]
+    },
+    {
+      "object": "Load_column.006",
+      "old": "WB_structure",
+      "new": "G3_bottle_green_enamel",
+      "bounds": [
+        [
+          -4.119999885559082,
+          -6.659999847412109,
+          1.149999976158142
+        ],
+        [
+          -3.880000114440918,
+          -6.340000152587891,
+          5.0
+        ]
+      ]
+    },
+    {
+      "object": "Wall_glazing_mullion.019",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -2.0304999351501465,
+          -6.538000106811523,
+          1.2400000095367432
+        ],
+        [
+          -1.969499945640564,
+          -6.461999893188477,
+          4.859999656677246
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.134",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -4.005000114440918,
+          6.460000038146973,
+          4.887500286102295
+        ],
+        [
+          -3.2750000953674316,
+          6.539999961853027,
+          4.952499866485596
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.045",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -1.0049999952316284,
+          -6.539999961853027,
+          1.497499942779541
+        ],
+        [
+          0.004999995231628418,
+          -6.460000038146973,
+          1.5625
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.037",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -4.005000114440918,
+          -6.539999961853027,
+          3.3475000858306885
+        ],
+        [
+          -2.994999885559082,
+          -6.460000038146973,
+          3.4125001430511475
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.041",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -3.005000114440918,
+          -6.539999961853027,
+          4.887500286102295
+        ],
+        [
+          -1.9950000047683716,
+          -6.460000038146973,
+          4.952499866485596
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.043",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -2.005000114440918,
+          -6.539999961853027,
+          3.3475000858306885
+        ],
+        [
+          -0.9950000047683716,
+          -6.460000038146973,
+          3.4125001430511475
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.046",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -1.0049999952316284,
+          -6.539999961853027,
+          3.3475000858306885
+        ],
+        [
+          0.004999995231628418,
+          -6.460000038146973,
+          3.4125001430511475
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.139",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -0.7250000238418579,
+          6.460000038146973,
+          1.497499942779541
+        ],
+        [
+          0.004999995231628418,
+          6.539999961853027,
+          1.5625
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.038",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -4.005000114440918,
+          -6.539999961853027,
+          4.887500286102295
+        ],
+        [
+          -2.994999885559082,
+          -6.460000038146973,
+          4.952499866485596
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.135",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -3.2850000858306885,
+          6.460000038146973,
+          4.887500286102295
+        ],
+        [
+          -2.995000123977661,
+          6.539999961853027,
+          4.952499866485596
+        ]
+      ]
+    },
+    {
+      "object": "Portal_transom_mullion.001",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -2.0304999351501465,
+          6.461999893188477,
+          4.375
+        ],
+        [
+          -1.969499945640564,
+          6.538000106811523,
+          4.965000152587891
+        ]
+      ]
+    },
+    {
+      "object": "Wall_glazing_mullion.020",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -1.030500054359436,
+          -6.538000106811523,
+          1.2400000095367432
+        ],
+        [
+          -0.9695000052452087,
+          -6.461999893188477,
+          4.859999656677246
+        ]
+      ]
+    },
+    {
+      "object": "Load_column.008",
+      "old": "WB_structure",
+      "new": "G3_bottle_green_enamel",
+      "bounds": [
+        [
+          -0.11999999731779099,
+          -6.659999847412109,
+          1.149999976158142
+        ],
+        [
+          0.11999999731779099,
+          -6.340000152587891,
+          5.0
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.044",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -2.005000114440918,
+          -6.539999961853027,
+          4.887500286102295
+        ],
+        [
+          -0.9950000047683716,
+          -6.460000038146973,
+          4.952499866485596
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.132",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -4.005000114440918,
+          6.460000038146973,
+          1.497499942779541
+        ],
+        [
+          -3.2750000953674316,
+          6.539999961853027,
+          1.5625
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.036",
+      "old": "WB_secondary",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -4.005000114440918,
+          -6.539999961853027,
+          1.497499942779541
+        ],
+        [
+          -2.994999885559082,
+          -6.460000038146973,
+          1.5625
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.136",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -3.005000114440918,
+          6.460000038146973,
+          4.887500286102295
+        ],
+        [
+          -1.9950000047683716,
+          6.539999961853027,
+          4.952499866485596
+        ]
+      ]
+    },
+    {
+      "object": "Wall_transom.140",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -0.7250000238418579,
+          6.460000038146973,
+          3.3475000858306885
+        ],
+        [
+          0.004999995231628418,
+          6.539999961853027,
+          3.4125001430511475
+        ]
+      ]
+    },
+    {
+      "object": "Column_capital.006",
+      "old": "WB_structure",
+      "new": "G3_bottle_green_enamel",
+      "bounds": [
+        [
+          -4.210000038146973,
+          -6.71999979019165,
+          4.829999923706055
+        ],
+        [
+          -3.7899999618530273,
+          -6.28000020980835,
+          5.010000228881836
+        ]
+      ]
+    },
+    {
+      "object": "Portal_transom_mullion.002",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_sage_green_secondary_enamel",
+      "bounds": [
+        [
+          -1.030500054359436,
+          6.461999893188477,
+          4.375
+        ],
+        [
+          -0.9695000052452087,
+          6.538000106811523,
+          4.965000152587891
+        ]
+      ]
+    },
+    {
+      "object": "Load_column.007",
+      "old": "G3_bottle_green_enamel",
+      "new": "G3_bottle_green_enamel",
+      "bounds": [
+        [
+          -4.119999885559082,
+          6.340000152587891,
+          1.149999976158142
+        ],
+        [
+          -3.880000114440918,
+          6.659999847412109,
+          5.0
+        ]
+      ]
+    },
+    {
+      "object": "Platform_canopy_beam.003",
+      "old": "G3_bottle_green_enamel",
+      "new": "G3_bottle_green_enamel",
+      "bounds": [
+        [
+          -4.045000076293945,
+          6.4150004386901855,
+          4.565000057220459
+        ],
+        [
+          -3.9549999237060547,
+          10.864999771118164,
+          4.735000133514404
+        ]
+      ]
+    },
+    {
+      "object": "Platform_canopy_beam.004",
+      "old": "G3_bottle_green_enamel",
+      "new": "G3_bottle_green_enamel",
+      "bounds": [
+        [
+          -0.04500000178813934,
+          6.4150004386901855,
+          4.565000057220459
+        ],
+        [
+          0.04500000178813934,
+          10.864999771118164,
+          4.735000133514404
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin",
+      "bounds": [
+        [
+          -16.09000015258789,
+          6.462500095367432,
+          4.957499980926514
+        ],
+        [
+          16.09000015258789,
+          6.537499904632568,
+          5.042500019073486
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin.007",
+      "old": "WB_secondary",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin.007",
+      "bounds": [
+        [
+          -16.09000015258789,
+          -1.7198238372802734,
+          9.883722305297852
+        ],
+        [
+          16.09000015258789,
+          -1.6448237895965576,
+          9.968721389770508
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin.008",
+      "old": "WB_secondary",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin.008",
+      "bounds": [
+        [
+          -16.09000015258789,
+          -3.2874999046325684,
+          9.37423038482666
+        ],
+        [
+          16.09000015258789,
+          -3.2125000953674316,
+          9.459229469299316
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin.001",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin.001",
+      "bounds": [
+        [
+          -16.09000015258789,
+          6.241017818450928,
+          6.277477264404297
+        ],
+        [
+          16.09000015258789,
+          6.3160176277160645,
+          6.3624773025512695
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin.009",
+      "old": "WB_secondary",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin.009",
+      "bounds": [
+        [
+          -16.09000015258789,
+          -4.633694171905518,
+          8.563745498657227
+        ],
+        [
+          16.09000015258789,
+          -4.558694362640381,
+          8.648744583129883
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin.004",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin.004",
+      "bounds": [
+        [
+          -16.09000015258789,
+          3.2125000953674316,
+          9.37423038482666
+        ],
+        [
+          16.09000015258789,
+          3.2874999046325684,
+          9.459229469299316
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin.010",
+      "old": "WB_secondary",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin.010",
+      "bounds": [
+        [
+          -16.09000015258789,
+          -5.666665077209473,
+          7.507500171661377
+        ],
+        [
+          16.09000015258789,
+          -5.591665267944336,
+          7.59250020980835
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin.005",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin.005",
+      "bounds": [
+        [
+          -16.09000015258789,
+          1.6448237895965576,
+          9.883722305297852
+        ],
+        [
+          16.09000015258789,
+          1.7198238372802734,
+          9.968721389770508
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin.006",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin.006",
+      "bounds": [
+        [
+          -16.09000015258789,
+          -0.03750000149011612,
+          10.057500839233398
+        ],
+        [
+          16.09000015258789,
+          0.03750000149011612,
+          10.142499923706055
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin.002",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin.002",
+      "bounds": [
+        [
+          -16.09000015258789,
+          5.591665267944336,
+          7.507500171661377
+        ],
+        [
+          16.09000015258789,
+          5.666665077209473,
+          7.59250020980835
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin.003",
+      "old": "G3_satin_aged_brass",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin.003",
+      "bounds": [
+        [
+          -16.09000015258789,
+          4.558694362640381,
+          8.563745498657227
+        ],
+        [
+          16.09000015258789,
+          4.633694171905518,
+          8.648744583129883
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin.011",
+      "old": "WB_secondary",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin.011",
+      "bounds": [
+        [
+          -16.09000015258789,
+          -6.3160176277160645,
+          6.277477264404297
+        ],
+        [
+          16.09000015258789,
+          -6.241017818450928,
+          6.3624773025512695
+        ]
+      ]
+    },
+    {
+      "object": "Longitudinal_roof_purlin.012",
+      "old": "WB_secondary",
+      "new": "G3R04_scoped_purlin_Longitudinal_roof_purlin.012",
+      "bounds": [
+        [
+          -16.09000015258789,
+          -6.537499904632568,
+          4.957499980926514
+        ],
+        [
+          16.09000015258789,
+          -6.462500095367432,
+          5.042500019073486
+        ]
+      ]
+    }
+  ],
+  "lights": {
+    "G3_interior_softbox": {
+      "before_position": [
+        -2.0,
+        1.0,
+        5.599999904632568
+      ],
+      "before_power": 420.0,
+      "before_size": 4.0,
+      "after": {
+        "position": [
+          -4.0,
+          6.065000057220459,
+          3.2699999809265137
+        ],
+        "power": 35.0,
+        "shape": "RECTANGLE",
+        "size": 0.08500000089406967,
+        "size_y": 0.23999999463558197
+      }
+    },
+    "G3R04_right_wall_sconce": {
+      "after": {
+        "position": [
+          0.0,
+          6.065000057220459,
+          3.2699999809265137
+        ],
+        "power": 35.0,
+        "shape": "RECTANGLE",
+        "size": 0.08500000089406967,
+        "size_y": 0.23999999463558197
+      }
+    },
+    "G3_pendant_light": {
+      "before_power": 130.0,
+      "after_power": 280
+    },
+    "G3_cafe_practical": {
+      "before_power": 9.0,
+      "after_power": 12
+    },
+    "G3_door_practical": {
+      "before_power": 65.0,
+      "after_power": 95
+    }
+  },
+  "human_acceptance": false,
+  "g4_allowed": false,
+  "protected": [
+    "original meshes and transforms",
+    "all original cameras",
+    "door/train/walk keyframes",
+    "glass IOR/transmission and ray visibility",
+    "exposure and color management"
+  ],
+  "actual_arches": {
+    "Primary_elliptical_arch.003": [
+      [
+        -4.099999904632568,
+        -6.659938335418701,
+        4.995552062988281
+      ],
+      [
+        -3.9000000953674316,
+        6.659938335418701,
+        10.260000228881836
+      ]
+    ],
+    "Primary_elliptical_arch.004": [
+      [
+        -0.10000000149011612,
+        -6.659938335418701,
+        4.995552062988281
+      ],
+      [
+        0.10000000149011612,
+        6.659938335418701,
+        10.260000228881836
+      ]
+    ],
+    "Secondary_glazing_rib.009": [
+      [
+        -3.0429999828338623,
+        -6.53198766708374,
+        4.999082565307617
+      ],
+      [
+        -2.9570000171661377,
+        6.53198766708374,
+        10.131999969482422
+      ]
+    ],
+    "Secondary_glazing_rib.010": [
+      [
+        -2.0429999828338623,
+        -6.53198766708374,
+        4.999082565307617
+      ],
+      [
+        -1.9570000171661377,
+        6.53198766708374,
+        10.131999969482422
+      ]
+    ],
+    "Secondary_glazing_rib.011": [
+      [
+        -1.0429999828338623,
+        -6.53198766708374,
+        4.999082565307617
+      ],
+      [
+        -0.9570000171661377,
+        6.53198766708374,
+        10.131999969482422
+      ]
+    ]
+  },
+  "door_observation": {
+    "camera": "G3R04_door_unoccluded",
+    "position": [
+      -2.0,
+      7.400000095367432,
+      2.4600000381469727
+    ],
+    "lens": 28.0,
+    "framing": [
+      {
+        "frame": 301,
+        "x": [
+          0.13458599150180817,
+          0.865414023399353
+        ],
+        "y": [
+          0.03245000168681145,
+          0.9541693925857544
+        ],
+        "depth": 3.100816011428833
+      },
+      {
+        "frame": 330,
+        "x": [
+          0.13458599150180817,
+          0.865414023399353
+        ],
+        "y": [
+          0.03245000168681145,
+          0.9541693925857544
+        ],
+        "depth": 3.0576679706573486
+      },
+      {
+        "frame": 348,
+        "x": [
+          0.13458599150180817,
+          0.865414023399353
+        ],
+        "y": [
+          0.03245000168681145,
+          0.9541693925857544
+        ],
+        "depth": 3.005901575088501
+      }
+    ],
+    "first_hits": [
+      {
+        "frame": 301,
+        "target": [
+          -2.0,
+          10.600000381469727,
+          1.159999966621399
+        ],
+        "first_object": "Platform_coping_edge"
+      },
+      {
+        "frame": 301,
+        "target": [
+          -2.0,
+          10.600000381469727,
+          3.4000000953674316
+        ],
+        "first_object": "G3_door_track_housing"
+      },
+      {
+        "frame": 301,
+        "target": [
+          -2.690000057220459,
+          10.600000381469727,
+          2.299999952316284
+        ],
+        "first_object": "G3_door_jamb_gasket"
+      },
+      {
+        "frame": 301,
+        "target": [
+          -1.309999942779541,
+          10.600000381469727,
+          2.299999952316284
+        ],
+        "first_object": "G3_door_jamb_gasket.001"
+      },
+      {
+        "frame": 301,
+        "target": [
+          -2.9600000381469727,
+          10.600000381469727,
+          3.4000000953674316
+        ],
+        "first_object": "G3_door_track_housing"
+      },
+      {
+        "frame": 301,
+        "target": [
+          -1.0399999618530273,
+          10.600000381469727,
+          3.4000000953674316
+        ],
+        "first_object": "G3_door_track_housing"
+      },
+      {
+        "frame": 330,
+        "target": [
+          -2.0,
+          10.600000381469727,
+          1.159999966621399
+        ],
+        "first_object": "Platform_coping_edge"
+      },
+      {
+        "frame": 330,
+        "target": [
+          -2.0,
+          10.600000381469727,
+          3.4000000953674316
+        ],
+        "first_object": "G3_door_track_housing"
+      },
+      {
+        "frame": 330,
+        "target": [
+          -2.690000057220459,
+          10.600000381469727,
+          2.299999952316284
+        ],
+        "first_object": "G3_door_jamb_gasket"
+      },
+      {
+        "frame": 330,
+        "target": [
+          -1.309999942779541,
+          10.600000381469727,
+          2.299999952316284
+        ],
+        "first_object": "G3_door_jamb_gasket.001"
+      },
+      {
+        "frame": 330,
+        "target": [
+          -2.9600000381469727,
+          10.600000381469727,
+          3.4000000953674316
+        ],
+        "first_object": "G3_door_track_housing"
+      },
+      {
+        "frame": 330,
+        "target": [
+          -1.0399999618530273,
+          10.600000381469727,
+          3.4000000953674316
+        ],
+        "first_object": "G3_door_track_housing"
+      },
+      {
+        "frame": 348,
+        "target": [
+          -2.0,
+          10.600000381469727,
+          1.159999966621399
+        ],
+        "first_object": "Platform_coping_edge"
+      },
+      {
+        "frame": 348,
+        "target": [
+          -2.0,
+          10.600000381469727,
+          3.4000000953674316
+        ],
+        "first_object": "G3_door_track_housing"
+      },
+      {
+        "frame": 348,
+        "target": [
+          -2.690000057220459,
+          10.600000381469727,
+          2.299999952316284
+        ],
+        "first_object": "Door_vertical_frame.001"
+      },
+      {
+        "frame": 348,
+        "target": [
+          -1.309999942779541,
+          10.600000381469727,
+          2.299999952316284
+        ],
+        "first_object": "Door_vertical_frame.002"
+      },
+      {
+        "frame": 348,
+        "target": [
+          -2.9600000381469727,
+          10.600000381469727,
+          3.4000000953674316
+        ],
+        "first_object": "G3_door_track_housing"
+      },
+      {
+        "frame": 348,
+        "target": [
+          -1.0399999618530273,
+          10.600000381469727,
+          3.4000000953674316
+        ],
+        "first_object": "G3_door_track_housing"
+      }
+    ],
+    "pixels_still_require_review": true
+  },
+  "protected_signature_before": "00269349fb689703c362f3c6401bee85be28a03b2951f247dcceebea3a1c07da",
+  "protected_signature_after": "00269349fb689703c362f3c6401bee85be28a03b2951f247dcceebea3a1c07da",
+  "candidate_sha256": "18348be4c401601706e10e4346a32bf5e0c406fec2448e1a53290f7840b8a854"
+}
