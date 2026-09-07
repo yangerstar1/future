@@ -1,0 +1,110 @@
+{
+  "stage": "G4",
+  "revision": "R01",
+  "status": "FULL_SCENE_CANDIDATE_REVIEW_PENDING",
+  "user_authorized_stage_exception": true,
+  "g3_historical_pass": false,
+  "run_id": "34141383107",
+  "source_sha": "8f4b50842f3fd868c2312b3c20e0df53338930e7",
+  "parent_evidence_commit": "192eba1352585df211f1aa2447a193eec949f6be",
+  "parent_master_sha256": "1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e",
+  "files": {
+    "overview-render.log": {
+      "bytes": 783035,
+      "sha256": "35a32c04a205720a66e1b45697e72f9bf4f6c3975c077f4638305c38ee2cd546"
+    },
+    "build.log": {
+      "bytes": 377,
+      "sha256": "bc6d6d495a941362232be90e8dd8f621aa314e41bf6353bbf1df859b31ce677b"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "D02-woodwork-night.png": {
+      "bytes": 1534945,
+      "sha256": "ff140620c4eda9f55490083fbb5af61d381ac98e04784d35fc9f870d858afb68"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "C05-platform-night.png": {
+      "bytes": 1239399,
+      "sha256": "202bccb088b5f6302c980a9a17a609e40806f66b0e4969bbe9cf848e147bd1cc"
+    },
+    "render-metrics.json": {
+      "bytes": 5510,
+      "sha256": "6474de7c5f70d5f614f65a65b687bf93e91af8891268b4c0fc08c64125456e3d"
+    },
+    "regression-render.log": {
+      "bytes": 2764009,
+      "sha256": "44baee9c2cbab2dd27cac2ec5ece252af2d8fbfed7df4b3e9053763086de287a"
+    },
+    "D01-roof-node-regression.png": {
+      "bytes": 1122367,
+      "sha256": "b5209baf7e5d2b2d0cfdf4304adaed58e51d0177275ea4326ad0c2e1353c67e8"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "C03-hall-neutral.png": {
+      "bytes": 1676352,
+      "sha256": "9dd55a43e1c663c90103cb192b39110db18d508ea29bd7918ca66b2e0febc49f"
+    },
+    "g4-full-scene-candidate.blend": {
+      "bytes": 26730084,
+      "sha256": "2a7197af8f42ae6a543d1b028b4617a4784ec4fb262874e3b46f945216955819"
+    },
+    "G3-bay-context-night.png": {
+      "bytes": 1893754,
+      "sha256": "c0746487b3e5c7019de87542dc409cf079bf2d5832dda97aca23561dd5a5c9ac"
+    },
+    "overview-reopen-check.json": {
+      "bytes": 252,
+      "sha256": "48e7579bf6ed9346c0f97ee4684d148a3d348ae5e89d131610837bb0c906f99a"
+    },
+    "reopen-check.json": {
+      "bytes": 252,
+      "sha256": "01edf73ba8522beb44aae920c08539b330e5acb8596f60fa28411ced8896a2b4"
+    },
+    "provision.log": {
+      "bytes": 41141,
+      "sha256": "cb9333ff0c46e2e820770f92912831286067df460b49b2771f2e69900dcb8212"
+    },
+    "C02-reverse-night.png": {
+      "bytes": 1436231,
+      "sha256": "b420cde21a484bbffc351993b96d91a2d1a10aa1351f881158b1f076d19d0748"
+    },
+    "C09-car-aisle-night.png": {
+      "bytes": 1321385,
+      "sha256": "d5f58f2d0d8e4d194a9844c6db72bf06c0e0134bc44edf9b8d35a8f90b142c78"
+    },
+    "C03-hall-night.png": {
+      "bytes": 2045829,
+      "sha256": "9a9eae8774b611274d0d992b716ab0e2643a673bfefd98b90e3950880025980f"
+    },
+    "C01-full-night.png": {
+      "bytes": 1528575,
+      "sha256": "8ad8e30198960bc6458eb288d8a821d1c6d134bfd2b38e260c0ebaa8ae238af8"
+    },
+    "build-report.json": {
+      "bytes": 225701,
+      "sha256": "62e2c91d311b4bcda935480230493e52f5b35a738764db0f28349b0b207dab65"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    }
+  },
+  "missing": [],
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "browser_gate": "BLOCKED_UNCHANGED",
+  "scope": "First full-scene art expansion of real R07. No final film or webpage claimed."
+}
