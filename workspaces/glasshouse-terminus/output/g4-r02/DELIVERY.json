@@ -1,0 +1,86 @@
+{
+  "stage": "G4",
+  "revision": "R02",
+  "status": "NATIVE_REVIEW_PENDING_NOT_STAGE_PASS",
+  "run_id": "34142587601",
+  "source_sha": "ca63f0d47f7ec001daa2ab4eb0ee9da605a0c617",
+  "parent_source_evidence_commit": "b5611004d3f224a2a41e2d589264ce6b3923f5ca",
+  "parent_master_sha256": "2a7197af8f42ae6a543d1b028b4617a4784ec4fb262874e3b46f945216955819",
+  "files": {
+    "build.log": {
+      "bytes": 374,
+      "sha256": "bb8b01e4756757d7e31a2188e5424a4200796bc68134a1a8f136f4f29941f23b"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "render-metrics.json": {
+      "bytes": 3148,
+      "sha256": "23498286fbf61e33f1f5cf84659ec9e4e9d77019136f078cb5926eb28642b18c"
+    },
+    "D01-roof-node-regression.png": {
+      "bytes": 1150059,
+      "sha256": "2c1d70592ccda9c31de9b9e6b273476b860d8855a61bd40fed138791542a8fba"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "render.log": {
+      "bytes": 1975152,
+      "sha256": "db774c949e74fb2f319230a8ff9b1f9a6c6b8e6ead384b3141a11c74c6f82b63"
+    },
+    "g4-full-scene-candidate.blend": {
+      "bytes": 26580528,
+      "sha256": "173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc"
+    },
+    "G3-bay-context-night.png": {
+      "bytes": 1701047,
+      "sha256": "381e2f2457f1e6efc2e8a80bcdb2fdd00c05416a91f173b25167e89e877d94a4"
+    },
+    "reopen-check.json": {
+      "bytes": 252,
+      "sha256": "427bf6fe2574df3645d539a0bd6cc1d188b96659a3184c0cf3cc92a757fb41ee"
+    },
+    "provision.log": {
+      "bytes": 41062,
+      "sha256": "f394c1168c8fb2e57613b64fdf92acce4e65b22645fc8fbc845388652076bc24"
+    },
+    "C09-car-aisle-night.png": {
+      "bytes": 1331605,
+      "sha256": "71d8fe1c801c82b9ab966fd4f629ac297bb09dade58e6591bae14090b8bcacb6"
+    },
+    "C03-hall-night.png": {
+      "bytes": 1756638,
+      "sha256": "52f7fcfaf4b1ed291c007c19f9601d18862327d33b5b3dfbbfa567341ce55b86"
+    },
+    "C01-full-night.png": {
+      "bytes": 1597811,
+      "sha256": "d33cd62d6c4a8398e365f209fdc963555f25fcae81af9382fa93aa50d011ef78"
+    },
+    "build-report.json": {
+      "bytes": 2516,
+      "sha256": "59262263d098d891e4e41f29bcab8f36fea2f931a92f21626220ef139606d6e8"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    }
+  },
+  "missing": [],
+  "user_authorized_stage_exception": true,
+  "g3_historical_pass": false,
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "browser_gate": "BLOCKED_UNCHANGED",
+  "coverage": "Five R02 native night views. Other R01 evidence remains historical, not relabelled R02."
+}

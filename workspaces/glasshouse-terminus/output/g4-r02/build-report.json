@@ -1,0 +1,52 @@
+{
+  "stage": "G4",
+  "revision": "R02",
+  "parent_master_sha256": "2a7197af8f42ae6a543d1b028b4617a4784ec4fb262874e3b46f945216955819",
+  "parent_source_evidence_commit": "b5611004d3f224a2a41e2d589264ce6b3923f5ca",
+  "source_sha": "ca63f0d47f7ec001daa2ab4eb0ee9da605a0c617",
+  "run_id": "34142587601",
+  "basis": "Actually retrieved and opened R01 C01/C03 1440x900 originals from artifact10026285603. Hall floor over-reflects, cliff and bridge are underlit and roof shows finite sky cards.",
+  "floor_root_verified": "R01 floor uses G3_slate_dry directly; original rough map linked without previously proven G3R02 remap. That transfer omitted the scoped R02 dry fix.",
+  "floor_change": {
+    "only_object": "Hall_continuous_floor",
+    "roughness_range": [
+      0.52,
+      0.78
+    ],
+    "coat": 0,
+    "maps_and_UV_unchanged": true,
+    "reused_source": "refine_g3.py dry_roughness"
+  },
+  "environmental_sources": [
+    {
+      "object": "G3_night_sky",
+      "energy_before": 950.0,
+      "energy_after": 0,
+      "replacement": "Shared continuous World illumination/reflection; original lamp remains as recoverable disabled source, all ray flags unchanged."
+    },
+    {
+      "object": "G3_window_rim",
+      "energy_before": 300.0,
+      "energy_after": 0,
+      "replacement": "Shared continuous World illumination/reflection; original lamp remains as recoverable disabled source, all ray flags unchanged."
+    },
+    {
+      "object": "G4_overcast_environment",
+      "energy_before": 6500.0,
+      "energy_after": 0,
+      "replacement": "Shared continuous World illumination/reflection; original lamp remains as recoverable disabled source, all ray flags unchanged."
+    }
+  ],
+  "world_design": "Native broad low-contrast procedural blue-grey cloud environment, shared for illumination, camera and reflections. No area-light disc, no ray-conditioned shader, no fog or exposure change.",
+  "protected_before": "5e45a6fd7b19b2cfc67205df6f4557bc1fee104c27e734057a22cebe92076256",
+  "protected_after": "5e45a6fd7b19b2cfc67205df6f4557bc1fee104c27e734057a22cebe92076256",
+  "g3_historical_pass": false,
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "limits": [
+    "This environmental art choice requires actual full-scene and sample regressions; not a predeclared visual success.",
+    "Historical R01 views are not relabelled R02. No final animation or browser delivered."
+  ],
+  "master_bytes": 26580528,
+  "candidate_sha256": "173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc"
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "view": "C01_exterior_hero",
+    "file": "C01-full-night.png",
+    "frame": 451,
+    "seconds": 137.20346565300002,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 34.5,
+    "position": [
+      32.0,
+      52.0,
+      23.0
+    ],
+    "rotation": [
+      1.2386444807052612,
+      5.874365882618804e-08,
+      2.422762870788574
+    ],
+    "lighting": "night_continuous_world",
+    "native_render": true,
+    "master_sha256": "173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc",
+    "revision": "G4_R02"
+  },
+  {
+    "view": "C03_hall_to_platform",
+    "file": "C03-hall-night.png",
+    "frame": 451,
+    "seconds": 248.711440323,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 35.0,
+    "position": [
+      8.0,
+      -4.5,
+      3.0
+    ],
+    "rotation": [
+      1.5506188869476318,
+      7.001838753240008e-08,
+      0.7378150224685669
+    ],
+    "lighting": "night_continuous_world",
+    "native_render": true,
+    "master_sha256": "173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc",
+    "revision": "G4_R02"
+  },
+  {
+    "view": "G3R03_complete_bay",
+    "file": "G3-bay-context-night.png",
+    "frame": 451,
+    "seconds": 284.07398938499995,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      0.800000011920929,
+      -3.0,
+      3.0999999046325684
+    ],
+    "rotation": [
+      1.50106680393219,
+      -3.242253754365265e-08,
+      0.43240782618522644
+    ],
+    "lighting": "night_continuous_world",
+    "native_render": true,
+    "master_sha256": "173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc",
+    "revision": "G4_R02"
+  },
+  {
+    "view": "G3R03_roof_node",
+    "file": "D01-roof-node-regression.png",
+    "frame": 451,
+    "seconds": 192.41167076300007,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 55.0,
+    "position": [
+      -1.0,
+      3.9000000953674316,
+      5.150000095367432
+    ],
+    "rotation": [
+      1.5990432500839233,
+      -1.4562282046881592e-08,
+      0.9702551960945129
+    ],
+    "lighting": "night_continuous_world",
+    "native_render": true,
+    "master_sha256": "173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc",
+    "revision": "G4_R02"
+  },
+  {
+    "view": "C09_car_aisle_failure_check",
+    "file": "C09-car-aisle-night.png",
+    "frame": 451,
+    "seconds": 191.10183552599995,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 30.0,
+    "position": [
+      -3.0,
+      12.100000381469727,
+      2.700000047683716
+    ],
+    "rotation": [
+      1.522290825843811,
+      -0.0,
+      -1.5707963705062866
+    ],
+    "lighting": "night_continuous_world",
+    "native_render": true,
+    "master_sha256": "173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc",
+    "revision": "G4_R02"
+  }
+]
