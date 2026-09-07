@@ -1,0 +1,135 @@
+name: Glasshouse R09 measured roof-shell continuity
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-r09-roof-shell.yml]
+permissions:
+  contents: write
+jobs:
+  source:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r09
+      BLENDER_PROVISION_PROFILE: render-only
+    outputs:
+      commit: ${{ steps.publish.outputs.commit }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact R08 plus measured evaluated-shell audit
+        timeout-minutes: 3
+        run: |
+          git fetch --depth=1 origin caf093e65db1e364e2403e6a7807a3ef5da88b5b
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r08 | tar -x
+          python3 workspaces/glasshouse-terminus/output/g4-coast-r08/restore_master.py restore workspaces/glasshouse-terminus/output/g4-coast-r08
+          git fetch --depth=1 origin 3171758a15f1aacba0c5fa14807f23bfba5b2637
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-r08-roof-interface-audit | tar -x
+          python3 -m py_compile workspaces/glasshouse-terminus/correct_g4_r09_barrel_shell.py
+          mkdir -p "$OUT"
+          printf '%s\n' 'One measured roof-shell correction,12min source+24min serial review(20min production,4min preserve).External spend0,download1.5GB,disk8GB,evidence300MB. R08 observer34167314803 untouched. Only main-roof face direction/shading corrected after read-only proof; entire source remains unified. Source counts and peak-height checks do not pass art.' > "$OUT/FINITE-REQUEST.txt"
+          bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-source.log"
+      - name: Correct real shell direction and check unchanged surroundings
+        timeout-minutes: 5
+        env:
+          G4_SHELL_MODE: build
+        run: blender -b workspaces/glasshouse-terminus/output/g4-coast-r08/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/correct_g4_r09_barrel_shell.py 2>&1 | tee "$OUT/build.log"
+      - name: Persist editable candidate before rendering
+        id: publish
+        timeout-minutes: 3
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r09-source | tee "$RUNNER_TEMP/publish-r09.log"
+          value=$(sed -n 's/^PERSISTED_EVIDENCE_COMMIT=//p' "$RUNNER_TEMP/publish-r09.log" | tail -1)
+          test ${#value} -eq 40; echo "commit=$value" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: coast-r09-source-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r09
+          retention-days: 1
+          if-no-files-found: error
+  native-review:
+    needs: source
+    runs-on: ubuntu-24.04
+    timeout-minutes: 24
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r09
+      SOURCE: ${{ needs.source.outputs.commit }}
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Reopen exact saved candidate
+        timeout-minutes: 5
+        run: |
+          echo "R09_DEADLINE=$(( $(date +%s) +20*60 ))" >> "$GITHUB_ENV"
+          test ${#SOURCE} -eq 40; git fetch --depth=1 origin "$SOURCE"
+          git archive FETCH_HEAD "$OUT" | tar -x
+          python3 "$OUT/restore_master.py" restore "$OUT"
+          python3 - <<'PY'
+          import os,json,hashlib,shutil
+          from pathlib import Path
+          r=Path(os.environ['OUT']);q=json.loads((r/'build-report.json').read_text());assert hashlib.sha256((r/'g4-full-scene-candidate.blend').read_bytes()).hexdigest()==q['candidate_sha256'];shutil.rmtree(r/'master-parts')
+          PY
+          bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-render.log"
+          cat > "$RUNNER_TEMP/r09-view.sh" <<'SH'
+          #!/usr/bin/env bash
+          set -euo pipefail
+          mode="$1";remaining=$((R09_DEADLINE-$(date +%s)));test "$remaining" -gt 30
+          cap=$((remaining<570 ? remaining : 570))
+          set +e
+          G4_SHELL_MODE="$mode" timeout --signal=TERM --kill-after=10 "${cap}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/correct_g4_r09_barrel_shell.py 2>&1 | tee "$OUT/$mode-render.log"
+          code=${PIPESTATUS[0]};set -e;echo "$code" > "$OUT/$mode-exit.txt";exit "$code"
+          SH
+      - name: Same native under-canopy cab observation
+        timeout-minutes: 11
+        continue-on-error: true
+        run: bash "$RUNNER_TEMP/r09-view.sh" cab
+      - name: Early real shell-junction image
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: r09-cab-native-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r09/R09-cab-shell.png
+            workspaces/glasshouse-terminus/output/g4-coast-r09/cab-metrics.json
+            workspaces/glasshouse-terminus/output/g4-coast-r09/cab-reopen.json
+          retention-days: 1
+          if-no-files-found: warn
+      - name: Original full exterior with integrated sea and roof
+        timeout-minutes: 11
+        continue-on-error: true
+        run: bash "$RUNNER_TEMP/r09-view.sh" coast
+      - name: Original interior checks retained soft furnishings
+        timeout-minutes: 11
+        continue-on-error: true
+        run: bash "$RUNNER_TEMP/r09-view.sh" carriage
+      - name: Persist actual outcomes and exact master
+        if: always()
+        timeout-minutes: 3
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          r=Path(os.environ['OUT']);q=json.loads((r/'build-report.json').read_text());assert hashlib.sha256((r/'g4-full-scene-candidate.blend').read_bytes()).hexdigest()==q['candidate_sha256']
+          files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file() and p.name!='DELIVERY.json'};assert sum(v['bytes'] for v in files.values())<300000000
+          required=['R09-cab-shell.png','R09-complete-coast.png','R09-carriage-interior.png','cab-reopen.json','coast-reopen.json','carriage-reopen.json'];missing=[n for n in required if not (r/n).exists()]
+          (r/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R09','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'source_evidence_commit':os.environ['SOURCE'],'master_sha256':q['candidate_sha256'],'files':files,'missing':missing,'status':'THREE_NATIVE_VIEWS_REVIEW_PENDING' if not missing else 'PARTIAL_OR_FAILED_NOT_ART_PASS','g4_stage_pass':False,'human_acceptance':False,'scope':'Local shell-normal correction after native R08 seam failure. Three current-source observations. R08 cloth/sea pairs remain separately identified historical evidence, not new R09 renders.'},indent=2))
+          PY
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r09
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: coast-r09-native-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r09
+          retention-days: 1
+          if-no-files-found: error
