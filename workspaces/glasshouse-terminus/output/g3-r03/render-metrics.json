@@ -1,0 +1,1109 @@
+[
+  {
+    "view": "G3R03_complete_bay",
+    "file": "R03-complete-bay-night.png",
+    "frame": 451,
+    "seconds": 246.45173494699998,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      0.800000011920929,
+      -3.0,
+      3.0999999046325684
+    ],
+    "rotation": [
+      1.50106680393219,
+      -3.242253754365265e-08,
+      0.43240782618522644
+    ],
+    "lighting": "night",
+    "world_color": [
+      0.10000000149011612,
+      0.14499999582767487,
+      0.2199999988079071,
+      1.0
+    ],
+    "world_strength": 0.18000000715255737,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-overview"
+  },
+  {
+    "view": "G3R03_complete_bay",
+    "file": "R03-complete-bay-neutral.png",
+    "frame": 451,
+    "seconds": 208.63485765400003,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      0.800000011920929,
+      -3.0,
+      3.0999999046325684
+    ],
+    "rotation": [
+      1.50106680393219,
+      -3.242253754365265e-08,
+      0.43240782618522644
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-overview"
+  },
+  {
+    "view": "G3_bay",
+    "file": "G3-bay-night.png",
+    "frame": 451,
+    "seconds": 218.42753154499997,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 42.0,
+    "position": [
+      0.30000001192092896,
+      0.25,
+      2.700000047683716
+    ],
+    "rotation": [
+      1.5203306674957275,
+      2.7329100760198344e-08,
+      0.4493412971496582
+    ],
+    "lighting": "night",
+    "world_color": [
+      0.10000000149011612,
+      0.14499999582767487,
+      0.2199999988079071,
+      1.0
+    ],
+    "world_strength": 0.18000000715255737,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-overview"
+  },
+  {
+    "view": "G3R03_chair_front",
+    "file": "D03-front.png",
+    "frame": 451,
+    "seconds": 146.32245230699993,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -1.4500000476837158,
+      3.6500000953674316,
+      2.3499999046325684
+    ],
+    "rotation": [
+      1.348902940750122,
+      -6.848779321444454e-08,
+      2.2904586791992188
+    ],
+    "lighting": "night",
+    "world_color": [
+      0.10000000149011612,
+      0.14499999582767487,
+      0.2199999988079071,
+      1.0
+    ],
+    "world_strength": 0.18000000715255737,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "G3R03_full_door",
+    "file": "D05-full-interface.png",
+    "frame": 451,
+    "seconds": 199.61708424899996,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 28.0,
+    "position": [
+      -0.6000000238418579,
+      6.800000190734863,
+      2.5199999809265137
+    ],
+    "rotation": [
+      1.530070185661316,
+      -4.894453553561107e-08,
+      0.3422177731990814
+    ],
+    "lighting": "night",
+    "world_color": [
+      0.10000000149011612,
+      0.14499999582767487,
+      0.2199999988079071,
+      1.0
+    ],
+    "world_strength": 0.18000000715255737,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "G3_D06",
+    "file": "D06-plant.png",
+    "frame": 451,
+    "seconds": 156.05279840599997,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 62.0,
+    "position": [
+      0.44999998807907104,
+      3.359999895095825,
+      2.4000000953674316
+    ],
+    "rotation": [
+      1.3812267780303955,
+      1.1812883116135708e-08,
+      0.489393025636673
+    ],
+    "lighting": "night",
+    "world_color": [
+      0.10000000149011612,
+      0.14499999582767487,
+      0.2199999988079071,
+      1.0
+    ],
+    "world_strength": 0.18000000715255737,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "G3_reverse",
+    "file": "QA-reverse.png",
+    "frame": 451,
+    "seconds": 70.64344177599992,
+    "resolution": [
+      1024,
+      640
+    ],
+    "samples": 32,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 39.0,
+    "position": [
+      -2.200000047683716,
+      8.800000190734863,
+      3.049999952316284
+    ],
+    "rotation": [
+      1.3772944211959839,
+      2.7880391328949372e-08,
+      3.0855765342712402
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "G3R03_roof_node",
+    "file": "D01-roof-node.png",
+    "frame": 451,
+    "seconds": 141.6341278299999,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 55.0,
+    "position": [
+      -1.0,
+      3.9000000953674316,
+      5.150000095367432
+    ],
+    "rotation": [
+      1.5990432500839233,
+      -1.4562282046881592e-08,
+      0.9702551960945129
+    ],
+    "lighting": "night",
+    "world_color": [
+      0.10000000149011612,
+      0.14499999582767487,
+      0.2199999988079071,
+      1.0
+    ],
+    "world_strength": 0.18000000715255737,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "C03_hall_to_platform",
+    "file": "C03-G2-neutral-baseline.png",
+    "frame": 451,
+    "seconds": 92.62366596899983,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 35.0,
+    "position": [
+      8.0,
+      -4.5,
+      3.0
+    ],
+    "rotation": [
+      1.5506188869476318,
+      7.001838753240008e-08,
+      0.7378150224685669
+    ],
+    "lighting": "g2-neutral",
+    "world_color": [
+      0.6200000047683716,
+      0.6399999856948853,
+      0.6700000166893005,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "G3R03_full_door",
+    "file": "QA-full-door-301.png",
+    "frame": 301,
+    "seconds": 20.346738596000023,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 28.0,
+    "position": [
+      -0.6000000238418579,
+      6.800000190734863,
+      2.5199999809265137
+    ],
+    "rotation": [
+      1.530070185661316,
+      -4.894453553561107e-08,
+      0.3422177731990814
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "G3R03_full_door",
+    "file": "QA-full-door-330.png",
+    "frame": 330,
+    "seconds": 20.09353397299992,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 28.0,
+    "position": [
+      -0.6000000238418579,
+      6.800000190734863,
+      2.5199999809265137
+    ],
+    "rotation": [
+      1.530070185661316,
+      -4.894453553561107e-08,
+      0.3422177731990814
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "G3R03_full_door",
+    "file": "QA-full-door-348.png",
+    "frame": 348,
+    "seconds": 20.240994497999964,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 28.0,
+    "position": [
+      -0.6000000238418579,
+      6.800000190734863,
+      2.5199999809265137
+    ],
+    "rotation": [
+      1.530070185661316,
+      -4.894453553561107e-08,
+      0.3422177731990814
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "FILM_04_CONTINUOUS_WALK",
+    "file": "QA-route-391.png",
+    "frame": 391,
+    "seconds": 16.162221761999945,
+    "resolution": [
+      640,
+      360
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      -2.0,
+      1.100000023841858,
+      2.759999990463257
+    ],
+    "rotation": [
+      1.5664485692977905,
+      -0.0,
+      0.0
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "FILM_04_CONTINUOUS_WALK",
+    "file": "QA-route-421.png",
+    "frame": 421,
+    "seconds": 16.83843502600007,
+    "resolution": [
+      640,
+      360
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      -2.0,
+      2.880000114440918,
+      2.759999990463257
+    ],
+    "rotation": [
+      1.5664485692977905,
+      -0.0,
+      0.0
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "FILM_04_CONTINUOUS_WALK",
+    "file": "QA-route-451.png",
+    "frame": 451,
+    "seconds": 16.303319569999985,
+    "resolution": [
+      640,
+      360
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      -2.0,
+      4.659999847412109,
+      2.759999990463257
+    ],
+    "rotation": [
+      1.5664485692977905,
+      -0.0,
+      0.0
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "FILM_04_CONTINUOUS_WALK",
+    "file": "QA-route-481.png",
+    "frame": 481,
+    "seconds": 16.479092860000037,
+    "resolution": [
+      640,
+      360
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      -2.0,
+      6.624000072479248,
+      2.759999990463257
+    ],
+    "rotation": [
+      1.5664485692977905,
+      -0.0,
+      0.0
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "FILM_04_CONTINUOUS_WALK",
+    "file": "QA-route-511.png",
+    "frame": 511,
+    "seconds": 16.38544247899995,
+    "resolution": [
+      640,
+      360
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      -2.0,
+      8.772000312805176,
+      2.759999990463257
+    ],
+    "rotation": [
+      1.5664485692977905,
+      -0.0,
+      0.0
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "FILM_04_CONTINUOUS_WALK",
+    "file": "QA-route-541.png",
+    "frame": 541,
+    "seconds": 13.70901764700011,
+    "resolution": [
+      640,
+      360
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      -2.0,
+      10.920000076293945,
+      2.759999990463257
+    ],
+    "rotation": [
+      1.5664485692977905,
+      -0.0,
+      0.0
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "FILM_04_CONTINUOUS_WALK",
+    "file": "QA-route-571.png",
+    "frame": 571,
+    "seconds": 16.031953191999946,
+    "resolution": [
+      640,
+      360
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      -2.0,
+      11.827692031860352,
+      2.759999990463257
+    ],
+    "rotation": [
+      1.5664485692977905,
+      -0.0,
+      0.0
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "FILM_04_CONTINUOUS_WALK",
+    "file": "QA-route-601.png",
+    "frame": 601,
+    "seconds": 23.50423442400006,
+    "resolution": [
+      640,
+      360
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      -1.0307692289352417,
+      12.100000381469727,
+      2.759999990463257
+    ],
+    "rotation": [
+      1.5664485692977905,
+      -0.0,
+      0.0
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "FILM_04_CONTINUOUS_WALK",
+    "file": "QA-route-631.png",
+    "frame": 631,
+    "seconds": 23.07081716100015,
+    "resolution": [
+      640,
+      360
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      0.1428571492433548,
+      12.100000381469727,
+      2.759999990463257
+    ],
+    "rotation": [
+      1.5664485692977905,
+      -0.0,
+      0.0
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "FILM_04_CONTINUOUS_WALK",
+    "file": "QA-route-660.png",
+    "frame": 660,
+    "seconds": 23.011501985999985,
+    "resolution": [
+      640,
+      360
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 36.0,
+    "position": [
+      0.9714285731315613,
+      12.100000381469727,
+      2.759999990463257
+    ],
+    "rotation": [
+      1.5664485692977905,
+      -0.0,
+      0.0
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-proof"
+  },
+  {
+    "view": "G3_bay",
+    "file": "G3-bay-neutral.png",
+    "frame": 451,
+    "seconds": 205.09799130300007,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 42.0,
+    "position": [
+      0.30000001192092896,
+      0.25,
+      2.700000047683716
+    ],
+    "rotation": [
+      1.5203306674957275,
+      2.7329100760198344e-08,
+      0.4493412971496582
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-legacy"
+  },
+  {
+    "view": "C03_hall_to_platform",
+    "file": "C03-neutral-context.png",
+    "frame": 451,
+    "seconds": 91.10959241300043,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 35.0,
+    "position": [
+      8.0,
+      -4.5,
+      3.0
+    ],
+    "rotation": [
+      1.5506188869476318,
+      7.001838753240008e-08,
+      0.7378150224685669
+    ],
+    "lighting": "neutral",
+    "world_color": [
+      0.1599999964237213,
+      0.1899999976158142,
+      0.23000000417232513,
+      1.0
+    ],
+    "world_strength": 0.6499999761581421,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-legacy"
+  },
+  {
+    "view": "G3_D01",
+    "file": "D01-glass-metal.png",
+    "frame": 451,
+    "seconds": 176.45103407999977,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 60.0,
+    "position": [
+      -1.899999976158142,
+      4.5,
+      3.0999999046325684
+    ],
+    "rotation": [
+      1.7133949995040894,
+      4.118040664025102e-08,
+      0.7803220152854919
+    ],
+    "lighting": "night",
+    "world_color": [
+      0.10000000149011612,
+      0.14499999582767487,
+      0.2199999988079071,
+      1.0
+    ],
+    "world_strength": 0.18000000715255737,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-legacy"
+  },
+  {
+    "view": "G3_D02",
+    "file": "D02-joinery.png",
+    "frame": 451,
+    "seconds": 174.75918435500034,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 60.0,
+    "position": [
+      -1.600000023841858,
+      1.850000023841858,
+      2.6500000953674316
+    ],
+    "rotation": [
+      1.2634847164154053,
+      2.3310434471568442e-08,
+      0.7952988743782043
+    ],
+    "lighting": "night",
+    "world_color": [
+      0.10000000149011612,
+      0.14499999582767487,
+      0.2199999988079071,
+      1.0
+    ],
+    "world_strength": 0.18000000715255737,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-legacy"
+  },
+  {
+    "view": "G3_D03",
+    "file": "D03-upholstery.png",
+    "frame": 451,
+    "seconds": 148.0955246640001,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 62.0,
+    "position": [
+      -1.649999976158142,
+      0.550000011920929,
+      2.0799999237060547
+    ],
+    "rotation": [
+      1.4580421447753906,
+      7.725139994363417e-08,
+      0.7469555139541626
+    ],
+    "lighting": "night",
+    "world_color": [
+      0.10000000149011612,
+      0.14499999582767487,
+      0.2199999988079071,
+      1.0
+    ],
+    "world_strength": 0.18000000715255737,
+    "native_render": true,
+    "sampling": {
+      "mode": "adaptive-review",
+      "adaptive": true,
+      "threshold": 0.03999999910593033,
+      "min_samples": 16,
+      "denoising": true
+    },
+    "group": "r03-legacy"
+  }
+]

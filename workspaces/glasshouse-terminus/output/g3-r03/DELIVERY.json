@@ -1,0 +1,192 @@
+{
+  "stage": "G3",
+  "revision": "R03",
+  "status": "PARTIAL_CANDIDATE_NOT_A_PASS",
+  "missing": [
+    "D05-door-interface.png"
+  ],
+  "source_sha": "ce12e2059f3dae4a0e20098164b353f094572cc7",
+  "run_id": "34118000931",
+  "run_attempt": "1",
+  "files": {
+    "QA-full-door-330.png": {
+      "bytes": 364450,
+      "sha256": "5c298bf299074ebeb626c9bf983b13607c3d36a64f24674281ac8036c2de1ee1"
+    },
+    "QA-route-451.png": {
+      "bytes": 312343,
+      "sha256": "d5c05750e70b8b38f075057a6328a6ff77e56304aa2393ef2112800ebbc0ba72"
+    },
+    "QA-route-631.png": {
+      "bytes": 346454,
+      "sha256": "da3f825e9f6b3254aab0dcb0b0d2355fb8a622ce61a01b02efd0be43c31fa6d4"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "C03-G2-neutral-baseline.png": {
+      "bytes": 1334615,
+      "sha256": "43176103c92a62a2fbcd9851e8bc18c58c542ab7991ac246b30d6f951f008a03"
+    },
+    "D01-glass-metal.png": {
+      "bytes": 1107286,
+      "sha256": "fe3d647ae52666a27cb946c2c18cb0b9a355675bd9147ae3a9a25d6c329f7fbf"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "finish-report.json": {
+      "bytes": 4420,
+      "sha256": "31e50176fb84336d1ce04de99b8c564879975c4e3901f08475a04d8c8fde48f3"
+    },
+    "QA-route-421.png": {
+      "bytes": 322663,
+      "sha256": "228f0907a6eb1b8a869749293c97e1eb8499a19eb2e9585eb878433023c06268"
+    },
+    "G3-bay-night.png": {
+      "bytes": 1702145,
+      "sha256": "9459985d04eba130caf45ef8534766dc33cde77574fcaf7d948c4a1475d9a955"
+    },
+    "render-metrics.json": {
+      "bytes": 23110,
+      "sha256": "84191fc27d78d26cb80478cca14448c72cf0805318e504a1c9e098898f975a23"
+    },
+    "QA-reverse.png": {
+      "bytes": 861520,
+      "sha256": "bd4dda9f4af918b23cefd8cf8853aed0087ff457bf3eabeee8251743b0323305"
+    },
+    "D02-joinery.png": {
+      "bytes": 1367050,
+      "sha256": "7108f40a0da7a31e7954b3c51da2baff6685804b87235ca811117741cf8f6943"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "R03-complete-bay-neutral.png": {
+      "bytes": 1728436,
+      "sha256": "5507b81933658733af4e6b26075b4f0cd8b9785f7fa912ebfb1d88e15edd0405"
+    },
+    "QA-route-391.png": {
+      "bytes": 353259,
+      "sha256": "4e080da9247b207c6cbd73783a1061867f4606d09633817b6c6dce8a56b1f9eb"
+    },
+    "overview.log": {
+      "bytes": 951141,
+      "sha256": "25670c6dfe1fb3b1d34a91bb51780bb8b4b44d7fac61795376426f653b1f5cbf"
+    },
+    "preflight-r03.json": {
+      "bytes": 3893,
+      "sha256": "e37175d6af1e82d59c5639b31add16f46ff827b91e87722cfe61d30ed3b9703f"
+    },
+    "QA-route-601.png": {
+      "bytes": 313295,
+      "sha256": "dc0f0fb209fafa815731bd558ab858ffa54e4d79cc2a60ae80091c8bf1f4ed1d"
+    },
+    "QA-route-481.png": {
+      "bytes": 317886,
+      "sha256": "29a867a66b7ff27b5b711bd9a27bce5f92acff61deb162a6c8fe14d3fd49c139"
+    },
+    "QA-route-541.png": {
+      "bytes": 253176,
+      "sha256": "3059928bc3afb3c0eff97c9d88ba967468598663be8cd32bd37a435fbcb72f80"
+    },
+    "QA-route-511.png": {
+      "bytes": 285622,
+      "sha256": "ca29c1d841058c55c33b9fadc57ce8eea3f2f74d0a41099498d55745021e60f3"
+    },
+    "C03-neutral-context.png": {
+      "bytes": 1391192,
+      "sha256": "44f9efd07918d2e48da41f9866b51c3a81eebc60e9ba58993026d6d3e9382a34"
+    },
+    "QA-full-door-348.png": {
+      "bytes": 361764,
+      "sha256": "ebd8a99dbb363c4810f8970b75c2aa3bb45bc5963ab209431ad7a355c69855c8"
+    },
+    "proof.log": {
+      "bytes": 6001199,
+      "sha256": "236dcfd287c7d920ecb50a164959de8c0f6e89844a427bfe29b89e351f94eeea"
+    },
+    "finish.log": {
+      "bytes": 366,
+      "sha256": "d7808f6ae4e78a23d1dfbdc01e32494ba97400fdcab68f3a769b52d828d4a9f7"
+    },
+    "D01-roof-node.png": {
+      "bytes": 1171136,
+      "sha256": "9b4ac51475b89d6751a5a32bda27ea1bcd5b2fc05af22c9875f59571e8cc5bdf"
+    },
+    "provision.log": {
+      "bytes": 41062,
+      "sha256": "ec1cc04051eadca8dd75bf789cf0e8c6607b6abbdbb13d25a44dedced87010a6"
+    },
+    "D06-plant.png": {
+      "bytes": 1554237,
+      "sha256": "e373581373c81f0b7c0381ef70e40625625ef52fb2943002314d992a473258c6"
+    },
+    "D05-full-interface.png": {
+      "bytes": 1223785,
+      "sha256": "91cab81fec3a66d42d649b9b7c3d51d20dbf4ec8b94a04cfe436e3c0a79d950e"
+    },
+    "QA-route-571.png": {
+      "bytes": 290313,
+      "sha256": "56d22b3f19f2d5512725b496e989af09ef2dec65cc7bf19e9ac0de12a9571dbf"
+    },
+    "reopen-and-space-check.json": {
+      "bytes": 6297,
+      "sha256": "2281d0bcacc53eec337905c39a58775d3634e91c219507953a33c3847db6580f"
+    },
+    "legacy.log": {
+      "bytes": 1893143,
+      "sha256": "d9dd02a54b293aa7a8c3d689c07985a56c387c52d8565fb4b8c7f65d50986a6a"
+    },
+    "QA-route-660.png": {
+      "bytes": 328436,
+      "sha256": "f2cafa727e92858ffc60f57e6e32305b3a2e63113160d096f854d62c9cd86a4d"
+    },
+    "QA-full-door-301.png": {
+      "bytes": 362113,
+      "sha256": "cedc9b592c14115127addef1e760f6c5556ed289bc1f32b83981b2e5c12e26a1"
+    },
+    "R03-complete-bay-night.png": {
+      "bytes": 1684690,
+      "sha256": "fd83199600f0e6169e5cf549fdb4e95998a2e2ac9e972c8d5781d558e4cbe2d8"
+    },
+    "D03-upholstery.png": {
+      "bytes": 1269861,
+      "sha256": "50419539d2d3991af0c142a15e34c27e779ff9372e5c9fabe2dde2ee57ff9a68"
+    },
+    "build-report.json": {
+      "bytes": 5606,
+      "sha256": "7e7148baa4c43822bf6df5810aeb1891eb989de14e44deb7428be76aa47ade05"
+    },
+    "G3-bay-neutral.png": {
+      "bytes": 1786686,
+      "sha256": "040f65ed5eb12581c67f15609c390584b9b6645a46fc97b2bfe48be19e71986c"
+    },
+    "g3-bay-candidate.blend": {
+      "bytes": 26402010,
+      "sha256": "cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe"
+    },
+    "D03-front.png": {
+      "bytes": 1325008,
+      "sha256": "a10de59bb3bf3ec7b3696735f91ca1191c3969a5356d1fef2b9e8810a0a1d82a"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    }
+  },
+  "total_bytes": 59061349,
+  "parent_evidence_commit": "87d75e3b90d6b330fb378d1fc2200f5d1a52e418",
+  "g4_allowed": false,
+  "human_acceptance": false,
+  "g1_browser_gate": "BLOCKED_UNCHANGED",
+  "sampling": "Explicit adaptive Cycles .04 threshold, minimum16, original native image dimensions; not a final film",
+  "route_evidence": "270 source frames geometrically sampled; ten sparse rendered observations, not a complete new film"
+}
