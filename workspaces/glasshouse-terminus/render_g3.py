@@ -4,7 +4,8 @@ from pathlib import Path
 from mathutils import Vector
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from scene_common import render
-ROOT=Path('workspaces/glasshouse-terminus/output/g3').resolve()
+ROOT=Path(os.environ.get('G3_OUTPUT_ROOT','workspaces/glasshouse-terminus/output/g3')).resolve()
+assert ROOT.is_relative_to(Path('workspaces/glasshouse-terminus/output').resolve()),'Unapproved evidence root'
 MASTER=ROOT/'g3-bay-candidate.blend'
 s=bpy.context.scene
 assert Path(bpy.data.filepath).resolve()==MASTER
