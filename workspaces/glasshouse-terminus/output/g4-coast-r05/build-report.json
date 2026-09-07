@@ -1,0 +1,40 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R05",
+  "parent_master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+  "parent_evidence_commit": "def004d60bb37a58a043a3506fb2bbda5c3a0e5c",
+  "candidate_sha256": "aaa0ea9799b03fb90023115a51871951bd0a93cc6f5691e1aa7c551adcc87f5f",
+  "master_bytes": 151744050,
+  "source_sha": "6316568d4b562dd616e0f9808ee34ce66c21d296",
+  "run_id": "34154737115",
+  "only_edit": "One owned foam shader range .12...75 to measured .0196...0222 smoothstep, output0...64. No geometry, sky, lights, rain, textile, cameras or exposure modifications.",
+  "actual_qa_run_id": 34154213591,
+  "native_range_samples": [
+    {
+      "frame": 451,
+      "native_min": 0.016807375475764275,
+      "native_max": 0.022173883393406868,
+      "old_mask_nonzero_fraction": 0.0,
+      "corrected_mask_mean": 0.00830465741455555,
+      "corrected_mask_above_point1_fraction": 0.058567647598333376,
+      "not_physical_whitecap_coverage_measurement": true
+    },
+    {
+      "frame": 460,
+      "native_min": 0.016807375475764275,
+      "native_max": 0.022173883393406868,
+      "old_mask_nonzero_fraction": 0.0,
+      "corrected_mask_mean": 0.00966474786400795,
+      "corrected_mask_above_point1_fraction": 0.06231274512373016,
+      "not_physical_whitecap_coverage_measurement": true
+    }
+  ],
+  "reason": "Native foam existed as data but old mapping removed every crest. Actual scalar measurements, not object counts, exposed the mistake.",
+  "limits": [
+    "Live Ocean foam is a wave-crest field; it has no baked long-lived foam history and is not fluid collision simulation.",
+    "New threshold is an artistic calibrated map of existing native data, not measured physical storm whitecap coverage.",
+    "Other previous candidate defects and all fixed cameras remain; no automatic G4 PASS."
+  ],
+  "g4_stage_pass": false,
+  "human_acceptance": false
+}
