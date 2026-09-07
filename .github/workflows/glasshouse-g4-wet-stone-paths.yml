@@ -1,0 +1,43 @@
+name: Glasshouse read-only wet-stone light-path diagnosis
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-wet-stone-paths.yml]
+permissions:
+  contents: write
+jobs:
+  read-only:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 9
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-wet-stone-path-audit
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact source of the actually dark M03 image
+        run: |
+          git fetch --depth=1 origin 8edab03563070bc62a1a768aaf1f6389d72a68f6
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r06-checked | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r06-checked
+          echo '590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738  workspaces/glasshouse-terminus/output/g4-coast-r06-checked/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf 'One9min read-only non-render audit after native M03 remained near-black. Camera first hits, actual surface normals/material slots, cosine-weighted sky occlusion and nearby practical-light first hits. No save, no lamp/material edits or automatic retry. Public standard runner, external spend0,download1.5GB,disk8GB,evidence10MB. Does not acquire or interrupt production render queue.\n' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/diagnose_g4_wet_stone_illumination.py
+      - name: Reuse locked Blender for geometric inspection only
+        run: bash workspaces/glasshouse-terminus/provision.sh > "$OUT/provision.log" 2>&1
+      - name: Evaluate original-camera surfaces and physical potential light paths
+        timeout-minutes: 3
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-coast-r06-checked/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/diagnose_g4_wet_stone_illumination.py > "$OUT/audit.log" 2>&1
+          echo '590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738  workspaces/glasshouse-terminus/output/g4-coast-r06-checked/g4-full-scene-candidate.blend' | sha256sum --check
+      - name: Save read-only report, never change source scene
+        if: always()
+        run: bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-wet-stone-path-audit
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-wet-stone-paths-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-wet-stone-path-audit
+          retention-days: 1
+          if-no-files-found: error
