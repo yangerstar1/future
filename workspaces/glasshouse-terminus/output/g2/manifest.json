@@ -1,0 +1,85 @@
+{
+  "phase": "G2",
+  "status": "WHITEBOX_REVIEW_PENDING",
+  "not_final_art": true,
+  "source_complete": "g2-complete-whitebox.blend",
+  "section_is_disposable_diagnostic": true,
+  "views": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09"
+  ],
+  "animatic": "render_animatic.py must reopen master in a new process",
+  "source_commit": "a40810d2861a2582499db410c6b41881f1199d18",
+  "run_id": "34106817235",
+  "blender": "4.5.13 LTS",
+  "render_device": "CPU",
+  "files": {
+    "build.log": {
+      "bytes": 2229535,
+      "sha256": "60b750a366e2d3a939683fa1e48f135d216613972bd5589bd6ff250a1f8e200c"
+    },
+    "render-metrics.json": {
+      "bytes": 3796,
+      "sha256": "301ac09def02c0f8091de1ccde6871d1c55a94d24e7640302e3f846901bffd7d"
+    },
+    "C02.png": {
+      "bytes": 1277777,
+      "sha256": "af22cf140633c86e4535d255f92f63b46a72b2bd1368168f2c7c62a977f79baf"
+    },
+    "C09.png": {
+      "bytes": 1189554,
+      "sha256": "ed6ecff76771466695f0edfebcf9a3b3a46b3b7bee40b13048b6fcaf9ddca301"
+    },
+    "C01.png": {
+      "bytes": 1305848,
+      "sha256": "3dbe7d697fdd6e848ea21d32b7e1d5c6b88f2ea6f860500c52e8a5ef160904f8"
+    },
+    "C07.png": {
+      "bytes": 1106941,
+      "sha256": "73c4e68227446958e58e2f3f83062f35270774de84536528c5474f8b86da8b75"
+    },
+    "motion-states.json": {
+      "bytes": 2183,
+      "sha256": "87224b74a016da7e555b7292565c2c5aa46fd1dbc9b119b534f7e37aec853c93"
+    },
+    "C03.png": {
+      "bytes": 1220541,
+      "sha256": "805353c7955c358fe5f4764b243b21e27703823ce3db503c90a71b269c566f66"
+    },
+    "C05.png": {
+      "bytes": 1179376,
+      "sha256": "1adb455cf518e818bcf8846ace444e578a453d97f75eff310efe9ccaab0e3fdd"
+    },
+    "C04.png": {
+      "bytes": 1181419,
+      "sha256": "51f2196a61e79e76718b0198abb8f8b0046dc76f73779c1e9ea0afea0dc2bcc1"
+    },
+    "g2-complete-whitebox.blend": {
+      "bytes": 1129319,
+      "sha256": "ef6fa3dd7e291564f2d1c158cb002f07dcf05c071c6f72e34e95c68ca2a22bf0"
+    },
+    "provision.log": {
+      "bytes": 41063,
+      "sha256": "85520dc4ab4876656bd39b549d6c6a97b00a60fe0a7404a2acdb319c78c47ded"
+    },
+    "layout-and-route.json": {
+      "bytes": 1420,
+      "sha256": "4d288c4e6ed4ff8898c6417ac11d51dd4a74aa5399e7414480e804df206fe9ab"
+    },
+    "C08.png": {
+      "bytes": 990617,
+      "sha256": "4b6773cfc49b1f0fd07e2c210d99adfe80fed7bb59a3f2252cc5e0dfd5171192"
+    },
+    "C06.png": {
+      "bytes": 1192647,
+      "sha256": "eb71d19fae67c063c89521007f41db25dcf1a1a8a1425c3fa6dce627c4457875"
+    }
+  }
+}
