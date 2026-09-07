@@ -1,0 +1,29 @@
+{
+  "view": "G4R03_textile_macro",
+  "file": "AFTER-upholstery.png",
+  "frame": 451,
+  "seconds": 214.319355783,
+  "resolution": [
+    1280,
+    800
+  ],
+  "samples": 64,
+  "engine": "CYCLES",
+  "exposure": 0.0,
+  "lens_mm": 72.0,
+  "position": [
+    -5.75,
+    -2.880000114440918,
+    2.1700000762939453
+  ],
+  "rotation": [
+    1.0627944469451904,
+    5.6330932807213685e-08,
+    -2.987884998321533
+  ],
+  "native_render": true,
+  "master_sha256": "c96c202a13c5ecd342a7b614a77b1e24ec9889bdb79cc328a255607467d7e877",
+  "revision": "R08",
+  "source_run": 34167314803,
+  "motion_blur": true
+}

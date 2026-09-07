@@ -1,0 +1,29 @@
+{
+  "view": "G4COAST_ocean_close",
+  "file": "AFTER-wind-sea.png",
+  "frame": 451,
+  "seconds": 139.78659560899996,
+  "resolution": [
+    1280,
+    800
+  ],
+  "samples": 48,
+  "engine": "CYCLES",
+  "exposure": 0.0,
+  "lens_mm": 48.0,
+  "position": [
+    -33.0,
+    38.0,
+    -13.0
+  ],
+  "rotation": [
+    1.188143253326416,
+    -5.283270709810495e-08,
+    2.677945137023926
+  ],
+  "native_render": true,
+  "master_sha256": "c96c202a13c5ecd342a7b614a77b1e24ec9889bdb79cc328a255607467d7e877",
+  "revision": "R08",
+  "source_run": 34167314803,
+  "motion_blur": true
+}

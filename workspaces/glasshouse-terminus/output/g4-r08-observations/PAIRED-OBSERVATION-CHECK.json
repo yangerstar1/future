@@ -1,0 +1,17 @@
+{
+  "cloth": {
+    "complete": true,
+    "same_camera_fields": true,
+    "mismatches": []
+  },
+  "cab": {
+    "complete": true,
+    "same_camera_fields": true,
+    "mismatches": []
+  },
+  "sea": {
+    "complete": true,
+    "same_camera_fields": true,
+    "mismatches": []
+  }
+}

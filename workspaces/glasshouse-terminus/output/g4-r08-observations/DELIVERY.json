@@ -1,0 +1,210 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R08_UNCHANGED_OBSERVATIONS",
+  "run_id": "34167314803",
+  "source_sha": "cad0bad1faf3f119719e390c68db02c2a98a96fd",
+  "files": {
+    "before-sea-metrics.json": {
+      "bytes": 566,
+      "sha256": "de5d9a6bdb8919525d9c871403ecba4bbe662cd7df7c60ccdc6baea8d3a8ed5d"
+    },
+    "SOURCE-BINDING.json": {
+      "bytes": 405,
+      "sha256": "01282721dbb229bd4b28323826cf798dd86c16d8cdb8cbec0bcb099d35db2f4b"
+    },
+    "before-sea.exit-code.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "before-cab.exit-code.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "before-sea-reopen.json": {
+      "bytes": 435,
+      "sha256": "9e3df7ae41c666b4a1934704b913454275e83ccbccba8b2526e7d3ca4074c8f9"
+    },
+    "before-cab.log": {
+      "bytes": 494776,
+      "sha256": "381a55b7e470cc7de27b647d3f7d147448923a4860e870ae7b120f7e4baf1910"
+    },
+    "after-cab.log": {
+      "bytes": 505442,
+      "sha256": "f5b077ff9bd19b48857dcfe4a883d0f878c9669f43d2a02c524a4676796378d7"
+    },
+    "before-cloth-reopen.json": {
+      "bytes": 434,
+      "sha256": "d7c9e63b8ec17a1ddaaab3cdf3d8bdf91d5dfb85511e95aed5f77e77e5b3411b"
+    },
+    "AFTER-cab-unoccluded.png": {
+      "bytes": 1106542,
+      "sha256": "8a7efdf1e79383bee8c66d0976cd1bb151516a8048e89d6417c8b28c684157b0"
+    },
+    "AFTER-upholstery.png": {
+      "bytes": 1662460,
+      "sha256": "c427b936b114a8d7c16bc7dc2fcbb17f0b3affc71490ad83393b1442346db15e"
+    },
+    "C09-tailored-interior.png": {
+      "bytes": 1412370,
+      "sha256": "7bea5a71593e71d64f24c4a2f6f83a55546fd73c372e3a8a04ddc49346b4ac5f"
+    },
+    "after-sea.exit-code.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "coast-reopen.json": {
+      "bytes": 430,
+      "sha256": "a70043b0c3cda3af9015cf40c843d3ca2455b3074159c531f59a30d2f4182781"
+    },
+    "after-cab-metrics.json": {
+      "bytes": 613,
+      "sha256": "3878a8b5f4beb3f00fb649a3fde988dda8575067ccf9b88a0c31f83e7063d07e"
+    },
+    "after-sea-reopen.json": {
+      "bytes": 433,
+      "sha256": "eacb9a8ca8819d698b8c3f5174b9e863ba7a290978a1f55e42557e0d4408ff7d"
+    },
+    "coast-metrics.json": {
+      "bytes": 562,
+      "sha256": "884572b58b9d7f2425b4431bf1f9591c412f09ad6b21b9a309cdded1f819cfdf"
+    },
+    "coast.log": {
+      "bytes": 499281,
+      "sha256": "bffe3e8903f671a21a51664fcedb1e3f2bd813bd5b738aa9a649a10ec596d5ea"
+    },
+    "PAIRED-OBSERVATION-CHECK.json": {
+      "bytes": 277,
+      "sha256": "44000458dc265788b7a5964be64ed348ed20537b75bf37c8c6f7307fa7d153af"
+    },
+    "carriage-reopen.json": {
+      "bytes": 439,
+      "sha256": "17e47e476ddab344749b24a53bf93f9b61d03253fa7b25b7a22d88dec33af0d6"
+    },
+    "C01-craft-coast.png": {
+      "bytes": 1734600,
+      "sha256": "0e33e2cc162ba52390472dad848dbf47a770b97c0f31ac9c85d6f6e661e164d9"
+    },
+    "before-cab-reopen.json": {
+      "bytes": 12569,
+      "sha256": "5e256be421a9d48f495910d0912b9126ed95037d96cdf47281019590b37dc073"
+    },
+    "before-sea.log": {
+      "bytes": 489083,
+      "sha256": "aad969ddd2827d73eb3f61ccf02c4fa6a680d5822cd3303bff7407a2056d1337"
+    },
+    "carriage-metrics.json": {
+      "bytes": 589,
+      "sha256": "f192caf61ea91cc49acde2869ca8d59c9b81768e818dcc86e46c17c621353518"
+    },
+    "after-cloth.exit-code.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "FINITE-REQUEST.json": {
+      "bytes": 910,
+      "sha256": "4b526cc97ddfbbd8070f47c88dcb011497d560e96d780bc0faf8da2c18f43ef8"
+    },
+    "observation-source.py": {
+      "bytes": 4673,
+      "sha256": "9f20614a5a4719a8c60e6c57bd2cea23db91a7c6ae913aad4fe782fdc1c81ed0"
+    },
+    "before-cloth.exit-code.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "BEFORE-cab-unoccluded.png": {
+      "bytes": 1121981,
+      "sha256": "fba6e33773509d9081832906b56c7345854048c58429d9689592623d9e6a984c"
+    },
+    "after-cab-reopen.json": {
+      "bytes": 9180,
+      "sha256": "a45832a0e2995815f61791ffbd4685100fc48fec6a0b16c8ded2cbb5af7dcdaa"
+    },
+    "before-cloth-metrics.json": {
+      "bytes": 592,
+      "sha256": "3c724c9cb9640c5a02b1dcca43bb9889fdd736a3cbc9555f50bcc98bd97a4dc9"
+    },
+    "before-cloth.log": {
+      "bytes": 491283,
+      "sha256": "1b22efc92de106c6fdac8a123c387e5100fa313c5ba9c07d821aeeaf0c238034"
+    },
+    "after-sea-metrics.json": {
+      "bytes": 565,
+      "sha256": "22bd57a9bb3d69431c018c6c9b418a808ffe566e12de535165e868d8228a0ba2"
+    },
+    "after-cloth-reopen.json": {
+      "bytes": 432,
+      "sha256": "209753d62d3c6f1000ebfa867b345d426b9f23d123127a95cdaded70e31cec33"
+    },
+    "after-cloth-metrics.json": {
+      "bytes": 591,
+      "sha256": "f34984dc44147dea03fdb39accd954d724cb12814691ee42b4ee8f655b8710a2"
+    },
+    "provision.log": {
+      "bytes": 8856,
+      "sha256": "0e8f5ce449dd8b8589149175c3b1e829bb22d7955496db8d6eafdf3dc8b036a9"
+    },
+    "carriage.exit-code.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "before-cab-visibility.json": {
+      "bytes": 12416,
+      "sha256": "2f2494d82015031e9f906dc702b7a9eb43d3b3877f533a2b64c436cd898a8d3c"
+    },
+    "BEFORE-wind-sea.png": {
+      "bytes": 1097319,
+      "sha256": "6ddf67de845bca39df4dc0935f7c86f7c5b26b3b6ab68a2051bc2f4eaf239e2e"
+    },
+    "after-cloth.log": {
+      "bytes": 501184,
+      "sha256": "7c80bf2fb43ef0bd84f3f949c82fe2b2816aa99d279b9f2f10ab0b056392b48d"
+    },
+    "after-cab-visibility.json": {
+      "bytes": 9023,
+      "sha256": "653af22062820e31785bec69b3bfc9d53e6f16b8141ab6a8a0b21f7019b74e73"
+    },
+    "after-cab.exit-code.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "coast.exit-code.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "BEFORE-upholstery.png": {
+      "bytes": 1679159,
+      "sha256": "f83432fcc57daa57d1c71ad5b0e62657bff58139ddc96fca382198c4aee1f6ee"
+    },
+    "after-sea.log": {
+      "bytes": 500612,
+      "sha256": "b78f2747921d2b48577640c5fad853a805d778ffa0b7939b59f9d99ae5fda6f6"
+    },
+    "before-cab-metrics.json": {
+      "bytes": 609,
+      "sha256": "c670b93931e5eac399a5fae974bf4581184b65b1bccea31abd896ed69b5ad673"
+    },
+    "carriage.log": {
+      "bytes": 491830,
+      "sha256": "40920bb6a84ffcdc7254f802e6c96ed667f8f31ba2b95d56b2d7e87062d98c4b"
+    },
+    "AFTER-wind-sea.png": {
+      "bytes": 1202404,
+      "sha256": "4f0cbb720a9b01431ff616e0b64ec822768e588457141d0a4523c7723e507b29"
+    },
+    "history/BLOCKED-CAMERA-R07.png": {
+      "bytes": 1482932,
+      "sha256": "b026fcaf662c8390dac97928f05210b0a1d772be17c4b56c2b3deb7f82e962df"
+    },
+    "history/R08-ORIGINAL-PARTIAL-DELIVERY.json": {
+      "bytes": 6617,
+      "sha256": "38113e3afeded7e74c47b067b98b7117265881bd64558fe58c4e7fc67154f8a4"
+    }
+  },
+  "missing": [],
+  "failed_views": {},
+  "status": "EIGHT_NATIVE_VIEWS_REVIEW_PENDING",
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "scope": "Independent same-source observations, no new art revision. Three new matched pairs plus original coast/carriage. Historical blocked diagnostic retained separately. Failed earlier run remains failure."
+}

@@ -1,0 +1,14 @@
+{
+  "observation": "after-sea",
+  "revision": "R08",
+  "master_sha256": "c96c202a13c5ecd342a7b614a77b1e24ec9889bdb79cc328a255607467d7e877",
+  "source_sha": "cad0bad1faf3f119719e390c68db02c2a98a96fd",
+  "run_id": "34167314803",
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "master_unchanged": true,
+  "fresh_process": true,
+  "missing_external_images": [],
+  "file": "AFTER-wind-sea.png",
+  "seconds": 139.78659560899996
+}

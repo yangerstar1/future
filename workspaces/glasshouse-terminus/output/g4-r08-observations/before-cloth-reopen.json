@@ -1,0 +1,14 @@
+{
+  "observation": "before-cloth",
+  "revision": "R07",
+  "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+  "source_sha": "cad0bad1faf3f119719e390c68db02c2a98a96fd",
+  "run_id": "34167314803",
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "master_unchanged": true,
+  "fresh_process": true,
+  "missing_external_images": [],
+  "file": "BEFORE-upholstery.png",
+  "seconds": 210.433565714
+}

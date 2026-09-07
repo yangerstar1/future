@@ -1,0 +1,29 @@
+{
+  "view": "QA_R08_cab_unoccluded",
+  "file": "BEFORE-cab-unoccluded.png",
+  "frame": 451,
+  "seconds": 136.141751289,
+  "resolution": [
+    1280,
+    800
+  ],
+  "samples": 64,
+  "engine": "CYCLES",
+  "exposure": 0.0,
+  "lens_mm": 48.0,
+  "position": [
+    12.550000190734863,
+    9.600000381469727,
+    4.429999828338623
+  ],
+  "rotation": [
+    1.3709858655929565,
+    -1.206757502814071e-07,
+    0.8644230365753174
+  ],
+  "native_render": true,
+  "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+  "revision": "R07",
+  "source_run": 34167314803,
+  "motion_blur": true
+}

@@ -1,0 +1,14 @@
+{
+  "mode": "READ_ONLY_R08_OBSERVATIONS",
+  "max_runs": 1,
+  "job_minutes": 50,
+  "production_minutes": 43,
+  "preservation_minutes": 7,
+  "external_spend_usd": 0,
+  "disk_cap_bytes": 8000000000,
+  "download_cap_bytes": 1500000000,
+  "evidence_cap_bytes": 60000000,
+  "basis": "Original run34165514100 saved source but16min grouped baseline expired during second image after a674sec canopy-blocked cab view. Actual native blocked image read. Add ray-checked under-canopy diagnostic, retain failed image and all original cameras. Independent views retain failures instead of skipping every later observation.",
+  "original_zip_log_warning": "Original baseline-render.log in downloaded artifact10034470859 was138bytes larger than its manifest after step cancellation;37of38 entries match and master/PNG are intact. Do not rewrite old artifact history or call its full manifest valid.",
+  "g4_stage_pass": false
+}

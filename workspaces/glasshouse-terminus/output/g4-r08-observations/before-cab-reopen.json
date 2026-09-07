@@ -1,0 +1,501 @@
+{
+  "observation": "before-cab",
+  "revision": "R07",
+  "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+  "source_sha": "cad0bad1faf3f119719e390c68db02c2a98a96fd",
+  "run_id": "34167314803",
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "cab_visibility": {
+    "camera_position": [
+      12.550000190734863,
+      9.600000381469727,
+      4.429999828338623
+    ],
+    "target": [
+      9.62,
+      12.1,
+      3.65
+    ],
+    "lens": 48,
+    "paths": [
+      {
+        "target": [
+          9.585638999938965,
+          10.860325813293457,
+          3.478494644165039
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.09253974512475427,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.59300422668457,
+          10.923596382141113,
+          3.5704703330993652
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.10210272122657216,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.608272552490234,
+          11.067037582397461,
+          3.6545767784118652
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.10379201769857183,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.627352714538574,
+          11.280872344970703,
+          3.7250828742980957
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.10237799817505877,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.645133018493652,
+          11.550529479980469,
+          3.7771830558776855
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.1082084162646968,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.656848907470703,
+          11.857632637023926,
+          3.807326316833496
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.11982261542163286,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.659360885620117,
+          12.181252479553223,
+          3.813459873199463
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.13665692406270358,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.651996612548828,
+          12.499335289001465,
+          3.7951645851135254
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.1652574089592962,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.636728286743164,
+          12.790204048156738,
+          3.753687858581543
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.21800859127091332,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.617647171020508,
+          13.034036636352539,
+          3.6918559074401855
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.30936051589760005,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.59986686706543,
+          13.214216232299805,
+          3.6138830184936523
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.4571517466455326,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.588150978088379,
+          13.318463325500488,
+          3.5250821113586426
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.6507998269097239,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.608757972717285,
+          10.797996520996094,
+          3.4990904331207275
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -0.0039734576147738565,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.613285064697266,
+          10.878799438476562,
+          3.619762897491455
+        ],
+        "first_hit": null,
+        "gap": null,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.633520126342773,
+          11.038989067077637,
+          3.713414430618286
+        ],
+        "first_hit": null,
+        "gap": null,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.658224105834961,
+          11.263188362121582,
+          3.7853188514709473
+        ],
+        "first_hit": null,
+        "gap": null,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.679706573486328,
+          11.54018497467041,
+          3.837137222290039
+        ],
+        "first_hit": null,
+        "gap": null,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.693283081054688,
+          11.853371620178223,
+          3.8669273853302
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -0.003549696325204188,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.696147918701172,
+          12.182662963867188,
+          3.872981071472168
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.0014375053010393657,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.687705993652344,
+          12.506546974182129,
+          3.854917526245117
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.009841683931447243,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.66970443725586,
+          12.803983688354492,
+          3.813842296600342
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.02270261932007145,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.64590072631836,
+          13.056350708007812,
+          3.751814842224121
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.04351947820171098,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.622135162353516,
+          13.24962043762207,
+          3.669790506362915
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.18961393843049823,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.609001159667969,
+          13.373717308044434,
+          3.561110496520996
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.5266593775239086,
+        "reaches_cab": false
+      },
+      {
+        "target": [
+          9.597118377685547,
+          10.822908401489258,
+          3.461944818496704
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 4.542437614052375e-06,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.936542510986328,
+          10.996528625488281,
+          3.579298973083496
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -0.0036212448239170136,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.946207046508789,
+          11.038895606994629,
+          3.5852785110473633
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -0.0015801135589521564,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.96102523803711,
+          11.098343849182129,
+          3.588214874267578
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -0.0003044647287033797,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.979326248168945,
+          11.1736478805542,
+          3.589512825012207
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.00026087204792935026,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.999545097351074,
+          11.263811111450195,
+          3.590005397796631
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.000466819565488219,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          10.020225524902344,
+          11.36758041381836,
+          3.5901196002960205
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.0005038921955500264,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          10.039997100830078,
+          11.483394622802734,
+          3.5900723934173584
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.0004590621772160297,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          10.05758285522461,
+          11.609421730041504,
+          3.589972496032715
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.00037943889745806203,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          10.071861267089844,
+          11.743614196777344,
+          3.5898733139038086
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.00028411357510860213,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          10.081920623779297,
+          11.883755683898926,
+          3.589798927307129
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.00017815838131562955,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          10.087116241455078,
+          12.027514457702637,
+          3.5897603034973145
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 6.456724681047632e-05,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          10.087116241455078,
+          12.172486305236816,
+          3.5897603034973145
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -6.791694406915738e-05,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          10.081920623779297,
+          12.316245079040527,
+          3.589799165725708
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -0.00022438450201223148,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          10.071861267089844,
+          12.45638656616211,
+          3.5898733139038086
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -0.00041679865814403527,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          10.05758285522461,
+          12.59057903289795,
+          3.589972496032715
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -0.0006427815740015497,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          10.039997100830078,
+          12.716606140136719,
+          3.5900721549987793
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -0.0008912248682344526,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          10.020225524902344,
+          12.832420349121094,
+          3.5901196002960205
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -0.0011052119402990002,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.999544143676758,
+          12.936189651489258,
+          3.590005397796631
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -0.0011532069675634915,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.979326248168945,
+          13.026352882385254,
+          3.589512825012207
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": -0.0006838786008369624,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.96102523803711,
+          13.101656913757324,
+          3.588214874267578
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.0007527776430249489,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.946207046508789,
+          13.161105155944824,
+          3.5852785110473633
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.0030044782910056966,
+        "reaches_cab": true
+      },
+      {
+        "target": [
+          9.597118377685547,
+          13.377092361450195,
+          3.461944818496704
+        ],
+        "first_hit": "Cab_complete_roof_loft.001",
+        "gap": 0.7158808907277505,
+        "reaches_cab": false
+      }
+    ],
+    "visible_surface_samples": 25,
+    "reason": "Additional instrument below the actually observed canopy; does not move or hide any geometry or replace original C01/C09. Original blocked-camera PNG retained."
+  },
+  "master_unchanged": true,
+  "fresh_process": true,
+  "missing_external_images": [],
+  "file": "BEFORE-cab-unoccluded.png",
+  "seconds": 136.141751289
+}
