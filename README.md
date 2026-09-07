@@ -2,21 +2,29 @@
 
 原创玻璃花房海崖车站、可进入的复古电动列车、雨夜电影式展示与同源网页。
 
-**当前已进入 G4 全场美术制作。** G2 完整白模 BEST 和 G3 R07 均已存在，不从零重建。用户在获知 G3 尚有木作复核后明确要求直接进入 G4；这一阶段顺序授权不追溯改写 G3 为 PASS，也不代表最终作品已验收。
+**当前：G4 R02 全场美术候选，未通过最终品质验收。** 两轮实际制作及原生渲染已完成；下面是保存模型直接输出的1440×900原图，不是生成式概念图。
 
-制作分支：`codex/glasshouse-terminus`。main、Leaf、历史 BEST 与旧失败证据均保留。
+![G4 R02 大厅原生渲染](https://raw.githubusercontent.com/yangerstar1/future/12ae1030686d97823548b2967805d85853d12ab2/workspaces/glasshouse-terminus/output/g4-r02/C03-hall-night.png)
 
-## 续作入口
+[同版本完整外景](https://raw.githubusercontent.com/yangerstar1/future/12ae1030686d97823548b2967805d85853d12ab2/workspaces/glasshouse-terminus/output/g4-r02/C01-full-night.png) · [同版本车厢内景](https://raw.githubusercontent.com/yangerstar1/future/12ae1030686d97823548b2967805d85853d12ab2/workspaces/glasshouse-terminus/output/g4-r02/C09-car-aisle-night.png)
+
+## 当前成果与边界
+
+从R07样板扩展建筑两侧/端部、全厅地面、站台、家具植物、实体照明、列车内外与海崖桥体表面。后续R02恢复大厅干地粗糙度并重设计连续环境照明；大厅大片过强反射和屋顶白色灯卡形状已在原图中消除，原D01节点与完整车厢保持可读。
+
+车体端部曲面折痕、海崖大面和海面边界、桥拱V形接头、部分木作边缘与生活痕迹仍需精修。全场候选不等于G4艺术PASS，也不是最终4K影片。R01九图与R02五图分版本保存、实际逐张审查，不把旧图冒称新版本全覆盖。
+
+## 继续执行与恢复
 
 - [最新会话交接](workspaces/glasshouse-terminus/SESSION-HANDOFF-LATEST.md)
-- [实时制作状态与恢复点](workspaces/glasshouse-terminus/PRODUCTION-STATE.md)
-- [用户 G4 阶段授权](workspaces/glasshouse-terminus/G4-AUTHORIZATION.md)
-- [G4 第一轮实际外景/大厅审查](workspaces/glasshouse-terminus/G4-R01-OVERVIEW-REVIEW.md)
-- [G1—G3 历史工件与摘要](workspaces/glasshouse-terminus/EVIDENCE-INDEX.json)
-- [R07 节点修复与历史验收边界](workspaces/glasshouse-terminus/G3-R07-REVIEW.md)
+- [当前状态与准确恢复点](workspaces/glasshouse-terminus/PRODUCTION-STATE.md)
+- [G4实际工件与摘要索引](workspaces/glasshouse-terminus/G4-EVIDENCE-INDEX.json)
+- [R02原尺寸视觉评审](workspaces/glasshouse-terminus/G4-R02-REVIEW.md)
+- [R01九张原图评审](workspaces/glasshouse-terminus/G4-R01-REVIEW.md)
+- [R02可编辑主文件与证据目录](https://github.com/yangerstar1/future/tree/12ae1030686d97823548b2967805d85853d12ab2/workspaces/glasshouse-terminus/output/g4-r02)
 
-以最新交接、状态和实际图像为准，不用旧 README、上传时 DELIVERY 标签或 Actions success 替代美术验收。工件保存到不可变 evidence 提交，临时 Actions artifact 仅用于取回。
+主文件`g4-full-scene-candidate.blend`，26,580,528 bytes，SHA-256 `173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc`。R02的17项清单全部经实际下载校验，新进程重开外部图片缺失0。证据commit永久保留；临时Actions artifact只有一天。
 
-G4 推进建筑两侧/端部、全厅地面与站台、家具植物、车厢内外和海崖支承。先看原尺寸全景、近景、反侧和车厢，再判断品质；全场铺满不自动等于阶段完成。桥拱收口等未解决项持续记录。
+制作分支`codex/glasshouse-terminus`；main、Leaf、G2 BEST和历史失败工件不覆盖。用户在知晓G3尚有工艺复核后明确要求直接进入G4，见[G4阶段授权](workspaces/glasshouse-terminus/G4-AUTHORIZATION.md)；不追溯将G3标为通过。[G1—G3历史索引](workspaces/glasshouse-terminus/EVIDENCE-INDEX.json)独立保留，不替代当前G4索引。
 
-最终原生 4K30 主片、短版、空间证据片和同源网页仍属于完整合同。G1/P1 浏览器管理员阻断未被绕过，不清认证或修改安全设置。未启用付费 GPU、付费 runner 或外部付费资产。
+本轮运行均已结束，没有自动继续渲染。当前阶段`PAUSED_UNMET`，`human_acceptance=false`。最终雨动画、原生4K30主片、短版、空间证据片和同源网页仍属于完整合同；G1/P1浏览器管理员阻断不绕过。未启用付费GPU/runner或外部付费素材。
