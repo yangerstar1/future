@@ -1,0 +1,64 @@
+name: Glasshouse G3 remaining highlight diagnosis
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g3-light-check-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  diagnose:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g3-light-check
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore immutable R03 without changing production geometry
+        timeout-minutes: 2
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          q=json.loads(Path('workspaces/glasshouse-terminus/g3-light-check-request.json').read_text())
+          assert q['max_runs']==1 and q['external_spend_usd']==0 and q['g4_allowed'] is False
+          assert q['source_commit']=='22dceca579c272b51767c70c153c540f7defc547'
+          print(json.dumps(q,indent=2))
+          PY
+          git fetch --depth=1 origin 22dceca579c272b51767c70c153c540f7defc547
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3-r03 | tar -x
+          echo 'cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe  workspaces/glasshouse-terminus/output/g3-r03/g3-bay-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+      - name: Reuse pinned toolchain
+        timeout-minutes: 3
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Render five labelled native transom light-isolation crops
+        timeout-minutes: 4
+        run: |
+          timeout --signal=TERM --kill-after=10 220s blender -b workspaces/glasshouse-terminus/output/g3-r03/g3-bay-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/diagnose_g3_highlight.py 2>&1 | tee "$OUT/diagnosis.log"
+      - name: Preserve diagnostics, not a new accepted model
+        if: always()
+        timeout-minutes: 2
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<25_000_000
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G3_DIAGNOSTIC_ONLY','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'parent_evidence_commit':'22dceca579c272b51767c70c153c540f7defc547','files':files,'g4_allowed':False,'human_acceptance':False},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g3-light-check
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g3-light-check-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g3-light-check
+          retention-days: 1
+          if-no-files-found: error
