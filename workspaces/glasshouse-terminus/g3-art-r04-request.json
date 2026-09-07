@@ -1,7 +1,7 @@
 {
   "stage": "G3",
   "revision": "R04",
-  "request_id": "G3-ART-R04-20260907",
+  "request_id": "G3-ART-R04-20260907-EXECUTION-FIX1",
   "contract_sha256": "0101fa0f69edc3e261ead088c447818168c397e5ca8dbc26b0de341ad7f7c23f",
   "parent_evidence_commit": "22dceca579c272b51767c70c153c540f7defc547",
   "parent_master_sha256": "cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe",
@@ -10,13 +10,23 @@
   "parent_local_audit": "43 manifest entries matched actual downloaded bytes. 27 PNGs present; original R03 delivery remains PARTIAL, never relabelled as complete.",
   "diagnosis_artifact": 10019119528,
   "diagnosis_zip_sha256": "e4d28113c0f9204326a2e14aeed927262b8c12bac8e07c61f2ac47b08282d88a",
-  "diagnosis": "All five native border crops inspected. Only removal of G3_interior_softbox, or all large cards, removes the transom white patch; sky/rim removal alone does not. Eight diagnostic manifest entries matched.",
+  "diagnosis": "Five actual border crops identify G3_interior_softbox as the transom white patch source; sky/rim removal alone does not remove it. Eight diagnostic manifest entries matched.",
   "art_goals": [
-    "Replace studio-card glare with existing real pendant/table/train lighting and restrained attached column sconces. No glossy/transmission visibility tricks, exposure change or glass disabling.",
-    "Complete the existing structural bay's primary arches and secondary ribs with coherent satin bottle-green finish, pressure caps, EPDM gasket layers and measured eaves splice hardware. Preserve I-beam sections rather than substituting cylinders.",
-    "Keep warm wood, fabric and foliage readable without yellowing the whole image. Scope remains a G3 sample, not a claim of full-scene final art.",
-    "Retain old failed cameras and add a doorway witness behind the hall leaves, checking actual ray visibility and returned pixels for the threshold and guide housing. Do not move doors to suit the camera."
+    "Replace studio-card glare with actual pendant/table/train lighting and restrained attached column sconces. No glossy/transmission visibility tricks, exposure change or glass disabling.",
+    "Unify this structural bay's primary/secondary finish, pressure-cap sections, EPDM gasket layers and eaves hardware. Read-back found the primary arches already use green material and the secondary ribs brass; do not claim they were missing materials. This is a coherent finish/craft refinement.",
+    "Keep warm wood, fabric and foliage readable without yellowing the whole image. Scope remains a G3 sample, not full-scene final art.",
+    "Retain failed original cameras and supplement the doorway from behind the hall leaves. Evaluate actual camera matrix before projection, then inspect returned pixels and first-hit visibility. Never move doors to fit a picture."
   ],
+  "execution_recovery": {
+    "failed_run": 34125276363,
+    "failed_job": 101752388842,
+    "preserved_failure_commit": "41c4df71e4eee7f48a733be47df26f36693317e8",
+    "actual_error": "polish_g3_r04.py line130 Interface frame does not fit; failed before saving/renders",
+    "diagnosed_code_issue": "New camera location/rotation were assigned without updating the evaluated matrix before world_to_camera_view. Add view_layer.update and record before/after matrices and all extents. Preserve fit checks and geometry; do not loosen thresholds.",
+    "same_step_recovery_number": 1,
+    "max_same_step_recoveries": 2,
+    "not_a_new_art_iteration": true
+  },
   "contract_focus": ["1.2 locked art direction", "R-04/R-05/R-06", "D01/D02/D03/D05", "G3 true final-quality sample", "6.2 few high-impact visual changes"],
   "reuse": ["R03 packed source", "scene_common.py", "provision.sh", "publish_evidence.sh", "existing furniture and material source records"],
   "max_runs": 1,
@@ -30,8 +40,8 @@
   "max_evidence_bytes": 180000000,
   "g4_allowed": false,
   "human_acceptance": false,
-  "reviewer": "Actual native-image self-review in the same context, not an independent agent.",
-  "acceptance": "Compare same-camera night and neutral renders, close-ups and reverse view. Major visual deficiencies block G3 regardless of CI result. Keep exact sources and truthful partial evidence at time limit.",
+  "reviewer": "Same-context actual-image self-review; no independent agent.",
+  "acceptance": "Compare native same-camera night and neutral images, craft closeups and reverse. Major visual deficiencies block G3 regardless of CI. Preserve truthful partial art at time limit.",
   "browser_gate": "BLOCKED_UNCHANGED",
   "scope_protection": "No main/Leaf writes, no G2 rebuild, no prior evidence overwrite, no paid services, no final film or website acceptance claim."
 }
