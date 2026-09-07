@@ -1,0 +1,195 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R03",
+  "status": "FOUR_NATIVE_VIEWS_REVIEW_PENDING",
+  "run_id": "34152626028",
+  "source_sha": "9086347b23e69c2d2105ec88e592c4047376c322",
+  "files": {
+    "E01-rock-water.png": {
+      "bytes": 1389674,
+      "sha256": "b52d759abaf673f6e7603bfcac990c25b276bbb52af86ae55586b44fd9ed2cc9"
+    },
+    "MASTER-PARTS.json": {
+      "bytes": 967,
+      "sha256": "67076a1efd9718ca13b7916a2b056ee2a63fdec8e1f758c05c603e8087d7fd41"
+    },
+    "build.log": {
+      "bytes": 390,
+      "sha256": "56167c085ae63801f76ec87b189c9d1f780a24504bdc1870feba70a2714bd37c"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "water-render.log": {
+      "bytes": 964202,
+      "sha256": "7587e998b1fb7866648c16cb73339bca80fe487018ee4c41e902718612ee5953"
+    },
+    "MASTER-RESTORE.txt": {
+      "bytes": 308,
+      "sha256": "9f84813ca2379a0e1390eb5657c394dd5a81cc21eb9e844f45fc10b341999e25"
+    },
+    "PARENT-R03-build-report.json": {
+      "bytes": 136727,
+      "sha256": "c5eaf036bbb1eec865ce6ff8d506de204241497cc813bf4d88a0774156c49bf1"
+    },
+    "water-reopen-check.json": {
+      "bytes": 252,
+      "sha256": "e9cfceffd6ca996424551f00fcd2d9c2c062b70fe7ed7e3857ef16dc347378c6"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "exterior-render-metrics.json": {
+      "bytes": 1318,
+      "sha256": "dff7d29d7a93f02ebad32b42bc57ca1161d3d93f45a19fccfd47a8211271a291"
+    },
+    "motion-render-metrics.json": {
+      "bytes": 6409,
+      "sha256": "981a6ac9aa9b111af8a1acb08e9269feb17886c20141ee9f8cd291e664dea63d"
+    },
+    "C01-dielectric-coast.png": {
+      "bytes": 1665684,
+      "sha256": "6e37069d807223bf4e6a5a46789caf656ff9b5225e2825aa8829953e215e3650"
+    },
+    "ASSET-AND-API-PROBE.json": {
+      "bytes": 26320,
+      "sha256": "4ce7ed749df485ceac44e0913a0e1b3ef1e6bc6afb665b3277c26e1cb85344a9"
+    },
+    "restore_master.py": {
+      "bytes": 3552,
+      "sha256": "36eb86b8f1156065112bb5ff350a9c6e606cc34f127bdc4f7db1bbcff94071f6"
+    },
+    "E02-real-water.png": {
+      "bytes": 1305541,
+      "sha256": "480210032d477bb9cbd5fbc544dbfc9b26c909c1db3bc7a9d7cd29d78d9507cc"
+    },
+    "g4-full-scene-candidate.blend": {
+      "bytes": 106023391,
+      "sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b"
+    },
+    "exterior-render.log": {
+      "bytes": 965687,
+      "sha256": "03d2dca4db6d6fce0c1a39223f67565780ffe2fdd7ce868a1d2a61dc58601a10"
+    },
+    "COAST-R01-build-report.json": {
+      "bytes": 13117,
+      "sha256": "f4f902b3ac176672abf1a20032324b67da3c8bb8afdb9f20c1f9580ff4d80afb"
+    },
+    "STORM-ASSET-SOURCES.json": {
+      "bytes": 5222,
+      "sha256": "cf382970397232ae1ec7ac025f73469731816d68730233e0ec916a8742993370"
+    },
+    "COAST-R02-build-report.json": {
+      "bytes": 2239,
+      "sha256": "79eab19add15f235f4547d8330fa75c7dcf475c4bda91bfb5bee645591e3671b"
+    },
+    "exterior-reopen-check.json": {
+      "bytes": 252,
+      "sha256": "e9cfceffd6ca996424551f00fcd2d9c2c062b70fe7ed7e3857ef16dc347378c6"
+    },
+    "FINITE-REQUEST.txt": {
+      "bytes": 559,
+      "sha256": "e93e2d85cbcce92156182c9b9b5d808ee14807a209b2d308ee1bb4cbaa64cd19"
+    },
+    "motion-reopen-check.json": {
+      "bytes": 253,
+      "sha256": "c5ef4f78badc66be171f7b31199ac13cc13daec84f362155a7d7a9f6d05a4177"
+    },
+    "C02-dielectric-reverse.png": {
+      "bytes": 1388442,
+      "sha256": "b81c0bcc66c320200b3d44ea67f19a8e07b57da6214439492f3324143bd4a133"
+    },
+    "provision-source.log": {
+      "bytes": 8935,
+      "sha256": "1f370db726edc8c535785d29c28273add1b257f29615aff7847e731c6b883889"
+    },
+    "motion-render.log": {
+      "bytes": 4819431,
+      "sha256": "8bc9933dcdac2e54b6d19f52f6628f827759e8aff4b3096e0a4275d3783f9683"
+    },
+    "provision-render.log": {
+      "bytes": 8856,
+      "sha256": "c48f6926d2b8cad538a451eb60207d15c0267da57702f4810cfc0b52c33bdd41"
+    },
+    "build-report.json": {
+      "bytes": 2350,
+      "sha256": "fd4065009b83102f7047137591255b71db6112639b767781345fcfa1229992ea"
+    },
+    "water-render-metrics.json": {
+      "bytes": 1309,
+      "sha256": "69fc53fce905b8ee94f5fe3ba575e109b71d33a722f5cf74ae4637e8280499c4"
+    },
+    "motion/0001.png": {
+      "bytes": 276365,
+      "sha256": "a3bc425f934323971136280ad665fa03a208bdef5fe53751d02e2a6f78fdf5f3"
+    },
+    "motion/0002.png": {
+      "bytes": 276711,
+      "sha256": "27739ffc93485a10c326a9921ee266792d5a2535733bb9bf159c9ef0455a7247"
+    },
+    "motion/0005.png": {
+      "bytes": 277238,
+      "sha256": "b59c30564d24114d436829adf06acb55cd057c4d9727b982f51858d8d492a3ea"
+    },
+    "motion/0009.png": {
+      "bytes": 277984,
+      "sha256": "69db614a3875c9a40297828a60b11a9fe24a0ee730465c4a55101d8ca2104347"
+    },
+    "motion/0004.png": {
+      "bytes": 278489,
+      "sha256": "f22a652348224f6e442b83b207e704b04ebcacef9188335d4d5d18a609c42e14"
+    },
+    "motion/0007.png": {
+      "bytes": 277994,
+      "sha256": "09822d069b5eee493f7562d95a00bfc2b0ffaa501dcf8baa7459423f5c8f6de5"
+    },
+    "motion/0003.png": {
+      "bytes": 277848,
+      "sha256": "0dbde16a3babc07a0c669e96e2b8f34684a6bb381d576ab7622bb1d2f3401863"
+    },
+    "motion/0006.png": {
+      "bytes": 277979,
+      "sha256": "b885ba4efa991bf1aee52a7b76f2cad884e3d9a57e28e2a2f8a0c8ee0a6206ca"
+    },
+    "motion/0000.png": {
+      "bytes": 276353,
+      "sha256": "4cc7c940975783ea12cf4e68421c22afbc228bbb4f835b1a17344b08c40e0efa"
+    },
+    "motion/0008.png": {
+      "bytes": 279035,
+      "sha256": "a7a358275866e5d0fca6b16cb3adbdd945be1105838a5eb01103ef1a6943a9a2"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    }
+  },
+  "missing": [],
+  "native_motion_frames": [
+    "motion/0000.png",
+    "motion/0001.png",
+    "motion/0002.png",
+    "motion/0003.png",
+    "motion/0004.png",
+    "motion/0005.png",
+    "motion/0006.png",
+    "motion/0007.png",
+    "motion/0008.png",
+    "motion/0009.png"
+  ],
+  "native_motion_complete": true,
+  "encoding": "Native PNGs; no codec dependency installed. Any encoded movie must use only these actual frames.",
+  "storage": "Full native blend in artifact. Git stores verified lossless parts; restore before canonical manifest verification.",
+  "g4_stage_pass": false,
+  "human_acceptance": false
+}

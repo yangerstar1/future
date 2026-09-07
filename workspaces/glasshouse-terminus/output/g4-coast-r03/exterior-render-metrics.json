@@ -1,0 +1,62 @@
+[
+  {
+    "view": "C01_exterior_hero",
+    "file": "C01-dielectric-coast.png",
+    "frame": 451,
+    "seconds": 174.971871705,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 34.5,
+    "position": [
+      32.0,
+      52.0,
+      23.0
+    ],
+    "rotation": [
+      1.2386444807052612,
+      5.874365882618804e-08,
+      2.422762870788574
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": false
+  },
+  {
+    "view": "C02_reverse_exterior",
+    "file": "C02-dielectric-reverse.png",
+    "frame": 451,
+    "seconds": 139.58057089599998,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 40,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 43.0,
+    "position": [
+      -31.0,
+      -38.0,
+      20.0
+    ],
+    "rotation": [
+      1.210662603378296,
+      -1.157344939883842e-07,
+      -0.6518692374229431
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": false
+  }
+]

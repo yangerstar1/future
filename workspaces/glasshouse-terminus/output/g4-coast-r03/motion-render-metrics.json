@@ -1,0 +1,302 @@
+[
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "0000.png",
+    "frame": 451,
+    "seconds": 29.349423234999904,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": true
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "0001.png",
+    "frame": 454,
+    "seconds": 29.599444999999946,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": true
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "0002.png",
+    "frame": 457,
+    "seconds": 29.279728302999956,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": true
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "0003.png",
+    "frame": 460,
+    "seconds": 29.287841541000034,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": true
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "0004.png",
+    "frame": 463,
+    "seconds": 29.427768921999927,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": true
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "0005.png",
+    "frame": 466,
+    "seconds": 28.94789540900001,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": true
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "0006.png",
+    "frame": 469,
+    "seconds": 29.256840603,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": true
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "0007.png",
+    "frame": 472,
+    "seconds": 29.395738393999977,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": true
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "0008.png",
+    "frame": 475,
+    "seconds": 29.175665439,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": true
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "0009.png",
+    "frame": 478,
+    "seconds": 29.727776796999933,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 16,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": true
+  }
+]

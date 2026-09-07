@@ -1,0 +1,24 @@
+{
+  "master": "g4-full-scene-candidate.blend",
+  "bytes": 106023391,
+  "sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+  "parts": [
+    {
+      "file": "master-parts/g4-full-scene-candidate.blend.part-000",
+      "bytes": 53000000,
+      "sha256": "e86f5c687275bfa11a7c4c3e35a3ff1175a7227aff3f8d5cc60b1662834101e9"
+    },
+    {
+      "file": "master-parts/g4-full-scene-candidate.blend.part-001",
+      "bytes": 53000000,
+      "sha256": "6b6f34a0f302552bf3ebaef829f78f25993332b45af0f18b4fbebc9c4b2e3f62"
+    },
+    {
+      "file": "master-parts/g4-full-scene-candidate.blend.part-002",
+      "bytes": 23391,
+      "sha256": "bee143ee34ae38075ac9860e245fd931bb894659ccc5051930c64b31d34f3dae"
+    }
+  ],
+  "transport": "Persistent Git evidence stores lossless parts. Downloaded Actions artifact contains the original complete .blend instead. Restore before validating the canonical DELIVERY manifest.",
+  "changes_to_model_bytes": false
+}

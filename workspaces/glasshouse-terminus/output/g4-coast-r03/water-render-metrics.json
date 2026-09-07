@@ -1,0 +1,62 @@
+[
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "E02-real-water.png",
+    "frame": 451,
+    "seconds": 165.38844135299996,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": false
+  },
+  {
+    "view": "G4COAST_rock_water_close",
+    "file": "E01-rock-water.png",
+    "frame": 451,
+    "seconds": 143.317716518,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 52.0,
+    "position": [
+      38.0,
+      39.0,
+      -9.0
+    ],
+    "rotation": [
+      1.3925374746322632,
+      3.533781622877541e-08,
+      2.2924511432647705
+    ],
+    "native_render": true,
+    "master_sha256": "1ed77cc2acaabe09a921aaae5443256b6ffb9674d6912bcdbe754d3290d0990b",
+    "max_bounces": 10,
+    "transmission_bounces": 8,
+    "revision": "COAST-R03",
+    "proof_only": false
+  }
+]
