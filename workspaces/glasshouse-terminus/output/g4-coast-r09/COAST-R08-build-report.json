@@ -1,0 +1,522 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R08",
+  "parent_master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+  "parent_evidence_commit": "91b5bcc932c58e5a43b20061299bb6a6f606aaaa",
+  "audit_evidence_commit": "fabf97ac9fa264a741429c0dc01c75e63f322381",
+  "audit_run": 34164882942,
+  "source_sha": "d1db8a6e1ee005db14f145e7a1b402620bab4ae6",
+  "run_id": "34165514100",
+  "roofs": [
+    {
+      "object": "Cab_complete_roof_loft",
+      "before_faces": 24,
+      "after_quads": 1536,
+      "source_normals_mean_z": 0.7566208305458227,
+      "new_mean_z": 0.7207904697473472,
+      "interface_max_error_m": 0.0,
+      "thickness_m": 0.07,
+      "old_mesh_retained": "Cab_complete_roof_loft_mesh.004",
+      "method": "Anchored cross-section quad loft, longitudinal tangent easing and explicit outward normals; all original boundary samples preserved."
+    },
+    {
+      "object": "Cab_complete_roof_loft.001",
+      "before_faces": 24,
+      "after_quads": 1536,
+      "source_normals_mean_z": -0.7566208305458227,
+      "new_mean_z": 0.7207904697473472,
+      "interface_max_error_m": 0.0,
+      "thickness_m": 0.07,
+      "old_mesh_retained": "Cab_complete_roof_loft_mesh.001",
+      "method": "Anchored cross-section quad loft, longitudinal tangent easing and explicit outward normals; all original boundary samples preserved."
+    }
+  ],
+  "upholstery": [
+    {
+      "object": "Car_seat_back",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.027",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_back.001",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.001",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_back.002",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.338",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_back.003",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.282",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_back.004",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.280",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_back.005",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.229",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_back.006",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.225",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_back.007",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.036",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_back.008",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.028",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_back.009",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.222",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_cushion",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.281",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_cushion.001",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.227",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_cushion.002",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.341",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_cushion.003",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.339",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_cushion.004",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.337",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_cushion.005",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.287",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_cushion.006",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.286",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_cushion.007",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.285",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_cushion.008",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.284",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "Car_seat_cushion.009",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": "Train_motion_root",
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.283",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "G4_bench_seat_cushion",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": null,
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.342",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "G4_bench_seat_cushion.001",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": null,
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.346",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "G4_bench_seat_cushion.002",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": null,
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.349",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "G4_bench_seat_cushion.003",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": null,
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.466",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "G4_bench_seat_cushion.004",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": null,
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.469",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "G4_bench_seat_cushion.005",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": null,
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.472",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "G4_bench_seat_cushion.006",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": null,
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.611",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "G4_bench_seat_cushion.007",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": null,
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.614",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "G4_bench_seat_cushion.008",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": null,
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.616",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "G4_bench_seat_cushion.009",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": null,
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.618",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "G4_bench_seat_cushion.010",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": null,
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.621",
+      "outer_envelope_preserved_mm": 1.5
+    },
+    {
+      "object": "G4_bench_seat_cushion.011",
+      "before_vertices": 8,
+      "after_vertices": 642,
+      "closed_edges": true,
+      "original_parent": null,
+      "physical_tile_metres": 0.3,
+      "welt_radius": 0.002,
+      "stitch_radius": 0.00026,
+      "shape": "Sewn side boxing, crowned fabric panel, slight edge gathering. Not a simulated cloth drape.",
+      "old_mesh_retained": "Cube.623",
+      "outer_envelope_preserved_mm": 1.5
+    }
+  ],
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "ocean": {
+    "retained": "Original 100m dominant spectrum, closed optical body, original foam and shore-distance field,207m taper. No new flat sea or duplicate water sheet.",
+    "primary_choppiness": [
+      1.2,
+      1.4
+    ],
+    "secondary_spectrum": "35m short-fetch Phillips,wind8m/s,scale0.38,seed73; art-directed superposition not coastal-impact fluid simulation",
+    "metric_ripples": [
+      {
+        "wavelength_m": 0.11,
+        "amplitude_m": 0.0008,
+        "direction_degrees": 25
+      },
+      {
+        "wavelength_m": 0.17,
+        "amplitude_m": 0.0011,
+        "direction_degrees": 63
+      },
+      {
+        "wavelength_m": 0.29,
+        "amplitude_m": 0.0017,
+        "direction_degrees": 112
+      },
+      {
+        "wavelength_m": 0.51,
+        "amplitude_m": 0.0025,
+        "direction_degrees": 31
+      }
+    ],
+    "replay": [
+      {
+        "frame": 451,
+        "near_z_min_max": [
+          -1.5264770984649658,
+          1.785603404045105
+        ],
+        "far_displacement_max": 0.0,
+        "position_sha256": "0365def767e3b292e33daccc3a404677f10ddce5e6fc56846a87603d49fc9e1d"
+      },
+      {
+        "frame": 466,
+        "near_z_min_max": [
+          -1.6186391115188599,
+          1.6760262250900269
+        ],
+        "far_displacement_max": 0.0,
+        "position_sha256": "1a329716cdc3fe3a09ecfa3acc6572cb4098942082d51a658b26212b24e93b9a"
+      },
+      {
+        "frame": 451,
+        "near_z_min_max": [
+          -1.5264770984649658,
+          1.785603404045105
+        ],
+        "far_displacement_max": 0.0,
+        "position_sha256": "0365def767e3b292e33daccc3a404677f10ddce5e6fc56846a87603d49fc9e1d"
+      }
+    ]
+  },
+  "protected_before": "36d782a93d493e8f231d85aed9924465dffe7307fc511fdac926c867cc71a20f",
+  "protected_after": "36d782a93d493e8f231d85aed9924465dffe7307fc511fdac926c867cc71a20f",
+  "candidate_sha256": "c96c202a13c5ecd342a7b614a77b1e24ec9889bdb79cc328a255607467d7e877",
+  "master_bytes": 154411214,
+  "limits": [
+    "All modifications are challenger art, not commercial certification.",
+    "Rain/runoff, cliff geometry, glass, wood, lights and world are inherited unchanged. R07 wet-stone still fails readability and is not claimed fixed here.",
+    "No new full-event train collision or final film validation. Reversed, original wide and close camera observations remain required."
+  ]
+}

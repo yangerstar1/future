@@ -1,0 +1,29 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R09",
+  "parent_master_sha256": "c96c202a13c5ecd342a7b614a77b1e24ec9889bdb79cc328a255607467d7e877",
+  "parent_evidence_commit": "caf093e65db1e364e2403e6a7807a3ef5da88b5b",
+  "audit_evidence_commit": "3171758a15f1aacba0c5fa14807f23bfba5b2637",
+  "source_sha": "3309dc100fa082926643888c53f03c9f762f1a36",
+  "run_id": "34168580326",
+  "candidate_sha256": "001a708dda2744a0f9db2994937982d121ce766aab6768746e884a72c4feaeef",
+  "master_bytes": 154401842,
+  "edit_object": "Car_complete_barrel_roof",
+  "actual_change": "Reverse48 inward main-roof faces and smooth the existing longitudinal roof. Preserve98 vertices,face connectivity,65mm shell,original offsets and material. Quality/even-thickness normals now operate inward rather than growing outside the envelope.",
+  "geometry_before_after_equal": true,
+  "old_mesh_retained": "Car_complete_barrel_roof_mesh.001",
+  "evaluated_main_top_before": 4.135000228881836,
+  "evaluated_main_top_after": 4.070000171661377,
+  "evaluated_cab_top_unchanged": 4.070000171661377,
+  "protected_before": "1c54a6f31acb3e9c760351ac1ba8cdccd3f1f0d8054a199637f24a8f3df209da",
+  "protected_after": "1c54a6f31acb3e9c760351ac1ba8cdccd3f1f0d8054a199637f24a8f3df209da",
+  "default_opening_camera": "Original C01_exterior_hero; all diagnostic and failed-view cameras retained.",
+  "basis": "Actual R08 native before/after image removed cab faceting but exposed65mm raised rear band. Read-only source/evaluated audit confirmed main barrel still had inward normals and outward thickness. Source-vertex interface checks alone had missed evaluated-shell mismatch.",
+  "limitations": [
+    "Peak height match is not complete interface manufacture certification; actual same-camera native image still required.",
+    "Upholstery and wind sea inherited unchanged from R08, not separately fixed by this shell correction.",
+    "Rain distribution, dark walkway, coastal contact and complete event/4K/web gates remain open."
+  ],
+  "g4_stage_pass": false,
+  "human_acceptance": false
+}

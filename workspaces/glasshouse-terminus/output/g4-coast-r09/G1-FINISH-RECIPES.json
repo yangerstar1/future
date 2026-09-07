@@ -1,0 +1,30 @@
+{
+  "original_maps_unchanged": true,
+  "not_render_postprocessing": true,
+  "recipes": {
+    "american_walnut_veneer": {
+      "source": "american_walnut_veneer_diff_2k.jpg",
+      "method": "sRGB channel multiplication",
+      "multipliers": [
+        0.62,
+        0.43,
+        0.26
+      ],
+      "purpose": "warm brown finished walnut from pale neutral veneer scan",
+      "output": "american_walnut_veneer_finished_diff_2k.jpg",
+      "sha256": "c0ba49a1fbc7b6ef93dd87abd83eee21eab611a6b291a0bdc6e4cf67b468158f"
+    },
+    "slate_floor": {
+      "source": "slate_floor_diff_2k.jpg",
+      "method": "Pillow luminance, then sRGB tint multiplication",
+      "multipliers": [
+        0.5,
+        0.56,
+        0.6
+      ],
+      "purpose": "blue-gray charcoal stone; preserve relief and vein distribution",
+      "output": "slate_floor_finished_diff_2k.jpg",
+      "sha256": "4caa1f5f26d2b4c70e6a62901141618ba8cd265ecae642f04c0fc817d17e03d4"
+    }
+  }
+}

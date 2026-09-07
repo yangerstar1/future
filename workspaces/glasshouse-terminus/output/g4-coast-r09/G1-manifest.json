@@ -1,0 +1,67 @@
+{
+  "provider": "Poly Haven",
+  "credit": "Powered by Poly Haven",
+  "assets_license": "CC0-1.0",
+  "notice": "Only downloaded asset maps are reused; website previews and third-party reference photos are not redistributed.",
+  "downloaded_bytes": 17164135,
+  "assets": [
+    {
+      "asset": "american_walnut_veneer",
+      "source": "https://polyhaven.com/a/american_walnut_veneer",
+      "license": "CC0-1.0",
+      "license_source": "https://polyhaven.com/license",
+      "author": {
+        "Jenelle van Heerden": "All"
+      },
+      "downloads": {
+        "diff": {
+          "path": "american_walnut_veneer_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/american_walnut_veneer/american_walnut_veneer_diff_2k.jpg",
+          "bytes": 2418767,
+          "sha256": "278ed3382b3a28a95861a84ccf4f3b591abf96a203698152064d65fcc6425271"
+        },
+        "nor_gl": {
+          "path": "american_walnut_veneer_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/american_walnut_veneer/american_walnut_veneer_nor_gl_2k.jpg",
+          "bytes": 1959270,
+          "sha256": "1a78784fc40a10f72582cd91dadce3ba2dbe9ab08f8622c909d1c0647162a130"
+        },
+        "rough": {
+          "path": "american_walnut_veneer_rough_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/american_walnut_veneer/american_walnut_veneer_rough_2k.jpg",
+          "bytes": 2865130,
+          "sha256": "9a4df282cf8ea10e005c2c28abc77ee5287793738c1e1db619b600c9e9caa4f8"
+        }
+      }
+    },
+    {
+      "asset": "slate_floor",
+      "source": "https://polyhaven.com/a/slate_floor",
+      "license": "CC0-1.0",
+      "license_source": "https://polyhaven.com/license",
+      "author": {
+        "Dimitrios Savva": "All"
+      },
+      "downloads": {
+        "diff": {
+          "path": "slate_floor_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/slate_floor/slate_floor_diff_2k.jpg",
+          "bytes": 3009643,
+          "sha256": "a50c8f5aa3a78195cc001997dfc7b2ff0aef8fca0d30b0fdab115c03ad949e71"
+        },
+        "nor_gl": {
+          "path": "slate_floor_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/slate_floor/slate_floor_nor_gl_2k.jpg",
+          "bytes": 3408456,
+          "sha256": "cfa50bd8c911030d5aed7e611f7a07eef51829ccabf1c0a424c2e0fc605a5515"
+        },
+        "rough": {
+          "path": "slate_floor_rough_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/slate_floor/slate_floor_rough_2k.jpg",
+          "bytes": 3444520,
+          "sha256": "35b7f070aa4101522e1bf71fe221887d14c548fde1b06e9dc07b63b97c5423ac"
+        }
+      }
+    }
+  ]
+}
