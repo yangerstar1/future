@@ -1,0 +1,140 @@
+name: Glasshouse G4 integrated real sea rock and rain
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-coast-integrated.yml]
+permissions:
+  contents: write
+jobs:
+  integrate-source:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      evidence: ${{ steps.persist.outputs.evidence }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r02
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore already-modeled sea and rocks, no reconstruction or quality reduction
+        run: |
+          git fetch --depth=1 origin 84570c8224f709784b580a23d330b2a0f522fcf9
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r01 | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r01
+          echo '1be3507f7c31ed2f8e5431aefaf787ff414a29fdce696b596a2baff68b0789c6  workspaces/glasshouse-terminus/output/g4-coast-r01/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf 'One native optical integration on preserved coast, no sea/rock rebuild. Own prior coast render34149501788 canceled before any steps by older single-pending queue. Existing R04 is preserved. Native queue:max permits FIFO pending and keeps exactly one production renderer. Source15min, render50min/production43min/reserve7min, external spend0, downloads1.5GB,disk8GB,evidence180MB. No G4 art acceptance, no generated images.\n' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/integrate_g4_coast_rain_optics.py
+      - name: Reuse pinned official Blender
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-source.log"
+      - name: Integrate only guarded native rain prototypes and shutter
+        timeout-minutes: 5
+        env:
+          G4_COAST_INTEGRATION_MODE: build
+        run: blender -b workspaces/glasshouse-terminus/output/g4-coast-r01/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/integrate_g4_coast_rain_optics.py 2>&1 | tee "$OUT/build.log"
+      - name: Preserve editable full-detail source losslessly
+        id: persist
+        timeout-minutes: 3
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r02-source | tee "$RUNNER_TEMP/coast-save.log"
+          c=$(sed -n 's/^PERSISTED_EVIDENCE_COMMIT=//p' "$RUNNER_TEMP/coast-save.log");test -n "$c"
+          echo "evidence=$c" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r02-source-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r02
+          retention-days: 1
+  native-render:
+    needs: integrate-source
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r02
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact integration master after prior production render completes
+        env:
+          EVIDENCE: ${{ needs.integrate-source.outputs.evidence }}
+        run: |
+          echo "G4_COAST_INTEGRATION_DEADLINE=$(( $(date +%s) + 43*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin "$EVIDENCE"
+          git archive FETCH_HEAD "$OUT" | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore "$OUT"
+          rm -r "$OUT/master-parts"
+      - name: Reuse pinned official Blender
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-render.log"
+      - name: Original full-scene and reverse native observations
+        timeout-minutes: 24
+        env:
+          G4_COAST_INTEGRATION_MODE: exterior
+        run: |
+          remaining=$((G4_COAST_INTEGRATION_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/integrate_g4_coast_rain_optics.py 2>&1 | tee "$OUT/exterior-render.log"
+      - name: Early native exterior evidence for actual image review
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g4-coast-r02-early-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r02/C01-coast-rain.png
+            workspaces/glasshouse-terminus/output/g4-coast-r02/C02-reverse-coast.png
+            workspaces/glasshouse-terminus/output/g4-coast-r02/build-report.json
+            workspaces/glasshouse-terminus/output/g4-coast-r02/exterior-render-metrics.json
+          retention-days: 1
+      - name: Native cliff and ocean detail plus rainy hall regression
+        timeout-minutes: 30
+        env:
+          G4_COAST_INTEGRATION_MODE: detail
+        run: |
+          remaining=$((G4_COAST_INTEGRATION_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/integrate_g4_coast_rain_optics.py 2>&1 | tee "$OUT/detail-render.log"
+      - name: Bounded native moving-wave proof when remaining budget permits
+        timeout-minutes: 15
+        env:
+          G4_COAST_INTEGRATION_MODE: motion
+        run: |
+          remaining=$((G4_COAST_INTEGRATION_DEADLINE-$(date +%s)))
+          if [ "$remaining" -gt 240 ]; then
+            timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/integrate_g4_coast_rain_optics.py 2>&1 | tee "$OUT/motion-render.log"
+          else
+            printf 'Native wave clip not attempted: fewer than240s remain. Do not claim completed motion video.\n' > "$OUT/motion-not-attempted.txt"
+          fi
+      - name: Preserve actual images and full-detail model with truthful coverage
+        if: always()
+        timeout-minutes: 5
+        run: |
+          if [ -d "$OUT/motion" ] && [ "$(find "$OUT/motion" -name '*.png' | wc -l)" -eq 10 ]; then
+            ffmpeg -hide_banner -loglevel error -framerate 10 -i "$OUT/motion/%04d.png" -frames:v 10 -c:v libx264 -pix_fmt yuv420p -crf 18 -movflags +faststart "$OUT/native-wave-proof.mp4"
+            ffprobe -v error -show_format -show_streams -of json "$OUT/native-wave-proof.mp4" > "$OUT/wave-video-probe.json"
+            ffmpeg -v error -i "$OUT/native-wave-proof.mp4" -f null -
+          fi
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py prepare "$OUT"
+          python3 - <<'PY'
+          from pathlib import Path
+          import os,json,hashlib
+          r=Path(os.environ['OUT']);files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<180000000
+          required=['g4-full-scene-candidate.blend','build-report.json','C01-coast-rain.png','C02-reverse-coast.png','E01-rock-and-water.png','E02-wave-and-foam.png','C03-rain-hall-regression.png','exterior-reopen-check.json','detail-reopen-check.json']
+          missing=[n for n in required if not (r/n).is_file()]
+          (r/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R02','status':'NATIVE_INTEGRATED_REVIEW_PENDING' if not missing else 'PARTIAL_OR_FAILED_NOT_ART_PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'missing':missing,'native_wave_clip_complete':(r/'native-wave-proof.mp4').exists(),'storage':'Actions ZIP has full blend. Git archive has verified lossless parts; run restore_master.py restore . before file verification.','g4_stage_pass':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED'},indent=2))
+          PY
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r02
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r02-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r02
+          retention-days: 1
+          if-no-files-found: error
