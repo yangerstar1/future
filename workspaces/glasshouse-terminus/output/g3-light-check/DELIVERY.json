@@ -1,0 +1,42 @@
+{
+  "stage": "G3_DIAGNOSTIC_ONLY",
+  "run_id": "34121257143",
+  "source_sha": "d7089f587c8314b9433932f684f22f52030498d0",
+  "parent_evidence_commit": "22dceca579c272b51767c70c153c540f7defc547",
+  "files": {
+    "L00-baseline.png": {
+      "bytes": 169239,
+      "sha256": "b513acbbcdf56b08cbf8d7224de8d34e831d14f1909ea7b3bb4319376573b296"
+    },
+    "light-diagnosis.json": {
+      "bytes": 8303,
+      "sha256": "c05b6d92bbf95bb5263c8091150f4d522f7d5e18d0d463b2ec6f2d4f57bafb57"
+    },
+    "L03-no-rim-card.png": {
+      "bytes": 168512,
+      "sha256": "5c4bcbcdfd3c7cef9e86040434d6cfbf7c4c291211c88e30cd100854dccc6d54"
+    },
+    "diagnosis.log": {
+      "bytes": 1586002,
+      "sha256": "f0e4d599d0c49f5fbf20d68c0489172aea3b30c011c82d47c91fdcaf4702bee8"
+    },
+    "L04-practicals-only.png": {
+      "bytes": 131610,
+      "sha256": "7930ffa1fb8efad8bfd9e7d934542849ddccc530705e066cec750d5d74eadc47"
+    },
+    "provision.log": {
+      "bytes": 40983,
+      "sha256": "70ca5945e2d2461644209d553232bea79f3a68c7bdbff9a02085fc300080c326"
+    },
+    "L02-no-interior-card.png": {
+      "bytes": 143060,
+      "sha256": "ab2bb09c1067aa09be31f3ed981334cd0d1e8e946cf1a22b8be0a7c8ea2c5a7e"
+    },
+    "L01-no-sky-card.png": {
+      "bytes": 167515,
+      "sha256": "2be87b3f96e4db651baf966aad7d595a34e7ee7ec3daefb332c8b81b2c045838"
+    }
+  },
+  "g4_allowed": false,
+  "human_acceptance": false
+}

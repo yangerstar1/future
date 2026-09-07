@@ -1,0 +1,383 @@
+{
+  "stage": "G3",
+  "purpose": "Attribute remaining white transom patch in actual R03 native overview; not acceptance or a new art candidate",
+  "source_master_sha256": "cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe",
+  "source_evidence_commit": "22dceca579c272b51767c70c153c540f7defc547",
+  "source_overview_artifact": 10017903613,
+  "source_overview_sha256": "49a427dfd2fb4f5ef3980e81a5a9583e9eba4c60cd69425e26cc9886ce1be08e",
+  "camera": "G3R03_complete_bay",
+  "frame": 451,
+  "lights": {
+    "G3_night_sky": {
+      "energy": 950.0,
+      "position": [
+        -4.0,
+        12.0,
+        13.0
+      ],
+      "size": 12.0,
+      "projected_center": [
+        0.6293467283248901,
+        1.6772022247314453,
+        14.903119087219238
+      ]
+    },
+    "G3_interior_softbox": {
+      "energy": 420.0,
+      "position": [
+        -2.0,
+        1.0,
+        5.599999904632568
+      ],
+      "size": 4.0,
+      "projected_center": [
+        0.31251585483551025,
+        1.4797824621200562,
+        4.619339942932129
+      ]
+    },
+    "G3_window_rim": {
+      "energy": 300.0,
+      "position": [
+        -6.0,
+        8.0,
+        11.0
+      ],
+      "size": 3.0,
+      "projected_center": [
+        0.37234482169151306,
+        1.6456315517425537,
+        12.255534172058105
+      ]
+    },
+    "G3_cafe_practical": {
+      "energy": 9.0,
+      "position": [
+        -3.9030978679656982,
+        4.909999847412109,
+        2.5820000171661377
+      ],
+      "size": 0.2800000011920929,
+      "projected_center": [
+        0.3957669138908386,
+        0.5211137533187866,
+        9.16667652130127
+      ]
+    },
+    "G3_door_practical": {
+      "energy": 65.0,
+      "position": [
+        -2.0,
+        11.899999618530273,
+        3.6600000858306885
+      ],
+      "size": 1.0,
+      "projected_center": [
+        0.753068208694458,
+        0.6731533408164978,
+        14.627209663391113
+      ]
+    },
+    "G3_pendant_light": {
+      "energy": 130.0,
+      "position": [
+        -3.0,
+        3.25,
+        4.369999885559082
+      ],
+      "size": 0.4699999988079071,
+      "projected_center": [
+        0.3839367628097534,
+        0.8961980938911438,
+        7.1610212326049805
+      ]
+    }
+  },
+  "rays": [
+    {
+      "uv": [
+        0.64,
+        0.79
+      ],
+      "hit": true,
+      "first_object": "Platform_portal_lintel",
+      "point": [
+        -2.042621612548828,
+        6.365001201629639,
+        4.166510105133057
+      ],
+      "material": "G3_bottle_green_enamel"
+    },
+    {
+      "uv": [
+        0.64,
+        0.88
+      ],
+      "hit": true,
+      "first_object": "Side_wall_glass.091",
+      "point": [
+        -2.0890519618988037,
+        6.5,
+        4.722217559814453
+      ],
+      "material": "G3_exterior_rivulet_glass"
+    },
+    {
+      "uv": [
+        0.64,
+        0.95
+      ],
+      "hit": true,
+      "first_object": "Curved_roof_glazing.156",
+      "point": [
+        -2.091986656188965,
+        6.495798110961914,
+        5.138867378234863
+      ],
+      "material": "G3_clear_6mm_glass"
+    },
+    {
+      "uv": [
+        0.72,
+        0.79
+      ],
+      "hit": true,
+      "first_object": "Platform_portal_lintel",
+      "point": [
+        -1.3022961616516113,
+        6.4913458824157715,
+        4.1449995040893555
+      ],
+      "material": "G3_bottle_green_enamel"
+    },
+    {
+      "uv": [
+        0.72,
+        0.88
+      ],
+      "hit": true,
+      "first_object": "Side_wall_glass.092",
+      "point": [
+        -1.3122243881225586,
+        6.500000953674316,
+        4.668529510498047
+      ],
+      "material": "G3_exterior_rivulet_glass"
+    },
+    {
+      "uv": [
+        0.72,
+        0.95
+      ],
+      "hit": true,
+      "first_object": "Continuous_eaves_gutter.001",
+      "point": [
+        -1.2905423641204834,
+        6.375000953674316,
+        5.0464935302734375
+      ],
+      "material": "G3_bottle_green_enamel"
+    },
+    {
+      "uv": [
+        0.8,
+        0.79
+      ],
+      "hit": true,
+      "first_object": "Side_wall_glass.095",
+      "point": [
+        -0.5749334692955017,
+        6.5,
+        4.112330913543701
+      ],
+      "material": "G3_exterior_rivulet_glass"
+    },
+    {
+      "uv": [
+        0.8,
+        0.88
+      ],
+      "hit": true,
+      "first_object": "Side_wall_glass.095",
+      "point": [
+        -0.5851678252220154,
+        6.500001907348633,
+        4.618281364440918
+      ],
+      "material": "G3_exterior_rivulet_glass"
+    },
+    {
+      "uv": [
+        0.8,
+        0.95
+      ],
+      "hit": true,
+      "first_object": "Continuous_eaves_gutter.001",
+      "point": [
+        -0.5747492909431458,
+        6.375,
+        4.984301567077637
+      ],
+      "material": "G3_bottle_green_enamel"
+    }
+  ],
+  "renders": [
+    {
+      "view": "G3R03_complete_bay",
+      "file": "L00-baseline.png",
+      "frame": 451,
+      "seconds": 15.414004883000018,
+      "resolution": [
+        1440,
+        900
+      ],
+      "samples": 32,
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "lens_mm": 36.0,
+      "position": [
+        0.800000011920929,
+        -3.0,
+        3.0999999046325684
+      ],
+      "rotation": [
+        1.50106680393219,
+        -3.242253754365265e-08,
+        0.43240782618522644
+      ],
+      "diagnostic_disabled_lights": [],
+      "cropped_native_pixels": true
+    },
+    {
+      "view": "G3R03_complete_bay",
+      "file": "L01-no-sky-card.png",
+      "frame": 451,
+      "seconds": 14.777307219999983,
+      "resolution": [
+        1440,
+        900
+      ],
+      "samples": 32,
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "lens_mm": 36.0,
+      "position": [
+        0.800000011920929,
+        -3.0,
+        3.0999999046325684
+      ],
+      "rotation": [
+        1.50106680393219,
+        -3.242253754365265e-08,
+        0.43240782618522644
+      ],
+      "diagnostic_disabled_lights": [
+        "G3_night_sky"
+      ],
+      "cropped_native_pixels": true
+    },
+    {
+      "view": "G3R03_complete_bay",
+      "file": "L02-no-interior-card.png",
+      "frame": 451,
+      "seconds": 14.64631329400001,
+      "resolution": [
+        1440,
+        900
+      ],
+      "samples": 32,
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "lens_mm": 36.0,
+      "position": [
+        0.800000011920929,
+        -3.0,
+        3.0999999046325684
+      ],
+      "rotation": [
+        1.50106680393219,
+        -3.242253754365265e-08,
+        0.43240782618522644
+      ],
+      "diagnostic_disabled_lights": [
+        "G3_interior_softbox"
+      ],
+      "cropped_native_pixels": true
+    },
+    {
+      "view": "G3R03_complete_bay",
+      "file": "L03-no-rim-card.png",
+      "frame": 451,
+      "seconds": 14.106331734000008,
+      "resolution": [
+        1440,
+        900
+      ],
+      "samples": 32,
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "lens_mm": 36.0,
+      "position": [
+        0.800000011920929,
+        -3.0,
+        3.0999999046325684
+      ],
+      "rotation": [
+        1.50106680393219,
+        -3.242253754365265e-08,
+        0.43240782618522644
+      ],
+      "diagnostic_disabled_lights": [
+        "G3_window_rim"
+      ],
+      "cropped_native_pixels": true
+    },
+    {
+      "view": "G3R03_complete_bay",
+      "file": "L04-practicals-only.png",
+      "frame": 451,
+      "seconds": 16.22305254599999,
+      "resolution": [
+        1440,
+        900
+      ],
+      "samples": 32,
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "lens_mm": 36.0,
+      "position": [
+        0.800000011920929,
+        -3.0,
+        3.0999999046325684
+      ],
+      "rotation": [
+        1.50106680393219,
+        -3.242253754365265e-08,
+        0.43240782618522644
+      ],
+      "diagnostic_disabled_lights": [
+        "G3_night_sky",
+        "G3_interior_softbox",
+        "G3_window_rim"
+      ],
+      "cropped_native_pixels": true
+    }
+  ],
+  "crop_normalized_bottom_left": [
+    0.56,
+    0.72,
+    0.9,
+    1.0
+  ],
+  "parent_frame_pixels": [
+    1440,
+    900
+  ],
+  "scope": "Native Cycles border crop, no resized/render-painted evidence. Only lamp energy changes in memory for labelled diagnostic cases.",
+  "geometry_edits": false,
+  "material_edits": false,
+  "human_acceptance": false,
+  "g4_allowed": false,
+  "source_master_unchanged": true,
+  "status": "DIAGNOSTICS_RENDERED_REVIEW_PENDING"
+}
