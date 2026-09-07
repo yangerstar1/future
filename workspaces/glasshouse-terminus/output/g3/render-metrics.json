@@ -1,0 +1,184 @@
+[
+  {
+    "view": "G3_bay",
+    "file": "G3-bay-night.png",
+    "frame": 451,
+    "seconds": 291.12794200299993,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 42.0,
+    "position": [
+      0.30000001192092896,
+      0.25,
+      2.700000047683716
+    ],
+    "rotation": [
+      1.5203306674957275,
+      2.7329100760198344e-08,
+      0.4493412971496582
+    ],
+    "lighting": "night",
+    "native_render": true
+  },
+  {
+    "view": "G3_bay",
+    "file": "G3-bay-neutral.png",
+    "frame": 451,
+    "seconds": 217.68898877000004,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 48,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 42.0,
+    "position": [
+      0.30000001192092896,
+      0.25,
+      2.700000047683716
+    ],
+    "rotation": [
+      1.5203306674957275,
+      2.7329100760198344e-08,
+      0.4493412971496582
+    ],
+    "lighting": "neutral",
+    "native_render": true
+  },
+  {
+    "view": "C03_hall_to_platform",
+    "file": "C03-neutral-context.png",
+    "frame": 451,
+    "seconds": 90.82124833099999,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 35.0,
+    "position": [
+      8.0,
+      -4.5,
+      3.0
+    ],
+    "rotation": [
+      1.5506188869476318,
+      7.001838753240008e-08,
+      0.7378150224685669
+    ],
+    "lighting": "neutral",
+    "native_render": true
+  },
+  {
+    "view": "G3_D01",
+    "file": "D01-glass-metal.png",
+    "frame": 451,
+    "seconds": 251.59285100900001,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 60.0,
+    "position": [
+      -1.899999976158142,
+      4.5,
+      3.0999999046325684
+    ],
+    "rotation": [
+      1.7133949995040894,
+      4.118040664025102e-08,
+      0.7803220152854919
+    ],
+    "lighting": "night",
+    "native_render": true
+  },
+  {
+    "view": "G3_D02",
+    "file": "D02-joinery.png",
+    "frame": 451,
+    "seconds": 208.39001729000006,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 60.0,
+    "position": [
+      -1.600000023841858,
+      1.850000023841858,
+      2.6500000953674316
+    ],
+    "rotation": [
+      1.2634847164154053,
+      2.3310434471568442e-08,
+      0.7952988743782043
+    ],
+    "lighting": "night",
+    "native_render": true
+  },
+  {
+    "view": "G3_D03",
+    "file": "D03-upholstery.png",
+    "frame": 451,
+    "seconds": 195.00866209700007,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 62.0,
+    "position": [
+      -1.649999976158142,
+      0.550000011920929,
+      2.0799999237060547
+    ],
+    "rotation": [
+      1.4580421447753906,
+      7.725139994363417e-08,
+      0.7469555139541626
+    ],
+    "lighting": "night",
+    "native_render": true
+  },
+  {
+    "view": "G3_D05",
+    "file": "D05-door-interface.png",
+    "frame": 451,
+    "seconds": 260.9015500659998,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 43.0,
+    "position": [
+      -0.800000011920929,
+      8.5,
+      2.5
+    ],
+    "rotation": [
+      1.4720526933670044,
+      -3.0463333189345576e-08,
+      0.495551735162735
+    ],
+    "lighting": "night",
+    "native_render": true
+  }
+]

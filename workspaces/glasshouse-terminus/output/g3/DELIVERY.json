@@ -1,0 +1,168 @@
+{
+  "stage": "G3",
+  "status": "PARTIAL_CANDIDATE_NOT_A_PASS",
+  "source_sha": "cf89b07e0e3831d892e742083c7e75a05c285525",
+  "run_id": "34113862241",
+  "run_attempt": "1",
+  "parent_evidence_commit": "6520a8b6056cd7582e4bfc09367cd37fdfb193a1",
+  "parent_master_sha256": "0468b615b2d6ebeab7d641ad70c97a3efd62c7f31d1009fbc245c3c9b0f5c8be",
+  "g4_allowed": false,
+  "g1_browser_gate": "BLOCKED_UNCHANGED",
+  "human_acceptance": false,
+  "files": {
+    "D05-door-interface.png": {
+      "bytes": 1138354,
+      "sha256": "bec7f252bf9b1289c5e670ff812db28d2fc4712dcaba3b7779628d8852b543d3"
+    },
+    "build.log": {
+      "bytes": 1039,
+      "sha256": "801382940625f70f8f6c253f25bf2448410f25c20d7ffa314669bef1aa9247d8"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "D01-glass-metal.png": {
+      "bytes": 1082888,
+      "sha256": "7a4d8128a75a9e3a7d8961225fe66f489146a99e2e99759138efcb1bd3e9e710"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "G3-bay-night.png": {
+      "bytes": 1758565,
+      "sha256": "7f19543ab59efea30e6c0162d3a1cae3badaf12daa79872b178e5a29822b67a9"
+    },
+    "render-metrics.json": {
+      "bytes": 3478,
+      "sha256": "0571c9b3dd6dfaaef6c7ae6a5f234a2cde029cacfd1234741166677b5504d573"
+    },
+    "D02-joinery.png": {
+      "bytes": 1366963,
+      "sha256": "522e90c7bd2902851212df0b075f9179d462449be71391aaf8186f581a8f67b2"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "overview.log": {
+      "bytes": 942682,
+      "sha256": "786718641285bc6d450dd59f20adc21b09db6897369e0c6df7552c043783cfca"
+    },
+    "preflight.json": {
+      "bytes": 2302,
+      "sha256": "376278b2ea98127e986dd44a2b2265bf1d614af95ff0f3cf01f3c351d5f0b995"
+    },
+    "C03-neutral-context.png": {
+      "bytes": 1424325,
+      "sha256": "aa2bf9211cf09949bbcdfe9d4857eb7611c5b76be16b12f944c8f371efcab0fa"
+    },
+    "details.log": {
+      "bytes": 1570284,
+      "sha256": "83527380a857d5fb3305fd14c5c49d5f0121d7747fbe346653ceea0129e04603"
+    },
+    "models-download.log": {
+      "bytes": 5517,
+      "sha256": "81d063c78c9bcdc8fc3f9048a3f424e6c97d6f1d29baf60ba7b9fcca24b8cf2b"
+    },
+    "provision.log": {
+      "bytes": 41062,
+      "sha256": "53c2428ef7d5713211ef1eb17e1defae87fae17dd4509aa9cd0a6887faab6eed"
+    },
+    "reopen-and-space-check.json": {
+      "bytes": 6290,
+      "sha256": "620bf7011141306ca4b0ca12c3cd55025ea89ac3ab5cd92b27a973c1359db3cf"
+    },
+    "D03-upholstery.png": {
+      "bytes": 1271437,
+      "sha256": "55b05b953a99038ff9c7abff1d2a6c9acfed8227a3f4516138ac76ca5efa4f7a"
+    },
+    "build-report.json": {
+      "bytes": 5442,
+      "sha256": "91156379d4a7962216adb0f41fdefebbc88eb857494bc34a962d7a16a5499cab"
+    },
+    "G3-bay-neutral.png": {
+      "bytes": 1847013,
+      "sha256": "2400fdbcb02e1eb073ef6cd4a8a32a94d3c34cf53b84f02c4bec66ebfb18a615"
+    },
+    "g3-bay-candidate.blend": {
+      "bytes": 26357297,
+      "sha256": "e95b37d7f2d8a28efc8bca32815b0624acae7a787e2c7bbe7565eb30e3588027"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    },
+    "models/potted_plant_01/potted_plant_01.bin": {
+      "bytes": 5345188,
+      "sha256": "a8dd1f7ce75f50dc25bbedc20809da02ee4193815c155b883a329925fa5548f7"
+    },
+    "models/potted_plant_01/source-files.json": {
+      "bytes": 74010,
+      "sha256": "1478add6f0b3df1103756d57013384ccfd7fa0e7fee4de6dc3b201f9377a086c"
+    },
+    "models/potted_plant_01/source-info.json": {
+      "bytes": 1128,
+      "sha256": "88088314ea87087873fbf82d52b321ed5f29d00a1902b6ac494254c04fc105e5"
+    },
+    "models/potted_plant_01/potted_plant_01_2k.gltf": {
+      "bytes": 7969,
+      "sha256": "41357028b8a7861c596cadc51c8793448c18c42e8d84d834ebe7993b5b30c924"
+    },
+    "models/GreenChair_01/GreenChair_01_2k.gltf": {
+      "bytes": 2695,
+      "sha256": "ee4a04d41aa2ac7faf33b1a77c908983e6c7899a6ad6a36d4732fb3871f80f7a"
+    },
+    "models/GreenChair_01/source-files.json": {
+      "bytes": 27716,
+      "sha256": "11b23727bb119f215da3e6b0d9bd222321e3b6ba03dfa358f7f1ca4624d24653"
+    },
+    "models/GreenChair_01/source-info.json": {
+      "bytes": 1095,
+      "sha256": "33357f9140069ed289aa675e18c1f3e6e4f7e06c6659c5394a702e1089c9d2ab"
+    },
+    "models/GreenChair_01/GreenChair_01.bin": {
+      "bytes": 119168,
+      "sha256": "9070a41bcf38005997fe71a49e50b942b427ec05938413c9dc204df0b781e410"
+    },
+    "models/potted_plant_01/textures/potted_plant_01_pot_rough_2k.jpg": {
+      "bytes": 610864,
+      "sha256": "95154a5693f70802d36691cc284e378e173c56d416506c187725c08a96260503"
+    },
+    "models/potted_plant_01/textures/potted_plant_01_pot_diff_2k.jpg": {
+      "bytes": 745276,
+      "sha256": "5c85fa6020e1b5a84ea1e6da84261e4fb6f0a94bf48cd6d56fa603de234336fa"
+    },
+    "models/potted_plant_01/textures/potted_plant_01_leaves_rough_2k.jpg": {
+      "bytes": 348164,
+      "sha256": "77c990375720dcdfd801592c9f0546bc5a2ec99a825879945225080ba291d694"
+    },
+    "models/potted_plant_01/textures/potted_plant_01_leaves_diff_2k.jpg": {
+      "bytes": 400273,
+      "sha256": "6ff5a44117b77a0ad570a333aea71f04ee735ed9cab9668936f8775da1614c6b"
+    },
+    "models/potted_plant_01/textures/potted_plant_01_leaves_nor_gl_2k.jpg": {
+      "bytes": 764246,
+      "sha256": "8cde55f644e9092bcaa7976b005c6df1b452714f1e1c57ede8abb8b7c8bb4a1a"
+    },
+    "models/potted_plant_01/textures/potted_plant_01_pot_nor_gl_2k.jpg": {
+      "bytes": 827724,
+      "sha256": "22792283d310a057553e7428739be073720a492c2a288440ab690124462de1e3"
+    },
+    "models/GreenChair_01/textures/GreenChair_01_arm_2k.jpg": {
+      "bytes": 455369,
+      "sha256": "1ff03d6731f1ebacc13c1797163d283de8ba99f059f774ea7eeeed3838385d6d"
+    },
+    "models/GreenChair_01/textures/GreenChair_01_diff_2k.jpg": {
+      "bytes": 512406,
+      "sha256": "5b4cc60aa7fe00f2ba3062aa5dc451cd06349c00be0c179894fd549e9ef13c13"
+    },
+    "models/GreenChair_01/textures/GreenChair_01_nor_gl_2k.jpg": {
+      "bytes": 895278,
+      "sha256": "fe96fa21a863291bf8b1e5699e2f09013df8b75cd04fe9b8b28ec12a6a01b3ec"
+    }
+  },
+  "total_bytes": 49972881,
+  "scope": "Existing hall/platform bay only; other areas remain G2 whitebox. No final film or website."
+}
