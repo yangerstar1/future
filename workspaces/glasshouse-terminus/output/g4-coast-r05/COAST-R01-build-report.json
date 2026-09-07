@@ -1,0 +1,469 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R01",
+  "status": "CHALLENGER_NOT_ART_PASS",
+  "parent_master_sha256": "dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5",
+  "parent_evidence_commit": "0e0f56888549e27900070a83b9830f81c3313c4b",
+  "asset_evidence_commit": "01ba5eb4464fac76450cf68f2eccb0b0366bb840",
+  "source_sha": "3396b3e4c8e82bd941201ff92db26a71447bddc7",
+  "run_id": "34149137700",
+  "scope": "Real marine waves and rock geometry on native rain/material master; no generated imagery.",
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "cliff": {
+    "core_before": [
+      [
+        -31.456497192382812,
+        -25.563236236572266,
+        -23.716617584228516
+      ],
+      [
+        30.125680923461914,
+        19.986953735351562,
+        -0.649999737739563
+      ]
+    ],
+    "scan_object": "G4COAST_adapted_scanned_cliff_ring",
+    "source_dimensions": [
+      86.77198028564453,
+      24.2474308013916,
+      10.999708712100983
+    ],
+    "source_vertices": 789032,
+    "source_triangles": 1537926,
+    "adapted_vertices": 418383,
+    "adapted_triangles": 799721,
+    "deformation": "Single licensed face bent around elliptical bedrock, 1.95 vertical scale; original archived. Not real-location reconstruction.",
+    "scan_bounds": [
+      [
+        -30.363361358642578,
+        -29.905376434326172,
+        -22.363433837890625
+      ],
+      [
+        33.0726318359375,
+        26.118207931518555,
+        -0.9140705466270447
+      ]
+    ],
+    "scan_lod_ratio": 0.52
+  },
+  "ocean": {
+    "old_bounds": [
+      [
+        -800.0,
+        -800.0,
+        -22.25
+      ],
+      [
+        800.0,
+        800.0,
+        -22.150001525878906
+      ]
+    ],
+    "method": "Native JONSWAP Ocean DISPLACE and true geometry-proximity art wash, not coastal fluid solver.",
+    "grid_vertices": 229441,
+    "grid_faces": 228484,
+    "extent_metres": 40000,
+    "near_grid_metres": 0.9,
+    "settings": {
+      "resolution": 16,
+      "spatial_size": 100,
+      "wind_velocity": 18.0,
+      "wave_scale": 1.7999999523162842,
+      "choppiness": 1.2000000476837158,
+      "foam_coverage": 0.15000000596046448,
+      "spectrum": "JONSWAP"
+    },
+    "proximity_objects": 16,
+    "motion": [
+      {
+        "frame": 451,
+        "native_time": 15.033333778381348,
+        "positions_sha256": "ae35a57cdeadaf6c9c627b95f260ea30181d94f722daa5491fbd2e0f497148b5",
+        "near_z_range": [
+          -1.344887137413025,
+          1.7049262523651123
+        ],
+        "attributes": [
+          [
+            "CoastalWash",
+            "FLOAT",
+            "POINT"
+          ],
+          [
+            "position",
+            "FLOAT_VECTOR",
+            "POINT"
+          ],
+          [
+            ".select_vert",
+            "BOOLEAN",
+            "POINT"
+          ],
+          [
+            ".edge_verts",
+            "INT32_2D",
+            "EDGE"
+          ],
+          [
+            ".select_edge",
+            "BOOLEAN",
+            "EDGE"
+          ],
+          [
+            ".select_poly",
+            "BOOLEAN",
+            "FACE"
+          ],
+          [
+            "sharp_face",
+            "BOOLEAN",
+            "FACE"
+          ],
+          [
+            ".corner_vert",
+            "INT",
+            "CORNER"
+          ],
+          [
+            ".corner_edge",
+            "INT",
+            "CORNER"
+          ],
+          [
+            "OceanFoam",
+            "BYTE_COLOR",
+            "CORNER"
+          ]
+        ]
+      },
+      {
+        "frame": 460,
+        "native_time": 15.333333015441895,
+        "positions_sha256": "9f19160b631a0aead6939862eed9e9380a71586f3974089dfc68cf1ca17a4969",
+        "near_z_range": [
+          -1.3190269470214844,
+          1.846052646636963
+        ],
+        "attributes": [
+          [
+            "CoastalWash",
+            "FLOAT",
+            "POINT"
+          ],
+          [
+            "position",
+            "FLOAT_VECTOR",
+            "POINT"
+          ],
+          [
+            ".select_vert",
+            "BOOLEAN",
+            "POINT"
+          ],
+          [
+            ".edge_verts",
+            "INT32_2D",
+            "EDGE"
+          ],
+          [
+            ".select_edge",
+            "BOOLEAN",
+            "EDGE"
+          ],
+          [
+            ".select_poly",
+            "BOOLEAN",
+            "FACE"
+          ],
+          [
+            "sharp_face",
+            "BOOLEAN",
+            "FACE"
+          ],
+          [
+            ".corner_vert",
+            "INT",
+            "CORNER"
+          ],
+          [
+            ".corner_edge",
+            "INT",
+            "CORNER"
+          ],
+          [
+            "OceanFoam",
+            "BYTE_COLOR",
+            "CORNER"
+          ]
+        ]
+      },
+      {
+        "frame": 451,
+        "native_time": 15.033333778381348,
+        "positions_sha256": "ae35a57cdeadaf6c9c627b95f260ea30181d94f722daa5491fbd2e0f497148b5",
+        "near_z_range": [
+          -1.344887137413025,
+          1.7049262523651123
+        ],
+        "attributes": [
+          [
+            "CoastalWash",
+            "FLOAT",
+            "POINT"
+          ],
+          [
+            "position",
+            "FLOAT_VECTOR",
+            "POINT"
+          ],
+          [
+            ".select_vert",
+            "BOOLEAN",
+            "POINT"
+          ],
+          [
+            ".edge_verts",
+            "INT32_2D",
+            "EDGE"
+          ],
+          [
+            ".select_edge",
+            "BOOLEAN",
+            "EDGE"
+          ],
+          [
+            ".select_poly",
+            "BOOLEAN",
+            "FACE"
+          ],
+          [
+            "sharp_face",
+            "BOOLEAN",
+            "FACE"
+          ],
+          [
+            ".corner_vert",
+            "INT",
+            "CORNER"
+          ],
+          [
+            ".corner_edge",
+            "INT",
+            "CORNER"
+          ],
+          [
+            "OceanFoam",
+            "BYTE_COLOR",
+            "CORNER"
+          ]
+        ]
+      }
+    ]
+  },
+  "far_clip_extensions": [
+    {
+      "camera": "C01_exterior_hero",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "C02_reverse_exterior",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "C03_hall_to_platform",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "C04_platform_to_hall",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "C05_along_platform",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "C06_car_to_hall",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "C07_orthographic_plan",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "C08_true_section",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "C09_car_aisle_failure_check",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "FILM_01_HERO",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "FILM_02_DETAIL",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "FILM_03_ARRIVAL",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "FILM_05_REVEAL",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "QA_G2_bridge_joint",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3_bay",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3_D01",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3_D02",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3_D03",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3_D05",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3_reverse",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3_D06",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3R03_complete_bay",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3R03_chair_front",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3R03_full_door",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3R03_roof_node",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3R04_door_unoccluded",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3R04_roller_detail",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G3R04_threshold_detail",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G4R03_rain_glass_macro",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G4R03_wet_stone_macro",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G4R03_textile_macro",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    },
+    {
+      "camera": "G4R03_rain_architecture",
+      "before": 1000.0,
+      "after": 50000,
+      "reason": "Render physical distant sea rather than old finite edge; transform/lens/near clip unchanged."
+    }
+  ],
+  "protected_before": "59b1ccfbd20ba1a97e379edbdc97374dcebb9236ca09d304613cb3ebd80e649f",
+  "protected_after": "59b1ccfbd20ba1a97e379edbdc97374dcebb9236ca09d304613cb3ebd80e649f",
+  "candidate_sha256": "1be3507f7c31ed2f8e5431aefaf787ff414a29fdce696b596a2baff68b0789c6",
+  "master_bytes": 105907206
+}
