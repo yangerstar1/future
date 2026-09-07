@@ -1,4 +1,6 @@
-"""Read-only source probe, then isolated imported-asset/Ocean tests. No source save."""
+"""Read-only source/API/scan data inspection. No render calls and no master save.
+Runs separately from the already-active R03 production renderer; never edits it.
+"""
 import bpy,json,os,hashlib,math
 from pathlib import Path
 from mathutils import Vector
@@ -10,24 +12,26 @@ s=bpy.context.scene;s.frame_set(451);bpy.context.view_layer.update()
 def bounds(o):
  ps=[o.matrix_world@Vector(v) for v in o.bound_box]
  return [[min(p[i] for p in ps) for i in range(3)],[max(p[i] for p in ps) for i in range(3)]]
-report={'blender':bpy.app.version_string,'parent_sha256':EXPECTED,'source_objects':[],'api':{}}
+report={'blender':bpy.app.version_string,'parent_sha256':EXPECTED,'source_objects':[],'api':{},'render_calls':0,'source_save_calls':0}
 for name in ['Complete_cliff_mass','Ocean_extent','Load_bearing_masonry_terrace','Cab_complete_roof_loft','Cab_complete_roof_loft.001','Car_complete_barrel_roof']:
  o=bpy.data.objects[name]
  report['source_objects'].append({'name':name,'bounds':bounds(o),'location':list(o.location),'matrix_world':[list(r) for r in o.matrix_world],
   'vertices':len(o.data.vertices),'polygons':len(o.data.polygons),'smooth_faces':sum(p.use_smooth for p in o.data.polygons),'normals':[list(p.normal) for p in list(o.data.polygons)[:50]],'materials':[m.name for m in o.data.materials]})
-# The following tests occur in a new factory scene, never the user's source datablocks.
+# All new test geometry lives in a factory scene, not the source datablocks.
 bpy.ops.wm.read_factory_settings(use_empty=True);s=bpy.context.scene
 manifest=json.loads((OUT/'STORM-ASSET-SOURCES.json').read_text());asset=manifest['assets'][0]
 bpy.ops.import_scene.gltf(filepath=str(OUT/asset['entry']))
 obs=[o for o in s.objects if o.type=='MESH'];assert obs
-report['scan']={'entry':asset['entry'],'objects':[{'name':o.name,'bounds':bounds(o),'vertices':len(o.data.vertices),'polygons':len(o.data.polygons),'uv':[l.name for l in o.data.uv_layers],'materials':[m.name for m in o.data.materials]} for o in obs]}
-lo=Vector([min(bounds(o)[0][i] for o in obs) for i in range(3)]);hi=Vector([max(bounds(o)[1][i] for o in obs) for i in range(3)]);c=(hi+lo)*.5;span=max(hi-lo)
-s.render.engine='BLENDER_WORKBENCH';s.display.shading.light='STUDIO';s.display.shading.color_type='MATERIAL';s.display.shading.show_shadows=True;s.display.shading.show_cavity=True
-s.render.resolution_x=800;s.render.resolution_y=600;s.render.resolution_percentage=100;s.render.image_settings.file_format='PNG';s.world=bpy.data.worlds.new('probe_world')
-d=bpy.data.cameras.new('ASSET_ONLY_NOT_PROJECT');cam=bpy.data.objects.new(d.name,d);s.collection.objects.link(cam);s.camera=cam;d.type='ORTHO';d.ortho_scale=span*1.3;d.clip_end=10000
-for tag,dir in [('front',(0,-1,.35)),('reverse',(0,1,.35))]:
- cam.location=c+Vector(dir).normalized()*span*2;cam.rotation_euler=(c-cam.location).to_track_quat('-Z','Y').to_euler();s.render.filepath=str(OUT/('SCAN-ONLY-'+tag+'.png'));bpy.ops.render.render(write_still=True)
-# Probe native modifier parameters on an isolated object, not source sea.
+rows=[]
+for o in obs:
+ total=sum(p.area for p in o.data.polygons);normal=Vector((0,0,0));bins={k:0.0 for k in ['+X','-X','+Y','-Y','+Z','-Z']}
+ for p in o.data.polygons:
+  wn=(o.matrix_world.to_3x3().inverted().transposed()@p.normal).normalized();normal+=wn*p.area
+  axis=max(range(3),key=lambda i:abs(wn[i]));bins[('+' if wn[axis]>=0 else '-')+'XYZ'[axis]]+=p.area
+ rows.append({'name':o.name,'bounds':bounds(o),'vertices':len(o.data.vertices),'polygons':len(o.data.polygons),'uv':[u.name for u in o.data.uv_layers],
+  'materials':[m.name for m in o.data.materials],'area_weighted_normal':list(normal/max(total,1e-8)),'face_area_direction_bins':bins})
+report['scan']={'entry':asset['entry'],'objects':rows}
+# Native modifier test without rendering.
 bpy.ops.wm.read_factory_settings(use_empty=True);s=bpy.context.scene
 bpy.ops.mesh.primitive_plane_add();o=bpy.context.object;m=o.modifiers.new('Ocean API probe','OCEAN')
 for p in m.bl_rna.properties:
