@@ -1,39 +1,27 @@
 # 雨幕终点站 — 当前制作状态
 
-**当前为G4 R02：全场模型已扩展，两轮原生图像已取回审查；仍是PAUSED_UNMET，不是G4艺术通过。** 用户在知晓G3木作尚需复核后明确要求「直接做g04吧」，依G4-AUTHORIZATION.md进入G4；不追溯改写G3为PASS或替用户验收。
+## 2026-09-07：R03雨与材质候选正在原生渲染
 
-## 当前确切恢复点
+用户明确要求「雨呢，还有各个精细的，真实的，顶级的材质呢，我需要看到上限，继续优化」。已只读核查R02真实雨/材质实现，不重新G0/G2。现有雨主要是微弱玻璃凹凸；名称中Train/drain含rain的命中不是实际雨效。优先复用已打包木材/石材/家具/植物贴图和Blender原生节点。
 
-- 完整证据commit：`12ae1030686d97823548b2967805d85853d12ab2`
-- 证据分支：`evidence/g4-r02-34142587601-1`
-- 根目录：`workspaces/glasshouse-terminus/output/g4-r02`
-- 主文件：`g4-full-scene-candidate.blend`，实际26,580,528 bytes
-- 实际SHA-256：`173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc`
+唯一当前制作运行：**34147780955**，job **101823424691**，源码 **6ad3c7c0fbcc66a013ddf42b9ab2a6cec616932d**。构建与源码保存成功，实际原图渲染仍进行中；不得启动重复请求，不得据保存或CI状态宣称美术通过。
 
-R02运行34142587601 / job101811832877已success，源码ca63f0d47f7ec001daa2ab4eb0ee9da605a0c617；源checkpoint b5f866d592b0c722ca75d595038dbc16a07a1904。实际下载artifact10027422860，34,126,083 bytes，ZIP SHA-256 ac869b1107d64a75a8cb4e2de1cc68a4b831701bbf7c8031ef180558e4240fe3。17项清单全部匹配，无缺项；五张原图均实际逐张打开。新进程重开外部图片缺失0，渲染前后master未变。
+已存在源checkpoint：**0e0f56888549e27900070a83b9830f81c3313c4b**，分支`evidence/g4-r03-source-34147780955-1`，目录`workspaces/glasshouse-terminus/output/g4-r03`，文件`g4-full-scene-candidate.blend`。构建日志报告SHA-256 **dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5**；新文件本会话的下载字节核验与原图自审尚未完成。源日志有Blender退出时18.59MB未释放内存警告，进程已正常退出；不得把日志描述成完全无警告。
 
-最新评审：`G4-R02-REVIEW.md`，提交d161c075ed0f94e64f27f1e94628cd2bf3b567b4。最新阶段索引：`G4-EVIDENCE-INDEX.json`。原`EVIDENCE-INDEX.json`保留G1—G3历史，不含本次新G4状态；其旧G4禁止标签不覆盖后续用户授权。
+新增入口：`finish_g4_rain_materials.py`、`.github/workflows/glasshouse-g4-rain-materials.yml`、`g4-rain-material-request.json`。
 
-## 本轮实际成果
+本候选建立原生时间驱动雨滴实例，轨迹按停稳帧451真实屋顶/雨棚/地面首命中截断；风迎面玻璃有凸起水珠/依附水流，檐口有滴落，室外石材有浅积水及波纹。调整漆面、金属、木材、织物与干石表面响应，保留原几何、旧相机、灯具参数、曝光0和原运动。原生节点与受控VFX不是流体模拟；移动列车阶段的动态遮雨仍须后续验证。
 
-R01从R07真实场景向完整建筑两侧/端部、全厅与站台、家具植物、车厢内外、海崖和桥体表面扩展。复用已有家具/植物资产、纹理、原空间与时间轴；没有重建G2。车厢已具连续内拱顶、木作、软包、扶手及驾驶区，原样板节点仍可读。R01共九张原图全部已审，完整评审见G4-R01-REVIEW.md。
+本次仅一次52分钟job、44分钟生产截止、8分钟保存取回余量；公开标准runner、串行、外部支出0；下载1.5GB、工作盘8GB、证据120MB。七张目标图是否全部取得，以结束包的真实missing和原图为准；没有自动追加下一轮。
 
-R02只处理原图暴露的干地强反射与有限环境光源形状：恢复既有干区粗糙度修正，并改用连续原生World环境。原相机、曝光0、几何、动画、实体灯具及玻璃响应保留。实际厅景中的大片湿亮反射和屋顶白色灯卡形状已消除；D01和车厢保持。桥拱/桥墩更可辨，但岩体形状与海面边界仍粗糙，不能以提亮宣布外景成品。
+## 已核验的父版
 
-R02五张新夜景为C01全景、C03大厅、原G3样板语境、D01节点、C09车厢。R01的反侧/站台/木作/中性等图仍是历史版本证据，不能冒称R02新渲染。环境改动后的最终完整观察集尚待后续候选验收。
+R02完整证据`12ae1030686d97823548b2967805d85853d12ab2` / `output/g4-r02/g4-full-scene-candidate.blend`，SHA-256 `173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc`。本会话重新核验17项清单、实际master字节并查看大厅/外景原图。R02仍不是完整G4通过。历史完整状态在`819b499bd9c532de7271f22ce1d58364c6f11f2e`同名文件，及G4-R02-REVIEW.md/G4-EVIDENCE-INDEX.json。
 
-## 未关闭的重点与下一动作
+本次只读侦察run34146784055已success，证据`d76b129f6808c184faa0f6c725eb35d6e17e8300` / `output/g4-rain-inventory`；artifact10027950844实际227016 bytes，ZIP SHA-256 `02bfa59160a4bef82381c16a27dc19a7dbf52dc15be1f7fc8bff9b2a9697c89a`。完整材质节点、图像、场景对象和原源码快照均已实际取回读取。
 
-优先处理真实构造，而不是继续提高曝光或加灯。先从R02只读确认R01 C05暴露的车体端部/车头上部曲面折痕对应对象、拓扑与法线；再针对海崖大面、基础衔接、海面直线边界及桥拱V形接头进行局部工艺精修。桌面曲边/部分木作边缘条带感和少量生活痕迹仍待复核；UV改动不等于工艺自动通过。
+## 保留与质量门槛
 
-具体对象后缀、需改文件范围与修正方法须以实际读取为准，不凭模板推断。改后需当前版本原尺寸近景与必要反侧/中性/全景回归。`g4_stage_pass=false`，`stage_best=null`，`human_acceptance=false`；G5尚未开始。
+G4仍未通过；先查看原生雨与材质近景/原厅景/原外景/旧节点回归，而不是计数。车头曲面折痕、海崖大面及海面边界等历史几何问题不因改了材质自动关闭。G2 BEST、R07、R01/R02及所有失败证据、main和Leaf保留。用户G4阶段顺序例外见G4-AUTHORIZATION.md，不追溯改G3为PASS。
 
-## 保留与执行边界
-
-R01完整证据：99a716c1832d0af37ef65ac2eacbea7239dbfe30 / output/g4-r01，master SHA-256 2a7197af8f42ae6a543d1b028b4617a4784ec4fb262874e3b46f945216955819。R01 run34141383107已success，23项清单及九张原图实际核验。
-
-R07父版：192eba1352585df211f1aa2447a193eec949f6be / output/g3-r07-recovered，master SHA-256 1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e。G2 BEST仍为6520a8b6056cd7582e4bfc09367cd37fdfb193a1，SHA-256 0468b615b2d6ebeab7d641ad70c97a3efd62c7f31d1009fbc245c3c9b0f5c8be。上述相对output路径都在工作根内。
-
-本轮清点与R01/R02运行均已结束；最近查询无in-progress运行，没有安排自动下一轮。R01的45分钟、R02的26分钟单次预算已用完，不重复编辑已执行的request文件触发重跑。公开标准runner、串行渲染、外部费用0；新任务需记录新的有限请求。
-
-原合同SHA-256 0101fa0f69edc3e261ead088c447818168c397e5ca8dbc26b0de341ad7f7c23f。main、Leaf、G2和所有父工件/失败图不改。G1/P1浏览器BLOCKED_BY_ADMINISTRATOR不绕过；最终雨动画、原生4K30主片、短版、空间证据片及同源网页仍未完成。临时artifact只保留一天，长期恢复使用不可变证据commit。
+原合同SHA-256 `0101fa0f69edc3e261ead088c447818168c397e5ca8dbc26b0de341ad7f7c23f`。G1/P1浏览器BLOCKED_BY_ADMINISTRATOR不绕过；最终雨动画/4K30主片/短版/空间证据片/同源网页未完成，human_acceptance=false。
