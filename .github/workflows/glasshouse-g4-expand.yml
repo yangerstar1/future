@@ -1,0 +1,102 @@
+name: Glasshouse G4 R01 full-scene art expansion
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g4-expansion-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  expand:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-r01
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Validate user stage-order exception and restore exact source and inventory
+        timeout-minutes: 3
+        run: |
+          echo "G4_DEADLINE=$(( $(date +%s) + 34*60 ))" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('workspaces/glasshouse-terminus');q=json.loads((root/'g4-expansion-request.json').read_text())
+          assert q['stage']=='G4' and q['revision']=='R01' and q['max_runs']==1 and q['job_minutes']==45
+          assert q['external_spend_usd']==0 and q['user_authorized_stage_exception'] and not q['g3_pass']
+          assert (root/'G4-AUTHORIZATION.md').is_file()
+          print(json.dumps(q,indent=2))
+          PY
+          python3 -m py_compile workspaces/glasshouse-terminus/extend_g4_scene.py
+          git fetch --depth=1 origin 192eba1352585df211f1aa2447a193eec949f6be
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3-r07-recovered | tar -x
+          git fetch --depth=1 origin 00390f1a761b1f263e136395444e8bf7c5b7e74a
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-inventory | tar -x
+          echo '1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e  workspaces/glasshouse-terminus/output/g3-r07-recovered/g3-bay-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+      - name: Reuse official Blender and packed licensed models
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Extend existing art families and preserve original spatial and animation constraints
+        timeout-minutes: 7
+        env:
+          G4_MODE: build
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g3-r07-recovered/g3-bay-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/extend_g4_scene.py 2>&1 | tee "$OUT/build.log"
+          test "$(du -sb workspaces/glasshouse-terminus | cut -f1)" -lt 8000000000
+      - name: Persist editable full-scene candidate before image rendering
+        timeout-minutes: 3
+        run: bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r01-source
+      - name: Fresh-process exterior and hall native overviews
+        timeout-minutes: 15
+        env:
+          G4_MODE: overview
+        run: |
+          remaining=$((G4_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/extend_g4_scene.py 2>&1 | tee "$OUT/overview-render.log"
+      - name: Early real full-scene images for visual review
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g4-r01-overview-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-r01/C01-full-night.png
+            workspaces/glasshouse-terminus/output/g4-r01/C03-hall-night.png
+            workspaces/glasshouse-terminus/output/g4-r01/build-report.json
+            workspaces/glasshouse-terminus/output/g4-r01/render-metrics.json
+          retention-days: 1
+          if-no-files-found: error
+      - name: Fresh-process car, sample craft, reverse and neutral regressions
+        timeout-minutes: 30
+        env:
+          G4_MODE: regression
+        run: |
+          remaining=$((G4_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/extend_g4_scene.py 2>&1 | tee "$OUT/regression-render.log"
+      - name: Preserve exact source and actual coverage without automatic stage pass
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<100000000
+          required=['g4-full-scene-candidate.blend','build-report.json','reopen-check.json','C01-full-night.png','C03-hall-night.png','C09-car-aisle-night.png','G3-bay-context-night.png','D02-woodwork-night.png','C02-reverse-night.png','C05-platform-night.png','C03-hall-neutral.png','D01-roof-node-regression.png']
+          missing=[n for n in required if not (root/n).is_file()]
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'R01','status':'FULL_SCENE_CANDIDATE_REVIEW_PENDING' if not missing else 'PARTIAL_OR_FAILED_CANDIDATE_NOT_A_PASS','user_authorized_stage_exception':True,'g3_historical_pass':False,'run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'parent_evidence_commit':'192eba1352585df211f1aa2447a193eec949f6be','parent_master_sha256':'1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e','files':files,'missing':missing,'g4_stage_pass':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED','scope':'First full-scene art expansion of real R07. No final film or webpage claimed.'},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r01
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-r01-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-r01
+          retention-days: 1
+          if-no-files-found: error
