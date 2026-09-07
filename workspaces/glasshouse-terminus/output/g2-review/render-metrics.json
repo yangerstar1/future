@@ -1,0 +1,290 @@
+[
+  {
+    "view": "QA_G2_bridge_joint",
+    "file": "bridge-joint-before.png",
+    "frame": 451,
+    "seconds": 14.034033297999997,
+    "resolution": [
+      960,
+      600
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -42.8440055847168,
+      29.709041595458984,
+      -1.5
+    ],
+    "rotation": [
+      1.1504995822906494,
+      -8.765928072307361e-08,
+      2.6422460079193115
+    ]
+  },
+  {
+    "view": "QA_G2_bridge_joint",
+    "file": "bridge-joint-after.png",
+    "frame": 451,
+    "seconds": 12.717931499999992,
+    "resolution": [
+      960,
+      600
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -42.8440055847168,
+      29.709041595458984,
+      -1.5
+    ],
+    "rotation": [
+      1.1504995822906494,
+      -8.765928072307361e-08,
+      2.6422460079193115
+    ]
+  },
+  {
+    "view": "C01_exterior_hero",
+    "file": "C01-repaired-same-camera.png",
+    "frame": 451,
+    "seconds": 32.28419685099999,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 40.0,
+    "position": [
+      32.0,
+      52.0,
+      23.0
+    ],
+    "rotation": [
+      1.2386444807052612,
+      5.874365882618804e-08,
+      2.422762870788574
+    ]
+  },
+  {
+    "view": "C01_exterior_hero",
+    "file": "C01.png",
+    "frame": 451,
+    "seconds": 30.743219522999993,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 34.5,
+    "position": [
+      32.0,
+      52.0,
+      23.0
+    ],
+    "rotation": [
+      1.2386444807052612,
+      5.874365882618804e-08,
+      2.422762870788574
+    ]
+  },
+  {
+    "view": "C02_reverse_exterior",
+    "file": "C02.png",
+    "frame": 451,
+    "seconds": 37.97067930600002,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 43.0,
+    "position": [
+      -31.0,
+      -38.0,
+      20.0
+    ],
+    "rotation": [
+      1.210662603378296,
+      -1.157344939883842e-07,
+      -0.6518692374229431
+    ]
+  },
+  {
+    "view": "C03_hall_to_platform",
+    "file": "C03.png",
+    "frame": 451,
+    "seconds": 55.084441242000025,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 35.0,
+    "position": [
+      8.0,
+      -4.5,
+      3.0
+    ],
+    "rotation": [
+      1.5506188869476318,
+      7.001838753240008e-08,
+      0.7378150224685669
+    ]
+  },
+  {
+    "view": "C04_platform_to_hall",
+    "file": "C04.png",
+    "frame": 451,
+    "seconds": 67.890359225,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 32.0,
+    "position": [
+      10.0,
+      9.100000381469727,
+      2.8499999046325684
+    ],
+    "rotation": [
+      1.635055661201477,
+      -8.0380438305383e-08,
+      2.1926205158233643
+    ]
+  },
+  {
+    "view": "C05_along_platform",
+    "file": "C05.png",
+    "frame": 451,
+    "seconds": 46.068383315999995,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 43.0,
+    "position": [
+      -14.0,
+      9.600000381469727,
+      2.700000047683716
+    ],
+    "rotation": [
+      1.5629351139068604,
+      -2.0068428696617957e-08,
+      -1.4789502620697021
+    ]
+  },
+  {
+    "view": "C06_car_to_hall",
+    "file": "C06.png",
+    "frame": 451,
+    "seconds": 65.86645122700003,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 29.0,
+    "position": [
+      -2.0,
+      12.619999885559082,
+      2.700000047683716
+    ],
+    "rotation": [
+      -1.5610119104385376,
+      3.141592502593994,
+      8.553621699824987e-10
+    ]
+  },
+  {
+    "view": "C07_orthographic_plan",
+    "file": "C07.png",
+    "frame": 451,
+    "seconds": 27.673947451999993,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 50.0,
+    "position": [
+      -17.0,
+      10.0,
+      105.0
+    ],
+    "rotation": [
+      0.0,
+      -0.0,
+      0.0
+    ]
+  },
+  {
+    "view": "C09_car_aisle_failure_check",
+    "file": "C09.png",
+    "frame": 451,
+    "seconds": 59.75894612999997,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 30.0,
+    "position": [
+      -3.0,
+      12.100000381469727,
+      2.700000047683716
+    ],
+    "rotation": [
+      1.522290825843811,
+      -0.0,
+      -1.5707963705062866
+    ]
+  },
+  {
+    "view": "C08_true_section",
+    "file": "C08.png",
+    "frame": 451,
+    "seconds": 22.909155023999915,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 50.0,
+    "position": [
+      -44.0,
+      2.799999952316284,
+      5.0
+    ],
+    "rotation": [
+      1.5541311502456665,
+      -0.0,
+      -1.5707963705062866
+    ]
+  }
+]

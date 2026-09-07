@@ -1,0 +1,104 @@
+{
+  "layout": {
+    "hall_length": 32.0,
+    "hall_width": 13.0,
+    "rail_head_z": 0.04,
+    "platform_z": 1.15,
+    "car_floor_z": 1.15,
+    "platform_edge_y": 10.65,
+    "train_near_side_y": 10.7,
+    "door_world_x": -2.0,
+    "car_length": 16.37,
+    "walking_shot_seconds": [
+      13,
+      22
+    ]
+  },
+  "walk_keys": [
+    [
+      13,
+      [
+        -2,
+        1.1,
+        2.76
+      ],
+      [
+        -2,
+        8,
+        2.73
+      ]
+    ],
+    [
+      15.5,
+      [
+        -2,
+        5.55,
+        2.76
+      ],
+      [
+        -2,
+        11,
+        2.75
+      ]
+    ],
+    [
+      18,
+      [
+        -2,
+        10.92,
+        2.76
+      ],
+      [
+        -2,
+        13,
+        2.75
+      ]
+    ],
+    [
+      19.3,
+      [
+        -2,
+        12.1,
+        2.76
+      ],
+      [
+        3.2,
+        12.1,
+        2.73
+      ]
+    ],
+    [
+      20.6,
+      [
+        -0.2,
+        12.1,
+        2.76
+      ],
+      [
+        -2,
+        9,
+        2.9
+      ]
+    ],
+    [
+      22,
+      [
+        1,
+        12.1,
+        2.76
+      ],
+      [
+        -2,
+        3.4,
+        3.25
+      ]
+    ]
+  ],
+  "clearance_design_metres": {
+    "platform_to_train": 0.049999999999998934,
+    "train_door_clear_width": 1.2,
+    "station_portal_clear_width": 2.4,
+    "aisle_width": 0.64
+  },
+  "note": "Design parameters do not constitute art acceptance. Verify actual views and continuous route."
+}
