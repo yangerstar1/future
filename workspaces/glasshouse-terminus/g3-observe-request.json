@@ -1,0 +1,33 @@
+{
+  "stage": "G3",
+  "request_id": "G3-V01-WITNESS-20260907",
+  "review": "G3-R01-DETAIL-AUDIT.md",
+  "parent_evidence_commit": "87d75e3b90d6b330fb378d1fc2200f5d1a52e418",
+  "parent_master_sha256": "3162ba27fbeb3055c5fbe94a6fc2422cc9cca11f68dda381b06627ebcaf6d680",
+  "geometry_edits": false,
+  "material_edits": false,
+  "animation_edits": false,
+  "g4_allowed": false,
+  "max_runs": 1,
+  "job_minutes": 25,
+  "production_deadline_minutes": 15,
+  "save_retrieval_review_reserve_minutes": 10,
+  "external_spend_usd": 0,
+  "concurrent_render_jobs": 1,
+  "max_download_bytes": 1500000000,
+  "max_working_disk_bytes": 8000000000,
+  "max_evidence_bytes": 50000000,
+  "reason": "Actual R01 D05 native image crops the guide mechanism and threshold. R02 deliberately preserves this camera. Supplementary witnesses close observation coverage without deleting the closeup, changing the candidate or expanding the scene.",
+  "observations": [
+    "Complete furniture/bay context using actual bounding-box fit",
+    "Complete doorway showing guide housing, leaves, threshold and platform",
+    "Same additional doorway camera at actual source frames 301, 330 and 348",
+    "Close diagnostic of the actual guide roller",
+    "Close diagnostic of the actual threshold"
+  ],
+  "preserve": ["Exact R02 master bytes", "all original cameras and lenses", "all source geometry and poses", "all source material nodes", "G2 BEST", "R01/R02 failing observations"],
+  "limitations": "Additional native 1000x625 and 640x400 still observations, not a final 4K film or a new continuous animatic. Neutral lighting explicitly matches R01/R02 rather than claiming G2 identity.",
+  "reviewer": "Same-context actual image review, not independent agent or user acceptance",
+  "browser_gate": "BLOCKED_UNCHANGED",
+  "acceptance": "Inspect actual returned pixels plus unchanged-source/camera hashes. View count and CI success do not grant G3 or G4 acceptance."
+}
