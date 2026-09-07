@@ -1,0 +1,48 @@
+name: Glasshouse G4 read-only extension inventory
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-inventory.yml]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  inventory:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-inventory
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore immutable R07 and keep G3 unmet under user scope exception
+        timeout-minutes: 2
+        run: |
+          test -f workspaces/glasshouse-terminus/G4-AUTHORIZATION.md
+          git fetch --depth=1 origin 192eba1352585df211f1aa2447a193eec949f6be
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3-r07-recovered | tar -x
+          echo '1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e  workspaces/glasshouse-terminus/output/g3-r07-recovered/g3-bay-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          python3 -m py_compile workspaces/glasshouse-terminus/inspect_g4_source.py
+      - name: Reuse locked official Blender
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Inspect existing source without saving or changing the scene
+        timeout-minutes: 2
+        run: blender -b workspaces/glasshouse-terminus/output/g3-r07-recovered/g3-bay-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/inspect_g4_source.py 2>&1 | tee "$OUT/inventory.log"
+      - name: Persist small read-only report
+        if: always()
+        timeout-minutes: 2
+        run: bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-inventory
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-inventory-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-inventory
+          retention-days: 1
+          if-no-files-found: error
