@@ -1,0 +1,163 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R06",
+  "status": "PARTIAL_OR_FAILED_NOT_ART_PASS",
+  "source_sha": "f49f9f67d269ee776c2deccb8b2fcef0b5aaa908",
+  "run_id": "34157160255",
+  "parent_master_sha256": "232a602326d2519d8f3bb5fe125a416c4d36149885173563df1297092e493445",
+  "files": {
+    "MASTER-PARTS.json": {
+      "bytes": 970,
+      "sha256": "9fb8c4b5609e9d48e4797910ea89015a6a416699f9e5ecbe8981a6395cbd82e6"
+    },
+    "build.log": {
+      "bytes": 386,
+      "sha256": "d78e003b0a5eea73f195c5c8e06cf3f0be16abfb3450f81cfdcf4c65aa8ca32e"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "MASTER-RESTORE.txt": {
+      "bytes": 308,
+      "sha256": "9f84813ca2379a0e1390eb5657c394dd5a81cc21eb9e844f45fc10b341999e25"
+    },
+    "PARENT-R03-build-report.json": {
+      "bytes": 136727,
+      "sha256": "c5eaf036bbb1eec865ce6ff8d506de204241497cc813bf4d88a0774156c49bf1"
+    },
+    "context-metrics.json": {
+      "bytes": 602,
+      "sha256": "5ddba32a1a37a8074715acb2537e4d33edc5f4ef77fb42bbe4b36cc07c993bd0"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "C03-surface-rain-hall.png": {
+      "bytes": 1850269,
+      "sha256": "69b7149e3c2c1d4c89511f5f87c7cb594f4d754ceba59e0e57e7d1e58162e3e1"
+    },
+    "ASSET-AND-API-PROBE.json": {
+      "bytes": 26320,
+      "sha256": "4ce7ed749df485ceac44e0913a0e1b3ef1e6bc6afb665b3277c26e1cb85344a9"
+    },
+    "restore_master.py": {
+      "bytes": 3552,
+      "sha256": "36eb86b8f1156065112bb5ff350a9c6e606cc34f127bdc4f7db1bbcff94071f6"
+    },
+    "g4-full-scene-candidate.blend": {
+      "bytes": 154989591,
+      "sha256": "190e8156502991a17b9437c71923e04faa475eba2357db144f445435fbe58144"
+    },
+    "COAST-R04-build-report.json": {
+      "bytes": 18831,
+      "sha256": "37803d3a967ec8d42b4ee0ad045426372ea169960151ef3ca97d699731450cec"
+    },
+    "COAST-R05-build-report.json": {
+      "bytes": 6076,
+      "sha256": "e21bc4c16a7d02edcaac65f534f6e1e4267cd9aca376d75dbccf35bc3e79031d"
+    },
+    "COAST-R01-build-report.json": {
+      "bytes": 13117,
+      "sha256": "f4f902b3ac176672abf1a20032324b67da3c8bb8afdb9f20c1f9580ff4d80afb"
+    },
+    "STORM-ASSET-SOURCES.json": {
+      "bytes": 5222,
+      "sha256": "cf382970397232ae1ec7ac025f73469731816d68730233e0ec916a8742993370"
+    },
+    "COAST-R02-build-report.json": {
+      "bytes": 2239,
+      "sha256": "79eab19add15f235f4547d8330fa75c7dcf475c4bda91bfb5bee645591e3671b"
+    },
+    "FINITE-REQUEST.txt": {
+      "bytes": 544,
+      "sha256": "54add71ec7aa4772ec038fba6fe174d036c2f4df104f714da6cc8b4fd9cb526e"
+    },
+    "COAST-R03-build-report.json": {
+      "bytes": 2350,
+      "sha256": "fd4065009b83102f7047137591255b71db6112639b767781345fcfa1229992ea"
+    },
+    "provision-source.log": {
+      "bytes": 8856,
+      "sha256": "f98a2c0047643413dcba6abf39874a5e0b6d1b22ea85337cc1b9417bd87475b3"
+    },
+    "context.log": {
+      "bytes": 489951,
+      "sha256": "6fb26745e397c1605698d97e1060af31e5768ae033d4d772da19ca1e532117b4"
+    },
+    "provision-render.log": {
+      "bytes": 8777,
+      "sha256": "bb1ec32b312f43a130335cc54e16891652926eb34701cdaca815de7f41009217"
+    },
+    "build-report.json": {
+      "bytes": 200120,
+      "sha256": "d95499311f83474a4a2f2965bff670ac0a3ef48e7a2cea6d5fadb22c53ed13f7"
+    },
+    "SURFACE-ASSET-SOURCES.json": {
+      "bytes": 2994,
+      "sha256": "3700333aaac1b4d99ee438a8b31db0b1f664a141e8c70d241fc769e140164422"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_diff_4k.jpg": {
+      "bytes": 13605843,
+      "sha256": "a72582be1337c11e2e59a03e01ef0270f2c0f455a410c5cc667df9682e2c76ce"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_nor_gl_4k.jpg": {
+      "bytes": 14307275,
+      "sha256": "d58370b656d08316b9aca02c3f627e0ffcf2dd22873c4cbeb343321ccd044620"
+    },
+    "assets/poly_wool_herringbone/upstream-info.json": {
+      "bytes": 1126,
+      "sha256": "faa965db26931d0ed3a341b8d3c6b6fe5cfbb1f9f55f4236a3fba8cf6391e377"
+    },
+    "assets/poly_wool_herringbone/upstream-files.json": {
+      "bytes": 59902,
+      "sha256": "e551a61f9486aeec7efa27e9e009bf12c52497e6718341335c0b5acbd37f77f1"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_rough_4k.jpg": {
+      "bytes": 15049055,
+      "sha256": "04ba7ce77111a715fd689aa420a6e880b3d166a11e2e9068ae52c0235f2c3329"
+    },
+    "assets/kloofendal_overcast_puresky/kloofendal_overcast_puresky_2k.hdr": {
+      "bytes": 4335717,
+      "sha256": "312b1b04b7f10057a4f1418abc59d1166c8933cc93fc72051502edaf8d6b2fcd"
+    },
+    "assets/kloofendal_overcast_puresky/upstream-info.json": {
+      "bytes": 1345,
+      "sha256": "fd079df4389329cb1393a2ba7a2dbe153d6ecf3d1d12de2c6543c9a20ea625b6"
+    },
+    "assets/kloofendal_overcast_puresky/upstream-files.json": {
+      "bytes": 2830,
+      "sha256": "0eba63450bfabd5d0fbfdc562107fb5ee40ea23bfe2ff00f13829ca6a11d265d"
+    }
+  },
+  "missing": [
+    "C01-surface-rain-coast.png",
+    "M01-attached-rain.png",
+    "M03-contact-wet-stone.png",
+    "M04-scanned-wool.png",
+    "M02-aligned-walnut.png",
+    "D01-node-regression.png",
+    "context-reopen.json",
+    "details-reopen.json"
+  ],
+  "native_motion_frames": 0,
+  "native_motion_complete": false,
+  "storage": "Native packed .blend in ZIP; verified lossless chunks in Git.",
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "generated_images_are_evidence": false,
+  "browser_gate": "BLOCKED_UNCHANGED"
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "view": "C03_hall_to_platform",
+    "file": "C03-surface-rain-hall.png",
+    "frame": 451,
+    "seconds": 477.662571619,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 35.0,
+    "position": [
+      8.0,
+      -4.5,
+      3.0
+    ],
+    "rotation": [
+      1.5506188869476318,
+      7.001838753240008e-08,
+      0.7378150224685669
+    ],
+    "master_sha256": "190e8156502991a17b9437c71923e04faa475eba2357db144f445435fbe58144",
+    "native_render": true,
+    "revision": "COAST-R06",
+    "proof_only": false
+  }
+]
