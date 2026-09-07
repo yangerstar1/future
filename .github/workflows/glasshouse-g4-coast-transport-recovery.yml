@@ -1,0 +1,118 @@
+name: Glasshouse G4 coast lossless transport and native review
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-coast-transport-recovery.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  preserve-existing-master:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    outputs:
+      evidence_commit: ${{ steps.persist.outputs.evidence_commit }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r01
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Recover already-saved exact bytes after file-size guard, not a new build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl --fail --location --max-time 180 --max-filesize 150000000 -H "Authorization: Bearer $GH_TOKEN" -H 'Accept: application/vnd.github+json' 'https://api.github.com/repos/yangerstar1/future/actions/artifacts/10028760007/zip' -o "$RUNNER_TEMP/coast-saved.zip"
+          echo "32836564594f89f7c0ed29ecff5370378367a0ef56d808506adfc2cffd14bfeb  $RUNNER_TEMP/coast-saved.zip" | sha256sum --check
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile,os,hashlib,json
+          r=Path(os.environ['OUT']).resolve();r.mkdir(parents=True,exist_ok=True)
+          with zipfile.ZipFile(Path(os.environ['RUNNER_TEMP'])/'coast-saved.zip') as z:
+              assert all((r/n).resolve().is_relative_to(r) for n in z.namelist())
+              z.extractall(r)
+          p=r/'g4-full-scene-candidate.blend';assert p.stat().st_size==105907206 and hashlib.sha256(p.read_bytes()).hexdigest()=='1be3507f7c31ed2f8e5431aefaf787ff414a29fdce696b596a2baff68b0789c6'
+          (r/'TRANSPORT-RECOVERY.json').write_text(json.dumps({'source_run':34149137700,'source_artifact':10028760007,'failure':'Saved model exceeds98MB per-Git-file guard. Geometry, native ocean replay and preservation checks succeeded. No beauty renders ran.','recovery':'Lossless verified53MB Git chunks; artifact keeps complete original blend. No model resave, LOD reduction, missing textures or scene rebuild.','max_runs':1,'storage_job_minutes':8,'render_job_minutes':45,'production_deadline_minutes':38,'save_reserve_minutes':7,'external_spend_usd':0,'g4_stage_pass':False,'human_acceptance':False},indent=2))
+          PY
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py prepare "$OUT"
+      - name: Persist exact editable source using original data-only publisher
+        id: persist
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r01-source-recovered | tee "$RUNNER_TEMP/persist.log"
+          commit=$(sed -n 's/^PERSISTED_EVIDENCE_COMMIT=//p' "$RUNNER_TEMP/persist.log");test -n "$commit"
+          echo "evidence_commit=$commit" >> "$GITHUB_OUTPUT"
+  native-review:
+    needs: preserve-existing-master
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r01
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact master and validate lossless reconstruction
+        env:
+          EVIDENCE: ${{ needs.preserve-existing-master.outputs.evidence_commit }}
+        run: |
+          echo "G4_COAST_DEADLINE=$(( $(date +%s) + 38*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin "$EVIDENCE"
+          git archive FETCH_HEAD "$OUT" | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore "$OUT"
+          rm -r "$OUT/master-parts"
+          echo "1be3507f7c31ed2f8e5431aefaf787ff414a29fdce696b596a2baff68b0789c6  $OUT/g4-full-scene-candidate.blend" | sha256sum --check
+      - name: Reuse pinned official Blender
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-render.log"
+      - name: Original exterior and reverse native renders
+        timeout-minutes: 24
+        env:
+          G4_COAST_MODE: preview
+        run: |
+          remaining=$((G4_COAST_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_coastal_environment.py 2>&1 | tee "$OUT/preview-render.log"
+      - name: Early real coast images, no automatic artistic acceptance
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g4-coast-r01-early-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r01/C01-coast-rain.png
+            workspaces/glasshouse-terminus/output/g4-coast-r01/C02-reverse-coast.png
+            workspaces/glasshouse-terminus/output/g4-coast-r01/build-report.json
+            workspaces/glasshouse-terminus/output/g4-coast-r01/preview-render-metrics.json
+          retention-days: 1
+      - name: Native cliff and sea closeups and preserved rainy hall
+        timeout-minutes: 30
+        env:
+          G4_COAST_MODE: detail
+        run: |
+          remaining=$((G4_COAST_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_coastal_environment.py 2>&1 | tee "$OUT/detail-render.log"
+      - name: Persist exact master and truthful native evidence
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py prepare "$OUT"
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,hashlib,os
+          r=Path(os.environ['OUT']);files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<180000000
+          required=['g4-full-scene-candidate.blend','C01-coast-rain.png','C02-reverse-coast.png','E01-rock-and-water.png','E02-wave-and-foam.png','C03-rain-hall-regression.png','preview-reopen-check.json','detail-reopen-check.json']
+          missing=[n for n in required if not (r/n).exists()]
+          (r/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R01','status':'FIVE_NATIVE_VIEWS_REVIEW_PENDING_NOT_ART_PASS' if not missing else 'PARTIAL_OR_FAILED_NOT_A_PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'art_source_sha':'3396b3e4c8e82bd941201ff92db26a71447bddc7','master_sha256':'1be3507f7c31ed2f8e5431aefaf787ff414a29fdce696b596a2baff68b0789c6','files':files,'missing':missing,'git_storage':'Lossless parts. Run restore_master.py restore . before checking canonical files. Actions artifact contains full native blend.','g4_stage_pass':False,'human_acceptance':False},indent=2))
+          PY
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r01
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-coast-r01-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r01
+          retention-days: 1
+          if-no-files-found: error
