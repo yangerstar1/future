@@ -65,15 +65,17 @@ if mode=='build':
             distances.append(math.hypot(v.x-x,v.y-at.y))
         assert min(distances)>.55,'New fixture would intrude on the preserved route'
         s.frame_set(451)
-        cube('G3R05_uplight_foot',(x,6.00,1.19),(.15,.17,.08),paint,.018)
-        cylinder('G3R05_uplight_body',at-direction*.11,at,.069,paint,48)
+        foot=cube('G3R05_uplight_foot',(x,6.00,1.19),(.15,.17,.08),paint,.018)
+        body=cylinder('G3R05_uplight_body',at-direction*.14,at,.069,paint,48)
         cylinder('G3R05_uplight_bezel',at,at+direction*.014,.073,trim,48)
         cylinder('G3R05_uplight_lens',at+direction*.014,at+direction*.017,.060,lens,48)
+        bpy.context.view_layer.update()
+        assert abs(bounds(foot)[0][2]-1.15)<.001 and bounds(body)[0][2]<bounds(foot)[1][2], 'Fixture support contact failed'
         d=bpy.data.lights.new('G3R05_arch_wash','SPOT');d.energy=220;d.color=(1,.91,.76)
         d.spot_size=math.radians(50);d.spot_blend=.70;d.shadow_soft_size=.035
         ob=bpy.data.objects.new('G3R05_arch_wash',d);c.objects.link(ob);ob.location=at+direction*.032
         ob.rotation_euler=direction.to_track_quat('-Z','Y').to_euler();lights.append(ob.name)
-        report['uplights'].append({'object':ob.name,'position':list(ob.location),'target':list(target),'energy':220,'spot_angle_degrees':50,'minimum_xy_walk_clearance':min(distances),'supported_fixture':True})
+        report['uplights'].append({'object':ob.name,'position':list(ob.location),'target':list(target),'energy':220,'spot_angle_degrees':50,'minimum_xy_walk_clearance':min(distances),'supported_fixture':True,'foot_bounds':bounds(foot),'body_bounds':bounds(body)})
     s['g3_night_lights']=json.dumps(json.loads(s['g3_night_lights'])+lights)
     assert signature()==before,'Protected source geometry/cameras changed'
     report['protected_before']=before;report['protected_after']=signature()
