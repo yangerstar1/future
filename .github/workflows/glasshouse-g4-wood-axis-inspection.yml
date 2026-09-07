@@ -1,0 +1,57 @@
+name: Glasshouse G4 read-only wood scan and UV alignment
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-wood-axis-inspection.yml]
+permissions:
+  contents: write
+jobs:
+  inspect-source-only:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-wood-axis-inspection
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore verified integrated source, never rebuild or render it
+        timeout-minutes: 3
+        run: |
+          git fetch --depth=1 origin def004d60bb37a58a043a3506fb2bbda5c3a0e5c
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r04 | tar -x
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py restore workspaces/glasshouse-terminus/output/g4-coast-r04
+          echo '51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c  workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          printf 'One12minute read-only source investigation, no rendering, no scene save. Inspect actual3table rims and7sideboard members against the packed veneer image; return UV directions and links before any proposed local modification. Existing spectrum water, scanned geology, rain, wool, lights, cameras, scene exposure unchanged. Public standard runner, external spend0,download1.5GB,disk8GB,report8MB. Does not contend for the production renderer. No art-pass claim.\n' > "$OUT/FINITE-REQUEST.txt"
+          python3 -m py_compile workspaces/glasshouse-terminus/inspect_g4_wood_coordinate_alignment.py
+      - name: Reuse pinned official Blender
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Read actual packed scan, shader links and UV directions only
+        timeout-minutes: 2
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/inspect_g4_wood_coordinate_alignment.py 2>&1 | tee "$OUT/inspection.log"
+      - name: Persist diagnostic data, not a new artwork candidate
+        if: always()
+        timeout-minutes: 2
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          r=Path(os.environ['OUT']);r.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(r)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in r.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<8000000
+          (r/'DELIVERY.json').write_text(json.dumps({'stage':'G4','mode':'READ_ONLY_WOOD_AXIS_INSPECTION','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'master_sha256':'51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c','files':files,'complete':(r/'wood-axis-inspection.json').is_file(),'g4_stage_pass':False,'human_acceptance':False},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-wood-axis-inspection
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-wood-axis-inspection-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-wood-axis-inspection
+          retention-days: 1
+          if-no-files-found: error
