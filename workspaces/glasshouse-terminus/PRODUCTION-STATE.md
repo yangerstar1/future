@@ -1,70 +1,51 @@
 # 雨幕终点站 — 当前制作状态
 
-更新：2026-09-07。本页与 EVIDENCE-INDEX.json、G2-REVIEW-03.md 是当前交接入口。旧会话里「Future未执行」和「G2仍在运行」均不能代表当前状态。
+更新：2026-09-07，G3-R01运行中。本页当前状态优先于EVIDENCE-INDEX.json中尚未更新的G3 NOT_STARTED字段；G2 BEST仍以该索引及G2-REVIEW-03.md为准。
 
-权威合同：《雨幕终点站》v1.0，SHA-256 `0101fa0f69edc3e261ead088c447818168c397e5ca8dbc26b0de341ad7f7c23f`。完整合同已取回核验并阅读；不改变主题、A–E范围或最终4K要求。
+权威合同：《雨幕终点站》v1.0，SHA-256 `0101fa0f69edc3e261ead088c447818168c397e5ca8dbc26b0de341ad7f7c23f`。保持原创雨夜花房车站、A–E范围、最终原生4K主片与同源网页要求。用户已再次要求通过GitHub继续制作，不需要重做G0/G2。
 
-## 当前门槛
+## 当前制作事实
 
-| 项目 | 状态 |
-|---|---|
-| G0 | 制作入口已验证；不重新开始 |
-| G1 | P0风险样板允许继续白模；完整G1未全部通过，P1浏览器仍BLOCKED_BY_ADMINISTRATOR |
-| G2 | `G2_STAGE_GATE_PASSED_SELF_REVIEW`，已建立完整白模阶段BEST |
-| G3 | 尚未开始，下一制作段为一个最终质量样板 |
-| 完整任务 | `PAUSED_UNMET`，不是最终成品，不是用户ACCEPTED |
+- 仓库 `yangerstar1/future` 公开；制作分支 `codex/glasshouse-terminus`。本次GitHub返回push权限，读取与Actions状态获取正常，不能沿用旧会话的“GitHub无执行入口”结论。
+- G3制作源码commit：`cf89b07e0e3831d892e742083c7e75a05c285525`。
+- 实际Actions运行：`34113862241`；job：`101716020299`。
+- 已完成：恢复确切G2 BEST与G1素材、工具安装、两类选定模型下载、在原场景内建造一跨G3候选、渲染前持久保存可编辑候选。
+- 当前：正在新进程渲染雨夜/中性照明总览及原C03语境；细节图与实际门状态随后由同一有界工作流执行。
+- 本轮尚未取回G3原图，不宣称视觉通过，不放行G4。
 
-G2结论来自实际九个固定原图、同条件修正对照、覆盖全部280帧的联系表和关键原生帧、真实工件/重开与事件检查；不是CI绿灯或自评分。评审为同上下文自审，独立代理不可用，用户尚未验收。
+## 已有G3恢复点 — 不是G3 BEST
 
-## BEST与恢复入口
+证据分支 `evidence/g3-source-34113862241-1`，commit `0dc1d2e9df7d044081a82756218250a4ddd6bfa2`。
 
-- 阶段标识：`G2-BEST-20260907-R01`。
-- 制作源码：`91d414fb8ac9aadf74e5a86d4fc74f9ac7ab234a`。
-- 成功运行：`34109215120`；job `101702897010`，已完成，不再等待。
-- 持久完整工件分支：`evidence/g2-repair-34109215120-1`。
-- 持久完整工件commit：`6520a8b6056cd7582e4bfc09367cd37fdfb193a1`。
-- 工件根目录：`workspaces/glasshouse-terminus/output/g2-review/`。
-- master：`g2-complete-whitebox.blend`，实际字节SHA-256 `0468b615b2d6ebeab7d641ad70c97a3efd62c7f31d1009fbc245c3c9b0f5c8be`。
-- 完整ZIP artifact：`10014580129`，25,784,156 bytes，SHA-256 `5bef8306c0ed602b8f176366377a98590a740fee26ce4554c9b7f464dac8702d`。临时artifact只保留1天，长期恢复使用上面的Git证据commit。
-- `whitebox-28s.mp4`：原生640×360、10FPS、280帧、28秒，Blender Workbench低成本预演，不是最终4K影片。
-- `C01.png`至`C09.png`：原生1280×800、24samples、Cycles固定观察。机位/焦距/曝光/基准时刻/色彩管理以BEST主工件及render-metrics.json冻结。
+目录：`workspaces/glasshouse-terminus/output/g3/`。
 
-父白模与失败观察没有覆盖：`453a74c1d0eb668ed483219eb684bf57798d4a8c`。修正仅处理主构图裁切及共享桥墩重复/错向连接，保护既有A–D、轨道、列车/门/步行事件和材质。细节见三份G2审查记录。
+主工件：`g3-bay-candidate.blend`。持久build-report记录摘要 `e95b37d7f2d8a28efc8bca32815b0624acae7a787e2c7bbe7565eb30e3588027`；本次已读取报告，完整工件实际下载后的字节核验仍待完成，不将报告摘要冒称下载核验。
 
-## 本轮失败与恢复事实
+实际复用：G1处理过的walnut/slate材质；Poly Haven的GreenChair_01及potted_plant_01。已读取实际MODEL-SOURCES.json，记录下载11,114,639 bytes、作者、来源、许可、依赖和逐文件摘要；模型已经导入，不只是列在计划里。来源许可再次核对官方页面，预览照片不纳入工程。
 
-原G2运行 `33930258391` 的建模/渲染已成功，但证据分支继承工作流文件，推送被权限检查拒绝；临时工件后来过期。本轮复用已有publish_evidence.sh，写数据专用唯一证据分支，没有提高workflows权限。
+build-report显示原保护几何/机位在基准帧的摘要前后一致；这不能代替全时域运动与原图审查。
 
-恢复运行 `34106817235` 保存了九图与master；其17分钟预演步骤超时，只有278帧，因此不算完整视频。之后依据原图缺陷只进行一次定向修正，运行 `34109215120` 的固定图、新进程重开、完整预演、持久保存和回传全部完成。完整下载工件的65项清单摘要均匹配；原partial日志摘要异常没有混入新BEST。
+## 保持G2 BEST
 
-## 已核验和仍未通过
+- 标识：`G2-BEST-20260907-R01`，同上下文图像/运动自审阶段通过，不代表用户最终接受。
+- 完整证据commit：`6520a8b6056cd7582e4bfc09367cd37fdfb193a1`。
+- 主工件：`workspaces/glasshouse-terminus/output/g2-review/g2-complete-whitebox.blend`。
+- SHA-256：`0468b615b2d6ebeab7d641ad70c97a3efd62c7f31d1009fbc245c3c9b0f5c8be`。
+- 成功运行 `34109215120`；完整九图及28秒640×360/10FPS白模预演已审查。白模不是最终4K影片。
+- G1素材持久证据：`0615e137cd53b3e3a150979b1a17d2d9c818eafb`。
 
-G2已核验：A–E低成本骨架、完整正反面/车厢、九视图、28秒预演和实际「主厅→站台→停稳列车→车厢→回望主厅」空间链。源帧301停稳，314仍关门，315开始移动，348开门完成。抽样通行射线无碰撞记录，18个地板检查命中真实地面；这是抽样诊断，不是所有路线的穷尽人体碰撞证明。
+不覆盖上述证据分支；main和Leaf保持不变。
 
-前三项待解决：
-1. G3真正最终质量样板尚未制作：白模玻璃、木作、座椅、植物与湿区不是最终材质/资产。
-2. 桥拱接头近景仍有V形缝；最终细节镜头及开门动作可读性仍需后续完善，不能在最终验收清单中消失。
-3. G1/P1浏览器仍被管理员安全检查阻断。未清认证、改安全配置或换工具绕过；网页不能从完整任务删除。
+## 本轮预算与门槛
 
-最终4K30主片、12秒短版、15–20秒证据片、同源网页、完整质量回归与用户验收均未完成。
+沿用g3-request.json：公开标准ubuntu-24.04 runner，单并发、单次运行≤60分钟、外部支出零、下载≤1.5GB、工作盘≤8GB、证据≤180MB，计划制作上限45分钟，预留15分钟保存/取回/审查。不另开重复G3任务，不从白模速度推算最终4K影片成本。
 
-## 下一动作和有限资源
+需要取回并审查：雨夜/中性总览、原C03、D01/D02/D03/D05/D06、反向图、停稳/开门过程图；重新打开、外部图片缺失、原始帧391–660通行射线、地板及列车/车门时序证据。只以实际图像与可恢复工件决定G3门槛，CI成功不自动通过。
 
-下一段先读G3-NEXT-STEP.md与本次审查，从核验摘要后的G2 BEST继续。先做现有主厅临站台、门洞所在x=-4至0的一个结构跨，完成中性/目标雨夜照明下的C03局部及D01–D03/D05近景；样板未通过不批量扩展。
+## 尚未完成与边界
 
-本轮公开标准runner、单并发、外部支出零。恢复及定向修正分别有界，定向修正请求限定一次、job60分钟内；此请求已执行结束，没有未声明的后台G3作业。后续G3制作/渲染/下载预算未启用，必须按实际场景吞吐另行记录，不把白模速度外推为4K成片速度。
+G3质量候选未验收；G4全场精修、G5完整事件与最终电影、G6同源网页、G7完整回归未完成。桥拱接头V形缝仍留在最终问题清单。
 
-最近成功的云端核心命令（工作目录为真实runner仓库根）：
-```bash
-blender -b workspaces/glasshouse-terminus/output/g2/g2-complete-whitebox.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g2.py
-G2_OUTPUT_ROOT=workspaces/glasshouse-terminus/output/g2-review xvfb-run -a -s '-screen 0 1280x720x24' blender -b workspaces/glasshouse-terminus/output/g2-review/g2-complete-whitebox.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/render_animatic.py
-```
-这些命令来自成功工作流；单独执行仍需按该工作流准备确切父工件、工具和输出目录，不能在未知环境盲跑。
+G1/P1浏览器 `BLOCKED_BY_ADMINISTRATOR` 保持不变；不清除认证、不改安全配置、不换工具绕过。P0离线制作继续，不删除P1，也不宣称完整任务完成。
 
-## 历史G0和参考矩阵
-
-2026-09-05的完整只读侦察、工具探针与已看参考矩阵保留在[历史状态原文](https://github.com/yangerstar1/future/blob/91d414fb8ac9aadf74e5a86d4fc74f9ac7ab234a/workspaces/glasshouse-terminus/PRODUCTION-STATE.md)，其中阶段标签属于当时，不再代表当前。
-
-已验证历史环境：真实runner工作根`/home/runner/work/future/future`，4逻辑CPU、16,766,414,848 bytes RAM；Blender4.5.13LTS、Cycles CPU；固定工具探针保存/新进程重开逐像素相同。后续runner资源可能变化，不保证磁盘每次相同。浏览器探针为软件渲染，不冒充独显性能。
-
-G1持久副本仍为`evidence/g1-recovered-33930445031-1` / `0615e137cd53b3e3a150979b1a17d2d9c818eafb`。Leaf与main保持不变，所有制作和状态写入仅在本任务分支及新证据分支。
+历史状态与详细G2恢复记录保留在commit `b9834ccd9c06e8ea0b6c443524c62329d35fdb8f` 的同名文件。当前G3制作入口为已存在的build_g3.py/render_g3.py及glasshouse-g3.yml；下一动作是取回本轮产物，不是重新读取合同后退出。
