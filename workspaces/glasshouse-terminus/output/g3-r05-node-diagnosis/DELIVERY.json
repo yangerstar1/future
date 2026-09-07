@@ -1,0 +1,32 @@
+{
+  "stage": "G3",
+  "status": "READ_ONLY_DIAGNOSIS_NOT_ART_PASS",
+  "run_id": "34134203847",
+  "source_sha": "05119473ea654ffbe49b1d3887b33e6bf6484a4b",
+  "files": {
+    "node-path-diagnosis.json": {
+      "bytes": 1524065,
+      "sha256": "ad0aa333ac7cb567aee6e4a0ee730b8539268a4e595062c5de39bb0af3ce802d"
+    },
+    "D01-native-geometric-samples-ANNOTATION.png": {
+      "bytes": 767550,
+      "sha256": "c1b29f3d7befd85038f337274cb029db23dd740cf6a63b602eaca7a3c2c2d1f3"
+    },
+    "diagnosis.log": {
+      "bytes": 4733,
+      "sha256": "49584c067a57b1839d7cac5b970322c6c38f784b6edd09bed00f3323fe25b381"
+    },
+    "provision.log": {
+      "bytes": 41062,
+      "sha256": "f59d6663ea0d95cb1ce0138e40c209264f5b575b18345221764e113fd4bab8e0"
+    },
+    "node-path-summary.json": {
+      "bytes": 9716,
+      "sha256": "7a15d1942bf767576c3d109d197acc53c12d45b2f15137b82b0cac5fd33fe136"
+    }
+  },
+  "diagnosis_complete": true,
+  "source_master_sha256": "8ca4ca940a98e80d980fbd895f5ae7c27568b28ee361422bfe4ed267b7b8f02e",
+  "g4_allowed": false,
+  "human_acceptance": false
+}
