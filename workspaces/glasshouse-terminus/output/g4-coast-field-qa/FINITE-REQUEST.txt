@@ -1,0 +1,1 @@
+One8minute non-rendering read-only check: actual evaluated foam values, geometry normals, and protected cameras. No save, no renderer, no art change, no new production renderer, standard publicrunner, external spend0, evidence2MB.

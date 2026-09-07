@@ -1,0 +1,274 @@
+{
+  "source_master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+  "source_evidence_commit": "def004d60bb37a58a043a3506fb2bbda5c3a0e5c",
+  "source_sha": "a0d6b4d0aef15da033ab47d3daabf924b8b20866",
+  "run_id": "34154213591",
+  "fields": [
+    {
+      "frame": 451,
+      "fields": {
+        "CoastalWash": {
+          "type": "FLOAT",
+          "domain": "POINT",
+          "count": 229445,
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.014772252179682255,
+          "percentiles": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.7823839473724366,
+            1.0
+          ],
+          "fraction_above_001": 0.02081544596744318,
+          "fraction_above_012": 0.02003530257795986,
+          "near_mean": 0.14300745725631714,
+          "near_max": 1.0
+        },
+        "OceanFoam": {
+          "type": "BYTE_COLOR",
+          "domain": "CORNER",
+          "count": 915864,
+          "min": 0.016807375475764275,
+          "max": 0.022173883393406868,
+          "mean": 0.01861731894314289,
+          "percentiles": [
+            0.01850021816790104,
+            0.01850021816790104,
+            0.019382357597351074,
+            0.019382357597351074,
+            0.020288558676838875,
+            0.020288558676838875,
+            0.021219009533524513
+          ],
+          "fraction_above_001": 1.0,
+          "fraction_above_012": 0.0
+        },
+        "OceanGeometryWeight": {
+          "type": "FLOAT",
+          "domain": "POINT",
+          "count": 229445,
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.6420015096664429,
+          "percentiles": [
+            0.21062211692333221,
+            0.8804774284362793,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "fraction_above_001": 0.8864913160016562,
+          "fraction_above_012": 0.794652313190525,
+          "near_mean": 1.0,
+          "near_max": 1.0
+        }
+      }
+    },
+    {
+      "frame": 460,
+      "fields": {
+        "CoastalWash": {
+          "type": "FLOAT",
+          "domain": "POINT",
+          "count": 229445,
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.014803770929574966,
+          "percentiles": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.782526557445526,
+            1.0
+          ],
+          "fraction_above_001": 0.020771862537863103,
+          "fraction_above_012": 0.019991719148379786,
+          "near_mean": 0.14301088452339172,
+          "near_max": 1.0
+        },
+        "OceanFoam": {
+          "type": "BYTE_COLOR",
+          "domain": "CORNER",
+          "count": 915864,
+          "min": 0.016807375475764275,
+          "max": 0.022173883393406868,
+          "mean": 0.018626360222697258,
+          "percentiles": [
+            0.01850021816790104,
+            0.01850021816790104,
+            0.019382357597351074,
+            0.019382357597351074,
+            0.020288558676838875,
+            0.020288558676838875,
+            0.021219009533524513
+          ],
+          "fraction_above_001": 1.0,
+          "fraction_above_012": 0.0
+        },
+        "OceanGeometryWeight": {
+          "type": "FLOAT",
+          "domain": "POINT",
+          "count": 229445,
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.6420015096664429,
+          "percentiles": [
+            0.21062211692333221,
+            0.8804774284362793,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "fraction_above_001": 0.8864913160016562,
+          "fraction_above_012": 0.794652313190525,
+          "near_mean": 1.0,
+          "near_max": 1.0
+        }
+      }
+    }
+  ],
+  "rock_sample": {
+    "hit": true,
+    "camera": "G4COAST_rock_water_close",
+    "position": [
+      38.0,
+      39.0,
+      -9.0
+    ],
+    "lens": 52.0,
+    "depth_of_field": false,
+    "object": "G4COAST_adapted_scanned_cliff_ring",
+    "surface": [
+      18.162660598754883,
+      21.543142318725586,
+      -13.76096248626709
+    ],
+    "normal": [
+      0.19511525332927704,
+      0.963416337966919,
+      0.1837366670370102
+    ],
+    "camera_facing_dot": 0.8031083382666111,
+    "materials": [
+      "G4COAST_scanned_cliff_wet"
+    ],
+    "hemisphere_first_hits": [
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": "Ocean_extent",
+        "distance": 15.750064183664485
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": "Ocean_extent",
+        "distance": 12.278414411039348
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": "Ocean_extent",
+        "distance": 12.721690815037629
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": "Ocean_extent",
+        "distance": 55.75147912496656
+      },
+      {
+        "geometric_hit": "Ocean_extent",
+        "distance": 45.37718216454001
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": "Ocean_extent",
+        "distance": 13.764878979146415
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": "Ocean_extent",
+        "distance": 24.011472940001266
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": "Ocean_extent",
+        "distance": 41.78229785595253
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": "Ocean_extent",
+        "distance": 32.959395309938216
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      },
+      {
+        "geometric_hit": null,
+        "distance": null
+      }
+    ],
+    "geometric_world_open_fraction": 0.625
+  },
+  "roof_glass_objects": 384,
+  "source_unchanged": true,
+  "limits": "No image rendering. Geometric first hits do not integrate transparent transport or shader bump normals; not automatic quality acceptance.",
+  "g4_stage_pass": false,
+  "human_acceptance": false
+}
+Blender 4.5.13 LTS (hash daeeeca98fb0 built 2026-08-25 01:31:19)
+Read blend: "/home/runner/work/future/future/workspaces/glasshouse-terminus/output/g4-coast-r04/g4-full-scene-candidate.blend"
+
+Blender quit
