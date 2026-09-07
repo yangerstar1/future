@@ -1,0 +1,138 @@
+{
+  "stage": "G3",
+  "revision": "R03",
+  "status": "CANDIDATE_NOT_ACCEPTED",
+  "parent_sha256": "3162ba27fbeb3055c5fbe94a6fc2422cc9cca11f68dda381b06627ebcaf6d680",
+  "parent_evidence_commit": "87d75e3b90d6b330fb378d1fc2200f5d1a52e418",
+  "g4_allowed": false,
+  "scope": "Same structural bay and its visible entrance vestibule only. Other areas retain G2 quality.",
+  "changes": [],
+  "original_cameras_preserved": true,
+  "browser": "BLOCKED_UNCHANGED",
+  "human_acceptance": false,
+  "cabinet_clearance": {
+    "prior_x_gap": -0.1280977725982666,
+    "translation_x": -0.20309777259826678,
+    "after_x_gap": 0.07500004768371582,
+    "method": "Conservative disjoint X bounds; not a claim that all prior intersecting AABBs intersected as meshes.",
+    "moved_objects": [
+      "G3_cabinet_foot",
+      "G3_cabinet_foot.001",
+      "G3_cabinet_foot.002",
+      "G3_cabinet_foot.003",
+      "G3_cabinet_pull",
+      "G3_cabinet_pull.001",
+      "G3_cabinet_pull_mount",
+      "G3_cabinet_pull_mount.001",
+      "G3_cabinet_rail",
+      "G3_cabinet_rail.001",
+      "G3_cabinet_recessed_panel",
+      "G3_cabinet_recessed_panel.001",
+      "G3_cabinet_stile",
+      "G3_cabinet_stile.001",
+      "G3_cafe_practical",
+      "G3_lamp_base",
+      "G3_lamp_diffuser",
+      "G3_lamp_shade",
+      "G3_lamp_stem",
+      "G3_panel_border",
+      "G3_panel_border.001",
+      "G3_panel_border.002",
+      "G3_panel_border.003",
+      "G3_sideboard_carcass",
+      "G3_sideboard_top"
+    ]
+  },
+  "material_changed_objects": [
+    "Car_seat_back.001",
+    "Car_waist_trim.002",
+    "Rear_luggage_bench",
+    "Car_seat_back",
+    "Car_side_window.010",
+    "Car_inner_wainscot.002",
+    "Car_waist_trim.001",
+    "Car_side_window.011",
+    "Car_side_window.001",
+    "Car_inner_wainscot",
+    "Car_inner_wainscot.001",
+    "Car_window_horizontal_frame.017",
+    "Car_floor",
+    "Car_curved_lower_shell.008",
+    "Car_side_window",
+    "Car_side_window.009",
+    "Car_window_horizontal_frame.001",
+    "Car_side_window.002",
+    "Car_window_horizontal_frame.016",
+    "Car_luggage_rail",
+    "Car_complete_barrel_roof",
+    "Car_curved_lower_shell",
+    "Car_luggage_rail.001",
+    "Car_window_horizontal_frame",
+    "Car_side_window.008"
+  ],
+  "attached_mapping": {
+    "anchor": "Train_motion_root",
+    "local_sample_x": [
+      -6.1,
+      -1.9
+    ],
+    "official_reference": "https://docs.blender.org/manual/en/4.5/render/shader_nodes/input/texture_coordinate.html"
+  },
+  "full_bay_framing": {
+    "x": [
+      0.1965939700603485,
+      0.8277305364608765
+    ],
+    "y": [
+      0.0905468538403511,
+      0.8246350288391113
+    ],
+    "min_depth": 5.924108505249023,
+    "lens": 36.0
+  },
+  "door_framing": {
+    "x": [
+      0.2507571280002594,
+      0.7980743050575256
+    ],
+    "y": [
+      0.07893911749124527,
+      0.8897897005081177
+    ],
+    "lens": 28.0,
+    "objects": [
+      "Door_lower_panel.001",
+      "Door_vertical_frame.003",
+      "Door_cross_frame",
+      "Door_glazing",
+      "Door_cross_frame.001",
+      "Door_vertical_frame",
+      "Door_glazing.001",
+      "Door_vertical_frame.001",
+      "Car_door_threshold",
+      "Door_cross_frame.003",
+      "Door_lower_panel",
+      "Door_handle.001",
+      "Door_vertical_frame.002",
+      "Door_cross_frame.002",
+      "Door_handle",
+      "G3_door_jamb_cover",
+      "G3_door_jamb_cover.001",
+      "G3_door_track_housing",
+      "G3_door_roller_bracket",
+      "G3_door_roller_bracket.001",
+      "G3_door_lower_kickplate",
+      "G3_kickplate_fastener",
+      "G3_kickplate_fastener.001",
+      "G3_kickplate_fastener.002",
+      "G3_kickplate_fastener.003",
+      "G3_door_roller_bracket.002",
+      "G3_door_roller_bracket.003",
+      "G3_door_lower_kickplate.001",
+      "G3_kickplate_fastener.004",
+      "G3_kickplate_fastener.005",
+      "G3_kickplate_fastener.006",
+      "G3_kickplate_fastener.007"
+    ]
+  }
+}
