@@ -1,0 +1,50 @@
+name: Glasshouse G4 R02 rain and material read-only inventory
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-rain-inventory.yml]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  inventory:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-rain-inventory
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact R02 source, one zero-spend read-only run
+        timeout-minutes: 2
+        run: |
+          git fetch --depth=1 origin 12ae1030686d97823548b2967805d85853d12ab2
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-r02 | tar -x
+          echo '173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc  workspaces/glasshouse-terminus/output/g4-r02/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          python3 -m py_compile workspaces/glasshouse-terminus/inspect_g4_rain_materials.py
+          printf 'Single read-only run. 12min job, no render or master save, external spend0, download1.5GB, working disk8GB, evidence25MB. User requests visible rain and substantially improved actual material quality.\n' > "$OUT/FINITE-REQUEST.txt"
+      - name: Reuse pinned official Blender
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Read actual shaders, textures, shelter geometry and existing effects
+        timeout-minutes: 3
+        run: blender -b workspaces/glasshouse-terminus/output/g4-r02/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/inspect_g4_rain_materials.py 2>&1 | tee "$OUT/inventory.log"
+      - name: Persist data-only inventory
+        if: always()
+        timeout-minutes: 2
+        run: |
+          test "$(du -sb "$OUT" | cut -f1)" -lt 25000000
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-rain-inventory
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-rain-inventory-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-rain-inventory
+          retention-days: 1
+          if-no-files-found: error
