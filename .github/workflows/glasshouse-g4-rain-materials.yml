@@ -1,0 +1,99 @@
+name: Glasshouse G4 R03 native rain and material finish
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g4-rain-material-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  rain-material:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 52
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-r03
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Validate finite request and restore verified R02 and measured inventory
+        timeout-minutes: 2
+        run: |
+          echo "G4_RAIN_DEADLINE=$(( $(date +%s) + 44*60 ))" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          q=json.loads(Path('workspaces/glasshouse-terminus/g4-rain-material-request.json').read_text())
+          assert q['stage']=='G4' and q['revision']=='R03' and q['max_runs']==1
+          assert q['job_minutes']==52 and q['external_spend_usd']==0 and q['g4_stage_pass'] is False
+          print(json.dumps(q,indent=2))
+          PY
+          python3 -m py_compile workspaces/glasshouse-terminus/finish_g4_rain_materials.py
+          git fetch --depth=1 origin 12ae1030686d97823548b2967805d85853d12ab2
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-r02 | tar -x
+          git fetch --depth=1 origin d76b129f6808c184faa0f6c725eb35d6e17e8300
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-rain-inventory | tar -x
+          echo '173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc  workspaces/glasshouse-terminus/output/g4-r02/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+      - name: Reuse locked official Blender, no new paid assets or dependencies
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Create native rain and material finishes without changing original spatial structure
+        timeout-minutes: 8
+        env:
+          G4_RAIN_MODE: build
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-r02/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_rain_materials.py 2>&1 | tee "$OUT/build.log"
+          test "$(du -sb workspaces/glasshouse-terminus | cut -f1)" -lt 8000000000
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r03-source
+      - name: Fresh-process native rain glass and original hall observations
+        timeout-minutes: 23
+        env:
+          G4_RAIN_MODE: hero
+        run: |
+          remaining=$((G4_RAIN_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_rain_materials.py 2>&1 | tee "$OUT/hero-render.log"
+      - name: Early actual rain and hall images for original-size review
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g4-r03-early-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-r03/M01-rain-glass.png
+            workspaces/glasshouse-terminus/output/g4-r03/C03-hall-rain.png
+            workspaces/glasshouse-terminus/output/g4-r03/build-report.json
+            workspaces/glasshouse-terminus/output/g4-r03/render-metrics.json
+          retention-days: 1
+          if-no-files-found: error
+      - name: Fresh-process timber, wet stone, cloth, exterior and protected node observations
+        timeout-minutes: 35
+        env:
+          G4_RAIN_MODE: detail
+        run: |
+          remaining=$((G4_RAIN_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/finish_g4_rain_materials.py 2>&1 | tee "$OUT/detail-render.log"
+      - name: Preserve actual coverage and original source even if quality or time gate fails
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
+          required=['g4-full-scene-candidate.blend','build-report.json','hero-reopen-check.json','detail-reopen-check.json','M01-rain-glass.png','C03-hall-rain.png','M02-woodwork.png','M03-wet-stone.png','M04-woven-seat.png','C01-rain-night.png','D01-node-regression.png']
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<120000000
+          missing=[n for n in required if not (root/n).exists()]
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'R03','status':'SEVEN_NATIVE_VIEWS_REVIEW_PENDING_NOT_ART_PASS' if not missing else 'PARTIAL_OR_FAILED_NOT_A_PASS','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'parent_evidence_commit':'12ae1030686d97823548b2967805d85853d12ab2','parent_master_sha256':'173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc','files':files,'missing':missing,'g4_stage_pass':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED','scope':'Native rain/material still challenger. No final rain simulation, film or browser acceptance.'},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r03
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-r03-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-r03
+          retention-days: 1
+          if-no-files-found: error
