@@ -1,0 +1,27 @@
+{
+  "stage": "G4",
+  "revision": "R04",
+  "status": "PARTIAL_OR_FAILED_NOT_ART_PASS",
+  "run_id": "34149669782",
+  "source_sha": "b39a47bce395f8566a18e917875302ba3ed41889",
+  "parent_source_checkpoint": "0e0f56888549e27900070a83b9830f81c3313c4b",
+  "parent_master_sha256": "dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5",
+  "files": {
+    "provision.log": {
+      "bytes": 6641,
+      "sha256": "ff753a5e7e700068ee74bd2438fee5c6f78a9ea7ed1d5a9515701b10d3782855"
+    }
+  },
+  "missing": [
+    "g4-full-scene-candidate.blend",
+    "build-report.json",
+    "M01-rain-glass.png",
+    "C03-hall-rain.png",
+    "hero-reopen-check.json",
+    "motion-reopen-check.json",
+    "rain-motion-proof.mp4"
+  ],
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "scope": "Actual water-drop geometry and native shutter. Two still views and 2sec640x40010fps motion proof. Not final4K film or full moving-train weather validation."
+}
