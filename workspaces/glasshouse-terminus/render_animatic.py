@@ -8,7 +8,9 @@ from pathlib import Path
 from mathutils import Vector
 s=bpy.context.scene
 assert s.get('phase')=='G2_WHITEBOX_NOT_FINAL_ART','Wrong source stage'
-root=Path('workspaces/glasshouse-terminus/output/g2').resolve();out=root/'animatic-frames';out.mkdir(parents=True,exist_ok=True)
+root=Path(os.environ.get('G2_OUTPUT_ROOT','workspaces/glasshouse-terminus/output/g2')).resolve()
+assert root.is_relative_to(Path('workspaces/glasshouse-terminus/output').resolve()),'Unapproved output root'
+out=root/'animatic-frames';out.mkdir(parents=True,exist_ok=True)
 qa=bpy.data.collections.get('QA_scale_and_route')
 if qa:
  for ob in qa.objects:ob.hide_render=True;ob.hide_viewport=True
@@ -64,4 +66,5 @@ for i,frame in enumerate(range(1,841,3)):
  'source_fps':30,'source_frames':840,'preview_fps':10,'preview_frames':280,'duration_seconds':28,
  'native_resolution':[640,360],'shading_adaptation':'Native Workbench studio shading; only glass alpha adjusted in memory; no saved geometry/camera change',
  'source_blend_untouched':True,'no_generated_or_interpolated_frames':True,'continuous_walk_interval_seconds':[13,22],'frames':records},indent=2))
+(root/'animatic-progress.json').write_text(json.dumps({'last_index':279,'frames_rendered':len(records),'status':'RENDERED_WHITEBOX_REVIEW_PENDING_NOT_FINAL_ART'},indent=2))
 print('G2_ANIMATIC_RENDERED',len(records),'COLLISION_OBSERVATIONS',len(collisions))
