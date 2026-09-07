@@ -1,0 +1,156 @@
+{
+  "stage": "G3",
+  "revision": "R04",
+  "status": "CANDIDATE_REVIEW_PENDING_NOT_A_PASS",
+  "source_sha": "5df7808221aea777899562807bacc6bbd1c3f49a",
+  "run_id": "34125489162",
+  "parent_evidence_commit": "22dceca579c272b51767c70c153c540f7defc547",
+  "parent_master_sha256": "cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe",
+  "files": {
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "C03-G2-neutral-baseline.png": {
+      "bytes": 1331177,
+      "sha256": "04616111661cae34f29132d83c09b61725b7de568a874df026f75223e97af6c6"
+    },
+    "core.log": {
+      "bytes": 1622904,
+      "sha256": "1ab96ae60e0b0a4e8370c5d90c8e3615f4540c22f6d8e0c274da2f052debb5fa"
+    },
+    "D01-glass-metal.png": {
+      "bytes": 1114940,
+      "sha256": "16b4f92df7b435dfbc090c8fc29ac52773428c528674039f9553741f5e0894b8"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "R04-complete-bay-neutral.png": {
+      "bytes": 1730012,
+      "sha256": "724d05066f2ed46ff17c3e5d6952958f086e2eaacfe74125e47cb865ba461ac1"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "G3-bay-night.png": {
+      "bytes": 1667061,
+      "sha256": "cd7ba04a0750379ef3462b1733c90f60c377ef81cfe1a315c59dc3f7331d0661"
+    },
+    "D05-threshold-detail.png": {
+      "bytes": 746435,
+      "sha256": "31ac6e8c16b9161bae57109fb40e81db42c60a8fb4a1b73f542c7472f78d8f33"
+    },
+    "render-metrics.json": {
+      "bytes": 14423,
+      "sha256": "1cebc81f7a3342512dcdb73d8ba1657cf881c6ea71b2244f022483d2de01ad56"
+    },
+    "D05-original-camera.png": {
+      "bytes": 1065795,
+      "sha256": "fb6aa4445103e6fd80c389e4cdd5efbf2a7cbe0ca66777303ecf8e1459c97386"
+    },
+    "QA-reverse.png": {
+      "bytes": 861826,
+      "sha256": "40ec9ebbad6b917d542d3ff721caf5f3eb27cebfc902ae58729b521ee56f78d2"
+    },
+    "D02-joinery.png": {
+      "bytes": 1388689,
+      "sha256": "efc0b8df6597f2848211cd04a0c8996b3d2c08d174cd5f8c6c855e58618efb68"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "polish.log": {
+      "bytes": 372,
+      "sha256": "e8438eee02466d48c53a6e7eaddff82b6c5d0e79b26b80be386283e7f2804fd9"
+    },
+    "overview.log": {
+      "bytes": 970070,
+      "sha256": "dddac0d527274012bdcdac6adac556ec0187b505b0cc5dc616c6c2d6d93db021"
+    },
+    "QA-route-601.png": {
+      "bytes": 313528,
+      "sha256": "9b0c8ce9fff6846f1bcdeb1389e528ceafd4577f57397f089c42b8f1f4dd2320"
+    },
+    "QA-route-481.png": {
+      "bytes": 317577,
+      "sha256": "4bec8b4620c6a43ad23f4e2ef7fe34b1d589c54961b4513ab247bd1abc8b0f2f"
+    },
+    "D05-unoccluded-interface.png": {
+      "bytes": 1102610,
+      "sha256": "2ab142d7d4502df0f577e941c524e0ce2e30d9fbff877b9fd0c36922506ef535"
+    },
+    "R04-complete-bay-night.png": {
+      "bytes": 1630952,
+      "sha256": "77db379e094018cf72d0ec03651887a5b2617a778e6713e9877b3f3cf3fd158d"
+    },
+    "proof.log": {
+      "bytes": 3568825,
+      "sha256": "1c8910729bdd687b594eef32c7a7f8cd530efe142a6bd781289499cb72b624db"
+    },
+    "D01-roof-node.png": {
+      "bytes": 1106786,
+      "sha256": "02050973cc475bd8d492cd187a00e79176db5c5356f9cda81354545e0d422c47"
+    },
+    "provision.log": {
+      "bytes": 41062,
+      "sha256": "7bfa6a2e29a029443d94c5fde6f40c37049aac1c25f4631f0836d44e3c3fdae0"
+    },
+    "D06-plant.png": {
+      "bytes": 1500566,
+      "sha256": "094c78ba89c7b367c9ae9602ed9337924b0fe673d71bb609e5e7ec3e070e8110"
+    },
+    "D05-roller-detail.png": {
+      "bytes": 730371,
+      "sha256": "0574b9ead91065a7c7fef7ae441d4d2cc6bdebc2c088f0eeb265141208417eee"
+    },
+    "QA-door-330.png": {
+      "bytes": 345078,
+      "sha256": "91d7fd26a0098940f5f7ce6ce877cbe0a47583faa1ea8f56ef5bc1381129d18e"
+    },
+    "QA-door-301.png": {
+      "bytes": 345390,
+      "sha256": "d58e62518510c606ce610819523d7c4802b58933be855e3db5c063d80ee248de"
+    },
+    "reopen-and-space-check.json": {
+      "bytes": 5391,
+      "sha256": "cd4b4dfad4fcb330c9531b5bd1270cb651627f037c02be0126a8cbf698bfd2c3"
+    },
+    "polish-report.json": {
+      "bytes": 29132,
+      "sha256": "d3eb826c93f60f92aa01025a26fb014f92433b45ae70bc4e53237403c361459e"
+    },
+    "preflight-r04.json": {
+      "bytes": 1992,
+      "sha256": "d0922f97a2045844926b51739cbe76aa8c2559568b654cf98304199f879ab89d"
+    },
+    "build-report.json": {
+      "bytes": 5606,
+      "sha256": "2b59caa71bb62d0d8b9710675196b25193518b85246d5ebd1515cbc4f3fc6b19"
+    },
+    "g3-bay-candidate.blend": {
+      "bytes": 26455878,
+      "sha256": "18348be4c401601706e10e4346a32bf5e0c406fec2448e1a53290f7840b8a854"
+    },
+    "D03-front.png": {
+      "bytes": 1331785,
+      "sha256": "72d5e95bece1e53807b97a616538786f31a01099314f2f38a1c58092a43229c8"
+    },
+    "QA-door-348.png": {
+      "bytes": 350694,
+      "sha256": "731e04c5eb058bf9bc3a0df43e8607f2c9aeeff4a13b6cc93b7c8d35957a2f5c"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    }
+  },
+  "total_bytes": 51706608,
+  "missing": [],
+  "g4_allowed": false,
+  "human_acceptance": false,
+  "browser_gate": "BLOCKED_UNCHANGED"
+}

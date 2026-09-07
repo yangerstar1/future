@@ -1,0 +1,269 @@
+{
+  "master_sha256": "18348be4c401601706e10e4346a32bf5e0c406fec2448e1a53290f7840b8a854",
+  "fresh_process": true,
+  "missing_external_images": [],
+  "walk_collision_count": 0,
+  "collisions": [],
+  "floor": [
+    {
+      "frame": 391,
+      "hit": true,
+      "object": "Hall_continuous_floor",
+      "z": 1.1500000953674316
+    },
+    {
+      "frame": 406,
+      "hit": true,
+      "object": "Hall_continuous_floor",
+      "z": 1.1500000953674316
+    },
+    {
+      "frame": 421,
+      "hit": true,
+      "object": "Hall_continuous_floor",
+      "z": 1.1500000953674316
+    },
+    {
+      "frame": 436,
+      "hit": true,
+      "object": "Hall_continuous_floor",
+      "z": 1.1500000953674316
+    },
+    {
+      "frame": 451,
+      "hit": true,
+      "object": "Hall_continuous_floor",
+      "z": 1.1500000953674316
+    },
+    {
+      "frame": 466,
+      "hit": true,
+      "object": "Hall_continuous_floor",
+      "z": 1.1500000953674316
+    },
+    {
+      "frame": 481,
+      "hit": true,
+      "object": "Platform_continuous_slab",
+      "z": 1.149999976158142
+    },
+    {
+      "frame": 496,
+      "hit": true,
+      "object": "Platform_continuous_slab",
+      "z": 1.149999976158142
+    },
+    {
+      "frame": 511,
+      "hit": true,
+      "object": "Platform_continuous_slab",
+      "z": 1.149999976158142
+    },
+    {
+      "frame": 526,
+      "hit": true,
+      "object": "Platform_continuous_slab",
+      "z": 1.149999976158142
+    },
+    {
+      "frame": 541,
+      "hit": true,
+      "object": "Car_floor",
+      "z": 1.149999976158142
+    },
+    {
+      "frame": 556,
+      "hit": true,
+      "object": "Car_floor",
+      "z": 1.1500000953674316
+    },
+    {
+      "frame": 571,
+      "hit": true,
+      "object": "Car_floor",
+      "z": 1.1500000953674316
+    },
+    {
+      "frame": 586,
+      "hit": true,
+      "object": "Car_floor",
+      "z": 1.1500000953674316
+    },
+    {
+      "frame": 601,
+      "hit": true,
+      "object": "Car_floor",
+      "z": 1.1500000953674316
+    },
+    {
+      "frame": 616,
+      "hit": true,
+      "object": "Car_floor",
+      "z": 1.1500000953674316
+    },
+    {
+      "frame": 631,
+      "hit": true,
+      "object": "Car_floor",
+      "z": 1.149999976158142
+    },
+    {
+      "frame": 646,
+      "hit": true,
+      "object": "Car_floor",
+      "z": 1.1500000953674316
+    }
+  ],
+  "motion": [
+    {
+      "frame": 301,
+      "train": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door": [
+        -4.309999942779541,
+        -1.4299999475479126,
+        1.149999976158142
+      ],
+      "carriage": [
+        -4.309999942779541,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 314,
+      "train": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door": [
+        -4.309999942779541,
+        -1.4299999475479126,
+        1.149999976158142
+      ],
+      "carriage": [
+        -4.309999942779541,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 315,
+      "train": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door": [
+        -4.310442924499512,
+        -1.4300647974014282,
+        1.149999976158142
+      ],
+      "carriage": [
+        -4.310442924499512,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 330,
+      "train": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door": [
+        -4.605490684509277,
+        -1.4731870889663696,
+        1.149999976158142
+      ],
+      "carriage": [
+        -4.605490684509277,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 348,
+      "train": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door": [
+        -4.960000038146973,
+        -1.524999976158142,
+        1.149999976158142
+      ],
+      "carriage": [
+        -4.960000038146973,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 451,
+      "train": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door": [
+        -4.960000038146973,
+        -1.524999976158142,
+        1.149999976158142
+      ],
+      "carriage": [
+        -4.960000038146973,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 660,
+      "train": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door": [
+        -4.960000038146973,
+        -1.524999976158142,
+        1.149999976158142
+      ],
+      "carriage": [
+        -4.960000038146973,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    }
+  ],
+  "visual_acceptance": false,
+  "limit": "Finite ray envelope and sparse stills, not exhaustive collision or a new continuous film",
+  "master_unchanged_after_evidence": true,
+  "actual_rendered_files": [
+    "R04-complete-bay-night.png",
+    "R04-complete-bay-neutral.png",
+    "G3-bay-night.png",
+    "D05-unoccluded-interface.png",
+    "D01-roof-node.png",
+    "D01-glass-metal.png",
+    "D02-joinery.png",
+    "D03-front.png",
+    "D06-plant.png",
+    "QA-reverse.png",
+    "D05-roller-detail.png",
+    "D05-threshold-detail.png",
+    "C03-G2-neutral-baseline.png",
+    "D05-original-camera.png",
+    "QA-door-301.png",
+    "QA-door-330.png",
+    "QA-door-348.png",
+    "QA-route-481.png",
+    "QA-route-601.png"
+  ]
+}

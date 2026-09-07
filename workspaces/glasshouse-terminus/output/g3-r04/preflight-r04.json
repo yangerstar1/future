@@ -1,0 +1,83 @@
+{
+  "stage": "G3",
+  "revision": "R04",
+  "status": "CHALLENGER_NOT_ACCEPTED",
+  "parent_master_sha256": "cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe",
+  "parent_evidence_commit": "22dceca579c272b51767c70c153c540f7defc547",
+  "light_diagnostic_artifact": 10019119528,
+  "light_diagnostic_zip_sha256": "e4d28113c0f9204326a2e14aeed927262b8c12bac8e07c61f2ac47b08282d88a",
+  "scope": "Same x=-4..0 structural bay and doorway. No whole-scene expansion.",
+  "materials": [],
+  "lights": {},
+  "human_acceptance": false,
+  "g4_allowed": false,
+  "protected": [
+    "original meshes and transforms",
+    "all original cameras",
+    "door/train/walk keyframes",
+    "glass IOR/transmission and ray visibility",
+    "exposure and color management"
+  ],
+  "actual_arches": {
+    "Primary_elliptical_arch.003": [
+      [
+        -4.099999904632568,
+        -6.659938335418701,
+        4.995552062988281
+      ],
+      [
+        -3.9000000953674316,
+        6.659938335418701,
+        10.260000228881836
+      ]
+    ],
+    "Primary_elliptical_arch.004": [
+      [
+        -0.10000000149011612,
+        -6.659938335418701,
+        4.995552062988281
+      ],
+      [
+        0.10000000149011612,
+        6.659938335418701,
+        10.260000228881836
+      ]
+    ],
+    "Secondary_glazing_rib.009": [
+      [
+        -3.0429999828338623,
+        -6.53198766708374,
+        4.999082565307617
+      ],
+      [
+        -2.9570000171661377,
+        6.53198766708374,
+        10.131999969482422
+      ]
+    ],
+    "Secondary_glazing_rib.010": [
+      [
+        -2.0429999828338623,
+        -6.53198766708374,
+        4.999082565307617
+      ],
+      [
+        -1.9570000171661377,
+        6.53198766708374,
+        10.131999969482422
+      ]
+    ],
+    "Secondary_glazing_rib.011": [
+      [
+        -1.0429999828338623,
+        -6.53198766708374,
+        4.999082565307617
+      ],
+      [
+        -0.9570000171661377,
+        6.53198766708374,
+        10.131999969482422
+      ]
+    ]
+  }
+}

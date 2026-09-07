@@ -1,0 +1,239 @@
+{
+  "blender": "4.5.13 LTS",
+  "parent_sha256": "0468b615b2d6ebeab7d641ad70c97a3efd62c7f31d1009fbc245c3c9b0f5c8be",
+  "stage": "G3_CANDIDATE",
+  "bounds": {
+    "Hall_continuous_floor": {
+      "location": [
+        0.0,
+        0.0,
+        1.065000057220459
+      ],
+      "world": [
+        0.0,
+        0.0,
+        1.065000057220459
+      ],
+      "bounds": [
+        [
+          -16.149999618530273,
+          -6.625,
+          0.9800000786781311
+        ],
+        [
+          16.149999618530273,
+          6.625,
+          1.1500000953674316
+        ]
+      ]
+    },
+    "Platform_continuous_slab": {
+      "location": [
+        0.0,
+        8.574999809265137,
+        0.5
+      ],
+      "world": [
+        0.0,
+        8.574999809265137,
+        0.5
+      ],
+      "bounds": [
+        [
+          -17.200000762939453,
+          6.5,
+          -0.1499999761581421
+        ],
+        [
+          17.200000762939453,
+          10.649999618530273,
+          1.149999976158142
+        ]
+      ]
+    },
+    "Car_door_threshold": {
+      "location": [
+        -4.0,
+        -1.3700000047683716,
+        1.1319999694824219
+      ],
+      "world": [
+        -2.0,
+        10.730000495910645,
+        1.1319999694824219
+      ],
+      "bounds": [
+        [
+          -2.6649999618530273,
+          10.570000648498535,
+          1.1139999628067017
+        ],
+        [
+          -1.3350000381469727,
+          10.890000343322754,
+          1.149999976158142
+        ]
+      ]
+    },
+    "Train_door_left": {
+      "location": [
+        -4.960000038146973,
+        -1.524999976158142,
+        1.149999976158142
+      ],
+      "world": [
+        -2.9600000381469727,
+        10.575000762939453,
+        1.149999976158142
+      ],
+      "bounds": null
+    },
+    "Train_door_right": {
+      "location": [
+        -3.0399999618530273,
+        -1.524999976158142,
+        1.149999976158142
+      ],
+      "world": [
+        -1.0399999618530273,
+        10.575000762939453,
+        1.149999976158142
+      ],
+      "bounds": null
+    }
+  },
+  "replacements": [
+    "Cafe_table_pedestal",
+    "Chair_leg_proxy.005",
+    "Chair_leg_proxy.001",
+    "Cafe_chair_back_proxy.001",
+    "Chair_leg_proxy.007",
+    "Chair_leg_proxy.004",
+    "Cafe_sideboard_proxy",
+    "Cafe_chair_back_proxy",
+    "Chair_leg_proxy",
+    "Cafe_chair_seat_proxy.001",
+    "Chair_leg_proxy.006",
+    "Cafe_chair_seat_proxy",
+    "Chair_leg_proxy.003",
+    "Cafe_table_foot",
+    "Chair_leg_proxy.002",
+    "Cafe_table_top",
+    "Plant_stem_proxy.030",
+    "Plant_stem_proxy.034",
+    "Botanical_blade_proxy.032",
+    "Botanical_blade_proxy.033",
+    "Plant_stem_proxy.033",
+    "Plant_stem_proxy.032",
+    "Botanical_blade_proxy.034",
+    "Botanical_blade_proxy.031",
+    "Plant_container_proxy.006",
+    "Botanical_blade_proxy.030",
+    "Plant_stem_proxy.031"
+  ],
+  "materials_reused": "G1 processed Poly Haven walnut/slate maps",
+  "scope": "One existing x=-4..0 bay, selected cafe set, plant and door interface. Remaining world stays whitebox.",
+  "browser": "BLOCKED_UNCHANGED",
+  "human_acceptance": false,
+  "imported_assets": [
+    {
+      "asset": "GreenChair_01",
+      "source_dimensions": [
+        0.6730944514274597,
+        0.6643873453140259,
+        1.0585118532180786
+      ],
+      "scale": 1.0391948213222848,
+      "yaw": -3.1484517202438544,
+      "placement": [
+        -3.15,
+        2.16,
+        1.15
+      ],
+      "mesh_names": [
+        "GreenChair_01"
+      ],
+      "materials": [
+        "GreenChair_01"
+      ]
+    },
+    {
+      "asset": "GreenChair_01",
+      "source_dimensions": [
+        0.6730944514274597,
+        0.6643873453140259,
+        1.0585118532180786
+      ],
+      "scale": 1.0391948213222848,
+      "yaw": -0.006859066654061552,
+      "placement": [
+        -3.15,
+        4.4,
+        1.15
+      ],
+      "mesh_names": [
+        "GreenChair_01.001"
+      ],
+      "materials": [
+        "GreenChair_01.001"
+      ]
+    },
+    {
+      "asset": "potted_plant_01",
+      "source_dimensions": [
+        0.5873871445655823,
+        0.633564829826355,
+        1.3501639366149902
+      ],
+      "scale": 1.1480086895665207,
+      "yaw": 0,
+      "placement": [
+        -0.53,
+        5.2,
+        1.15
+      ],
+      "mesh_names": [
+        "potted_plant_01_stem",
+        "potted_plant_01_leaves",
+        "potted_plant_01_pebbles",
+        "potted_plant_01_pot"
+      ],
+      "materials": [
+        "potted_plant_01_leaves",
+        "potted_plant_01_pot"
+      ]
+    }
+  ],
+  "neutral_lights": {
+    "QA_sky_key": 22000.0,
+    "QA_front_fill": 16000.0,
+    "QA_back_fill": 13000.0,
+    "QA_interior_fill": 950.0,
+    "QA_interior_fill.001": 950.0,
+    "QA_interior_fill.002": 950.0
+  },
+  "protected_geometry_signature_before": "f935ca0e676f6995048b7ceb7b02c7c2d65dbbe1c5f2f18cf4ada98f8f414e72",
+  "protected_geometry_signature_after": "f935ca0e676f6995048b7ceb7b02c7c2d65dbbe1c5f2f18cf4ada98f8f414e72",
+  "night_lights": [
+    "G3_night_sky",
+    "G3_interior_softbox",
+    "G3_window_rim",
+    "G3_cafe_practical",
+    "G3_door_practical",
+    "G3_pendant_light"
+  ],
+  "g3_cameras": [
+    "G3_bay",
+    "G3_D01",
+    "G3_D02",
+    "G3_D03",
+    "G3_D05",
+    "G3_reverse",
+    "G3_D06"
+  ],
+  "detail_geometry": "Reused common helpers for original joinery/hardware; imported selected CC0 chair and plant; no whole-scene substitution",
+  "candidate_sha256": "18348be4c401601706e10e4346a32bf5e0c406fec2448e1a53290f7840b8a854",
+  "revision": "R04",
+  "revision_report": "polish-report.json",
+  "g3_parent_candidate_sha256": "e95b37d7f2d8a28efc8bca32815b0624acae7a787e2c7bbe7565eb30e3588027"
+}
