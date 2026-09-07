@@ -1,0 +1,1 @@
+Single read-only run. 12min job, no render or master save, external spend0, download1.5GB, working disk8GB, evidence25MB. User requests visible rain and substantially improved actual material quality.
