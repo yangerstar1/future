@@ -1,0 +1,31 @@
+{
+  "stage": "G3",
+  "request_id": "G3-R01-20260907",
+  "contract_sha256": "0101fa0f69edc3e261ead088c447818168c397e5ca8dbc26b0de341ad7f7c23f",
+  "g2_best": "G2-BEST-20260907-R01",
+  "review": "G2-REVIEW-03.md",
+  "handoff": "G3-NEXT-STEP.md",
+  "parent_evidence_commit": "6520a8b6056cd7582e4bfc09367cd37fdfb193a1",
+  "parent_master_sha256": "0468b615b2d6ebeab7d641ad70c97a3efd62c7f31d1009fbc245c3c9b0f5c8be",
+  "g1_material_evidence_commit": "0615e137cd53b3e3a150979b1a17d2d9c818eafb",
+  "g4_allowed": false,
+  "max_runs": 1,
+  "job_minutes": 60,
+  "planned_production_cap_minutes": 45,
+  "reserve_for_save_retrieval_review_minutes": 15,
+  "concurrent_render_jobs": 1,
+  "external_spend_usd": 0,
+  "max_download_bytes": 1500000000,
+  "max_working_disk_bytes": 8000000000,
+  "max_evidence_bytes": 180000000,
+  "scope": "Only the existing x=-4..0 hall/platform doorway bay: glass and metal fixings, original walnut joinery, two adapted CC0 upholstered chairs, one CC0 plant, dry/wet boundary, lamps, actual moving train-door guides and threshold. Preserve the complete world, all original fixed cameras and motion.",
+  "reuse": ["scene_common.py", "provision.sh", "publish_evidence.sh", "fetch_models.py", "G1 processed walnut/slate PBR maps"],
+  "selected_models": [
+    {"asset": "GreenChair_01", "provider": "Poly Haven", "license": "CC0-1.0", "status_before_run": "Official listing and preview inspected; runtime download and geometry inspection still required"},
+    {"asset": "potted_plant_01", "provider": "Poly Haven", "license": "CC0-1.0", "status_before_run": "Official listing and preview inspected; runtime download and geometry inspection still required"}
+  ],
+  "evidence": "Save packed candidate first; reopen in fresh processes; paired neutral/night bay, unchanged C03 camera context, D01/D02/D03/D05/D06, reverse angle and actual closed/moving/open door states. Check walk collision samples on every source frame 391..660. Real image review determines the gate.",
+  "forbidden": ["overwrite G2 BEST", "replace the world with a display box", "expand to G4 before G3 review", "generate imagery to conceal geometry", "paid runners or assets", "browser security bypass", "claim final film or full task acceptance"],
+  "browser_gate": "BLOCKED_BY_ADMINISTRATOR_UNCHANGED",
+  "reviewer": "Same-context actual-image review; no independent agent or user acceptance"
+}
