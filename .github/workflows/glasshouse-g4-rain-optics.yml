@@ -1,0 +1,100 @@
+name: Glasshouse G4 R04 round-drop optical correction
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g4-rain-optics-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  correct-optics:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 32
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-r04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore saved R03 and validate one evidence-based optical correction
+        timeout-minutes: 2
+        run: |
+          echo "G4_OPTICS_DEADLINE=$(( $(date +%s) + 27*60 ))" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          q=json.loads(Path('workspaces/glasshouse-terminus/g4-rain-optics-request.json').read_text())
+          assert q['stage']=='G4' and q['revision']=='R04' and q['max_runs']==1 and q['job_minutes']==32 and q['external_spend_usd']==0
+          print(json.dumps(q,indent=2))
+          PY
+          git fetch --depth=1 origin 0e0f56888549e27900070a83b9830f81c3313c4b
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-r03 | tar -x
+          echo 'dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5  workspaces/glasshouse-terminus/output/g4-r03/g4-full-scene-candidate.blend' | sha256sum --check
+          python3 -m py_compile workspaces/glasshouse-terminus/correct_g4_rain_optics.py
+          mkdir -p "$OUT"
+      - name: Reuse official pinned Blender
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Replace only owned rain prototype optics and preserve candidate
+        timeout-minutes: 3
+        env:
+          G4_OPTICS_MODE: build
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-r03/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/correct_g4_rain_optics.py 2>&1 | tee "$OUT/build.log"
+          test "$(du -sb workspaces/glasshouse-terminus | cut -f1)" -lt 8000000000
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r04-source
+      - name: Reopen for actual native glass and hall views
+        timeout-minutes: 19
+        env:
+          G4_OPTICS_MODE: hero
+        run: |
+          remaining=$((G4_OPTICS_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/correct_g4_rain_optics.py 2>&1 | tee "$OUT/hero-render.log"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g4-r04-early-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-r04/M01-rain-glass.png
+            workspaces/glasshouse-terminus/output/g4-r04/C03-hall-rain.png
+            workspaces/glasshouse-terminus/output/g4-r04/build-report.json
+            workspaces/glasshouse-terminus/output/g4-r04/hero-metrics.json
+          retention-days: 1
+          if-no-files-found: error
+      - name: Twenty actual native motion frames, not interpolated video
+        timeout-minutes: 20
+        env:
+          G4_OPTICS_MODE: motion
+        run: |
+          remaining=$((G4_OPTICS_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/correct_g4_rain_optics.py 2>&1 | tee "$OUT/motion-render.log"
+      - name: Persist actual coverage including partial failure, never automatic art pass
+        if: always()
+        timeout-minutes: 4
+        run: |
+          if [ -d "$OUT/motion" ] && [ "$(find "$OUT/motion" -name '*.png' | wc -l)" -eq 20 ]; then
+            ffmpeg -hide_banner -loglevel error -framerate 10 -i "$OUT/motion/%04d.png" -frames:v 20 -c:v libx264 -pix_fmt yuv420p -crf 18 -movflags +faststart "$OUT/rain-motion-proof.mp4"
+            ffprobe -v error -show_format -show_streams -of json "$OUT/rain-motion-proof.mp4" > "$OUT/video-probe.json"
+            ffmpeg -v error -i "$OUT/rain-motion-proof.mp4" -f null -
+          fi
+          python3 - <<'PY'
+          from pathlib import Path
+          import os,json,hashlib
+          root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<120000000
+          required=['g4-full-scene-candidate.blend','build-report.json','M01-rain-glass.png','C03-hall-rain.png','hero-reopen-check.json','motion-reopen-check.json','rain-motion-proof.mp4']
+          missing=[n for n in required if not (root/n).is_file()]
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'R04','status':'NATIVE_OPTICS_AND_MOTION_REVIEW_PENDING' if not missing else 'PARTIAL_OR_FAILED_NOT_ART_PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'parent_source_checkpoint':'0e0f56888549e27900070a83b9830f81c3313c4b','parent_master_sha256':'dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5','files':files,'missing':missing,'g4_stage_pass':False,'human_acceptance':False,'scope':'Actual water-drop geometry and native shutter. Two still views and 2sec640x40010fps motion proof. Not final4K film or full moving-train weather validation.'},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r04
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-r04-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-r04
+          retention-days: 1
+          if-no-files-found: error
