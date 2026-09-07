@@ -1,12 +1,13 @@
-name: Glasshouse G4 storm assets and native Ocean preflight
+name: Glasshouse G4 storm asset inspection only
 on:
   push:
     branches: [codex/glasshouse-terminus]
     paths: [.github/workflows/glasshouse-g4-storm-assets.yml]
 permissions:
   contents: write
+  actions: write
 concurrency:
-  group: glasshouse-production
+  group: glasshouse-nonrender-asset-inspection
   cancel-in-progress: false
 jobs:
   prepare:
@@ -20,25 +21,41 @@ jobs:
       OUT: workspaces/glasshouse-terminus/output/g4-storm-assets
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Restore exact R02 and record finite zero-spend request
+      - name: Supersede only our own pending preflight, never a running production render
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import os,json,urllib.request
+          u='https://api.github.com/repos/yangerstar1/future/actions/runs/34147806833'
+          h={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','User-Agent':'Glasshouse asset coordination'}
+          r=json.load(urllib.request.urlopen(urllib.request.Request(u,headers=h)))
+          assert r['head_sha']=='4480c8ca364291db974ce314b7fc4d38a32d2979'
+          if r['status'] in ['pending','queued','waiting','requested']:
+              req=urllib.request.Request(u+'/cancel',data=b'',headers=h,method='POST')
+              with urllib.request.urlopen(req) as response: print('Only own unstarted preflight superseded',response.status)
+          elif r['status']=='completed' and r['conclusion']=='cancelled': print('Own old preflight already cancelled')
+          else: raise RuntimeError('Old probe is no longer safely pending; stop without cancelling anything else')
+          PY
+      - name: Restore immutable source and record non-rendering finite request
         timeout-minutes: 2
         run: |
           git fetch --depth=1 origin 12ae1030686d97823548b2967805d85853d12ab2
           git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-r02 | tar -x
           echo '173da1291bff8a39da704539c737e21f9b2d739e3d32a106f629601bc2abefdc  workspaces/glasshouse-terminus/output/g4-r02/g4-full-scene-candidate.blend' | sha256sum --check
           mkdir -p "$OUT"
-          printf 'User requests actual project rain, premium materials, real sea and rocks; generated images excluded. One asset/probe run15min, asset downloads180MB, total downloads1.5GB, working disk8GB, evidence200MB, external spend0, standard runner, no source save or G5 acceptance.\n' > "$OUT/FINITE-REQUEST.txt"
+          printf 'Replacement of own unstarted preflight34147806833, not a second render. One non-rendering asset/data inspection15min; renderer calls0, source saves0. Asset180MB,total download1.5GB,disk8GB,evidence200MB,external spend0. Active R03 production run34147780955 is not cancelled or modified; only one production renderer remains.\n' > "$OUT/FINITE-REQUEST.txt"
           python3 -m py_compile workspaces/glasshouse-terminus/prepare_g4_storm_assets.py workspaces/glasshouse-terminus/probe_g4_storm_assets.py
-      - name: Reuse two selected CC0 assets through observed official metadata
+      - name: Reuse selected CC0 files from official metadata
         timeout-minutes: 5
         run: python3 workspaces/glasshouse-terminus/prepare_g4_storm_assets.py 2>&1 | tee "$OUT/asset-download.log"
-      - name: Reuse pinned official Blender
+      - name: Reuse pinned Blender for data inspection only
         timeout-minutes: 5
         run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
-      - name: Actual imported scan and native modifier inspection
+      - name: Inspect actual scan topology and Ocean RNA without rendering
         timeout-minutes: 3
-        run: blender -b workspaces/glasshouse-terminus/output/g4-r02/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/probe_g4_storm_assets.py 2>&1 | tee "$OUT/probe.log"
-      - name: Persist asset bytes and inspection without modifying production master
+        run: blender -b workspaces/glasshouse-terminus/output/g4-r02/g4-full-scene-candidate.blend -t 2 --python-exit-code 1 -P workspaces/glasshouse-terminus/probe_g4_storm_assets.py 2>&1 | tee "$OUT/probe.log"
+      - name: Persist immutable asset data
         if: always()
         timeout-minutes: 3
         run: |
@@ -47,9 +64,8 @@ jobs:
           from pathlib import Path
           root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
           files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
-          assert sum(r['bytes'] for r in files.values())<200000000
-          assert all(r['bytes']<98000000 for r in files.values())
-          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G4_ASSET_PREFLIGHT','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':files,'complete':(root/'ASSET-AND-API-PROBE.json').exists(),'not_project_render':True,'human_acceptance':False},indent=2))
+          assert sum(r['bytes'] for r in files.values())<200000000 and all(r['bytes']<98000000 for r in files.values())
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G4_ASSET_PREFLIGHT_NO_RENDER','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':files,'complete':(root/'ASSET-AND-API-PROBE.json').exists(),'renderer_calls':0,'human_acceptance':False},indent=2))
           PY
           bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-storm-assets
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
