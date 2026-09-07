@@ -1,0 +1,153 @@
+name: Glasshouse R08 independent native craft observations
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-r08-observations.yml]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+  queue: max
+jobs:
+  observe-saved-source:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-r08-observations
+      BLENDER_PROVISION_PROFILE: render-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore both immutable masters and preserve failed observation
+        timeout-minutes: 6
+        run: |
+          echo "OBS_DEADLINE=$(( $(date +%s) + 43*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin caf093e65db1e364e2403e6a7807a3ef5da88b5b
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r08 | tar -x
+          python3 workspaces/glasshouse-terminus/output/g4-coast-r08/restore_master.py restore workspaces/glasshouse-terminus/output/g4-coast-r08
+          git fetch --depth=1 origin 91b5bcc932c58e5a43b20061299bb6a6f606aaaa
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r07 | tar -x
+          python3 workspaces/glasshouse-terminus/output/g4-coast-r07/restore_master.py restore workspaces/glasshouse-terminus/output/g4-coast-r07
+          echo 'c96c202a13c5ecd342a7b614a77b1e24ec9889bdb79cc328a255607467d7e877  workspaces/glasshouse-terminus/output/g4-coast-r08/g4-full-scene-candidate.blend' | sha256sum --check
+          echo '386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396  workspaces/glasshouse-terminus/output/g4-coast-r07/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT/history"
+          git fetch --depth=1 origin 134985500b8ad25499fde9f7409e1c31203e11bb
+          git show FETCH_HEAD:workspaces/glasshouse-terminus/output/g4-coast-r08/BEFORE-cab.png > "$OUT/history/BLOCKED-CAMERA-R07.png"
+          git show FETCH_HEAD:workspaces/glasshouse-terminus/output/g4-coast-r08/DELIVERY.json > "$OUT/history/R08-ORIGINAL-PARTIAL-DELIVERY.json"
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['OUT']);old=json.loads((root/'history/R08-ORIGINAL-PARTIAL-DELIVERY.json').read_text());q=old['files']['BEFORE-cab.png'];p=root/'history/BLOCKED-CAMERA-R07.png'
+          assert p.stat().st_size==q['bytes'] and hashlib.sha256(p.read_bytes()).hexdigest()==q['sha256']
+          (root/'FINITE-REQUEST.json').write_text(json.dumps({'mode':'READ_ONLY_R08_OBSERVATIONS','max_runs':1,'job_minutes':50,'production_minutes':43,'preservation_minutes':7,'external_spend_usd':0,'disk_cap_bytes':8000000000,'download_cap_bytes':1500000000,'evidence_cap_bytes':60000000,'basis':'Original run34165514100 saved source but16min grouped baseline expired during second image after a674sec canopy-blocked cab view. Actual native blocked image read. Add ray-checked under-canopy diagnostic, retain failed image and all original cameras. Independent views retain failures instead of skipping every later observation.','original_zip_log_warning':'Original baseline-render.log in downloaded artifact10034470859 was138bytes larger than its manifest after step cancellation;37of38 entries match and master/PNG are intact. Do not rewrite old artifact history or call its full manifest valid.','g4_stage_pass':False},indent=2))
+          PY
+          cp workspaces/glasshouse-terminus/observe_g4_r08_craft.py "$OUT/observation-source.py"
+          python3 -m py_compile workspaces/glasshouse-terminus/observe_g4_r08_craft.py
+          bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+          cat > "$RUNNER_TEMP/observe-r08.sh" <<'SH'
+          #!/usr/bin/env bash
+          set -euo pipefail
+          key="$1";revision="$2"
+          remaining=$((OBS_DEADLINE-$(date +%s)));test "$remaining" -gt 30
+          cap=$(( remaining<690 ? remaining : 690 ))
+          master="workspaces/glasshouse-terminus/output/g4-coast-${revision}/g4-full-scene-candidate.blend"
+          set +e
+          G4_OBSERVATION_KEY="$key" timeout --signal=TERM --kill-after=10 "${cap}s" blender -b "$master" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/observe_g4_r08_craft.py 2>&1 | tee "$OUT/$key.log"
+          status=${PIPESTATUS[0]}
+          set -e
+          printf '%s\n' "$status" > "$OUT/$key.exit-code.txt"
+          # The process deadline is shorter than the14min step cap, so no writer
+          # remains alive when the final manifest is computed.
+          exit "$status"
+          SH
+          chmod +x "$RUNNER_TEMP/observe-r08.sh"
+      - name: Current sewn upholstery first
+        timeout-minutes: 14
+        continue-on-error: true
+        run: bash "$RUNNER_TEMP/observe-r08.sh" after-cloth r08
+      - name: Exact original upholstery comparison
+        timeout-minutes: 14
+        continue-on-error: true
+        run: bash "$RUNNER_TEMP/observe-r08.sh" before-cloth r07
+      - name: Early actual fabric pair
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: r08-fabric-pair-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-r08-observations/*upholstery.png
+            workspaces/glasshouse-terminus/output/g4-r08-observations/*cloth-*.json
+          retention-days: 1
+          if-no-files-found: warn
+      - name: Actual unobstructed candidate cab, no source changes
+        timeout-minutes: 14
+        continue-on-error: true
+        run: bash "$RUNNER_TEMP/observe-r08.sh" after-cab r08
+      - name: Exact same unoccluded parent cab
+        timeout-minutes: 14
+        continue-on-error: true
+        run: bash "$RUNNER_TEMP/observe-r08.sh" before-cab r07
+      - name: Early actual cab pair and visibility rays
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: r08-cab-pair-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-r08-observations/*cab-unoccluded.png
+            workspaces/glasshouse-terminus/output/g4-r08-observations/*cab-*.json
+          retention-days: 1
+          if-no-files-found: warn
+      - name: Native layered wind sea
+        timeout-minutes: 14
+        continue-on-error: true
+        run: bash "$RUNNER_TEMP/observe-r08.sh" after-sea r08
+      - name: Same-camera original sea for real comparison
+        timeout-minutes: 14
+        continue-on-error: true
+        run: bash "$RUNNER_TEMP/observe-r08.sh" before-sea r07
+      - name: Original full coast regression
+        timeout-minutes: 14
+        continue-on-error: true
+        run: bash "$RUNNER_TEMP/observe-r08.sh" coast r08
+      - name: Original carriage interior regression
+        timeout-minutes: 14
+        continue-on-error: true
+        run: bash "$RUNNER_TEMP/observe-r08.sh" carriage r08
+      - name: Preserve truthful independent outcomes and exact source identity
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
+          parents={'R07':('workspaces/glasshouse-terminus/output/g4-coast-r07/g4-full-scene-candidate.blend','386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396'),'R08':('workspaces/glasshouse-terminus/output/g4-coast-r08/g4-full-scene-candidate.blend','c96c202a13c5ecd342a7b614a77b1e24ec9889bdb79cc328a255607467d7e877')}
+          for k,(path,expected) in parents.items():assert hashlib.sha256(Path(path).read_bytes()).hexdigest()==expected
+          pairs={}
+          for key in ['cloth','cab','sea']:
+            a=root/f'before-{key}-metrics.json';b=root/f'after-{key}-metrics.json'
+            if not a.exists() or not b.exists():pairs[key]={'complete':False};continue
+            x=json.loads(a.read_text());y=json.loads(b.read_text());fields=['view','frame','resolution','samples','engine','exposure','lens_mm','position','rotation','motion_blur'];mismatch=[f for f in fields if x[f]!=y[f]]
+            pairs[key]={'complete':True,'same_camera_fields':not mismatch,'mismatches':mismatch}
+            assert not mismatch,(key,mismatch)
+          (root/'PAIRED-OBSERVATION-CHECK.json').write_text(json.dumps(pairs,indent=2))
+          (root/'SOURCE-BINDING.json').write_text(json.dumps({'candidate_master_sha256':parents['R08'][1],'parent_master_sha256':parents['R07'][1],'candidate_evidence_commit':'caf093e65db1e364e2403e6a7807a3ef5da88b5b','candidate_source_run':34165514100,'both_master_bytes_unchanged':True,'scene_saved_this_run':False,'g4_stage_pass':False},indent=2))
+          required=['AFTER-upholstery.png','BEFORE-upholstery.png','AFTER-cab-unoccluded.png','BEFORE-cab-unoccluded.png','AFTER-wind-sea.png','BEFORE-wind-sea.png','C01-craft-coast.png','C09-tailored-interior.png']
+          missing=[n for n in required if not (root/n).exists()]
+          failed={p.name:p.read_text().strip() for p in root.glob('*.exit-code.txt') if p.read_text().strip()!='0'}
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<60000000
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R08_UNCHANGED_OBSERVATIONS','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'missing':missing,'failed_views':failed,'status':'EIGHT_NATIVE_VIEWS_REVIEW_PENDING' if not missing and not failed else 'PARTIAL_OR_FAILED_NOT_ART_PASS','g4_stage_pass':False,'human_acceptance':False,'scope':'Independent same-source observations, no new art revision. Three new matched pairs plus original coast/carriage. Historical blocked diagnostic retained separately. Failed earlier run remains failure.'},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r08-observations
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: r08-native-observations-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-r08-observations
+          retention-days: 1
+          if-no-files-found: error
