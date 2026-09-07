@@ -1,0 +1,72 @@
+name: Glasshouse G3 R07 missing-glass observation recovery
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g3-r07-recovery-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  recover-one-view:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g3-r07-recovered
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Verify and preserve the exact partial R07 without rebuilding
+        timeout-minutes: 2
+        run: |
+          echo "G3_RECOVERY_DEADLINE=$(( $(date +%s) + 9*60 ))" >> "$GITHUB_ENV"
+          git fetch --depth=1 origin c68b1d2f746f8349b0ef1932076431f5c9fa12da
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3-r07 | tar -x
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,hashlib,shutil,os
+          root=Path('workspaces/glasshouse-terminus');q=json.loads((root/'g3-r07-recovery-request.json').read_text())
+          assert q['mode']=='READ_ONLY_MISSING_VIEW_RECOVERY' and q['max_runs']==1 and q['job_minutes']==12 and q['external_spend_usd']==0 and not q['g4_allowed']
+          base=root/'output/g3-r07';out=Path(os.environ['OUT']);m=json.loads((base/'DELIVERY.json').read_text())
+          assert m['missing']==['reopen-check.json','D01-glass-metal.png'] and len(m['files'])==18
+          for n,v in m['files'].items():
+              p=base/n;assert p.stat().st_size==v['bytes'] and hashlib.sha256(p.read_bytes()).hexdigest()==v['sha256'],n
+          assert hashlib.sha256((base/'g3-bay-candidate.blend').read_bytes()).hexdigest()==q['master_sha256']
+          shutil.copytree(base,out);(out/'DELIVERY.json').rename(out/'R07-PARTIAL-DELIVERY.json')
+          print(json.dumps(q,indent=2))
+          PY
+          python3 -m py_compile workspaces/glasshouse-terminus/recover_g3_r07_glass.py
+      - name: Reuse pinned official Blender
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/recovery-provision.log"
+      - name: Fresh-process single missing native glass view only
+        timeout-minutes: 6
+        run: |
+          remaining=$((G3_RECOVERY_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g3-bay-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/recover_g3_r07_glass.py 2>&1 | tee "$OUT/recovery-render.log"
+      - name: Preserve merged coverage without rewriting the historical failure
+        if: always()
+        timeout-minutes: 3
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<80000000
+          required=['g3-bay-candidate.blend','recovery-report.json','reopen-check.json','D01-roof-node.png','R07-complete-bay-night.png','G3-bay-night.png','D01-glass-metal.png']
+          missing=[n for n in required if not (root/n).is_file()]
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G3','revision':'R07_SAME_MASTER_RECOVERED_OBSERVATION','status':'FOUR_NATIVE_VIEWS_RECOVERED_REVIEW_PENDING_NOT_G3_PASS' if not missing else 'PARTIAL_OR_FAILED_NOT_A_PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'source_partial_run_id':34136755760,'source_partial_evidence_commit':'c68b1d2f746f8349b0ef1932076431f5c9fa12da','master_sha256':'1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e','files':files,'missing':missing,'coverage_note':'Only D01-glass-metal newly rendered. Three existing R07 images and master retained byte-for-byte; R07-PARTIAL-DELIVERY preserves original missing-view failure. No new art revision or power calibration.','g4_allowed':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED'},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g3-r07-recovered
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g3-r07-recovered-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g3-r07-recovered
+          retention-days: 1
+          if-no-files-found: error
