@@ -1,0 +1,17 @@
+{
+  "fresh_process": true,
+  "master_sha256": "1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e",
+  "master_unchanged": true,
+  "source_master_unchanged": true,
+  "missing_external_images": [],
+  "native_images_total": 4,
+  "new_native_images_this_run": 1,
+  "byte_reused_image_count": 3,
+  "recovery_only": "Only D01-glass-metal rendered here; three already-complete R07 images and exact master copied byte-for-byte.",
+  "source_partial_evidence_commit": "c68b1d2f746f8349b0ef1932076431f5c9fa12da",
+  "source_partial_run_id": 34136755760,
+  "source_commit": "46f61ca4bb0ff78de6ecedaab79324871f74668f",
+  "run_id": "34138330518",
+  "g4_allowed": false,
+  "human_acceptance": false
+}

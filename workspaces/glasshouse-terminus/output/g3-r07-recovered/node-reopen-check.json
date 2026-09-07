@@ -1,0 +1,10 @@
+{
+  "fresh_process": true,
+  "master_sha256": "1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e",
+  "master_unchanged": true,
+  "parent_master_unchanged": true,
+  "missing_external_images": [],
+  "native_images": 1,
+  "g4_allowed": false,
+  "human_acceptance": false
+}

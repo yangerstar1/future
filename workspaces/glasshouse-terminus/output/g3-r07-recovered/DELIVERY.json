@@ -1,0 +1,113 @@
+{
+  "stage": "G3",
+  "revision": "R07_SAME_MASTER_RECOVERED_OBSERVATION",
+  "status": "FOUR_NATIVE_VIEWS_RECOVERED_REVIEW_PENDING_NOT_G3_PASS",
+  "run_id": "34138330518",
+  "source_sha": "46f61ca4bb0ff78de6ecedaab79324871f74668f",
+  "source_partial_run_id": 34136755760,
+  "source_partial_evidence_commit": "c68b1d2f746f8349b0ef1932076431f5c9fa12da",
+  "master_sha256": "1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e",
+  "files": {
+    "recovery-provision.log": {
+      "bytes": 41062,
+      "sha256": "6bcfcc222e636353398fbb0d89e21362046056d0ebf372dd8b2613335622fd72"
+    },
+    "build.log": {
+      "bytes": 354,
+      "sha256": "74133921a0f5da81dad90b0bc16ee472a5c253246f70796c36762e1f329bc5d2"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "D01-glass-metal.png": {
+      "bytes": 1135536,
+      "sha256": "0f6a1e5d9fc8b5ebd75e406c050433cbd33e92bd6db18864f69b8c29643c57c2"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "G3-bay-night.png": {
+      "bytes": 1675564,
+      "sha256": "c26e605aa35cd26357f86b8517dbff8f139ec517980f1ec53e28bf01b299270b"
+    },
+    "render-metrics.json": {
+      "bytes": 2669,
+      "sha256": "1c776b9bbe95c4f552418fa269e03eb1a793c9a8c58d3a4c4d1ebed171fe0391"
+    },
+    "node-render.log": {
+      "bytes": 331027,
+      "sha256": "f55f3b16f0b07510a646cb5370b222c4c00d2493889992cda6d6eea0684c04a5"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "calibration-report.json": {
+      "bytes": 1849,
+      "sha256": "77d65cb338a29b6f2b6ac8bf5856b05cc0bee73f07c19c0a7f44bbab51016c9c"
+    },
+    "R06-upper-node-report.json": {
+      "bytes": 41363,
+      "sha256": "6794df432fb6bf3cc89a855b12e367a47f8d181ab6ed036b08d9ad6eb8c1e299"
+    },
+    "node-reopen-check.json": {
+      "bytes": 284,
+      "sha256": "5069af7d0e0b3f06b0e6c474f5623d29641a2de77acb6563c9e2175eadaf486e"
+    },
+    "R07-PARTIAL-DELIVERY.json": {
+      "bytes": 3243,
+      "sha256": "152d4782963ad562c839f0fc6de72b4a2999ad36bf78871e86beab988709758a"
+    },
+    "recovery-render.log": {
+      "bytes": 330480,
+      "sha256": "9b2a96efd8eec544d6fdf19bb424dc3334918d1c84343a1d45a043c3bde30182"
+    },
+    "reopen-check.json": {
+      "bytes": 698,
+      "sha256": "159c0b8f8f87566d4fef0d3b1d5ed1cbc22eed313d8ed81c85f936e5c412093e"
+    },
+    "D01-roof-node.png": {
+      "bytes": 1147151,
+      "sha256": "04f0e7700f27ed78bde46388e0c1699c31810a6a85a94dfd788101bfce643e62"
+    },
+    "provision.log": {
+      "bytes": 41062,
+      "sha256": "03f49c0ba45108ee835323dcf1af7c29c7089b7a8a7ac79b59120ed001d46ffb"
+    },
+    "R07-complete-bay-night.png": {
+      "bytes": 1642923,
+      "sha256": "3b30adc5bd80be265011dee57cd8862efe8c410f8e5cc94c8c8e26d05adef5f7"
+    },
+    "recovery-report.json": {
+      "bytes": 698,
+      "sha256": "159c0b8f8f87566d4fef0d3b1d5ed1cbc22eed313d8ed81c85f936e5c412093e"
+    },
+    "context-render.log": {
+      "bytes": 979186,
+      "sha256": "cbeee3f86412f09393e1f2b917ccaf2637cfae498fac0432855b4a151bdf9879"
+    },
+    "build-report.json": {
+      "bytes": 302,
+      "sha256": "d886b1eeedae77648fa6537f727527d323db14de5f5f51d32497851573edfe24"
+    },
+    "g3-bay-candidate.blend": {
+      "bytes": 26463151,
+      "sha256": "1680bcbcc8f8c0911c3c3486f7fc5da5d849b4a7016e87fad67f4233beb14d5e"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    }
+  },
+  "missing": [],
+  "coverage_note": "Only D01-glass-metal newly rendered. Three existing R07 images and master retained byte-for-byte; R07-PARTIAL-DELIVERY preserves original missing-view failure. No new art revision or power calibration.",
+  "g4_allowed": false,
+  "human_acceptance": false,
+  "browser_gate": "BLOCKED_UNCHANGED"
+}
