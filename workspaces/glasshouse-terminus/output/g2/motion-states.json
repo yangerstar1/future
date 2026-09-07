@@ -1,0 +1,122 @@
+[
+  {
+    "frame": 1,
+    "seconds": 0.0,
+    "track_distance": -46.0,
+    "body_location": [
+      -45.190574645996094,
+      17.088417053222656,
+      0.0
+    ],
+    "body_yaw": -0.43999996429891847,
+    "door_open_fraction": 0
+  },
+  {
+    "frame": 91,
+    "seconds": 3.0,
+    "track_distance": -21.519999999999996,
+    "body_location": [
+      -21.519466400146484,
+      12.131745338439941,
+      0.0
+    ],
+    "body_yaw": -0.006349584278021558,
+    "door_open_fraction": 0
+  },
+  {
+    "frame": 211,
+    "seconds": 7.0,
+    "track_distance": -2.320000000000001,
+    "body_location": [
+      -2.320000171661377,
+      12.100000381469727,
+      0.0
+    ],
+    "body_yaw": 0.0,
+    "door_open_fraction": 0
+  },
+  {
+    "frame": 301,
+    "seconds": 10.0,
+    "track_distance": 2.0,
+    "body_location": [
+      2.0,
+      12.100000381469727,
+      0.0
+    ],
+    "body_yaw": 0.0,
+    "door_open_fraction": 0
+  },
+  {
+    "frame": 315,
+    "seconds": 10.466666666666667,
+    "track_distance": 2.0,
+    "body_location": [
+      2.0,
+      12.100000381469727,
+      0.0
+    ],
+    "body_yaw": 0.0,
+    "door_open_fraction": 0.0006817486156329805
+  },
+  {
+    "frame": 348,
+    "seconds": 11.566666666666666,
+    "track_distance": 2.0,
+    "body_location": [
+      2.0,
+      12.100000381469727,
+      0.0
+    ],
+    "body_yaw": 0.0,
+    "door_open_fraction": 1
+  },
+  {
+    "frame": 391,
+    "seconds": 13.0,
+    "track_distance": 2.0,
+    "body_location": [
+      2.0,
+      12.100000381469727,
+      0.0
+    ],
+    "body_yaw": 0.0,
+    "door_open_fraction": 1
+  },
+  {
+    "frame": 541,
+    "seconds": 18.0,
+    "track_distance": 2.0,
+    "body_location": [
+      2.0,
+      12.100000381469727,
+      0.0
+    ],
+    "body_yaw": 0.0,
+    "door_open_fraction": 1
+  },
+  {
+    "frame": 661,
+    "seconds": 22.0,
+    "track_distance": 2.0,
+    "body_location": [
+      2.0,
+      12.100000381469727,
+      0.0
+    ],
+    "body_yaw": 0.0,
+    "door_open_fraction": 1
+  },
+  {
+    "frame": 840,
+    "seconds": 27.966666666666665,
+    "track_distance": 2.0,
+    "body_location": [
+      2.0,
+      12.100000381469727,
+      0.0
+    ],
+    "body_yaw": 0.0,
+    "door_open_fraction": 1
+  }
+]
