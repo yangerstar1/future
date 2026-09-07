@@ -1,0 +1,34 @@
+[
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "E02-integrated-water.png",
+    "frame": 451,
+    "seconds": 272.030654853,
+    "resolution": [
+      1440,
+      900
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": false,
+    "display_fps": null,
+    "source_fps": 30,
+    "source_frame_step": null,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  }
+]

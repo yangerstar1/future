@@ -1,0 +1,147 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R04_SAME_MASTER_MOTION_PROOF",
+  "status": "NATIVE_PROOF_REVIEW_PENDING",
+  "run_id": "34154436353",
+  "source_sha": "e4c4e4fc326e9dec221599f49da470a22b9723f5",
+  "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+  "source_evidence_commit": "def004d60bb37a58a043a3506fb2bbda5c3a0e5c",
+  "source_directory": "workspaces/glasshouse-terminus/output/g4-coast-r04",
+  "files": {
+    "water-render.log": {
+      "bytes": 478636,
+      "sha256": "c4ad1cd021b0ee0a466b9b4e4494f113d9d48b24632c63d2d19fd4cda568c6dd"
+    },
+    "water-reopen-check.json": {
+      "bytes": 729,
+      "sha256": "cb6b0a5281b6ff50d0e18d5f5d96bd25137b1f5bc35675b5a4bee8c7f16d1e3a"
+    },
+    "motion-render-metrics.json": {
+      "bytes": 14958,
+      "sha256": "81a20657374bfe39b467ba79022fc19f262b0caa3c419c332a5379059027dbeb"
+    },
+    "FINITE-REQUEST.txt": {
+      "bytes": 448,
+      "sha256": "7854941d5e2470671e50c78a7d9627972c610190be1424acef743f9ebf077a20"
+    },
+    "motion-reopen-check.json": {
+      "bytes": 731,
+      "sha256": "267909e4c186969874f2193cf52cb7284e7e595daee000f7e19676e092f3fe6b"
+    },
+    "provision.log": {
+      "bytes": 8777,
+      "sha256": "9992b8d9f0dfd634754674e6dd30b57ce08619557d161f5dc628c3b5b7ee9fcf"
+    },
+    "motion-render.log": {
+      "bytes": 9569897,
+      "sha256": "2fdacba2d956feb6d93c020cc7c12709c46aaa8e8b5bec1bfc312667271312ab"
+    },
+    "water-source-check.json": {
+      "bytes": 620,
+      "sha256": "0e83419630306a8efbed298db77a0fcc5b3b88053caa1a732af91c719610c526"
+    },
+    "motion-source-check.json": {
+      "bytes": 620,
+      "sha256": "0e83419630306a8efbed298db77a0fcc5b3b88053caa1a732af91c719610c526"
+    },
+    "E02-integrated-water.png": {
+      "bytes": 1384002,
+      "sha256": "991dbc80dfbbd084abb3983a10ca3eb52320880dc1acd778afb5d9e7feb8f5db"
+    },
+    "water-render-metrics.json": {
+      "bytes": 746,
+      "sha256": "820818018f7855e1c4ae9f8d704d54b0a368edf150914e337bbb040c2ef51bfb"
+    },
+    "rain/0001.png": {
+      "bytes": 337628,
+      "sha256": "0941de94314431d126d4ca469bf444e5f08ec4539b97235ed7b58b3e8d418c00"
+    },
+    "rain/0002.png": {
+      "bytes": 337815,
+      "sha256": "9ff9239a0f0a8d07423c0d6a8b59221d46be21d3f03812605ef40230cc2c730a"
+    },
+    "rain/0005.png": {
+      "bytes": 337795,
+      "sha256": "bea4fd24caf9e4dad9188afab3e62989a8085fd5ed7cc87b24b1ce8c3c1d7aa1"
+    },
+    "rain/0009.png": {
+      "bytes": 338003,
+      "sha256": "ff3114918723a7dfb9c932cfdc27ca8ee314696505bdb56b2e3f529b263bbbad"
+    },
+    "rain/0004.png": {
+      "bytes": 337615,
+      "sha256": "5028ea6b9c1ca2e9c2dc1169b1d7692a7f8bb6fbc619eaedd7ee90fe3c11e9a1"
+    },
+    "rain/0007.png": {
+      "bytes": 337629,
+      "sha256": "24e32462ba9469cf830808a7372c203d9dee87d7e98dd968a67abb5cb38f4456"
+    },
+    "rain/0003.png": {
+      "bytes": 337686,
+      "sha256": "d967e45bee8473ae04e42765e7581f2fb0643152d84883837ef1e9805480b8f9"
+    },
+    "rain/0006.png": {
+      "bytes": 337424,
+      "sha256": "0c6481ecfc5e1c81cc6fb93981de48196b2e6639ebc6bebdfc1329d16b113193"
+    },
+    "rain/0000.png": {
+      "bytes": 337718,
+      "sha256": "03be982a256b9c7e8d5b1bb8c96669640853fb9407ec82a62b62dfb8ad6a6881"
+    },
+    "rain/0008.png": {
+      "bytes": 337807,
+      "sha256": "a381cb9d98456c042b884bd4a59e58939b66abe4e21f11ebb7322acc56d29aa1"
+    },
+    "ocean/0001.png": {
+      "bytes": 289087,
+      "sha256": "3cd4798b41e48bdda1fb372f314be092a640462e92bc911b419be1d96f103e4d"
+    },
+    "ocean/0002.png": {
+      "bytes": 288884,
+      "sha256": "0394521293d733a9e736eacefde1c3e831b17edfdd55f3682f3885ec942194f4"
+    },
+    "ocean/0005.png": {
+      "bytes": 288871,
+      "sha256": "9efbe37541077fa0b956e1805ea976aa370b275bb09b5fcfd83f93acdadc0a3e"
+    },
+    "ocean/0009.png": {
+      "bytes": 291440,
+      "sha256": "0a83248ecf58ec686c2ddadbcf15a7e49b44bf337594f6a0af215221df3b6b6c"
+    },
+    "ocean/0004.png": {
+      "bytes": 288443,
+      "sha256": "082e42fcd9026c6c536d27a2ab0fad2ccbf4d144f6409739857e93dafe4e6332"
+    },
+    "ocean/0007.png": {
+      "bytes": 290027,
+      "sha256": "9158ab6478cb20ab5eed223c774df2f26bd717e116e1b33285132358cd8628d5"
+    },
+    "ocean/0003.png": {
+      "bytes": 289373,
+      "sha256": "1d21f7dd4b4b51a4f22a2c4a5b5c9919af83160ba00f72d429fe768d1361d8e9"
+    },
+    "ocean/0006.png": {
+      "bytes": 289164,
+      "sha256": "d4c717afa384149965e98768024515ed8c69540195ba609bcb276a32cf91063a"
+    },
+    "ocean/0000.png": {
+      "bytes": 287742,
+      "sha256": "9d0345f29798c81fa53714507a354f8f03b3cdaab58a5cb293276b373e42942d"
+    },
+    "ocean/0008.png": {
+      "bytes": 290420,
+      "sha256": "11eb294af8246e313e3207339b329a847427d9e843f3728065fdf8bac5aca423"
+    }
+  },
+  "missing": [],
+  "native_frame_counts": {
+    "ocean": 10,
+    "rain": 10
+  },
+  "source_fps": 30,
+  "frame_step": 3,
+  "display_fps": 10,
+  "final_film": false,
+  "g4_stage_pass": false,
+  "human_acceptance": false
+}

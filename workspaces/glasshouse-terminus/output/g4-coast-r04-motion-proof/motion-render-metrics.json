@@ -1,0 +1,642 @@
+[
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "ocean/0000.png",
+    "frame": 451,
+    "seconds": 45.26829507000002,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "rain/0000.png",
+    "frame": 451,
+    "seconds": 59.31481109700002,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "ocean/0001.png",
+    "frame": 454,
+    "seconds": 45.09937172100001,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "rain/0001.png",
+    "frame": 454,
+    "seconds": 58.83505623899998,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "ocean/0002.png",
+    "frame": 457,
+    "seconds": 44.403018434000046,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "rain/0002.png",
+    "frame": 457,
+    "seconds": 59.01368250900009,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "ocean/0003.png",
+    "frame": 460,
+    "seconds": 44.77707536499997,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "rain/0003.png",
+    "frame": 460,
+    "seconds": 58.85336770999993,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "ocean/0004.png",
+    "frame": 463,
+    "seconds": 45.067085751000036,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "rain/0004.png",
+    "frame": 463,
+    "seconds": 58.968649298999935,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "ocean/0005.png",
+    "frame": 466,
+    "seconds": 44.76913021400003,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "rain/0005.png",
+    "frame": 466,
+    "seconds": 58.84589683799993,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "ocean/0006.png",
+    "frame": 469,
+    "seconds": 44.719871135000176,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "rain/0006.png",
+    "frame": 469,
+    "seconds": 58.88046724300011,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "ocean/0007.png",
+    "frame": 472,
+    "seconds": 44.851981783000156,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "rain/0007.png",
+    "frame": 472,
+    "seconds": 59.383964648000074,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "ocean/0008.png",
+    "frame": 475,
+    "seconds": 45.06711718099996,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "rain/0008.png",
+    "frame": 475,
+    "seconds": 59.13833978899993,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4COAST_ocean_close",
+    "file": "ocean/0009.png",
+    "frame": 478,
+    "seconds": 45.26361649299997,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 48.0,
+    "position": [
+      -33.0,
+      38.0,
+      -13.0
+    ],
+    "rotation": [
+      1.188143253326416,
+      -5.283270709810495e-08,
+      2.677945137023926
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  },
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "rain/0009.png",
+    "frame": 478,
+    "seconds": 59.23693197500006,
+    "resolution": [
+      640,
+      400
+    ],
+    "samples": 24,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+    "proof_only": true,
+    "display_fps": 10,
+    "source_fps": 30,
+    "source_frame_step": 3,
+    "shutter_frames": 0.699999988079071,
+    "revision": "COAST-R04_SAME_MASTER_OBSERVATION"
+  }
+]

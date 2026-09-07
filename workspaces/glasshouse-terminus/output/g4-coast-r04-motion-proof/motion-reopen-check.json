@@ -1,0 +1,23 @@
+{
+  "master_sha256": "51a3501edd81f879ba1b5c3e6dd6986e3306968d1319199a624f363667d65a9c",
+  "master_bytes": 151742376,
+  "source_evidence_commit": "def004d60bb37a58a043a3506fb2bbda5c3a0e5c",
+  "blender": "4.5.13 LTS",
+  "fresh_process": true,
+  "missing_external_images": [],
+  "world": "G4COAST_R04_adapted_overcast_sky",
+  "exposure": 0.0,
+  "view_transform": "AgX",
+  "motion_blur_enabled": true,
+  "shutter_frames": 0.699999988079071,
+  "source_fps": 30,
+  "source_fps_base": 1.0,
+  "no_scene_save": true,
+  "no_lighting_material_geometry_camera_changes": true,
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "master_unchanged_after_render": true,
+  "completed": true,
+  "actual_frames": 20,
+  "requested_frames": 20
+}
