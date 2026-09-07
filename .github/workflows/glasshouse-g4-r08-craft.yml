@@ -1,0 +1,156 @@
+name: Glasshouse R08 cab upholstery and wind-sea craft
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [.github/workflows/glasshouse-g4-r08-craft.yml]
+permissions:
+  contents: write
+jobs:
+  craft-source:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 14
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r08
+      BLENDER_PROVISION_PROFILE: render-only
+    outputs:
+      evidence_commit: ${{ steps.persist.outputs.commit }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact R07 plus completed read-only craft inspection
+        timeout-minutes: 3
+        run: |
+          git fetch --depth=1 origin 91b5bcc932c58e5a43b20061299bb6a6f606aaaa
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r07 | tar -x
+          python3 workspaces/glasshouse-terminus/output/g4-coast-r07/restore_master.py restore workspaces/glasshouse-terminus/output/g4-coast-r07
+          echo '386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396  workspaces/glasshouse-terminus/output/g4-coast-r07/g4-full-scene-candidate.blend' | sha256sum --check
+          git fetch --depth=1 origin fabf97ac9fa264a741429c0dc01c75e63f322381
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-r07-craft-audit | tar -x
+          python3 -m py_compile workspaces/glasshouse-terminus/refine_g4_r08_craft.py workspaces/glasshouse-terminus/render_g4_r08_baseline.py
+          mkdir -p "$OUT"
+          printf '%s\n' 'R08 one bounded construction-first candidate.14min source +52min serial renderer(45min production,7min preserve).External spend0;download1.5GB,disk8GB,evidence350MB.Only audited cab lofts,32 box cushions and secondary wind-sea detail.Original rain,cliffs,wood,glass,lights,world and original cameras retained.No G4 pass from files or CI. R07 active renderer untouched.' > "$OUT/FINITE-REQUEST.txt"
+      - name: Reuse pinned native Blender, no new framework or paid assets
+        timeout-minutes: 4
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-source.log"
+      - name: Build anchored surfaces, sewn fabric and native secondary spectrum
+        timeout-minutes: 5
+        env:
+          G4_CRAFT_MODE: build
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g4-coast-r07/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_r08_craft.py 2>&1 | tee "$OUT/build.log"
+          test "$(du -sb workspaces/glasshouse-terminus | cut -f1)" -lt 8000000000
+      - name: Preserve editable full-quality source before beauty images
+        id: persist
+        timeout-minutes: 2
+        run: |
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r08-source | tee "$RUNNER_TEMP/r08-source-publication.log"
+          value=$(sed -n 's/^PERSISTED_EVIDENCE_COMMIT=//p' "$RUNNER_TEMP/r08-source-publication.log" | tail -1)
+          test ${#value} -eq 40
+          echo "commit=$value" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: coast-r08-source-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r08
+          retention-days: 1
+          if-no-files-found: error
+  native-craft-review:
+    needs: craft-source
+    runs-on: ubuntu-24.04
+    timeout-minutes: 52
+    concurrency:
+      group: glasshouse-production
+      cancel-in-progress: false
+      queue: max
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-coast-r08
+      BLENDER_PROVISION_PROFILE: render-only
+      SOURCE_EVIDENCE: ${{ needs.craft-source.outputs.evidence_commit }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore saved candidate and immutable comparison parent
+        timeout-minutes: 6
+        run: |
+          echo "G4_CRAFT_DEADLINE=$(( $(date +%s) + 45*60 ))" >> "$GITHUB_ENV"
+          test ${#SOURCE_EVIDENCE} -eq 40
+          git fetch --depth=1 origin "$SOURCE_EVIDENCE"
+          git archive FETCH_HEAD "$OUT" | tar -x
+          python3 "$OUT/restore_master.py" restore "$OUT"
+          python3 - <<'PY'
+          import os,json,hashlib,shutil
+          from pathlib import Path
+          r=Path(os.environ['OUT']);q=json.loads((r/'build-report.json').read_text())
+          assert hashlib.sha256((r/'g4-full-scene-candidate.blend').read_bytes()).hexdigest()==q['candidate_sha256']
+          # Transport chunks only; their full reconstructed source was verified above.
+          shutil.rmtree(r/'master-parts')
+          PY
+          git fetch --depth=1 origin 91b5bcc932c58e5a43b20061299bb6a6f606aaaa
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-coast-r07 | tar -x
+          python3 workspaces/glasshouse-terminus/output/g4-coast-r07/restore_master.py restore workspaces/glasshouse-terminus/output/g4-coast-r07
+          bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision-render.log"
+      - name: Original parent under exactly the new saved diagnostic camera
+        timeout-minutes: 16
+        run: |
+          remaining=$((G4_CRAFT_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b workspaces/glasshouse-terminus/output/g4-coast-r07/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/render_g4_r08_baseline.py 2>&1 | tee "$OUT/baseline-render.log"
+      - name: Same-camera new cab and sewn upholstery
+        timeout-minutes: 16
+        env:
+          G4_CRAFT_MODE: detail
+        run: |
+          remaining=$((G4_CRAFT_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_r08_craft.py 2>&1 | tee "$OUT/detail-render.log"
+          python3 - <<'PY'
+          import os,json
+          from pathlib import Path
+          root=Path(os.environ['OUT']);a=json.loads((root/'baseline-metrics.json').read_text());b=json.loads((root/'detail-metrics.json').read_text())
+          for x,y in zip(a,b):
+            for key in ['view','frame','resolution','samples','engine','exposure','lens_mm','position','rotation']:assert x[key]==y[key],(key,x,y)
+          (root/'PAIRED-OBSERVATION-CHECK.json').write_text(json.dumps({'same_camera_fields':True,'pairs':2,'parent_and_candidate_different':True,'g4_stage_pass':False},indent=2))
+          PY
+      - name: Early untouched native before-after originals
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: coast-r08-pairs-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g4-coast-r08/BEFORE-*.png
+            workspaces/glasshouse-terminus/output/g4-coast-r08/AFTER-*.png
+            workspaces/glasshouse-terminus/output/g4-coast-r08/*metrics.json
+            workspaces/glasshouse-terminus/output/g4-coast-r08/PAIRED-OBSERVATION-CHECK.json
+          retention-days: 1
+          if-no-files-found: error
+      - name: Existing carriage, exterior and ocean cameras, no scene save
+        timeout-minutes: 22
+        env:
+          G4_CRAFT_MODE: context
+        run: |
+          remaining=$((G4_CRAFT_DEADLINE-$(date +%s)));test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b "$OUT/g4-full-scene-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/refine_g4_r08_craft.py 2>&1 | tee "$OUT/context-render.log"
+      - name: Persist actual coverage and source, never automatic art approval
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(x['bytes'] for x in files.values())<350000000
+          required=['g4-full-scene-candidate.blend','build-report.json','BEFORE-cab.png','BEFORE-upholstery.png','AFTER-cab.png','AFTER-upholstery.png','C09-tailored-interior.png','C01-craft-coast.png','E02-wind-sea.png','PAIRED-OBSERVATION-CHECK.json','context-reopen.json']
+          missing=[n for n in required if not (root/n).exists()]
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G4','revision':'COAST-R08','status':'NATIVE_CRAFT_REVIEW_PENDING' if not missing else 'PARTIAL_OR_FAILED_NOT_A_PASS','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'source_evidence_commit':os.environ['SOURCE_EVIDENCE'],'parent_master_sha256':'386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396','files':files,'missing':missing,'g4_stage_pass':False,'human_acceptance':False,'scope':'Two R07 native baseline images, two R08 paired images, three R08 current-version context images. These are diagnostic native resolutions, not final4K film. Rain and cliffs are inherited, not newly solved.'},indent=2))
+          PY
+          python3 workspaces/glasshouse-terminus/coast_master_transport.py publish "$OUT" g4-coast-r08
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: coast-r08-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-coast-r08
+          retention-days: 1
+          if-no-files-found: error
