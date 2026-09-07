@@ -1,0 +1,176 @@
+{
+  "stage": "G4",
+  "revision": "COAST-R08",
+  "status": "PARTIAL_OR_FAILED_NOT_A_PASS",
+  "source_sha": "d1db8a6e1ee005db14f145e7a1b402620bab4ae6",
+  "run_id": "34165514100",
+  "source_evidence_commit": "caf093e65db1e364e2403e6a7807a3ef5da88b5b",
+  "parent_master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+  "files": {
+    "MASTER-PARTS.json": {
+      "bytes": 970,
+      "sha256": "01f1703a67cdf4d5dff68d62ef21cc1e4a1c4241e15c7db33d7e1b39dcc1e896"
+    },
+    "build.log": {
+      "bytes": 390,
+      "sha256": "74a3309e4c68f880d564b7c649fe69b7dc7f4887ac3b951fd8ac771e4ad485f7"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "MASTER-RESTORE.txt": {
+      "bytes": 308,
+      "sha256": "9f84813ca2379a0e1390eb5657c394dd5a81cc21eb9e844f45fc10b341999e25"
+    },
+    "BEFORE-cab.png": {
+      "bytes": 1482932,
+      "sha256": "b026fcaf662c8390dac97928f05210b0a1d772be17c4b56c2b3deb7f82e962df"
+    },
+    "PARENT-R03-build-report.json": {
+      "bytes": 136727,
+      "sha256": "c5eaf036bbb1eec865ce6ff8d506de204241497cc813bf4d88a0774156c49bf1"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "volume-diagnostics.json": {
+      "bytes": 373,
+      "sha256": "7ba51b3465f51af79ba0bfdc4fd614fb28066c3b4419d97cb44e94749df8bec9"
+    },
+    "ASSET-AND-API-PROBE.json": {
+      "bytes": 26320,
+      "sha256": "4ce7ed749df485ceac44e0913a0e1b3ef1e6bc6afb665b3277c26e1cb85344a9"
+    },
+    "restore_master.py": {
+      "bytes": 3552,
+      "sha256": "36eb86b8f1156065112bb5ff350a9c6e606cc34f127bdc4f7db1bbcff94071f6"
+    },
+    "g4-full-scene-candidate.blend": {
+      "bytes": 154411214,
+      "sha256": "c96c202a13c5ecd342a7b614a77b1e24ec9889bdb79cc328a255607467d7e877"
+    },
+    "COAST-R04-build-report.json": {
+      "bytes": 18831,
+      "sha256": "37803d3a967ec8d42b4ee0ad045426372ea169960151ef3ca97d699731450cec"
+    },
+    "COAST-R05-build-report.json": {
+      "bytes": 6076,
+      "sha256": "e21bc4c16a7d02edcaac65f534f6e1e4267cd9aca376d75dbccf35bc3e79031d"
+    },
+    "baseline-render.log": {
+      "bytes": 961451,
+      "sha256": "5c023a9fc5f44c8f0ba839304a2b4604d0f41c9ac7399d44dac6ced44eb28133"
+    },
+    "COAST-R01-build-report.json": {
+      "bytes": 13117,
+      "sha256": "f4f902b3ac176672abf1a20032324b67da3c8bb8afdb9f20c1f9580ff4d80afb"
+    },
+    "STORM-ASSET-SOURCES.json": {
+      "bytes": 5222,
+      "sha256": "cf382970397232ae1ec7ac025f73469731816d68730233e0ec916a8742993370"
+    },
+    "normal-preflight.json": {
+      "bytes": 886,
+      "sha256": "b4258ca45d6e94b868519c554628e1bebd13a42be5b2506c43453981169aae06"
+    },
+    "baseline-metrics.json": {
+      "bytes": 601,
+      "sha256": "635e76347dee8c4ade51feeddf9740d6109dd735abbc804414ad3b64d7a99bc2"
+    },
+    "COAST-R02-build-report.json": {
+      "bytes": 2239,
+      "sha256": "79eab19add15f235f4547d8330fa75c7dcf475c4bda91bfb5bee645591e3671b"
+    },
+    "FINITE-REQUEST.txt": {
+      "bytes": 369,
+      "sha256": "8751731e6e3560019795c6a27f256bfd1da95374d5935b35aa217f83090a9637"
+    },
+    "COAST-R06-build-report.json": {
+      "bytes": 201266,
+      "sha256": "949d642f9c585ac560e76481bf53534d2800ef40765aa157d6e11e01d1d0f5d8"
+    },
+    "COAST-R03-build-report.json": {
+      "bytes": 2350,
+      "sha256": "fd4065009b83102f7047137591255b71db6112639b767781345fcfa1229992ea"
+    },
+    "provision-source.log": {
+      "bytes": 8777,
+      "sha256": "ebcf9c74913dd0d56b51d7f0adc12e70b880894890486ad979a208a947c6be25"
+    },
+    "provision-render.log": {
+      "bytes": 8856,
+      "sha256": "8e9b09fbb9f4742cc43156eeab99a0b6981e35fb1332004baf25503bc9da4107"
+    },
+    "COAST-R07-build-report.json": {
+      "bytes": 148550,
+      "sha256": "675a91facd85746c0591e4c73e7e14b275272b59fd364f62a425ad26e5966f55"
+    },
+    "build-report.json": {
+      "bytes": 18663,
+      "sha256": "590c397f141a831c0fd3414b78d6c631a8ed46bea7b12705dc1b476b7ef585ec"
+    },
+    "SURFACE-ASSET-SOURCES.json": {
+      "bytes": 2994,
+      "sha256": "3700333aaac1b4d99ee438a8b31db0b1f664a141e8c70d241fc769e140164422"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_diff_4k.jpg": {
+      "bytes": 13605843,
+      "sha256": "a72582be1337c11e2e59a03e01ef0270f2c0f455a410c5cc667df9682e2c76ce"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_nor_gl_4k.jpg": {
+      "bytes": 14307275,
+      "sha256": "d58370b656d08316b9aca02c3f627e0ffcf2dd22873c4cbeb343321ccd044620"
+    },
+    "assets/poly_wool_herringbone/upstream-info.json": {
+      "bytes": 1126,
+      "sha256": "faa965db26931d0ed3a341b8d3c6b6fe5cfbb1f9f55f4236a3fba8cf6391e377"
+    },
+    "assets/poly_wool_herringbone/upstream-files.json": {
+      "bytes": 59902,
+      "sha256": "e551a61f9486aeec7efa27e9e009bf12c52497e6718341335c0b5acbd37f77f1"
+    },
+    "assets/poly_wool_herringbone/poly_wool_herringbone_rough_4k.jpg": {
+      "bytes": 15049055,
+      "sha256": "04ba7ce77111a715fd689aa420a6e880b3d166a11e2e9068ae52c0235f2c3329"
+    },
+    "assets/kloofendal_overcast_puresky/kloofendal_overcast_puresky_2k.hdr": {
+      "bytes": 4335717,
+      "sha256": "312b1b04b7f10057a4f1418abc59d1166c8933cc93fc72051502edaf8d6b2fcd"
+    },
+    "assets/kloofendal_overcast_puresky/upstream-info.json": {
+      "bytes": 1345,
+      "sha256": "fd079df4389329cb1393a2ba7a2dbe153d6ecf3d1d12de2c6543c9a20ea625b6"
+    },
+    "assets/kloofendal_overcast_puresky/upstream-files.json": {
+      "bytes": 2830,
+      "sha256": "0eba63450bfabd5d0fbfdc562107fb5ee40ea23bfe2ff00f13829ca6a11d265d"
+    }
+  },
+  "missing": [
+    "BEFORE-upholstery.png",
+    "AFTER-cab.png",
+    "AFTER-upholstery.png",
+    "C09-tailored-interior.png",
+    "C01-craft-coast.png",
+    "E02-wind-sea.png",
+    "PAIRED-OBSERVATION-CHECK.json",
+    "context-reopen.json"
+  ],
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "scope": "Two R07 native baseline images, two R08 paired images, three R08 current-version context images. These are diagnostic native resolutions, not final4K film. Rain and cliffs are inherited, not newly solved."
+}

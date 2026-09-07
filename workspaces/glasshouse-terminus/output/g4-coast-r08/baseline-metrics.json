@@ -1,0 +1,29 @@
+[
+  {
+    "view": "QA_R08_cab_joinery",
+    "file": "BEFORE-cab.png",
+    "frame": 451,
+    "seconds": 674.120924809,
+    "resolution": [
+      1280,
+      800
+    ],
+    "samples": 64,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 54.0,
+    "position": [
+      12.670000076293945,
+      6.210000038146973,
+      5.519999980926514
+    ],
+    "rotation": [
+      1.2461271286010742,
+      3.7112410922190975e-08,
+      0.4876271188259125
+    ],
+    "master_sha256": "386ab4bfb0134988962efaa96d03e883ed557b30843aba6c20de0af9d999c396",
+    "native_render": true,
+    "revision": "R07"
+  }
+]

@@ -1,0 +1,80 @@
+{
+  "credit": "Powered by Poly Haven",
+  "assets": [
+    {
+      "asset_id": "kloofendal_overcast_puresky",
+      "authors": {
+        "Greg Zaal": "All"
+      },
+      "license": "CC0-1.0",
+      "license_source": "https://polyhaven.com/license",
+      "source": "https://polyhaven.com/a/kloofendal_overcast_puresky",
+      "files": {
+        "environment": {
+          "file": "assets/kloofendal_overcast_puresky/kloofendal_overcast_puresky_2k.hdr",
+          "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/kloofendal_overcast_puresky_2k.hdr",
+          "bytes": 4335717,
+          "sha256": "312b1b04b7f10057a4f1418abc59d1166c8933cc93fc72051502edaf8d6b2fcd",
+          "native_resolution": [
+            2048,
+            1024
+          ],
+          "color_space": "Linear Rec.709",
+          "image_name": "kloofendal_overcast_puresky_2k.hdr",
+          "metadata_key": "hdri"
+        }
+      }
+    },
+    {
+      "asset_id": "poly_wool_herringbone",
+      "authors": {
+        "colormass": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "license": "CC0-1.0",
+      "license_source": "https://polyhaven.com/license",
+      "source": "https://polyhaven.com/a/poly_wool_herringbone",
+      "files": {
+        "diff": {
+          "file": "assets/poly_wool_herringbone/poly_wool_herringbone_diff_4k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/poly_wool_herringbone/poly_wool_herringbone_diff_4k.jpg",
+          "bytes": 13605843,
+          "sha256": "a72582be1337c11e2e59a03e01ef0270f2c0f455a410c5cc667df9682e2c76ce",
+          "native_resolution": [
+            4096,
+            4181
+          ],
+          "color_space": "sRGB",
+          "image_name": "poly_wool_herringbone_diff_4k.jpg",
+          "metadata_key": "Diffuse"
+        },
+        "normal": {
+          "file": "assets/poly_wool_herringbone/poly_wool_herringbone_nor_gl_4k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/poly_wool_herringbone/poly_wool_herringbone_nor_gl_4k.jpg",
+          "bytes": 14307275,
+          "sha256": "d58370b656d08316b9aca02c3f627e0ffcf2dd22873c4cbeb343321ccd044620",
+          "native_resolution": [
+            4096,
+            4181
+          ],
+          "color_space": "Non-Color",
+          "image_name": "poly_wool_herringbone_nor_gl_4k.jpg",
+          "metadata_key": "nor_gl"
+        },
+        "rough": {
+          "file": "assets/poly_wool_herringbone/poly_wool_herringbone_rough_4k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/4k/poly_wool_herringbone/poly_wool_herringbone_rough_4k.jpg",
+          "bytes": 15049055,
+          "sha256": "04ba7ce77111a715fd689aa420a6e880b3d166a11e2e9068ae52c0235f2c3329",
+          "native_resolution": [
+            4096,
+            4181
+          ],
+          "color_space": "Non-Color",
+          "image_name": "poly_wool_herringbone_rough_4k.jpg",
+          "metadata_key": "Rough"
+        }
+      }
+    }
+  ]
+}

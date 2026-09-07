@@ -1,0 +1,4 @@
+This is the actual full-detail Blender master, not an image or LOD substitute.
+Actions ZIP: open g4-full-scene-candidate.blend directly.
+Git evidence archive: run python3 restore_master.py restore . in this output directory.
+The script validates every part and the final SHA-256, without changing the model.
