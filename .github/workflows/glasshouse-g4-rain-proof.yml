@@ -1,0 +1,75 @@
+name: Glasshouse G4 R03 read-only rain motion proof
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g4-rain-proof-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  observe:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 24
+    defaults:
+      run:
+        shell: bash
+    env:
+      OUT: workspaces/glasshouse-terminus/output/g4-r03-rain-proof
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore saved R03 and R02 bytes without rebuilding either
+        timeout-minutes: 2
+        run: |
+          echo "G4_PROOF_DEADLINE=$(( $(date +%s) + 20*60 ))" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          q=json.loads(Path('workspaces/glasshouse-terminus/g4-rain-proof-request.json').read_text())
+          assert q['mode']=='READ_ONLY_NATIVE_MOTION_PROOF' and q['max_runs']==1 and q['job_minutes']==24 and q['external_spend_usd']==0
+          print(json.dumps(q,indent=2))
+          PY
+          git fetch --depth=1 origin 0e0f56888549e27900070a83b9830f81c3313c4b
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-r03 | tar -x
+          git fetch --depth=1 origin 12ae1030686d97823548b2967805d85853d12ab2
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g4-r02 | tar -x
+          echo 'dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5  workspaces/glasshouse-terminus/output/g4-r03/g4-full-scene-candidate.blend' | sha256sum --check
+          mkdir -p "$OUT"
+          python3 -m py_compile workspaces/glasshouse-terminus/observe_g4_r03_rain.py
+      - name: Reuse pinned Blender and installed encoder
+        timeout-minutes: 5
+        run: bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$OUT/provision.log"
+      - name: Render twenty actual rain frames then the exact-camera older baseline
+        timeout-minutes: 20
+        run: |
+          remaining=$((G4_PROOF_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=10 "${remaining}s" blender -b workspaces/glasshouse-terminus/output/g4-r03/g4-full-scene-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/observe_g4_r03_rain.py 2>&1 | tee "$OUT/render.log"
+      - name: Encode only complete native frame sequence and preserve truthful evidence
+        if: always()
+        timeout-minutes: 4
+        run: |
+          if [ -d "$OUT/frames" ] && [ "$(find "$OUT/frames" -name '*.png' | wc -l)" -eq 20 ]; then
+            ffmpeg -hide_banner -loglevel error -framerate 10 -i "$OUT/frames/%04d.png" -frames:v 20 -c:v libx264 -pix_fmt yuv420p -crf 18 -movflags +faststart "$OUT/rain-motion-proof.mp4"
+            ffprobe -v error -show_format -show_streams -of json "$OUT/rain-motion-proof.mp4" > "$OUT/video-probe.json"
+            ffmpeg -v error -i "$OUT/rain-motion-proof.mp4" -f null -
+          fi
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['OUT']);root.mkdir(parents=True,exist_ok=True)
+          files={str(p.relative_to(root)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in root.rglob('*') if p.is_file() and p.name!='DELIVERY.json'}
+          assert sum(v['bytes'] for v in files.values())<40000000
+          required=['rain-motion-proof.mp4','R02-same-camera-glass-baseline.png','reopen-check.json']
+          missing=[n for n in required if not (root/n).is_file()]
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G4','mode':'READ_ONLY_NATIVE_MOTION_PROOF','status':'NATIVE_PROOF_REVIEW_PENDING' if not missing else 'PARTIAL_PROOF_NOT_A_PASS','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'master_sha256':'dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5','files':files,'missing':missing,'g4_stage_pass':False,'human_acceptance':False,'scope':'Two seconds,640x400,10fps native frames; not final4K film or all-weather train simulation. Source and baseline .blend never saved.'},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$OUT" g4-r03-rain-proof
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g4-r03-rain-proof-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g4-r03-rain-proof
+          retention-days: 1
+          if-no-files-found: error
