@@ -1,0 +1,1 @@
+One9min read-only non-render audit after native M03 remained near-black. Camera first hits, actual surface normals/material slots, cosine-weighted sky occlusion and nearby practical-light first hits. No save, no lamp/material edits or automatic retry. Public standard runner, external spend0,download1.5GB,disk8GB,evidence10MB. Does not acquire or interrupt production render queue.

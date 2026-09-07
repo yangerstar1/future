@@ -1,0 +1,5404 @@
+{
+  "mode": "READ_ONLY_NO_SAVE_NO_RENDER",
+  "source_sha": "c2947b592e3f833051b1b4be7b56d6a7b610c79a",
+  "run_id": "34161053776",
+  "master_sha256": "590e6793224219c5245f89fd43f7ab2e9daed08b79429b5f8925d6c7c0e36738",
+  "camera": {
+    "name": "G4R03_wet_stone_macro",
+    "position": [
+      -4.0,
+      -8.479999542236328,
+      0.6299999952316284
+    ],
+    "lens": 55.0,
+    "frame": 451,
+    "exposure": 0.0
+  },
+  "camera_first_hit_counts": {
+    "Load_bearing_masonry_terrace": 18,
+    "G4R03_shallow_rain_puddle.001": 14,
+    "Hall_plinth": 3
+  },
+  "camera_samples": [
+    {
+      "pixel": [
+        103,
+        810
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -4.995366096496582,
+          -8.091461181640625,
+          -0.024999290704727173
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.2532915527886668,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -5.9451446533203125,
+            -7.720717430114746,
+            -0.6499999165534973
+          ],
+          "normal": [
+            3.521168991937884e-07,
+            -3.1877090123089147e-07,
+            1.0
+          ],
+          "face": 34411,
+          "distance": 1.1958762566021672,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.9831366539001465,
+            -7.705886363983154,
+            -0.6750004291534424
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.04782193864085853,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        309,
+        810
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -4.924378871917725,
+          -8.005529403686523,
+          -0.024999409914016724
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.2282598984379836,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -5.806421756744385,
+            -7.552789688110352,
+            -0.6499999761581421
+          ],
+          "normal": [
+            3.521168991937884e-07,
+            -3.1877090123089147e-07,
+            1.0
+          ],
+          "face": 34411,
+          "distance": 1.1719911263466831,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.841703414916992,
+            -7.534679889678955,
+            -0.6749999523162842
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.046865180658503224,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        514,
+        810
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -4.853394031524658,
+          -7.919595241546631,
+          -0.025001078844070435
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.2129965841845907,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -5.667698383331299,
+            -7.384860992431641,
+            -0.6499998569488525
+          ],
+          "normal": [
+            3.521168991937884e-07,
+            -3.1877090123089147e-07,
+            1.0
+          ],
+          "face": 34411,
+          "distance": 1.1574199531016516,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.700270652770996,
+            -7.363471508026123,
+            -0.6749999523162842
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.0462825351802836,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        720,
+        810
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -4.782405853271484,
+          -7.833664417266846,
+          -0.02500048279762268
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.2078632339146065,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -5.528975009918213,
+            -7.216933727264404,
+            -0.6499999761581421
+          ],
+          "normal": [
+            3.521168991937884e-07,
+            -3.1877090123089147e-07,
+            1.0
+          ],
+          "face": 34411,
+          "distance": 1.1525242938834572,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.558837890625,
+            -7.192265033721924,
+            -0.6750000715255737
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.04608650812342864,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        926,
+        810
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -4.711418628692627,
+          -7.747732639312744,
+          -0.024999946355819702
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.212994741495249,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -5.390252590179443,
+            -7.049005508422852,
+            -0.6499996781349182
+          ],
+          "normal": [
+            3.521168991937884e-07,
+            -3.1877090123089147e-07,
+            1.0
+          ],
+          "face": 34411,
+          "distance": 1.1574218842695985,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.41740608215332,
+            -7.021055698394775,
+            -0.6749999523162842
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.0462832589575529,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1131,
+        810
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -4.6404314041137695,
+          -7.661800861358643,
+          -0.025000005960464478
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.2282615483791433,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -5.251529693603516,
+            -6.881077766418457,
+            -0.6499997973442078
+          ],
+          "normal": [
+            3.521168991937884e-07,
+            -3.1877090123089147e-07,
+            1.0
+          ],
+          "face": 34411,
+          "distance": 1.1719895243314873,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.275973796844482,
+            -6.84984827041626,
+            -0.6750000715255737
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.046865891401125195,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1337,
+        810
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -4.5693278312683105,
+          -7.576054096221924,
+          -0.024866342544555664
+        ],
+        "normal": [
+          0.011736655607819557,
+          -0.0247950479388237,
+          0.9996236562728882
+        ],
+        "face": 478,
+        "distance": 1.2530368988003397,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -4.569410800933838,
+            -7.575921535491943,
+            -0.024962108582258224
+          ],
+          "normal": [
+            -0.011736645363271236,
+            0.02479534037411213,
+            -0.999623715877533
+          ],
+          "face": 958,
+          "distance": 0.0001683352305237652,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -4.569443702697754,
+            -7.575869083404541,
+            -0.024999946355819702
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 5.7521045942224384e-05,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        103,
+        630
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -5.187498092651367,
+          -8.001304626464844,
+          -0.02499982714653015
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.4381673600972156,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -6.3206071853637695,
+            -7.5445356369018555,
+            -0.6499997973442078
+          ],
+          "normal": [
+            2.0687892288151488e-07,
+            -1.684591524053758e-07,
+            1.0
+          ],
+          "face": 35114,
+          "distance": 1.3722820892345318,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -6.365931510925293,
+            -7.526264667510986,
+            -0.6749998331069946
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.05487698909300666,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        309,
+        630
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -5.105288505554199,
+          -7.90178918838501,
+          -0.024999350309371948
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.4089052669356301,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -6.159955024719238,
+            -7.350061416625977,
+            -0.6499998569488525
+          ],
+          "normal": [
+            2.0687892288151488e-07,
+            -1.684591524053758e-07,
+            1.0
+          ],
+          "face": 35114,
+          "distance": 1.3443622968384779,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -6.202142238616943,
+            -7.327991962432861,
+            -0.675000011920929
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.05376059609914197,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        514,
+        630
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -5.021002769470215,
+          -7.803650379180908,
+          -0.023669540882110596
+        ],
+        "normal": [
+          0.0022603124380111694,
+          -0.0070977224968373775,
+          0.9999723434448242
+        ],
+        "face": 271,
+        "distance": 1.3882286018860281,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -5.021157264709473,
+            -7.803548336029053,
+            -0.023768499493598938
+          ],
+          "normal": [
+            -0.002260294510051608,
+            0.007097703870385885,
+            -0.9999722838401794
+          ],
+          "face": 751,
+          "distance": 0.0001950622537437029,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.023080348968506,
+            -7.802274227142334,
+            -0.02499958872795105
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.0025999249255914472,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        720,
+        630
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -4.938912868499756,
+          -7.704376697540283,
+          -0.02363574504852295
+        ],
+        "normal": [
+          0.004669089335948229,
+          -0.004607334267348051,
+          0.9999784827232361
+        ],
+        "face": 276,
+        "distance": 1.3821678059654243,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -4.939054489135742,
+            -7.704259395599365,
+            -0.02373460866510868
+          ],
+          "normal": [
+            -0.004669132176786661,
+            0.004607208073139191,
+            -0.9999784827232361
+          ],
+          "face": 756,
+          "distance": 0.00019380935108977704,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -4.9408698081970215,
+            -7.702759265899658,
+            -0.024998635053634644
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.0026577661459269656,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        926,
+        630
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -4.856649875640869,
+          -7.6052985191345215,
+          -0.023463726043701172
+        ],
+        "normal": [
+          0.004173749126493931,
+          -0.00677631376311183,
+          0.9999683499336243
+        ],
+        "face": 284,
+        "distance": 1.3877916510668793,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -4.856779098510742,
+            -7.605166435241699,
+            -0.023562317714095116
+          ],
+          "normal": [
+            -0.00417376309633255,
+            0.006776492577046156,
+            -0.999968409538269
+          ],
+          "face": 764,
+          "distance": 0.00019451069905725913,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -4.858663558959961,
+            -7.60324239730835,
+            -0.025000005960464478
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.0030379483583579977,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1131,
+        630
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -4.774587631225586,
+          -7.50607442855835,
+          -0.02342468500137329
+        ],
+        "normal": [
+          0.0037291506305336952,
+          0.005161650013178587,
+          0.9999797344207764
+        ],
+        "face": 194,
+        "distance": 1.4055176841440271,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -4.7747063636779785,
+            -7.505924701690674,
+            -0.023524994030594826
+          ],
+          "normal": [
+            -0.003729109186679125,
+            -0.00516175664961338,
+            -0.9999797940254211
+          ],
+          "face": 674,
+          "distance": 0.00020083930331255389,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -4.776454925537109,
+            -7.503726482391357,
+            -0.025000005960464478
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.0031576066246007087,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1337,
+        630
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -4.694246292114258,
+          -7.404209613800049,
+          -0.025000005960464478
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.4381678729772658,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -5.356695175170898,
+            -6.377693176269531,
+            -0.6499999761581421
+          ],
+          "normal": [
+            -1.5603740166625357e-07,
+            2.3101365798083862e-07,
+            1.0
+          ],
+          "face": 34364,
+          "distance": 1.372282029511834,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.383193016052246,
+            -6.336632251739502,
+            -0.675000011920929
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.05487691272302771,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        103,
+        450
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -5.451779365539551,
+          -7.877294063568115,
+          -0.02500024437904358
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.7029217677517958,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -6.837063789367676,
+            -7.302194595336914,
+            -0.6499998569488525
+          ],
+          "normal": [
+            1.9959648156486764e-08,
+            1.2089553358407557e-08,
+            1.0
+          ],
+          "face": 34363,
+          "distance": 1.6249086005842797,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -6.892475605010986,
+            -7.279190540313721,
+            -0.6749999523162842
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.06498233322963486,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        309,
+        450
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -5.35083532333374,
+          -7.760850429534912,
+          -0.02340412139892578
+        ],
+        "normal": [
+          -0.0022805628832429647,
+          -0.00972035713493824,
+          0.9999502301216125
+        ],
+        "face": 262,
+        "distance": 1.6639917116824157,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -5.351041316986084,
+            -7.760740756988525,
+            -0.023503541946411133
+          ],
+          "normal": [
+            0.0022805689368396997,
+            0.009720384143292904,
+            -0.9999501705169678
+          ],
+          "face": 742,
+          "distance": 0.0002384024666765795,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.354135990142822,
+            -7.759092807769775,
+            -0.025000393390655518
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.0037969944985259433,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        514,
+        450
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -5.253421783447266,
+          -7.642942905426025,
+          -0.02340012788772583
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 75,
+        "distance": 1.6427603766793277,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -5.253613471984863,
+            -7.642815113067627,
+            -0.023500066250562668
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 555,
+          "distance": 0.0002361313043403658,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.256489276885986,
+            -7.640894412994385,
+            -0.024999290704727173
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.003754227311480003,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        720,
+        450
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -5.156015872955322,
+          -7.525030612945557,
+          -0.02340012788772583
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 5,
+        "distance": 1.6356252964443685,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -5.156192779541016,
+            -7.5248847007751465,
+            -0.02350006252527237
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 485,
+          "distance": 0.00023532704471818157,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.158847332000732,
+            -7.5226922035217285,
+            -0.025000452995300293
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.0037408249782049387,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        926,
+        450
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -5.058609962463379,
+          -7.407118797302246,
+          -0.023400068283081055
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 109,
+        "distance": 1.6427598142892401,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -5.05877161026001,
+            -7.406954288482666,
+            -0.023500066250562668
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 589,
+          "distance": 0.00023632298332860796,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.061201572418213,
+            -7.404490947723389,
+            -0.02500009536743164
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.003756261129072185,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1131,
+        450
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -4.962998390197754,
+          -7.286984443664551,
+          -0.024619221687316895
+        ],
+        "normal": [
+          0.014525304548442364,
+          0.009348084218800068,
+          0.9998508095741272
+        ],
+        "face": 303,
+        "distance": 1.6670864460715926,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -4.963144779205322,
+            -7.286802768707275,
+            -0.024718789383769035
+          ],
+          "normal": [
+            -0.014525210484862328,
+            -0.009348022751510143,
+            -0.9998508095741272
+          ],
+          "face": 783,
+          "distance": 0.00023855222927175748,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -4.963558197021484,
+            -7.286290645599365,
+            -0.02499997615814209
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.0007005974926608619,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1337,
+        450
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -4.865914344787598,
+          -7.168089389801025,
+          -0.025000065565109253
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.7029213039831919,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -5.692168235778809,
+            -5.916267395019531,
+            -0.6499999761581421
+          ],
+          "normal": [
+            2.050541070275358e-07,
+            -2.380426877834907e-07,
+            1.0
+          ],
+          "face": 35108,
+          "distance": 1.624909279198263,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.725218296051025,
+            -5.866194248199463,
+            -0.6749998927116394
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.0649821760260329,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        103,
+        270
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -5.8353166580200195,
+          -7.697199821472168,
+          -0.023957431316375732
+        ],
+        "normal": [
+          -0.003839970100671053,
+          -0.004505907651036978,
+          0.9999825358390808
+        ],
+        "face": 248,
+        "distance": 2.0997197250820636,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -5.835598468780518,
+            -7.697079181671143,
+            -0.02405799925327301
+          ],
+          "normal": [
+            0.0038399763870984316,
+            0.004505898337811232,
+            -0.999982476234436
+          ],
+          "face": 728,
+          "distance": 0.00030778055651651897,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.838240623474121,
+            -7.69595193862915,
+            -0.02499958872795105
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.0030081120951952114,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        309,
+        270
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -5.713830471038818,
+          -7.552697658538818,
+          -0.02340012788772583
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 144,
+        "distance": 2.0552458131494857,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -5.71409273147583,
+            -7.552556037902832,
+            -0.023500066250562668
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 624,
+          "distance": 0.000299497599211844,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.718028545379639,
+            -7.550426006317139,
+            -0.025000661611557007
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.004705245210018695,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        514,
+        270
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -5.593908309936523,
+          -7.407528877258301,
+          -0.023400068283081055
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 131,
+        "distance": 2.0292039763671466,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -5.594152450561523,
+            -7.407364368438721,
+            -0.023500066250562668
+          ],
+          "normal": [
+            -1.654891890190413e-09,
+            1.7382358663553532e-08,
+            -1.0
+          ],
+          "face": 611,
+          "distance": 0.00029571055050416377,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.597813129425049,
+            -7.404900074005127,
+            -0.025000721216201782
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.00464583549314175,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        720,
+        270
+      ],
+      "camera_first_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -5.476652145385742,
+          -7.260157585144043,
+          -0.02458178997039795
+        ],
+        "normal": [
+          -0.01089540310204029,
+          0.01859947293996811,
+          0.9997677206993103
+        ],
+        "face": 316,
+        "distance": 2.024103069938347,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "G4R03_shallow_rain_puddle.001",
+          "point": [
+            -5.476891994476318,
+            -7.259959697723389,
+            -0.024688057601451874
+          ],
+          "normal": [
+            0.010895419865846634,
+            -0.018599696457386017,
+            -0.9997676610946655
+          ],
+          "face": 796,
+          "distance": 0.0003135732681137339,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_actual_water"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.477596282958984,
+            -7.259377956390381,
+            -0.02500024437904358
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.0009503231214230399,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        926,
+        270
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -5.357379913330078,
+          -7.1138529777526855,
+          -0.025000005960464478
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 2.0341734535828664,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -6.652589321136475,
+            -5.810279369354248,
+            -0.6499999761581421
+          ],
+          "normal": [
+            1.7267099750029047e-08,
+            1.4359151201404075e-08,
+            1.0
+          ],
+          "face": 34328,
+          "distance": 1.940989021584183,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -6.704397678375244,
+            -5.758137226104736,
+            -0.6749998331069946
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.07762460231700732,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1131,
+        270
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -5.237163543701172,
+          -6.968328952789307,
+          -0.024999886751174927
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 2.06027821601846,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Hall_plinth",
+          "point": [
+            -5.374925136566162,
+            -6.800000190734863,
+            -0.0979360044002533
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "face": 94,
+          "distance": 0.22940274991593806,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4_weathered_grey_masonry"
+          ]
+        },
+        {
+          "object": "Hall_plinth",
+          "point": [
+            -5.492151737213135,
+            -6.656763076782227,
+            -0.1599999964237213
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.19520509031393926,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4_weathered_grey_masonry"
+          ]
+        },
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -6.41766357421875,
+            -5.525895595550537,
+            -0.6499999761581421
+          ],
+          "normal": [
+            1.4016087845902803e-08,
+            2.0165145997452782e-08,
+            1.0
+          ],
+          "face": 34328,
+          "distance": 1.5412615590694634,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1337,
+        270
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -5.116948127746582,
+          -6.822804927825928,
+          -0.025000005960464478
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 2.103067313107398,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Hall_plinth",
+          "point": [
+            -5.132318496704102,
+            -6.800000190734863,
+            -0.034013450145721436
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "face": 94,
+          "distance": 0.02892524091476219,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4_weathered_grey_masonry"
+          ]
+        },
+        {
+          "object": "Hall_plinth",
+          "point": [
+            -5.347158908843994,
+            -6.481245517730713,
+            -0.1599999964237213
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.4045012920170981,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4_weathered_grey_masonry"
+          ]
+        },
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -6.182738304138184,
+            -5.241512298583984,
+            -0.6499999761581421
+          ],
+          "normal": [
+            1.793001587202525e-07,
+            -2.877045801596978e-07,
+            1.0
+          ],
+          "face": 35102,
+          "distance": 1.5732716297731066,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        103,
+        90
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -6.457098007202148,
+          -7.4055609703063965,
+          -0.024999886751174927
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 2.760574880900273,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -8.801656723022461,
+            -6.38033390045166,
+            -0.6499997973442078
+          ],
+          "normal": [
+            7.474093166592866e-08,
+            -1.1690138279618623e-07,
+            1.0
+          ],
+          "face": 35101,
+          "distance": 2.6341207632739363,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -8.895439147949219,
+            -6.339325428009033,
+            -0.6749998331069946
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.10535030728942456,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        309,
+        90
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -6.300738334655762,
+          -7.216282367706299,
+          -0.02500012516975403
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 2.705439541356388,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -8.496098518371582,
+            -6.010446071624756,
+            -0.6499999761581421
+          ],
+          "normal": [
+            -8.93698199888604e-08,
+            2.699550236684445e-07,
+            1.0
+          ],
+          "face": 34273,
+          "distance": 2.581510084363786,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        },
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -8.58391284942627,
+            -5.962212085723877,
+            -0.6749999523162842
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.1032464239926065,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        514,
+        90
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -6.144376754760742,
+          -7.027004718780518,
+          -0.0249997079372406
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 2.6718102497486753,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Hall_plinth",
+          "point": [
+            -6.493975639343262,
+            -6.790122032165527,
+            -0.13178464770317078
+          ],
+          "normal": [
+            0.0,
+            -0.7071048617362976,
+            -0.7071086764335632
+          ],
+          "face": 87,
+          "distance": 0.4355718654681995,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4_weathered_grey_masonry"
+          ]
+        },
+        {
+          "object": "Hall_plinth",
+          "point": [
+            -6.586348056793213,
+            -6.727531909942627,
+            -0.15999987721443176
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.11507763143201802,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4_weathered_grey_masonry"
+          ]
+        },
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -8.19053840637207,
+            -5.64055871963501,
+            -0.6499997973442078
+          ],
+          "normal": [
+            -8.5747842604178e-08,
+            2.7073713226855034e-07,
+            1.0
+          ],
+          "face": 34279,
+          "distance": 1.9987440337950293,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        720,
+        90
+      ],
+      "camera_first_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -5.988015651702881,
+          -6.837727069854736,
+          -0.024999409914016724
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 2.6605054483309516,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Hall_plinth",
+          "point": [
+            -6.033685684204102,
+            -6.800000190734863,
+            -0.040046483278274536
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "face": 94,
+          "distance": 0.06110355014195716,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4_weathered_grey_masonry"
+          ]
+        },
+        {
+          "object": "Hall_plinth",
+          "point": [
+            -6.397761344909668,
+            -6.499242782592773,
+            -0.15999993681907654
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "face": 92,
+          "distance": 0.4872168670138596,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4_weathered_grey_masonry"
+          ]
+        },
+        {
+          "object": "Complete_cliff_mass",
+          "point": [
+            -7.884981155395508,
+            -5.270671844482422,
+            -0.6500000953674316
+          ],
+          "normal": [
+            1.7711494493255486e-08,
+            1.4053851415951613e-08,
+            1.0
+          ],
+          "face": 34286,
+          "distance": 1.9902887832946334,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4COAST_scanned_core"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        926,
+        90
+      ],
+      "camera_first_hit": {
+        "object": "Hall_plinth",
+        "point": [
+          -5.680095195770264,
+          -6.8000006675720215,
+          0.02919834852218628
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "face": 94,
+        "distance": 2.450730242212058,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4_weathered_grey_masonry"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.8316569328308105,
+            -6.648447513580322,
+            -0.025000065565109253
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.22106566760486246,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1131,
+        90
+      ],
+      "camera_first_hit": {
+        "object": "Hall_plinth",
+        "point": [
+          -5.39274263381958,
+          -6.800000190734863,
+          0.08547157049179077
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "face": 94,
+        "distance": 2.249142277998656,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4_weathered_grey_masonry"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.675295829772949,
+            -6.459169864654541,
+            -0.02499997615814209
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.45628082174549234,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1337,
+        90
+      ],
+      "camera_first_hit": {
+        "object": "Hall_plinth",
+        "point": [
+          -5.154609203338623,
+          -6.800000190734863,
+          0.13210609555244446
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "face": 94,
+        "distance": 2.098432372449801,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4_weathered_grey_masonry"
+        ]
+      },
+      "below_surface": [
+        {
+          "object": "Load_bearing_masonry_terrace",
+          "point": [
+            -5.5189361572265625,
+            -6.269891262054443,
+            -0.025000035762786865
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "face": 95,
+          "distance": 0.6621270922875686,
+          "hide_render": false,
+          "visible_shadow": true,
+          "materials": [
+            "G4R03_damp_terrace_stone",
+            "G4COAST_R06_rain_darkened_exterior_slate"
+          ]
+        }
+      ]
+    }
+  ],
+  "surface_probes": [
+    {
+      "xy": [
+        -5.3,
+        -7.55
+      ],
+      "top_hit": {
+        "object": "G4R03_shallow_rain_puddle.001",
+        "point": [
+          -5.300000190734863,
+          -7.550000190734863,
+          -0.023399949073791504
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 7,
+        "distance": 1.0233999347344565,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "probe_position": [
+        -5.300000190734863,
+        -7.550000190734863,
+        -0.020399948582053185
+      ],
+      "hemisphere_rays": 128,
+      "geometric_open_sky_rays": 70,
+      "hemisphere_first_hits": {
+        "Side_wall_glass.021": 1,
+        "Wall_transom.034": 1,
+        "Wall_glazing_mullion.014": 1,
+        "Side_wall_glass.023": 1,
+        "Side_wall_glass.020": 3,
+        "Side_wall_glass.019": 1,
+        "Side_wall_glass.022": 2,
+        "Side_wall_glass.025": 1,
+        "Side_wall_glass.018": 2,
+        "Wall_stone_sill.010": 2,
+        "Continuous_eaves_gutter": 1,
+        "Side_wall_glass.016": 1,
+        "Wall_stone_sill.011": 3,
+        "Load_column.006": 1,
+        "Hall_plinth": 23,
+        "Side_wall_glass.026": 2,
+        "Load_column.004": 1,
+        "Terrace_guard_rail.002": 1,
+        "Load_column.008": 1,
+        "Wall_stone_sill.009": 1,
+        "Column_base_plinth.006": 1,
+        "Side_wall_glass.011": 1,
+        "Wall_stone_sill.008": 1,
+        "Terrace_guard_rail.001": 2,
+        "Load_column.010": 1,
+        "Terrace_guard_rail": 1,
+        "Terrace_guard_post.010": 1
+      },
+      "nearby_practical_lights": [
+        {
+          "object": "G4_column_sconce.010",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -4.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 3.836920462719751,
+          "surface_geometric_ndotl": 0.857562780380249,
+          "emitter_axis_dot_to_surface": -0.5380433980492789,
+          "first_hit": {
+            "object": "G4R03_convex_glass_water_beads",
+            "point": [
+              -4.383881092071533,
+              -6.503510475158691,
+              2.298367500305176
+            ],
+            "normal": [
+              0.3354026675224304,
+              -0.9393559098243713,
+              0.07152337580919266
+            ],
+            "face": 187462,
+            "distance": 2.7039041553876073,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_actual_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.009",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -7.999999523162842,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 4.5079878801049205,
+          "surface_geometric_ndotl": 0.7299043536186218,
+          "emitter_axis_dot_to_surface": -0.4579491625036347,
+          "first_hit": {
+            "object": "Side_wall_glass.016",
+            "point": [
+              -7.209090709686279,
+              -6.5,
+              2.306145668029785
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 3.1874664155275374,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.008",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -5.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 6.152691579401912,
+          "surface_geometric_ndotl": 0.7135738730430603,
+          "emitter_axis_dot_to_surface": 0.7135738730430603,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -5.247674465179443,
+              -6.800000190734863,
+              0.7453674077987671
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.0731437910695134,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.011",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -5.338199571269797e-08,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 6.412640654450899,
+          "surface_geometric_ndotl": 0.5131115913391113,
+          "emitter_axis_dot_to_surface": -0.32193138345370187,
+          "first_hit": {
+            "object": "Side_wall_glass.028",
+            "point": [
+              -1.552525281906128,
+              -6.5,
+              2.306145429611206
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 4.534190414320716,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.007",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -9.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 7.173256734748673,
+          "surface_geometric_ndotl": 0.6120511293411255,
+          "emitter_axis_dot_to_surface": 0.6120511293411255,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -5.945349216461182,
+              -6.800000190734863,
+              0.7453674077987671
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.2511494596714239,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.009",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -1.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 7.500374339616323,
+          "surface_geometric_ndotl": 0.5853574275970459,
+          "emitter_axis_dot_to_surface": 0.5853574275970459,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -4.550000190734863,
+              -6.800000190734863,
+              0.7453674077987671
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.3082047297005708,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.008",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -12.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 7.610647388897419,
+          "surface_geometric_ndotl": 0.43234166502952576,
+          "emitter_axis_dot_to_surface": -0.2712553548320287,
+          "first_hit": {
+            "object": "Wall_glazing_mullion.008",
+            "point": [
+              -9.969499588012695,
+              -6.51504373550415,
+              2.2728121280670166
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "face": 97,
+            "distance": 5.30416636091153,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_G3R04_sage_green_secondary_enamel"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.006",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -13.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 9.851680600625372,
+          "surface_geometric_ndotl": 0.4456498622894287,
+          "emitter_axis_dot_to_surface": 0.4456498622894287,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -6.643016815185547,
+              -6.800004005432129,
+              0.7453635931015015
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.718307802363381,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.012",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            4.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 9.976069546486933,
+          "surface_geometric_ndotl": 0.32982930541038513,
+          "emitter_axis_dot_to_surface": -0.20693827232955186,
+          "first_hit": {
+            "object": "Side_wall_glass.034",
+            "point": [
+              1.2757582664489746,
+              -6.5,
+              2.306145668029785
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 7.053787359895521,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.010",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            3.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 10.327420440049714,
+          "surface_geometric_ndotl": 0.42512068152427673,
+          "emitter_axis_dot_to_surface": 0.42512068152427673,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -3.852323293685913,
+              -6.799998760223389,
+              0.7453688383102417
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.8012974262016492,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.007",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -16.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 11.292561975342418,
+          "surface_geometric_ndotl": 0.2913776636123657,
+          "emitter_axis_dot_to_surface": -0.18281314187287734,
+          "first_hit": {
+            "object": "Load_column.002",
+            "point": [
+              -11.880001068115234,
+              -6.636794567108154,
+              2.003042459487915
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "face": 1,
+            "distance": 6.94439898513114,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_G3R05_satin_column_paint"
+            ]
+          }
+        },
+        {
+          "object": "G3_pendant_light",
+          "type": "AREA",
+          "energy": 280.0,
+          "position": [
+            -3.0,
+            3.25,
+            4.369999885559082
+          ],
+          "distance": 11.88299708878243,
+          "surface_geometric_ndotl": 0.3694691061973572,
+          "emitter_axis_dot_to_surface": 0.3694691061973572,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -5.140277862548828,
+              -6.800000190734863,
+              0.2844889163970947
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 0.8252081254946244,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "xy": [
+        -5.3,
+        -7.0
+      ],
+      "top_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -5.300000190734863,
+          -6.999999523162842,
+          -0.025000065565109253
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.0250001000196076,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "probe_position": [
+        -5.300000190734863,
+        -6.999999523162842,
+        -0.022000065073370934
+      ],
+      "hemisphere_rays": 128,
+      "geometric_open_sky_rays": 67,
+      "hemisphere_first_hits": {
+        "Continuous_eaves_gutter": 1,
+        "Side_wall_glass.023": 1,
+        "Hall_plinth": 52,
+        "Column_capital.006": 1,
+        "Side_wall_glass.019": 1,
+        "Wall_transom.025": 1,
+        "Load_column.006": 1,
+        "Load_column.004": 1,
+        "Terrace_guard_rail.002": 1,
+        "Load_column.002": 1
+      },
+      "nearby_practical_lights": [
+        {
+          "object": "G4_column_sconce.010",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -4.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 3.6608043654586906,
+          "surface_geometric_ndotl": 0.8992559313774109,
+          "emitter_axis_dot_to_surface": -0.4163269152174358,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -5.021925926208496,
+              -6.800000190734863,
+              0.6821691393852234
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 0.7830576749717378,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.009",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -7.999999523162842,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 4.359069246077276,
+          "surface_geometric_ndotl": 0.7552070617675781,
+          "emitter_axis_dot_to_surface": -0.34963679210769527,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -5.877538681030273,
+              -6.800000190734863,
+              0.6821691393852234
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 0.9324187601914017,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.008",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -5.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 5.782919479649395,
+          "surface_geometric_ndotl": 0.759477972984314,
+          "emitter_axis_dot_to_surface": 0.759477972984314,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -5.284000396728516,
+              -6.800000190734863,
+              0.21223914623260498
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 0.30842135666702586,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.011",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -5.338199571269797e-08,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 6.3088422177163626,
+          "surface_geometric_ndotl": 0.5218073129653931,
+          "emitter_axis_dot_to_surface": -0.24158027796234904,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -4.1663103103637695,
+              -6.799999713897705,
+              0.6821711659431458
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.3494849996491014,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.007",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -9.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 6.858728469584025,
+          "surface_geometric_ndotl": 0.6403518915176392,
+          "emitter_axis_dot_to_surface": 0.6403518915176392,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -5.49733304977417,
+              -6.800000190734863,
+              0.21223916113376617
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 0.3657977659871198,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.009",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -1.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 7.20014994783027,
+          "surface_geometric_ndotl": 0.609987199306488,
+          "emitter_axis_dot_to_surface": 0.609987199306488,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -5.070667743682861,
+              -6.800000190734863,
+              0.2122391313314438
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 0.3840066472576529,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.008",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -12.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 7.523395752122505,
+          "surface_geometric_ndotl": 0.4375683665275574,
+          "emitter_axis_dot_to_surface": -0.20258015617167047,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -6.733148574829102,
+              -6.8000006675720215,
+              0.6821678876876831
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.609275109931733,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.006",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -13.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 9.62507946427475,
+          "surface_geometric_ndotl": 0.45630788803100586,
+          "emitter_axis_dot_to_surface": 0.45630788803100586,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -5.710665225982666,
+              -6.800000190734863,
+              0.2122390866279602
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 0.5133356437138279,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.012",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            4.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 9.909666672561084,
+          "surface_geometric_ndotl": 0.33220088481903076,
+          "emitter_axis_dot_to_surface": -0.1537985342025081,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -3.3107025623321533,
+              -6.800000190734863,
+              0.6821684837341309
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 2.1197070678767735,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.010",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            3.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 10.111486388381378,
+          "surface_geometric_ndotl": 0.4343574643135071,
+          "emitter_axis_dot_to_surface": 0.4343574643135071,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -4.857334136962891,
+              -6.799999713897705,
+              0.21223965287208557
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 0.5392785952223575,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.007",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -16.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 11.233943471990294,
+          "surface_geometric_ndotl": 0.2930404841899872,
+          "emitter_axis_dot_to_surface": -0.13566832606315415,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -7.588763236999512,
+              -6.800000190734863,
+              0.6821689605712891
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 2.402975234330443,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G3_pendant_light",
+          "type": "AREA",
+          "energy": 280.0,
+          "position": [
+            -3.0,
+            3.25,
+            4.369999885559082
+          ],
+          "distance": 11.386051217300844,
+          "surface_geometric_ndotl": 0.38573509454727173,
+          "emitter_axis_dot_to_surface": 0.38573509454727173,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -5.255122184753418,
+              -6.800000190734863,
+              0.06369718909263611
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 0.2221661305613505,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "xy": [
+        -4.2,
+        -7.6
+      ],
+      "top_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -4.199999809265137,
+          -7.599999904632568,
+          -0.025000065565109253
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.0250001000194966,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "probe_position": [
+        -4.199999809265137,
+        -7.599999904632568,
+        -0.022000065073370934
+      ],
+      "hemisphere_rays": 128,
+      "geometric_open_sky_rays": 70,
+      "hemisphere_first_hits": {
+        "Wall_transom.035": 1,
+        "Load_column.006": 2,
+        "Wall_glazing_mullion.016": 1,
+        "Side_wall_glass.027": 2,
+        "Side_wall_glass.022": 2,
+        "Side_wall_glass.021": 1,
+        "Side_wall_glass.024": 2,
+        "Side_wall_glass.020": 3,
+        "Wall_stone_sill.011": 2,
+        "Primary_elliptical_arch.004": 1,
+        "Side_wall_glass.018": 1,
+        "Column_base_plinth.006": 1,
+        "Side_wall_glass.026": 1,
+        "Hall_continuous_floor": 1,
+        "Wall_stone_sill.012": 2,
+        "Hall_plinth": 22,
+        "Side_wall_glass.028": 1,
+        "Side_wall_glass.016": 1,
+        "Terrace_guard_rail.002": 1,
+        "Wall_transom.053": 1,
+        "Wall_stone_sill.013": 1,
+        "Side_wall_glass.013": 1,
+        "Terrace_guard_rail.001": 2,
+        "Wall_glazing_mullion.020": 1,
+        "Wall_stone_sill.009": 1,
+        "Side_wall_glass.045": 1,
+        "Terrace_guard_rail": 2
+      },
+      "nearby_practical_lights": [
+        {
+          "object": "G4_column_sconce.010",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -4.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 3.6377862117598387,
+          "surface_geometric_ndotl": 0.9049460291862488,
+          "emitter_axis_dot_to_surface": -0.5810874307330414,
+          "first_hit": {
+            "object": "Load_column.006",
+            "point": [
+              -4.077524185180664,
+              -6.659999847412109,
+              1.993947982788086
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 2.2276998848162397,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_G3R05_satin_column_paint"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.009",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -7.999999523162842,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 5.256756249903979,
+          "surface_geometric_ndotl": 0.6262417435646057,
+          "emitter_axis_dot_to_surface": -0.4021246843211017,
+          "first_hit": {
+            "object": "Side_wall_glass.018",
+            "point": [
+              -6.923126220703125,
+              -6.5,
+              2.337087869644165
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 3.767056299976223,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.011",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -5.338199571269797e-08,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 5.552790837062898,
+          "surface_geometric_ndotl": 0.5928549766540527,
+          "emitter_axis_dot_to_surface": -0.3806863869563841,
+          "first_hit": {
+            "object": "Side_wall_glass.028",
+            "point": [
+              -1.19022798538208,
+              -6.5,
+              2.337087869644165
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 3.97919863876094,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.008",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -5.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 6.233150118053611,
+          "surface_geometric_ndotl": 0.7046196460723877,
+          "emitter_axis_dot_to_surface": 0.7046196460723877,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -4.347126007080078,
+              -6.800000190734863,
+              0.7857236266136169
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.1463259948238032,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.009",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -1.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 6.960758502341356,
+          "surface_geometric_ndotl": 0.6309656500816345,
+          "emitter_axis_dot_to_surface": 0.6309656500816345,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -3.611494302749634,
+              -6.800000190734863,
+              0.7857237458229065
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.2801390809442328,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.007",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -9.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 7.8263759829183375,
+          "surface_geometric_ndotl": 0.5611792206764221,
+          "emitter_axis_dot_to_surface": 0.5611792206764221,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -5.082749843597412,
+              -6.8000078201293945,
+              0.7857162356376648
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.4393194956974928,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.008",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -12.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 8.604271762627853,
+          "surface_geometric_ndotl": 0.38260066509246826,
+          "emitter_axis_dot_to_surface": -0.2456769204840512,
+          "first_hit": {
+            "object": "Side_wall_glass.012",
+            "point": [
+              -9.789575576782227,
+              -6.5,
+              2.337087869644165
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 6.165926710616892,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.012",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            4.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 8.968471801909141,
+          "surface_geometric_ndotl": 0.3670636713504791,
+          "emitter_axis_dot_to_surface": -0.23570042113150436,
+          "first_hit": {
+            "object": "Side_wall_glass.034",
+            "point": [
+              1.6762213706970215,
+              -6.5,
+              2.337087869644165
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 6.426917720579611,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.010",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            3.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 9.489581468556148,
+          "surface_geometric_ndotl": 0.46282336115837097,
+          "emitter_axis_dot_to_surface": 0.46282336115837097,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -2.875854015350342,
+              -6.799994945526123,
+              0.785728931427002
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.7452209305199502,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.006",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -13.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 10.754169542641584,
+          "surface_geometric_ndotl": 0.40839970111846924,
+          "emitter_axis_dot_to_surface": 0.40839970111846924,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -5.818393707275391,
+              -6.7999982833862305,
+              0.785725474357605
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.9777820880520867,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G3_pendant_light",
+          "type": "AREA",
+          "energy": 280.0,
+          "position": [
+            -3.0,
+            3.25,
+            4.369999885559082
+          ],
+          "distance": 11.766570115346184,
+          "surface_geometric_ndotl": 0.37326082587242126,
+          "emitter_axis_dot_to_surface": 0.37326082587242126,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -4.111520767211914,
+              -6.800000190734863,
+              0.3018338978290558
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 0.8675808615815253,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.007",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -16.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 12.346395996040057,
+          "surface_geometric_ndotl": 0.26663652062416077,
+          "emitter_axis_dot_to_surface": -0.17121357428091244,
+          "first_hit": {
+            "object": "Load_column.002",
+            "point": [
+              -11.991499900817871,
+              -6.586444854736328,
+              2.15169620513916
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "face": 3,
+            "distance": 8.152283306839093,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_G3R05_satin_column_paint"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "xy": [
+        -6.5,
+        -7.8
+      ],
+      "top_hit": {
+        "object": "Load_bearing_masonry_terrace",
+        "point": [
+          -6.5,
+          -7.8000006675720215,
+          -0.025000065565109253
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 95,
+        "distance": 1.0250001000196076,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_damp_terrace_stone",
+          "G4COAST_R06_rain_darkened_exterior_slate"
+        ]
+      },
+      "probe_position": [
+        -6.5,
+        -7.8000006675720215,
+        -0.022000065073370934
+      ],
+      "hemisphere_rays": 128,
+      "geometric_open_sky_rays": 70,
+      "hemisphere_first_hits": {
+        "Side_wall_glass.019": 1,
+        "Side_wall_glass.017": 1,
+        "Continuous_eaves_gutter": 1,
+        "Side_wall_glass.018": 3,
+        "Wall_transom.023": 1,
+        "Side_wall_glass.020": 4,
+        "Wall_glazing_mullion.012": 1,
+        "Column_capital.006": 1,
+        "Side_wall_glass.016": 2,
+        "Wall_glazing_mullion.010": 1,
+        "Wall_glazing_mullion.014": 1,
+        "Side_wall_glass.022": 2,
+        "Wall_stone_sill.009": 3,
+        "Load_column.004": 1,
+        "Terrace_guard_rail.002": 4,
+        "Side_wall_glass.024": 1,
+        "Side_wall_glass.011": 1,
+        "Wall_stone_sill.008": 1,
+        "Hall_plinth": 19,
+        "Primary_elliptical_arch.004": 1,
+        "Side_wall_glass.014": 1,
+        "Terrace_guard_rail.001": 2,
+        "Load_column.002": 1,
+        "Terrace_guard_post.012": 1,
+        "Side_wall_glass.026": 1,
+        "Side_wall_glass.012": 1,
+        "Wall_transom.065": 1
+      },
+      "nearby_practical_lights": [
+        {
+          "object": "G4_column_sconce.009",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -7.999999523162842,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 4.012167722544982,
+          "surface_geometric_ndotl": 0.8205040693283081,
+          "emitter_axis_dot_to_surface": -0.5758646509641814,
+          "first_hit": {
+            "object": "Side_wall_glass.016",
+            "point": [
+              -7.6239190101623535,
+              -6.5,
+              2.4446287155151367
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 3.006235734901765,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.010",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -4.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 4.483022558982194,
+          "surface_geometric_ndotl": 0.7343260049819946,
+          "emitter_axis_dot_to_surface": -0.5153812864939091,
+          "first_hit": {
+            "object": "Side_wall_glass.022",
+            "point": [
+              -4.626801013946533,
+              -6.5,
+              2.4446284770965576
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 3.3590374799217653,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.008",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -5.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 6.499397543350743,
+          "surface_geometric_ndotl": 0.6757549047470093,
+          "emitter_axis_dot_to_surface": 0.6757549047470093,
+          "first_hit": {
+            "object": "Hall_continuous_floor",
+            "point": [
+              -6.112637042999268,
+              -6.625,
+              1.1121982336044312
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.6784166407633991,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_honed_slate_with_cut_joints"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.008",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -12.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 6.640594195126161,
+          "surface_geometric_ndotl": 0.49573880434036255,
+          "emitter_axis_dot_to_surface": -0.3479305291026833,
+          "first_hit": {
+            "object": "Side_wall_glass.010",
+            "point": [
+              -10.621038436889648,
+              -6.5,
+              2.4446284770965576
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 4.975662389585297,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.007",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -9.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 6.800159441256776,
+          "surface_geometric_ndotl": 0.6458671689033508,
+          "emitter_axis_dot_to_surface": 0.6458671689033508,
+          "first_hit": {
+            "object": "Hall_continuous_floor",
+            "point": [
+              -7.145604610443115,
+              -6.625,
+              1.1121982336044312
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.7560858999403213,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_honed_slate_with_cut_joints"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.011",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -5.338199571269797e-08,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 7.489825850067761,
+          "surface_geometric_ndotl": 0.43952956795692444,
+          "emitter_axis_dot_to_surface": -0.3084806457337379,
+          "first_hit": {
+            "object": "Side_wall_glass.028",
+            "point": [
+              -1.6296820640563965,
+              -6.5,
+              2.4446284770965576
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 5.611974321143469,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.009",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -1.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 8.381060101592976,
+          "surface_geometric_ndotl": 0.5240387320518494,
+          "emitter_axis_dot_to_surface": 0.5240387320518494,
+          "first_hit": {
+            "object": "Hall_continuous_floor",
+            "point": [
+              -5.07964563369751,
+              -6.6249799728393555,
+              1.1122173070907593
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 2.164377320453877,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_honed_slate_with_cut_joints"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.006",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -13.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 9.068746794707286,
+          "surface_geometric_ndotl": 0.4843006432056427,
+          "emitter_axis_dot_to_surface": 0.4843006432056427,
+          "first_hit": {
+            "object": "Hall_continuous_floor",
+            "point": [
+              -8.178630828857422,
+              -6.6249589920043945,
+              1.1122379302978516
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 2.3420119898657754,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_honed_slate_with_cut_joints"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.007",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -16.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 10.202817810014215,
+          "surface_geometric_ndotl": 0.32265597581863403,
+          "emitter_axis_dot_to_surface": -0.2264536080236681,
+          "first_hit": {
+            "object": "Side_wall_glass.004",
+            "point": [
+              -13.618157386779785,
+              -6.5,
+              2.444628953933716
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 7.644764455630861,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.012",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            4.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 11.139905352575633,
+          "surface_geometric_ndotl": 0.29551419615745544,
+          "emitter_axis_dot_to_surface": -0.2074045232236017,
+          "first_hit": {
+            "object": "Side_wall_glass.034",
+            "point": [
+              1.367436408996582,
+              -6.5,
+              2.4446284770965576
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 8.346904529789226,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.010",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            3.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 11.41236909789171,
+          "surface_geometric_ndotl": 0.3848455846309662,
+          "emitter_axis_dot_to_surface": 0.3848455846309662,
+          "first_hit": {
+            "object": "Hall_continuous_floor",
+            "point": [
+              -4.0467448234558105,
+              -6.625020503997803,
+              1.1121784448623657
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 2.947100271309966,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_honed_slate_with_cut_joints"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.001",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -9.0,
+            3.25,
+            4.369999885559082
+          ],
+          "distance": 12.150810063990862,
+          "surface_geometric_ndotl": 0.36145734786987305,
+          "emitter_axis_dot_to_surface": 0.36145734786987305,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -6.7262444496154785,
+              -6.800000190734863,
+              0.37546610832214355
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.099621240812686,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "xy": [
+        -11,
+        -7.8
+      ],
+      "top_hit": {
+        "object": "G4R03_shallow_rain_puddle",
+        "point": [
+          -11.0,
+          -7.800000190734863,
+          -0.023399949073791504
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 13,
+        "distance": 1.0233999347344565,
+        "hide_render": false,
+        "visible_shadow": true,
+        "materials": [
+          "G4R03_actual_water"
+        ]
+      },
+      "probe_position": [
+        -11.0,
+        -7.800000190734863,
+        -0.020399948582053185
+      ],
+      "hemisphere_rays": 128,
+      "geometric_open_sky_rays": 71,
+      "hemisphere_first_hits": {
+        "Side_wall_glass.011": 1,
+        "Side_wall_glass.009": 1,
+        "Continuous_eaves_gutter": 1,
+        "Side_wall_glass.008": 4,
+        "Wall_transom.011": 1,
+        "Side_wall_glass.010": 4,
+        "Wall_transom.023": 1,
+        "Load_column.002": 1,
+        "Side_wall_glass.012": 3,
+        "Side_wall_glass.005": 1,
+        "Wall_stone_sill.005": 2,
+        "Side_wall_glass.006": 1,
+        "Terrace_guard_rail.002": 4,
+        "Wall_stone_sill.004": 1,
+        "Load_column.004": 1,
+        "Side_wall_glass.003": 1,
+        "Column_base_plinth.002": 1,
+        "Hall_plinth": 19,
+        "Primary_elliptical_arch.003": 1,
+        "Wall_glazing_mullion.004": 1,
+        "Terrace_guard_rail.001": 2,
+        "Side_wall_glass.014": 1,
+        "Side_wall_glass.016": 1,
+        "Side_wall_glass.004": 1,
+        "Load_column.008": 1,
+        "Terrace_guard_post.006": 1
+      },
+      "nearby_practical_lights": [
+        {
+          "object": "G4_column_sconce.008",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -12.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 3.8518772267476455,
+          "surface_geometric_ndotl": 0.8542327880859375,
+          "emitter_axis_dot_to_surface": -0.599751983501088,
+          "first_hit": {
+            "object": "Side_wall_glass.008",
+            "point": [
+              -11.749279975891113,
+              -6.499999523162842,
+              2.4450302124023438
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 2.8861338289951823,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.009",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -7.999999523162842,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 4.778803305322378,
+          "surface_geometric_ndotl": 0.6885405778884888,
+          "emitter_axis_dot_to_surface": -0.48342052286955095,
+          "first_hit": {
+            "object": "Side_wall_glass.014",
+            "point": [
+              -8.752161026000977,
+              -6.5,
+              2.4450294971466064
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 3.5806596598959395,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.007",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -16.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 6.231930533144375,
+          "surface_geometric_ndotl": 0.527990460395813,
+          "emitter_axis_dot_to_surface": -0.3706990514587645,
+          "first_hit": {
+            "object": "Side_wall_glass.002",
+            "point": [
+              -14.746397972106934,
+              -6.5,
+              2.4450294971466064
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 4.6694583319742975,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.006",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -13.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 6.631599593947035,
+          "surface_geometric_ndotl": 0.6620423793792725,
+          "emitter_axis_dot_to_surface": 0.6620423793792725,
+          "first_hit": {
+            "object": "Hall_continuous_floor",
+            "point": [
+              -11.516483306884766,
+              -6.625,
+              1.1133848428726196
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.7125560907937472,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_honed_slate_with_cut_joints"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.007",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -9.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 6.631599593947035,
+          "surface_geometric_ndotl": 0.6620423793792725,
+          "emitter_axis_dot_to_surface": 0.6620423793792725,
+          "first_hit": {
+            "object": "Hall_continuous_floor",
+            "point": [
+              -10.483516693115234,
+              -6.625,
+              1.11338472366333
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.7125560211847617,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_honed_slate_with_cut_joints"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.010",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -4.0,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 7.926976609649932,
+          "surface_geometric_ndotl": 0.4150888919830322,
+          "emitter_axis_dot_to_surface": -0.2914316550067184,
+          "first_hit": {
+            "object": "Side_wall_glass.020",
+            "point": [
+              -5.755043029785156,
+              -6.5,
+              2.4450294971466064
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 0,
+            "distance": 5.9395215658693425,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4COAST_R06_windward_glass_water"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.008",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -5.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 8.716542501154828,
+          "surface_geometric_ndotl": 0.5036859512329102,
+          "emitter_axis_dot_to_surface": 0.5036859512329102,
+          "first_hit": {
+            "object": "Hall_continuous_floor",
+            "point": [
+              -9.450475692749023,
+              -6.62494421005249,
+              1.1134384870529175
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 2.251082345458751,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_honed_slate_with_cut_joints"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.011",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -5.338199571269797e-08,
+            -6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 11.611931715693867,
+          "surface_geometric_ndotl": 0.2833637297153473,
+          "emitter_axis_dot_to_surface": -0.19894816686456096,
+          "first_hit": {
+            "object": "Wall_glazing_mullion.018",
+            "point": [
+              -2.998847007751465,
+              -6.538000106811523,
+              2.3729631900787354
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 8.446258322573485,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_G3R04_sage_green_secondary_enamel"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.009",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -1.0,
+            -3.25,
+            4.369999885559082
+          ],
+          "distance": 11.831234642861178,
+          "surface_geometric_ndotl": 0.371085524559021,
+          "emitter_axis_dot_to_surface": 0.371085524559021,
+          "first_hit": {
+            "object": "Hall_continuous_floor",
+            "point": [
+              -8.41757869720459,
+              -6.624998092651367,
+              1.1133863925933838
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 3.0553234443261745,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4R03_honed_slate_with_cut_joints"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -13.0,
+            3.25,
+            4.369999885559082
+          ],
+          "distance": 12.057284635977071,
+          "surface_geometric_ndotl": 0.3641284108161926,
+          "emitter_axis_dot_to_surface": 0.3641284108161926,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -11.18099594116211,
+              -6.800000190734863,
+              0.37692129611968994
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.09115705355366,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_hall_G3_pendant_light.001",
+          "type": "AREA",
+          "energy": 220.0,
+          "position": [
+            -9.0,
+            3.25,
+            4.369999885559082
+          ],
+          "distance": 12.057284635977071,
+          "surface_geometric_ndotl": 0.3641284108161926,
+          "emitter_axis_dot_to_surface": 0.3641284108161926,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -10.81900405883789,
+              -6.800000190734863,
+              0.37692129611968994
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.09115705355366,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        },
+        {
+          "object": "G4_column_sconce.001",
+          "type": "AREA",
+          "energy": 28.0,
+          "position": [
+            -12.0,
+            6.065000057220459,
+            3.2699999809265137
+          ],
+          "distance": 14.285130480690116,
+          "surface_geometric_ndotl": 0.23033741116523743,
+          "emitter_axis_dot_to_surface": 0.9117247975442759,
+          "first_hit": {
+            "object": "Hall_plinth",
+            "point": [
+              -11.072124481201172,
+              -6.800000190734863,
+              0.2169170379638672
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "face": 94,
+            "distance": 1.0303015526555717,
+            "hide_render": false,
+            "visible_shadow": true,
+            "materials": [
+              "G4_weathered_grey_masonry"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "evaluated_faces": [
+    {
+      "object": "Load_bearing_masonry_terrace",
+      "faces": [
+        {
+          "face": 0,
+          "normal": [
+            -0.25659722089767456,
+            -0.25659722089767456,
+            -0.9318346381187439
+          ],
+          "material_index": 0,
+          "material": "G4R03_damp_terrace_stone"
+        },
+        {
+          "face": 9,
+          "normal": [
+            -0.25659722089767456,
+            -0.25659722089767456,
+            0.9318346381187439
+          ],
+          "material_index": 1,
+          "material": "G4COAST_R06_rain_darkened_exterior_slate"
+        },
+        {
+          "face": 14,
+          "normal": [
+            -0.25660017132759094,
+            0.25660017132759094,
+            -0.931833028793335
+          ],
+          "material_index": 0,
+          "material": "G4R03_damp_terrace_stone"
+        },
+        {
+          "face": 21,
+          "normal": [
+            -0.25659722089767456,
+            0.25659722089767456,
+            0.9318346381187439
+          ],
+          "material_index": 1,
+          "material": "G4COAST_R06_rain_darkened_exterior_slate"
+        },
+        {
+          "face": 28,
+          "normal": [
+            0.25660017132759094,
+            -0.25660017132759094,
+            -0.931833028793335
+          ],
+          "material_index": 0,
+          "material": "G4R03_damp_terrace_stone"
+        },
+        {
+          "face": 35,
+          "normal": [
+            0.25659722089767456,
+            -0.25659722089767456,
+            0.9318346381187439
+          ],
+          "material_index": 1,
+          "material": "G4COAST_R06_rain_darkened_exterior_slate"
+        },
+        {
+          "face": 42,
+          "normal": [
+            0.25659722089767456,
+            0.25659722089767456,
+            -0.9318346381187439
+          ],
+          "material_index": 0,
+          "material": "G4R03_damp_terrace_stone"
+        },
+        {
+          "face": 49,
+          "normal": [
+            0.25660017132759094,
+            0.25660017132759094,
+            0.931833028793335
+          ],
+          "material_index": 1,
+          "material": "G4COAST_R06_rain_darkened_exterior_slate"
+        },
+        {
+          "face": 56,
+          "normal": [
+            -0.2584565579891205,
+            1.0421486784650824e-08,
+            -0.9660229086875916
+          ],
+          "material_index": 0,
+          "material": "G4R03_damp_terrace_stone"
+        },
+        {
+          "face": 62,
+          "normal": [
+            -0.25845348834991455,
+            0.0,
+            0.9660236835479736
+          ],
+          "material_index": 1,
+          "material": "G4COAST_R06_rain_darkened_exterior_slate"
+        },
+        {
+          "face": 68,
+          "normal": [
+            0.0,
+            0.25845345854759216,
+            -0.9660236835479736
+          ],
+          "material_index": 0,
+          "material": "G4R03_damp_terrace_stone"
+        },
+        {
+          "face": 71,
+          "normal": [
+            0.0,
+            0.25845345854759216,
+            0.9660236835479736
+          ],
+          "material_index": 1,
+          "material": "G4COAST_R06_rain_darkened_exterior_slate"
+        }
+      ],
+      "modifiers": [
+        {
+          "name": "Machined edge radius",
+          "type": "BEVEL"
+        },
+        {
+          "name": "Weighted corner normals",
+          "type": "WEIGHTED_NORMAL"
+        }
+      ]
+    },
+    {
+      "object": "Hall_continuous_floor",
+      "faces": [
+        {
+          "face": 0,
+          "normal": [
+            -0.25660282373428345,
+            -0.2565756142139435,
+            -0.9318389892578125
+          ],
+          "material_index": 0,
+          "material": "G4R03_honed_slate_with_cut_joints"
+        },
+        {
+          "face": 9,
+          "normal": [
+            -0.25660282373428345,
+            -0.2565756142139435,
+            0.9318389892578125
+          ],
+          "material_index": 0,
+          "material": "G4R03_honed_slate_with_cut_joints"
+        },
+        {
+          "face": 14,
+          "normal": [
+            -0.25660282373428345,
+            0.2565756142139435,
+            -0.9318389892578125
+          ],
+          "material_index": 0,
+          "material": "G4R03_honed_slate_with_cut_joints"
+        },
+        {
+          "face": 21,
+          "normal": [
+            -0.25660282373428345,
+            0.2565756142139435,
+            0.9318389892578125
+          ],
+          "material_index": 0,
+          "material": "G4R03_honed_slate_with_cut_joints"
+        },
+        {
+          "face": 28,
+          "normal": [
+            0.25660282373428345,
+            -0.2565756142139435,
+            -0.9318389892578125
+          ],
+          "material_index": 0,
+          "material": "G4R03_honed_slate_with_cut_joints"
+        },
+        {
+          "face": 35,
+          "normal": [
+            0.25660282373428345,
+            -0.2565756142139435,
+            0.9318389892578125
+          ],
+          "material_index": 0,
+          "material": "G4R03_honed_slate_with_cut_joints"
+        },
+        {
+          "face": 42,
+          "normal": [
+            0.25660282373428345,
+            0.2565756142139435,
+            -0.9318389892578125
+          ],
+          "material_index": 0,
+          "material": "G4R03_honed_slate_with_cut_joints"
+        },
+        {
+          "face": 49,
+          "normal": [
+            0.25660282373428345,
+            0.2565756142139435,
+            0.9318389892578125
+          ],
+          "material_index": 0,
+          "material": "G4R03_honed_slate_with_cut_joints"
+        },
+        {
+          "face": 56,
+          "normal": [
+            -0.25847336649894714,
+            0.0,
+            -0.9660184383392334
+          ],
+          "material_index": 0,
+          "material": "G4R03_honed_slate_with_cut_joints"
+        },
+        {
+          "face": 62,
+          "normal": [
+            -0.25847336649894714,
+            0.0,
+            0.9660184383392334
+          ],
+          "material_index": 0,
+          "material": "G4R03_honed_slate_with_cut_joints"
+        },
+        {
+          "face": 68,
+          "normal": [
+            0.0,
+            0.2584349811077118,
+            -0.9660286903381348
+          ],
+          "material_index": 0,
+          "material": "G4R03_honed_slate_with_cut_joints"
+        },
+        {
+          "face": 71,
+          "normal": [
+            0.0,
+            0.2584349811077118,
+            0.9660286903381348
+          ],
+          "material_index": 0,
+          "material": "G4R03_honed_slate_with_cut_joints"
+        }
+      ],
+      "modifiers": [
+        {
+          "name": "Machined edge radius",
+          "type": "BEVEL"
+        },
+        {
+          "name": "Weighted corner normals",
+          "type": "WEIGHTED_NORMAL"
+        }
+      ]
+    },
+    {
+      "object": "G4R03_shallow_rain_puddle.001",
+      "faces": [
+        {
+          "face": 0,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_index": 0,
+          "material": "G4R03_actual_water"
+        },
+        {
+          "face": 1,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_index": 0,
+          "material": "G4R03_actual_water"
+        },
+        {
+          "face": 2,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_index": 0,
+          "material": "G4R03_actual_water"
+        },
+        {
+          "face": 3,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_index": 0,
+          "material": "G4R03_actual_water"
+        },
+        {
+          "face": 4,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_index": 0,
+          "material": "G4R03_actual_water"
+        },
+        {
+          "face": 5,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_index": 0,
+          "material": "G4R03_actual_water"
+        },
+        {
+          "face": 6,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_index": 0,
+          "material": "G4R03_actual_water"
+        },
+        {
+          "face": 7,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_index": 0,
+          "material": "G4R03_actual_water"
+        },
+        {
+          "face": 8,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_index": 0,
+          "material": "G4R03_actual_water"
+        },
+        {
+          "face": 9,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_index": 0,
+          "material": "G4R03_actual_water"
+        },
+        {
+          "face": 10,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_index": 0,
+          "material": "G4R03_actual_water"
+        },
+        {
+          "face": 11,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_index": 0,
+          "material": "G4R03_actual_water"
+        }
+      ],
+      "modifiers": [
+        {
+          "name": "Water film depth 0.8mm",
+          "type": "SOLIDIFY"
+        }
+      ]
+    }
+  ],
+  "materials": {
+    "G4R03_actual_water": [
+      {
+        "node": "Principled BSDF",
+        "inputs": {
+          "Base Color": {
+            "value": [
+              0.9850000143051147,
+              0.9929999709129333,
+              1.0,
+              1.0
+            ],
+            "linked_from": []
+          },
+          "Metallic": {
+            "value": 0.0,
+            "linked_from": []
+          },
+          "Roughness": {
+            "value": 0.03500000014901161,
+            "linked_from": []
+          },
+          "IOR": {
+            "value": 1.3329999446868896,
+            "linked_from": []
+          },
+          "Transmission Weight": {
+            "value": 1.0,
+            "linked_from": []
+          },
+          "Normal": {
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "linked_from": []
+          },
+          "Coat Weight": {
+            "value": 0.0,
+            "linked_from": []
+          },
+          "Coat Roughness": {
+            "value": 0.1899999976158142,
+            "linked_from": []
+          }
+        }
+      }
+    ],
+    "G4R03_damp_terrace_stone": [
+      {
+        "node": "Principled BSDF",
+        "inputs": {
+          "Base Color": {
+            "value": [
+              0.25,
+              0.27000001072883606,
+              0.26499998569488525,
+              1.0
+            ],
+            "linked_from": [
+              [
+                "Color Ramp",
+                "Color"
+              ]
+            ]
+          },
+          "Metallic": {
+            "value": 0.0,
+            "linked_from": []
+          },
+          "Roughness": {
+            "value": 0.7699999809265137,
+            "linked_from": [
+              [
+                "Rain-wetted stone roughness",
+                "Result"
+              ]
+            ]
+          },
+          "IOR": {
+            "value": 1.4600000381469727,
+            "linked_from": []
+          },
+          "Transmission Weight": {
+            "value": 0.0,
+            "linked_from": []
+          },
+          "Normal": {
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "linked_from": [
+              [
+                "Bump",
+                "Normal"
+              ]
+            ]
+          },
+          "Coat Weight": {
+            "value": 0.2199999988079071,
+            "linked_from": []
+          },
+          "Coat Roughness": {
+            "value": 0.1599999964237213,
+            "linked_from": []
+          }
+        }
+      }
+    ],
+    "G4COAST_R06_rain_darkened_exterior_slate": [
+      {
+        "node": "Principled BSDF",
+        "inputs": {
+          "Base Color": {
+            "value": [
+              0.5,
+              0.5,
+              0.5,
+              1.0
+            ],
+            "linked_from": [
+              [
+                "Mix (Legacy).001",
+                "Color"
+              ]
+            ]
+          },
+          "Metallic": {
+            "value": 0.0,
+            "linked_from": []
+          },
+          "Roughness": {
+            "value": 0.4000000059604645,
+            "linked_from": [
+              [
+                "Map Range",
+                "Result"
+              ]
+            ]
+          },
+          "IOR": {
+            "value": 1.4600000381469727,
+            "linked_from": []
+          },
+          "Transmission Weight": {
+            "value": 0.0,
+            "linked_from": []
+          },
+          "Normal": {
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "linked_from": [
+              [
+                "Recessed cut-stone mortar",
+                "Normal"
+              ]
+            ]
+          },
+          "Coat Weight": {
+            "value": 0.3799999952316284,
+            "linked_from": []
+          },
+          "Coat Roughness": {
+            "value": 0.10000000149011612,
+            "linked_from": []
+          }
+        }
+      }
+    ],
+    "G4_weathered_grey_masonry": [
+      {
+        "node": "Principled BSDF",
+        "inputs": {
+          "Base Color": {
+            "value": [
+              0.25,
+              0.27000001072883606,
+              0.26499998569488525,
+              1.0
+            ],
+            "linked_from": [
+              [
+                "Color Ramp",
+                "Color"
+              ]
+            ]
+          },
+          "Metallic": {
+            "value": 0.0,
+            "linked_from": []
+          },
+          "Roughness": {
+            "value": 0.7699999809265137,
+            "linked_from": []
+          },
+          "IOR": {
+            "value": 1.4600000381469727,
+            "linked_from": []
+          },
+          "Transmission Weight": {
+            "value": 0.0,
+            "linked_from": []
+          },
+          "Normal": {
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "linked_from": [
+              [
+                "Bump",
+                "Normal"
+              ]
+            ]
+          },
+          "Coat Weight": {
+            "value": 0.0,
+            "linked_from": []
+          },
+          "Coat Roughness": {
+            "value": 0.1899999976158142,
+            "linked_from": []
+          }
+        }
+      }
+    ]
+  },
+  "source_unchanged": true,
+  "limits": [
+    "Geometric first hits; glass or water can transmit light, so blocked ray count alone is not a photometric result.",
+    "Cosine-weighted128-ray sampling diagnoses potential structural sky occlusion, not full irradiance.",
+    "No scene state is saved; render dimensions and frame set in memory only."
+  ],
+  "g4_stage_pass": false
+}
