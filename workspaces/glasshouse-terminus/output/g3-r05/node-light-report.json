@@ -1,0 +1,135 @@
+{
+  "stage": "G3",
+  "revision": "R05",
+  "status": "CHALLENGER_NOT_ACCEPTED",
+  "parent_sha256": "18348be4c401601706e10e4346a32bf5e0c406fec2448e1a53290f7840b8a854",
+  "parent_evidence_commit": "a2b7d9d3c90e928a00bca7898247d764c83afe8a",
+  "reviewed_r04_core_artifact": 10020833705,
+  "reviewed_core_zip_sha256": "ac73bfb391ee46270e76f2a770bdea32450d1692801637747dbd8b4cd58ad623",
+  "issue": "G3-D01-DARK: R04 fixes glare but obscures actual arch/splice craft",
+  "material_edits": [
+    "Column_capital.008",
+    "Load_column.009",
+    "Column_capital.007",
+    "Column_capital.009",
+    "Load_column.006",
+    "Primary_elliptical_arch.003",
+    "Primary_elliptical_arch.004",
+    "Load_column.008",
+    "Column_capital.006",
+    "Load_column.007",
+    "G3R04_eave_splice_plate",
+    "G3R04_eave_splice_plate.001",
+    "G3R04_eave_splice_plate.002",
+    "G3R04_eave_splice_plate.003"
+  ],
+  "uplights": [
+    {
+      "object": "G3R05_arch_wash",
+      "position": [
+        -3.662109375,
+        6.0029296875,
+        1.3917957544326782
+      ],
+      "target": [
+        -3.9047999382019043,
+        6.340000152587891,
+        5.050000190734863
+      ],
+      "energy": 220,
+      "spot_angle_degrees": 50,
+      "minimum_xy_walk_clearance": 1.6601253452465372,
+      "supported_fixture": true,
+      "foot_bounds": [
+        [
+          -3.7350001335144043,
+          5.914999961853027,
+          1.1500000953674316
+        ],
+        [
+          -3.5850000381469727,
+          6.085000038146973,
+          1.2300000190734863
+        ]
+      ],
+      "body_bounds": [
+        [
+          -3.7560555934906006,
+          5.8912272453308105,
+          1.2131096124649048
+        ],
+        [
+          -3.5547163486480713,
+          6.0959553718566895,
+          1.3677841424942017
+        ]
+      ]
+    },
+    {
+      "object": "G3R05_arch_wash.001",
+      "position": [
+        -0.337890625,
+        6.0029296875,
+        1.3917957544326782
+      ],
+      "target": [
+        -0.09520000219345093,
+        6.340000152587891,
+        5.050000190734863
+      ],
+      "energy": 220,
+      "spot_angle_degrees": 50,
+      "minimum_xy_walk_clearance": 1.660125345246537,
+      "supported_fixture": true,
+      "foot_bounds": [
+        [
+          -0.4150000214576721,
+          5.914999961853027,
+          1.1500000953674316
+        ],
+        [
+          -0.26499998569488525,
+          6.085000038146973,
+          1.2300000190734863
+        ]
+      ],
+      "body_bounds": [
+        [
+          -0.44528400897979736,
+          5.8912272453308105,
+          1.2131094932556152
+        ],
+        [
+          -0.24394451081752777,
+          6.0959553718566895,
+          1.3677842617034912
+        ]
+      ]
+    }
+  ],
+  "g4_allowed": false,
+  "human_acceptance": false,
+  "preserved": [
+    "source meshes and transforms",
+    "all source cameras",
+    "motion",
+    "glass reflection/transmission",
+    "light ray visibility",
+    "exposure0/AgX"
+  ],
+  "scope": "Local arch and column paint plus two small supported uplight fixtures, no full-scene expansion.",
+  "paint_recipe": {
+    "reuse": "Satin-paint recipe already present in polish_g3_r04.py; applied here to the verified later source, not a claim that the failed alternative produced a model.",
+    "base_color": [
+      0.033,
+      0.07,
+      0.055
+    ],
+    "metallic": 0.12,
+    "roughness": 0.32,
+    "coat": 0.23
+  },
+  "protected_before": "97462ed89b6c99010f4eee72d146e3e08d5a31b9408bc8cb2578564959357de3",
+  "protected_after": "97462ed89b6c99010f4eee72d146e3e08d5a31b9408bc8cb2578564959357de3",
+  "candidate_sha256": "8ca4ca940a98e80d980fbd895f5ae7c27568b28ee361422bfe4ed267b7b8f02e"
+}
