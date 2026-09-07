@@ -1,6 +1,6 @@
 {
   "task": "glasshouse-terminus-premium-scene",
-  "source_of_truth": "Actual downloaded bytes and reviewed images/motion, immutable evidence commits, and live GitHub run metadata. Upload-time DELIVERY states are historical; review records are separate from human acceptance. Do not restart G0/G2 or rebuild G3 from an obsolete NOT_STARTED state.",
+  "source_of_truth": "Actual downloaded bytes, native images, immutable evidence commits and live run metadata. Upload-time DELIVERY is historical. G2 is already a stage BEST; G3 has real R01-R05 candidates, not NOT_STARTED. Artistic and human acceptance remain separate from successful execution.",
   "contract_sha256": "0101fa0f69edc3e261ead088c447818168c397e5ca8dbc26b0de341ad7f7c23f",
   "g1_challenger": {
     "run_id": 33928926761,
@@ -15,7 +15,7 @@
     "actual_seconds_from_render_metrics": {"beauty.png":48.906108212,"glass-node.png":73.351175974,"materials.png":69.376685983,"neutral.png":39.925381825,"moving-reflection.png":47.717203952},
     "visual_scope": "G1 risk coupon, not full whitebox or final-quality asset",
     "browser_status": "BLOCKED_BY_ADMINISTRATOR; no authentication clearing or security bypass",
-    "persistent_git_copy": {"branch":"evidence/g1-recovered-33930445031-1","commit":"0615e137cd53b3e3a150979b1a17d2d9c818eafb","recovery_run_id":33930445031,"verified_this_turn":"Historical verification retained: persistent tree and RECOVERY.json archive digest matched; not a new visual acceptance."}
+    "persistent_git_copy": {"branch":"evidence/g1-recovered-33930445031-1","commit":"0615e137cd53b3e3a150979b1a17d2d9c818eafb","recovery_run_id":33930445031,"verified_this_turn":"Historical verification retained, not a new visual acceptance."}
   },
   "g2": {
     "status":"WHITEBOX_STAGE_BEST_SELF_REVIEW",
@@ -38,12 +38,15 @@
       {"run_id":34106817235,"source_commit":"a40810d2861a2582499db410c6b41881f1199d18","result":"Master and fixed views recovered; animatic timeout after278 frames, not complete movie or stage pass.","partial_evidence_commit":"f2cfa64fe7fa490fdde7b8fb56ba7ea6b404b696"}
     ],
     "remaining_final_stage_issues":["Bridge arch joint V-shaped close-up seam","Proxy families outside the G3 sample","Final film detail and motion readability"],
-    "next_action":"Protect this BEST. Continue from the existing g3 anchors below, not from the old G3-start handoff."
+    "next_action":"Protect this BEST. Continue from the existing G3 source below, never restart from the obsolete G3-start handoff."
   },
   "g3": {
-    "status":"R03_RENDERING_WITH_REMAINING_VISUAL_ISSUE",
+    "status":"PAUSED_UNMET_UPPER_NODE_VISIBILITY",
     "stage_best":null,"g4_allowed":false,
-    "reviewer":"Same-context actual native-image review, not an independent agent or human acceptance",
+    "current_candidate":"R05",
+    "review":"G3-R05-REVIEW.md",
+    "review_commit":"0a17ac88833337507ec4be129a360b25ffc844ee",
+    "reviewer":"Same-context actual native-image self-review, no independent agent or human acceptance",
     "r01":{
       "run_id":34113862241,"source_commit":"cf89b07e0e3831d892e742083c7e75a05c285525",
       "persistent_evidence_commit":"6570525810ce4118e77651790ffce6464850d9fb",
@@ -51,42 +54,77 @@
       "artifact_id":10016442524,"zip_bytes":44664662,"zip_sha256":"c53bcc5460025e24920d2b9ff3225d9f63857ce6d9a12ce3f8581f5f555d626d",
       "master_bytes":26357297,"master_sha256":"e95b37d7f2d8a28efc8bca32815b0624acae7a787e2c7bbe7565eb30e3588027",
       "actual_bytes_verified":true,"manifest_entries":38,"manifest_mismatches":0,"png_count":7,
-      "status":"PARTIAL_CANDIDATE_NOT_A_PASS","reason":"18-minute detail step timed out; D06, reverse and three door-state images absent.","review":"G3-R01-DETAIL-AUDIT.md"
+      "status":"PARTIAL_CANDIDATE_NOT_A_PASS","reason":"18-minute detail step timed out; D06, reverse and three door states absent.","review":"G3-R01-DETAIL-AUDIT.md"
     },
     "r02":{
       "run_id":34115854145,"run_conclusion":"success","source_commit":"d146517b4abbe82d236a11b86880dc5384eab3f9",
-      "persistent_evidence_commit":"a5b04569e8718a407a50f3ed3ea1fcc027d8d807",
-      "source_checkpoint_commit":"87d75e3b90d6b330fb378d1fc2200f5d1a52e418",
+      "persistent_evidence_commit":"a5b04569e8718a407a50f3ed3ea1fcc027d8d807","source_checkpoint_commit":"87d75e3b90d6b330fb378d1fc2200f5d1a52e418",
       "directory":"workspaces/glasshouse-terminus/output/g3-r02",
       "artifact_id":10017490193,"zip_bytes":40048895,"zip_sha256":"371237ad4af23092672f8aacae03026a4d9eb0767204f45830c57926554246d5",
       "master_bytes":26346368,"master_sha256":"3162ba27fbeb3055c5fbe94a6fc2422cc9cca11f68dda381b06627ebcaf6d680",
       "actual_bytes_verified":true,"manifest_entries":27,"manifest_mismatches":0,"png_count":13,"all_native_originals_reviewed":true,
       "sampled_walk_collisions":0,"sampled_floor_hits":18,"missing_external_images":[],
       "status":"TECHNICALLY_COMPLETE_VISUAL_GATE_UNMET",
-      "improved":["rim-light white disc removed by physical light relocation","dry stone roughness","platform dry/wet sample finish","measured saucer contact"],
-      "remaining":["old bay/D03/D05 observation coverage","unfinished visible car vestibule"],
-      "neutral_scope":"R01/R02 world colors match each other, not the original G2 world."
+      "improved":["rim-light disc removed by physical light relocation","dry stone roughness","platform dry/wet finish","saucer contact"],
+      "remaining_at_that_revision":["old bay/D03/D05 coverage","unfinished visible vestibule"],
+      "neutral_scope":"R01/R02 world colors match each other, not original G2."
     },
     "r03":{
       "run_id":34118000931,"job_id":101733145188,"source_commit":"ce12e2059f3dae4a0e20098164b353f094572cc7",
-      "source_checkpoint_commit":"22dceca579c272b51767c70c153c540f7defc547",
-      "directory":"workspaces/glasshouse-terminus/output/g3-r03",
-      "master_sha256":"cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe",
-      "master_local_bytes_verified":false,
+      "source_checkpoint_commit":"22dceca579c272b51767c70c153c540f7defc547","directory":"workspaces/glasshouse-terminus/output/g3-r03",
+      "master_sha256":"cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe","master_bytes":26402010,"master_local_bytes_verified":true,
+      "full_artifact_id":10019042448,"full_zip_bytes":50601819,"full_zip_sha256":"18d514615bbeadc0a059ad52f83549860e2eac5ee310d20f72bc30e83de386c9",
+      "manifest_entries":43,"manifest_mismatches":0,"png_count":27,
       "overview_artifact_id":10017903613,"overview_zip_bytes":5125406,"overview_zip_sha256":"49a427dfd2fb4f5ef3980e81a5a9583e9eba4c60cd69425e26cc9886ce1be08e",
       "overview_actual_bytes_verified":true,"overview_native_png_reviewed":3,
-      "status":"BUILT_PERSISTED_OVERVIEW_REVIEWED_DETAILS_RUNNING",
-      "improved":["same-world complete furniture framing","measured cabinet-chair disjoint bounds with75mm gap","finished sample vestibule and train-attached texture coordinates"],
-      "remaining_issue":"G3-L02 upper-glass bright reflection; cause still under diagnosis, not hidden by reframing",
-      "review":"G3-R03-OVERVIEW-REVIEW.md",
-      "sampling":"Native Cycles adaptive threshold0.04/min16/max per-view; not upscaling or final4K film."
+      "status":"PARTIAL_CANDIDATE_PRESERVED_NOT_A_PASS",
+      "remaining_at_that_revision":["old D05 final regression missing at deadline","upper-glass studio highlight","full-door witness occlusion"],
+      "review":"G3-R03-OVERVIEW-REVIEW.md"
     },
-    "light_diagnosis":{"run_id":34121105904,"source_commit":"9a5bcaa6cfe3635960c663f1c08f06f3a0e9af98","status":"QUEUED_NOT_REVIEWED","source_master_unchanged":true,"scope":"Four labelled light variants and two reused roller/threshold witness views. No new accepted master."},
+    "light_diagnosis":{
+      "run_id":34121257143,"source_commit":"d7089f587c8314b9433932f684f22f52030498d0","status":"FIVE_NATIVE_CROPS_REVIEWED",
+      "artifact_id":10019119528,"zip_bytes":896153,"zip_sha256":"e4d28113c0f9204326a2e14aeed927262b8c12bac8e07c61f2ac47b08282d88a",
+      "manifest_entries":8,"manifest_mismatches":0,"source_master_unchanged":true,
+      "finding":"G3_interior_softbox is the principal source of the upper-glass white patch; actual physical-fixture redesign used in R04.",
+      "cancelled_prior_run":34121105904
+    },
+    "r04":{
+      "run_id":34125489162,"job_id":101753072427,"run_conclusion":"success","source_commit":"5df7808221aea777899562807bacc6bbd1c3f49a",
+      "source_checkpoint_commit":"a2b7d9d3c90e928a00bca7898247d764c83afe8a","persistent_evidence_commit":"cd3526f4a0f6f8333d75bbd666b4fcfcfa9a529a",
+      "directory":"workspaces/glasshouse-terminus/output/g3-r04","artifact_id":10021262934,"zip_bytes":45736665,
+      "zip_sha256":"61c958bbaa1a3836b8291bd1b7347d8de46ce33355e2d9f0bb59d10639b20cf6",
+      "master_bytes":26455878,"master_sha256":"18348be4c401601706e10e4346a32bf5e0c406fec2448e1a53290f7840b8a854",
+      "actual_bytes_verified":true,"manifest_entries":35,"manifest_mismatches":0,"native_png_count":19,"all_native_originals_reviewed":true,
+      "status":"TECHNICALLY_COMPLETE_VISUAL_GATE_UNMET","review":"G3-R04-REVIEW.md",
+      "improved":["studio glare removed by real sconces","secondary green structural hierarchy","unoccluded complete doorway plus roller/threshold witnesses"],
+      "remaining":"G3-D01-DARK: upper arch section and splice too dark. Source geometry and all old cameras preserved."
+    },
+    "r05":{
+      "run_id":34128911415,"job_id":101764327257,"run_conclusion":"success","source_commit":"8a5eb925c4e88c4155b2148059898b3736386895",
+      "source_checkpoint_commit":"ee77c110f190f7b944dbe8fb2455f87296a76b96","persistent_evidence_commit":"4436b5cb5f870e834ff65639d1a1fbd365b9d4e3",
+      "persistent_branch":"evidence/g3-r05-34128911415-1","directory":"workspaces/glasshouse-terminus/output/g3-r05",
+      "artifact_id":10021873685,"zip_bytes":34863936,"zip_sha256":"3aea7bc1c9a85bea8f833522b40106b274f21c6c41191df5b05a9948fc2698d3",
+      "master_file":"g3-bay-candidate.blend","master_bytes":26457653,"master_sha256":"8ca4ca940a98e80d980fbd895f5ae7c27568b28ee361422bfe4ed267b7b8f02e",
+      "actual_bytes_verified":true,"manifest_entries":19,"manifest_mismatches":0,"native_png_count":6,"all_native_originals_reviewed":true,
+      "fresh_process_reopen_verified":true,"master_unchanged_after_render":true,"missing_external_images":[],
+      "status":"TARGETED_RENDER_COMPLETE_UPPER_NODE_ART_GATE_UNMET","review":"G3-R05-REVIEW.md",
+      "improved":["readable satin column face in original glass/metal closeup","retained coherent warm wood/cloth/pot response and removed studio glare"],
+      "unresolved":"Original D01 roof view remains near-black above the capital and at the splice; do not compensate with other visual improvements or count CI as acceptance.",
+      "scope":"Six targeted new images, not R04's separate nineteen-view proof set or final film."
+    },
+    "superseded_alternative":{
+      "failed_run":34125276363,"source_commit":"10b81ab4bb2b796589f2892b85ae3368bcd97212","failure_evidence_commit":"41c4df71e4eee7f48a733be47df26f36693317e8",
+      "reason":"New-camera projection guard failed before saving a candidate or rendering.",
+      "recovery_run":34125804881,"recovery_status":"CANCELLED_WHILE_PENDING_NO_RENDER",
+      "recovery_source_commit":"ee18277766b8f1349473a0992acbc2565c479ab1",
+      "queue_handoff_commit":"61cec800a51291c444004351d7c921ae09efdb73",
+      "note":"Kept existing in-progress R04 polish; source files retained, never mix their labels with the actually rendered R04/R05."
+    },
     "cancelled_observation":{"run_id":34117403238,"source_commit":"a0a2f186d02b009f37734ad24970c8ca83ecb6bc","status":"CANCELLED_WHILE_PENDING_NO_JOBS_NO_OUTPUT","scripts_retained":true},
-    "next_action":"Retrieve full34118000931 evidence and34121105904 diagnostics; verify actual master/manifest and inspect native detail/reverse/door frames. Fix any remaining major issue on a separate candidate before G4. Do not rebuild G2 or duplicate running requests.",
+    "next_action":"From verified R05, read-only first-hit inspection between lights and actual upper splice/arch surfaces to distinguish occlusion from surface-light orientation. Then use a bounded local art correction, retain existing cameras/exposure and compare actual originals. No blind power increase, no G2 rebuild, no G4 until the major node defect is closed.",
     "handoff":"PRODUCTION-STATE.md"
   },
-  "final_contract_status":"IN_PROGRESS_UNMET",
-  "final_scope_remaining":["G3 final visual gate","G4 full-scene final art","Native4K30 main film","Short and evidence films","G1/P1 browser blocker and same-source website","Final validation and human acceptance"],
+  "final_contract_status":"PAUSED_UNMET",
+  "final_scope_remaining":["G3 upper-node visual gate and remaining craft review","G4 full-scene final art","Native4K30 main film","Short and evidence films","G1/P1 browser blocker and same-source website","Final validation and human acceptance"],
   "human_acceptance":false
 }
