@@ -1,0 +1,151 @@
+{
+  "stage": "G2",
+  "status": "CHALLENGER_NOT_ACCEPTED",
+  "parent_blend_sha256": "ef6fa3dd7e291564f2d1c158cb002f07dcf05c071c6f72e34e95c68ca2a22bf0",
+  "issues": [
+    "G2-F01 exterior crop",
+    "G2-S01 duplicated/misaligned span-end supports"
+  ],
+  "prior_supports": [
+    {
+      "xy": [
+        -63.78008,
+        31.80899
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.8199999332427979
+        }
+      ]
+    },
+    {
+      "xy": [
+        -56.96923,
+        24.50971
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier.002",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.6199998259544373
+        },
+        {
+          "name": "Viaduct_pier.001",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.8199999332427979
+        }
+      ]
+    },
+    {
+      "xy": [
+        -48.84401,
+        18.70904
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier.004",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.4200001060962677
+        },
+        {
+          "name": "Viaduct_pier.003",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.6199998259544373
+        }
+      ]
+    },
+    {
+      "xy": [
+        -39.72833,
+        14.63823
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier.006",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.22000004351139069
+        },
+        {
+          "name": "Viaduct_pier.005",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.4200001060962677
+        }
+      ]
+    },
+    {
+      "xy": [
+        -29.98561,
+        12.45957
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier.008",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.035993028432130814
+        },
+        {
+          "name": "Viaduct_pier.007",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.22000004351139069
+        }
+      ]
+    },
+    {
+      "xy": [
+        -20.0,
+        12.1
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier.009",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.035993028432130814
+        },
+        {
+          "name": "Viaduct_pier.010",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": 0.0
+        }
+      ]
+    },
+    {
+      "xy": [
+        -10.0,
+        12.1
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier.011",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": 0.0
+        }
+      ]
+    }
+  ],
+  "repaired_supports": [],
+  "framing": {},
+  "unchanged": [
+    "A-D geometry",
+    "track centerline and rails",
+    "train/door/walk keyframes",
+    "all materials",
+    "all lights and exposure",
+    "C02-C09 cameras"
+  ],
+  "independent_reviewer": false,
+  "g1_browser_status": "BLOCKED_UNCHANGED"
+}

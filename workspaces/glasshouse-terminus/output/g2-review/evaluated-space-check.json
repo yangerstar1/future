@@ -1,0 +1,305 @@
+{
+  "source_blend": "g2-complete-whitebox.blend",
+  "fresh_process": true,
+  "collision_method": "evaluated scene.ray_cast along actual animated walking camera; 0.20m lateral envelope at five heights; hidden diagnostic proxies",
+  "walk_source_frames": [
+    391,
+    660
+  ],
+  "collisions": [],
+  "floor_checks": [
+    {
+      "frame": 391,
+      "hit": true,
+      "object": "Hall_continuous_floor",
+      "height": 1.1500000953674316
+    },
+    {
+      "frame": 406,
+      "hit": true,
+      "object": "Hall_continuous_floor",
+      "height": 1.1500000953674316
+    },
+    {
+      "frame": 421,
+      "hit": true,
+      "object": "Hall_continuous_floor",
+      "height": 1.1500000953674316
+    },
+    {
+      "frame": 436,
+      "hit": true,
+      "object": "Hall_continuous_floor",
+      "height": 1.1500000953674316
+    },
+    {
+      "frame": 451,
+      "hit": true,
+      "object": "Hall_continuous_floor",
+      "height": 1.1500000953674316
+    },
+    {
+      "frame": 466,
+      "hit": true,
+      "object": "Hall_continuous_floor",
+      "height": 1.1500000953674316
+    },
+    {
+      "frame": 481,
+      "hit": true,
+      "object": "Platform_continuous_slab",
+      "height": 1.149999976158142
+    },
+    {
+      "frame": 496,
+      "hit": true,
+      "object": "Platform_continuous_slab",
+      "height": 1.149999976158142
+    },
+    {
+      "frame": 511,
+      "hit": true,
+      "object": "Platform_continuous_slab",
+      "height": 1.149999976158142
+    },
+    {
+      "frame": 526,
+      "hit": true,
+      "object": "Platform_continuous_slab",
+      "height": 1.149999976158142
+    },
+    {
+      "frame": 541,
+      "hit": true,
+      "object": "Car_floor",
+      "height": 1.149999976158142
+    },
+    {
+      "frame": 556,
+      "hit": true,
+      "object": "Car_floor",
+      "height": 1.1500000953674316
+    },
+    {
+      "frame": 571,
+      "hit": true,
+      "object": "Car_floor",
+      "height": 1.1500000953674316
+    },
+    {
+      "frame": 586,
+      "hit": true,
+      "object": "Car_floor",
+      "height": 1.1500000953674316
+    },
+    {
+      "frame": 601,
+      "hit": true,
+      "object": "Car_floor",
+      "height": 1.1500000953674316
+    },
+    {
+      "frame": 616,
+      "hit": true,
+      "object": "Car_floor",
+      "height": 1.1500000953674316
+    },
+    {
+      "frame": 631,
+      "hit": true,
+      "object": "Car_floor",
+      "height": 1.149999976158142
+    },
+    {
+      "frame": 646,
+      "hit": true,
+      "object": "Car_floor",
+      "height": 1.1500000953674316
+    }
+  ],
+  "motion": [
+    {
+      "frame": 1,
+      "seconds": 0.0,
+      "body_position": [
+        -45.190574645996094,
+        17.088417053222656,
+        0.0
+      ],
+      "door_local_position": [
+        -4.309999942779541,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 211,
+      "seconds": 7.0,
+      "body_position": [
+        -2.320000171661377,
+        12.100000381469727,
+        0.0
+      ],
+      "door_local_position": [
+        -4.309999942779541,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 298,
+      "seconds": 9.9,
+      "body_position": [
+        1.9952000379562378,
+        12.100000381469727,
+        0.0
+      ],
+      "door_local_position": [
+        -4.309999942779541,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 301,
+      "seconds": 10.0,
+      "body_position": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door_local_position": [
+        -4.309999942779541,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 310,
+      "seconds": 10.3,
+      "body_position": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door_local_position": [
+        -4.309999942779541,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 314,
+      "seconds": 10.433333333333334,
+      "body_position": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door_local_position": [
+        -4.309999942779541,
+        -1.4299999475479126,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 315,
+      "seconds": 10.466666666666667,
+      "body_position": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door_local_position": [
+        -4.310442924499512,
+        -1.4300647974014282,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 330,
+      "seconds": 10.966666666666667,
+      "body_position": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door_local_position": [
+        -4.605490684509277,
+        -1.4731870889663696,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 348,
+      "seconds": 11.566666666666666,
+      "body_position": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door_local_position": [
+        -4.960000038146973,
+        -1.524999976158142,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 390,
+      "seconds": 12.966666666666667,
+      "body_position": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door_local_position": [
+        -4.960000038146973,
+        -1.524999976158142,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 451,
+      "seconds": 15.0,
+      "body_position": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door_local_position": [
+        -4.960000038146973,
+        -1.524999976158142,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 660,
+      "seconds": 21.966666666666665,
+      "body_position": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door_local_position": [
+        -4.960000038146973,
+        -1.524999976158142,
+        1.149999976158142
+      ]
+    },
+    {
+      "frame": 840,
+      "seconds": 27.966666666666665,
+      "body_position": [
+        2.0,
+        12.100000381469727,
+        0.0
+      ],
+      "door_local_position": [
+        -4.960000038146973,
+        -1.524999976158142,
+        1.149999976158142
+      ]
+    }
+  ],
+  "limitation": "Geometric diagnostics supplement actual fixed views and continuous motion, not automatic art acceptance."
+}

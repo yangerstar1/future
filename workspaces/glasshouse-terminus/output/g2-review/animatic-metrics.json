@@ -1,0 +1,3392 @@
+{
+  "scope": "G2 WHITEBOX PREVIS ONLY; NOT FINAL 4K30 FILM OR MATERIAL EVIDENCE",
+  "engine": "BLENDER_WORKBENCH",
+  "render_aa": "8",
+  "actual_render_aa_options": [
+    "OFF",
+    "FXAA",
+    "5",
+    "8",
+    "11",
+    "16",
+    "32"
+  ],
+  "source_fps": 30,
+  "source_frames": 840,
+  "preview_fps": 10,
+  "preview_frames": 280,
+  "duration_seconds": 28,
+  "native_resolution": [
+    640,
+    360
+  ],
+  "shading_adaptation": "Native Workbench studio shading; only glass alpha adjusted in memory; no saved geometry/camera change",
+  "source_blend_untouched": true,
+  "no_generated_or_interpolated_frames": true,
+  "continuous_walk_interval_seconds": [
+    13,
+    22
+  ],
+  "frames": [
+    {
+      "output_index": 0,
+      "source_frame": 1,
+      "source_seconds": 0.0,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        34.0,
+        54.0,
+        24.0
+      ],
+      "seconds": 11.732548723000036
+    },
+    {
+      "output_index": 1,
+      "source_frame": 4,
+      "source_seconds": 0.1,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        33.900001525878906,
+        53.86666488647461,
+        23.950000762939453
+      ],
+      "seconds": 3.77439984800003
+    },
+    {
+      "output_index": 2,
+      "source_frame": 7,
+      "source_seconds": 0.2,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        33.79999923706055,
+        53.733333587646484,
+        23.899999618530273
+      ],
+      "seconds": 3.7327237400000968
+    },
+    {
+      "output_index": 3,
+      "source_frame": 10,
+      "source_seconds": 0.3,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        33.70000076293945,
+        53.599998474121094,
+        23.850000381469727
+      ],
+      "seconds": 3.8455604979999407
+    },
+    {
+      "output_index": 4,
+      "source_frame": 13,
+      "source_seconds": 0.4,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        33.599998474121094,
+        53.46666717529297,
+        23.799999237060547
+      ],
+      "seconds": 3.7885783609999635
+    },
+    {
+      "output_index": 5,
+      "source_frame": 16,
+      "source_seconds": 0.5,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        33.5,
+        53.33333206176758,
+        23.75
+      ],
+      "seconds": 3.8848796160000347
+    },
+    {
+      "output_index": 6,
+      "source_frame": 19,
+      "source_seconds": 0.6,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        33.400001525878906,
+        53.20000076293945,
+        23.700000762939453
+      ],
+      "seconds": 3.842479369999978
+    },
+    {
+      "output_index": 7,
+      "source_frame": 22,
+      "source_seconds": 0.7,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        33.29999923706055,
+        53.06666564941406,
+        23.649999618530273
+      ],
+      "seconds": 3.857218375000002
+    },
+    {
+      "output_index": 8,
+      "source_frame": 25,
+      "source_seconds": 0.8,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        33.20000076293945,
+        52.93333435058594,
+        23.600000381469727
+      ],
+      "seconds": 3.7807641339999236
+    },
+    {
+      "output_index": 9,
+      "source_frame": 28,
+      "source_seconds": 0.9,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        33.099998474121094,
+        52.79999923706055,
+        23.549999237060547
+      ],
+      "seconds": 3.848407042999952
+    },
+    {
+      "output_index": 10,
+      "source_frame": 31,
+      "source_seconds": 1.0,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        33.0,
+        52.66666793823242,
+        23.5
+      ],
+      "seconds": 3.8288240670000278
+    },
+    {
+      "output_index": 11,
+      "source_frame": 34,
+      "source_seconds": 1.1,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        32.900001525878906,
+        52.53333282470703,
+        23.450000762939453
+      ],
+      "seconds": 3.9702024550000488
+    },
+    {
+      "output_index": 12,
+      "source_frame": 37,
+      "source_seconds": 1.2,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        32.79999923706055,
+        52.400001525878906,
+        23.399999618530273
+      ],
+      "seconds": 3.86128427999995
+    },
+    {
+      "output_index": 13,
+      "source_frame": 40,
+      "source_seconds": 1.3,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        32.70000076293945,
+        52.266666412353516,
+        23.350000381469727
+      ],
+      "seconds": 3.9341994540000087
+    },
+    {
+      "output_index": 14,
+      "source_frame": 43,
+      "source_seconds": 1.4,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        32.599998474121094,
+        52.13333511352539,
+        23.299999237060547
+      ],
+      "seconds": 3.9298745429999826
+    },
+    {
+      "output_index": 15,
+      "source_frame": 46,
+      "source_seconds": 1.5,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        32.5,
+        52.0,
+        23.25
+      ],
+      "seconds": 3.8178966199999422
+    },
+    {
+      "output_index": 16,
+      "source_frame": 49,
+      "source_seconds": 1.6,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        32.400001525878906,
+        51.86666488647461,
+        23.200000762939453
+      ],
+      "seconds": 3.9454865479999626
+    },
+    {
+      "output_index": 17,
+      "source_frame": 52,
+      "source_seconds": 1.7,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        32.29999923706055,
+        51.733333587646484,
+        23.149999618530273
+      ],
+      "seconds": 3.8646006159999615
+    },
+    {
+      "output_index": 18,
+      "source_frame": 55,
+      "source_seconds": 1.8,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        32.20000076293945,
+        51.599998474121094,
+        23.100000381469727
+      ],
+      "seconds": 3.963501468000004
+    },
+    {
+      "output_index": 19,
+      "source_frame": 58,
+      "source_seconds": 1.9,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        32.099998474121094,
+        51.46666717529297,
+        23.049999237060547
+      ],
+      "seconds": 3.8574899600000663
+    },
+    {
+      "output_index": 20,
+      "source_frame": 61,
+      "source_seconds": 2.0,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        32.0,
+        51.33333206176758,
+        23.0
+      ],
+      "seconds": 3.8944873750000397
+    },
+    {
+      "output_index": 21,
+      "source_frame": 64,
+      "source_seconds": 2.1,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        31.899999618530273,
+        51.20000076293945,
+        22.950000762939453
+      ],
+      "seconds": 3.837743789000001
+    },
+    {
+      "output_index": 22,
+      "source_frame": 67,
+      "source_seconds": 2.2,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        31.799999237060547,
+        51.06666564941406,
+        22.899999618530273
+      ],
+      "seconds": 3.9107782280000265
+    },
+    {
+      "output_index": 23,
+      "source_frame": 70,
+      "source_seconds": 2.3,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        31.700000762939453,
+        50.93333435058594,
+        22.850000381469727
+      ],
+      "seconds": 3.8916053450000163
+    },
+    {
+      "output_index": 24,
+      "source_frame": 73,
+      "source_seconds": 2.4,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        31.600000381469727,
+        50.79999923706055,
+        22.799999237060547
+      ],
+      "seconds": 3.9420847449999883
+    },
+    {
+      "output_index": 25,
+      "source_frame": 76,
+      "source_seconds": 2.5,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        31.5,
+        50.66666793823242,
+        22.75
+      ],
+      "seconds": 3.9228340939999953
+    },
+    {
+      "output_index": 26,
+      "source_frame": 79,
+      "source_seconds": 2.6,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        31.399999618530273,
+        50.53333282470703,
+        22.700000762939453
+      ],
+      "seconds": 4.006997608000006
+    },
+    {
+      "output_index": 27,
+      "source_frame": 82,
+      "source_seconds": 2.7,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        31.299999237060547,
+        50.400001525878906,
+        22.649999618530273
+      ],
+      "seconds": 3.9176557749999574
+    },
+    {
+      "output_index": 28,
+      "source_frame": 85,
+      "source_seconds": 2.8,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        31.200000762939453,
+        50.266666412353516,
+        22.600000381469727
+      ],
+      "seconds": 3.9591881799999555
+    },
+    {
+      "output_index": 29,
+      "source_frame": 88,
+      "source_seconds": 2.9,
+      "camera": "FILM_01_HERO",
+      "camera_position": [
+        31.100000381469727,
+        50.13333511352539,
+        22.549999237060547
+      ],
+      "seconds": 3.935004985999967
+    },
+    {
+      "output_index": 30,
+      "source_frame": 91,
+      "source_seconds": 3.0,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.699999809265137,
+        8.600000381469727,
+        3.049999952316284
+      ],
+      "seconds": 1.6752220470000339
+    },
+    {
+      "output_index": 31,
+      "source_frame": 94,
+      "source_seconds": 3.1,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.691249847412109,
+        8.595000267028809,
+        3.0482499599456787
+      ],
+      "seconds": 1.597099156000013
+    },
+    {
+      "output_index": 32,
+      "source_frame": 97,
+      "source_seconds": 3.2,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.682499885559082,
+        8.59000015258789,
+        3.0464999675750732
+      ],
+      "seconds": 1.6667721170000505
+    },
+    {
+      "output_index": 33,
+      "source_frame": 100,
+      "source_seconds": 3.3,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.673749923706055,
+        8.585000038146973,
+        3.0447499752044678
+      ],
+      "seconds": 1.600343520000024
+    },
+    {
+      "output_index": 34,
+      "source_frame": 103,
+      "source_seconds": 3.4,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.664999961853027,
+        8.579999923706055,
+        3.0429999828338623
+      ],
+      "seconds": 1.661179321000077
+    },
+    {
+      "output_index": 35,
+      "source_frame": 106,
+      "source_seconds": 3.5,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.65625,
+        8.574999809265137,
+        3.041249990463257
+      ],
+      "seconds": 1.618218474999935
+    },
+    {
+      "output_index": 36,
+      "source_frame": 109,
+      "source_seconds": 3.6,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.647500038146973,
+        8.569999694824219,
+        3.0394999980926514
+      ],
+      "seconds": 1.6664623140000003
+    },
+    {
+      "output_index": 37,
+      "source_frame": 112,
+      "source_seconds": 3.7,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.638750076293945,
+        8.5649995803833,
+        3.037750005722046
+      ],
+      "seconds": 1.585206808999942
+    },
+    {
+      "output_index": 38,
+      "source_frame": 115,
+      "source_seconds": 3.8,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.630000114440918,
+        8.5600004196167,
+        3.0360000133514404
+      ],
+      "seconds": 1.6547547960000202
+    },
+    {
+      "output_index": 39,
+      "source_frame": 118,
+      "source_seconds": 3.9,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.621250152587891,
+        8.555000305175781,
+        3.034250020980835
+      ],
+      "seconds": 1.5593765030000668
+    },
+    {
+      "output_index": 40,
+      "source_frame": 121,
+      "source_seconds": 4.0,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.612500190734863,
+        8.550000190734863,
+        3.0325000286102295
+      ],
+      "seconds": 1.6405343730000368
+    },
+    {
+      "output_index": 41,
+      "source_frame": 124,
+      "source_seconds": 4.1,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.603750228881836,
+        8.545000076293945,
+        3.030750036239624
+      ],
+      "seconds": 1.6616482009999345
+    },
+    {
+      "output_index": 42,
+      "source_frame": 127,
+      "source_seconds": 4.2,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.59499979019165,
+        8.539999961853027,
+        3.0290000438690186
+      ],
+      "seconds": 1.9150253700000803
+    },
+    {
+      "output_index": 43,
+      "source_frame": 130,
+      "source_seconds": 4.3,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.586249828338623,
+        8.53499984741211,
+        3.027250051498413
+      ],
+      "seconds": 1.7671451840000145
+    },
+    {
+      "output_index": 44,
+      "source_frame": 133,
+      "source_seconds": 4.4,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.577499866485596,
+        8.529999732971191,
+        3.0255000591278076
+      ],
+      "seconds": 1.889739322999958
+    },
+    {
+      "output_index": 45,
+      "source_frame": 136,
+      "source_seconds": 4.5,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.568749904632568,
+        8.524999618530273,
+        3.023750066757202
+      ],
+      "seconds": 1.8059464859999252
+    },
+    {
+      "output_index": 46,
+      "source_frame": 139,
+      "source_seconds": 4.6,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.559999942779541,
+        8.520000457763672,
+        3.0220000743865967
+      ],
+      "seconds": 1.729384601999982
+    },
+    {
+      "output_index": 47,
+      "source_frame": 142,
+      "source_seconds": 4.7,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.551249980926514,
+        8.515000343322754,
+        3.020250082015991
+      ],
+      "seconds": 1.6017950230000224
+    },
+    {
+      "output_index": 48,
+      "source_frame": 145,
+      "source_seconds": 4.8,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.542500019073486,
+        8.510000228881836,
+        3.0185000896453857
+      ],
+      "seconds": 1.7052882239999008
+    },
+    {
+      "output_index": 49,
+      "source_frame": 148,
+      "source_seconds": 4.9,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.533750057220459,
+        8.505000114440918,
+        3.0167500972747803
+      ],
+      "seconds": 1.6918145900000354
+    },
+    {
+      "output_index": 50,
+      "source_frame": 151,
+      "source_seconds": 5.0,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.525000095367432,
+        8.5,
+        3.015000104904175
+      ],
+      "seconds": 1.7094236930000761
+    },
+    {
+      "output_index": 51,
+      "source_frame": 154,
+      "source_seconds": 5.1,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.516250133514404,
+        8.494999885559082,
+        3.0132501125335693
+      ],
+      "seconds": 1.6183228640001062
+    },
+    {
+      "output_index": 52,
+      "source_frame": 157,
+      "source_seconds": 5.2,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.507500171661377,
+        8.489999771118164,
+        3.0114998817443848
+      ],
+      "seconds": 1.6947193049999214
+    },
+    {
+      "output_index": 53,
+      "source_frame": 160,
+      "source_seconds": 5.3,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.49875020980835,
+        8.484999656677246,
+        3.0097498893737793
+      ],
+      "seconds": 1.6372450500000468
+    },
+    {
+      "output_index": 54,
+      "source_frame": 163,
+      "source_seconds": 5.4,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.489999771118164,
+        8.479999542236328,
+        3.007999897003174
+      ],
+      "seconds": 1.5704616219999252
+    },
+    {
+      "output_index": 55,
+      "source_frame": 166,
+      "source_seconds": 5.5,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.481249809265137,
+        8.475000381469727,
+        3.0062499046325684
+      ],
+      "seconds": 1.6401128029999654
+    },
+    {
+      "output_index": 56,
+      "source_frame": 169,
+      "source_seconds": 5.6,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.472499847412109,
+        8.470000267028809,
+        3.004499912261963
+      ],
+      "seconds": 1.5951013190000367
+    },
+    {
+      "output_index": 57,
+      "source_frame": 172,
+      "source_seconds": 5.7,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.463749885559082,
+        8.46500015258789,
+        3.0027499198913574
+      ],
+      "seconds": 1.683196190999979
+    },
+    {
+      "output_index": 58,
+      "source_frame": 175,
+      "source_seconds": 5.8,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.454999923706055,
+        8.460000038146973,
+        3.000999927520752
+      ],
+      "seconds": 1.6135955549999608
+    },
+    {
+      "output_index": 59,
+      "source_frame": 178,
+      "source_seconds": 5.9,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.446249961853027,
+        8.454999923706055,
+        2.9992499351501465
+      ],
+      "seconds": 1.6825370200000407
+    },
+    {
+      "output_index": 60,
+      "source_frame": 181,
+      "source_seconds": 6.0,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.4375,
+        8.449999809265137,
+        2.997499942779541
+      ],
+      "seconds": 1.615701045000037
+    },
+    {
+      "output_index": 61,
+      "source_frame": 184,
+      "source_seconds": 6.1,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.428750038146973,
+        8.444999694824219,
+        2.9957499504089355
+      ],
+      "seconds": 1.6690497239999331
+    },
+    {
+      "output_index": 62,
+      "source_frame": 187,
+      "source_seconds": 6.2,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.420000076293945,
+        8.4399995803833,
+        2.99399995803833
+      ],
+      "seconds": 1.5920111820000784
+    },
+    {
+      "output_index": 63,
+      "source_frame": 190,
+      "source_seconds": 6.3,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.411250114440918,
+        8.4350004196167,
+        2.9922499656677246
+      ],
+      "seconds": 1.6480298300000413
+    },
+    {
+      "output_index": 64,
+      "source_frame": 193,
+      "source_seconds": 6.4,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.402500152587891,
+        8.430000305175781,
+        2.990499973297119
+      ],
+      "seconds": 1.6106195209999896
+    },
+    {
+      "output_index": 65,
+      "source_frame": 196,
+      "source_seconds": 6.5,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.393750190734863,
+        8.425000190734863,
+        2.9887499809265137
+      ],
+      "seconds": 1.6623678449999488
+    },
+    {
+      "output_index": 66,
+      "source_frame": 199,
+      "source_seconds": 6.6,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.385000228881836,
+        8.420000076293945,
+        2.986999988555908
+      ],
+      "seconds": 1.6033767630000284
+    },
+    {
+      "output_index": 67,
+      "source_frame": 202,
+      "source_seconds": 6.7,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.37624979019165,
+        8.414999961853027,
+        2.9852499961853027
+      ],
+      "seconds": 1.6596102070000143
+    },
+    {
+      "output_index": 68,
+      "source_frame": 205,
+      "source_seconds": 6.8,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.367499828338623,
+        8.40999984741211,
+        2.9835000038146973
+      ],
+      "seconds": 1.5781113630000618
+    },
+    {
+      "output_index": 69,
+      "source_frame": 208,
+      "source_seconds": 6.9,
+      "camera": "FILM_02_DETAIL",
+      "camera_position": [
+        -4.358749866485596,
+        8.404999732971191,
+        2.981750011444092
+      ],
+      "seconds": 1.6686849369999663
+    },
+    {
+      "output_index": 70,
+      "source_frame": 211,
+      "source_seconds": 7.0,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -11.0,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5614915429999883
+    },
+    {
+      "output_index": 71,
+      "source_frame": 214,
+      "source_seconds": 7.1,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.963333129882812,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.6265306200000396
+    },
+    {
+      "output_index": 72,
+      "source_frame": 217,
+      "source_seconds": 7.2,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.926666259765625,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5940032579999297
+    },
+    {
+      "output_index": 73,
+      "source_frame": 220,
+      "source_seconds": 7.3,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.890000343322754,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.578545976999976
+    },
+    {
+      "output_index": 74,
+      "source_frame": 223,
+      "source_seconds": 7.4,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.853333473205566,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5591696970000157
+    },
+    {
+      "output_index": 75,
+      "source_frame": 226,
+      "source_seconds": 7.5,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.816666603088379,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.6058829940000123
+    },
+    {
+      "output_index": 76,
+      "source_frame": 229,
+      "source_seconds": 7.6,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.779999732971191,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5683365460000687
+    },
+    {
+      "output_index": 77,
+      "source_frame": 232,
+      "source_seconds": 7.7,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.743332862854004,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.616068539999901
+    },
+    {
+      "output_index": 78,
+      "source_frame": 235,
+      "source_seconds": 7.8,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.706666946411133,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.591566553000007
+    },
+    {
+      "output_index": 79,
+      "source_frame": 238,
+      "source_seconds": 7.9,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.670000076293945,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.657548694999946
+    },
+    {
+      "output_index": 80,
+      "source_frame": 241,
+      "source_seconds": 8.0,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.633333206176758,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5486868230000255
+    },
+    {
+      "output_index": 81,
+      "source_frame": 244,
+      "source_seconds": 8.1,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.59666633605957,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.6020654980000018
+    },
+    {
+      "output_index": 82,
+      "source_frame": 247,
+      "source_seconds": 8.2,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.5600004196167,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.4904946630000495
+    },
+    {
+      "output_index": 83,
+      "source_frame": 250,
+      "source_seconds": 8.3,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.523333549499512,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5282240619999357
+    },
+    {
+      "output_index": 84,
+      "source_frame": 253,
+      "source_seconds": 8.4,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.486666679382324,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.4740894789999857
+    },
+    {
+      "output_index": 85,
+      "source_frame": 256,
+      "source_seconds": 8.5,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.449999809265137,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.522144365000031
+    },
+    {
+      "output_index": 86,
+      "source_frame": 259,
+      "source_seconds": 8.6,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.41333293914795,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.568480738999938
+    },
+    {
+      "output_index": 87,
+      "source_frame": 262,
+      "source_seconds": 8.7,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.376667022705078,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.666226983999991
+    },
+    {
+      "output_index": 88,
+      "source_frame": 265,
+      "source_seconds": 8.8,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.34000015258789,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.4928818450000563
+    },
+    {
+      "output_index": 89,
+      "source_frame": 268,
+      "source_seconds": 8.9,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.303333282470703,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.559633572999928
+    },
+    {
+      "output_index": 90,
+      "source_frame": 271,
+      "source_seconds": 9.0,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.266666412353516,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.6113911319999943
+    },
+    {
+      "output_index": 91,
+      "source_frame": 274,
+      "source_seconds": 9.1,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.229999542236328,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.574673262000033
+    },
+    {
+      "output_index": 92,
+      "source_frame": 277,
+      "source_seconds": 9.2,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.193333625793457,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.4930280129999574
+    },
+    {
+      "output_index": 93,
+      "source_frame": 280,
+      "source_seconds": 9.3,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.15666675567627,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5660098569999263
+    },
+    {
+      "output_index": 94,
+      "source_frame": 283,
+      "source_seconds": 9.4,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.119999885559082,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.512669839999944
+    },
+    {
+      "output_index": 95,
+      "source_frame": 286,
+      "source_seconds": 9.5,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.083333015441895,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.535301444999959
+    },
+    {
+      "output_index": 96,
+      "source_frame": 289,
+      "source_seconds": 9.6,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.046667098999023,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.500525066000023
+    },
+    {
+      "output_index": 97,
+      "source_frame": 292,
+      "source_seconds": 9.7,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -10.010000228881836,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.564841056999967
+    },
+    {
+      "output_index": 98,
+      "source_frame": 295,
+      "source_seconds": 9.8,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.973333358764648,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5956550159999097
+    },
+    {
+      "output_index": 99,
+      "source_frame": 298,
+      "source_seconds": 9.9,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.936666488647461,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.402440059000014
+    },
+    {
+      "output_index": 100,
+      "source_frame": 301,
+      "source_seconds": 10.0,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.899999618530273,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5456086919999734
+    },
+    {
+      "output_index": 101,
+      "source_frame": 304,
+      "source_seconds": 10.1,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.863333702087402,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5027793259999953
+    },
+    {
+      "output_index": 102,
+      "source_frame": 307,
+      "source_seconds": 10.2,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.826666831970215,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5422971169999755
+    },
+    {
+      "output_index": 103,
+      "source_frame": 310,
+      "source_seconds": 10.3,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.789999961853027,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.4744224789999407
+    },
+    {
+      "output_index": 104,
+      "source_frame": 313,
+      "source_seconds": 10.4,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.75333309173584,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5519495800000414
+    },
+    {
+      "output_index": 105,
+      "source_frame": 316,
+      "source_seconds": 10.5,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.716666221618652,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.4779729960000623
+    },
+    {
+      "output_index": 106,
+      "source_frame": 319,
+      "source_seconds": 10.6,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.680000305175781,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.538924311999949
+    },
+    {
+      "output_index": 107,
+      "source_frame": 322,
+      "source_seconds": 10.7,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.643333435058594,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.4375814840000203
+    },
+    {
+      "output_index": 108,
+      "source_frame": 325,
+      "source_seconds": 10.8,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.606666564941406,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.520433672000081
+    },
+    {
+      "output_index": 109,
+      "source_frame": 328,
+      "source_seconds": 10.9,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.569999694824219,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.425795258999983
+    },
+    {
+      "output_index": 110,
+      "source_frame": 331,
+      "source_seconds": 11.0,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.533333778381348,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5115678869999556
+    },
+    {
+      "output_index": 111,
+      "source_frame": 334,
+      "source_seconds": 11.1,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.49666690826416,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.4148734839999406
+    },
+    {
+      "output_index": 112,
+      "source_frame": 337,
+      "source_seconds": 11.2,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.460000038146973,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5058008979999613
+    },
+    {
+      "output_index": 113,
+      "source_frame": 340,
+      "source_seconds": 11.3,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.423333168029785,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.388906484999893
+    },
+    {
+      "output_index": 114,
+      "source_frame": 343,
+      "source_seconds": 11.4,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.386666297912598,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.474741520000066
+    },
+    {
+      "output_index": 115,
+      "source_frame": 346,
+      "source_seconds": 11.5,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.350000381469727,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.439550684999972
+    },
+    {
+      "output_index": 116,
+      "source_frame": 349,
+      "source_seconds": 11.6,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.313333511352539,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.501273355999956
+    },
+    {
+      "output_index": 117,
+      "source_frame": 352,
+      "source_seconds": 11.7,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.276666641235352,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.447051295999927
+    },
+    {
+      "output_index": 118,
+      "source_frame": 355,
+      "source_seconds": 11.8,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.239999771118164,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.478754509000055
+    },
+    {
+      "output_index": 119,
+      "source_frame": 358,
+      "source_seconds": 11.9,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.203332901000977,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.4080205410000417
+    },
+    {
+      "output_index": 120,
+      "source_frame": 361,
+      "source_seconds": 12.0,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.166666984558105,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.484004730000038
+    },
+    {
+      "output_index": 121,
+      "source_frame": 364,
+      "source_seconds": 12.1,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.130000114440918,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.401494631999981
+    },
+    {
+      "output_index": 122,
+      "source_frame": 367,
+      "source_seconds": 12.2,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.09333324432373,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.464164966999988
+    },
+    {
+      "output_index": 123,
+      "source_frame": 370,
+      "source_seconds": 12.3,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.056666374206543,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.6129323229999954
+    },
+    {
+      "output_index": 124,
+      "source_frame": 373,
+      "source_seconds": 12.4,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -9.020000457763672,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.4827677600000015
+    },
+    {
+      "output_index": 125,
+      "source_frame": 376,
+      "source_seconds": 12.5,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -8.983333587646484,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.36556952300009
+    },
+    {
+      "output_index": 126,
+      "source_frame": 379,
+      "source_seconds": 12.6,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -8.946666717529297,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.5217494390000184
+    },
+    {
+      "output_index": 127,
+      "source_frame": 382,
+      "source_seconds": 12.7,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -8.90999984741211,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.409224205999976
+    },
+    {
+      "output_index": 128,
+      "source_frame": 385,
+      "source_seconds": 12.8,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -8.873332977294922,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.454643113999964
+    },
+    {
+      "output_index": 129,
+      "source_frame": 388,
+      "source_seconds": 12.9,
+      "camera": "FILM_03_ARRIVAL",
+      "camera_position": [
+        -8.83666706085205,
+        9.399999618530273,
+        2.700000047683716
+      ],
+      "seconds": 2.4369903499999737
+    },
+    {
+      "output_index": 130,
+      "source_frame": 391,
+      "source_seconds": 13.0,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        1.100000023841858,
+        2.759999990463257
+      ],
+      "seconds": 2.3894063420000293
+    },
+    {
+      "output_index": 131,
+      "source_frame": 394,
+      "source_seconds": 13.1,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        1.277999997138977,
+        2.759999990463257
+      ],
+      "seconds": 2.153461698000001
+    },
+    {
+      "output_index": 132,
+      "source_frame": 397,
+      "source_seconds": 13.2,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        1.4559999704360962,
+        2.759999990463257
+      ],
+      "seconds": 2.253821865000077
+    },
+    {
+      "output_index": 133,
+      "source_frame": 400,
+      "source_seconds": 13.3,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        1.6339999437332153,
+        2.759999990463257
+      ],
+      "seconds": 2.177940329999956
+    },
+    {
+      "output_index": 134,
+      "source_frame": 403,
+      "source_seconds": 13.4,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        1.812000036239624,
+        2.759999990463257
+      ],
+      "seconds": 2.2033191429999306
+    },
+    {
+      "output_index": 135,
+      "source_frame": 406,
+      "source_seconds": 13.5,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        1.9900000095367432,
+        2.759999990463257
+      ],
+      "seconds": 2.092774683000016
+    },
+    {
+      "output_index": 136,
+      "source_frame": 409,
+      "source_seconds": 13.6,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        2.1679999828338623,
+        2.759999990463257
+      ],
+      "seconds": 2.139855687000022
+    },
+    {
+      "output_index": 137,
+      "source_frame": 412,
+      "source_seconds": 13.7,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        2.3459999561309814,
+        2.759999990463257
+      ],
+      "seconds": 2.089588744000025
+    },
+    {
+      "output_index": 138,
+      "source_frame": 415,
+      "source_seconds": 13.8,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        2.5239999294281006,
+        2.759999990463257
+      ],
+      "seconds": 2.0854640750000044
+    },
+    {
+      "output_index": 139,
+      "source_frame": 418,
+      "source_seconds": 13.9,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        2.7019999027252197,
+        2.759999990463257
+      ],
+      "seconds": 2.0054173249999394
+    },
+    {
+      "output_index": 140,
+      "source_frame": 421,
+      "source_seconds": 14.0,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        2.880000114440918,
+        2.759999990463257
+      ],
+      "seconds": 2.049237392000009
+    },
+    {
+      "output_index": 141,
+      "source_frame": 424,
+      "source_seconds": 14.1,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        3.058000087738037,
+        2.759999990463257
+      ],
+      "seconds": 1.9357954109999582
+    },
+    {
+      "output_index": 142,
+      "source_frame": 427,
+      "source_seconds": 14.2,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        3.2360000610351562,
+        2.759999990463257
+      ],
+      "seconds": 2.0191596579999214
+    },
+    {
+      "output_index": 143,
+      "source_frame": 430,
+      "source_seconds": 14.3,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        3.4140000343322754,
+        2.759999990463257
+      ],
+      "seconds": 1.920526701999961
+    },
+    {
+      "output_index": 144,
+      "source_frame": 433,
+      "source_seconds": 14.4,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        3.5920000076293945,
+        2.759999990463257
+      ],
+      "seconds": 2.002389919000052
+    },
+    {
+      "output_index": 145,
+      "source_frame": 436,
+      "source_seconds": 14.5,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        3.7699999809265137,
+        2.759999990463257
+      ],
+      "seconds": 1.9186106969999628
+    },
+    {
+      "output_index": 146,
+      "source_frame": 439,
+      "source_seconds": 14.6,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        3.947999954223633,
+        2.759999990463257
+      ],
+      "seconds": 1.9125554749999765
+    },
+    {
+      "output_index": 147,
+      "source_frame": 442,
+      "source_seconds": 14.7,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        4.125999927520752,
+        2.759999990463257
+      ],
+      "seconds": 1.7748318829999334
+    },
+    {
+      "output_index": 148,
+      "source_frame": 445,
+      "source_seconds": 14.8,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        4.303999900817871,
+        2.759999990463257
+      ],
+      "seconds": 1.8993619780000017
+    },
+    {
+      "output_index": 149,
+      "source_frame": 448,
+      "source_seconds": 14.9,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        4.48199987411499,
+        2.759999990463257
+      ],
+      "seconds": 1.8151129110000284
+    },
+    {
+      "output_index": 150,
+      "source_frame": 451,
+      "source_seconds": 15.0,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        4.659999847412109,
+        2.759999990463257
+      ],
+      "seconds": 1.8639227680000658
+    },
+    {
+      "output_index": 151,
+      "source_frame": 454,
+      "source_seconds": 15.1,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        4.8379998207092285,
+        2.759999990463257
+      ],
+      "seconds": 1.7645663380000087
+    },
+    {
+      "output_index": 152,
+      "source_frame": 457,
+      "source_seconds": 15.2,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        5.015999794006348,
+        2.759999990463257
+      ],
+      "seconds": 1.7892461809999531
+    },
+    {
+      "output_index": 153,
+      "source_frame": 460,
+      "source_seconds": 15.3,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        5.193999767303467,
+        2.759999990463257
+      ],
+      "seconds": 1.7251821549999704
+    },
+    {
+      "output_index": 154,
+      "source_frame": 463,
+      "source_seconds": 15.4,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        5.372000217437744,
+        2.759999990463257
+      ],
+      "seconds": 1.7470642230000522
+    },
+    {
+      "output_index": 155,
+      "source_frame": 466,
+      "source_seconds": 15.5,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        5.550000190734863,
+        2.759999990463257
+      ],
+      "seconds": 1.6765200670000695
+    },
+    {
+      "output_index": 156,
+      "source_frame": 469,
+      "source_seconds": 15.6,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        5.764800071716309,
+        2.759999990463257
+      ],
+      "seconds": 1.6957539530000076
+    },
+    {
+      "output_index": 157,
+      "source_frame": 472,
+      "source_seconds": 15.7,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        5.979599952697754,
+        2.759999990463257
+      ],
+      "seconds": 1.5884915970000293
+    },
+    {
+      "output_index": 158,
+      "source_frame": 475,
+      "source_seconds": 15.8,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        6.194399833679199,
+        2.759999990463257
+      ],
+      "seconds": 1.6469874860000573
+    },
+    {
+      "output_index": 159,
+      "source_frame": 478,
+      "source_seconds": 15.9,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        6.409200191497803,
+        2.759999990463257
+      ],
+      "seconds": 1.5676630199999408
+    },
+    {
+      "output_index": 160,
+      "source_frame": 481,
+      "source_seconds": 16.0,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        6.624000072479248,
+        2.759999990463257
+      ],
+      "seconds": 1.6881765310000674
+    },
+    {
+      "output_index": 161,
+      "source_frame": 484,
+      "source_seconds": 16.1,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        6.838799953460693,
+        2.759999990463257
+      ],
+      "seconds": 1.584502956999927
+    },
+    {
+      "output_index": 162,
+      "source_frame": 487,
+      "source_seconds": 16.2,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        7.053599834442139,
+        2.759999990463257
+      ],
+      "seconds": 1.603628834999995
+    },
+    {
+      "output_index": 163,
+      "source_frame": 490,
+      "source_seconds": 16.3,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        7.268400192260742,
+        2.759999990463257
+      ],
+      "seconds": 1.5457062149999956
+    },
+    {
+      "output_index": 164,
+      "source_frame": 493,
+      "source_seconds": 16.4,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        7.4832000732421875,
+        2.759999990463257
+      ],
+      "seconds": 1.556763262000004
+    },
+    {
+      "output_index": 165,
+      "source_frame": 496,
+      "source_seconds": 16.5,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        7.697999954223633,
+        2.759999990463257
+      ],
+      "seconds": 1.4704681140000275
+    },
+    {
+      "output_index": 166,
+      "source_frame": 499,
+      "source_seconds": 16.6,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        7.912799835205078,
+        2.759999990463257
+      ],
+      "seconds": 1.504446358999985
+    },
+    {
+      "output_index": 167,
+      "source_frame": 502,
+      "source_seconds": 16.7,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        8.127599716186523,
+        2.759999990463257
+      ],
+      "seconds": 1.412924146000023
+    },
+    {
+      "output_index": 168,
+      "source_frame": 505,
+      "source_seconds": 16.8,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        8.342399597167969,
+        2.759999990463257
+      ],
+      "seconds": 1.4589649269998972
+    },
+    {
+      "output_index": 169,
+      "source_frame": 508,
+      "source_seconds": 16.9,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        8.55720043182373,
+        2.759999990463257
+      ],
+      "seconds": 1.3630497929999592
+    },
+    {
+      "output_index": 170,
+      "source_frame": 511,
+      "source_seconds": 17.0,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        8.772000312805176,
+        2.759999990463257
+      ],
+      "seconds": 1.3828495510000494
+    },
+    {
+      "output_index": 171,
+      "source_frame": 514,
+      "source_seconds": 17.1,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        8.986800193786621,
+        2.759999990463257
+      ],
+      "seconds": 1.2216384859999607
+    },
+    {
+      "output_index": 172,
+      "source_frame": 517,
+      "source_seconds": 17.2,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        9.201600074768066,
+        2.759999990463257
+      ],
+      "seconds": 1.3538769650000404
+    },
+    {
+      "output_index": 173,
+      "source_frame": 520,
+      "source_seconds": 17.3,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        9.416399955749512,
+        2.759999990463257
+      ],
+      "seconds": 1.2633459229999744
+    },
+    {
+      "output_index": 174,
+      "source_frame": 523,
+      "source_seconds": 17.4,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        9.631199836730957,
+        2.759999990463257
+      ],
+      "seconds": 1.276091724999901
+    },
+    {
+      "output_index": 175,
+      "source_frame": 526,
+      "source_seconds": 17.5,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        9.845999717712402,
+        2.759999990463257
+      ],
+      "seconds": 1.208507915000041
+    },
+    {
+      "output_index": 176,
+      "source_frame": 529,
+      "source_seconds": 17.6,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        10.060799598693848,
+        2.759999990463257
+      ],
+      "seconds": 1.2186542980000468
+    },
+    {
+      "output_index": 177,
+      "source_frame": 532,
+      "source_seconds": 17.7,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        10.27560043334961,
+        2.759999990463257
+      ],
+      "seconds": 1.1323357299999088
+    },
+    {
+      "output_index": 178,
+      "source_frame": 535,
+      "source_seconds": 17.8,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        10.490400314331055,
+        2.759999990463257
+      ],
+      "seconds": 1.1628867059999948
+    },
+    {
+      "output_index": 179,
+      "source_frame": 538,
+      "source_seconds": 17.9,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        10.7052001953125,
+        2.759999990463257
+      ],
+      "seconds": 1.105909491000034
+    },
+    {
+      "output_index": 180,
+      "source_frame": 541,
+      "source_seconds": 18.0,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        10.920000076293945,
+        2.759999990463257
+      ],
+      "seconds": 1.1378685959999757
+    },
+    {
+      "output_index": 181,
+      "source_frame": 544,
+      "source_seconds": 18.1,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        11.01076889038086,
+        2.759999990463257
+      ],
+      "seconds": 1.1007389149999653
+    },
+    {
+      "output_index": 182,
+      "source_frame": 547,
+      "source_seconds": 18.2,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        11.10153865814209,
+        2.759999990463257
+      ],
+      "seconds": 1.2024607710000055
+    },
+    {
+      "output_index": 183,
+      "source_frame": 550,
+      "source_seconds": 18.3,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        11.192307472229004,
+        2.759999990463257
+      ],
+      "seconds": 1.2209579820000727
+    },
+    {
+      "output_index": 184,
+      "source_frame": 553,
+      "source_seconds": 18.4,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        11.283077239990234,
+        2.759999990463257
+      ],
+      "seconds": 1.3074076709999645
+    },
+    {
+      "output_index": 185,
+      "source_frame": 556,
+      "source_seconds": 18.5,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        11.373846054077148,
+        2.759999990463257
+      ],
+      "seconds": 1.3318112179999844
+    },
+    {
+      "output_index": 186,
+      "source_frame": 559,
+      "source_seconds": 18.6,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        11.464615821838379,
+        2.759999990463257
+      ],
+      "seconds": 1.5251021510000555
+    },
+    {
+      "output_index": 187,
+      "source_frame": 562,
+      "source_seconds": 18.7,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        11.555384635925293,
+        2.759999990463257
+      ],
+      "seconds": 1.5576382130000184
+    },
+    {
+      "output_index": 188,
+      "source_frame": 565,
+      "source_seconds": 18.8,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        11.646153450012207,
+        2.759999990463257
+      ],
+      "seconds": 1.6801122890001352
+    },
+    {
+      "output_index": 189,
+      "source_frame": 568,
+      "source_seconds": 18.9,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        11.736923217773438,
+        2.759999990463257
+      ],
+      "seconds": 1.7904496389999167
+    },
+    {
+      "output_index": 190,
+      "source_frame": 571,
+      "source_seconds": 19.0,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        11.827692031860352,
+        2.759999990463257
+      ],
+      "seconds": 1.815668833000018
+    },
+    {
+      "output_index": 191,
+      "source_frame": 574,
+      "source_seconds": 19.1,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        11.918461799621582,
+        2.759999990463257
+      ],
+      "seconds": 1.8316643610000938
+    },
+    {
+      "output_index": 192,
+      "source_frame": 577,
+      "source_seconds": 19.2,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        12.009230613708496,
+        2.759999990463257
+      ],
+      "seconds": 1.9768995130000349
+    },
+    {
+      "output_index": 193,
+      "source_frame": 580,
+      "source_seconds": 19.3,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -2.0,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 1.874163347999911
+    },
+    {
+      "output_index": 194,
+      "source_frame": 583,
+      "source_seconds": 19.4,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -1.8615384101867676,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 1.965309348999881
+    },
+    {
+      "output_index": 195,
+      "source_frame": 586,
+      "source_seconds": 19.5,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -1.7230769395828247,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 1.9083683789999668
+    },
+    {
+      "output_index": 196,
+      "source_frame": 589,
+      "source_seconds": 19.6,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -1.5846153497695923,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.0443882199999734
+    },
+    {
+      "output_index": 197,
+      "source_frame": 592,
+      "source_seconds": 19.7,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -1.4461538791656494,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.010452016999807
+    },
+    {
+      "output_index": 198,
+      "source_frame": 595,
+      "source_seconds": 19.8,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -1.307692289352417,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.1868905589999486
+    },
+    {
+      "output_index": 199,
+      "source_frame": 598,
+      "source_seconds": 19.9,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -1.1692308187484741,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.2197566199999983
+    },
+    {
+      "output_index": 200,
+      "source_frame": 601,
+      "source_seconds": 20.0,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -1.0307692289352417,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.267606095000019
+    },
+    {
+      "output_index": 201,
+      "source_frame": 604,
+      "source_seconds": 20.1,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -0.892307698726654,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.154859041000009
+    },
+    {
+      "output_index": 202,
+      "source_frame": 607,
+      "source_seconds": 20.2,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -0.7538461685180664,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.253615865000029
+    },
+    {
+      "output_index": 203,
+      "source_frame": 610,
+      "source_seconds": 20.3,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -0.6153846383094788,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.303554585000029
+    },
+    {
+      "output_index": 204,
+      "source_frame": 613,
+      "source_seconds": 20.4,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -0.4769230782985687,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.6122829959999763
+    },
+    {
+      "output_index": 205,
+      "source_frame": 616,
+      "source_seconds": 20.5,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -0.3384615480899811,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.6592827469999065
+    },
+    {
+      "output_index": 206,
+      "source_frame": 619,
+      "source_seconds": 20.6,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -0.20000000298023224,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.895632934000105
+    },
+    {
+      "output_index": 207,
+      "source_frame": 622,
+      "source_seconds": 20.7,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -0.11428571492433548,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.767810418999943
+    },
+    {
+      "output_index": 208,
+      "source_frame": 625,
+      "source_seconds": 20.8,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        -0.02857142873108387,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.803269379000085
+    },
+    {
+      "output_index": 209,
+      "source_frame": 628,
+      "source_seconds": 20.9,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        0.05714285746216774,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.6972487580001143
+    },
+    {
+      "output_index": 210,
+      "source_frame": 631,
+      "source_seconds": 21.0,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        0.1428571492433548,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.756875467999862
+    },
+    {
+      "output_index": 211,
+      "source_frame": 634,
+      "source_seconds": 21.1,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        0.22857142984867096,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.733687334000024
+    },
+    {
+      "output_index": 212,
+      "source_frame": 637,
+      "source_seconds": 21.2,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        0.3142857253551483,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.7779584539998723
+    },
+    {
+      "output_index": 213,
+      "source_frame": 640,
+      "source_seconds": 21.3,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        0.4000000059604645,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.637699913000006
+    },
+    {
+      "output_index": 214,
+      "source_frame": 643,
+      "source_seconds": 21.4,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        0.48571428656578064,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.6929647689999
+    },
+    {
+      "output_index": 215,
+      "source_frame": 646,
+      "source_seconds": 21.5,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        0.5714285969734192,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.652031334999947
+    },
+    {
+      "output_index": 216,
+      "source_frame": 649,
+      "source_seconds": 21.6,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        0.6571428775787354,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.7069761089999247
+    },
+    {
+      "output_index": 217,
+      "source_frame": 652,
+      "source_seconds": 21.7,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        0.7428571581840515,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.546368010999913
+    },
+    {
+      "output_index": 218,
+      "source_frame": 655,
+      "source_seconds": 21.8,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        0.8285714387893677,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.8113788499999828
+    },
+    {
+      "output_index": 219,
+      "source_frame": 658,
+      "source_seconds": 21.9,
+      "camera": "FILM_04_CONTINUOUS_WALK",
+      "camera_position": [
+        0.9142857193946838,
+        12.100000381469727,
+        2.759999990463257
+      ],
+      "seconds": 2.550160526999889
+    },
+    {
+      "output_index": 220,
+      "source_frame": 661,
+      "source_seconds": 22.0,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        30.0,
+        44.0,
+        19.0
+      ],
+      "seconds": 4.248400812999989
+    },
+    {
+      "output_index": 221,
+      "source_frame": 664,
+      "source_seconds": 22.1,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        30.08333396911621,
+        44.150001525878906,
+        19.183332443237305
+      ],
+      "seconds": 4.07600311300007
+    },
+    {
+      "output_index": 222,
+      "source_frame": 667,
+      "source_seconds": 22.2,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        30.16666603088379,
+        44.29999923706055,
+        19.366666793823242
+      ],
+      "seconds": 4.16945084200006
+    },
+    {
+      "output_index": 223,
+      "source_frame": 670,
+      "source_seconds": 22.3,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        30.25,
+        44.45000076293945,
+        19.549999237060547
+      ],
+      "seconds": 4.027519725000047
+    },
+    {
+      "output_index": 224,
+      "source_frame": 673,
+      "source_seconds": 22.4,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        30.33333396911621,
+        44.599998474121094,
+        19.733333587646484
+      ],
+      "seconds": 4.143858237999893
+    },
+    {
+      "output_index": 225,
+      "source_frame": 676,
+      "source_seconds": 22.5,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        30.41666603088379,
+        44.75,
+        19.91666603088379
+      ],
+      "seconds": 4.0865906490000725
+    },
+    {
+      "output_index": 226,
+      "source_frame": 679,
+      "source_seconds": 22.6,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        30.5,
+        44.900001525878906,
+        20.100000381469727
+      ],
+      "seconds": 4.103174399000181
+    },
+    {
+      "output_index": 227,
+      "source_frame": 682,
+      "source_seconds": 22.7,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        30.58333396911621,
+        45.04999923706055,
+        20.28333282470703
+      ],
+      "seconds": 4.015296987000056
+    },
+    {
+      "output_index": 228,
+      "source_frame": 685,
+      "source_seconds": 22.8,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        30.66666603088379,
+        45.20000076293945,
+        20.46666717529297
+      ],
+      "seconds": 4.1672557069998675
+    },
+    {
+      "output_index": 229,
+      "source_frame": 688,
+      "source_seconds": 22.9,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        30.75,
+        45.349998474121094,
+        20.649999618530273
+      ],
+      "seconds": 4.0307932530001835
+    },
+    {
+      "output_index": 230,
+      "source_frame": 691,
+      "source_seconds": 23.0,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        30.83333396911621,
+        45.5,
+        20.83333396911621
+      ],
+      "seconds": 4.052648309999995
+    },
+    {
+      "output_index": 231,
+      "source_frame": 694,
+      "source_seconds": 23.1,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        30.91666603088379,
+        45.650001525878906,
+        21.016666412353516
+      ],
+      "seconds": 3.9421983019999516
+    },
+    {
+      "output_index": 232,
+      "source_frame": 697,
+      "source_seconds": 23.2,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        31.0,
+        45.79999923706055,
+        21.200000762939453
+      ],
+      "seconds": 4.066007124999942
+    },
+    {
+      "output_index": 233,
+      "source_frame": 700,
+      "source_seconds": 23.3,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        31.08333396911621,
+        45.95000076293945,
+        21.383333206176758
+      ],
+      "seconds": 4.070060914000123
+    },
+    {
+      "output_index": 234,
+      "source_frame": 703,
+      "source_seconds": 23.4,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        31.16666603088379,
+        46.099998474121094,
+        21.566667556762695
+      ],
+      "seconds": 4.261454435000132
+    },
+    {
+      "output_index": 235,
+      "source_frame": 706,
+      "source_seconds": 23.5,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        31.25,
+        46.25,
+        21.75
+      ],
+      "seconds": 4.109792829999833
+    },
+    {
+      "output_index": 236,
+      "source_frame": 709,
+      "source_seconds": 23.6,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        31.33333396911621,
+        46.400001525878906,
+        21.933332443237305
+      ],
+      "seconds": 4.106121742999903
+    },
+    {
+      "output_index": 237,
+      "source_frame": 712,
+      "source_seconds": 23.7,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        31.41666603088379,
+        46.54999923706055,
+        22.116666793823242
+      ],
+      "seconds": 3.9936512509998465
+    },
+    {
+      "output_index": 238,
+      "source_frame": 715,
+      "source_seconds": 23.8,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        31.5,
+        46.70000076293945,
+        22.299999237060547
+      ],
+      "seconds": 4.0643150410001
+    },
+    {
+      "output_index": 239,
+      "source_frame": 718,
+      "source_seconds": 23.9,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        31.58333396911621,
+        46.849998474121094,
+        22.483333587646484
+      ],
+      "seconds": 4.077503410999952
+    },
+    {
+      "output_index": 240,
+      "source_frame": 721,
+      "source_seconds": 24.0,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        31.66666603088379,
+        47.0,
+        22.66666603088379
+      ],
+      "seconds": 3.9877994779999426
+    },
+    {
+      "output_index": 241,
+      "source_frame": 724,
+      "source_seconds": 24.1,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        31.75,
+        47.150001525878906,
+        22.850000381469727
+      ],
+      "seconds": 4.154047804000129
+    },
+    {
+      "output_index": 242,
+      "source_frame": 727,
+      "source_seconds": 24.2,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        31.83333396911621,
+        47.29999923706055,
+        23.03333282470703
+      ],
+      "seconds": 4.0633869880000475
+    },
+    {
+      "output_index": 243,
+      "source_frame": 730,
+      "source_seconds": 24.3,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        31.91666603088379,
+        47.45000076293945,
+        23.21666717529297
+      ],
+      "seconds": 4.171098304999987
+    },
+    {
+      "output_index": 244,
+      "source_frame": 733,
+      "source_seconds": 24.4,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        32.0,
+        47.599998474121094,
+        23.399999618530273
+      ],
+      "seconds": 4.056131586999982
+    },
+    {
+      "output_index": 245,
+      "source_frame": 736,
+      "source_seconds": 24.5,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        32.08333206176758,
+        47.75,
+        23.58333396911621
+      ],
+      "seconds": 4.108959395999818
+    },
+    {
+      "output_index": 246,
+      "source_frame": 739,
+      "source_seconds": 24.6,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        32.16666793823242,
+        47.900001525878906,
+        23.766666412353516
+      ],
+      "seconds": 4.145508712000037
+    },
+    {
+      "output_index": 247,
+      "source_frame": 742,
+      "source_seconds": 24.7,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        32.25,
+        48.04999923706055,
+        23.950000762939453
+      ],
+      "seconds": 4.089358476999905
+    },
+    {
+      "output_index": 248,
+      "source_frame": 745,
+      "source_seconds": 24.8,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        32.33333206176758,
+        48.20000076293945,
+        24.133333206176758
+      ],
+      "seconds": 3.974222943999848
+    },
+    {
+      "output_index": 249,
+      "source_frame": 748,
+      "source_seconds": 24.9,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        32.41666793823242,
+        48.349998474121094,
+        24.316667556762695
+      ],
+      "seconds": 4.079309712000168
+    },
+    {
+      "output_index": 250,
+      "source_frame": 751,
+      "source_seconds": 25.0,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        32.5,
+        48.5,
+        24.5
+      ],
+      "seconds": 4.000750829000026
+    },
+    {
+      "output_index": 251,
+      "source_frame": 754,
+      "source_seconds": 25.1,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        32.58333206176758,
+        48.650001525878906,
+        24.683332443237305
+      ],
+      "seconds": 3.9166105249998964
+    },
+    {
+      "output_index": 252,
+      "source_frame": 757,
+      "source_seconds": 25.2,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        32.66666793823242,
+        48.79999923706055,
+        24.866666793823242
+      ],
+      "seconds": 4.068557953999971
+    },
+    {
+      "output_index": 253,
+      "source_frame": 760,
+      "source_seconds": 25.3,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        32.75,
+        48.95000076293945,
+        25.049999237060547
+      ],
+      "seconds": 3.990528481999945
+    },
+    {
+      "output_index": 254,
+      "source_frame": 763,
+      "source_seconds": 25.4,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        32.83333206176758,
+        49.099998474121094,
+        25.233333587646484
+      ],
+      "seconds": 4.048998523999899
+    },
+    {
+      "output_index": 255,
+      "source_frame": 766,
+      "source_seconds": 25.5,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        32.91666793823242,
+        49.25,
+        25.41666603088379
+      ],
+      "seconds": 3.98772341699987
+    },
+    {
+      "output_index": 256,
+      "source_frame": 769,
+      "source_seconds": 25.6,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        33.0,
+        49.400001525878906,
+        25.600000381469727
+      ],
+      "seconds": 4.03607213500004
+    },
+    {
+      "output_index": 257,
+      "source_frame": 772,
+      "source_seconds": 25.7,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        33.08333206176758,
+        49.54999923706055,
+        25.78333282470703
+      ],
+      "seconds": 3.9882988110000497
+    },
+    {
+      "output_index": 258,
+      "source_frame": 775,
+      "source_seconds": 25.8,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        33.16666793823242,
+        49.70000076293945,
+        25.96666717529297
+      ],
+      "seconds": 4.0681880580000325
+    },
+    {
+      "output_index": 259,
+      "source_frame": 778,
+      "source_seconds": 25.9,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        33.25,
+        49.849998474121094,
+        26.149999618530273
+      ],
+      "seconds": 3.9827997280001455
+    },
+    {
+      "output_index": 260,
+      "source_frame": 781,
+      "source_seconds": 26.0,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        33.33333206176758,
+        50.0,
+        26.33333396911621
+      ],
+      "seconds": 4.100003582999989
+    },
+    {
+      "output_index": 261,
+      "source_frame": 784,
+      "source_seconds": 26.1,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        33.41666793823242,
+        50.150001525878906,
+        26.516666412353516
+      ],
+      "seconds": 4.0643299890000435
+    },
+    {
+      "output_index": 262,
+      "source_frame": 787,
+      "source_seconds": 26.2,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        33.5,
+        50.29999923706055,
+        26.700000762939453
+      ],
+      "seconds": 4.091977491999842
+    },
+    {
+      "output_index": 263,
+      "source_frame": 790,
+      "source_seconds": 26.3,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        33.58333206176758,
+        50.45000076293945,
+        26.883333206176758
+      ],
+      "seconds": 3.9496490270000777
+    },
+    {
+      "output_index": 264,
+      "source_frame": 793,
+      "source_seconds": 26.4,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        33.66666793823242,
+        50.599998474121094,
+        27.066667556762695
+      ],
+      "seconds": 4.003211177999901
+    },
+    {
+      "output_index": 265,
+      "source_frame": 796,
+      "source_seconds": 26.5,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        33.75,
+        50.75,
+        27.25
+      ],
+      "seconds": 3.9390180559998953
+    },
+    {
+      "output_index": 266,
+      "source_frame": 799,
+      "source_seconds": 26.6,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        33.83333206176758,
+        50.900001525878906,
+        27.433332443237305
+      ],
+      "seconds": 3.9028855380001914
+    },
+    {
+      "output_index": 267,
+      "source_frame": 802,
+      "source_seconds": 26.7,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        33.91666793823242,
+        51.04999923706055,
+        27.616666793823242
+      ],
+      "seconds": 3.999800349999987
+    },
+    {
+      "output_index": 268,
+      "source_frame": 805,
+      "source_seconds": 26.8,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        34.0,
+        51.20000076293945,
+        27.799999237060547
+      ],
+      "seconds": 3.9204566250000425
+    },
+    {
+      "output_index": 269,
+      "source_frame": 808,
+      "source_seconds": 26.9,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        34.08333206176758,
+        51.349998474121094,
+        27.983333587646484
+      ],
+      "seconds": 4.211019479000015
+    },
+    {
+      "output_index": 270,
+      "source_frame": 811,
+      "source_seconds": 27.0,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        34.16666793823242,
+        51.5,
+        28.16666603088379
+      ],
+      "seconds": 3.950962309000033
+    },
+    {
+      "output_index": 271,
+      "source_frame": 814,
+      "source_seconds": 27.1,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        34.25,
+        51.650001525878906,
+        28.350000381469727
+      ],
+      "seconds": 3.9765741849998903
+    },
+    {
+      "output_index": 272,
+      "source_frame": 817,
+      "source_seconds": 27.2,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        34.33333206176758,
+        51.79999923706055,
+        28.53333282470703
+      ],
+      "seconds": 4.295061042000043
+    },
+    {
+      "output_index": 273,
+      "source_frame": 820,
+      "source_seconds": 27.3,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        34.41666793823242,
+        51.95000076293945,
+        28.71666717529297
+      ],
+      "seconds": 4.232643624000048
+    },
+    {
+      "output_index": 274,
+      "source_frame": 823,
+      "source_seconds": 27.4,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        34.5,
+        52.099998474121094,
+        28.899999618530273
+      ],
+      "seconds": 4.02149359100008
+    },
+    {
+      "output_index": 275,
+      "source_frame": 826,
+      "source_seconds": 27.5,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        34.58333206176758,
+        52.25,
+        29.08333396911621
+      ],
+      "seconds": 3.9737204090001796
+    },
+    {
+      "output_index": 276,
+      "source_frame": 829,
+      "source_seconds": 27.6,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        34.66666793823242,
+        52.400001525878906,
+        29.266666412353516
+      ],
+      "seconds": 4.179332368000132
+    },
+    {
+      "output_index": 277,
+      "source_frame": 832,
+      "source_seconds": 27.7,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        34.75,
+        52.54999923706055,
+        29.450000762939453
+      ],
+      "seconds": 4.331901136999932
+    },
+    {
+      "output_index": 278,
+      "source_frame": 835,
+      "source_seconds": 27.8,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        34.83333206176758,
+        52.70000076293945,
+        29.633333206176758
+      ],
+      "seconds": 4.024245137999969
+    },
+    {
+      "output_index": 279,
+      "source_frame": 838,
+      "source_seconds": 27.9,
+      "camera": "FILM_05_REVEAL",
+      "camera_position": [
+        34.91666793823242,
+        52.849998474121094,
+        29.816667556762695
+      ],
+      "seconds": 4.0509222800001226
+    }
+  ]
+}

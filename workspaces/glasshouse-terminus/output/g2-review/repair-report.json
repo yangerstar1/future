@@ -1,0 +1,426 @@
+{
+  "stage": "G2",
+  "status": "CHALLENGER_NOT_ACCEPTED",
+  "parent_blend_sha256": "ef6fa3dd7e291564f2d1c158cb002f07dcf05c071c6f72e34e95c68ca2a22bf0",
+  "issues": [
+    "G2-F01 exterior crop",
+    "G2-S01 duplicated/misaligned span-end supports"
+  ],
+  "prior_supports": [
+    {
+      "xy": [
+        -63.78008,
+        31.80899
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.8199999332427979
+        }
+      ]
+    },
+    {
+      "xy": [
+        -56.96923,
+        24.50971
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier.002",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.6199998259544373
+        },
+        {
+          "name": "Viaduct_pier.001",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.8199999332427979
+        }
+      ]
+    },
+    {
+      "xy": [
+        -48.84401,
+        18.70904
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier.004",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.4200001060962677
+        },
+        {
+          "name": "Viaduct_pier.003",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.6199998259544373
+        }
+      ]
+    },
+    {
+      "xy": [
+        -39.72833,
+        14.63823
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier.006",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.22000004351139069
+        },
+        {
+          "name": "Viaduct_pier.005",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.4200001060962677
+        }
+      ]
+    },
+    {
+      "xy": [
+        -29.98561,
+        12.45957
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier.008",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.035993028432130814
+        },
+        {
+          "name": "Viaduct_pier.007",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.22000004351139069
+        }
+      ]
+    },
+    {
+      "xy": [
+        -20.0,
+        12.1
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier.009",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": -0.035993028432130814
+        },
+        {
+          "name": "Viaduct_pier.010",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": 0.0
+        }
+      ]
+    },
+    {
+      "xy": [
+        -10.0,
+        12.1
+      ],
+      "objects": [
+        {
+          "name": "Viaduct_pier.011",
+          "z": -14.800000190734863,
+          "height": 17.0,
+          "yaw": 0.0
+        }
+      ]
+    }
+  ],
+  "repaired_supports": [
+    {
+      "xy": [
+        -63.78008,
+        31.80899
+      ],
+      "pier": "Viaduct_pier",
+      "footing": "Viaduct_bedrock_footing",
+      "cap": "Viaduct_bearing_cap_G2R01_00",
+      "yaw": -0.9199999669268751,
+      "pier_bottom": -22.1,
+      "pier_top": -7.15,
+      "cap_z_range": [
+        -7.45,
+        -6.85
+      ],
+      "arch_spring_z": -7.2,
+      "footing_top": -22.05
+    },
+    {
+      "xy": [
+        -56.96923,
+        24.50971
+      ],
+      "pier": "Viaduct_pier.001",
+      "footing": "Viaduct_bedrock_footing.001",
+      "cap": "Viaduct_bearing_cap_G2R01_01",
+      "yaw": -0.7199999042685268,
+      "pier_bottom": -22.1,
+      "pier_top": -7.15,
+      "cap_z_range": [
+        -7.45,
+        -6.85
+      ],
+      "arch_spring_z": -7.2,
+      "footing_top": -22.05
+    },
+    {
+      "xy": [
+        -48.84401,
+        18.70904
+      ],
+      "pier": "Viaduct_pier.003",
+      "footing": "Viaduct_bedrock_footing.003",
+      "cap": "Viaduct_bearing_cap_G2R01_02",
+      "yaw": -0.5200000716235201,
+      "pier_bottom": -22.1,
+      "pier_top": -7.15,
+      "cap_z_range": [
+        -7.45,
+        -6.85
+      ],
+      "arch_spring_z": -7.2,
+      "footing_top": -22.05
+    },
+    {
+      "xy": [
+        -39.72833,
+        14.63823
+      ],
+      "pier": "Viaduct_pier.005",
+      "footing": "Viaduct_bedrock_footing.005",
+      "cap": "Viaduct_bearing_cap_G2R01_03",
+      "yaw": -0.3200000414901106,
+      "pier_bottom": -22.1,
+      "pier_top": -7.15,
+      "cap_z_range": [
+        -7.45,
+        -6.85
+      ],
+      "arch_spring_z": -7.2,
+      "footing_top": -22.05
+    },
+    {
+      "xy": [
+        -29.98561,
+        12.45957
+      ],
+      "pier": "Viaduct_pier.007",
+      "footing": "Viaduct_bedrock_footing.007",
+      "cap": "Viaduct_bearing_cap_G2R01_04",
+      "yaw": -0.1199999926582837,
+      "pier_bottom": -22.1,
+      "pier_top": -7.15,
+      "cap_z_range": [
+        -7.45,
+        -6.85
+      ],
+      "arch_spring_z": -7.2,
+      "footing_top": -22.05
+    },
+    {
+      "xy": [
+        -20.0,
+        12.1
+      ],
+      "pier": "Viaduct_pier.009",
+      "footing": "Viaduct_bedrock_footing.009",
+      "cap": "Viaduct_bearing_cap_G2R01_05",
+      "yaw": 0.0,
+      "pier_bottom": -22.1,
+      "pier_top": -7.15,
+      "cap_z_range": [
+        -7.45,
+        -6.85
+      ],
+      "arch_spring_z": -7.2,
+      "footing_top": -22.05
+    },
+    {
+      "xy": [
+        -10.0,
+        12.1
+      ],
+      "pier": "Viaduct_pier.011",
+      "footing": "Viaduct_bedrock_footing.011",
+      "cap": "Viaduct_bearing_cap_G2R01_06",
+      "yaw": 0.0,
+      "pier_bottom": -22.1,
+      "pier_top": -7.15,
+      "cap_z_range": [
+        -7.45,
+        -6.85
+      ],
+      "arch_spring_z": -7.2,
+      "footing_top": -22.05
+    }
+  ],
+  "framing": {
+    "C01_exterior_hero": {
+      "old_lens": 40.0,
+      "new_lens": 34.5,
+      "before": [
+        {
+          "frame": 451,
+          "x": [
+            -0.03649914637207985,
+            0.6214284896850586
+          ],
+          "y": [
+            0.26434382796287537,
+            0.8064592480659485
+          ],
+          "min_depth": 45.332305908203125
+        }
+      ],
+      "after": [
+        {
+          "frame": 451,
+          "x": [
+            0.03726951777935028,
+            0.6047320365905762
+          ],
+          "y": [
+            0.29674655199050903,
+            0.7643210887908936
+          ],
+          "min_depth": 45.332305908203125
+        }
+      ],
+      "resolution": [
+        1280,
+        800
+      ]
+    },
+    "FILM_01_HERO": {
+      "old_lens": 40.0,
+      "new_lens": 33.0,
+      "before": [
+        {
+          "frame": 1,
+          "x": [
+            -0.009246224537491798,
+            0.6160391569137573
+          ],
+          "y": [
+            0.25232383608818054,
+            0.8276519775390625
+          ],
+          "min_depth": 48.279449462890625
+        },
+        {
+          "frame": 31,
+          "x": [
+            -0.024944962933659554,
+            0.6189951300621033
+          ],
+          "y": [
+            0.2423180490732193,
+            0.8352705240249634
+          ],
+          "min_depth": 46.51063537597656
+        },
+        {
+          "frame": 61,
+          "x": [
+            -0.04166968911886215,
+            0.622103750705719
+          ],
+          "y": [
+            0.23150435090065002,
+            0.8432537317276001
+          ],
+          "min_depth": 44.74043655395508
+        },
+        {
+          "frame": 90,
+          "x": [
+            -0.058911215513944626,
+            0.6252659559249878
+          ],
+          "y": [
+            0.22019053995609283,
+            0.8513427376747131
+          ],
+          "min_depth": 43.02783966064453
+        }
+      ],
+      "after": [
+        {
+          "frame": 1,
+          "x": [
+            0.07987187057733536,
+            0.5957323312759399
+          ],
+          "y": [
+            0.2956671714782715,
+            0.7703128457069397
+          ],
+          "min_depth": 48.279449462890625
+        },
+        {
+          "frame": 31,
+          "x": [
+            0.06692039221525192,
+            0.5981709957122803
+          ],
+          "y": [
+            0.2874124050140381,
+            0.7765982151031494
+          ],
+          "min_depth": 46.51063537597656
+        },
+        {
+          "frame": 61,
+          "x": [
+            0.05312253162264824,
+            0.600735604763031
+          ],
+          "y": [
+            0.2784911096096039,
+            0.7831843495368958
+          ],
+          "min_depth": 44.74043655395508
+        },
+        {
+          "frame": 90,
+          "x": [
+            0.03889824450016022,
+            0.6033444404602051
+          ],
+          "y": [
+            0.26915720105171204,
+            0.789857804775238
+          ],
+          "min_depth": 43.02783966064453
+        }
+      ],
+      "resolution": [
+        1280,
+        720
+      ]
+    }
+  },
+  "unchanged": [
+    "A-D geometry",
+    "track centerline and rails",
+    "train/door/walk keyframes",
+    "all materials",
+    "all lights and exposure",
+    "C02-C09 cameras"
+  ],
+  "independent_reviewer": false,
+  "g1_browser_status": "BLOCKED_UNCHANGED",
+  "protected_geometry_hash_before": "a80f68aa909be43867ae2b7d8e58cdecd4282e803da2957cf7a18b5d48e219f2",
+  "protected_geometry_hash_after": "a80f68aa909be43867ae2b7d8e58cdecd4282e803da2957cf7a18b5d48e219f2",
+  "candidate_blend_sha256": "0468b615b2d6ebeab7d641ad70c97a3efd62c7f31d1009fbc245c3c9b0f5c8be"
+}
