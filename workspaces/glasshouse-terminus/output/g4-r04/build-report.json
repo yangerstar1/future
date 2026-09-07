@@ -1,0 +1,282 @@
+{
+  "stage": "G4",
+  "revision": "R04",
+  "parent_master_sha256": "dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5",
+  "parent_source_checkpoint": "0e0f56888549e27900070a83b9830f81c3313c4b",
+  "candidate_sha256": "846aeae1cd105349c1187f09f7fa06f27897728ac3db67b8164c8d176f3be1f8",
+  "master_bytes": 34019046,
+  "source_sha": "b39a47bce395f8566a18e917875302ba3ed41889",
+  "run_id": "34149669782",
+  "basis": "Actual R03 M01 native image shows sharp black refractive rain spears. Correct optical representation, not add more power, color grading or white-line overlay. R03 material finishes and static attached water kept.",
+  "edits": [
+    {
+      "object": "G4R03_roof_clipped_rain",
+      "old_prototype_scale": [
+        0.0028,
+        0.0028,
+        0.075
+      ],
+      "new_prototype_scale": [
+        0.002099999925121665,
+        0.002099999925121665,
+        0.002400000113993883
+      ],
+      "prototype_segments": 24,
+      "prototype_rings": 12,
+      "smooth_normals": true,
+      "cycle_aware_ids": true,
+      "shutter_path_audit": {
+        "matched": 27437,
+        "birth_or_death": 563,
+        "max_matched_distance": 0.24499862035116848
+      },
+      "samples": [
+        {
+          "point": 0,
+          "lifetime_IDs": [
+            56000,
+            56000
+          ],
+          "offsets": [
+            30.291449132760363,
+            30.451582782268517
+          ],
+          "speed_m_s": 6.862870693206787,
+          "travel": 37.97478485107422
+        },
+        {
+          "point": 1,
+          "lifetime_IDs": [
+            616001,
+            616001
+          ],
+          "offsets": [
+            3.8548011684417673,
+            4.042832574844354
+          ],
+          "speed_m_s": 8.058488845825195,
+          "travel": 5.53895378112793
+        },
+        {
+          "point": 2,
+          "lifetime_IDs": [
+            448002,
+            448002
+          ],
+          "offsets": [
+            8.186281644503282,
+            8.408374600410468
+          ],
+          "speed_m_s": 9.518269538879395,
+          "travel": 8.883498191833496
+        },
+        {
+          "point": 3,
+          "lifetime_IDs": [
+            112003,
+            112003
+          ],
+          "offsets": [
+            4.7154660352071005,
+            4.957109661102294
+          ],
+          "speed_m_s": 10.356155395507812,
+          "travel": 39.111446380615234
+        },
+        {
+          "point": 4,
+          "lifetime_IDs": [
+            196004,
+            196004
+          ],
+          "offsets": [
+            17.24241707801818,
+            17.464147253036487
+          ],
+          "speed_m_s": 9.502721786499023,
+          "travel": 18.778026580810547
+        },
+        {
+          "point": 5,
+          "lifetime_IDs": [
+            84005,
+            84005
+          ],
+          "offsets": [
+            7.636911751429238,
+            7.830091562271122
+          ],
+          "speed_m_s": 8.279134750366211,
+          "travel": 40.855220794677734
+        },
+        {
+          "point": 6,
+          "lifetime_IDs": [
+            476006,
+            476006
+          ],
+          "offsets": [
+            0.09885294040043391,
+            0.2828933119773893
+          ],
+          "speed_m_s": 7.887444496154785,
+          "travel": 6.999871730804443
+        },
+        {
+          "point": 7,
+          "lifetime_IDs": [
+            252007,
+            252007
+          ],
+          "offsets": [
+            8.139934152762095,
+            8.375904462337502
+          ],
+          "speed_m_s": 10.11301326751709,
+          "travel": 16.060707092285156
+        }
+      ]
+    },
+    {
+      "object": "G4R03_eave_drips",
+      "old_prototype_scale": [
+        0.0028,
+        0.0028,
+        0.075
+      ],
+      "new_prototype_scale": [
+        0.002099999925121665,
+        0.002099999925121665,
+        0.002400000113993883
+      ],
+      "prototype_segments": 24,
+      "prototype_rings": 12,
+      "smooth_normals": true,
+      "cycle_aware_ids": true,
+      "shutter_path_audit": {
+        "matched": 150,
+        "birth_or_death": 1,
+        "max_matched_distance": 0.10480095227559616
+      },
+      "samples": [
+        {
+          "point": 0,
+          "lifetime_IDs": [
+            1963,
+            1963
+          ],
+          "offsets": [
+            1.678431808551153,
+            1.7562216007709495
+          ],
+          "speed_m_s": 3.333848237991333,
+          "travel": 3.804999589920044
+        },
+        {
+          "point": 1,
+          "lifetime_IDs": [
+            1964,
+            1964
+          ],
+          "offsets": [
+            1.5593131176630664,
+            1.6370621490478499
+          ],
+          "speed_m_s": 3.332101345062256,
+          "travel": 3.804999589920044
+        },
+        {
+          "point": 2,
+          "lifetime_IDs": [
+            1965,
+            1965
+          ],
+          "offsets": [
+            0.5681206389268212,
+            0.6438871538639077
+          ],
+          "speed_m_s": 3.247136354446411,
+          "travel": 3.805000066757202
+        },
+        {
+          "point": 3,
+          "lifetime_IDs": [
+            2268,
+            2268
+          ],
+          "offsets": [
+            1.155528411070506,
+            1.2409107279777558
+          ],
+          "speed_m_s": 3.6592421531677246,
+          "travel": 3.805000066757202
+        },
+        {
+          "point": 4,
+          "lifetime_IDs": [
+            1967,
+            1967
+          ],
+          "offsets": [
+            2.6450629762808475,
+            2.725144587755203
+          ],
+          "speed_m_s": 3.4320690631866455,
+          "travel": 3.804999589920044
+        },
+        {
+          "point": 5,
+          "lifetime_IDs": [
+            1666,
+            1666
+          ],
+          "offsets": [
+            1.7166076989968602,
+            1.779186295270918
+          ],
+          "speed_m_s": 2.6819398403167725,
+          "travel": 3.804999589920044
+        },
+        {
+          "point": 6,
+          "lifetime_IDs": [
+            2573,
+            2573
+          ],
+          "offsets": [
+            0.4810520291328402,
+            0.5790103793144254
+          ],
+          "speed_m_s": 4.198215007781982,
+          "travel": 3.804999589920044
+        },
+        {
+          "point": 7,
+          "lifetime_IDs": [
+            1517,
+            1517
+          ],
+          "offsets": [
+            2.0733052543799104,
+            2.1304844725131957
+          ],
+          "speed_m_s": 2.450537919998169,
+          "travel": 3.804999589920044
+        }
+      ]
+    }
+  ],
+  "shutter_fraction": 0.7,
+  "shutter_seconds": 0.02333333333333333,
+  "motion_blur_enabled": true,
+  "protected_before": "8fd60b29d25ee4ac66a3483bd64284ddaa42a1cf7c77e7c7641cf9ff2d204542",
+  "protected_after": "8fd60b29d25ee4ac66a3483bd64284ddaa42a1cf7c77e7c7641cf9ff2d204542",
+  "limits": [
+    "Analytic roof-clipped particle paths at parked frame451, not fluid simulation.",
+    "Cycle IDs are lifetime bookkeeping; rendered image still decides whether native motion integration is satisfactory.",
+    "Glass adhesion remains static. Other source material/geometry issues not closed by this optical correction."
+  ],
+  "queue_decision": "Pending R03 proof34148751768 intentionally superseded via existing single-pending concurrency pattern; no known-bad rain movie required. Original failed still and source retained.",
+  "g4_stage_pass": false,
+  "human_acceptance": false
+}

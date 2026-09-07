@@ -1,0 +1,31 @@
+[
+  {
+    "view": "G4R03_rain_glass_macro",
+    "file": "M01-rain-glass.png",
+    "frame": 451,
+    "seconds": 820.212658034,
+    "resolution": [
+      1600,
+      1000
+    ],
+    "samples": 96,
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "lens_mm": 65.0,
+    "position": [
+      -4.75,
+      -8.300000190734863,
+      2.7200000286102295
+    ],
+    "rotation": [
+      1.439301609992981,
+      -1.0767315927751042e-09,
+      -0.12708911299705505
+    ],
+    "native_render": true,
+    "master_sha256": "846aeae1cd105349c1187f09f7fa06f27897728ac3db67b8164c8d176f3be1f8",
+    "motion_blur": true,
+    "shutter_fraction": 0.7,
+    "proof_not_final_film": false
+  }
+]

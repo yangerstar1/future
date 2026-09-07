@@ -1,0 +1,72 @@
+{
+  "stage": "G4",
+  "revision": "R04",
+  "status": "PARTIAL_OR_FAILED_NOT_ART_PASS",
+  "run_id": "34149669782",
+  "source_sha": "b39a47bce395f8566a18e917875302ba3ed41889",
+  "parent_source_checkpoint": "0e0f56888549e27900070a83b9830f81c3313c4b",
+  "parent_master_sha256": "dfd9a0e28967b8a474bc9688ce0b75d194dba20ce14aab5f18f1d11da7aa32b5",
+  "files": {
+    "build.log": {
+      "bytes": 391,
+      "sha256": "e66da02eefda4710c15f881ea89f48db1fc3c34d3be99e1996b405212aed9f7d"
+    },
+    "G1-manifest.json": {
+      "bytes": 2766,
+      "sha256": "a89c600aa433a533161757372d2c6b92f377c638106835f9733d2024788c6aa1"
+    },
+    "SOURCE-RECOVERY.json": {
+      "bytes": 307,
+      "sha256": "5e0f2c6272d8b75222d09d670c7430e4c77b1999023b276a118ee63b8c58da42"
+    },
+    "G1-DERIVATION.txt": {
+      "bytes": 135,
+      "sha256": "9bbd7bf420457be0b019ad2a44afb876906689f208d8c73da1c30e4b56030fa8"
+    },
+    "G1-FINISH-RECIPES.json": {
+      "bytes": 957,
+      "sha256": "6a819247c5269bd580af7fa18a4207c084df4c5702f875f39afcf447466ed07c"
+    },
+    "g4-full-scene-candidate.blend": {
+      "bytes": 34019046,
+      "sha256": "846aeae1cd105349c1187f09f7fa06f27897728ac3db67b8164c8d176f3be1f8"
+    },
+    "M01-rain-glass.png": {
+      "bytes": 1838858,
+      "sha256": "c461e7177217cd298d2f60f015f90077cb03898c209849d0792740ee70643d4f"
+    },
+    "provision.log": {
+      "bytes": 41062,
+      "sha256": "da81c44f6a8782baaa33808bebda212f27ebe8a2ee1ae410d35962b77d9cdb31"
+    },
+    "hero-render.log": {
+      "bytes": 958361,
+      "sha256": "a66460286a46daf3ddac01dd6f48ffc07a4bd4a21ae3ac8c334323c8b17d4634"
+    },
+    "build-report.json": {
+      "bytes": 7450,
+      "sha256": "c02b3414a7d520fbbde922da522e7246436e182b1a67c86495a4c0dca69ca286"
+    },
+    "R03-build-report.json": {
+      "bytes": 136727,
+      "sha256": "c5eaf036bbb1eec865ce6ff8d506de204241497cc813bf4d88a0774156c49bf1"
+    },
+    "hero-metrics.json": {
+      "bytes": 667,
+      "sha256": "1d56fa728cbaf1b90dfa1d7b015ab721b4d5a3d4f8664bde12cc78f4dfbdaa98"
+    },
+    "models/MODEL-SOURCES.json": {
+      "bytes": 5516,
+      "sha256": "834d11a3dccb930b5d98c0117f85a606be4c365296491e0f8cdb87c5ab0316c0"
+    }
+  },
+  "missing": [
+    "C03-hall-rain.png",
+    "hero-reopen-check.json",
+    "motion-reopen-check.json",
+    "rain-motion-proof.mp4"
+  ],
+  "g4_stage_pass": false,
+  "human_acceptance": false,
+  "scope": "Actual water-drop geometry and native shutter. Two still views and 2sec640x40010fps motion proof. Not final4K film or full moving-train weather validation."
+}
