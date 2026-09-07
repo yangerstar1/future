@@ -1,0 +1,101 @@
+name: Glasshouse G3 R04 art polish
+on:
+  push:
+    branches: [codex/glasshouse-terminus]
+    paths: [workspaces/glasshouse-terminus/g3-art-r04-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: glasshouse-production
+  cancel-in-progress: false
+jobs:
+  art:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    env:
+      ART_ROOT: workspaces/glasshouse-terminus/output/g3-r04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Validate existing-art continuation and immutable parent
+        timeout-minutes: 3
+        run: |
+          echo "G3_ART_DEADLINE=$(( $(date +%s) + 45*60 ))" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          q=json.loads(Path('workspaces/glasshouse-terminus/g3-art-r04-request.json').read_text())
+          assert q['max_runs']==1 and q['stage']=='G3' and q['g4_allowed'] is False
+          assert q['external_spend_usd']==0 and q['production_minutes']==45
+          assert q['parent_evidence_commit']=='22dceca579c272b51767c70c153c540f7defc547'
+          print(json.dumps(q,indent=2))
+          PY
+          python3 -m py_compile workspaces/glasshouse-terminus/polish_g3_r04.py workspaces/glasshouse-terminus/render_g3_r04.py
+          git fetch --depth=1 origin 22dceca579c272b51767c70c153c540f7defc547
+          git archive FETCH_HEAD workspaces/glasshouse-terminus/output/g3-r03 | tar -x
+          echo 'cb1ae3c8ace74bcbeeaaf51684bf013cba5b7702803f432c91632e4395fadcfe  workspaces/glasshouse-terminus/output/g3-r03/g3-bay-candidate.blend' | sha256sum --check
+          mkdir -p "$ART_ROOT"
+      - name: Reuse pinned Blender toolchain and packed original assets
+        timeout-minutes: 7
+        run: |
+          bash workspaces/glasshouse-terminus/provision.sh 2>&1 | tee "$ART_ROOT/provision.log"
+      - name: Inspect actual bay and apply art changes without rebuilding the world
+        timeout-minutes: 4
+        run: |
+          blender -b workspaces/glasshouse-terminus/output/g3-r03/g3-bay-candidate.blend -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/polish_g3_r04.py 2>&1 | tee "$ART_ROOT/art-build.log"
+      - name: Persist editable challenger before rendering
+        timeout-minutes: 3
+        run: bash workspaces/glasshouse-terminus/publish_evidence.sh "$ART_ROOT" g3-r04-source
+      - name: Reopen and render actual night-neutral comparison and original camera
+        timeout-minutes: 15
+        env:
+          R04_RENDER_SET: overview
+        run: |
+          remaining=$((G3_ART_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=15 "${remaining}s" blender -b "$ART_ROOT/g3-bay-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/render_g3_r04.py 2>&1 | tee "$ART_ROOT/overview.log"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: g3-r04-overview-${{ github.run_id }}
+          path: |
+            workspaces/glasshouse-terminus/output/g3-r04/*.png
+            workspaces/glasshouse-terminus/output/g3-r04/*.json
+          retention-days: 1
+          if-no-files-found: error
+      - name: Native craft details, reverse view, full door states and route check
+        timeout-minutes: 29
+        env:
+          R04_RENDER_SET: details
+        run: |
+          remaining=$((G3_ART_DEADLINE-$(date +%s))); test "$remaining" -gt 0
+          timeout --signal=TERM --kill-after=15 "${remaining}s" blender -b "$ART_ROOT/g3-bay-candidate.blend" -t 4 --python-exit-code 1 -P workspaces/glasshouse-terminus/render_g3_r04.py 2>&1 | tee "$ART_ROOT/details.log"
+      - name: Preserve candidate and actual coverage without granting artistic acceptance
+        if: always()
+        timeout-minutes: 5
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os
+          root=Path(os.environ['ART_ROOT']);root.mkdir(parents=True,exist_ok=True)
+          files={}
+          for p in root.rglob('*'):
+              if p.is_file() and p.name!='DELIVERY.json':
+                  b=p.stat().st_size;assert b<90_000_000
+                  files[str(p.relative_to(root))]={'bytes':b,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+          assert sum(v['bytes'] for v in files.values())<180_000_000
+          complete=False
+          if (root/'reopen-and-space-check.json').is_file():
+              r=json.loads((root/'reopen-and-space-check.json').read_text())
+              complete=r.get('master_unchanged') and r.get('completed_render_group')=='details' and len(r.get('rendered_views',[]))==19
+          (root/'DELIVERY.json').write_text(json.dumps({'stage':'G3','revision':'R04','status':'ART_REVIEW_PENDING_NOT_A_PASS' if complete else 'PARTIAL_ART_CHALLENGER_NOT_A_PASS','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'parent_evidence_commit':'22dceca579c272b51767c70c153c540f7defc547','files':files,'g4_allowed':False,'human_acceptance':False,'browser_gate':'BLOCKED_UNCHANGED','quality_priority':'Original contract art quality, not test counts or CI green'},indent=2))
+          PY
+          bash workspaces/glasshouse-terminus/publish_evidence.sh "$ART_ROOT" g3-r04
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: g3-r04-${{ github.run_id }}
+          path: workspaces/glasshouse-terminus/output/g3-r04
+          retention-days: 1
+          if-no-files-found: error
