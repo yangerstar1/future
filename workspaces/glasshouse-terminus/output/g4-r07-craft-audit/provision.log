@@ -1,0 +1,84 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   880  100   880    0     0   5522      0 --:--:-- --:--:-- --:--:--  5534
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 16  360M   16 58.3M    0     0   270M      0  0:00:01 --:--:--  0:00:01  270M100  360M  100  360M    0     0   310M      0  0:00:01  0:00:01 --:--:--  310M
+blender-4.5.13-linux-x64.tar.xz: OK
+	linux-vdso.so.1 (0x00007f047556e000)
+	libblender_cpu_check.so => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libblender_cpu_check.so (0x00007f0475562000)
+	libtbb.so.12 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libtbb.so.12 (0x00007f047550a000)
+	libutil.so.1 => /lib/x86_64-linux-gnu/libutil.so.1 (0x00007f04754fb000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f04754f6000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f04754f1000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f0475406000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007f0475401000)
+	libvulkan.so.1 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libvulkan.so.1 (0x00007f0475386000)
+	libX11.so.6 => /lib/x86_64-linux-gnu/libX11.so.6 (0x00007f0475249000)
+	libXrender.so.1 => /lib/x86_64-linux-gnu/libXrender.so.1 (0x00007f047523d000)
+	libXfixes.so.3 => /lib/x86_64-linux-gnu/libXfixes.so.3 (0x00007f0475235000)
+	libXi.so.6 => /lib/x86_64-linux-gnu/libXi.so.6 (0x00007f0475220000)
+	libxkbcommon.so.0 => /lib/x86_64-linux-gnu/libxkbcommon.so.0 (0x00007f04751d7000)
+	libosdGPU.so.3.6.0 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libosdGPU.so.3.6.0 (0x00007f0475105000)
+	libosdCPU.so.3.6.0 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libosdCPU.so.3.6.0 (0x00007f0475042000)
+	libIex.so.32 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libIex.so.32 (0x00007f0474fc3000)
+	libOpenEXR.so.32 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libOpenEXR.so.32 (0x00007f0474e8d000)
+	libOpenEXRCore.so.32 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libOpenEXRCore.so.32 (0x00007f0474db1000)
+	libIlmThread.so.32 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libIlmThread.so.32 (0x00007f0474da6000)
+	libImath.so.30 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libImath.so.30 (0x00007f0474d55000)
+	libMaterialXFormat.so.1 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libMaterialXFormat.so.1 (0x00007f0474d0b000)
+	libMaterialXCore.so.1 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libMaterialXCore.so.1 (0x00007f0474bf0000)
+	libembree4.so.4 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libembree4.so.4 (0x00007f0473000000)
+	libcycles_kernel_oneapi_aot.so => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libcycles_kernel_oneapi_aot.so (0x00007f0471200000)
+	libsycl.so.8 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libsycl.so.8 (0x00007f0470e00000)
+	libOpenColorIO.so.2.4 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libOpenColorIO.so.2.4 (0x00007f0470800000)
+	libOpenImageIO.so.3.0 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libOpenImageIO.so.3.0 (0x00007f046fe00000)
+	libOpenImageIO_Util.so.3.0 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libOpenImageIO_Util.so.3.0 (0x00007f0472ece000)
+	libOpenImageDenoise.so.2 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libOpenImageDenoise.so.2 (0x00007f0474bd4000)
+	liboslcomp.so.1.14.4 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/liboslcomp.so.1.14.4 (0x00007f046d600000)
+	liboslexec.so.1.14.4 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/liboslexec.so.1.14.4 (0x00007f046a400000)
+	liboslquery.so.1.14.4 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/liboslquery.so.1.14.4 (0x00007f0474b9c000)
+	liboslnoise.so.1.14.4 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/liboslnoise.so.1.14.4 (0x00007f0474b88000)
+	libusd_ms.so => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libusd_ms.so (0x00007f0466a00000)
+	libopenvdb.so.12.0 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libopenvdb.so.12.0 (0x00007f0463600000)
+	libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f0463200000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f0462e00000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f0475570000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f0474b58000)
+	libxcb.so.1 => /lib/x86_64-linux-gnu/libxcb.so.1 (0x00007f0474b2f000)
+	libXext.so.6 => /lib/x86_64-linux-gnu/libXext.so.6 (0x00007f0474b1b000)
+	libur_loader.so.0 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libur_loader.so.0 (0x00007f0461e00000)
+	libOpenImageDenoise_core.so.2.3.3 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libOpenImageDenoise_core.so.2.3.3 (0x00007f045f000000)
+	libSM.so.6 => /lib/x86_64-linux-gnu/libSM.so.6 (0x00007f0474b0f000)
+	libICE.so.6 => /lib/x86_64-linux-gnu/libICE.so.6 (0x00007f0474af3000)
+	libGL.so.1 => /lib/x86_64-linux-gnu/libGL.so.1 (0x00007f0470779000)
+	libMaterialXRender.so.1 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libMaterialXRender.so.1 (0x00007f046a372000)
+	libMaterialXGenGlsl.so.1 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libMaterialXGenGlsl.so.1 (0x00007f046699f000)
+	libMaterialXGenMsl.so.1 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libMaterialXGenMsl.so.1 (0x00007f0466949000)
+	libMaterialXGenShader.so.1 => /home/runner/work/_temp/glasshouse-tools/blender-4.5.13-linux-x64/lib/libMaterialXGenShader.so.1 (0x00007f046351d000)
+	libXau.so.6 => /lib/x86_64-linux-gnu/libXau.so.6 (0x00007f0474ae9000)
+	libXdmcp.so.6 => /lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007f0474ae1000)
+	libuuid.so.1 => /lib/x86_64-linux-gnu/libuuid.so.1 (0x00007f0474ad7000)
+	libbsd.so.0 => /lib/x86_64-linux-gnu/libbsd.so.0 (0x00007f0474ac1000)
+	libGLdispatch.so.0 => /lib/x86_64-linux-gnu/libGLdispatch.so.0 (0x00007f0466891000)
+	libGLX.so.0 => /lib/x86_64-linux-gnu/libGLX.so.0 (0x00007f0470746000)
+	libmd.so.0 => /lib/x86_64-linux-gnu/libmd.so.0 (0x00007f0472ebd000)
+RENDER_ONLY_NATIVE_CYCLES_STARTUP_OK 4.5.13 LTS
+Blender 4.5.13 LTS (hash daeeeca98fb0 built 2026-08-25 01:31:19)
+
+Blender quit
+No FFmpeg/Pillow/mesa-utils installation: this profile renders PNGs; encode actual frames separately or explicitly use full.
+Blender 4.5.13 LTS (hash daeeeca98fb0 built 2026-08-25 01:31:19)
+Blender 4.5.13 LTS
+	build date: 2026-08-25
+	build time: 01:31:19
+	build commit date: 2026-08-24
+	build commit time: 11:28
+	build hash: daeeeca98fb0
+	build branch: blender-v4.5-release
+	build platform: Linux
+	build type: Release
+	build c flags:  -Wall -Werror=implicit-function-declaration -Wstrict-prototypes -Werror=return-type -Werror=vla -Wmissing-prototypes -Wno-char-subscripts -Wno-unknown-pragmas -Wpointer-arith -Wunused-parameter -Wwrite-strings -Wlogical-op -Wundef -Winit-self -Wmissing-include-dirs -Wno-div-by-zero -Wtype-limits -Wformat-signedness -Wrestrict -Wno-stringop-overread -Wno-stringop-overflow -Wnonnull -Wabsolute-value -Wuninitialized -Wredundant-decls -Wshadow -Wimplicit-fallthrough=5 -Wno-error=unused-but-set-variable  -march=x86-64-v2 -std=gnu11 -pipe -fPIC -funsigned-char -fno-strict-aliasing -ffp-contract=off  
+	build c++ flags:  -Wuninitialized -Wredundant-decls -Wall -Wno-invalid-offsetof -Wno-sign-compare -Wlogical-op -Winit-self -Wmissing-include-dirs -Wno-div-by-zero -Wtype-limits -Werror=return-type -Wno-char-subscripts -Wno-unknown-pragmas -Wpointer-arith -Wunused-parameter -Wwrite-strings -Wundef -Wcomma-subscript -Wformat-signedness -Wrestrict -Wno-suggest-override -Wuninitialized -Wno-stringop-overread -Wno-stringop-overflow -Wimplicit-fallthrough=5 -Wundef -Wmissing-declarations  -march=x86-64-v2 -pipe -fPIC -funsigned-char -fno-strict-aliasing -ffp-contract=off  
+	build link flags:  -Wl,--version-script='/home/blender/git/blender-v450/blender.git/source/creator/symbols_unix.map'
+	build system: CMake
