@@ -1,0 +1,13 @@
+{
+  "model": "chronos2-synth",
+  "source_run": 34237152841,
+  "run_id": "34242688274",
+  "commit": "b1e4a5aa828c7b2cdbc822c68d47851a5b20f2b0",
+  "python": "3.11.16",
+  "sklearn": "1.6.1",
+  "new_checkpoint_inference": false,
+  "total_seconds": 5.825180852999999,
+  "source_scores_sha256": "92d7162e7e7c91962ee9b3da390a8a42072b1766ce56b6094ec46ff38ba96dd5",
+  "code_sha256": "ec41dc06050a4c6a3cb9bdf7489db73468bb72b831c592c9c9d5720658c5efc9",
+  "protocol_sha256": "7ed44ccc4cadb6d46a0c4d539bf3ffa314d57c853bd50cf65940abc4da2f5598"
+}

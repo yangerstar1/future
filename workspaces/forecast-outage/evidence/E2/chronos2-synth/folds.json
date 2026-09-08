@@ -1,0 +1,590 @@
+[
+  {
+    "domain": "electricity",
+    "regime": "original",
+    "features": "full",
+    "training_cases": 3222,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "traffic",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random"
+    ]
+  },
+  {
+    "domain": "electricity",
+    "regime": "original",
+    "features": "rate",
+    "training_cases": 3222,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "traffic",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random"
+    ]
+  },
+  {
+    "domain": "electricity",
+    "regime": "original",
+    "features": "uncertainty",
+    "training_cases": 3222,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "traffic",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random"
+    ]
+  },
+  {
+    "domain": "electricity",
+    "regime": "source_tail",
+    "features": "full",
+    "training_cases": 3938,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "traffic",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "electricity",
+    "regime": "source_tail",
+    "features": "rate",
+    "training_cases": 3938,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "traffic",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "electricity",
+    "regime": "source_tail",
+    "features": "uncertainty",
+    "training_cases": 3938,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "traffic",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "electricity",
+    "regime": "source_all",
+    "features": "full",
+    "training_cases": 5728,
+    "test_cases": 3072,
+    "max_training_rate": 0.5,
+    "training_domains": [
+      "traffic",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "electricity",
+    "regime": "target_tail",
+    "features": "full",
+    "training_cases": 1056,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "traffic",
+    "regime": "original",
+    "features": "full",
+    "training_cases": 3222,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random"
+    ]
+  },
+  {
+    "domain": "traffic",
+    "regime": "original",
+    "features": "rate",
+    "training_cases": 3222,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random"
+    ]
+  },
+  {
+    "domain": "traffic",
+    "regime": "original",
+    "features": "uncertainty",
+    "training_cases": 3222,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random"
+    ]
+  },
+  {
+    "domain": "traffic",
+    "regime": "source_tail",
+    "features": "full",
+    "training_cases": 3938,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "traffic",
+    "regime": "source_tail",
+    "features": "rate",
+    "training_cases": 3938,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "traffic",
+    "regime": "source_tail",
+    "features": "uncertainty",
+    "training_cases": 3938,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "traffic",
+    "regime": "source_all",
+    "features": "full",
+    "training_cases": 5728,
+    "test_cases": 3072,
+    "max_training_rate": 0.5,
+    "training_domains": [
+      "electricity",
+      "transformer",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "traffic",
+    "regime": "target_tail",
+    "features": "full",
+    "training_cases": 1056,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "traffic"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "transformer",
+    "regime": "original",
+    "features": "full",
+    "training_cases": 2574,
+    "test_cases": 5376,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random"
+    ]
+  },
+  {
+    "domain": "transformer",
+    "regime": "original",
+    "features": "rate",
+    "training_cases": 2574,
+    "test_cases": 5376,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random"
+    ]
+  },
+  {
+    "domain": "transformer",
+    "regime": "original",
+    "features": "uncertainty",
+    "training_cases": 2574,
+    "test_cases": 5376,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random"
+    ]
+  },
+  {
+    "domain": "transformer",
+    "regime": "source_tail",
+    "features": "full",
+    "training_cases": 3146,
+    "test_cases": 5376,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "transformer",
+    "regime": "source_tail",
+    "features": "rate",
+    "training_cases": 3146,
+    "test_cases": 5376,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "transformer",
+    "regime": "source_tail",
+    "features": "uncertainty",
+    "training_cases": 3146,
+    "test_cases": 5376,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "transformer",
+    "regime": "source_all",
+    "features": "full",
+    "training_cases": 4576,
+    "test_cases": 5376,
+    "max_training_rate": 0.5,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "transformer",
+    "regime": "target_tail",
+    "features": "full",
+    "training_cases": 1848,
+    "test_cases": 5376,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "transformer"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "weather",
+    "regime": "original",
+    "features": "full",
+    "training_cases": 3240,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "transformer"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random"
+    ]
+  },
+  {
+    "domain": "weather",
+    "regime": "original",
+    "features": "rate",
+    "training_cases": 3240,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "transformer"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random"
+    ]
+  },
+  {
+    "domain": "weather",
+    "regime": "original",
+    "features": "uncertainty",
+    "training_cases": 3240,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "transformer"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random"
+    ]
+  },
+  {
+    "domain": "weather",
+    "regime": "source_tail",
+    "features": "full",
+    "training_cases": 3960,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "transformer"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "weather",
+    "regime": "source_tail",
+    "features": "rate",
+    "training_cases": 3960,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "transformer"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "weather",
+    "regime": "source_tail",
+    "features": "uncertainty",
+    "training_cases": 3960,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "transformer"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "weather",
+    "regime": "source_all",
+    "features": "full",
+    "training_cases": 5760,
+    "test_cases": 3072,
+    "max_training_rate": 0.5,
+    "training_domains": [
+      "electricity",
+      "traffic",
+      "transformer"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  },
+  {
+    "domain": "weather",
+    "regime": "target_tail",
+    "features": "full",
+    "training_cases": 1034,
+    "test_cases": 3072,
+    "max_training_rate": 0.25,
+    "training_domains": [
+      "weather"
+    ],
+    "training_families": [
+      "clean",
+      "middle",
+      "random",
+      "tail"
+    ]
+  }
+]
