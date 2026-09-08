@@ -1,0 +1,74 @@
+name: Forecast outage - data and API audit
+on:
+  push:
+    branches: [research/forecast-outage]
+    paths: [.github/workflows/forecast-outage-data-check.yml]
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r workspaces/forecast-outage/requirements-cpu.lock
+      - name: Inspect actual timestamps and remaining model APIs
+        run: |
+          python -u - <<'PY'
+          import json, inspect, time
+          from pathlib import Path
+          import pandas as pd
+          import torch
+          from huggingface_hub import hf_hub_download
+          from chronos import BaseChronosPipeline
+          torch.set_num_threads(4)
+          out=Path('workspaces/forecast-outage/evidence/data-api-audit')
+          out.mkdir(parents=True,exist_ok=True)
+          cfg=json.loads(Path('workspaces/forecast-outage/protocol-E0.json').read_text())
+          path=hf_hub_download(cfg['dataset_repo'],'weather/weather.csv',repo_type='dataset',revision=cfg['dataset_revision'])
+          df=pd.read_csv(path)
+          dates=pd.to_datetime(df.iloc[:,0],dayfirst=('.' in str(df.iloc[0,0])),format='mixed')
+          bad=dates.diff().le(pd.Timedelta(0))
+          dup=dates.duplicated(keep=False)
+          report={'columns':list(df.columns),'shape':list(df.shape),'head_dates':df.iloc[:10,0].tolist(),'tail_dates':df.iloc[-10:,0].tolist(),'duplicate_count':int(dup.sum()),'non_increasing_count':int(bad.sum()),'time_step_counts':{str(k):int(v) for k,v in dates.diff().value_counts().head(10).items()},'anomaly_rows':df.loc[bad|dup].head(30).to_dict('records'),'models':[]}
+          df.iloc[:10].to_csv(out/'weather-head.csv',index=False)
+          for key in ['chronos2-small','chronos2-synth']:
+              spec=cfg['models'][key]
+              try:
+                  t=time.perf_counter()
+                  pipe=BaseChronosPipeline.from_pretrained(spec['id'],revision=spec['revision'],device_map='cpu',torch_dtype=torch.float32)
+                  x=torch.sin(torch.arange(336).float()/24)[None,:].repeat(4,1)
+                  x[1,-84:]=float('nan');x[2,126:210]=float('nan');x[3,::4]=float('nan')
+                  q,m=pipe.predict_quantiles(x,prediction_length=24,quantile_levels=[.1,.5,.9])
+                  report['models'].append({'key':key,'class':type(pipe).__name__,'seconds':time.perf_counter()-t,'signature':str(inspect.signature(pipe.predict_quantiles)),'return_type':str(type(q)),'shape':[list(a.shape) for a in q] if isinstance(q,list) else list(q.shape),'finite':bool(all(torch.isfinite(a).all() for a in q))})
+                  (out/(key+'-predict-quantiles.py')).write_text(inspect.getsource(type(pipe).predict_quantiles))
+                  del pipe
+              except Exception as e:
+                  report['models'].append({'key':key,'error':repr(e)})
+          (out/'report.json').write_text(json.dumps(report,indent=2))
+          print(json.dumps(report,indent=2))
+          PY
+      - name: Preserve diagnostic evidence
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/forecast-data-api-${GITHUB_RUN_ID}
+          git add workspaces/forecast-outage/evidence/data-api-audit
+          git commit -m 'research: preserve actual timestamp and model API audit [skip ci]'
+          git push origin HEAD
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: forecast-data-api-${{ github.run_id }}
+          path: workspaces/forecast-outage/evidence/data-api-audit
+          retention-days: 14
