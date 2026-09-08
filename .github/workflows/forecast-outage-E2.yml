@@ -1,0 +1,67 @@
+name: Forecast outage - E2 selector diagnosis
+on:
+  push:
+    branches: [research/forecast-outage]
+    paths:
+      - .github/workflows/forecast-outage-E2.yml
+      - workspaces/forecast-outage/selector_diagnosis.py
+      - workspaces/forecast-outage/protocol-E2.json
+permissions:
+  contents: write
+concurrency:
+  group: forecast-outage-E0
+  cancel-in-progress: false
+jobs:
+  diagnosis:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        model: [bolt-tiny, chronos2-small, chronos2-synth]
+    env:
+      MODEL: ${{ matrix.model }}
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      OPENBLAS_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: evidence/forecast-E0-${{ matrix.model }}-34237152841
+          path: .e0-inputs
+          sparse-checkout: workspaces/forecast-outage/evidence/E0/${{ matrix.model }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          mkdir -p workspaces/forecast-outage/evidence/E2/${MODEL}
+          python -m pip install numpy==2.2.6 pandas==2.2.3 scikit-learn==1.6.1 scipy==1.15.3
+          python -m pip check
+      - name: Refit original gates and run frozen training-regime ablations
+        run: |
+          set -o pipefail
+          python -u workspaces/forecast-outage/selector_diagnosis.py --model "${MODEL}" --e0 .e0-inputs/workspaces/forecast-outage/evidence/E0/${MODEL} 2>&1 | tee workspaces/forecast-outage/evidence/E2/${MODEL}/run.log
+      - name: Preserve evidence without touching production
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/forecast-E2-${MODEL}-${GITHUB_RUN_ID}
+          git add workspaces/forecast-outage/evidence/E2/${MODEL}
+          if ! git diff --cached --quiet; then
+            git commit -m "research: preserve E2 ${MODEL} selector diagnosis [skip ci]"
+            git push origin HEAD
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: forecast-E2-${{ matrix.model }}-${{ github.run_id }}
+          path: |
+            workspaces/forecast-outage/evidence/E2/${{ matrix.model }}
+            workspaces/forecast-outage/selector_diagnosis.py
+            workspaces/forecast-outage/protocol-E2.json
+          retention-days: 14
+          if-no-files-found: error
