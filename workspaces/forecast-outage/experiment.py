@@ -112,6 +112,10 @@ def acquire(cfg: dict, out: Path) -> tuple[list[dict],list[dict]]:
     for d in cfg['datasets']:
         path=Path(hf_hub_download(cfg['dataset_repo'],d['path'],repo_type='dataset',revision=cfg['dataset_revision']))
         raw=pd.read_csv(path)
+        original_rows=len(raw)
+        duplicate_rows=int(raw.duplicated().sum())
+        # Audit found one exactly duplicated weather record, not distinct readings.
+        raw=raw.drop_duplicates().reset_index(drop=True)
         date_col=raw.columns[0]
         dates=pd.to_datetime(raw[date_col],dayfirst=('.' in str(raw[date_col].iloc[0])),format='mixed',errors='raise')
         if dates.duplicated().any() or not dates.is_monotonic_increasing:
@@ -141,7 +145,7 @@ def acquire(cfg: dict, out: Path) -> tuple[list[dict],list[dict]]:
         if not selected:
             raise ValueError(f'No eligible series: {d["name"]}')
         rec={'dataset':d['name'],'domain':d['domain'],'path':d['path'],'sha256':digest(path.read_bytes()),
-             'revision':cfg['dataset_revision'],'raw_rows':len(raw),'hourly_rows':n,'columns_total':len(frame.columns),
+             'revision':cfg['dataset_revision'],'raw_rows':original_rows,'exact_duplicate_rows_removed':duplicate_rows,'hourly_rows':n,'columns_total':len(frame.columns),
              'columns_eligible':len(eligible),'selected_columns':[v[0] for v in selected],
              'start':str(frame.index[0]),'end':str(frame.index[-1]),'scale_prefix_end':str(frame.index[cutoff-1]),
              'source_step':str(median_step)}
@@ -151,6 +155,15 @@ def acquire(cfg: dict, out: Path) -> tuple[list[dict],list[dict]]:
                            'dates':frame.index})
         print('DATA',json.dumps(rec),flush=True)
     (out/'data-manifest.json').write_text(json.dumps(manifests,indent=2))
+    archive={}
+    mapping=[]
+    for i,item in enumerate(series):
+        key=f's{i:03d}'
+        archive[key]=item['values']
+        archive[key+'_timestamps']=item['dates'].asi8
+        mapping.append({k:item[k] for k in ['dataset','domain','series','scale']} | {'key':key})
+    archive['mapping_json']=np.asarray(json.dumps(mapping))
+    np.savez_compressed(out/'selected-series.npz',**archive)
     return series,manifests
 
 def prepare(cfg: dict, series: list[dict], out: Path):
@@ -218,7 +231,10 @@ def infer(pipe,X:np.ndarray,h:int,batch:int) -> np.ndarray:
     chunks=[];start=time.perf_counter()
     for lo in range(0,len(X),batch):
         with torch.inference_mode():
-            q,_=pipe.predict_quantiles(torch.from_numpy(X[lo:lo+batch]),prediction_length=h,quantile_levels=[.1,.5,.9])
+            inputs=torch.from_numpy(X[lo:lo+batch])
+            if type(pipe).__name__=='Chronos2Pipeline':
+                inputs=inputs.unsqueeze(1)  # explicit independent univariate groups
+            q,_=pipe.predict_quantiles(inputs,prediction_length=h,quantile_levels=[.1,.5,.9])
         chunks.append(quantiles_array(q))
         if lo%(batch*100)==0: print('INFERENCE',lo,'/',len(X),'seconds',round(time.perf_counter()-start,2),flush=True)
     return np.concatenate(chunks)
@@ -342,7 +358,7 @@ def main():
     runtime['total_seconds']=time.perf_counter()-start
     runtime['forecast_calls_in_windows']=int(2*len(X)+len(RX)+4)
     (out/'runtime.json').write_text(json.dumps(runtime,indent=2))
-    hashes={p.name:digest(p.read_bytes()) for p in sorted(out.iterdir()) if p.is_file() and p.name!='SHA256.json'}
+    hashes={p.name:digest(p.read_bytes()) for p in sorted(out.iterdir()) if p.is_file() and p.name not in ['SHA256.json','run.log']}
     (out/'SHA256.json').write_text(json.dumps(hashes,indent=2))
     print('COMPLETED',json.dumps(runtime,indent=2),flush=True)
 
