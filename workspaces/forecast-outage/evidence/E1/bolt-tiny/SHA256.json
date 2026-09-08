@@ -1,0 +1,14 @@
+{
+  "pip-freeze.txt": "196fa38e53c2545e9dc83a8a48e1c62456b64ad1e8c51bd974d4874740ac1d2d",
+  "full-bridge-gap-42.npz": "5186a3e9083d2a6b0eb054b2e8312d46f1f0a6e8fef0a5d08d2a27ba65afe227",
+  "installed-predict.py": "4804fad75d8c52579cb402d3cb280f50dac1cf43e2d1b4e2fedc3f3f38dee13c",
+  "full-bridge-gap-84.npz": "6be1bec78efb6ed83bb195ee9106fe6eb2ff178578232ee407bfb5884f37cd24",
+  "summary.json": "54c881eb5ed7b45b07d749cf8d887233fb1252c9e3934a968ead9b8143c8868a",
+  "dataset-metrics.csv": "9da0e81ba87c81b6d42bf38d0ab1ba1b02960b6197f9c693c19b511a03412523",
+  "installed-predict-quantiles.py": "52811395d7c6a6f24ca43e54bb0684111e5a6b6f46e7530d0e81303bc3aefccb",
+  "runtime.json": "51a06ed18f8f09cbfe5ee7e41f561952a475bfd2ee133de94856d5c2ab96e3d8",
+  "predictions.npz": "afbc96109b2e0264ceefdc6dadce17cef2ecd5cd35d6c492c3c833b0a7ba9154",
+  "full-bridge-gap-168.npz": "a72f87518cf537fefb6760b4486b9fd05cff2faf52ac32dbd47502d6c7d148fe",
+  "protocol-E1.json": "0e39953384965173bf21e27e735495332ec8ff340af3d5805a5ad0a94e827e57",
+  "scores.csv.gz": "0e85d6ebb9cf964ae3166f2802bd9a4b825da5ec4d76fccc9337727b2b89b3c4"
+}
