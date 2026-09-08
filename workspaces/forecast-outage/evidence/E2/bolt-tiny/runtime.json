@@ -1,0 +1,13 @@
+{
+  "model": "bolt-tiny",
+  "source_run": 34237152841,
+  "run_id": "34242688274",
+  "commit": "b1e4a5aa828c7b2cdbc822c68d47851a5b20f2b0",
+  "python": "3.11.16",
+  "sklearn": "1.6.1",
+  "new_checkpoint_inference": false,
+  "total_seconds": 6.049291662000002,
+  "source_scores_sha256": "c04343afaab412716ba9ddb632879c01fe2f5b26d6ac6bff8755e2fd8527334b",
+  "code_sha256": "ec41dc06050a4c6a3cb9bdf7489db73468bb72b831c592c9c9d5720658c5efc9",
+  "protocol_sha256": "7ed44ccc4cadb6d46a0c4d539bf3ffa314d57c853bd50cf65940abc4da2f5598"
+}
