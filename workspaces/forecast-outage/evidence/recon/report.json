@@ -1,0 +1,609 @@
+{
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.11.16",
+  "cpus": 4,
+  "run_id": "34234890093",
+  "commit": "11064b2dd100b9871939024405873fd887d1c7cb",
+  "errors": [],
+  "dataset_repository": {
+    "id": "thuml/Time-Series-Library",
+    "sha": "2b66e59ee19dac8f6f19fb5d4997f289fdfea357",
+    "cardData": {
+      "tags": [
+        "time-series",
+        "forecasting",
+        "anomaly-detection",
+        "classification",
+        "TSLib"
+      ],
+      "license": "cc-by-4.0",
+      "task_categories": [
+        "time-series-forecasting"
+      ],
+      "pretty_name": "Time-Series-Library (TSLib)",
+      "language": [
+        "en"
+      ],
+      "configs": [
+        {
+          "config_name": "ETTh1",
+          "description": "ETT long-term forecasting subset ETTh1 (hourly).",
+          "data_files": [
+            "ETT-small/ETTh1.csv"
+          ]
+        },
+        {
+          "config_name": "ETTh2",
+          "description": "ETT long-term forecasting subset ETTh2 (hourly).",
+          "data_files": [
+            "ETT-small/ETTh2.csv"
+          ]
+        },
+        {
+          "config_name": "ETTm1",
+          "description": "ETT long-term forecasting subset ETTm1 (15-min).",
+          "data_files": [
+            "ETT-small/ETTm1.csv"
+          ]
+        },
+        {
+          "config_name": "ETTm2",
+          "description": "ETT long-term forecasting subset ETTm2 (15-min).",
+          "data_files": [
+            "ETT-small/ETTm2.csv"
+          ]
+        },
+        {
+          "config_name": "electricity",
+          "description": "Electricity load forecasting (UCI Electricity).",
+          "data_files": [
+            "electricity/electricity.csv"
+          ]
+        },
+        {
+          "config_name": "traffic",
+          "description": "Traffic volume forecasting.",
+          "data_files": [
+            "traffic/traffic.csv"
+          ]
+        },
+        {
+          "config_name": "weather",
+          "description": "Weather time-series forecasting.",
+          "data_files": [
+            "weather/weather.csv"
+          ]
+        },
+        {
+          "config_name": "exchange_rate",
+          "description": "Exchange rate forecasting.",
+          "data_files": [
+            "exchange_rate/exchange_rate.csv"
+          ]
+        },
+        {
+          "config_name": "national_illness",
+          "description": "Influenza-like illness (ILI) forecasting.",
+          "data_files": [
+            "illness/national_illness.csv"
+          ]
+        },
+        {
+          "config_name": "m4-yearly",
+          "description": "M4 Yearly forecasting subset.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "m4/Yearly-train.csv"
+            },
+            {
+              "split": "test",
+              "path": "m4/Yearly-test.csv"
+            }
+          ]
+        },
+        {
+          "config_name": "m4-quarterly",
+          "description": "M4 Quarterly forecasting subset.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "m4/Quarterly-train.csv"
+            },
+            {
+              "split": "test",
+              "path": "m4/Quarterly-test.csv"
+            }
+          ]
+        },
+        {
+          "config_name": "m4-monthly",
+          "description": "M4 Monthly forecasting subset.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "m4/Monthly-train.csv"
+            },
+            {
+              "split": "test",
+              "path": "m4/Monthly-test.csv"
+            }
+          ]
+        },
+        {
+          "config_name": "m4-weekly",
+          "description": "M4 Weekly forecasting subset.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "m4/Weekly-train.csv"
+            },
+            {
+              "split": "test",
+              "path": "m4/Weekly-test.csv"
+            }
+          ]
+        },
+        {
+          "config_name": "m4-daily",
+          "description": "M4 Daily forecasting subset.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "m4/Daily-train.csv"
+            },
+            {
+              "split": "test",
+              "path": "m4/Daily-test.csv"
+            }
+          ]
+        },
+        {
+          "config_name": "m4-hourly",
+          "description": "M4 Hourly forecasting subset.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "m4/Hourly-train.csv"
+            },
+            {
+              "split": "test",
+              "path": "m4/Hourly-test.csv"
+            }
+          ]
+        },
+        {
+          "config_name": "EthanolConcentration",
+          "description": "UEA multivariate classification: EthanolConcentration.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "EthanolConcentration/EthanolConcentration_TRAIN.ts"
+            },
+            {
+              "split": "test",
+              "path": "EthanolConcentration/EthanolConcentration_TEST.ts"
+            }
+          ]
+        },
+        {
+          "config_name": "FaceDetection",
+          "description": "UEA multivariate classification: FaceDetection.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "FaceDetection/FaceDetection_TRAIN.ts"
+            },
+            {
+              "split": "test",
+              "path": "FaceDetection/FaceDetection_TEST.ts"
+            }
+          ]
+        },
+        {
+          "config_name": "Handwriting",
+          "description": "UEA multivariate classification: Handwriting.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "Handwriting/Handwriting_TRAIN.ts"
+            },
+            {
+              "split": "test",
+              "path": "Handwriting/Handwriting_TEST.ts"
+            }
+          ]
+        },
+        {
+          "config_name": "Heartbeat",
+          "description": "UEA multivariate classification: Heartbeat.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "Heartbeat/Heartbeat_TRAIN.ts"
+            },
+            {
+              "split": "test",
+              "path": "Heartbeat/Heartbeat_TEST.ts"
+            }
+          ]
+        },
+        {
+          "config_name": "JapaneseVowels",
+          "description": "UEA multivariate classification: JapaneseVowels.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "JapaneseVowels/JapaneseVowels_TRAIN.ts"
+            },
+            {
+              "split": "test",
+              "path": "JapaneseVowels/JapaneseVowels_TEST.ts"
+            }
+          ]
+        },
+        {
+          "config_name": "PEMS-SF",
+          "description": "UEA multivariate classification: PEMS-SF.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "PEMS-SF/PEMS-SF_TRAIN.ts"
+            },
+            {
+              "split": "test",
+              "path": "PEMS-SF/PEMS-SF_TEST.ts"
+            }
+          ]
+        },
+        {
+          "config_name": "SelfRegulationSCP1",
+          "description": "UEA multivariate classification: SelfRegulationSCP1.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "SelfRegulationSCP1/SelfRegulationSCP1_TRAIN.ts"
+            },
+            {
+              "split": "test",
+              "path": "SelfRegulationSCP1/SelfRegulationSCP1_TEST.ts"
+            }
+          ]
+        },
+        {
+          "config_name": "SelfRegulationSCP2",
+          "description": "UEA multivariate classification: SelfRegulationSCP2.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "SelfRegulationSCP2/SelfRegulationSCP2_TRAIN.ts"
+            },
+            {
+              "split": "test",
+              "path": "SelfRegulationSCP2/SelfRegulationSCP2_TEST.ts"
+            }
+          ]
+        },
+        {
+          "config_name": "SpokenArabicDigits",
+          "description": "UEA multivariate classification: SpokenArabicDigits.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "SpokenArabicDigits/SpokenArabicDigits_TRAIN.ts"
+            },
+            {
+              "split": "test",
+              "path": "SpokenArabicDigits/SpokenArabicDigits_TEST.ts"
+            }
+          ]
+        },
+        {
+          "config_name": "UWaveGestureLibrary",
+          "description": "UEA multivariate classification: UWaveGestureLibrary.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "UWaveGestureLibrary/UWaveGestureLibrary_TRAIN.ts"
+            },
+            {
+              "split": "test",
+              "path": "UWaveGestureLibrary/UWaveGestureLibrary_TEST.ts"
+            }
+          ]
+        },
+        {
+          "config_name": "SMD-data",
+          "description": "Server Machine Dataset (SMD) for anomaly detection \u2014 train & test data.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "SMD/SMD_train.npy"
+            },
+            {
+              "split": "test",
+              "path": "SMD/SMD_test.npy"
+            }
+          ]
+        },
+        {
+          "config_name": "SMD-label",
+          "description": "Server Machine Dataset (SMD) \u2014 test anomaly labels.",
+          "data_files": [
+            {
+              "split": "test_label",
+              "path": "SMD/SMD_test_label.npy"
+            }
+          ]
+        },
+        {
+          "config_name": "MSL-data",
+          "description": "NASA Mars Science Laboratory (MSL) anomaly detection \u2014 train/test arrays.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "MSL/MSL_train.npy"
+            },
+            {
+              "split": "test",
+              "path": "MSL/MSL_test.npy"
+            }
+          ]
+        },
+        {
+          "config_name": "MSL-label",
+          "description": "MSL anomaly detection \u2014 test labels.",
+          "data_files": [
+            {
+              "split": "test_label",
+              "path": "MSL/MSL_test_label.npy"
+            }
+          ]
+        },
+        {
+          "config_name": "SMAP-data",
+          "description": "NASA Soil Moisture Active Passive (SMAP) anomaly detection \u2014 train/test arrays.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "SMAP/SMAP_train.npy"
+            },
+            {
+              "split": "test",
+              "path": "SMAP/SMAP_test.npy"
+            }
+          ]
+        },
+        {
+          "config_name": "SMAP-label",
+          "description": "SMAP anomaly detection \u2014 test labels.",
+          "data_files": [
+            {
+              "split": "test_label",
+              "path": "SMAP/SMAP_test_label.npy"
+            }
+          ]
+        },
+        {
+          "config_name": "PSM-data",
+          "description": "KPI-based Process/System Monitoring data (train/test).",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "PSM/train.csv"
+            },
+            {
+              "split": "test",
+              "path": "PSM/test.csv"
+            }
+          ]
+        },
+        {
+          "config_name": "PSM-label",
+          "description": "KPI-based Process/System Monitoring labels (test_label).",
+          "data_files": [
+            {
+              "split": "test_label",
+              "path": "PSM/test_label.csv"
+            }
+          ]
+        },
+        {
+          "config_name": "SWaT",
+          "description": "Secure Water Treatment (SWaT) anomaly detection, processed data.",
+          "data_files": [
+            {
+              "split": "train",
+              "path": "SWaT/swat_train2.csv"
+            },
+            {
+              "split": "test",
+              "path": "SWaT/swat2.csv"
+            }
+          ]
+        }
+      ],
+      "size_categories": [
+        "10M<n<100M"
+      ]
+    },
+    "files": [
+      ".gitattributes",
+      "ETT-small/ETTh1.csv",
+      "ETT-small/ETTh2.csv",
+      "ETT-small/ETTm1.csv",
+      "ETT-small/ETTm2.csv",
+      "EthanolConcentration/EthanolConcentration_TEST.ts",
+      "EthanolConcentration/EthanolConcentration_TRAIN.ts",
+      "FaceDetection/FaceDetection_TEST.ts",
+      "FaceDetection/FaceDetection_TRAIN.ts",
+      "Handwriting/Handwriting_TEST.ts",
+      "Handwriting/Handwriting_TRAIN.ts",
+      "Heartbeat/Heartbeat_TEST.ts",
+      "Heartbeat/Heartbeat_TRAIN.ts",
+      "JapaneseVowels/JapaneseVowels_TEST.ts",
+      "JapaneseVowels/JapaneseVowels_TRAIN.ts",
+      "MSL/.DS_Store",
+      "MSL/MSL_test.npy",
+      "MSL/MSL_test_label.npy",
+      "MSL/MSL_train.npy",
+      "PEMS-SF/PEMS-SF_TEST.ts",
+      "PEMS-SF/PEMS-SF_TRAIN.ts",
+      "PSM/test.csv",
+      "PSM/test_label.csv",
+      "PSM/train.csv",
+      "README.md",
+      "SMAP/SMAP_test.npy",
+      "SMAP/SMAP_test_label.npy",
+      "SMAP/SMAP_train.npy",
+      "SMD/SMD_test.npy",
+      "SMD/SMD_test.pkl",
+      "SMD/SMD_test_label.npy",
+      "SMD/SMD_test_label.pkl",
+      "SMD/SMD_train.npy",
+      "SMD/SMD_train.pkl",
+      "SWaT/SWaT_Dataset_Attack_v0.xlsx",
+      "SWaT/SWaT_Dataset_Normal_v1.xlsx",
+      "SWaT/data.py",
+      "SWaT/swat2.csv",
+      "SWaT/swat_raw.csv",
+      "SWaT/swat_train.csv",
+      "SWaT/swat_train2.csv",
+      "SelfRegulationSCP1/SelfRegulationSCP1_TEST.ts",
+      "SelfRegulationSCP1/SelfRegulationSCP1_TRAIN.ts",
+      "SelfRegulationSCP2/SelfRegulationSCP2_TEST.ts",
+      "SelfRegulationSCP2/SelfRegulationSCP2_TRAIN.ts",
+      "SpokenArabicDigits/SpokenArabicDigits_TEST.ts",
+      "SpokenArabicDigits/SpokenArabicDigits_TRAIN.ts",
+      "UWaveGestureLibrary/UWaveGestureLibrary_TEST.ts",
+      "UWaveGestureLibrary/UWaveGestureLibrary_TRAIN.ts",
+      "electricity/.DS_Store",
+      "electricity/electricity.csv",
+      "exchange_rate/.DS_Store",
+      "exchange_rate/exchange_rate.csv",
+      "illness/national_illness.csv",
+      "m4/Daily-test.csv",
+      "m4/Daily-train.csv",
+      "m4/Hourly-test.csv",
+      "m4/Hourly-train.csv",
+      "m4/M4-info.csv",
+      "m4/Monthly-test.csv",
+      "m4/Monthly-train.csv",
+      "m4/Quarterly-test.csv",
+      "m4/Quarterly-train.csv",
+      "m4/Weekly-test.csv",
+      "m4/Weekly-train.csv",
+      "m4/Yearly-test.csv",
+      "m4/Yearly-train.csv",
+      "m4/submission-Naive2.csv",
+      "m4/test.npz",
+      "m4/training.npz",
+      "traffic/.DS_Store",
+      "traffic/traffic.csv",
+      "weather/weather.csv"
+    ]
+  },
+  "torch": "2.8.0+cpu",
+  "cuda": false,
+  "models": [
+    {
+      "id": "amazon/chronos-bolt-tiny",
+      "sha": "a0e552de83495b5c28c14c71c374f3e33280b340",
+      "cardData": {
+        "license": "apache-2.0",
+        "pipeline_tag": "time-series-forecasting",
+        "tags": [
+          "time series",
+          "forecasting",
+          "pretrained models",
+          "foundation models",
+          "time series foundation models",
+          "time-series"
+        ],
+        "library_name": "chronos-forecasting",
+        "new_version": "amazon/chronos-2"
+      },
+      "files": [
+        ".gitattributes",
+        "README.md",
+        "config.json",
+        "model.safetensors"
+      ],
+      "load_seconds": 0.905186078000014,
+      "class": "ChronosBoltPipeline",
+      "predict_signature": "(inputs: Union[torch.Tensor, List[torch.Tensor]], prediction_length: Optional[int] = None, limit_prediction_length: bool = False) -> torch.Tensor",
+      "quantiles_signature": "(inputs: Union[torch.Tensor, List[torch.Tensor]], prediction_length: Optional[int] = None, quantile_levels: List[float] = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9], **predict_kwargs) -> Tuple[torch.Tensor, torch.Tensor]",
+      "inference_seconds": 0.017551008000026513,
+      "quantile_shape": [
+        4,
+        24,
+        3
+      ],
+      "mean_shape": [
+        4,
+        24
+      ],
+      "finite": true
+    },
+    {
+      "id": "autogluon/chronos-2-small",
+      "sha": "ddec01313e50b6bc58ebaa92ede81bc24a3d9f9a",
+      "cardData": {
+        "license": "apache-2.0",
+        "model_id": "chronos-2-small",
+        "tags": [
+          "time series",
+          "forecasting",
+          "foundation models",
+          "pretrained models",
+          "safetensors"
+        ],
+        "paper": [
+          "https://arxiv.org/abs/2510.15821"
+        ],
+        "datasets": [
+          "autogluon/chronos_datasets",
+          "Salesforce/GiftEvalPretrain"
+        ],
+        "leaderboards": [
+          "Salesforce/GIFT-Eval",
+          "autogluon/fev-leaderboard"
+        ],
+        "pipeline_tag": "time-series-forecasting",
+        "library_name": "chronos-forecasting"
+      },
+      "files": [
+        ".gitattributes",
+        "README.md",
+        "config.json",
+        "model.safetensors"
+      ]
+    },
+    {
+      "id": "autogluon/chronos-2-synth",
+      "sha": "3607918a9fd027d5c465d8213e46b98e2c041cea",
+      "cardData": {
+        "license": "apache-2.0",
+        "model_id": "chronos-2-synth",
+        "tags": [
+          "time series",
+          "forecasting",
+          "foundation models",
+          "pretrained models",
+          "safetensors"
+        ],
+        "paper": [
+          "https://arxiv.org/abs/2510.15821"
+        ],
+        "pipeline_tag": "time-series-forecasting",
+        "library_name": "chronos-forecasting"
+      },
+      "files": [
+        ".gitattributes",
+        "README.md",
+        "config.json",
+        "model.safetensors"
+      ]
+    }
+  ]
+}
