@@ -1,0 +1,51 @@
+name: Forecast outage - reconnaissance
+on:
+  push:
+    branches: [research/forecast-outage]
+    paths:
+      - .github/workflows/forecast-outage-recon.yml
+      - workspaces/forecast-outage/probe.py
+permissions:
+  contents: write
+concurrency:
+  group: forecast-outage-recon
+  cancel-in-progress: false
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official CPU implementation
+        run: |
+          python -m pip install --disable-pip-version-check torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --disable-pip-version-check chronos-forecasting==2.3.1 'transformers>=4.41,<5' pandas==2.2.3 numpy==2.2.6 requests==2.32.3 scikit-learn==1.6.1 scipy==1.15.3
+      - name: Inspect manifests and real CPU API
+        run: python workspaces/forecast-outage/probe.py
+      - name: Preserve reconnaissance
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/forecast-recon-${GITHUB_RUN_ID}
+          git add workspaces/forecast-outage/evidence/recon
+          if ! git diff --cached --quiet; then
+            git commit -m 'research: preserve actual CPU and upstream reconnaissance [skip ci]'
+            git push origin HEAD
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: forecast-recon-${{ github.run_id }}
+          path: workspaces/forecast-outage/evidence/recon
+          retention-days: 14
+          if-no-files-found: warn
