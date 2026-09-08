@@ -1,0 +1,15 @@
+{
+  "scope": "E1 exploratory extension; reused E0 test origins; not confirmatory",
+  "cases": 2736,
+  "method_is_novel": false,
+  "no_hidden_outage_values_in_inputs": true,
+  "no_extended_history": true,
+  "macro": {
+    "mase_bridge": 1.2295507778818398,
+    "coverage80_bridge": 0.7574637276785714,
+    "width80_scaled_bridge": 4.048728468684149,
+    "mase_clock_blind_control": 2.8202969852161646,
+    "coverage80_clock_blind_control": 0.37527643435846564,
+    "width80_scaled_clock_blind_control": 2.412917660820607
+  }
+}
