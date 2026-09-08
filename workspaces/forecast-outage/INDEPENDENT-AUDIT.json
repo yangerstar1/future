@@ -1,0 +1,21 @@
+{
+  "status":"PASS",
+  "E0":[
+    {"model":"bolt-tiny","hashes_verified":14,"cases":21856,"test_cases":14592,"replay_inputs":16416,"all_losses_recomputed":true,"all_choices_match_selected_forecasts":true,"past_only_replay_indices":true,"source_domain_train_split_checked":true,"common_inputs_fully_reconstructed":true,"checkpoint_inference_reexecuted_by_audit":false,"status":"PASS"},
+    {"model":"chronos2-small","hashes_verified":14,"cases":21856,"test_cases":14592,"replay_inputs":16416,"all_losses_recomputed":true,"all_choices_match_selected_forecasts":true,"past_only_replay_indices":true,"source_domain_train_split_checked":true,"common_inputs_fully_reconstructed":false,"checkpoint_inference_reexecuted_by_audit":false,"status":"PASS"},
+    {"model":"chronos2-synth","hashes_verified":14,"cases":21856,"test_cases":14592,"replay_inputs":16416,"all_losses_recomputed":true,"all_choices_match_selected_forecasts":true,"past_only_replay_indices":true,"source_domain_train_split_checked":true,"common_inputs_fully_reconstructed":false,"checkpoint_inference_reexecuted_by_audit":false,"status":"PASS"}
+  ],
+  "E1":[
+    {"model":"bolt-tiny","status":"PASS","all_2736_input_hashes_reconstructed":true,"all_full_horizon_slices_verified":true,"same_e0_targets":true,"confirmatory":false},
+    {"model":"chronos2-small","status":"PASS","all_2736_input_hashes_reconstructed":true,"all_full_horizon_slices_verified":true,"same_e0_targets":true,"confirmatory":false},
+    {"model":"chronos2-synth","status":"PASS","all_2736_input_hashes_reconstructed":true,"all_full_horizon_slices_verified":true,"same_e0_targets":true,"confirmatory":false}
+  ],
+  "E2":[
+    {"model":"bolt-tiny","status":"PASS","test_cases":14592,"same_e0_features_and_losses":true,"original_gate_refit_choices_checked":43776,"original_gate_refit_mismatches":0,"development_only_fold_indices_verified":true,"replay_pair_choices_recomputed":true,"new_checkpoint_inference":false,"confirmatory":false},
+    {"model":"chronos2-small","status":"PASS","test_cases":14592,"same_e0_features_and_losses":true,"original_gate_refit_choices_checked":43776,"original_gate_refit_mismatches":0,"development_only_fold_indices_verified":true,"replay_pair_choices_recomputed":true,"new_checkpoint_inference":false,"confirmatory":false},
+    {"model":"chronos2-synth","status":"PASS","test_cases":14592,"same_e0_features_and_losses":true,"original_gate_refit_choices_checked":43776,"original_gate_refit_mismatches":0,"development_only_fold_indices_verified":true,"replay_pair_choices_recomputed":true,"new_checkpoint_inference":false,"confirmatory":false}
+  ],
+  "cross_model_case_ids_masks_targets_baselines_equal":true,
+  "bootstrap":{"replicates":10000,"block_length_origins":4,"seed":20260908,"scheme":"paired circular moving blocks; common ETTh1/ETTh2 draws","domains_fixed":true,"selectors_not_refit_in_bootstrap":true,"multiple_comparison_adjustment":false},
+  "limits":["Numerical/causal reconstruction, not a new checkpoint inference run.","Interval uncertainty is conditional on fitted gates and the selected fixed dataset/channel collection.","No new thresholds or model tuning."]
+}
