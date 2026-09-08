@@ -1,0 +1,68 @@
+INFERENCE 0 / 912 seconds 0.39
+INFERENCE 0 / 912 seconds 0.33
+INFERENCE 0 / 912 seconds 0.38
+INFERENCE 0 / 912 seconds 0.3
+INFERENCE 0 / 912 seconds 0.38
+INFERENCE 0 / 912 seconds 0.23
+SUMMARY {
+  "scope": "E1 exploratory extension; reused E0 test origins; not confirmatory",
+  "cases": 2736,
+  "method_is_novel": false,
+  "no_hidden_outage_values_in_inputs": true,
+  "no_extended_history": true,
+  "macro": {
+    "mase_bridge": 1.146836528639193,
+    "coverage80_bridge": 0.7515216807208994,
+    "width80_scaled_bridge": 3.162314887857929,
+    "mase_clock_blind_control": 2.800252165707666,
+    "coverage80_clock_blind_control": 0.37525059937169314,
+    "width80_scaled_clock_blind_control": 2.138146080441949
+  }
+}
+RUNTIME {
+  "model": {
+    "id": "autogluon/chronos-2-small",
+    "revision": "ddec01313e50b6bc58ebaa92ede81bc24a3d9f9a",
+    "pretraining_overlap": "not audited; do not claim strict zero-shot"
+  },
+  "class": "Chronos2Pipeline",
+  "run_id": "34238612233",
+  "commit": "3e9222c327d38dbee9d55ca7dcfd17dff9e63308",
+  "source_run": "34237152841",
+  "python": "3.11.16",
+  "torch": "2.8.0+cpu",
+  "cpus": 4,
+  "cuda": false,
+  "load_seconds": 4.716111170999994,
+  "code_sha256": "8e3a2399fece5e84eaeef6e041f28de9a4f9187335b9d290d28ba73d911e73c4",
+  "helper_sha256": "129330a1ab9fe8535b9379aef92078434bd47449046a949b2096ba34ec9120f2",
+  "source_cases_sha256": "bae8584b053d16a2a36f7a708463f16b093ef5df6c159f21794397304a775bca",
+  "source_selected_series_sha256": "d84fb28f8ec1a70099dc92135bcc75e0b022bfd2ecddc8103426f6eefc399d51",
+  "by_gap": [
+    {
+      "gap": 42,
+      "input_length": 294,
+      "full_forecast_length": 66,
+      "cases": 912,
+      "bridge_seconds": 11.064525016000005,
+      "clock_blind_seconds": 9.75500230099999
+    },
+    {
+      "gap": 84,
+      "input_length": 252,
+      "full_forecast_length": 108,
+      "cases": 912,
+      "bridge_seconds": 10.878402963000013,
+      "clock_blind_seconds": 8.508968697
+    },
+    {
+      "gap": 168,
+      "input_length": 168,
+      "full_forecast_length": 192,
+      "cases": 912,
+      "bridge_seconds": 10.961710819999979,
+      "clock_blind_seconds": 6.444099967
+    }
+  ],
+  "total_seconds": 63.422301398
+}
