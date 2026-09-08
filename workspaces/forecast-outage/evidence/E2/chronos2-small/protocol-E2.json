@@ -1,0 +1,26 @@
+{
+  "study_id": "E2",
+  "status": "Exploratory failure-attribution extension frozen after E0 all-model results and E1 Bolt/Small results, before E2 outputs. Not confirmatory.",
+  "source_run": 34237152841,
+  "source_code_commit": "959f0d955b09b2b7257a4b691f36d6417bce13ae",
+  "cohort": "Exactly all 14592 E0 test cases per model. No new model inference or test exclusions.",
+  "question": "Does failure originate from unseen outage structure, unseen domain, or noisy historical winner selection?",
+  "fit": "Same HistGradientBoostingRegressor and all hyperparameters as E0. No tuning. Labels are stored E0 losses from development origins only.",
+  "regimes": {
+    "original": "Source domains; dev; clean/random/middle; rates <=0.25. Refit all three E0 gates and require identical test choices.",
+    "source_tail": "Source domains; dev; all families; rates <=0.25. Full, rate-only, width-only gates.",
+    "source_all": "Source domains; dev; all families; all rates. Full-feature gate.",
+    "target_tail": "Held-out domain's dev origins; all families; rates <=0.25. Full gate. This explicitly uses target-domain calibration and is NOT domain-transfer evaluation."
+  },
+  "replay": "Matched historical replay restricted to native vs seasonal median, with either plain mean-difference selection or mean > one estimated standard error from the 3 recorded historical windows. This is a heuristic, not a safety/coverage guarantee.",
+  "analysis": "Preserve every regime. Same fixed-domain 10000 paired circular block bootstrap, block length4 and shared ETTh1/ETTh2 draws. Previously inspected test cohort; descriptive intervals only, no adjusted significance claims.",
+  "budget": {
+    "runner": "ubuntu-24.04 standard",
+    "threads": 4,
+    "max_parallel": 2,
+    "job_timeout_minutes": 10,
+    "new_checkpoint_inference": false,
+    "paid_compute": false,
+    "schedule": false
+  }
+}

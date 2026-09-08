@@ -1,0 +1,74 @@
+[
+  {
+    "domain": "electricity",
+    "gate": "full",
+    "mismatches": 0,
+    "cases": 3072
+  },
+  {
+    "domain": "electricity",
+    "gate": "rate",
+    "mismatches": 0,
+    "cases": 3072
+  },
+  {
+    "domain": "electricity",
+    "gate": "uncertainty",
+    "mismatches": 0,
+    "cases": 3072
+  },
+  {
+    "domain": "traffic",
+    "gate": "full",
+    "mismatches": 0,
+    "cases": 3072
+  },
+  {
+    "domain": "traffic",
+    "gate": "rate",
+    "mismatches": 0,
+    "cases": 3072
+  },
+  {
+    "domain": "traffic",
+    "gate": "uncertainty",
+    "mismatches": 0,
+    "cases": 3072
+  },
+  {
+    "domain": "transformer",
+    "gate": "full",
+    "mismatches": 0,
+    "cases": 5376
+  },
+  {
+    "domain": "transformer",
+    "gate": "rate",
+    "mismatches": 0,
+    "cases": 5376
+  },
+  {
+    "domain": "transformer",
+    "gate": "uncertainty",
+    "mismatches": 0,
+    "cases": 5376
+  },
+  {
+    "domain": "weather",
+    "gate": "full",
+    "mismatches": 0,
+    "cases": 3072
+  },
+  {
+    "domain": "weather",
+    "gate": "rate",
+    "mismatches": 0,
+    "cases": 3072
+  },
+  {
+    "domain": "weather",
+    "gate": "uncertainty",
+    "mismatches": 0,
+    "cases": 3072
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "pip-freeze.txt": "ae4171339e9ed9a1bfea98fd535d9dcae154bb6c878f7bc26afeb11d5e065038",
+  "refit-checks.json": "9630bd868d31b2435b7017fefddf8e3bff861ce999f72a83c5f44c276851458f",
+  "folds.json": "99eedc747f8039c1f965c60324d127f7fb7dca5fa2c345613606e40e2a867f49",
+  "summary.json": "188e893c46d141322f36f661907a18eeaff704436401f5d134d6af0742ceea8b",
+  "runtime.json": "723a9ee2ab9c7e11d2cc44d2a6840e179e0dd3bde658e92d9e608f7ff4f5d478",
+  "scores.csv.gz": "8985df5b7ee13c69a3b41f77f876fbf675c1b5c8aaaa2a755fd4d4bc97c4f4cc",
+  "protocol-E2.json": "6113c5362be641140c8a7979cc0e25824d8ba4032444a9a03b36aacf9e7b28e2"
+}
