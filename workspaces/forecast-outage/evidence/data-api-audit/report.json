@@ -1,0 +1,121 @@
+{
+  "columns": [
+    "date",
+    "p (mbar)",
+    "T (degC)",
+    "Tpot (K)",
+    "Tdew (degC)",
+    "rh (%)",
+    "VPmax (mbar)",
+    "VPact (mbar)",
+    "VPdef (mbar)",
+    "sh (g/kg)",
+    "H2OC (mmol/mol)",
+    "rho (g/m**3)",
+    "wv (m/s)",
+    "max. wv (m/s)",
+    "wd (deg)",
+    "rain (mm)",
+    "raining (s)",
+    "SWDR (W/m\ufffd)",
+    "PAR (\ufffdmol/m\ufffd/s)",
+    "max. PAR (\ufffdmol/m\ufffd/s)",
+    "Tlog (degC)",
+    "OT"
+  ],
+  "shape": [
+    52696,
+    22
+  ],
+  "head_dates": [
+    "2020-01-01 00:10:00",
+    "2020-01-01 00:20:00",
+    "2020-01-01 00:30:00",
+    "2020-01-01 00:40:00",
+    "2020-01-01 00:50:00",
+    "2020-01-01 01:00:00",
+    "2020-01-01 01:10:00",
+    "2020-01-01 01:20:00",
+    "2020-01-01 01:30:00",
+    "2020-01-01 01:40:00"
+  ],
+  "tail_dates": [
+    "2020-12-31 22:30:00",
+    "2020-12-31 22:40:00",
+    "2020-12-31 22:50:00",
+    "2020-12-31 23:00:00",
+    "2020-12-31 23:10:00",
+    "2020-12-31 23:20:00",
+    "2020-12-31 23:30:00",
+    "2020-12-31 23:40:00",
+    "2020-12-31 23:50:00",
+    "2021-01-01 00:00:00"
+  ],
+  "duplicate_count": 2,
+  "non_increasing_count": 1,
+  "time_step_counts": {
+    "0 days 00:10:00": 52693,
+    "0 days 00:00:00": 1,
+    "0 days 01:40:00": 1
+  },
+  "anomaly_rows": [
+    {
+      "date": "2020-05-12 06:00:00",
+      "p (mbar)": 991.53,
+      "T (degC)": -1.57,
+      "Tpot (K)": 272.25,
+      "Tdew (degC)": -2.09,
+      "rh (%)": 96.2,
+      "VPmax (mbar)": 5.44,
+      "VPact (mbar)": 5.24,
+      "VPdef (mbar)": 0.21,
+      "sh (g/kg)": 3.29,
+      "H2OC (mmol/mol)": 5.28,
+      "rho (g/m**3)": 1269.29,
+      "wv (m/s)": 1.04,
+      "max. wv (m/s)": 1.68,
+      "wd (deg)": 215.4,
+      "rain (mm)": 0.0,
+      "raining (s)": 0.0,
+      "SWDR (W/m\ufffd)": 84.91,
+      "PAR (\ufffdmol/m\ufffd/s)": 176.64,
+      "max. PAR (\ufffdmol/m\ufffd/s)": 199.61,
+      "Tlog (degC)": 10.19,
+      "OT": 445.9
+    },
+    {
+      "date": "2020-05-12 06:00:00",
+      "p (mbar)": 991.53,
+      "T (degC)": -1.57,
+      "Tpot (K)": 272.25,
+      "Tdew (degC)": -2.09,
+      "rh (%)": 96.2,
+      "VPmax (mbar)": 5.44,
+      "VPact (mbar)": 5.24,
+      "VPdef (mbar)": 0.21,
+      "sh (g/kg)": 3.29,
+      "H2OC (mmol/mol)": 5.28,
+      "rho (g/m**3)": 1269.29,
+      "wv (m/s)": 1.04,
+      "max. wv (m/s)": 1.68,
+      "wd (deg)": 215.4,
+      "rain (mm)": 0.0,
+      "raining (s)": 0.0,
+      "SWDR (W/m\ufffd)": 84.91,
+      "PAR (\ufffdmol/m\ufffd/s)": 176.64,
+      "max. PAR (\ufffdmol/m\ufffd/s)": 199.61,
+      "Tlog (degC)": 10.19,
+      "OT": 445.9
+    }
+  ],
+  "models": [
+    {
+      "key": "chronos2-small",
+      "error": "ValueError('Expected 3-d tensor with shape (n_series, n_variates, history_length), got shape (4, 336).')"
+    },
+    {
+      "key": "chronos2-synth",
+      "error": "ValueError('Expected 3-d tensor with shape (n_series, n_variates, history_length), got shape (4, 336).')"
+    }
+  ]
+}
