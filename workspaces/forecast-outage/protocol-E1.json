@@ -1,0 +1,17 @@
+{
+  "study_id": "E1",
+  "status": "exploratory extension frozen after inspecting E0 Bolt-Tiny outcomes and before inspecting any E1 outputs",
+  "motivation": "E0 Bolt-Tiny did not support added fallback complexity. Test a simpler temporal-alignment baseline rather than tune a gate on the test set.",
+  "source_run": "34237152841",
+  "source_commit": "959f0d955b09b2b7257a4b691f36d6417bce13ae",
+  "source_evidence_branch": "evidence/forecast-E0-bolt-tiny-34237152841",
+  "cohort": "all E0 test tail cases, identical IDs, targets, scales and model revisions",
+  "methods": {
+    "bridge": "Use only the observed prefix of the E0 336-hour context, forecast k+24 hours from the last observed time, and retain positions k:k+24. No older observations, hidden outage values, fitted selector, or labels are passed into inference.",
+    "clock_blind_control": "Deliberately forecast only 24 hours from the same shortened prefix and compare to the outer target. This is a labelled misaligned negative control, NOT a deployment method or a novel improvement."
+  },
+  "comparators": ["E0 native", "E0 phase_filled", "E0 equal_ensemble", "E0 replay_matched"],
+  "budget": {"device":"cpu", "threads":4, "batch_size":32, "max_parallel":2, "timeout_minutes":25},
+  "aggregation": "same fixed-domain balancing and paired-origin block bootstrap as E0",
+  "restrictions": ["no gate retraining or threshold tuning", "no performance-based exclusions", "no confirmatory claim on reused test origins", "no claim that bridge forecasting itself is novel", "long-horizon checkpoint limitations must be disclosed"]
+}

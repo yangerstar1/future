@@ -1,0 +1,70 @@
+name: Forecast outage - E1 horizon alignment
+on:
+  push:
+    branches: [research/forecast-outage]
+    paths:
+      - .github/workflows/forecast-outage-E1.yml
+      - workspaces/forecast-outage/bridge.py
+      - workspaces/forecast-outage/protocol-E1.json
+permissions:
+  contents: write
+concurrency:
+  group: forecast-outage-E0
+  cancel-in-progress: false
+jobs:
+  bridge:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        model: [bolt-tiny, chronos2-small, chronos2-synth]
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      HF_HUB_DOWNLOAD_TIMEOUT: '120'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      OPENBLAS_NUM_THREADS: '4'
+      MODEL: ${{ matrix.model }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: evidence/forecast-E0-bolt-tiny-34237152841
+          path: .e0-inputs
+          sparse-checkout: workspaces/forecast-outage/evidence/E0/bolt-tiny
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          mkdir -p workspaces/forecast-outage/evidence/E1/${MODEL}
+          python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r workspaces/forecast-outage/requirements-cpu.lock
+          python -m pip check
+      - name: Execute horizon alignment and labelled negative control
+        run: |
+          set -o pipefail
+          python -u workspaces/forecast-outage/bridge.py --model "${MODEL}" --e0 .e0-inputs/workspaces/forecast-outage/evidence/E0/bolt-tiny 2>&1 | tee workspaces/forecast-outage/evidence/E1/${MODEL}/run.log
+      - name: Preserve independent extension evidence
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/forecast-E1-${MODEL}-${GITHUB_RUN_ID}
+          git add workspaces/forecast-outage/evidence/E1/${MODEL}
+          if ! git diff --cached --quiet; then
+            git commit -m "research: preserve E1 ${MODEL} horizon-alignment evidence [skip ci]"
+            git push origin HEAD
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: forecast-E1-${{ matrix.model }}-${{ github.run_id }}
+          path: |
+            workspaces/forecast-outage/evidence/E1/${{ matrix.model }}
+            workspaces/forecast-outage/bridge.py
+            workspaces/forecast-outage/protocol-E1.json
+          retention-days: 14
+          if-no-files-found: error
