@@ -1,0 +1,24 @@
+{
+  "model": {
+    "id": "autogluon/chronos-2-small",
+    "revision": "ddec01313e50b6bc58ebaa92ede81bc24a3d9f9a",
+    "pretraining_overlap": "not audited; do not claim strict zero-shot"
+  },
+  "class": "Chronos2Pipeline",
+  "load_seconds": 1.2971462869999755,
+  "quantile_signature": "(inputs: Union[torch.Tensor, numpy.ndarray, Sequence[torch.Tensor | numpy.ndarray], Sequence[Mapping[str, Union[torch.Tensor, numpy.ndarray, Mapping[str, torch.Tensor | numpy.ndarray]]]], Sequence[chronos.chronos2.preprocess.PreparedInput]], prediction_length: int | None = None, quantile_levels: list[float] = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9], **predict_kwargs) -> tuple[list[torch.Tensor], list[torch.Tensor]]",
+  "python": "3.11.16",
+  "torch": "2.8.0+cpu",
+  "cpus": 4,
+  "cuda": false,
+  "commit": "959f0d955b09b2b7257a4b691f36d6417bce13ae",
+  "run_id": "34237152841",
+  "code_sha256": "129330a1ab9fe8535b9379aef92078434bd47449046a949b2096ba34ec9120f2",
+  "protocol_sha256": "7f98628dd762d8f46113bb9e2fc76422f8ce301c92fe7aef6ce1488b65a43cf2",
+  "batch_invariance_maxdiff": 5.7220458984375e-06,
+  "native_seconds": 235.29083376199998,
+  "filled_seconds": 232.79039995900007,
+  "replay_seconds": 176.31192536499998,
+  "total_seconds": 715.558174754,
+  "forecast_calls_in_windows": 60132
+}

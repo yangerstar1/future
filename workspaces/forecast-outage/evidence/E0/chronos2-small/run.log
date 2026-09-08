@@ -1,0 +1,124 @@
+SELF_TEST_PASS: exact mask counts, calendar alignment, causality, finite baselines, deterministic masks
+DATA {"dataset": "ETTh1", "domain": "transformer", "path": "ETT-small/ETTh1.csv", "sha256": "f18de3ad269cef59bb07b5438d79bb3042d3be49bdeecf01c1cd6d29695ee066", "revision": "2b66e59ee19dac8f6f19fb5d4997f289fdfea357", "raw_rows": 17420, "exact_duplicate_rows_removed": 0, "hourly_rows": 17420, "columns_total": 7, "columns_eligible": 7, "selected_columns": ["MUFL", "HUFL", "LUFL", "LULL", "MULL", "OT", "HULL"], "start": "2016-07-01 00:00:00", "end": "2018-06-26 19:00:00", "scale_prefix_end": "2017-04-17 07:00:00", "source_step": "0 days 01:00:00"}
+DATA {"dataset": "ETTh2", "domain": "transformer", "path": "ETT-small/ETTh2.csv", "sha256": "a3dc2c597b9218c7ce1cd55eb77b283fd459a1d09d753063f944967dd6b9218b", "revision": "2b66e59ee19dac8f6f19fb5d4997f289fdfea357", "raw_rows": 17420, "exact_duplicate_rows_removed": 0, "hourly_rows": 17420, "columns_total": 7, "columns_eligible": 7, "selected_columns": ["HUFL", "OT", "MULL", "MUFL", "HULL", "LUFL", "LULL"], "start": "2016-07-01 00:00:00", "end": "2018-06-26 19:00:00", "scale_prefix_end": "2017-04-17 07:00:00", "source_step": "0 days 01:00:00"}
+DATA {"dataset": "electricity", "domain": "electricity", "path": "electricity/electricity.csv", "sha256": "7e45845d54c5219bad0ae6bc1b5316cf8ff9cead5d33fa998a5a51c2e4a497ad", "revision": "2b66e59ee19dac8f6f19fb5d4997f289fdfea357", "raw_rows": 26304, "exact_duplicate_rows_removed": 0, "hourly_rows": 26304, "columns_total": 321, "columns_eligible": 321, "selected_columns": ["113", "233", "287", "152", "301", "234", "39", "88"], "start": "2016-07-01 02:00:00", "end": "2019-07-02 01:00:00", "scale_prefix_end": "2017-09-12 10:00:00", "source_step": "0 days 01:00:00"}
+DATA {"dataset": "traffic", "domain": "traffic", "path": "traffic/traffic.csv", "sha256": "cb06463d56fa17d87f47027cd9389ceae82a69eddee51cdb61480e120dab0b16", "revision": "2b66e59ee19dac8f6f19fb5d4997f289fdfea357", "raw_rows": 17544, "exact_duplicate_rows_removed": 0, "hourly_rows": 17544, "columns_total": 862, "columns_eligible": 862, "selected_columns": ["479", "323", "17", "47", "295", "284", "350", "133"], "start": "2016-07-01 02:00:00", "end": "2018-07-02 01:00:00", "scale_prefix_end": "2017-04-19 10:00:00", "source_step": "0 days 01:00:00"}
+DATA {"dataset": "weather", "domain": "weather", "path": "weather/weather.csv", "sha256": "34ee981d07313e51da2a50bb600072c8ae4a69cb4b0651f4cb93a069d7a2ba63", "revision": "2b66e59ee19dac8f6f19fb5d4997f289fdfea357", "raw_rows": 52696, "exact_duplicate_rows_removed": 1, "hourly_rows": 8784, "columns_total": 21, "columns_eligible": 21, "selected_columns": ["max. PAR (\ufffdmol/m\ufffd/s)", "Tlog (degC)", "rh (%)", "rho (g/m**3)", "OT", "max. wv (m/s)", "Tpot (K)", "SWDR (W/m\ufffd)"], "start": "2020-01-01 01:00:00", "end": "2021-01-01 00:00:00", "scale_prefix_end": "2020-05-26 09:00:00", "source_step": "0 days 00:10:00"}
+CASES 21856 REPLAYS 16416 EXCLUSIONS 2
+INFERENCE 0 / 3 seconds 0.05
+INFERENCE 0 / 1 seconds 0.03
+INFERENCE 0 / 21856 seconds 0.68
+INFERENCE 6400 / 21856 seconds 69.68
+INFERENCE 12800 / 21856 seconds 138.66
+INFERENCE 19200 / 21856 seconds 207.6
+INFERENCE 0 / 21856 seconds 0.7
+INFERENCE 6400 / 21856 seconds 68.93
+INFERENCE 12800 / 21856 seconds 136.81
+INFERENCE 19200 / 21856 seconds 204.91
+INFERENCE 0 / 16416 seconds 0.68
+INFERENCE 6400 / 16416 seconds 70.29
+INFERENCE 12800 / 16416 seconds 138.78
+SUMMARY {
+  "scope": "E0 exploratory; not a confirmatory publication result",
+  "cases": 21856,
+  "test_cases": 14592,
+  "base_forecast_windows": 912,
+  "domains": [
+    "electricity",
+    "traffic",
+    "transformer",
+    "weather"
+  ],
+  "datasets": [
+    "ETTh1",
+    "ETTh2",
+    "electricity",
+    "traffic",
+    "weather"
+  ],
+  "series": 38,
+  "all_test": {
+    "mase_native": 0.9317796779771482,
+    "mase_phase_filled": 0.9644214492662677,
+    "mase_persistence": 2.94082880914982,
+    "mase_seasonal_last": 1.1724814979736284,
+    "mase_seasonal_median": 1.1705390374187037,
+    "mase_equal_ensemble": 0.9919671352216184,
+    "mase_gate_rate": 0.9317796779771482,
+    "mase_gate_uncertainty": 0.9317796779771482,
+    "mase_gate_full": 0.9413539238951756,
+    "mase_source_best_fixed": 0.9317796779771482,
+    "mase_oracle_pair": 0.8338967740955923,
+    "mase_replay_clean": 0.9452809902845797,
+    "mase_replay_matched": 0.9584481127251271,
+    "coverage80": 0.7577455873842593,
+    "width80_scaled": 2.5261263600650654,
+    "quantile_crossing": 0.00035342261904761904
+  },
+  "tail_test": {
+    "mase_native": 1.1432459197991593,
+    "mase_phase_filled": 1.1926203269227584,
+    "mase_persistence": 3.0959827939045272,
+    "mase_seasonal_last": 1.4045785215076512,
+    "mase_seasonal_median": 1.2505270490180682,
+    "mase_equal_ensemble": 1.1524620616870578,
+    "mase_gate_rate": 1.1432459197991593,
+    "mase_gate_uncertainty": 1.1432459197991593,
+    "mase_gate_full": 1.1445625928736516,
+    "mase_source_best_fixed": 1.1432459197991593,
+    "mase_oracle_pair": 1.0136985362856028,
+    "mase_replay_clean": 1.1882502941572644,
+    "mase_replay_matched": 1.232140702292422,
+    "coverage80": 0.7241159267526455,
+    "width80_scaled": 2.828078373581261,
+    "quantile_crossing": 0.000496031746031746
+  },
+  "clean_test": {
+    "mase_native": 0.7958398097161058,
+    "mase_phase_filled": 0.7958398097161058,
+    "mase_persistence": 2.8802575127472285,
+    "mase_seasonal_last": 1.03823114704144,
+    "mase_seasonal_median": 1.1323216501553697,
+    "mase_equal_ensemble": 0.9004997814345548,
+    "mase_gate_rate": 0.7958398097161058,
+    "mase_gate_uncertainty": 0.7958398097161058,
+    "mase_gate_full": 0.8069134181670112,
+    "mase_source_best_fixed": 0.7958398097161058,
+    "mase_oracle_pair": 0.7198230128301706,
+    "mase_replay_clean": 0.7958398097161058,
+    "mase_replay_matched": 0.7958398097161058,
+    "coverage80": 0.7490389384920636,
+    "width80_scaled": 2.083595640006388,
+    "quantile_crossing": 0.0
+  },
+  "seed": 20260908,
+  "no_test_domain_labels_in_gates": true,
+  "replay_label_end_le_outage_start": true,
+  "bootstrap_status": "pending independent paired-block analysis",
+  "novelty_status": "not established",
+  "publication_ready": false
+}
+COMPLETED {
+  "model": {
+    "id": "autogluon/chronos-2-small",
+    "revision": "ddec01313e50b6bc58ebaa92ede81bc24a3d9f9a",
+    "pretraining_overlap": "not audited; do not claim strict zero-shot"
+  },
+  "class": "Chronos2Pipeline",
+  "load_seconds": 1.2971462869999755,
+  "quantile_signature": "(inputs: Union[torch.Tensor, numpy.ndarray, Sequence[torch.Tensor | numpy.ndarray], Sequence[Mapping[str, Union[torch.Tensor, numpy.ndarray, Mapping[str, torch.Tensor | numpy.ndarray]]]], Sequence[chronos.chronos2.preprocess.PreparedInput]], prediction_length: int | None = None, quantile_levels: list[float] = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9], **predict_kwargs) -> tuple[list[torch.Tensor], list[torch.Tensor]]",
+  "python": "3.11.16",
+  "torch": "2.8.0+cpu",
+  "cpus": 4,
+  "cuda": false,
+  "commit": "959f0d955b09b2b7257a4b691f36d6417bce13ae",
+  "run_id": "34237152841",
+  "code_sha256": "129330a1ab9fe8535b9379aef92078434bd47449046a949b2096ba34ec9120f2",
+  "protocol_sha256": "7f98628dd762d8f46113bb9e2fc76422f8ce301c92fe7aef6ce1488b65a43cf2",
+  "batch_invariance_maxdiff": 5.7220458984375e-06,
+  "native_seconds": 235.29083376199998,
+  "filled_seconds": 232.79039995900007,
+  "replay_seconds": 176.31192536499998,
+  "total_seconds": 715.558174754,
+  "forecast_calls_in_windows": 60132
+}

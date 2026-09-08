@@ -1,0 +1,92 @@
+{
+  "study_id": "E0",
+  "status": "exploratory protocol frozen before model/data results",
+  "seed": 20260908,
+  "context": 336,
+  "horizon": 24,
+  "period": 24,
+  "rates": [
+    0.125,
+    0.25,
+    0.5
+  ],
+  "mask_seeds": [
+    17,
+    29,
+    43
+  ],
+  "max_series": 8,
+  "dev_origins": 12,
+  "test_origins": 24,
+  "replay_windows": 3,
+  "batch_size": 64,
+  "dataset_repo": "thuml/Time-Series-Library",
+  "dataset_revision": "2b66e59ee19dac8f6f19fb5d4997f289fdfea357",
+  "datasets": [
+    {
+      "name": "ETTh1",
+      "domain": "transformer",
+      "path": "ETT-small/ETTh1.csv"
+    },
+    {
+      "name": "ETTh2",
+      "domain": "transformer",
+      "path": "ETT-small/ETTh2.csv"
+    },
+    {
+      "name": "electricity",
+      "domain": "electricity",
+      "path": "electricity/electricity.csv"
+    },
+    {
+      "name": "traffic",
+      "domain": "traffic",
+      "path": "traffic/traffic.csv"
+    },
+    {
+      "name": "weather",
+      "domain": "weather",
+      "path": "weather/weather.csv"
+    }
+  ],
+  "models": {
+    "bolt-tiny": {
+      "id": "amazon/chronos-bolt-tiny",
+      "revision": "a0e552de83495b5c28c14c71c374f3e33280b340",
+      "pretraining_overlap": "not audited; do not claim strict zero-shot"
+    },
+    "chronos2-small": {
+      "id": "autogluon/chronos-2-small",
+      "revision": "ddec01313e50b6bc58ebaa92ede81bc24a3d9f9a",
+      "pretraining_overlap": "not audited; do not claim strict zero-shot"
+    },
+    "chronos2-synth": {
+      "id": "autogluon/chronos-2-synth",
+      "revision": "3607918a9fd027d5c465d8213e46b98e2c041cea",
+      "pretraining_overlap": "synthetic-only according to official model card; not independently audited"
+    }
+  },
+  "selector_training": "leave-one-domain-out; only source-domain dev origins; clean/random/middle at <=25%; no tail or 50% masks",
+  "primary_outcome": "domain-balanced MASE on tail test cases; compare all prespecified methods including equal ensemble and phase-filled foundation model",
+  "aggregation": "average mask seeds and origins within series/family/rate, then series, then condition cells, then datasets within domain, then four fixed domains",
+  "uncertainty_plan": "paired circular moving-block bootstrap over test origin index, block length 4, 10000 replicates, same blocks for all methods/series/conditions within dataset; fixed domains not a population sample",
+  "prohibited_claims": [
+    "first sensor-fault benchmark",
+    "novelty established",
+    "real fault validation",
+    "strict zero-shot for unaudited checkpoints",
+    "submission readiness",
+    "safety guarantee",
+    "oracle is deployable"
+  ],
+  "resource_budget": {
+    "runner": "ubuntu-24.04 standard",
+    "device": "cpu",
+    "threads": 4,
+    "max_parallel": 2,
+    "job_timeout_minutes": 45,
+    "models": 3,
+    "no_schedules": true,
+    "no_paid_compute": true
+  }
+}

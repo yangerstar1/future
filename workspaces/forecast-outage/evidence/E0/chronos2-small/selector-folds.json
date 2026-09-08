@@ -1,0 +1,46 @@
+[
+  {
+    "held_out_domain": "electricity",
+    "train_cases": 3222,
+    "test_cases": 3072,
+    "train_families": [
+      "clean",
+      "middle",
+      "random"
+    ],
+    "source_best_fixed": "native"
+  },
+  {
+    "held_out_domain": "traffic",
+    "train_cases": 3222,
+    "test_cases": 3072,
+    "train_families": [
+      "clean",
+      "middle",
+      "random"
+    ],
+    "source_best_fixed": "native"
+  },
+  {
+    "held_out_domain": "transformer",
+    "train_cases": 2574,
+    "test_cases": 5376,
+    "train_families": [
+      "clean",
+      "middle",
+      "random"
+    ],
+    "source_best_fixed": "native"
+  },
+  {
+    "held_out_domain": "weather",
+    "train_cases": 3240,
+    "test_cases": 3072,
+    "train_families": [
+      "clean",
+      "middle",
+      "random"
+    ],
+    "source_best_fixed": "native"
+  }
+]
