@@ -1,0 +1,16 @@
+Blender 4.5.13 LTS (hash daeeeca98fb0 built 2026-08-25 01:31:19)
+Read blend: "/home/runner/work/future/future/workspaces/skyfold-dock/output/r04b/skyfold-r04b.blend"
+Fra:1 Mem:234.06M (Peak 242.87M) | Time:00:38.36 | Rendering 1 / 16 samples
+Fra:1 Mem:234.06M (Peak 242.87M) | Time:00:59.60 | Rendering 16 / 16 samples
+Saved: '/home/runner/work/future/future/workspaces/skyfold-dock/output/r04b/BLENDER_EEVEE_NEXT_f001.png'
+Time: 00:59.95 (Saving: 00:00.33)
+
+PROBE_FRAME {'engine': 'BLENDER_EEVEE_NEXT', 'frame': 1, 'file': 'BLENDER_EEVEE_NEXT_f001.png', 'dimensions': [1920, 1080], 'seconds': 60.00675136199999, 'samples': 16, 'scene_sha256': '67a82412f11c2dc678c8f6ddc3caef1348422901cfbae0bdc0fde2180663482f', 'sha256': '70bc29c4924393777abd51cd464c629d3eb1a7b4729c142034ebc83eaffa193b', 'camera_matrix': [[0.7709617018699646, -0.302471786737442, -0.5604720711708069, -820.0], [-0.6368815302848816, -0.3661502003669739, -0.6784660220146179, 30.0], [-7.225488474205122e-08, 0.8800256252288818, -0.4749264717102051, 335.0], [0.0, 0.0, 0.0, 1.0]], 'ring_matrix': [[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 900.0], [0.0, 0.0, 1.0, 1600.0], [0.0, 0.0, 0.0, 1.0]], 'source_sha': '9f6802a34960914924bd827431ac0f5f2ef44d8e', 'peak_rss_kib': 5868256, 'visual_status': 'NOT_OBSERVED'}
+Fra:97 Mem:239.04M (Peak 242.91M) | Time:00:15.96 | Rendering 1 / 16 samples
+Fra:97 Mem:239.04M (Peak 242.91M) | Time:00:42.26 | Rendering 16 / 16 samples
+Saved: '/home/runner/work/future/future/workspaces/skyfold-dock/output/r04b/BLENDER_EEVEE_NEXT_f097.png'
+Time: 00:42.52 (Saving: 00:00.24)
+
+PROBE_FRAME {'engine': 'BLENDER_EEVEE_NEXT', 'frame': 97, 'file': 'BLENDER_EEVEE_NEXT_f097.png', 'dimensions': [1920, 1080], 'seconds': 42.58421330200002, 'samples': 16, 'scene_sha256': '67a82412f11c2dc678c8f6ddc3caef1348422901cfbae0bdc0fde2180663482f', 'sha256': '42c81f052eb99634a4eadc156031195451f625154e15b891ba7d4c6f0338626d', 'camera_matrix': [[0.7610301375389099, -0.2708878517150879, -0.5894514322280884, -921.7905883789062], [-0.6487165689468384, -0.3177872896194458, -0.6915044188499451, -25.2879638671875], [4.5232482648316363e-08, 0.908642590045929, -0.4175751805305481, 405.9671630859375], [0.0, 0.0, 0.0, 1.0]], 'ring_matrix': [[0.9986151456832886, 0.0, 0.05260971188545227, 0.0], [0.0, 1.0, 0.0, 900.0], [-0.05260971188545227, 0.0, 0.9986151456832886, 1600.0], [0.0, 0.0, 0.0, 1.0]], 'source_sha': '9f6802a34960914924bd827431ac0f5f2ef44d8e', 'peak_rss_kib': 6491248, 'visual_status': 'NOT_OBSERVED'}
+
+Blender quit

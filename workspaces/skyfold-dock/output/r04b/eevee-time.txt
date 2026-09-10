@@ -1,0 +1,23 @@
+	Command being timed: "timeout 180s xvfb-run -a -s -screen 0 1920x1080x24 blender -b /home/runner/work/future/future/workspaces/skyfold-dock/output/r04b/skyfold-r04b.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/probe_r04b.py"
+	User time (seconds): 271.89
+	System time (seconds): 3.68
+	Percent of CPU this job got: 265%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:43.98
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6491248
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1061
+	Minor (reclaiming a frame) page faults: 931615
+	Voluntary context switches: 32847
+	Involuntary context switches: 40657
+	Swaps: 0
+	File system inputs: 168376
+	File system outputs: 15000
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
