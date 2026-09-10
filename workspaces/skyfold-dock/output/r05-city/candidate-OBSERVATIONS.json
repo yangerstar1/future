@@ -1,0 +1,563 @@
+[
+  {
+    "file": "candidate_R04_HERO_001.png",
+    "phase": "candidate",
+    "candidate": "R05_CITY_HIERARCHY_STUDY",
+    "scene_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "render_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "scene_sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1",
+    "sha256": "772c2b1f0395971824303891ec7a33b09ef8f7ea5ec99c60b96776a112661914",
+    "camera": "R04_HERO",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.0
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.0
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 24,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "seconds": 56.09485032499998,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_HERO_001_NEUTRAL.png",
+    "phase": "candidate",
+    "candidate": "R05_CITY_HIERARCHY_STUDY",
+    "scene_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "render_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "scene_sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1",
+    "sha256": "716ba68b01767c36728ff18592dfe767840233119a3066a1e35a08d09afc11b8",
+    "camera": "R04_HERO",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.0
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.0
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 24,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "seconds": 59.109956643000004,
+    "neutral": true,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_SECOND_001.png",
+    "phase": "candidate",
+    "candidate": "R05_CITY_HIERARCHY_STUDY",
+    "scene_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "render_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "scene_sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1",
+    "sha256": "82916f748d3d2e500c023a0b8bbf506844d862fc7dd9deae677d49e590dd03bd",
+    "camera": "R04_SECOND",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.9134947061538696,
+        0.04531445354223251,
+        -0.40431925654411316,
+        -2500.0
+      ],
+      [
+        -0.406850665807724,
+        0.1017436608672142,
+        -0.9078109860420227,
+        -3600.0
+      ],
+      [
+        -2.6841084022066752e-08,
+        0.9937781095504761,
+        0.1113785058259964,
+        2350.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 35.0,
+    "samples": 16,
+    "dimensions": [
+      960,
+      540
+    ],
+    "seconds": 18.512259531999973,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_HERO_097.png",
+    "phase": "candidate",
+    "candidate": "R05_CITY_HIERARCHY_STUDY",
+    "scene_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "render_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "scene_sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1",
+    "sha256": "3fd92095448ba00357d540f71d4d11bfb7ad32e087828c52a20859e4a46f8933",
+    "camera": "R04_HERO",
+    "frame": 97,
+    "camera_matrix": [
+      [
+        0.7885475158691406,
+        -0.1153763085603714,
+        -0.6040539145469666,
+        -876.198974609375
+      ],
+      [
+        -0.6149738430976868,
+        -0.14794081449508667,
+        -0.7745455503463745,
+        -25.2879638671875
+      ],
+      [
+        2.0749244100670694e-08,
+        0.9822432994842529,
+        -0.18761178851127625,
+        1128.060791015625
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 12,
+    "dimensions": [
+      960,
+      540
+    ],
+    "seconds": 20.19939195400002,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_HERO_192.png",
+    "phase": "candidate",
+    "candidate": "R05_CITY_HIERARCHY_STUDY",
+    "scene_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "render_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "scene_sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1",
+    "sha256": "368277187e9e4d538d0ce754fd7f7702d1810f35840d0f8816aea29c10e7f9bf",
+    "camera": "R04_HERO",
+    "frame": 192,
+    "camera_matrix": [
+      [
+        0.788118839263916,
+        -0.08527833223342896,
+        -0.6095870137214661,
+        -926.9208984375
+      ],
+      [
+        -0.615523099899292,
+        -0.10919086635112762,
+        -0.7805182933807373,
+        -80.0
+      ],
+      [
+        6.437229416178525e-09,
+        0.9903560280799866,
+        -0.1385461837053299,
+        1199.69677734375
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 12,
+    "dimensions": [
+      960,
+      540
+    ],
+    "seconds": 20.321283789000006,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_O01_HERO_001.png",
+    "phase": "candidate",
+    "candidate": "R05_CITY_HIERARCHY_STUDY",
+    "scene_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "render_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "scene_sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1",
+    "sha256": "6e21afd48094c7228f1f37d24a595e9dbf21f0a148b5115051f94afe676b01e7",
+    "camera": "O01_HERO",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -310.0
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        196.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "samples": 8,
+    "dimensions": [
+      640,
+      360
+    ],
+    "seconds": 7.727135341999997,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_PARALLAX_000_001.png",
+    "phase": "candidate",
+    "candidate": "R05_CITY_HIERARCHY_STUDY",
+    "scene_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "render_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "scene_sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1",
+    "sha256": "e431eeecbd1c9ae10c79fcc2a7380ca69c03664f4d0e1a1e5ab677044c052b61",
+    "camera": "R04_PARALLAX_000",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -821.8973388671875
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        31.469755172729492
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 8,
+    "dimensions": [
+      640,
+      360
+    ],
+    "seconds": 7.550830202999975,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_PARALLAX_025_001.png",
+    "phase": "candidate",
+    "candidate": "R05_CITY_HIERARCHY_STUDY",
+    "scene_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "render_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "scene_sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1",
+    "sha256": "91b49bc857844f6d1195ec19ea149e0c33b3a30ca38d73592982b78f1f16e102",
+    "camera": "R04_PARALLAX_025",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.9486694335938
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.73487663269043
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 8,
+    "dimensions": [
+      640,
+      360
+    ],
+    "seconds": 7.7705847390000145,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_PARALLAX_050_001.png",
+    "phase": "candidate",
+    "candidate": "R05_CITY_HIERARCHY_STUDY",
+    "scene_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "render_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "scene_sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1",
+    "sha256": "5d1b88869157433607c53496ad8e5203abae33a5f64cda26c3aca94d4c2a810e",
+    "camera": "R04_PARALLAX_050",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.0
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.0
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 8,
+    "dimensions": [
+      640,
+      360
+    ],
+    "seconds": 7.750248789000011,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_PARALLAX_075_001.png",
+    "phase": "candidate",
+    "candidate": "R05_CITY_HIERARCHY_STUDY",
+    "scene_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "render_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "scene_sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1",
+    "sha256": "42d25a64be6b11b989cd69caad2585ffa14a3c0e893ad6c20223c5b5adaec990",
+    "camera": "R04_PARALLAX_075",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -819.0513305664062
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        29.26512336730957
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 8,
+    "dimensions": [
+      640,
+      360
+    ],
+    "seconds": 7.7052318300000024,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_PARALLAX_100_001.png",
+    "phase": "candidate",
+    "candidate": "R05_CITY_HIERARCHY_STUDY",
+    "scene_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "render_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "scene_sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1",
+    "sha256": "a155f50839dc5824af87fd21e95f345cdfa4d86b6cb5bb71b997fb390d0fc882",
+    "camera": "R04_PARALLAX_100",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -818.1026611328125
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        28.530244827270508
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 8,
+    "dimensions": [
+      640,
+      360
+    ],
+    "seconds": 7.620241480999994,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  }
+]

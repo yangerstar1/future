@@ -1,0 +1,118 @@
+{
+  "candidate": "R05_CITY_HIERARCHY_STUDY",
+  "source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+  "run_id": "34513988233",
+  "files": {
+    "candidate_R04_PARALLAX_050_001.png": {
+      "bytes": 354168,
+      "sha256": "5d1b88869157433607c53496ad8e5203abae33a5f64cda26c3aca94d4c2a810e"
+    },
+    "candidate_R04_PARALLAX_000_001.png": {
+      "bytes": 353472,
+      "sha256": "e431eeecbd1c9ae10c79fcc2a7380ca69c03664f4d0e1a1e5ab677044c052b61"
+    },
+    "control-OBSERVATIONS.json": {
+      "bytes": 1231,
+      "sha256": "2420098591ee155a32a8e20dc566e5a7e46ab2de1204546d6a39cbfd320e226e"
+    },
+    "control.log": {
+      "bytes": 62981,
+      "sha256": "9885e18c226c1ee8107540e65a0abed65c6f4c986124706522ab8983d604dbde"
+    },
+    "candidate_R04_SECOND_001.png": {
+      "bytes": 742798,
+      "sha256": "82916f748d3d2e500c023a0b8bbf506844d862fc7dd9deae677d49e590dd03bd"
+    },
+    "build.log": {
+      "bytes": 341,
+      "sha256": "f38c27c25172c25902febc16280e910ef04f059dd45c94d64fae5b3acf2f2c8f"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 195523,
+      "sha256": "028afbba3a6056b982fd2c173ed1a5e4d385eeb53d600bf69d8a08923e299f79"
+    },
+    "candidate-OBSERVATIONS.json": {
+      "bytes": 13849,
+      "sha256": "6bf75fa0b80123b8fa36b96d075c5da57662f5307b4fa1b35c5e12e7b7c94106"
+    },
+    "render.log": {
+      "bytes": 731687,
+      "sha256": "7612e51f38ba2314ba914c39b50a1924a6ab68127ccc7730a4abb3402baec2aa"
+    },
+    "candidate_R04_PARALLAX_025_001.png": {
+      "bytes": 353477,
+      "sha256": "91b49bc857844f6d1195ec19ea149e0c33b3a30ca38d73592982b78f1f16e102"
+    },
+    "candidate_R04_HERO_097.png": {
+      "bytes": 764452,
+      "sha256": "3fd92095448ba00357d540f71d4d11bfb7ad32e087828c52a20859e4a46f8933"
+    },
+    "candidate_R04_PARALLAX_075_001.png": {
+      "bytes": 354179,
+      "sha256": "42d25a64be6b11b989cd69caad2585ffa14a3c0e893ad6c20223c5b5adaec990"
+    },
+    "skyfold-r05.blend": {
+      "bytes": 2246184,
+      "sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1"
+    },
+    "PROTECTED-SIGNATURES.json": {
+      "bytes": 295146,
+      "sha256": "c91f9ae0a5473d9b2b72d8cf2e3d3433875c6147995148ed6f5d5e5c50505051"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "9a13e90e92dae1f4a0cb0ababfafe73218007d236cc16831ee99c827794790cd"
+    },
+    "environment.txt": {
+      "bytes": 581,
+      "sha256": "d1641c66d3762ba13ba24d959b848de447bdb4d5912bd5818f68699a57bd468f"
+    },
+    "candidate_R04_HERO_001_NEUTRAL.png": {
+      "bytes": 1043437,
+      "sha256": "716ba68b01767c36728ff18592dfe767840233119a3066a1e35a08d09afc11b8"
+    },
+    "control_R04_HERO_001.png": {
+      "bytes": 1338470,
+      "sha256": "0199fdbd4ff2ad2ce76323b72ea34d7c189b81b080db6e1954152b9bd9a0106a"
+    },
+    "candidate_R04_PARALLAX_100_001.png": {
+      "bytes": 355145,
+      "sha256": "a155f50839dc5824af87fd21e95f345cdfa4d86b6cb5bb71b997fb390d0fc882"
+    },
+    "provision.log": {
+      "bytes": 8273,
+      "sha256": "92ff6e9ffb7ee0ff7ad2914c86ed98594e9b97c39bca01dd10bfc256bc8c893f"
+    },
+    "candidate_R04_HERO_192.png": {
+      "bytes": 769604,
+      "sha256": "368277187e9e4d538d0ce754fd7f7702d1810f35840d0f8816aea29c10e7f9bf"
+    },
+    "control-time.txt": {
+      "bytes": 882,
+      "sha256": "162cdaf291a9f27aa4e71515da459de745c7382ae0355d4c603fed349c54b5bc"
+    },
+    "render-time.txt": {
+      "bytes": 906,
+      "sha256": "cdafa6306c341734c3dc95e3b3c655ec30ac186d3306b2762220ba489f3dcc01"
+    },
+    "build-time.txt": {
+      "bytes": 874,
+      "sha256": "b4e75d55ba4ba68918d76b7affd84f1f2c2cf0aa4cd50769029a0121b9967857"
+    },
+    "candidate_R04_HERO_001.png": {
+      "bytes": 1251947,
+      "sha256": "772c2b1f0395971824303891ec7a33b09ef8f7ea5ec99c60b96776a112661914"
+    },
+    "candidate_O01_HERO_001.png": {
+      "bytes": 355819,
+      "sha256": "6e21afd48094c7228f1f37d24a595e9dbf21f0a148b5115051f94afe676b01e7"
+    },
+    "previous-job.json": {
+      "bytes": 2045,
+      "sha256": "e7faf9d93b1611c04464db949a69df915ba35747d2de4b9334a621d065ad93b0"
+    }
+  },
+  "visual_status": "REVIEW_REQUIRED",
+  "auto_qualified": false,
+  "new_full_video_rendered": false
+}
