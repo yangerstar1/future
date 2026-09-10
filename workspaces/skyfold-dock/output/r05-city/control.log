@@ -1,0 +1,448 @@
+Blender 4.5.13 LTS (hash daeeeca98fb0 built 2026-08-25 01:31:19)
+Read blend: "/home/runner/work/future/future/workspaces/skyfold-dock/output/r04c-final/source/skyfold-r04c.blend"
+Fra:1 Mem:191.15M (Peak 191.15M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous inhabited ring shell
+Fra:1 Mem:191.71M (Peak 191.71M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Deep ring edge girder
+Fra:1 Mem:192.36M (Peak 192.36M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Deep ring edge girder.001
+Fra:1 Mem:193.01M (Peak 193.01M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Ceramic edge cap
+Fra:1 Mem:193.62M (Peak 193.62M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Ceramic edge cap.001
+Fra:1 Mem:194.35M (Peak 194.35M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | External axial backbone
+Fra:1 Mem:194.35M (Peak 194.35M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | External axial backbone.004
+Fra:1 Mem:194.35M (Peak 194.35M) | Time:00:00.18 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Sector seam
+Fra:1 Mem:194.37M (Peak 194.37M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress
+Fra:1 Mem:194.38M (Peak 194.38M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.001
+Fra:1 Mem:194.38M (Peak 194.38M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.002
+Fra:1 Mem:194.38M (Peak 194.38M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.003
+Fra:1 Mem:194.38M (Peak 194.38M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.004
+Fra:1 Mem:194.39M (Peak 194.39M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.005
+Fra:1 Mem:194.39M (Peak 194.39M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.006
+Fra:1 Mem:194.39M (Peak 194.39M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.007
+Fra:1 Mem:194.39M (Peak 194.39M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.008
+Fra:1 Mem:194.40M (Peak 194.40M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.009
+Fra:1 Mem:194.40M (Peak 194.40M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.010
+Fra:1 Mem:194.40M (Peak 194.40M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.011
+Fra:1 Mem:194.41M (Peak 194.41M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.012
+Fra:1 Mem:194.41M (Peak 194.41M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.013
+Fra:1 Mem:194.41M (Peak 194.41M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.014
+Fra:1 Mem:194.41M (Peak 194.41M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.015
+Fra:1 Mem:194.42M (Peak 194.42M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.016
+Fra:1 Mem:194.42M (Peak 194.42M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.017
+Fra:1 Mem:194.42M (Peak 194.42M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.018
+Fra:1 Mem:194.42M (Peak 194.42M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.019
+Fra:1 Mem:194.43M (Peak 194.43M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.020
+Fra:1 Mem:194.43M (Peak 194.43M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.021
+Fra:1 Mem:194.43M (Peak 194.43M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.022
+Fra:1 Mem:194.44M (Peak 194.44M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.023
+Fra:1 Mem:194.44M (Peak 194.44M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.024
+Fra:1 Mem:194.44M (Peak 194.44M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.025
+Fra:1 Mem:194.44M (Peak 194.44M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.026
+Fra:1 Mem:194.45M (Peak 194.45M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.027
+Fra:1 Mem:194.45M (Peak 194.45M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.028
+Fra:1 Mem:194.45M (Peak 194.45M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.029
+Fra:1 Mem:194.45M (Peak 194.45M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.030
+Fra:1 Mem:194.46M (Peak 194.46M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.031
+Fra:1 Mem:194.46M (Peak 194.46M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.032
+Fra:1 Mem:194.46M (Peak 194.46M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.033
+Fra:1 Mem:194.47M (Peak 194.47M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.034
+Fra:1 Mem:194.47M (Peak 194.47M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.035
+Fra:1 Mem:194.47M (Peak 194.47M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.036
+Fra:1 Mem:194.47M (Peak 194.47M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.037
+Fra:1 Mem:194.48M (Peak 194.48M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.038
+Fra:1 Mem:194.48M (Peak 194.48M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.039
+Fra:1 Mem:194.48M (Peak 194.48M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.040
+Fra:1 Mem:194.48M (Peak 194.48M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.041
+Fra:1 Mem:194.49M (Peak 194.49M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.042
+Fra:1 Mem:194.49M (Peak 194.49M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.043
+Fra:1 Mem:194.49M (Peak 194.49M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.044
+Fra:1 Mem:194.50M (Peak 194.50M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.045
+Fra:1 Mem:194.50M (Peak 194.50M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.046
+Fra:1 Mem:194.50M (Peak 194.50M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.047
+Fra:1 Mem:194.50M (Peak 194.50M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.048
+Fra:1 Mem:194.51M (Peak 194.51M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.049
+Fra:1 Mem:194.51M (Peak 194.51M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.050
+Fra:1 Mem:194.51M (Peak 194.51M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.051
+Fra:1 Mem:194.51M (Peak 194.51M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.052
+Fra:1 Mem:194.52M (Peak 194.52M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.053
+Fra:1 Mem:194.52M (Peak 194.52M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.054
+Fra:1 Mem:194.52M (Peak 194.52M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.055
+Fra:1 Mem:194.52M (Peak 194.52M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.056
+Fra:1 Mem:194.53M (Peak 194.53M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.057
+Fra:1 Mem:194.53M (Peak 194.53M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.058
+Fra:1 Mem:194.53M (Peak 194.53M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.059
+Fra:1 Mem:194.53M (Peak 194.53M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.060
+Fra:1 Mem:194.63M (Peak 194.63M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.061
+Fra:1 Mem:194.63M (Peak 194.63M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.062
+Fra:1 Mem:194.64M (Peak 194.64M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rim buttress.063
+Fra:1 Mem:194.64M (Peak 194.64M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way
+Fra:1 Mem:195.30M (Peak 195.30M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median
+Fra:1 Mem:195.49M (Peak 195.49M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.001
+Fra:1 Mem:196.73M (Peak 196.73M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.001
+Fra:1 Mem:196.71M (Peak 196.73M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.002
+Fra:1 Mem:198.05M (Peak 198.05M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.002
+Fra:1 Mem:198.32M (Peak 198.32M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.003
+Fra:1 Mem:199.37M (Peak 199.37M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.003
+Fra:1 Mem:199.34M (Peak 199.37M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.004
+Fra:1 Mem:200.57M (Peak 200.57M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.004
+Fra:1 Mem:201.05M (Peak 201.05M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.005
+Fra:1 Mem:201.82M (Peak 201.82M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.005
+Fra:1 Mem:202.36M (Peak 202.36M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.006
+Fra:1 Mem:203.01M (Peak 203.01M) | Time:00:00.19 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.006
+Fra:1 Mem:203.79M (Peak 203.79M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 inactive hoist cable
+Fra:1 Mem:203.68M (Peak 203.79M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 inactive hoist cable.001
+Fra:1 Mem:203.68M (Peak 203.79M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.007
+Fra:1 Mem:204.27M (Peak 204.27M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.007
+Fra:1 Mem:205.02M (Peak 205.02M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Aft engine shroud
+Fra:1 Mem:205.02M (Peak 205.02M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.008
+Fra:1 Mem:205.19M (Peak 205.19M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Aft nozzle lip
+Fra:1 Mem:205.38M (Peak 205.38M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Recessed inactive engine core
+Fra:1 Mem:205.48M (Peak 205.48M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Aft engine shroud.001
+Fra:1 Mem:205.51M (Peak 205.51M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Aft nozzle lip.001
+Fra:1 Mem:205.71M (Peak 205.71M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Recessed inactive engine core.001
+Fra:1 Mem:205.71M (Peak 205.71M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Aft engine shroud.002
+Fra:1 Mem:205.74M (Peak 205.74M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Aft nozzle lip.002
+Fra:1 Mem:205.74M (Peak 205.74M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Recessed inactive engine core.002
+Fra:1 Mem:205.72M (Peak 205.74M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Aft engine shroud.003
+Fra:1 Mem:205.73M (Peak 205.74M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Aft nozzle lip.003
+Fra:1 Mem:205.73M (Peak 205.74M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Recessed inactive engine core.003
+Fra:1 Mem:205.71M (Peak 205.74M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.008
+Fra:1 Mem:206.39M (Peak 206.39M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.009
+Fra:1 Mem:207.07M (Peak 207.07M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.009
+Fra:1 Mem:207.63M (Peak 207.63M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 tapered bow service seam
+Fra:1 Mem:207.68M (Peak 207.68M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 tapered bow service seam.001
+Fra:1 Mem:207.85M (Peak 207.85M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 tapered bow service seam.002
+Fra:1 Mem:207.85M (Peak 207.85M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 tapered bow service seam.003
+Fra:1 Mem:207.86M (Peak 207.86M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 tapered bow service seam.004
+Fra:1 Mem:207.74M (Peak 207.86M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.010
+Fra:1 Mem:207.81M (Peak 207.86M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 tapered bow service seam.005
+Fra:1 Mem:207.82M (Peak 207.86M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 tapered bow service seam.006
+Fra:1 Mem:208.11M (Peak 208.11M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 tapered bow service seam.007
+Fra:1 Mem:208.11M (Peak 208.11M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 vessel registration
+Fra:1 Mem:208.42M (Peak 208.42M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 freight operator
+Fra:1 Mem:209.06M (Peak 209.06M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.010
+Fra:1 Mem:209.44M (Peak 209.44M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.011
+Fra:1 Mem:210.59M (Peak 210.59M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.011
+Fra:1 Mem:210.97M (Peak 210.97M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.012
+Fra:1 Mem:211.65M (Peak 211.65M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.012
+Fra:1 Mem:212.24M (Peak 212.24M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.013
+Fra:1 Mem:213.08M (Peak 213.08M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.013
+Fra:1 Mem:213.59M (Peak 213.59M) | Time:00:00.20 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.014
+Fra:1 Mem:214.52M (Peak 214.52M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.014
+Fra:1 Mem:215.20M (Peak 215.20M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.015
+Fra:1 Mem:215.86M (Peak 215.86M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.015
+Fra:1 Mem:216.47M (Peak 216.47M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.016
+Fra:1 Mem:217.32M (Peak 217.32M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.016
+Fra:1 Mem:217.48M (Peak 217.48M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous guardrail
+Fra:1 Mem:217.68M (Peak 217.68M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous guardrail.001
+Fra:1 Mem:217.69M (Peak 217.69M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.017
+Fra:1 Mem:218.66M (Peak 218.66M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.017
+Fra:1 Mem:219.16M (Peak 219.16M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.018
+Fra:1 Mem:219.85M (Peak 219.85M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.018
+Fra:1 Mem:220.53M (Peak 220.53M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.019
+Fra:1 Mem:221.10M (Peak 221.10M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.019
+Fra:1 Mem:222.04M (Peak 222.04M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.020
+Fra:1 Mem:222.31M (Peak 222.31M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.020
+Fra:1 Mem:222.91M (Peak 222.91M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous guardrail.002
+Fra:1 Mem:222.98M (Peak 222.98M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous guardrail.003
+Fra:1 Mem:223.01M (Peak 223.01M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cart wheel rubber
+Fra:1 Mem:223.06M (Peak 223.06M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cart wheel hub
+Fra:1 Mem:223.06M (Peak 223.06M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cart wheel rubber.001
+Fra:1 Mem:223.04M (Peak 223.06M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cart wheel hub.001
+Fra:1 Mem:223.05M (Peak 223.06M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cart wheel rubber.002
+Fra:1 Mem:223.05M (Peak 223.06M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cart wheel hub.002
+Fra:1 Mem:223.05M (Peak 223.06M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cart wheel rubber.003
+Fra:1 Mem:223.06M (Peak 223.06M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cart wheel hub.003
+Fra:1 Mem:223.06M (Peak 223.06M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cart front towing eye
+Fra:1 Mem:223.41M (Peak 223.41M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C city transit right of way.021
+Fra:1 Mem:223.67M (Peak 223.67M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C transit median.021
+Fra:1 Mem:224.50M (Peak 224.50M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous service rail
+Fra:1 Mem:224.73M (Peak 224.73M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous service rail.001
+Fra:1 Mem:224.68M (Peak 224.73M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 neighbourhood 000
+Fra:1 Mem:224.98M (Peak 224.98M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 transfer handrail
+Fra:1 Mem:225.13M (Peak 225.13M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 neighbourhood 001
+Fra:1 Mem:225.45M (Peak 225.45M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 transfer handrail.001
+Fra:1 Mem:225.58M (Peak 225.58M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 neighbourhood 002
+Fra:1 Mem:225.86M (Peak 225.86M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 neighbourhood 003
+Fra:1 Mem:226.33M (Peak 226.33M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous service rail.002
+Fra:1 Mem:226.39M (Peak 226.39M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous service rail.003
+Fra:1 Mem:226.40M (Peak 226.40M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous service rail.004
+Fra:1 Mem:226.46M (Peak 226.46M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous service rail.005
+Fra:1 Mem:226.46M (Peak 226.46M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous service rail.006
+Fra:1 Mem:226.55M (Peak 226.55M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous service rail.007
+Fra:1 Mem:226.57M (Peak 226.57M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 neighbourhood 007
+Fra:1 Mem:226.73M (Peak 226.73M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 neighbourhood 008
+Fra:1 Mem:227.01M (Peak 227.01M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 neighbourhood 009
+Fra:1 Mem:227.27M (Peak 227.27M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 neighbourhood 010
+Fra:1 Mem:227.53M (Peak 227.53M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 neighbourhood 014
+Fra:1 Mem:227.76M (Peak 227.76M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 gallery handrail
+Fra:1 Mem:227.79M (Peak 227.79M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 gallery handrail.001
+Fra:1 Mem:227.93M (Peak 227.93M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 neighbourhood 015
+Fra:1 Mem:228.25M (Peak 228.25M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 gallery handrail.002
+Fra:1 Mem:228.26M (Peak 228.26M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 gallery handrail.003
+Fra:1 Mem:228.37M (Peak 228.37M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 neighbourhood 016
+Fra:1 Mem:228.60M (Peak 228.60M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 neighbourhood 017
+Fra:1 Mem:228.68M (Peak 228.68M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 gallery handrail.004
+Fra:1 Mem:228.86M (Peak 228.86M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 gallery handrail.005
+Fra:1 Mem:229.04M (Peak 229.04M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 trolley tyre
+Fra:1 Mem:229.05M (Peak 229.05M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 trolley hub
+Fra:1 Mem:229.01M (Peak 229.05M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Long docking pier
+Fra:1 Mem:229.02M (Peak 229.05M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 trolley tyre.001
+Fra:1 Mem:229.03M (Peak 229.05M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Pier box girder
+Fra:1 Mem:229.03M (Peak 229.05M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 trolley hub.001
+Fra:1 Mem:229.03M (Peak 229.05M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Dock grounded pylon
+Fra:1 Mem:229.03M (Peak 229.05M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 trolley tyre.002
+Fra:1 Mem:229.03M (Peak 229.05M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Pylon foundation
+Fra:1 Mem:229.08M (Peak 229.08M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Dock grounded pylon.006
+Fra:1 Mem:229.08M (Peak 229.08M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 trolley hub.002
+Fra:1 Mem:229.10M (Peak 229.10M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Loader tower base
+Fra:1 Mem:229.15M (Peak 229.15M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 trolley tyre.003
+Fra:1 Mem:229.16M (Peak 229.16M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Loader vertical lift
+Fra:1 Mem:229.17M (Peak 229.17M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 trolley hub.003
+Fra:1 Mem:229.13M (Peak 229.17M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Docking service gasket
+Fra:1 Mem:229.13M (Peak 229.17M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Ship loader service bridge
+Fra:1 Mem:229.14M (Peak 229.17M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Loader bridge support.001
+Fra:1 Mem:229.15M (Peak 229.17M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rooted pier diagonal.006
+Fra:1 Mem:229.15M (Peak 229.17M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 aft gantry footing
+Fra:1 Mem:229.15M (Peak 229.17M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 aft gantry column
+Fra:1 Mem:229.16M (Peak 229.17M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 aft lifting beam
+Fra:1 Mem:229.18M (Peak 229.18M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 aft beam bracing
+Fra:1 Mem:229.21M (Peak 229.21M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 far crane rooted tower
+Fra:1 Mem:229.19M (Peak 229.21M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 far crane boom
+Fra:1 Mem:229.20M (Peak 229.21M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 far crane diagonal
+Fra:1 Mem:229.20M (Peak 229.21M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 crane trolley
+Fra:1 Mem:229.21M (Peak 229.21M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 rooted pier diagonal
+Fra:1 Mem:229.22M (Peak 229.22M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Loader bridge support
+Fra:1 Mem:229.22M (Peak 229.22M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04B access lift landing
+Fra:1 Mem:229.22M (Peak 229.22M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R03 rear bridge aperture slab.001
+Fra:1 Mem:229.24M (Peak 229.24M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04B access lift guide
+Fra:1 Mem:229.24M (Peak 229.24M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R03 rear bridge aperture slab.002
+Fra:1 Mem:229.25M (Peak 229.25M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R03 rear bridge aperture slab.003
+Fra:1 Mem:229.26M (Peak 229.26M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04B access bridge
+Fra:1 Mem:229.27M (Peak 229.27M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R03 rear rooted foundation
+Fra:1 Mem:229.27M (Peak 229.27M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04B gallery diagonal.003
+Fra:1 Mem:229.28M (Peak 229.28M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04B rooted gallery pylon.003
+Fra:1 Mem:229.28M (Peak 229.28M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R03 rear riser brace
+Fra:1 Mem:229.29M (Peak 229.29M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Freighter tapered pressure hull
+Fra:1 Mem:229.29M (Peak 229.29M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Continuous cargo keel
+Fra:1 Mem:229.31M (Peak 229.31M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04B rooted gallery pylon.002
+Fra:1 Mem:229.31M (Peak 229.31M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cargo section external plating
+Fra:1 Mem:229.32M (Peak 229.32M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Section frame
+Fra:1 Mem:229.33M (Peak 229.33M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04B gallery diagonal.001
+Fra:1 Mem:229.34M (Peak 229.34M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04B rooted gallery pylon.001
+Fra:1 Mem:229.34M (Peak 229.34M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cargo locking hardpoint
+Fra:1 Mem:229.35M (Peak 229.35M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04B gallery diagonal
+Fra:1 Mem:229.35M (Peak 229.35M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Dorsal segmented shell
+Fra:1 Mem:229.36M (Peak 229.36M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Dorsal machinery inset
+Fra:1 Mem:229.37M (Peak 229.37M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cargo section external plating.002
+Fra:1 Mem:229.39M (Peak 229.39M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Matched port docking interface
+Fra:1 Mem:229.39M (Peak 229.39M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Bow command island
+Fra:1 Mem:229.40M (Peak 229.40M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04B rooted gallery footing
+Fra:1 Mem:229.41M (Peak 229.41M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Recessed bridge window
+Fra:1 Mem:229.42M (Peak 229.42M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Command crown
+Fra:1 Mem:229.42M (Peak 229.42M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 trolley marker
+Fra:1 Mem:229.43M (Peak 229.43M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Aft radiator bank
+Fra:1 Mem:229.44M (Peak 229.44M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Radiator fin
+Fra:1 Mem:229.45M (Peak 229.45M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 trolley lid rib
+Fra:1 Mem:229.45M (Peak 229.45M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 freighter dorsal spine
+Fra:1 Mem:229.46M (Peak 229.46M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 spine cross saddle
+Fra:1 Mem:229.47M (Peak 229.47M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 mobile diagnostic trolley.003
+Fra:1 Mem:229.47M (Peak 229.47M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 structural cargo band 01
+Fra:1 Mem:229.49M (Peak 229.49M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 mobile diagnostic trolley.002
+Fra:1 Mem:229.50M (Peak 229.50M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 structural cargo band 02
+Fra:1 Mem:229.51M (Peak 229.51M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 mobile diagnostic trolley.001
+Fra:1 Mem:229.53M (Peak 229.53M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 structural cargo band 04
+Fra:1 Mem:229.53M (Peak 229.53M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 mobile diagnostic trolley
+Fra:1 Mem:229.54M (Peak 229.54M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 structural cargo band 05
+Fra:1 Mem:229.55M (Peak 229.55M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 gallery footplate
+Fra:1 Mem:229.55M (Peak 229.55M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 service shoulder cover
+Fra:1 Mem:229.58M (Peak 229.58M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 gallery upright
+Fra:1 Mem:229.59M (Peak 229.59M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 louver blade
+Fra:1 Mem:229.59M (Peak 229.59M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 service threshold
+Fra:1 Mem:229.60M (Peak 229.60M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 safety stripe
+Fra:1 Mem:229.61M (Peak 229.61M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 recessed work beacon
+Fra:1 Mem:229.62M (Peak 229.62M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C sealed dorsal cargo vault
+Fra:1 Mem:229.63M (Peak 229.63M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 walking deck panel
+Fra:1 Mem:229.63M (Peak 229.63M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C cargo vault edge frame
+Fra:1 Mem:229.64M (Peak 229.64M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C vault transverse band
+Fra:1 Mem:229.65M (Peak 229.65M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 underside box girder
+Fra:1 Mem:229.65M (Peak 229.65M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C vault inspection cap
+Fra:1 Mem:229.67M (Peak 229.67M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C vault recessed roof strip
+Fra:1 Mem:229.67M (Peak 229.67M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 observation landing
+Fra:1 Mem:229.68M (Peak 229.68M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C vault transverse band.002
+Fra:1 Mem:229.69M (Peak 229.69M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 gallery soft bounce
+Fra:1 Mem:229.70M (Peak 229.70M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Deck replaceable panels
+Fra:1 Mem:229.70M (Peak 229.70M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 cool reflected city fill
+Fra:1 Mem:229.70M (Peak 229.70M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04 warm axial opening
+Fra:1 Mem:229.71M (Peak 229.71M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Opening diffuse daylight
+Fra:1 Mem:229.71M (Peak 229.71M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Deck panel edge traction strip
+Fra:1 Mem:229.72M (Peak 229.72M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hangar bounce approximation
+Fra:1 Mem:229.72M (Peak 229.72M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Catwalk underside longitudinal girder
+Fra:1 Mem:229.72M (Peak 229.72M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Guardrail base shoe
+Fra:1 Mem:229.74M (Peak 229.74M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R04C incoming lift lattice
+Fra:1 Mem:229.74M (Peak 229.74M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Guardrail upright
+Fra:1 Mem:229.74M (Peak 229.74M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R03 return lift platform
+Fra:1 Mem:229.77M (Peak 229.77M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R03 return lift bracing
+Fra:1 Mem:229.76M (Peak 229.77M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Freight cart load tray
+Fra:1 Mem:229.78M (Peak 229.78M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R03 return lift guide
+Fra:1 Mem:229.79M (Peak 229.79M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Ribbed service crate
+Fra:1 Mem:229.79M (Peak 229.79M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Crate external rib
+Fra:1 Mem:229.80M (Peak 229.80M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R03 return lift base shoe
+Fra:1 Mem:229.81M (Peak 229.81M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cart battery pack
+Fra:1 Mem:229.82M (Peak 229.82M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 upper lift transfer
+Fra:1 Mem:229.83M (Peak 229.83M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 catwalk ring foundation
+Fra:1 Mem:229.84M (Peak 229.84M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 cargo elevator cabin
+Fra:1 Mem:229.85M (Peak 229.85M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 catwalk supported pylon
+Fra:1 Mem:229.86M (Peak 229.86M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 catwalk transverse brace
+Fra:1 Mem:229.86M (Peak 229.86M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 lift landing edge.002
+Fra:1 Mem:229.87M (Peak 229.87M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Cargo staging pallet
+Fra:1 Mem:229.87M (Peak 229.87M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Dock cargo container
+Fra:1 Mem:229.88M (Peak 229.88M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 lift landing edge
+Fra:1 Mem:229.89M (Peak 229.89M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Container side stiffener
+Fra:1 Mem:229.91M (Peak 229.91M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Dock cargo container.002
+Fra:1 Mem:229.91M (Peak 229.91M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 lift guide tower.002
+Fra:1 Mem:229.92M (Peak 229.92M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 lower turn landing
+Fra:1 Mem:229.93M (Peak 229.93M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 lift guide tower
+Fra:1 Mem:229.93M (Peak 229.93M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 transfer foundation
+Fra:1 Mem:229.95M (Peak 229.95M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 lift ring footing
+Fra:1 Mem:229.96M (Peak 229.96M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 transfer pylon
+Fra:1 Mem:229.96M (Peak 229.96M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 transfer handrail post
+Fra:1 Mem:229.98M (Peak 229.98M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 transfer pylon.003
+Fra:1 Mem:229.98M (Peak 229.98M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R02 transfer pylon.002
+Fra:1 Mem:230.00M (Peak 230.00M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:229.99M (Peak 230.00M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:229.99M (Peak 230.00M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:229.99M (Peak 230.00M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:229.99M (Peak 230.00M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:230.09M (Peak 230.09M) | Time:00:00.22 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:230.09M (Peak 230.09M) | Time:00:00.22 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:230.09M (Peak 230.09M) | Time:00:00.22 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:230.09M (Peak 230.09M) | Time:00:00.22 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:230.09M (Peak 230.09M) | Time:00:00.22 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:230.09M (Peak 230.09M) | Time:00:00.22 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:230.98M (Peak 230.98M) | Time:00:00.23 | Mem:0.87M, Peak:0.87M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:230.98M (Peak 230.98M) | Time:00:00.23 | Mem:0.87M, Peak:0.87M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:230.98M (Peak 230.98M) | Time:00:00.23 | Mem:0.87M, Peak:0.87M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:230.98M (Peak 230.98M) | Time:00:00.23 | Mem:0.87M, Peak:0.87M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:230.98M (Peak 230.98M) | Time:00:00.23 | Mem:0.87M, Peak:0.87M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:235.26M (Peak 235.26M) | Time:00:00.23 | Mem:0.89M, Peak:0.89M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:4.88M, Peak:4.88M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh 2/51 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:4.88M, Peak:4.88M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.002 4/83 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:4.88M, Peak:4.88M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.122 94/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:4.88M, Peak:4.88M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.122 94/93 | Building BVH 0%
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:4.88M, Peak:4.88M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.122 94/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:4.89M, Peak:4.89M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.121 93/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:4.90M, Peak:4.90M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.111 92/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:4.91M, Peak:4.91M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.102 91/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:4.92M, Peak:4.92M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.101 90/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:4.93M, Peak:4.93M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.057 89/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:4.94M, Peak:4.94M | Scene, ViewLayer | Updating Geometry BVH _R04_city_prototypeMesh.002 5/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:4.94M, Peak:4.94M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.056 88/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.27M, Peak:5.27M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.055 87/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.28M, Peak:5.28M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.054 86/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.29M, Peak:5.29M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.053 85/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.30M, Peak:5.30M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.103 84/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.30M, Peak:5.30M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.023 83/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.30M, Peak:5.30M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.022 82/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.32M, Peak:5.33M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.021 81/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.33M, Peak:5.34M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.096 80/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.34M, Peak:5.35M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.095 79/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.39M, Peak:5.39M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.094 78/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.41M, Peak:5.42M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.093 77/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.42M, Peak:5.43M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.092 76/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.45M, Peak:5.45M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.091 75/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.49M, Peak:5.49M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.086 74/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.51M, Peak:5.52M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.068 73/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.54M, Peak:5.55M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.067 72/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.57M, Peak:5.57M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.066 71/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.60M, Peak:5.60M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.065 70/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.63M, Peak:5.63M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.083 69/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.64M, Peak:5.64M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.082 68/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.66M, Peak:5.67M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.081 67/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.71M, Peak:5.71M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.064 66/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.73M, Peak:5.74M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.062 65/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.74M, Peak:5.75M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.044 64/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.79M, Peak:5.79M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.043 63/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.82M, Peak:5.82M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.042 62/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.84M, Peak:5.84M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.041 61/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.88M, Peak:5.89M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.040 60/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.93M, Peak:5.93M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.039 59/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.95M, Peak:5.95M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.109 58/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:5.97M, Peak:5.98M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.108 57/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.00M, Peak:6.01M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.107 56/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.01M, Peak:6.02M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.106 55/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.07M, Peak:6.07M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.105 54/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.10M, Peak:6.10M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.104 53/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.14M, Peak:6.14M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.051 52/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.03M, Peak:6.16M | Scene, ViewLayer | Updating Geometry BVH _R04_city_prototypeMesh.008 7/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.04M, Peak:6.16M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.050 51/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.21M, Peak:6.22M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.049 50/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.24M, Peak:6.25M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.010 49/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.25M, Peak:6.26M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.080 48/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.28M, Peak:6.29M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.037 47/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.28M, Peak:6.29M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.036 46/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.31M, Peak:6.32M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.034 45/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.32M, Peak:6.33M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.032 44/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.37M, Peak:6.37M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.031 43/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.38M, Peak:6.38M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.030 42/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.41M, Peak:6.41M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.029 41/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.46M, Peak:6.46M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.028 40/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.48M, Peak:6.49M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.027 39/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.49M, Peak:6.49M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.026 38/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.51M, Peak:6.52M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.025 37/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.009 36/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.56M, Peak:6.56M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.007 35/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.56M, Peak:6.56M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.078 34/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.38M, Peak:6.56M | Scene, ViewLayer | Updating Geometry BVH _R04_city_prototypeMesh.011 8/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.54M, Peak:6.56M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.077 33/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.55M, Peak:6.56M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.076 32/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.57M, Peak:6.58M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.075 31/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.60M, Peak:6.60M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.074 30/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.60M, Peak:6.60M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.072 29/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.61M, Peak:6.61M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.071 28/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.64M, Peak:6.64M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.070 27/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.64M, Peak:6.64M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.015 26/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.64M, Peak:6.64M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.014 25/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.69M, Peak:6.69M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.013 24/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.71M, Peak:6.72M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.012 23/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.72M, Peak:6.73M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.011 22/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.77M, Peak:6.77M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.008 21/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.77M, Peak:6.77M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.006 20/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.77M, Peak:6.77M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.005 19/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.77M, Peak:6.77M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.004 18/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.81M, Peak:6.81M | Scene, ViewLayer | Updating Geometry BVH _cacheMesh.003 17/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:6.83M, Peak:6.84M | Scene, ViewLayer | Updating Geometry BVH _R04_city_prototypeMesh.010 16/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:7.12M, Peak:7.12M | Scene, ViewLayer | Updating Geometry BVH _R04_city_prototypeMesh.003 9/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:7.62M, Peak:7.78M | Scene, ViewLayer | Updating Geometry BVH _R04_city_prototypeMesh.006 10/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:7.75M, Peak:7.84M | Scene, ViewLayer | Updating Geometry BVH _R04_city_prototypeMesh.009 11/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:7.78M, Peak:7.91M | Scene, ViewLayer | Updating Geometry BVH _R04_city_prototypeMesh.007 15/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:8.11M, Peak:8.17M | Scene, ViewLayer | Updating Geometry BVH _R04_city_prototypeMesh 12/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:8.42M, Peak:8.50M | Scene, ViewLayer | Updating Geometry BVH _R04_city_prototypeMesh.001 13/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.23 | Mem:8.56M, Peak:8.65M | Scene, ViewLayer | Updating Geometry BVH _R04_city_prototypeMesh.004 14/93 | Building BVH
+Fra:1 Mem:234.98M (Peak 235.26M) | Time:00:00.24 | Mem:8.90M, Peak:9.12M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:235.01M (Peak 235.26M) | Time:00:00.24 | Mem:8.90M, Peak:9.12M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:235.01M (Peak 235.26M) | Time:00:00.28 | Mem:27.11M, Peak:36.74M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:235.01M (Peak 235.26M) | Time:00:00.28 | Mem:27.11M, Peak:36.74M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:248.65M (Peak 248.65M) | Time:00:00.29 | Mem:27.11M, Peak:36.74M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:248.65M (Peak 248.65M) | Time:00:00.29 | Mem:40.75M, Peak:40.75M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:248.65M (Peak 248.65M) | Time:00:00.29 | Mem:40.78M, Peak:40.78M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:248.67M (Peak 248.67M) | Time:00:00.29 | Mem:40.79M, Peak:40.79M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:248.67M (Peak 248.67M) | Time:00:00.29 | Mem:40.79M, Peak:40.79M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:248.67M (Peak 248.67M) | Time:00:00.29 | Mem:40.79M, Peak:40.79M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:248.67M (Peak 248.67M) | Time:00:00.29 | Mem:40.87M, Peak:40.87M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:248.67M (Peak 248.67M) | Time:00:00.29 | Mem:40.87M, Peak:40.87M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:250.80M (Peak 295.32M) | Time:00:00.31 | Mem:43.01M, Peak:43.01M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:250.80M (Peak 295.32M) | Time:00:00.31 | Mem:43.01M, Peak:43.01M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:250.81M (Peak 295.32M) | Time:00:00.31 | Mem:42.93M, Peak:43.01M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:250.81M (Peak 295.32M) | Time:00:00.31 | Mem:43.01M, Peak:43.01M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:250.81M (Peak 295.32M) | Time:00:00.31 | Mem:43.01M, Peak:43.01M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:250.87M (Peak 295.32M) | Time:00:00.31 | Mem:43.01M, Peak:43.01M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:250.87M (Peak 295.32M) | Time:00:00.31 | Mem:43.01M, Peak:43.01M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:317.71M (Peak 317.71M) | Time:00:03.21 | Remaining:01:06.64 | Mem:109.81M, Peak:109.81M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:317.71M (Peak 317.71M) | Time:00:25.14 | Remaining:00:41.37 | Mem:109.81M, Peak:109.81M | Scene, ViewLayer | Sample 9/24
+Fra:1 Mem:317.71M (Peak 317.71M) | Time:00:43.07 | Remaining:00:21.38 | Mem:109.81M, Peak:109.81M | Scene, ViewLayer | Sample 16/24
+Fra:1 Mem:345.83M (Peak 388.02M) | Time:01:07.16 | Mem:109.81M, Peak:109.81M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:345.83M (Peak 388.02M) | Time:01:07.16 | Mem:109.81M, Peak:109.81M | Scene, ViewLayer | Finished
+Saved: '/home/runner/work/future/future/workspaces/skyfold-dock/output/r05-city/control_R04_HERO_001.png'
+Time: 01:07.36 (Saving: 00:00.20)
+
+R05_OBSERVATION control_R04_HERO_001.png 67.51783680099999
+
+Blender quit
