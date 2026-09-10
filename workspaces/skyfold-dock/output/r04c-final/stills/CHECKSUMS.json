@@ -1,0 +1,86 @@
+{
+  "role": "stills",
+  "run_id": "34507267207",
+  "source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+  "exit_code": 0,
+  "files": {
+    "R04_RETURN_LIFT_FULL_f001.png": {
+      "bytes": 1157905,
+      "sha256": "b3114776c361868ee8cae4e29e4501b5351f59cc010591220cd34be8b32e4609"
+    },
+    "R04_PARALLAX_100_f001.png": {
+      "bytes": 793647,
+      "sha256": "1f079c24c699942646b8c689ccc04d1c46169fdcc7c4e2c815c6b5a023a217f7"
+    },
+    "render.log": {
+      "bytes": 467565,
+      "sha256": "c314be04fbae197c7e3e3d7735202be179f08baf11e142292319063ce1308bd8"
+    },
+    "INPUT.json": {
+      "bytes": 420,
+      "sha256": "9a28f27363ffae324a4428fe1c6070fde0eb69e86fb64fca5428f9ed44f437f2"
+    },
+    "COMPLETE.json": {
+      "bytes": 344,
+      "sha256": "c7728820b696bea5d452b9112a5e7a49a334229887b50d1ad61a5f5717e54891"
+    },
+    "R04_PARALLAX_075_f001.png": {
+      "bytes": 790244,
+      "sha256": "23c7e1c66d7c17e1bd6d44d6093a4802dd8e09690caccc0e2e5d1d83444ccc3d"
+    },
+    "R04_HERO_f001.png": {
+      "bytes": 4840009,
+      "sha256": "f82a5ff179d269186f7de314517aa3d4397c31848abd557c91c70c94710cc6ce"
+    },
+    "R04_PARALLAX_000_f001.png": {
+      "bytes": 784641,
+      "sha256": "dfe7ec124f0b2d1a9abd7fe7a324092e716404af334e743c82ba80c431569d28"
+    },
+    "R04_HERO_NEUTRAL_f001.png": {
+      "bytes": 1130541,
+      "sha256": "3f3577482132c967c901058c3c88d39e63ec6da6dbb7afb6c5ff30dd57dc0f06"
+    },
+    "R04_PARALLAX_025_f001.png": {
+      "bytes": 787255,
+      "sha256": "0403a0cedb7b4095179d5b8e688045a76e0fd394e8da40b5b38c3885df3ad5a8"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "a48511965a8be7355ed0c32a5a2c0c3c385eab91c04b19d967e224f426e74c4d"
+    },
+    "environment.txt": {
+      "bytes": 645,
+      "sha256": "ebd3b98327313f958c3721229dfa18ec529e84fdfe221dd229b45f0c5cae06cd"
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 16650,
+      "sha256": "ead1fd8268bc481253bdf59f0d458e411f5f89c0f9b4001450f899acb996160f"
+    },
+    "provision.log": {
+      "bytes": 8194,
+      "sha256": "1118d5422bf3f92bb9b8d284f35f8f59b37ff7916932a4dc6d3428dd40c92411"
+    },
+    "R04_SECOND_f001.png": {
+      "bytes": 2850484,
+      "sha256": "fbaeef13a9d3f29c26e6b50e6b080c7d08e682926c7fa80f1e30f04d70f41c52"
+    },
+    "R04_ROUTE_FULL_f001.png": {
+      "bytes": 1335913,
+      "sha256": "b14137acd61e19fcdbc226c3d262d876966f09c8f609a82e3cb5327ac0729f6d"
+    },
+    "render-time.txt": {
+      "bytes": 947,
+      "sha256": "b915b4258189bf67a5e4a391bf8a1a7777191f62d6dd791f18062bf44bad4ecd"
+    },
+    "R04_GALLERY_CRAFT_f001.png": {
+      "bytes": 2280969,
+      "sha256": "dfb087cb4a1353c013d0f484810336a5730af0c9fcfa7b641ee8ed2aa63e0c6f"
+    },
+    "R04_PARALLAX_050_f001.png": {
+      "bytes": 789832,
+      "sha256": "37fafd3d4db759de420198ff50e4171a8fa8b6ee8c3d0f0dc4ed3337f55213fa"
+    }
+  },
+  "visual_verdict": "REVIEW_REQUIRED",
+  "full_movie_frames": "Rendered in temporary job directory; encoded video, all frame hashes and selected PNGs retained"
+}

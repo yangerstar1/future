@@ -1,0 +1,816 @@
+[
+  {
+    "file": "R04_HERO_f001.png",
+    "frame": 1,
+    "camera": "R04_HERO",
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.0
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.0
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "ring_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        900.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1600.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+    "sha256": "f82a5ff179d269186f7de314517aa3d4397c31848abd557c91c70c94710cc6ce",
+    "bytes": 4840009,
+    "dimensions": [
+      2560,
+      1440
+    ],
+    "samples": 96,
+    "seconds": 424.44649039800004,
+    "rss_peak_kib": 3624960,
+    "neutral": false,
+    "neutral_lighting": false,
+    "engine": "CYCLES_CPU",
+    "gallery_camera_intrusion_check": "limited deck/trolley OBB checked",
+    "generated_or_interpolated_frames": false
+  },
+  {
+    "file": "R04_SECOND_f001.png",
+    "frame": 1,
+    "camera": "R04_SECOND",
+    "camera_matrix": [
+      [
+        0.9134947061538696,
+        0.04531445354223251,
+        -0.40431925654411316,
+        -2500.0
+      ],
+      [
+        -0.406850665807724,
+        0.1017436608672142,
+        -0.9078109860420227,
+        -3600.0
+      ],
+      [
+        -2.6841084022066752e-08,
+        0.9937781095504761,
+        0.1113785058259964,
+        2350.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "ring_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        900.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1600.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+    "sha256": "fbaeef13a9d3f29c26e6b50e6b080c7d08e682926c7fa80f1e30f04d70f41c52",
+    "bytes": 2850484,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "samples": 64,
+    "seconds": 153.02975907899997,
+    "rss_peak_kib": 3624960,
+    "neutral": false,
+    "neutral_lighting": false,
+    "engine": "CYCLES_CPU",
+    "gallery_camera_intrusion_check": "not applicable",
+    "generated_or_interpolated_frames": false
+  },
+  {
+    "file": "R04_GALLERY_CRAFT_f001.png",
+    "frame": 1,
+    "camera": "R04_GALLERY_CRAFT",
+    "camera_matrix": [
+      [
+        0.972081184387207,
+        -0.029103340581059456,
+        0.2328329086303711,
+        -816.6647338867188
+      ],
+      [
+        0.23464477062225342,
+        0.12056875973939896,
+        -0.9645749926567078,
+        28.5418758392334
+      ],
+      [
+        -1.4515306290263652e-08,
+        0.9922782778739929,
+        0.12403157353401184,
+        1060.699951171875
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "ring_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        900.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1600.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+    "sha256": "dfb087cb4a1353c013d0f484810336a5730af0c9fcfa7b641ee8ed2aa63e0c6f",
+    "bytes": 2280969,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "samples": 64,
+    "seconds": 223.98014964700008,
+    "rss_peak_kib": 3624960,
+    "neutral": false,
+    "neutral_lighting": false,
+    "engine": "CYCLES_CPU",
+    "gallery_camera_intrusion_check": "not applicable",
+    "generated_or_interpolated_frames": false
+  },
+  {
+    "file": "R04_HERO_NEUTRAL_f001.png",
+    "frame": 1,
+    "camera": "R04_HERO",
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.0
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.0
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "ring_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        900.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1600.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+    "sha256": "3f3577482132c967c901058c3c88d39e63ec6da6dbb7afb6c5ff30dd57dc0f06",
+    "bytes": 1130541,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "samples": 24,
+    "seconds": 60.77199114399991,
+    "rss_peak_kib": 3624960,
+    "neutral": true,
+    "neutral_lighting": true,
+    "engine": "CYCLES_CPU",
+    "gallery_camera_intrusion_check": "limited deck/trolley OBB checked",
+    "generated_or_interpolated_frames": false
+  },
+  {
+    "file": "R04_ROUTE_FULL_f001.png",
+    "frame": 1,
+    "camera": "R04_ROUTE_FULL",
+    "camera_matrix": [
+      [
+        0.7162295579910278,
+        0.2234075516462326,
+        -0.6611387133598328,
+        -1900.0
+      ],
+      [
+        -0.697864830493927,
+        0.22928661108016968,
+        -0.6785370707511902,
+        -1000.0
+      ],
+      [
+        5.0697238407337863e-08,
+        0.9473736882209778,
+        0.32013005018234253,
+        1600.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "ring_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        900.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1600.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+    "sha256": "b14137acd61e19fcdbc226c3d262d876966f09c8f609a82e3cb5327ac0729f6d",
+    "bytes": 1335913,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "samples": 24,
+    "seconds": 52.80223676399987,
+    "rss_peak_kib": 3624960,
+    "neutral": false,
+    "neutral_lighting": false,
+    "engine": "CYCLES_CPU",
+    "gallery_camera_intrusion_check": "not applicable",
+    "generated_or_interpolated_frames": false
+  },
+  {
+    "file": "R04_RETURN_LIFT_FULL_f001.png",
+    "frame": 1,
+    "camera": "R04_RETURN_LIFT_FULL",
+    "camera_matrix": [
+      [
+        0.804344117641449,
+        3.368342404996838e-08,
+        -0.594163715839386,
+        -340.0
+      ],
+      [
+        -0.594163715839386,
+        -1.3466025450270536e-07,
+        -0.8043441772460938,
+        1210.0
+      ],
+      [
+        -8.64132729816447e-08,
+        1.0,
+        -9.511285981034234e-08,
+        1080.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "ring_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        900.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1600.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+    "sha256": "b3114776c361868ee8cae4e29e4501b5351f59cc010591220cd34be8b32e4609",
+    "bytes": 1157905,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "samples": 24,
+    "seconds": 57.48208541500003,
+    "rss_peak_kib": 3624960,
+    "neutral": false,
+    "neutral_lighting": false,
+    "engine": "CYCLES_CPU",
+    "gallery_camera_intrusion_check": "not applicable",
+    "generated_or_interpolated_frames": false
+  },
+  {
+    "file": "R04_PARALLAX_000_f001.png",
+    "frame": 1,
+    "camera": "R04_PARALLAX_000",
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -821.8973388671875
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        31.469755172729492
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "ring_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        900.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1600.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+    "sha256": "dfe7ec124f0b2d1a9abd7fe7a324092e716404af334e743c82ba80c431569d28",
+    "bytes": 784641,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 16,
+    "seconds": 28.73232406699981,
+    "rss_peak_kib": 3624960,
+    "neutral": false,
+    "neutral_lighting": false,
+    "engine": "CYCLES_CPU",
+    "gallery_camera_intrusion_check": "not applicable",
+    "generated_or_interpolated_frames": false
+  },
+  {
+    "file": "R04_PARALLAX_025_f001.png",
+    "frame": 1,
+    "camera": "R04_PARALLAX_025",
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.9486694335938
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.73487663269043
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "ring_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        900.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1600.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+    "sha256": "0403a0cedb7b4095179d5b8e688045a76e0fd394e8da40b5b38c3885df3ad5a8",
+    "bytes": 787255,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 16,
+    "seconds": 29.317446917000098,
+    "rss_peak_kib": 3624960,
+    "neutral": false,
+    "neutral_lighting": false,
+    "engine": "CYCLES_CPU",
+    "gallery_camera_intrusion_check": "not applicable",
+    "generated_or_interpolated_frames": false
+  },
+  {
+    "file": "R04_PARALLAX_050_f001.png",
+    "frame": 1,
+    "camera": "R04_PARALLAX_050",
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.0
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.0
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "ring_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        900.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1600.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+    "sha256": "37fafd3d4db759de420198ff50e4171a8fa8b6ee8c3d0f0dc4ed3337f55213fa",
+    "bytes": 789832,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 16,
+    "seconds": 29.5476198450001,
+    "rss_peak_kib": 3624960,
+    "neutral": false,
+    "neutral_lighting": false,
+    "engine": "CYCLES_CPU",
+    "gallery_camera_intrusion_check": "not applicable",
+    "generated_or_interpolated_frames": false
+  },
+  {
+    "file": "R04_PARALLAX_075_f001.png",
+    "frame": 1,
+    "camera": "R04_PARALLAX_075",
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -819.0513305664062
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        29.26512336730957
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "ring_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        900.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1600.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+    "sha256": "23c7e1c66d7c17e1bd6d44d6093a4802dd8e09690caccc0e2e5d1d83444ccc3d",
+    "bytes": 790244,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 16,
+    "seconds": 29.5345935979999,
+    "rss_peak_kib": 3624960,
+    "neutral": false,
+    "neutral_lighting": false,
+    "engine": "CYCLES_CPU",
+    "gallery_camera_intrusion_check": "not applicable",
+    "generated_or_interpolated_frames": false
+  },
+  {
+    "file": "R04_PARALLAX_100_f001.png",
+    "frame": 1,
+    "camera": "R04_PARALLAX_100",
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -818.1026611328125
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        28.530244827270508
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "ring_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        900.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1600.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+    "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+    "sha256": "1f079c24c699942646b8c689ccc04d1c46169fdcc7c4e2c815c6b5a023a217f7",
+    "bytes": 793647,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 16,
+    "seconds": 29.29058333299986,
+    "rss_peak_kib": 3624960,
+    "neutral": false,
+    "neutral_lighting": false,
+    "engine": "CYCLES_CPU",
+    "gallery_camera_intrusion_check": "not applicable",
+    "generated_or_interpolated_frames": false
+  }
+]

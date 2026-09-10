@@ -1,0 +1,13 @@
+{
+  "scene_archive_commit": "79f647a3e26e0b1bb4064fff757d37ac27eeff05",
+  "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+  "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+  "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+  "run_id": "34507267207",
+  "role": "stills",
+  "motion_preview_resolution": [
+    1280,
+    720
+  ],
+  "P2_1080_pass": false
+}

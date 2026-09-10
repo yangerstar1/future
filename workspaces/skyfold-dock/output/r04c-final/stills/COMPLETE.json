@@ -1,0 +1,10 @@
+{
+  "mode": "stills",
+  "frames": 11,
+  "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+  "render_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+  "run_id": "34507267207",
+  "visual_verdict": "REVIEW_REQUIRED",
+  "total_render_seconds": 1118.9352802069996,
+  "motion_720_status": "not applicable"
+}
