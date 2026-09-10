@@ -1,0 +1,2 @@
+file '/home/runner/work/_temp/skyfold-r04c-inputs/skyfold-r04c-motion-a-34507267207/output/r04c-final/motion_a/skyfold-motion-001-096.mp4'
+file '/home/runner/work/_temp/skyfold-r04c-inputs/skyfold-r04c-motion-b-34507267207/output/r04c-final/motion_b/skyfold-motion-097-192.mp4'
