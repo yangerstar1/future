@@ -1,0 +1,39 @@
+name: Skyfold R04 camera composition study
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r04-study.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: skyfold-r04-study
+  cancel-in-progress: false
+jobs:
+  study:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r04-study
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Reuse pinned Blender and verify source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$SKYFOLD_OUT"
+          python3 -m py_compile workspaces/skyfold-dock/study_r04.py
+          bash workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/provision.log" 2>&1
+      - name: Three actual cameras on unmodified scene
+        shell: bash
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b workspaces/skyfold-dock/output/r03b/skyfold-r03b.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/study_r04.py > "$SKYFOLD_OUT/render.log" 2>&1
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r04-study-${{ github.run_id }}
+          path: workspaces/skyfold-dock/output/r04-study
+          retention-days: 1
+          if-no-files-found: error
