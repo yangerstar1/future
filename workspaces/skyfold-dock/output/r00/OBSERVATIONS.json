@@ -1,0 +1,602 @@
+[
+  {
+    "observation": "O01_HERO",
+    "candidate": "R00_PROVISIONAL",
+    "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+    "scene_sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554",
+    "image_sha256": "fe333e12bb202c4f7d583fc9b3cec82ec33a6020f6c64e38f9aa1ec38c2b2b0c",
+    "camera": "O01_HERO",
+    "camera_matrix": [
+      [
+        0.9824063181877136,
+        -0.07233177870512009,
+        -0.17218005657196045,
+        -174.0
+      ],
+      [
+        -0.18675614893436432,
+        -0.3804919719696045,
+        -0.905730664730072,
+        -323.0
+      ],
+      [
+        -2.4502288198391398e-08,
+        0.921951174736023,
+        -0.3873061239719391,
+        18.75
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 16,
+    "seconds": 23.972949087999993,
+    "render_engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED",
+    "review_derivative": {
+      "path": "O01_HERO.review.jpg",
+      "width": 320,
+      "height": 180,
+      "bytes": 5832,
+      "kind": "NON_GENERATIVE_DOWNSIZED_REVIEW_ONLY_NOT_DELIVERY_RENDER"
+    }
+  },
+  {
+    "observation": "O01_SECOND",
+    "candidate": "R00_PROVISIONAL",
+    "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+    "scene_sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554",
+    "image_sha256": "aa7f22170be7a966f74b050e197a5bb71a05c735f2a10a3c40cf912f779a0b81",
+    "camera": "O01_SECOND",
+    "camera_matrix": [
+      [
+        0.816923975944519,
+        -0.07588592916727066,
+        0.5717311501502991,
+        3650.0
+      ],
+      [
+        0.576745331287384,
+        0.10748773068189621,
+        -0.8098217248916626,
+        -3750.0
+      ],
+      [
+        -6.962142862221299e-09,
+        0.9913060665130615,
+        0.13157616555690765,
+        2350.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      640,
+      360
+    ],
+    "samples": 12,
+    "seconds": 6.1617797289999885,
+    "render_engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED",
+    "review_derivative": {
+      "path": "O01_SECOND.review.jpg",
+      "width": 320,
+      "height": 180,
+      "bytes": 5216,
+      "kind": "NON_GENERATIVE_DOWNSIZED_REVIEW_ONLY_NOT_DELIVERY_RENDER"
+    }
+  },
+  {
+    "observation": "O02_NEUTRAL",
+    "candidate": "R00_PROVISIONAL",
+    "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+    "scene_sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554",
+    "image_sha256": "2cf1e711673d0e3818afca9d3c85f9ff3ba56d66ba8bb919681a0874ae71e68c",
+    "camera": "O01_HERO",
+    "camera_matrix": [
+      [
+        0.9824063181877136,
+        -0.07233177870512009,
+        -0.17218005657196045,
+        -174.0
+      ],
+      [
+        -0.18675614893436432,
+        -0.3804919719696045,
+        -0.905730664730072,
+        -323.0
+      ],
+      [
+        -2.4502288198391398e-08,
+        0.921951174736023,
+        -0.3873061239719391,
+        18.75
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 16,
+    "seconds": 19.272613528999997,
+    "render_engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED",
+    "review_derivative": {
+      "path": "O02_NEUTRAL.review.jpg",
+      "width": 320,
+      "height": 180,
+      "bytes": 5129,
+      "kind": "NON_GENERATIVE_DOWNSIZED_REVIEW_ONLY_NOT_DELIVERY_RENDER"
+    }
+  },
+  {
+    "observation": "O03_REAR",
+    "candidate": "R00_PROVISIONAL",
+    "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+    "scene_sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554",
+    "image_sha256": "ebecf8436e0785772d33a62577fce826b27b7ff40d3ed8a62ad02d722bd8fefc",
+    "camera": "O03_REAR",
+    "camera_matrix": [
+      [
+        -0.7016043066978455,
+        0.22261665761470795,
+        -0.6768997311592102,
+        -3900.0
+      ],
+      [
+        -0.7125667333602905,
+        -0.2191920429468155,
+        0.6664859056472778,
+        5300.0
+      ],
+      [
+        -1.6575030770127341e-07,
+        0.9499456286430359,
+        0.31241530179977417,
+        3300.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      640,
+      360
+    ],
+    "samples": 12,
+    "seconds": 6.753105091999998,
+    "render_engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED",
+    "review_derivative": {
+      "path": "O03_REAR.review.jpg",
+      "width": 320,
+      "height": 180,
+      "bytes": 4447,
+      "kind": "NON_GENERATIVE_DOWNSIZED_REVIEW_ONLY_NOT_DELIVERY_RENDER"
+    }
+  },
+  {
+    "observation": "O04_CRAFT",
+    "candidate": "R00_PROVISIONAL",
+    "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+    "scene_sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554",
+    "image_sha256": "276b30b59d2d42dcb493dac66cdbc7d27951a24faf9a9bfc6cf16f20773ba002",
+    "camera": "O04_CRAFT",
+    "camera_matrix": [
+      [
+        0.8944271802902222,
+        0.015445283614099026,
+        -0.4469468593597412,
+        -179.0
+      ],
+      [
+        -0.44721364974975586,
+        0.030890585854649544,
+        -0.8938935995101929,
+        -308.0
+      ],
+      [
+        1.0449316079075288e-08,
+        0.9994034171104431,
+        0.03453671932220459,
+        19.350000381469727
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      800,
+      450
+    ],
+    "samples": 24,
+    "seconds": 25.85854968400001,
+    "render_engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED",
+    "review_derivative": {
+      "path": "O04_CRAFT.review.jpg",
+      "width": 320,
+      "height": 180,
+      "bytes": 4766,
+      "kind": "NON_GENERATIVE_DOWNSIZED_REVIEW_ONLY_NOT_DELIVERY_RENDER"
+    }
+  },
+  {
+    "observation": "O04_INTERFACE",
+    "candidate": "R00_PROVISIONAL",
+    "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+    "scene_sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554",
+    "image_sha256": "3b8be1ee2309a7d28ff3edb4bfd0d5799867afd75b862e39dc34e99ea7f9e293",
+    "camera": "O04_INTERFACE",
+    "camera_matrix": [
+      [
+        0.879997730255127,
+        0.0400804728269577,
+        -0.4732837677001953,
+        75.0
+      ],
+      [
+        -0.47497788071632385,
+        0.07425770163536072,
+        -0.8768590688705444,
+        565.0
+      ],
+      [
+        3.7516695527983757e-08,
+        0.9964333176612854,
+        0.08438394963741302,
+        273.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      640,
+      360
+    ],
+    "samples": 16,
+    "seconds": 12.573259186000001,
+    "render_engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED",
+    "review_derivative": {
+      "path": "O04_INTERFACE.review.jpg",
+      "width": 320,
+      "height": 180,
+      "bytes": 3967,
+      "kind": "NON_GENERATIVE_DOWNSIZED_REVIEW_ONLY_NOT_DELIVERY_RENDER"
+    }
+  },
+  {
+    "observation": "O05_ROUTE",
+    "candidate": "R00_PROVISIONAL",
+    "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+    "scene_sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554",
+    "image_sha256": "f8063e86b26b68cf10c99d53e23830f1d0b65a2e1fe55b58585e944281e0d967",
+    "camera": "O05_ROUTE",
+    "camera_matrix": [
+      [
+        0.8566641807556152,
+        0.2006029635667801,
+        -0.47527357935905457,
+        -710.0
+      ],
+      [
+        -0.5158745050430298,
+        0.3331224024295807,
+        -0.7892419695854187,
+        -650.0
+      ],
+      [
+        -1.2890435385770616e-09,
+        0.9212968349456787,
+        0.38885998725891113,
+        730.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      640,
+      360
+    ],
+    "samples": 12,
+    "seconds": 9.830758435000007,
+    "render_engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED",
+    "review_derivative": {
+      "path": "O05_ROUTE.review.jpg",
+      "width": 320,
+      "height": 180,
+      "bytes": 5669,
+      "kind": "NON_GENERATIVE_DOWNSIZED_REVIEW_ONLY_NOT_DELIVERY_RENDER"
+    }
+  },
+  {
+    "observation": "O06_000",
+    "candidate": "R00_PROVISIONAL",
+    "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+    "scene_sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554",
+    "image_sha256": "f4710402afe7c7187459641184036d441a17e96efb713512ab4565567deb25f9",
+    "camera": "O06_000",
+    "camera_matrix": [
+      [
+        0.9824063181877136,
+        -0.07233177870512009,
+        -0.17218005657196045,
+        -189.0
+      ],
+      [
+        -0.18675614893436432,
+        -0.3804919719696045,
+        -0.905730664730072,
+        -323.0
+      ],
+      [
+        -2.4502288198391398e-08,
+        0.921951174736023,
+        -0.3873061239719391,
+        18.510000228881836
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      576,
+      324
+    ],
+    "samples": 10,
+    "seconds": 6.442474956000012,
+    "render_engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED",
+    "review_derivative": {
+      "path": "O06_000.review.jpg",
+      "width": 320,
+      "height": 180,
+      "bytes": 5328,
+      "kind": "NON_GENERATIVE_DOWNSIZED_REVIEW_ONLY_NOT_DELIVERY_RENDER"
+    }
+  },
+  {
+    "observation": "O06_025",
+    "candidate": "R00_PROVISIONAL",
+    "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+    "scene_sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554",
+    "image_sha256": "77064c572daed27e32ee81bb5ce2da2eebe1c599d26206278cf053c81f7a9a4f",
+    "camera": "O06_025",
+    "camera_matrix": [
+      [
+        0.9824063181877136,
+        -0.07233177870512009,
+        -0.17218005657196045,
+        -181.5
+      ],
+      [
+        -0.18675614893436432,
+        -0.3804919719696045,
+        -0.905730664730072,
+        -323.0
+      ],
+      [
+        -2.4502288198391398e-08,
+        0.921951174736023,
+        -0.3873061239719391,
+        18.6299991607666
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      576,
+      324
+    ],
+    "samples": 10,
+    "seconds": 6.72376122899999,
+    "render_engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED",
+    "review_derivative": {
+      "path": "O06_025.review.jpg",
+      "width": 320,
+      "height": 180,
+      "bytes": 5701,
+      "kind": "NON_GENERATIVE_DOWNSIZED_REVIEW_ONLY_NOT_DELIVERY_RENDER"
+    }
+  },
+  {
+    "observation": "O06_050",
+    "candidate": "R00_PROVISIONAL",
+    "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+    "scene_sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554",
+    "image_sha256": "f6a5884a52137f8eb5a51b63f59fdb4474043a39c0d4510f0d0d97880ba10f27",
+    "camera": "O06_050",
+    "camera_matrix": [
+      [
+        0.9824063181877136,
+        -0.07233177870512009,
+        -0.17218005657196045,
+        -174.0
+      ],
+      [
+        -0.18675614893436432,
+        -0.3804919719696045,
+        -0.905730664730072,
+        -323.0
+      ],
+      [
+        -2.4502288198391398e-08,
+        0.921951174736023,
+        -0.3873061239719391,
+        18.75
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      576,
+      324
+    ],
+    "samples": 10,
+    "seconds": 6.73313065100001,
+    "render_engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED",
+    "review_derivative": {
+      "path": "O06_050.review.jpg",
+      "width": 320,
+      "height": 180,
+      "bytes": 5661,
+      "kind": "NON_GENERATIVE_DOWNSIZED_REVIEW_ONLY_NOT_DELIVERY_RENDER"
+    }
+  },
+  {
+    "observation": "O06_075",
+    "candidate": "R00_PROVISIONAL",
+    "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+    "scene_sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554",
+    "image_sha256": "652a071b76f2e330fe20d218bf48e3e2ee2f145649ef503d2c293fbaa0e23023",
+    "camera": "O06_075",
+    "camera_matrix": [
+      [
+        0.9824063181877136,
+        -0.07233177870512009,
+        -0.17218005657196045,
+        -166.5
+      ],
+      [
+        -0.18675614893436432,
+        -0.3804919719696045,
+        -0.905730664730072,
+        -323.0
+      ],
+      [
+        -2.4502288198391398e-08,
+        0.921951174736023,
+        -0.3873061239719391,
+        18.8700008392334
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      576,
+      324
+    ],
+    "samples": 10,
+    "seconds": 6.856084452000005,
+    "render_engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED",
+    "review_derivative": {
+      "path": "O06_075.review.jpg",
+      "width": 320,
+      "height": 180,
+      "bytes": 5200,
+      "kind": "NON_GENERATIVE_DOWNSIZED_REVIEW_ONLY_NOT_DELIVERY_RENDER"
+    }
+  },
+  {
+    "observation": "O06_100",
+    "candidate": "R00_PROVISIONAL",
+    "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+    "scene_sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554",
+    "image_sha256": "e37920d53e56da9f6aedca702a1df0126e624634be79549292037783fb2f4c35",
+    "camera": "O06_100",
+    "camera_matrix": [
+      [
+        0.9824063181877136,
+        -0.07233177870512009,
+        -0.17218005657196045,
+        -159.0
+      ],
+      [
+        -0.18675614893436432,
+        -0.3804919719696045,
+        -0.905730664730072,
+        -323.0
+      ],
+      [
+        -2.4502288198391398e-08,
+        0.921951174736023,
+        -0.3873061239719391,
+        18.989999771118164
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dimensions": [
+      576,
+      324
+    ],
+    "samples": 10,
+    "seconds": 6.801794476000026,
+    "render_engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED",
+    "review_derivative": {
+      "path": "O06_100.review.jpg",
+      "width": 320,
+      "height": 180,
+      "bytes": 5126,
+      "kind": "NON_GENERATIVE_DOWNSIZED_REVIEW_ONLY_NOT_DELIVERY_RENDER"
+    }
+  }
+]

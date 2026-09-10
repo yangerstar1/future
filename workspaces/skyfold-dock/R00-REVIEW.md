@@ -1,0 +1,15 @@
+# R00 — sequential review, not independent panel
+
+Input: original contract1.0.0, candidate R00 scene SHA256 a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554; source e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2; Actions run34488579285 completed successfully. Actual scene944878bytes, build17.28s, peak build RSS519008KiB. These are technical measurements, not quality scores.
+
+Actually observed in this session: O01_HERO and O01_SECOND at320x180 as explicitly labelled, non-generatively downsized JPEG review derivatives. Their transfer was checked against Git blob IDs879120d4823052631b512eda927300f026786c3c and20ebe41dee81fd56852824a83755377f577efa47 before decoding. A copied-header mismatch for SECOND was rejected and corrected before viewing. JPEG SHA256 respectively631407099710855409dd073edca0ce0b0c4e68358bcdeb96221bf1533465d5c8 and67e349846493eeabcb845858543badf1e99b7de0735028c58f66d90894c9d0ea. Do not claim full-resolution craft review. Other generated views are NOT_OBSERVED until actually fetched and inspected.
+
+## Verdict: REVISE; do not promote to G2 best
+
+- R00-001 / R-01 / CU-01,06 / O01_HERO,O01_SECOND / MAJOR / OPEN. The exterior reads as a long industrial drum; the interior reads as a tunnel, not a sufficiently distinct city-ring wonder. Evidence is the wide uniform outer band and deeply occluded inner skyline. Shorten the still-unfrozen axial band while preserving genuine ring thickness, backside and inward-oriented rigid cities.
+- R00-002 / R-01 / CU-06 / O01_HERO / MAJOR / OPEN. The very close left upright and overhead beam consume substantial frame area and compete with the ring. Remove only this optional seven-piece frame/conduit assembly; retain the required thick catwalk, guardrails, load paths and cart. This is a design revision, not deletion during neutral checking.
+- R00-003 / R-03 / CU-03,06 / O01_HERO / MAJOR / OPEN. The freighter is hard to distinguish from its support cranes at the nearly axial, very low view; interior shadows compound the problem. Relocate the metre-scale foreground/vantage sideways and up, rebuild its true connection to the dock, and test an opening-skylight approximation without fog. Retain the old R00 camera as an additional diagnostic, not secretly replace evidence.
+- R00-004 / R-03 / CU-05 / O05 source geometry / MAJOR / OPEN. Source audit: wheel centres span2.40m while rails span1.44m; wheel bottoms are about0.215m above the rail crest. Correct gauge/contact, then actually render and inspect the craft view before marking FIXED. This is a source-derived geometric finding, not an invented close-image observation.
+- G1 calibration and repository-local copy of the original generated reference remain pending. No independent critic, complete G1 PASS, final-resolution render, or G6 cold-rebuild is claimed.
+
+R00 remains an immutable recovery candidate, not an accepted artistic best. R01 intervention is a bounded G2 study from the exact R00 source; all principal observations must be rerendered. No more micro-detail is added to compensate for the macro failures.

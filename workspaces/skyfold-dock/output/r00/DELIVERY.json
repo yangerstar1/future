@@ -1,0 +1,198 @@
+{
+  "candidate": "R00_PROVISIONAL",
+  "source_sha": "e711b88e27d73b32438e4da8a1be5ec9c9cb7bf2",
+  "run_id": "34488579285",
+  "files": {
+    "O04_INTERFACE.review.jpg": {
+      "bytes": 3967,
+      "sha256": "4cd185b5a63c85354e50e085ed16807c7ffb3e4de3ff2bb1edbd13403eec3d32"
+    },
+    "O01_SECOND.png": {
+      "bytes": 321661,
+      "sha256": "aa7f22170be7a966f74b050e197a5bb71a05c735f2a10a3c40cf912f779a0b81"
+    },
+    "build.log": {
+      "bytes": 282,
+      "sha256": "93e1e28832a64b90d97725557aaef3265625bd0d6504fe5fae36a91c305e1a31"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 8766,
+      "sha256": "96ada084c0618f84cf0c9e6da78a788e2c975b25162c8f953eea9c2b900c58df"
+    },
+    "O02_NEUTRAL.review.b64": {
+      "bytes": 6846,
+      "sha256": "0efa83cb8706726bcad263b06e0584cd990a061a84def8b5caa26f74f2dc454d"
+    },
+    "O06_000.png": {
+      "bytes": 268896,
+      "sha256": "f4710402afe7c7187459641184036d441a17e96efb713512ab4565567deb25f9"
+    },
+    "O06_000.review.jpg": {
+      "bytes": 5328,
+      "sha256": "6881b62f304d6634ce52a049d491f7437e7dd6bd2ab700e33d2ff6f178f7b836"
+    },
+    "O03_REAR.review.b64": {
+      "bytes": 5937,
+      "sha256": "481c5468c1c5c9b502c0fc224dc6a255bfb210623da599819ca490ab55d19751"
+    },
+    "O04_CRAFT.png": {
+      "bytes": 423646,
+      "sha256": "276b30b59d2d42dcb493dac66cdbc7d27951a24faf9a9bfc6cf16f20773ba002"
+    },
+    "O05_ROUTE.png": {
+      "bytes": 310556,
+      "sha256": "f8063e86b26b68cf10c99d53e23830f1d0b65a2e1fe55b58585e944281e0d967"
+    },
+    "O06_050.review.b64": {
+      "bytes": 7555,
+      "sha256": "f31356ed73030c89f5b7e1edfa614be2b16be10e1e23213386b95db13c3369b2"
+    },
+    "O06_100.png": {
+      "bytes": 271032,
+      "sha256": "e37920d53e56da9f6aedca702a1df0126e624634be79549292037783fb2f4c35"
+    },
+    "O06_025.png": {
+      "bytes": 276447,
+      "sha256": "77064c572daed27e32ee81bb5ce2da2eebe1c599d26206278cf053c81f7a9a4f"
+    },
+    "render.log": {
+      "bytes": 393442,
+      "sha256": "1cefebaf35918e66ca54130b5cf52469a5ebc9cbcb1c1e99c60160f36734b764"
+    },
+    "O06_100.review.b64": {
+      "bytes": 6842,
+      "sha256": "33e67a1cb68127e94b1e30af9c18449f78d1f351b0f94a2e2ed094e181aa9442"
+    },
+    "O04_CRAFT.review.jpg": {
+      "bytes": 4766,
+      "sha256": "753a4b961f19bf9aab199b6de6d1782e9213871cdb1589927674111df4b72700"
+    },
+    "O06_075.review.b64": {
+      "bytes": 6942,
+      "sha256": "71e83ca55f5476ef84da65db94bfbf5023c13070d90edf2e83958449fdc4a9a9"
+    },
+    "O06_075.png": {
+      "bytes": 273150,
+      "sha256": "652a071b76f2e330fe20d218bf48e3e2ee2f145649ef503d2c293fbaa0e23023"
+    },
+    "O04_CRAFT.review.b64": {
+      "bytes": 6362,
+      "sha256": "43de7b88c103ddb2f778c18612e02fe5918d433377a33fae83fa736034848f97"
+    },
+    "O05_ROUTE.review.jpg": {
+      "bytes": 5669,
+      "sha256": "4e05e68ca4c85efd7bc1e9bf821bbba19dc30e54ea03b13424ddf67abb930592"
+    },
+    "O06_075.review.jpg": {
+      "bytes": 5200,
+      "sha256": "fba1625bc9386c7c57e2d2ad536d151cf8cd6b4a384a5633cfc80872d06be4cd"
+    },
+    "O01_HERO.review.b64": {
+      "bytes": 7783,
+      "sha256": "e5ae699ccd9f49fa82868725093d847af835bd22cbf114bb06316bac6418aa09"
+    },
+    "O04_INTERFACE.review.b64": {
+      "bytes": 5297,
+      "sha256": "9325c1623be2ea217559118b73f790d7bb03207253e9217f680a8bbae1814a44"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "51c490c753e3b2b8960ebb1bd283f12e11620545b9f47d56c2d1c2ddcae7eae9"
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 14486,
+      "sha256": "e0b9c4acc255111e7a54e35187bb0849c444e558ede18c1a6a1b2a559161c810"
+    },
+    "O06_050.png": {
+      "bytes": 275740,
+      "sha256": "f6a5884a52137f8eb5a51b63f59fdb4474043a39c0d4510f0d0d97880ba10f27"
+    },
+    "O04_INTERFACE.png": {
+      "bytes": 237428,
+      "sha256": "3b8be1ee2309a7d28ff3edb4bfd0d5799867afd75b862e39dc34e99ea7f9e293"
+    },
+    "O06_025.review.b64": {
+      "bytes": 7611,
+      "sha256": "4384bc5f9249138cb925b56d1fdb83eeac193c803d567d39bc1f596b76b88a78"
+    },
+    "provision.log": {
+      "bytes": 8194,
+      "sha256": "15b8b538416ada34941529b1723873f354f5cbcd4d5b79a54f998851cbc57e8c"
+    },
+    "O02_NEUTRAL.review.jpg": {
+      "bytes": 5129,
+      "sha256": "62967db391cbc6db277ba8ae788f49e6dc1fa8bcaf50fec54d4cc06ce8c90bd2"
+    },
+    "O01_HERO.review.jpg": {
+      "bytes": 5832,
+      "sha256": "631407099710855409dd073edca0ce0b0c4e68358bcdeb96221bf1533465d5c8"
+    },
+    "O06_100.review.jpg": {
+      "bytes": 5126,
+      "sha256": "558bbff076e7d1bee166397c7393e511c1c66b23f83d8e74bc70ef215be06463"
+    },
+    "O01_HERO.png": {
+      "bytes": 715764,
+      "sha256": "fe333e12bb202c4f7d583fc9b3cec82ec33a6020f6c64e38f9aa1ec38c2b2b0c"
+    },
+    "O01_SECOND.review.jpg": {
+      "bytes": 5216,
+      "sha256": "67e349846493eeabcb845858543badf1e99b7de0735028c58f66d90894c9d0ea"
+    },
+    "O06_050.review.jpg": {
+      "bytes": 5661,
+      "sha256": "8130882a7a28cb8a25e4aa4fae2d826ec9a8082f4817e7237b8a2ee161e389b1"
+    },
+    "O05_ROUTE.review.b64": {
+      "bytes": 7567,
+      "sha256": "7c3c6eee307ae04c28e71c336781e2c140c5297cfe84fa9924e8c1f3e5cec595"
+    },
+    "O06_025.review.jpg": {
+      "bytes": 5701,
+      "sha256": "9d35ca97aa1e2807c744aa5ea8784d4a66ae0480308df9438414ecb723a8a5bf"
+    },
+    "render-time.txt": {
+      "bytes": 904,
+      "sha256": "56f7015cca95db24c5c6005f0e97a29eac84ac72019f8d7b5408d25b27ce678d"
+    },
+    "O03_REAR.review.jpg": {
+      "bytes": 4447,
+      "sha256": "11568cd9337d22f5c432f333c86c1a1f6fcc1a547c60ae97d46e9c686e0cfec1"
+    },
+    "build-time.txt": {
+      "bytes": 827,
+      "sha256": "0901e81c5e315d164d4b388f50882d0d7ae773e1766f1069f0618a69a7328441"
+    },
+    "O01_SECOND.review.b64": {
+      "bytes": 6962,
+      "sha256": "99fd97e742b7e9676bc64eba64d2088188b80531022f68f51b21b56c13452e2d"
+    },
+    "environment.json": {
+      "bytes": 2450,
+      "sha256": "ec1adaa35fe958842b01c59ce60fedeb3e926410b7831c1d2f61d3c4a23c661e"
+    },
+    "O03_REAR.png": {
+      "bytes": 297707,
+      "sha256": "ebecf8436e0785772d33a62577fce826b27b7ff40d3ed8a62ad02d722bd8fefc"
+    },
+    "O06_000.review.b64": {
+      "bytes": 7111,
+      "sha256": "6cdcaf998c66dd447c059692ddf626813b66d20f689137f527427f01f56c8857"
+    },
+    "skyfold-r00.blend": {
+      "bytes": 944878,
+      "sha256": "a8fa40cb715c653a55da6f3cf994550126270c587008000225735e168ca43554"
+    },
+    "O02_NEUTRAL.png": {
+      "bytes": 629425,
+      "sha256": "2cf1e711673d0e3818afca9d3c85f9ff3ba56d66ba8bb919681a0874ae71e68c"
+    }
+  },
+  "stage": "INDEPENDENT_STRUCTURAL_DRAFT",
+  "G1": "PARTIAL_PENDING_CALIBRATION_AND_REFERENCE_REPOSITORY_COPY",
+  "G2": "VISUAL_REVIEW_REQUIRED",
+  "G3_G6": "NOT_PASSED",
+  "final_status": "UNQUALIFIED",
+  "review_mode": "SEQUENTIAL_SELF_REVIEW",
+  "P2": "NOT_SELECTED"
+}

@@ -1,0 +1,82 @@
+name: Skyfold R01 macro revision and regression observations
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r01.yml, workspaces/skyfold-dock/prepare_r01.py]
+permissions:
+  contents: write
+concurrency:
+  group: skyfold-production
+  cancel-in-progress: false
+jobs:
+  revise:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r01
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Derive complete readable source from verified baseline
+        run: |
+          set -euo pipefail
+          mkdir -p "$SKYFOLD_OUT"
+          python3 workspaces/skyfold-dock/prepare_r01.py
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os,shutil,platform
+          root=Path('workspaces/skyfold-dock');src=root/'build_scene_r01.py'
+          assert hashlib.sha256(src.read_bytes()).hexdigest()=='1bb627df3637886da7e2d89107d6230e1caec87a50501c1d2e0eeb1a2b11249b'
+          text=(root/'render_observations.py').read_text().replace('skyfold-r00.blend','skyfold-r01.blend').replace('R00_PROVISIONAL','R01_PROVISIONAL')
+          text=text.replace("('O01_SECOND',640,12,False)","('O01_SECOND',640,12,False),('O01_R00_FIXED',640,12,False)")
+          compile(text,'render_r01.py','exec');(root/'render_r01.py').write_text(text)
+          out=Path(os.environ['SKYFOLD_OUT']);report={'run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'python':platform.python_version(),'disk':shutil.disk_usage('.')._asdict(),'memory':Path('/proc/meminfo').read_text(),'max_job_minutes':30,'max_concurrent_jobs':1,'external_spend':0,'all_artistic_gates':'REVIEW_REQUIRED'}
+          (out/'environment.json').write_text(json.dumps(report,indent=2))
+          PY
+      - name: Locked official Blender
+        run: |
+          set -euo pipefail
+          bash workspaces/skyfold-dock/provision.sh 2>&1 | tee "$SKYFOLD_OUT/provision.log"
+      - name: Build R01 without overwriting R00
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b --factory-startup -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/build_scene_r01.py 2>&1 | tee "$SKYFOLD_OUT/build.log"
+      - name: Checkpoint actual source and scene
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r01-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/build_scene_r01.py workspaces/skyfold-dock/render_r01.py workspaces/skyfold-dock/R01-INTERVENTION.json workspaces/skyfold-dock/R01-SOURCE.diff workspaces/skyfold-dock/output/r01
+          git commit -m "Skyfold R01 scene checkpoint ${GITHUB_RUN_ID}; no visual promotion"
+          git push origin HEAD
+      - name: New-process renders including old camera and five parallax samples
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r01.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/render_r01.py 2>&1 | tee "$SKYFOLD_OUT/render.log"
+      - name: Preserve bounded real outputs and failure evidence
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import os,json,hashlib
+          root=Path(os.environ['SKYFOLD_OUT']);root.mkdir(parents=True,exist_ok=True);files={}
+          for p in root.rglob('*'):
+              if p.is_file():
+                  assert p.stat().st_size<45000000
+                  files[p.name]={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+          assert sum(v['bytes'] for v in files.values())<75000000
+          d={'candidate':'R01_PROVISIONAL','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':files,'G1':'PARTIAL','G2':'REVIEW_REQUIRED','G3_G6':'NOT_PASSED','final_status':'UNQUALIFIED','critic':'SEQUENTIAL_SELF_REVIEW','P2':'NOT_SELECTED'}
+          (root/'DELIVERY.json').write_text(json.dumps(d,indent=2));print(json.dumps(d,indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          BRANCH=evidence/skyfold-r01-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          if [ "$(git branch --show-current)" != "$BRANCH" ];then git switch -c "$BRANCH";fi
+          git add workspaces/skyfold-dock/output/r01
+          git diff --staged --quiet || git commit -m "Skyfold R01 actual regression output ${GITHUB_RUN_ID}; review required"
+          git push origin HEAD
