@@ -1,0 +1,38 @@
+{
+  "first_source_frame": 1,
+  "last_source_frame": 2,
+  "frame_count": 2,
+  "fps": 24,
+  "duration_seconds": 0.08333333333333333,
+  "dimensions": [
+    320,
+    180
+  ],
+  "source_frames": [
+    {
+      "frame": 1,
+      "file": "frame_0001.png",
+      "bytes": 97642,
+      "sha256": "a503c9d4eef89919c151b1066101835ffe8c496d3dfb02ee7eab437399e70202"
+    },
+    {
+      "frame": 2,
+      "file": "frame_0002.png",
+      "bytes": 98538,
+      "sha256": "1279c4a7d84a3900877415ff3380eaf683e1c5670b7976692f85bb8b30206a3d"
+    }
+  ],
+  "video": "skyfold-motion-001-002.mp4",
+  "video_sha256": "b37d161b5d34ac6444f60b91a7f4b094d29d5b4d084dde4c4e858d1215ccf40f",
+  "bytes": 12711,
+  "blender": "4.5.13 LTS",
+  "source_sha": "1bd1bf36e5efe28130fb4caca7b9d7e43b502af0",
+  "run_id": "34506021625",
+  "encode_seconds": 0.01539249799998288,
+  "codec": "H264 MP4",
+  "color_management": "Input rendered sRGB PNG -> VSE sRGB -> Standard, no second AgX transform",
+  "decoded_frame_count_verified": 2,
+  "generated_frames": false,
+  "interpolated_frames": false,
+  "audio": false
+}
