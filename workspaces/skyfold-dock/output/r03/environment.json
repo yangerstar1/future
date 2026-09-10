@@ -1,0 +1,22 @@
+{
+  "source_sha": "c507467ccf7b24ab513184279b2b57673145d7e3",
+  "run_id": "34498166928",
+  "python": "3.12.3",
+  "cpu_count": 4,
+  "memory": "               total        used        free      shared  buff/cache   available\nMem:     16770744320  1034018816 13469564928    43704320  2644606976 15736725504\nSwap:     3221221376           0  3221221376\n",
+  "disk": {
+    "total": 154894188544,
+    "used": 62496804864,
+    "free": 92380606464
+  },
+  "sources": {
+    "revise_r03.py": "ac02ead1bd3e8c837260e05a1cf854651c15bf731f2f4640d78614dccd0dffdc",
+    "render_r03.py": "ca7b46f16ed230af196eb4d59b0b90f599e798cbb926d7ef02fee377671fe044",
+    "render_r02.py": "759ef7259d97df021fd5e1b52fae917dc0979646d78c8e8926b8ea181f4acbb5",
+    "build_scene_r01.py": "1bb627df3637886da7e2d89107d6230e1caec87a50501c1d2e0eeb1a2b11249b",
+    "provision.sh": "0b3a39929af30e6222502793a2c212ee85e13ac64cd0e306905cb282f472d598"
+  },
+  "artistic_verdict": "NOT_REVIEWED",
+  "timeout_minutes": 25,
+  "paid_services": false
+}

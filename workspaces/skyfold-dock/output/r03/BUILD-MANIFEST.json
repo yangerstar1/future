@@ -1,0 +1,2341 @@
+{
+  "candidate": "R03_NEAR_PIER_REPAIR",
+  "source_sha": "c507467ccf7b24ab513184279b2b57673145d7e3",
+  "blender": "4.5.13 LTS",
+  "parent_scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+  "reused_helper_sha256": "1bb627df3637886da7e2d89107d6230e1caec87a50501c1d2e0eeb1a2b11249b",
+  "seed": 270910,
+  "geometry": {
+    "ring_radius_m": 1600.0,
+    "band_width_m": 1800.0,
+    "neighbourhood_instances": 266,
+    "objects": 2820,
+    "meshes": 198
+  },
+  "scales": {
+    "guardrail_m": 1.1,
+    "rail_gauge_m": 1.44,
+    "ring_diameter_m": 3200,
+    "freighter_hull_length_m": 875,
+    "freighter_total_length_m": 907,
+    "R02_berth_raise_m": 350.0,
+    "near_pier_deck_top_m": 272.0,
+    "far_pier_deck_top_m": 512.0
+  },
+  "functional_route": {
+    "lower": [
+      [
+        -304,
+        167,
+        194.43
+      ],
+      [
+        -304,
+        608,
+        194.43
+      ],
+      [
+        -303.89733833648575,
+        609.5663143066406,
+        194.43
+      ],
+      [
+        -303.5911099154688,
+        611.1058285412303,
+        194.43
+      ],
+      [
+        -303.08655439013546,
+        612.5922011883811,
+        194.43
+      ],
+      [
+        -302.39230484541326,
+        614.0,
+        194.43
+      ],
+      [
+        -301.5202400834948,
+        615.3051371481047,
+        194.43
+      ],
+      [
+        -300.4852813742386,
+        616.4852813742385,
+        194.43
+      ],
+      [
+        -299.3051371481046,
+        617.5202400834949,
+        194.43
+      ],
+      [
+        -298.0,
+        618.3923048454133,
+        194.43
+      ],
+      [
+        -296.59220118838107,
+        619.0865543901355,
+        194.43
+      ],
+      [
+        -295.10582854123027,
+        619.5911099154688,
+        194.43
+      ],
+      [
+        -293.5663143066406,
+        619.8973383364857,
+        194.43
+      ],
+      [
+        -292.0,
+        620.0,
+        194.43
+      ],
+      [
+        -86,
+        620,
+        194.43
+      ]
+    ],
+    "lift_lower": [
+      -86,
+      620,
+      194.43
+    ],
+    "lift_upper": [
+      -86,
+      620,
+      272.065
+    ],
+    "upper": [
+      [
+        -79,
+        620,
+        272.06500000000005
+      ],
+      [
+        -60,
+        620,
+        272.06500000000005
+      ],
+      [
+        -58.17263330891927,
+        620.1197719407667,
+        272.06500000000005
+      ],
+      [
+        -56.37653336856471,
+        620.477038431953,
+        272.06500000000005
+      ],
+      [
+        -54.64243194688874,
+        621.065686544842,
+        272.06500000000005
+      ],
+      [
+        -53.0,
+        621.8756443470179,
+        272.06500000000005
+      ],
+      [
+        -51.47733999387791,
+        622.8930532359227,
+        272.06500000000005
+      ],
+      [
+        -50.10050506338833,
+        624.1005050633884,
+        272.06500000000005
+      ],
+      [
+        -48.89305323592271,
+        625.4773399938779,
+        272.06500000000005
+      ],
+      [
+        -47.87564434701786,
+        627.0,
+        272.06500000000005
+      ],
+      [
+        -47.06568654484199,
+        628.6424319468888,
+        272.06500000000005
+      ],
+      [
+        -46.47703843195305,
+        630.3765333685648,
+        272.06500000000005
+      ],
+      [
+        -46.119771940766654,
+        632.1726333089193,
+        272.06500000000005
+      ],
+      [
+        -46.0,
+        634.0,
+        272.06500000000005
+      ],
+      [
+        -46,
+        1602,
+        272.06500000000005
+      ]
+    ],
+    "loader_centres": [
+      [
+        198,
+        790,
+        602
+      ],
+      [
+        362,
+        790,
+        602
+      ],
+      [
+        198,
+        1200,
+        602
+      ],
+      [
+        362,
+        1200,
+        602
+      ]
+    ],
+    "return_lift": {
+      "lower": [
+        -46,
+        1608,
+        272.065
+      ],
+      "upper": [
+        -46,
+        1608,
+        512.065
+      ]
+    }
+  },
+  "cameras": {
+    "R01_O01_HERO": {
+      "matrix": [
+        [
+          0.9108559489250183,
+          -0.17741276323795319,
+          -0.37264755368232727,
+          -694.0
+        ],
+        [
+          -0.41272446513175964,
+          -0.39153844118118286,
+          -0.8224087953567505,
+          -323.0
+        ],
+        [
+          -2.6623943938375305e-08,
+          0.9028966426849365,
+          -0.42985767126083374,
+          168.75
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "R01_O01_R00_FIXED": {
+      "matrix": [
+        [
+          0.9824063181877136,
+          -0.07233177870512009,
+          -0.17218005657196045,
+          -174.0
+        ],
+        [
+          -0.18675614893436432,
+          -0.3804919719696045,
+          -0.905730664730072,
+          -323.0
+        ],
+        [
+          -2.4502288198391398e-08,
+          0.921951174736023,
+          -0.3873061239719391,
+          18.75
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "R01_O01_SECOND": {
+      "matrix": [
+        [
+          0.816923975944519,
+          -0.07588592916727066,
+          0.5717311501502991,
+          3650.0
+        ],
+        [
+          0.576745331287384,
+          0.10748773068189621,
+          -0.8098217248916626,
+          -3750.0
+        ],
+        [
+          -6.962142862221299e-09,
+          0.9913060665130615,
+          0.13157616555690765,
+          2350.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 36.0
+    },
+    "R01_O03_REAR": {
+      "matrix": [
+        [
+          -0.7016043066978455,
+          0.22261665761470795,
+          -0.6768997311592102,
+          -3900.0
+        ],
+        [
+          -0.7125667333602905,
+          -0.2191920429468155,
+          0.6664859056472778,
+          5300.0
+        ],
+        [
+          -1.6575030770127341e-07,
+          0.9499456286430359,
+          0.31241530179977417,
+          3300.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 37.0
+    },
+    "R01_O04_CRAFT": {
+      "matrix": [
+        [
+          0.9161573052406311,
+          0.019485177472233772,
+          -0.4003450274467468,
+          -695.0
+        ],
+        [
+          -0.40081894397735596,
+          0.04453752934932709,
+          -0.9150741100311279,
+          -302.0
+        ],
+        [
+          -2.1456116883200593e-09,
+          0.9988176822662354,
+          0.04861341044306755,
+          169.35000610351562
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 41.0
+    },
+    "R01_O04_INTERFACE": {
+      "matrix": [
+        [
+          0.879997730255127,
+          0.0400804728269577,
+          -0.4732837677001953,
+          75.0
+        ],
+        [
+          -0.47497788071632385,
+          0.07425770163536072,
+          -0.8768590688705444,
+          565.0
+        ],
+        [
+          3.7516695527983757e-08,
+          0.9964333176612854,
+          0.08438394963741302,
+          273.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 43.0
+    },
+    "R01_O05_ROUTE": {
+      "matrix": [
+        [
+          0.8566641807556152,
+          0.2006029635667801,
+          -0.47527357935905457,
+          -710.0
+        ],
+        [
+          -0.5158745050430298,
+          0.3331224024295807,
+          -0.7892419695854187,
+          -650.0
+        ],
+        [
+          -1.2890435385770616e-09,
+          0.9212968349456787,
+          0.38885998725891113,
+          730.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 40.0
+    },
+    "R01_O06_000": {
+      "matrix": [
+        [
+          0.9108559489250183,
+          -0.17741276323795319,
+          -0.37264755368232727,
+          -709.0
+        ],
+        [
+          -0.41272446513175964,
+          -0.39153844118118286,
+          -0.8224087953567505,
+          -323.0
+        ],
+        [
+          -2.6623943938375305e-08,
+          0.9028966426849365,
+          -0.42985767126083374,
+          168.50999450683594
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "R01_O06_025": {
+      "matrix": [
+        [
+          0.9108559489250183,
+          -0.17741276323795319,
+          -0.37264755368232727,
+          -701.5
+        ],
+        [
+          -0.41272446513175964,
+          -0.39153844118118286,
+          -0.8224087953567505,
+          -323.0
+        ],
+        [
+          -2.6623943938375305e-08,
+          0.9028966426849365,
+          -0.42985767126083374,
+          168.6300048828125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "R01_O06_050": {
+      "matrix": [
+        [
+          0.9108559489250183,
+          -0.17741276323795319,
+          -0.37264755368232727,
+          -694.0
+        ],
+        [
+          -0.41272446513175964,
+          -0.39153844118118286,
+          -0.8224087953567505,
+          -323.0
+        ],
+        [
+          -2.6623943938375305e-08,
+          0.9028966426849365,
+          -0.42985767126083374,
+          168.75
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "R01_O06_075": {
+      "matrix": [
+        [
+          0.9108559489250183,
+          -0.17741276323795319,
+          -0.37264755368232727,
+          -686.5
+        ],
+        [
+          -0.41272446513175964,
+          -0.39153844118118286,
+          -0.8224087953567505,
+          -323.0
+        ],
+        [
+          -2.6623943938375305e-08,
+          0.9028966426849365,
+          -0.42985767126083374,
+          168.8699951171875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "R01_O06_100": {
+      "matrix": [
+        [
+          0.9108559489250183,
+          -0.17741276323795319,
+          -0.37264755368232727,
+          -679.0
+        ],
+        [
+          -0.41272446513175964,
+          -0.39153844118118286,
+          -0.8224087953567505,
+          -323.0
+        ],
+        [
+          -2.6623943938375305e-08,
+          0.9028966426849365,
+          -0.42985767126083374,
+          168.99000549316406
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "O01_HERO": {
+      "matrix": [
+        [
+          0.9237420558929443,
+          -0.18490177392959595,
+          -0.33542802929878235,
+          -310.0
+        ],
+        [
+          -0.3830151855945587,
+          -0.44593942165374756,
+          -0.8089730739593506,
+          220.0
+        ],
+        [
+          -2.0198081429612103e-08,
+          0.8757564425468445,
+          -0.482753187417984,
+          196.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "O01_CAMERA_B": {
+      "matrix": [
+        [
+          0.9237421154975891,
+          -0.16253049671649933,
+          -0.3468203842639923,
+          -310.0
+        ],
+        [
+          -0.38301506638526917,
+          -0.3919852375984192,
+          -0.8364490270614624,
+          220.0
+        ],
+        [
+          1.4403373604920944e-08,
+          0.9055006504058838,
+          -0.42434489727020264,
+          196.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 17.0
+    },
+    "O01_CAMERA_C": {
+      "matrix": [
+        [
+          0.8660683035850525,
+          -0.24160560965538025,
+          -0.43766701221466064,
+          -310.0
+        ],
+        [
+          -0.4999256730079651,
+          -0.4185561239719391,
+          -0.7582117915153503,
+          220.0
+        ],
+        [
+          7.585876815596748e-09,
+          0.875464141368866,
+          -0.48328304290771484,
+          196.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 17.0
+    },
+    "O01_SECOND": {
+      "matrix": [
+        [
+          0.816923975944519,
+          -0.07588592916727066,
+          0.5717311501502991,
+          3650.0
+        ],
+        [
+          0.576745331287384,
+          0.10748773068189621,
+          -0.8098217248916626,
+          -3750.0
+        ],
+        [
+          -6.962142862221299e-09,
+          0.9913060665130615,
+          0.13157616555690765,
+          2350.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 36.0
+    },
+    "O03_REAR": {
+      "matrix": [
+        [
+          -0.7016043066978455,
+          0.22261665761470795,
+          -0.6768997311592102,
+          -3900.0
+        ],
+        [
+          -0.7125667333602905,
+          -0.2191920429468155,
+          0.6664859056472778,
+          5300.0
+        ],
+        [
+          -1.6575030770127341e-07,
+          0.9499456286430359,
+          0.31241530179977417,
+          3300.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 37.0
+    },
+    "O04_CRAFT": {
+      "matrix": [
+        [
+          0.9161573052406311,
+          0.019485177472233772,
+          -0.4003450274467468,
+          -311.0
+        ],
+        [
+          -0.40081894397735596,
+          0.04453752934932709,
+          -0.9150741100311279,
+          241.0
+        ],
+        [
+          -2.1456116883200593e-09,
+          0.9988176822662354,
+          0.04861341044306755,
+          196.60000610351562
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 41.0
+    },
+    "O04_INTERFACE": {
+      "matrix": [
+        [
+          0.879997730255127,
+          0.0400804728269577,
+          -0.4732837677001953,
+          75.0
+        ],
+        [
+          -0.47497788071632385,
+          0.07425770163536072,
+          -0.8768590688705444,
+          565.0
+        ],
+        [
+          3.7516695527983757e-08,
+          0.9964333176612854,
+          0.08438394963741302,
+          623.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 43.0
+    },
+    "O05_ROUTE": {
+      "matrix": [
+        [
+          0.8132290244102478,
+          0.15873144567012787,
+          -0.5598775148391724,
+          -650.0
+        ],
+        [
+          -0.5819437503814697,
+          0.22181691229343414,
+          -0.7823929786682129,
+          -50.0
+        ],
+        [
+          -5.47666942907199e-08,
+          0.9620819091796875,
+          0.2727607190608978,
+          740.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 30.0
+    },
+    "O05_LIFT": {
+      "matrix": [
+        [
+          0.7443817257881165,
+          0.05463934317231178,
+          -0.665515124797821,
+          -188.0
+        ],
+        [
+          -0.6677542924880981,
+          0.0609094500541687,
+          -0.7418856024742126,
+          484.0
+        ],
+        [
+          1.738242616511343e-08,
+          0.9966466426849365,
+          0.08182553946971893,
+          375.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 38.0
+    },
+    "O06_000": {
+      "matrix": [
+        [
+          0.9237420558929443,
+          -0.18490177392959595,
+          -0.33542802929878235,
+          -325.0
+        ],
+        [
+          -0.3830151855945587,
+          -0.44593942165374756,
+          -0.8089730739593506,
+          220.0
+        ],
+        [
+          -2.0198081429612103e-08,
+          0.8757564425468445,
+          -0.482753187417984,
+          195.75999450683594
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "O06_025": {
+      "matrix": [
+        [
+          0.9237420558929443,
+          -0.18490177392959595,
+          -0.33542802929878235,
+          -317.5
+        ],
+        [
+          -0.3830151855945587,
+          -0.44593942165374756,
+          -0.8089730739593506,
+          220.0
+        ],
+        [
+          -2.0198081429612103e-08,
+          0.8757564425468445,
+          -0.482753187417984,
+          195.8800048828125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "O06_050": {
+      "matrix": [
+        [
+          0.9237420558929443,
+          -0.18490177392959595,
+          -0.33542802929878235,
+          -310.0
+        ],
+        [
+          -0.3830151855945587,
+          -0.44593942165374756,
+          -0.8089730739593506,
+          220.0
+        ],
+        [
+          -2.0198081429612103e-08,
+          0.8757564425468445,
+          -0.482753187417984,
+          196.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "O06_075": {
+      "matrix": [
+        [
+          0.9237420558929443,
+          -0.18490177392959595,
+          -0.33542802929878235,
+          -302.5
+        ],
+        [
+          -0.3830151855945587,
+          -0.44593942165374756,
+          -0.8089730739593506,
+          220.0
+        ],
+        [
+          -2.0198081429612103e-08,
+          0.8757564425468445,
+          -0.482753187417984,
+          196.1199951171875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "O06_100": {
+      "matrix": [
+        [
+          0.9237420558929443,
+          -0.18490177392959595,
+          -0.33542802929878235,
+          -295.0
+        ],
+        [
+          -0.3830151855945587,
+          -0.44593942165374756,
+          -0.8089730739593506,
+          220.0
+        ],
+        [
+          -2.0198081429612103e-08,
+          0.8757564425468445,
+          -0.482753187417984,
+          196.24000549316406
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0
+    },
+    "O05_LIFT_R03_DIAGNOSTIC": {
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 38.0,
+      "role": "ADDITIONAL_DIAGNOSTIC_NOT_A_REPLACEMENT"
+    }
+  },
+  "external_files": [],
+  "tests": {
+    "old_camera_matrices_preserved": true,
+    "inward_neighbourhood_frames": true,
+    "finite_transforms": true,
+    "protected_collections_unchanged": true,
+    "material_world_nodes_unchanged": true,
+    "upper_rail_pair_relocated": 2
+  },
+  "quality_map": {
+    "ring": "full original shell/backbone with edge buttresses",
+    "city": "shared rigid neighbourhood blocks; external-only architecture",
+    "dock": "Two-level dock; lower near pier; existing interface tops and far pier preserved; connection/visibility review required",
+    "freighter": "R01 closed hull with extended bow and silhouette spine; material/near craft pending",
+    "near": "R01 metre-scale cart/railings moved inside actual ring; new grounded supports and explicit freight lift"
+  },
+  "visual_gate": "NOT_REVIEWED",
+  "review_mode": "SEQUENTIAL_SELF_REVIEW",
+  "scene_sha256": "e1f8815c36bb30b8c245715fb56fd9c3a38c77955535ea99b4011170a95d4787",
+  "near_pier_drop_m": 240.0,
+  "protected_before": {
+    "01_RING_STRUCTURE": "9360cfa31e25cd8bfda017a77aaf09946bfa0ff6e35e44e363d7a05a3c5dfd64",
+    "02_CITY_INSTANCES": "d075407c3165fe3faac794ea114ab061f2a3d1d9f5132366f77b18578e7fec9e",
+    "04_FREIGHTER": "4fe6299151322533e70d04cc121164be4181722f368a00e6a5e50dc9f6432a7c",
+    "05_MAINTENANCE": "292431b3c38bb4a4b5f5193628178cfa25940a06998ffa0d1173f41ab8ecef37",
+    "07_LIGHTS": "3ce0f4858d68fc93671f7672dac3f98da32157e9167c4d0ee978175f56d5f618",
+    "08_CAMERAS": "79fa7497b55f60f93ba682df8276d2f6a4bc64c3b342cc12606e4389544da9fb",
+    "09_PROTOTYPES": "a0940468d22973a2d127265e79226b2d27cad1153a69c1714e6e80c61a2b325d"
+  },
+  "protected_after": {
+    "01_RING_STRUCTURE": "9360cfa31e25cd8bfda017a77aaf09946bfa0ff6e35e44e363d7a05a3c5dfd64",
+    "02_CITY_INSTANCES": "d075407c3165fe3faac794ea114ab061f2a3d1d9f5132366f77b18578e7fec9e",
+    "04_FREIGHTER": "4fe6299151322533e70d04cc121164be4181722f368a00e6a5e50dc9f6432a7c",
+    "05_MAINTENANCE": "292431b3c38bb4a4b5f5193628178cfa25940a06998ffa0d1173f41ab8ecef37",
+    "07_LIGHTS": "3ce0f4858d68fc93671f7672dac3f98da32157e9167c4d0ee978175f56d5f618",
+    "08_CAMERAS": "79fa7497b55f60f93ba682df8276d2f6a4bc64c3b342cc12606e4389544da9fb",
+    "09_PROTOTYPES": "a0940468d22973a2d127265e79226b2d27cad1153a69c1714e6e80c61a2b325d"
+  },
+  "materials_signature": "997be2e7d29291d93293e47592e8fb89cb0a6031db313f2bd43a9091d02a85c3",
+  "changes": [
+    {
+      "object": "Long docking pier",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Pier box girder",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Pier box girder.001",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Loader tower base",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Loader tower base.002",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "R02 aft gantry footing",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock grounded pylon",
+      "operation": "shorten_top",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock grounded pylon.001",
+      "operation": "shorten_top",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock grounded pylon.002",
+      "operation": "shorten_top",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock grounded pylon.003",
+      "operation": "shorten_top",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock grounded pylon.004",
+      "operation": "shorten_top",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock grounded pylon.005",
+      "operation": "shorten_top",
+      "delta": -240.0
+    },
+    {
+      "object": "Loader vertical lift",
+      "operation": "extend_bottom",
+      "delta": -240.0
+    },
+    {
+      "object": "Loader vertical lift.002",
+      "operation": "extend_bottom",
+      "delta": -240.0
+    },
+    {
+      "object": "R02 aft gantry column",
+      "operation": "extend_bottom",
+      "delta": -240.0
+    },
+    {
+      "object": "R02 rooted pier diagonal",
+      "operation": "replace_endpoints",
+      "a": [
+        -48,
+        134.0,
+        5
+      ],
+      "b": [
+        43,
+        206.0,
+        252
+      ]
+    },
+    {
+      "object": "R02 rooted pier diagonal.001",
+      "operation": "replace_endpoints",
+      "a": [
+        -48,
+        394.0,
+        5
+      ],
+      "b": [
+        43,
+        466.0,
+        252
+      ]
+    },
+    {
+      "object": "R02 rooted pier diagonal.002",
+      "operation": "replace_endpoints",
+      "a": [
+        -48,
+        664.0,
+        5
+      ],
+      "b": [
+        43,
+        736.0,
+        252
+      ]
+    },
+    {
+      "object": "R02 rooted pier diagonal.003",
+      "operation": "replace_endpoints",
+      "a": [
+        -48,
+        934.0,
+        5
+      ],
+      "b": [
+        43,
+        1006.0,
+        252
+      ]
+    },
+    {
+      "object": "R02 rooted pier diagonal.004",
+      "operation": "replace_endpoints",
+      "a": [
+        -48,
+        1194.0,
+        5
+      ],
+      "b": [
+        43,
+        1266.0,
+        252
+      ]
+    },
+    {
+      "object": "R02 rooted pier diagonal.005",
+      "operation": "replace_endpoints",
+      "a": [
+        -48,
+        1534.0,
+        5
+      ],
+      "b": [
+        43,
+        1606.0,
+        252
+      ]
+    },
+    {
+      "object": "Loader bridge support",
+      "operation": "replace_endpoints",
+      "a": [
+        0,
+        790.0,
+        278
+      ],
+      "b": [
+        198,
+        790.0,
+        589
+      ]
+    },
+    {
+      "object": "Loader bridge support.002",
+      "operation": "replace_endpoints",
+      "a": [
+        0,
+        1200.0,
+        278
+      ],
+      "b": [
+        198,
+        1200.0,
+        589
+      ]
+    },
+    {
+      "object": "Cargo staging pallet",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Cargo staging pallet.001",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Cargo staging pallet.002",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Cargo staging pallet.003",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Cargo staging pallet.004",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Cargo staging pallet.005",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Cargo staging pallet.006",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Cargo staging pallet.007",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Cargo staging pallet.008",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Cargo staging pallet.009",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Cargo staging pallet.010",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Cargo staging pallet.011",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock cargo container",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock cargo container.001",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock cargo container.002",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock cargo container.003",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock cargo container.004",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock cargo container.005",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock cargo container.006",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock cargo container.007",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock cargo container.008",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock cargo container.009",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock cargo container.010",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Dock cargo container.011",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.001",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.002",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.003",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.004",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.005",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.006",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.007",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.008",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.009",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.010",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.011",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.012",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.013",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.014",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.015",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.016",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.017",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.018",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.019",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.020",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.021",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.022",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.023",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.024",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.025",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.026",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.027",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.028",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.029",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.030",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.031",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.032",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.033",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.034",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.035",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.036",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.037",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.038",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.039",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.040",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.041",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.042",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.043",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.044",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.045",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.046",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.047",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.048",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.049",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.050",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.051",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.052",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.053",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.054",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.055",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.056",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.057",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.058",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.059",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.060",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.061",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.062",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.063",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.064",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.065",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.066",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.067",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.068",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.069",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.070",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.071",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.072",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.073",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.074",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.075",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.076",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.077",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.078",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.079",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.080",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.081",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.082",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "Container side stiffener.083",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "R02 upper lift transfer",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "R02 lift landing edge.004",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "R02 lift landing edge.005",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "R02 lift landing edge.006",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "R02 lift landing edge.007",
+      "operation": "translate_z",
+      "delta": -240.0
+    },
+    {
+      "object": "R02 lift guide tower",
+      "operation": "shorten_top",
+      "delta": -240.0
+    },
+    {
+      "object": "R02 lift guide tower.001",
+      "operation": "shorten_top",
+      "delta": -240.0
+    },
+    {
+      "object": "R02 lift guide tower.002",
+      "operation": "shorten_top",
+      "delta": -240.0
+    },
+    {
+      "object": "R02 lift guide tower.003",
+      "operation": "shorten_top",
+      "delta": -240.0
+    }
+  ],
+  "visibility_before": {
+    "camera": "O01_HERO",
+    "in_frame_samples": 50,
+    "ship_first_samples": 16,
+    "samples": [
+      {
+        "polygon": 0,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 1,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 2,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 3,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 4,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 5,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 6,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 7,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 8,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 9,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 10,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 11,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 12,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 13,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 14,
+        "first_object": "Dock grounded pylon.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 15,
+        "first_object": "Long docking pier",
+        "ship_first": false
+      },
+      {
+        "polygon": 16,
+        "first_object": "Pier box girder.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 17,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 18,
+        "first_object": "Continuous cargo keel",
+        "ship_first": true
+      },
+      {
+        "polygon": 19,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 20,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 21,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 22,
+        "first_object": "Pier box girder.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 23,
+        "first_object": "Long docking pier",
+        "ship_first": false
+      },
+      {
+        "polygon": 24,
+        "first_object": "Pier box girder.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 25,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 26,
+        "first_object": "Dock grounded pylon.002",
+        "ship_first": false
+      },
+      {
+        "polygon": 27,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 28,
+        "first_object": "Continuous cargo keel",
+        "ship_first": true
+      },
+      {
+        "polygon": 29,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 30,
+        "first_object": "Dock grounded pylon.002",
+        "ship_first": false
+      },
+      {
+        "polygon": 31,
+        "first_object": "Dock grounded pylon.002",
+        "ship_first": false
+      },
+      {
+        "polygon": 32,
+        "first_object": "Dock grounded pylon.002",
+        "ship_first": false
+      },
+      {
+        "polygon": 33,
+        "first_object": "Dock grounded pylon.002",
+        "ship_first": false
+      },
+      {
+        "polygon": 34,
+        "first_object": "Continuous cargo keel",
+        "ship_first": true
+      },
+      {
+        "polygon": 35,
+        "first_object": "R02 lift guide tower",
+        "ship_first": false
+      },
+      {
+        "polygon": 36,
+        "first_object": "Continuous cargo keel",
+        "ship_first": true
+      },
+      {
+        "polygon": 37,
+        "first_object": "R02 lift guide tower",
+        "ship_first": false
+      },
+      {
+        "polygon": 38,
+        "first_object": "Pier box girder.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 39,
+        "first_object": "Dock grounded pylon.003",
+        "ship_first": false
+      },
+      {
+        "polygon": 40,
+        "first_object": "Dock grounded pylon.003",
+        "ship_first": false
+      },
+      {
+        "polygon": 41,
+        "first_object": "Dock grounded pylon.003",
+        "ship_first": false
+      },
+      {
+        "polygon": 42,
+        "first_object": "Continuous cargo keel",
+        "ship_first": true
+      },
+      {
+        "polygon": 43,
+        "first_object": "Continuous cargo keel",
+        "ship_first": true
+      },
+      {
+        "polygon": 44,
+        "first_object": "Continuous cargo keel",
+        "ship_first": true
+      },
+      {
+        "polygon": 45,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 46,
+        "first_object": "Pier box girder.001",
+        "ship_first": false
+      },
+      {
+        "polygon": 47,
+        "first_object": "Dock grounded pylon.003",
+        "ship_first": false
+      },
+      {
+        "polygon": 48,
+        "first_object": "Dock grounded pylon.003",
+        "ship_first": false
+      },
+      {
+        "polygon": 49,
+        "first_object": "Dock grounded pylon.003",
+        "ship_first": false
+      }
+    ],
+    "limitation": "sparse polygon-centre rays, not visible-area percentage or art qualification"
+  },
+  "visibility_after": {
+    "camera": "O01_HERO",
+    "in_frame_samples": 50,
+    "ship_first_samples": 41,
+    "samples": [
+      {
+        "polygon": 0,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 1,
+        "first_object": "Loader bridge support.002",
+        "ship_first": false
+      },
+      {
+        "polygon": 2,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 3,
+        "first_object": null,
+        "ship_first": false
+      },
+      {
+        "polygon": 4,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 5,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 6,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 7,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 8,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 9,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 10,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 11,
+        "first_object": null,
+        "ship_first": false
+      },
+      {
+        "polygon": 12,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 13,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 14,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 15,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 16,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 17,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 18,
+        "first_object": "Continuous cargo keel",
+        "ship_first": true
+      },
+      {
+        "polygon": 19,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 20,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 21,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 22,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 23,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 24,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 25,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 26,
+        "first_object": "Continuous cargo keel",
+        "ship_first": true
+      },
+      {
+        "polygon": 27,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 28,
+        "first_object": "Continuous cargo keel",
+        "ship_first": true
+      },
+      {
+        "polygon": 29,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 30,
+        "first_object": "Cargo section external plating.002",
+        "ship_first": true
+      },
+      {
+        "polygon": 31,
+        "first_object": "Cargo section external plating.004",
+        "ship_first": true
+      },
+      {
+        "polygon": 32,
+        "first_object": "Section frame.004",
+        "ship_first": true
+      },
+      {
+        "polygon": 33,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 34,
+        "first_object": "Continuous cargo keel",
+        "ship_first": true
+      },
+      {
+        "polygon": 35,
+        "first_object": "Loader vertical lift",
+        "ship_first": false
+      },
+      {
+        "polygon": 36,
+        "first_object": "Loader vertical lift",
+        "ship_first": false
+      },
+      {
+        "polygon": 37,
+        "first_object": "Loader vertical lift",
+        "ship_first": false
+      },
+      {
+        "polygon": 38,
+        "first_object": "Cargo section external plating.008",
+        "ship_first": true
+      },
+      {
+        "polygon": 39,
+        "first_object": "Cargo section external plating.010",
+        "ship_first": true
+      },
+      {
+        "polygon": 40,
+        "first_object": "Section frame.010",
+        "ship_first": true
+      },
+      {
+        "polygon": 41,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 42,
+        "first_object": "Continuous cargo keel",
+        "ship_first": true
+      },
+      {
+        "polygon": 43,
+        "first_object": "Loader vertical lift",
+        "ship_first": false
+      },
+      {
+        "polygon": 44,
+        "first_object": "Loader vertical lift",
+        "ship_first": false
+      },
+      {
+        "polygon": 45,
+        "first_object": "Loader vertical lift",
+        "ship_first": false
+      },
+      {
+        "polygon": 46,
+        "first_object": "Section frame.008",
+        "ship_first": true
+      },
+      {
+        "polygon": 47,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 48,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      },
+      {
+        "polygon": 49,
+        "first_object": "Freighter tapered pressure hull",
+        "ship_first": true
+      }
+    ],
+    "limitation": "sparse polygon-centre rays, not visible-area percentage or art qualification"
+  },
+  "auto_qualified": false
+}
