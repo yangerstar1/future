@@ -1,0 +1,706 @@
+[
+  {
+    "observation": "O01_HERO",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "b39778ca8fd90175996f28850b0458df572b45897eb388394b6d3899ec91174d",
+    "camera": "O01_HERO",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -310.0
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        196.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      1200,
+      675
+    ],
+    "samples": 24,
+    "seconds": 31.678314802999992,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O01_CAMERA_B",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "8c27a0b6edff065da349ce360ae38ec01030cbdb0ba61b1fbf9f47fd85e613d2",
+    "camera": "O01_CAMERA_B",
+    "matrix": [
+      [
+        0.9237421154975891,
+        -0.16253049671649933,
+        -0.3468203842639923,
+        -310.0
+      ],
+      [
+        -0.38301506638526917,
+        -0.3919852375984192,
+        -0.8364490270614624,
+        220.0
+      ],
+      [
+        1.4403373604920944e-08,
+        0.9055006504058838,
+        -0.42434489727020264,
+        196.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 17.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 20,
+    "seconds": 19.000644352999984,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O01_CAMERA_C",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "20beaa5f14dadeb90dea95a9bb592e10eb386647186b7f1488ff59ae877b2bb9",
+    "camera": "O01_CAMERA_C",
+    "matrix": [
+      [
+        0.8660683035850525,
+        -0.24160560965538025,
+        -0.43766701221466064,
+        -310.0
+      ],
+      [
+        -0.4999256730079651,
+        -0.4185561239719391,
+        -0.7582117915153503,
+        220.0
+      ],
+      [
+        7.585876815596748e-09,
+        0.875464141368866,
+        -0.48328304290771484,
+        196.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 17.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 20,
+    "seconds": 19.861330804999994,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O01_SECOND",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "3ada708cfdaee8fd145abfdc11bf96f41adec416a1778cef3f2e63d70a746969",
+    "camera": "O01_SECOND",
+    "matrix": [
+      [
+        0.816923975944519,
+        -0.07588592916727066,
+        0.5717311501502991,
+        3650.0
+      ],
+      [
+        0.576745331287384,
+        0.10748773068189621,
+        -0.8098217248916626,
+        -3750.0
+      ],
+      [
+        -6.962142862221299e-09,
+        0.9913060665130615,
+        0.13157616555690765,
+        2350.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 36.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 20,
+    "seconds": 14.239332424999986,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "R01_O01_HERO",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "0935d043505daea174511f36ca644da967a54ddbfacab4ab046c0b714cf51b7b",
+    "camera": "R01_O01_HERO",
+    "matrix": [
+      [
+        0.9108559489250183,
+        -0.17741276323795319,
+        -0.37264755368232727,
+        -694.0
+      ],
+      [
+        -0.41272446513175964,
+        -0.39153844118118286,
+        -0.8224087953567505,
+        -323.0
+      ],
+      [
+        -2.6623943938375305e-08,
+        0.9028966426849365,
+        -0.42985767126083374,
+        168.75
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 16,
+    "seconds": 17.159244631000007,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O02_NEUTRAL",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "7cd580d6c87f11b55c542240cdf02fa0d5546e628a50781d2d7485a96c52cbc3",
+    "camera": "O01_HERO",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -310.0
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        196.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      1200,
+      675
+    ],
+    "samples": 24,
+    "seconds": 29.777789294,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O03_REAR",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "f69e0a17b288dbce7ae063c616656d12be4fd050a828be167eab144fc9df5c93",
+    "camera": "O03_REAR",
+    "matrix": [
+      [
+        -0.7016043066978455,
+        0.22261665761470795,
+        -0.6768997311592102,
+        -3900.0
+      ],
+      [
+        -0.7125667333602905,
+        -0.2191920429468155,
+        0.6664859056472778,
+        5300.0
+      ],
+      [
+        -1.6575030770127341e-07,
+        0.9499456286430359,
+        0.31241530179977417,
+        3300.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 37.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 20,
+    "seconds": 14.005755428000043,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O04_CRAFT",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "94207f7550380b8624830709b9cf177b1e754027d90592e601cc1d90e37bcf67",
+    "camera": "O04_CRAFT",
+    "matrix": [
+      [
+        0.9161573052406311,
+        0.019485177472233772,
+        -0.4003450274467468,
+        -311.0
+      ],
+      [
+        -0.40081894397735596,
+        0.04453752934932709,
+        -0.9150741100311279,
+        241.0
+      ],
+      [
+        -2.1456116883200593e-09,
+        0.9988176822662354,
+        0.04861341044306755,
+        196.60000610351562
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 41.0,
+    "dimensions": [
+      1200,
+      675
+    ],
+    "samples": 32,
+    "seconds": 53.85286408799999,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O04_INTERFACE",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "e3c3907128b62e2b7df5561d0569d2fc346478dd3ad737c2ecf86cac88517261",
+    "camera": "O04_INTERFACE",
+    "matrix": [
+      [
+        0.879997730255127,
+        0.0400804728269577,
+        -0.4732837677001953,
+        75.0
+      ],
+      [
+        -0.47497788071632385,
+        0.07425770163536072,
+        -0.8768590688705444,
+        565.0
+      ],
+      [
+        3.7516695527983757e-08,
+        0.9964333176612854,
+        0.08438394963741302,
+        623.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 43.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 24,
+    "seconds": 27.847781919,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O05_ROUTE",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "d991e44f05084b614fe81ff950b67087047a344384363f70e02eb2b885e4b9f2",
+    "camera": "O05_ROUTE",
+    "matrix": [
+      [
+        0.8132290244102478,
+        0.15873144567012787,
+        -0.5598775148391724,
+        -650.0
+      ],
+      [
+        -0.5819437503814697,
+        0.22181691229343414,
+        -0.7823929786682129,
+        -50.0
+      ],
+      [
+        -5.47666942907199e-08,
+        0.9620819091796875,
+        0.2727607190608978,
+        740.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 30.0,
+    "dimensions": [
+      1200,
+      675
+    ],
+    "samples": 24,
+    "seconds": 41.410422849999975,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O05_LIFT",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "3808835f5224ed9b7b4e6f0242c86b74a918601365f288855e4dff37a1146e1c",
+    "camera": "O05_LIFT",
+    "matrix": [
+      [
+        0.7443817257881165,
+        0.05463934317231178,
+        -0.665515124797821,
+        -188.0
+      ],
+      [
+        -0.6677542924880981,
+        0.0609094500541687,
+        -0.7418856024742126,
+        484.0
+      ],
+      [
+        1.738242616511343e-08,
+        0.9966466426849365,
+        0.08182553946971893,
+        375.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 38.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 20,
+    "seconds": 25.786835793000023,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O06_000",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "b293d6ed00df0603b83914c7c18e680e1f02729f566cd96a08c1b664b6aa6d83",
+    "camera": "O06_000",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -325.0
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        195.75999450683594
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      800,
+      450
+    ],
+    "samples": 16,
+    "seconds": 10.97928168499999,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O06_025",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "9bd5aa9c94d936f6785e511de6041ba1306a1025bb2f6611ded24f3d8dd7a4e5",
+    "camera": "O06_025",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -317.5
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        195.8800048828125
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      800,
+      450
+    ],
+    "samples": 16,
+    "seconds": 11.028266411999994,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O06_050",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "ab6f697936455f259d9492541fc0048f0ef91359a3f398007f6413bb353b1200",
+    "camera": "O06_050",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -310.0
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        196.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      800,
+      450
+    ],
+    "samples": 16,
+    "seconds": 11.097365851000006,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O06_075",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "2ee6263bc80fd52d3e918bca49ba3630527429bca83f237d9308b9d1fc9720cd",
+    "camera": "O06_075",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -302.5
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        196.1199951171875
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      800,
+      450
+    ],
+    "samples": 16,
+    "seconds": 11.152154798000026,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O06_100",
+    "candidate": "R02_SPATIAL_STUDY",
+    "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+    "scene_sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b",
+    "image_sha256": "15ad74341b84b5533e1f60b2b4f187dfdfb530074ba5b28c92aac8f45ebef0d2",
+    "camera": "O06_100",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -295.0
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        196.24000549316406
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      800,
+      450
+    ],
+    "samples": 16,
+    "seconds": 11.166362546000016,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  }
+]

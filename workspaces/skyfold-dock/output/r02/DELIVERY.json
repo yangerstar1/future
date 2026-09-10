@@ -1,0 +1,178 @@
+{
+  "candidate": "R02_SPATIAL_STUDY",
+  "run_id": "34495611703",
+  "source_sha": "9baadd75591e2beec39257e42e1c1a2b774dfd6e",
+  "files": {
+    "O01_SECOND.png": {
+      "bytes": 669416,
+      "sha256": "3ada708cfdaee8fd145abfdc11bf96f41adec416a1778cef3f2e63d70a746969",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "build.log": {
+      "bytes": 316,
+      "sha256": "74de4462875c199e070e92093d6d7609b518b14e137d1d48584b3479ca041d66"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 18685,
+      "sha256": "8ddc585ae12ca12e3ec9cd9cb8b001eb00e62da5d97c6125b2e2bd0b64a69342"
+    },
+    "O06_000.png": {
+      "bytes": 406781,
+      "sha256": "b293d6ed00df0603b83914c7c18e680e1f02729f566cd96a08c1b664b6aa6d83",
+      "dimensions": [
+        800,
+        450
+      ]
+    },
+    "O04_CRAFT.png": {
+      "bytes": 830274,
+      "sha256": "94207f7550380b8624830709b9cf177b1e754027d90592e601cc1d90e37bcf67",
+      "dimensions": [
+        1200,
+        675
+      ]
+    },
+    "O05_ROUTE.png": {
+      "bytes": 963920,
+      "sha256": "d991e44f05084b614fe81ff950b67087047a344384363f70e02eb2b885e4b9f2",
+      "dimensions": [
+        1200,
+        675
+      ]
+    },
+    "O06_100.png": {
+      "bytes": 406845,
+      "sha256": "15ad74341b84b5533e1f60b2b4f187dfdfb530074ba5b28c92aac8f45ebef0d2",
+      "dimensions": [
+        800,
+        450
+      ]
+    },
+    "O06_025.png": {
+      "bytes": 406789,
+      "sha256": "9bd5aa9c94d936f6785e511de6041ba1306a1025bb2f6611ded24f3d8dd7a4e5",
+      "dimensions": [
+        800,
+        450
+      ]
+    },
+    "render.log": {
+      "bytes": 704457,
+      "sha256": "ef5d4d13be2d87177d56dade96f9b75ed9284e1983954563173617da5cc050a8"
+    },
+    "O01_CAMERA_C.png": {
+      "bytes": 607326,
+      "sha256": "20beaa5f14dadeb90dea95a9bb592e10eb386647186b7f1488ff59ae877b2bb9",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "O06_075.png": {
+      "bytes": 406722,
+      "sha256": "2ee6263bc80fd52d3e918bca49ba3630527429bca83f237d9308b9d1fc9720cd",
+      "dimensions": [
+        800,
+        450
+      ]
+    },
+    "skyfold-r02.blend": {
+      "bytes": 1175304,
+      "sha256": "dd44440aaf67972cf95cd9fd2623c5e434e4aad5dc1c93bcdafe2b7164dcb18b"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "2bc76f91c6d576163ff8cdb5d2ac59323b960a458a51f7cb1d8d17355461486a"
+    },
+    "R01_O01_HERO.png": {
+      "bytes": 701968,
+      "sha256": "0935d043505daea174511f36ca644da967a54ddbfacab4ab046c0b714cf51b7b",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 16106,
+      "sha256": "b6755f88ad774e540c24bbd8fccf06317e4b87e6af7ca1d74fef4ece660ac9a0"
+    },
+    "O06_050.png": {
+      "bytes": 407053,
+      "sha256": "ab6f697936455f259d9492541fc0048f0ef91359a3f398007f6413bb353b1200",
+      "dimensions": [
+        800,
+        450
+      ]
+    },
+    "O04_INTERFACE.png": {
+      "bytes": 509967,
+      "sha256": "e3c3907128b62e2b7df5561d0569d2fc346478dd3ad737c2ecf86cac88517261",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "provision.log": {
+      "bytes": 8194,
+      "sha256": "4e6ecd4abc5d3119e736a4cea742acaa0d9424334382d288673421499ce7a8bd"
+    },
+    "O01_HERO.png": {
+      "bytes": 866595,
+      "sha256": "b39778ca8fd90175996f28850b0458df572b45897eb388394b6d3899ec91174d",
+      "dimensions": [
+        1200,
+        675
+      ]
+    },
+    "O01_CAMERA_B.png": {
+      "bytes": 604048,
+      "sha256": "8c27a0b6edff065da349ce360ae38ec01030cbdb0ba61b1fbf9f47fd85e613d2",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "O05_LIFT.png": {
+      "bytes": 559660,
+      "sha256": "3808835f5224ed9b7b4e6f0242c86b74a918601365f288855e4dff37a1146e1c",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "render-time.txt": {
+      "bytes": 897,
+      "sha256": "c7ba6ede39bded3a9d7a2acd0d1c2fe15e13915d3a809a797ebe96a34b2324cd"
+    },
+    "build-time.txt": {
+      "bytes": 859,
+      "sha256": "218e50ded1485cb98e9a810edd323785ca926a595390e0cfdc4101cdd0f90d2a"
+    },
+    "environment.json": {
+      "bytes": 959,
+      "sha256": "34dd0a6b9d659ece8d66274e7b8f96da85ed076e4ed21ff099d07e012ca78250"
+    },
+    "O03_REAR.png": {
+      "bytes": 634659,
+      "sha256": "f69e0a17b288dbce7ae063c616656d12be4fd050a828be167eab144fc9df5c93",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "O02_NEUTRAL.png": {
+      "bytes": 781149,
+      "sha256": "7cd580d6c87f11b55c542240cdf02fa0d5546e628a50781d2d7485a96c52cbc3",
+      "dimensions": [
+        1200,
+        675
+      ]
+    }
+  },
+  "total_bytes": 11695006,
+  "visual_status": "REVIEW_REQUIRED",
+  "auto_qualified": false
+}
