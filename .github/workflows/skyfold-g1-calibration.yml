@@ -1,0 +1,44 @@
+name: Skyfold G1 visual observation calibration
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-g1-calibration.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: skyfold-g1-calibration
+  cancel-in-progress: false
+jobs:
+  samples:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/g1-calibration
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Official locked Blender
+        run: |
+          set -euo pipefail
+          mkdir -p "$SKYFOLD_OUT"
+          bash workspaces/skyfold-dock/provision.sh 2>&1 | tee "$SKYFOLD_OUT/provision.log"
+      - name: Render calibration-only samples with anonymous aliases
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/time.txt" blender -b --factory-startup -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/calibrate_g1.py 2>&1 | tee "$SKYFOLD_OUT/calibration.log"
+          python3 - <<'PY'
+          from pathlib import Path
+          import os,json,hashlib
+          p=Path(os.environ['SKYFOLD_OUT'])
+          assert sum(f.stat().st_size for f in p.iterdir() if f.is_file())<15000000
+          (p/'FILES.json').write_text(json.dumps({f.name:{'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()} for f in p.iterdir() if f.is_file()},indent=2))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-g1-calibration-${{ github.run_id }}
+          path: workspaces/skyfold-dock/output/g1-calibration
+          retention-days: 1
+          compression-level: 6
+          if-no-files-found: error
