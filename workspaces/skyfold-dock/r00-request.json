@@ -1,0 +1,12 @@
+{
+  "candidate": "R00_PROVISIONAL",
+  "build_source_sha256": "3cd8acd68f766d21ea12997368ae4ae5175c4c8fa663b8349106486917c1548a",
+  "max_job_minutes": 30,
+  "max_concurrency": 1,
+  "contract_runner_hour_ceiling": 48,
+  "closing_reserve_hours": 9.6,
+  "external_spend": 0,
+  "mode": "independent_structural_draft_pending_G1_calibration",
+  "automatic_visual_promotion": false,
+  "output_policy": "bounded native scene and true PNG observations in one evidence branch; no artifact/cache/Release service"
+}

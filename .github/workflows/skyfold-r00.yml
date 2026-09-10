@@ -1,0 +1,87 @@
+name: Skyfold R00 editable macro scene and fixed observations
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r00.yml, workspaces/skyfold-dock/r00-request.json]
+permissions:
+  contents: write
+concurrency:
+  group: skyfold-production
+  cancel-in-progress: false
+jobs:
+  scene:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r00
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Check explicit request and source integrity
+        run: |
+          set -euo pipefail
+          mkdir -p "$SKYFOLD_OUT"
+          python3 - <<'PY'
+          import gzip,base64,hashlib,json,os,shutil,platform
+          from pathlib import Path
+          root=Path('workspaces/skyfold-dock');r=json.loads((root/'r00-request.json').read_text());assert r['candidate']=='R00_PROVISIONAL';assert r['max_job_minutes']==30
+          p=root/'build_scene.py'
+          if not p.exists():
+              b=gzip.decompress(base64.b64decode((root/'build_scene.source.gz.b64').read_text()));assert hashlib.sha256(b).hexdigest()==r['build_source_sha256'];compile(b,str(p),'exec');p.write_bytes(b)
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==r['build_source_sha256']
+          report={'source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'python':platform.python_version(),'cpu_count':os.cpu_count(),'disk':shutil.disk_usage('.')._asdict(),'memory':Path('/proc/meminfo').read_text(),'request':r}
+          Path(os.environ['SKYFOLD_OUT'],'environment.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))
+          PY
+      - name: Official locked Blender toolchain
+        run: |
+          set -euo pipefail
+          bash workspaces/skyfold-dock/provision.sh 2>&1 | tee "$SKYFOLD_OUT/provision.log"
+      - name: Build complete editable structural draft
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b --factory-startup -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/build_scene.py 2>&1 | tee "$SKYFOLD_OUT/build.log"
+      - name: Checkpoint immutable source scene before observations
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r00-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          python3 - <<'PY'
+          from pathlib import Path
+          import os
+          root=Path(os.environ['SKYFOLD_OUT']);assert (root/'skyfold-r00.blend').stat().st_size<45000000
+          PY
+          git add workspaces/skyfold-dock/build_scene.py workspaces/skyfold-dock/output/r00
+          git commit -m "Skyfold R00 actual editable scene checkpoint ${GITHUB_RUN_ID}; not visually approved"
+          git push origin HEAD
+      - name: New-process true renders and fixed displacement observations
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r00.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/render_observations.py 2>&1 | tee "$SKYFOLD_OUT/render.log"
+      - name: Preserve exact successes and failures without auto-passing gates
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          root=Path(os.environ['SKYFOLD_OUT']);root.mkdir(parents=True,exist_ok=True)
+          files={}
+          for p in root.rglob('*'):
+              if p.is_file():
+                  assert p.stat().st_size<45000000
+                  files[str(p.relative_to(root))]={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+          assert sum(x['bytes'] for x in files.values())<75000000
+          d={'candidate':'R00_PROVISIONAL','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':files,'stage':'INDEPENDENT_STRUCTURAL_DRAFT','G1':'PARTIAL_PENDING_CALIBRATION_AND_REFERENCE_REPOSITORY_COPY','G2':'VISUAL_REVIEW_REQUIRED','G3_G6':'NOT_PASSED','final_status':'UNQUALIFIED','review_mode':'SEQUENTIAL_SELF_REVIEW','P2':'NOT_SELECTED'}
+          (root/'DELIVERY.json').write_text(json.dumps(d,indent=2));print(json.dumps(d,indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          BRANCH=evidence/skyfold-r00-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          if [ "$(git branch --show-current)" != "$BRANCH" ];then git switch -c "$BRANCH";fi
+          git add workspaces/skyfold-dock/output/r00
+          git diff --staged --quiet || git commit -m "Skyfold R00 real observation evidence ${GITHUB_RUN_ID}; review required"
+          git push origin HEAD
