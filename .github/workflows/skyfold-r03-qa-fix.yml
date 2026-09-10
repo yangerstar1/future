@@ -1,0 +1,104 @@
+name: Skyfold R03B narrow transport and metadata regression
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r03-qa-fix.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: skyfold-r03
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r03b
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore immutable R03 input and record source
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin refs/heads/evidence/skyfold-r03-34498166928-1
+          git restore --source=FETCH_HEAD --worktree -- workspaces/skyfold-dock/output/r03
+          mkdir -p "$SKYFOLD_OUT"
+          python3 - <<'PY'
+          import json,hashlib,os,platform,shutil,subprocess
+          from pathlib import Path
+          r=Path('workspaces/skyfold-dock');out=Path(os.environ['SKYFOLD_OUT'])
+          names=['finalize_r03b.py','render_r03b.py','render_r02.py','provision.sh']
+          for n in names:
+              if n.endswith('.py'):compile((r/n).read_text(),n,'exec')
+          data={'run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'python':platform.python_version(),'cpu_count':os.cpu_count(),'memory':subprocess.check_output(['free','-b'],text=True),'disk':shutil.disk_usage('.')._asdict(),'sources':{n:hashlib.sha256((r/n).read_bytes()).hexdigest() for n in names},'paid_services':False,'art_status':'NOT_REVIEWED'}
+          (out/'environment.json').write_text(json.dumps(data,indent=2));print(json.dumps(data,indent=2))
+          PY
+      - name: Locked official Blender
+        run: |
+          set -euo pipefail
+          bash workspaces/skyfold-dock/provision.sh 2>&1 | tee "$SKYFOLD_OUT/provision.log"
+      - name: Correct rail endpoints and camera metadata
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b workspaces/skyfold-dock/output/r03/skyfold-r03.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/finalize_r03b.py 2>&1 | tee "$SKYFOLD_OUT/build.log"
+      - name: Preserve source before observations
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r03b-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r03b
+          git commit -m "skyfold R03B recoverable QA correction ${GITHUB_RUN_ID}"
+          git push origin HEAD
+      - name: New-process camera verification and true renders
+        timeout-minutes: 13
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r03b.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/render_r03b.py 2>&1 | tee "$SKYFOLD_OUT/render.log"
+      - name: Preserve outputs and exact failure evidence
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,hashlib,os,struct
+          from pathlib import Path
+          out=Path(os.environ['SKYFOLD_OUT']);files={}
+          for p in out.iterdir():
+              if not p.is_file():continue
+              assert p.stat().st_size<40000000,p.name
+              row={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+              if p.suffix=='.png':
+                  h=p.read_bytes()[:24];assert h[:8]==b'\x89PNG\r\n\x1a\n';row['dimensions']=struct.unpack('>II',h[16:24])
+              files[p.name]=row
+          assert sum(v['bytes'] for v in files.values())<80000000
+          (out/'DELIVERY.json').write_text(json.dumps({'candidate':'R03B_NEAR_PIER_REPAIR','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':files,'visual_status':'REVIEW_REQUIRED','auto_qualified':False},indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          BR=evidence/skyfold-r03b-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          if [ "$(git branch --show-current)" != "$BR" ]; then git switch -c "$BR"; fi
+          for f in skyfold-r03b.blend BUILD-MANIFEST.json DELIVERY.json OBSERVATIONS.json environment.json build-time.txt render-time.txt build.log render.log provision.log libraries.log render-resolved.py O01_HERO.png O01_SECOND.png O04_CRAFT.png O05_ROUTE.png O05_RETURN_LIFT_DIAGNOSTIC.png; do
+            [ ! -f "$SKYFOLD_OUT/$f" ] || git add "workspaces/skyfold-dock/output/r03b/$f"
+          done
+          git diff --staged --quiet || git commit -m "skyfold R03B actual regression evidence ${GITHUB_RUN_ID}; art not qualified"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r03b-observations-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r03b
+            workspaces/skyfold-dock/output/r03/skyfold-r03.blend
+            workspaces/skyfold-dock/output/r03/BUILD-MANIFEST.json
+            workspaces/skyfold-dock/finalize_r03b.py
+            workspaces/skyfold-dock/render_r03b.py
+            workspaces/skyfold-dock/render_r02.py
+            workspaces/skyfold-dock/provision.sh
+            workspaces/skyfold-dock/R03-QA-ERRATA.md
+          retention-days: 1
+          compression-level: 6
+          if-no-files-found: error
