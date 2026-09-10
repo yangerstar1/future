@@ -1,0 +1,23 @@
+	Command being timed: "blender -b /home/runner/work/future/future/workspaces/skyfold-dock/output/g0/preflight.blend -t 4 --python-exit-code 1 --python-expr import bpy,os; from pathlib import Path; s=bpy.context.scene; assert bpy.app.version[:3]==(4,5,13); assert s.render.engine=='CYCLES'; s.render.filepath=str(Path(os.environ['SKYFOLD_OUT'])/'reopen.png'); bpy.ops.render.render(write_still=True); print('NEW_PROCESS_REOPEN_RENDER_OK')"
+	User time (seconds): 8.59
+	System time (seconds): 0.15
+	Percent of CPU this job got: 280%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.12
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 477980
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 15730
+	Voluntary context switches: 170
+	Involuntary context switches: 4315
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 336
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

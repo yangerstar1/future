@@ -1,0 +1,14 @@
+{
+  "kind": "G0_CAPABILITY_ONLY_NOT_G2_ARTWORK",
+  "blender": "4.5.13 LTS",
+  "python": "3.11.15 (main, Apr 25 2025, 12:39:20) [GCC 11.2.1 20220127 (Red Hat 11.2.1-9)]",
+  "device": "CPU",
+  "samples": 12,
+  "denoising": true,
+  "objects": 168,
+  "mesh_datablocks": 6,
+  "render_seconds": 2.5054961390000017,
+  "scene_sha256": "80876ad17e33b1ac6848b5d574d6c7544fe82320f9cc1a82485f21736c586eae",
+  "result": "RENDERED_REOPEN_PENDING",
+  "visual_gate": "NOT_REVIEWED"
+}

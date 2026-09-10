@@ -1,0 +1,62 @@
+{
+  "source_sha": "6edb12b9c8cf69893dc7ae44c73724ecc5ffe6af",
+  "run_id": "34486735492",
+  "files": {
+    "build.log": {
+      "bytes": 6536,
+      "sha256": "b93ec76582e31291e15ed5630e742801da96cbc19bfdd21692d776e6989a2e4f"
+    },
+    "reopen-time.txt": {
+      "bytes": 1139,
+      "sha256": "465e6e4ae1fd5fde7a4fd990f20e40f8395bcb847899014e13bef70c7e6fdf0c"
+    },
+    "preflight.blend": {
+      "bytes": 96961,
+      "sha256": "80876ad17e33b1ac6848b5d574d6c7544fe82320f9cc1a82485f21736c586eae"
+    },
+    "reopen.log": {
+      "bytes": 6059,
+      "sha256": "d5297c9154a2fe877eb605f167190661636d9f3b502f9d3e4f85818dd16fd48d"
+    },
+    "capability.json": {
+      "bytes": 467,
+      "sha256": "482fdc5a7a709c1301c68dc5e4cad62c1ca0e1e3c3b7d62c4a2f5d58321451a3"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "c2db96390a861a4f6d08cbdf6691b16d868ffd80cf8d07ca33f92fc41a545523"
+    },
+    "checksum.log": {
+      "bytes": 36,
+      "sha256": "c4bec3158a54a06bdc2dcd9ad7ecef8794297275df82a437dda3c442b1fadc59"
+    },
+    "slice.png": {
+      "bytes": 169587,
+      "sha256": "b913931f8aa054a90da77a64376f83c5058f2e97bb0d94222dfa94a99f321c8d"
+    },
+    "reopen.png": {
+      "bytes": 169587,
+      "sha256": "5844be9e21c0c14a01fa42f9fe25a299e34206682655a86758eaca7bf0d9fab0"
+    },
+    "version.log": {
+      "bytes": 1626,
+      "sha256": "25b5b780edf3f17f6f309137bb9e38ff97e7feab771620247c76358a0b1e1c16"
+    },
+    "build-time.txt": {
+      "bytes": 821,
+      "sha256": "aed83217bf772fb18b8eb96bf5f235480a87975f60d28a4ee36aa93f3c30ee8e"
+    },
+    "blender-official.sha256": {
+      "bytes": 98,
+      "sha256": "dd4960125d2abddc3e9314155cd7f55d2ebe9c0798c549e34396f87e34e064da"
+    },
+    "environment.json": {
+      "bytes": 4255,
+      "sha256": "77b3550d3bd9ffe1db1bb26c32174d3e2b1f13310a89ea96972974980f15fb65"
+    }
+  },
+  "result": "CAPABILITY_EVIDENCE_REVIEW_REQUIRED",
+  "G1": "NOT_STARTED",
+  "artwork": "NOT_STARTED",
+  "final_status": "NOT_QUALIFIED"
+}
