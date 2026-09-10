@@ -1,0 +1,9 @@
+{
+  "mode": "pilot",
+  "frames": 8,
+  "scene_sha256": "afbefcd1cd70aed98978930785f663ce4ae27561e1314195a507d81b51eee859",
+  "render_source_sha": "d7a4f911861995bc3bc793b913375fa6f515e7e4",
+  "run_id": "34503794552",
+  "visual_verdict": "REVIEW_REQUIRED",
+  "total_render_seconds": 245.50071482799996
+}
