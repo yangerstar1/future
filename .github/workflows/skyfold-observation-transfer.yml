@@ -1,0 +1,40 @@
+name: Skyfold original observation transport
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-observation-transfer.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: skyfold-observation-transfer
+  cancel-in-progress: false
+jobs:
+  originals:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Verify existing candidate and bounded transport budget
+        run: |
+          python3 - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          r=Path('workspaces/skyfold-dock/output/r01')
+          d=json.loads((r/'DELIVERY.json').read_text())
+          for name,meta in d['files'].items():
+            p=r/name
+            assert p.stat().st_size==meta['bytes'],name
+            assert hashlib.sha256(p.read_bytes()).hexdigest()==meta['sha256'],name
+          size=sum(p.stat().st_size for p in Path('workspaces/skyfold-dock').rglob('*') if p.is_file())
+          assert size<25000000, size
+          print('UNCHANGED_R01_VERIFIED',len(d['files']),size,'No rerender; no gate promotion')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: skyfold-original-observations-${{ github.run_id }}
+          path: workspaces/skyfold-dock
+          retention-days: 1
+          compression-level: 6
+          if-no-files-found: error
