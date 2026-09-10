@@ -1,0 +1,174 @@
+--- build_scene.py
++++ build_scene_r01.py
+@@ -1,12 +1,12 @@
+-"""Skyfold Dock R00: native editable geometry. Provisional, never auto-qualifies art.
++"""Skyfold Dock R01: native editable geometry. Provisional, never auto-qualifies art.
+ Run with Blender 4.5.13: blender -b --factory-startup -t 4 --python-exit-code 1 -P this_file
+ Only bpy, mathutils and Python stdlib. Distances in metres, deterministic seed.
+ """
+ import bpy, math, random, json, os, time, hashlib
+ from pathlib import Path
+ from mathutils import Vector, Matrix
+-R=1600.0; WIDTH=3200.0; SEED=270910; random.seed(SEED)
+-OUT=Path(os.environ.get('SKYFOLD_OUT','output/r00')).resolve(); OUT.mkdir(parents=True,exist_ok=True)
++R=1600.0; WIDTH=1800.0; SEED=270910; random.seed(SEED)
++OUT=Path(os.environ.get('SKYFOLD_OUT','output/r01')).resolve(); OUT.mkdir(parents=True,exist_ok=True)
+ bpy.ops.wm.read_factory_settings(use_empty=True)
+ SC=bpy.context.scene; SC.unit_settings.system='METRIC'; SC.unit_settings.scale_length=1.0
+ COL={}
+@@ -90,13 +90,13 @@
+ ring_strip('Continuous inhabited ring shell',R,R+64,0,WIDTH,CONCRETE)
+ for y in [-4,WIDTH-28]:ring_strip('Deep ring edge girder',R-8,R+102,y,y+32,DARK)
+ for y in [20,WIDTH-42]:ring_strip('Ceramic edge cap',R-11,R+2,y,y+18,PAINT)
+-for y in [480,1040,1600,2160,2720]:
++for y in [300,700,1100,1500]:
+  ring_strip('Circumferential transport avenue',R-2,R-.1,y-14,y+14,DARK)
+  ring_strip('Avenue centre guide',R-2.25,R-2.0,y-.9,y+.9,ORANGE)
+ for i in range(48):
+  t=i*2*math.pi/48;F=frame(t,0,-83)
+- for y in [18,800,1600,2400,3182]:
+-  a=F@Vector((0,y,0));b=F@Vector((0,min(y+760,3200),0));beam('External axial backbone',a,b,20,28,DARK,'01_RING_STRUCTURE')
++ for y in [18,450,900,1350,1782]:
++  a=F@Vector((0,y,0));b=F@Vector((0,min(y+420,1800),0));beam('External axial backbone',a,b,20,28,DARK,'01_RING_STRUCTURE')
+  # transverse sector seam is actual narrow raised geometry, not flat reference projection
+  seam=box('Sector seam',(0,0,0),(3.0,WIDTH,1.0),SILVER,'01_RING_STRUCTURE');seam.matrix_world=frame(t,WIDTH/2,1)
+ 
+@@ -117,12 +117,12 @@
+ city_count=0
+ for i in range(144):
+  t=(i+.5)*2*math.pi/144
+- for j in range(27):
++ for j in range(15):
+   y=80+j*116
+   # Clear actual avenue corridors; docks occupy a broad, unbuilt ground-sector reserve.
+-  if min(abs(y-a) for a in [480,1040,1600,2160,2720])<51:continue
++  if min(abs(y-a) for a in [300,700,1100,1500])<51:continue
+   wrap=min(t,2*math.pi-t)
+-  if wrap<.43 and y<1780:continue
++  if wrap<.60 and y<1780:continue
+   if ((i//9)+(j//4))%7==0 and j%3!=0:continue
+   district=(i//12+j//5)%5
+   allowed=[[0,1,5,7],[1,2,3,6],[0,2,4,8],[1,5,7,9],[0,1,2,9]][district]
+@@ -214,30 +214,38 @@
+  for y in range(-360,40,28):
+   box('Catwalk grounded support',(x,y,-4),(1.1,1.3,38),DARK,N,.06)
+   beam('Catwalk diagonal grounded support',(x,y-7,-22),(x,y+7,14),.5,.5,SILVER,N)
+-# Low service route connects into a lift; upper track continues along the left docking pier.
+-route=[(-168,-374,17.18),(-168,70,17.18),(0,205,17.18),(0,230,17.18)]
+-for dx in [-.72,.72]:
+- tube('Low freight rail',[(x+dx,y,z) for x,y,z in route],.065,SILVER,T)
+- tube('Upper freight rail',[(dx,230,162.3),(dx,1602,162.3)],.11,SILVER,T)
+-beam('Service transfer bridge deck',(-168,70,16.5),(0,205,16.5),7,.9,DECK,T)
+-for y in [190,244]:
+- for x in [-9,9]:box('Cargo elevator mast',(x,y,89),(2,2,146),DARK,T,.12)
+-box('Cargo elevator lower carriage',(0,217,17.3),(17,53,.6),PAINT,T,.1)
+-box('Cargo elevator top service landing',(0,217,162.0),(17,53,.6),PAINT,T,.1)
+-# Stair tower as visible pedestrian connection; 20 flights with landings.
+-for k in range(20):
+- z=17+k*7.2;y=150+(k%2)*18
+- box('Stair tower landing',(-25,y,z),(8,6,.7),PAINT,T,.08)
+- for j in range(24):
+-  yy=y+(1 if k%2==0 else -1)*j*.72
+-  box('Service stair tread',(-25,yy,z+j*.30),(5,.75,.14),DECK,T,.015)
+-for x in [-30,-20]:box('Stair tower support',(x,160,89),(1.2,1.2,148),DARK,T,.08)
++# R01: a continuous 1.44m-gauge service route; elevated near platform joins the dock.
++route=[(-688,-374,167.18),(-688,70,167.18),(0,205,162.30),(0,1602,162.30)]
++def rail_pair(points):
++ pts=[Vector(p) for p in points];offsets=[]
++ for i,p in enumerate(pts):
++  a=(pts[min(i+1,len(pts)-1)]-p) if i==0 else p-pts[i-1]
++  b=p-pts[i-1] if i==len(pts)-1 else pts[i+1]-p
++  a=Vector((a.x,a.y,0)).normalized();b=Vector((b.x,b.y,0)).normalized()
++  n0=Vector((-a.y,a.x,0));n1=Vector((-b.y,b.x,0));bis=(n0+n1).normalized();den=bis.dot(n0)
++  assert den>.3,'Rail corner exceeds explicit miter bound'
++  offsets.append(bis*(.72/den))
++ for side in [-1,1]:tube('Continuous service rail',[tuple(p+side*d) for p,d in zip(pts,offsets)],.065,SILVER,T)
++rail_pair(route)
++a=Vector(route[1]);b=Vector(route[2]);beam('Service transfer bridge deck',a-Vector((0,0,.565)),b-Vector((0,0,.565)),8,1,DECK,T)
++for k in range(1,9):
++ p=a.lerp(b,k/9);ground=R-math.sqrt(R*R-p.x*p.x);top=p.z-1.065
++ assert top>ground+4 and 0<=p.y<=WIDTH
++ box('Transfer bridge rooted foundation',(p.x,p.y,ground+2),(12,12,4),CONCRETE,T,.20)
++ box('Transfer bridge support',(p.x,p.y,(top+ground+4)/2),(3.2,4,top-ground-4),DARK,T,.10)
++# Guardrails follow the bridge tangent, preserving 1.1m height rather than a scaled railing.
++tangent=Vector((b.x-a.x,b.y-a.y,0)).normalized();side=Vector((-tangent.y,tangent.x,0))
++for sign in [-1,1]:
++ p=a+side*3.8*sign;q=b+side*3.8*sign
++ tube('Transfer bridge guardrail',[tuple(p+Vector((0,0,1.04))),tuple(q+Vector((0,0,1.04)))],.055,ORANGE,T)
++ for k in range(0,101):
++  v=p.lerp(q,k/100);box('Transfer guardrail post',(v.x,v.y,v.z+.5),(.09,.09,1.1),SILVER,T,.01)
+ # Hero cart occupies its own lower-track lane; wheel/rubber and panel construction are real geometry.
+-VX,VY,VZ=-168,-288,18.15
++VX,VY,VZ=-168,-288,17.935
+ box('Freight cart chassis',(VX,VY,VZ),(2.6,4.3,.55),DARK,N,.09)
+ box('Freight cart load tray',(VX,VY,VZ+.38),(2.9,4.5,.24),ORANGE,N,.06)
+ box('Ribbed service crate',(VX,VY+.15,VZ+1.07),(2.35,3.2,1.25),PAINT,N,.08)
+-for xx in [-1.20,1.20]:
++for xx in [-.72,.72]:
+  for yy in [-1.40,1.40]:
+   tube('Cart wheel rubber',[(VX+xx-.12,VY+yy,VZ-.34),(VX+xx+.12,VY+yy,VZ-.34)],.35,RUBBER,N)
+   tube('Cart wheel hub',[(VX+xx-.135,VY+yy,VZ-.34),(VX+xx+.135,VY+yy,VZ-.34)],.15,SILVER,N)
+@@ -245,11 +253,8 @@
+ box('Cart battery pack',(VX,VY-1.7,VZ+.70),(1.9,.6,.6),DARK,N,.045)
+ for xx in [-.9,.9]:box('Cart amber marker',(VX+xx,VY-2.28,VZ+.4),(.18,.045,.1),LIGHT,N,.018)
+ tube('Cart front towing eye',[(VX-.2,VY-2.2,VZ-.04),(VX-.2,VY-2.6,VZ-.04),(VX+.2,VY-2.6,VZ-.04),(VX+.2,VY-2.2,VZ-.04)],.055,SILVER,N)
+-# Limited left-edge framing, not a billboard or a geometry-hiding facade.
+-box('Maintenance frame upright',(-181,-313,24),(1.8,2.2,15),PAINT,N,.15)
+-box('Maintenance overhead beam',(-173,-313,31),(17,2.5,1.6),DARK,N,.12)
+-for x in [-179,-173,-166]:box('Overhead work luminaire',(x,-313,30.05),(1.4,.8,.16),LIGHT,N,.045)
+-for x in [-176.8,-175.9]:tube('Protected service conduit',[(x,-374,16),(x,-315,16),(x,-315,29)],.08,SILVER,N)
++# R01 removes seven optional foreground frame/conduit pieces that occluded the hero.
++# Core walkway, guardrails, supports, vehicle and freight route remain real geometry.
+ # Mid-distance cargo, on the actual rail side, varying silhouette and rhythm.
+ for y in [380,420,460,960,1000,1340]:
+  for x in [-24,24]:
+@@ -257,6 +262,8 @@
+   box('Dock cargo container',(x,y,173),(17,28,16),ORANGE if y%3 else PAINT,T,.65)
+   for yy in range(-12,13,4):box('Container side stiffener',(x-8.8,y+yy,173),(.5,.7,15),SILVER,T,.08)
+ 
++# Preserve metre-scale maintenance geometry while changing the still-unfrozen G2 vantage.
++for o in COL['05_MAINTENANCE'].objects:o.location+=Vector((-520,0,150))
+ # Sun and neutral skylight; no atmosphere, DoF, bloom, reference-plane projection or image assets.
+ SC.world=bpy.data.worlds.new('Spaceport diffuse blue skylight');SC.world.use_nodes=True
+ bg=SC.world.node_tree.nodes.get('Background');bg.inputs[0].default_value=(.27,.36,.48,1);bg.inputs[1].default_value=.65
+@@ -264,15 +271,19 @@
+ lo=bpy.data.objects.new('Broad solar key',ld);COL['07_LIGHTS'].objects.link(lo);lo.rotation_euler=Vector((-.55,.43,-.72)).to_track_quat('-Z','Y').to_euler()
+ ld=bpy.data.lights.new('Hangar bounce approximation','AREA');ld.energy=850000;ld.shape='DISK';ld.size=350;ld.color=(.54,.70,1)
+ lo=bpy.data.objects.new('Hangar bounce approximation',ld);COL['07_LIGHTS'].objects.link(lo);lo.location=(-300,-80,260);lo.rotation_euler=(Vector((200,900,140))-lo.location).to_track_quat('-Z','Y').to_euler()
+-CAMERAS={}
++# Broad opening skylight approximation exposes the cavity rather than hiding it in fog.
++ld=bpy.data.lights.new('Opening diffuse daylight','AREA');ld.energy=70000000;ld.shape='DISK';ld.size=3200;ld.color=(.77,.87,1)
++lo=bpy.data.objects.new('Opening diffuse daylight',ld);COL['07_LIGHTS'].objects.link(lo);lo.location=(0,-1700,1450);lo.rotation_euler=(Vector((0,900,1450))-lo.location).to_track_quat('-Z','Y').to_euler()
++CAMERAS={} 
+ def camera(name,pos,target,lens):
+  d=bpy.data.cameras.new(name);d.lens=lens;d.sensor_width=36;d.clip_start=.08;d.clip_end=20000
+  o=bpy.data.objects.new(name,d);COL['08_CAMERAS'].objects.link(o);o.location=pos;o.rotation_euler=(Vector(target)-o.location).to_track_quat('-Z','Y').to_euler();CAMERAS[name]=o;return o
+-hero_pos=Vector((-174,-323,18.75));hero_target=Vector((260,1960,995))
++hero_pos=Vector((-694,-323,168.75));hero_target=Vector((200,1650,1200))
+ camera('O01_HERO',hero_pos,hero_target,18)
++camera('O01_R00_FIXED',(-174,-323,18.75),(260,1960,995),18)
+ camera('O01_SECOND',(3650,-3750,2350),(0,1420,1510),36)
+ camera('O03_REAR',(-3900,5300,3300),(0,1460,1500),37)
+-camera('O04_CRAFT',(-179,-308,19.35),(-168,-286,18.5),41)
++camera('O04_CRAFT',(-695,-302,169.35),(-688,-286,168.5),41)
+ camera('O04_INTERFACE',(75,565,273),(204,804,250),43)
+ camera('O05_ROUTE',(-710,-650,730),(115,720,55),40)
+ for i in range(5):
+@@ -282,13 +293,13 @@
+ SC.render.resolution_x=2560;SC.render.resolution_y=1440;SC.render.resolution_percentage=100;SC.render.image_settings.file_format='PNG';SC.render.image_settings.color_mode='RGB';SC.render.image_settings.color_depth='8'
+ SC.render.threads_mode='FIXED';SC.render.threads=4;SC.view_settings.view_transform='AgX';SC.view_settings.look='AgX - Medium High Contrast';SC.view_settings.exposure=0
+ SC.render.film_transparent=False;SC.render.use_compositing=False;SC.camera.data.dof.use_dof=False
+-SC['task']='skyfold-dock-premium-environment';SC['candidate']='R00_PROVISIONAL';SC['quality_status']='G2_REVIEW_REQUIRED_NOT_QUALIFIED';SC['source_sha']=os.environ.get('GITHUB_SHA','local-uncommitted');SC['seed']=SEED
++SC['task']='skyfold-dock-premium-environment';SC['candidate']='R01_PROVISIONAL';SC['quality_status']='G2_REVIEW_REQUIRED_NOT_QUALIFIED';SC['source_sha']=os.environ.get('GITHUB_SHA','local-uncommitted');SC['seed']=SEED
+ SC['contract_sha256']='b29cc86937c4667652de7a954871c940e31e1c6493c34575ab8f84db970f7ea7'
+-manifest={'candidate':'R00_PROVISIONAL','contract_version':'1.0.0','source_sha':SC['source_sha'],'blender':bpy.app.version_string,'seed':SEED,'geometry':{'ring_radius_m':R,'band_width_m':WIDTH,'shell_thickness_m':64,'city_instances':city_count,'objects':len(SC.objects),'mesh_datablocks':len(bpy.data.meshes)},'scales':{'rail_gauge_m':1.44,'guardrail_height_m':1.1,'cart_length_m':4.5,'freighter_length_m':815,'ring_diameter_m':3200},'functional_route':{'lower_rail':route,'lift_lower':[0,217,17.3],'lift_upper':[0,217,162.0],'upper_rail_end':[0,1602,162.3],'loader_interfaces':[[198,790,252],[362,790,252],[198,1200,252],[362,1200,252]]},'cameras':{},'external_files':[],'quality_map':{'ring':'complete macro shell and rear edge; not structurally engineered','city':'rigid shared-mesh modular exteriors; no interiors','dock':'full two-pier/crane/loader layout; intersections require visual audit','freighter':'full closed hull and independent parts; preliminary detailing','near_zone':'complete rail/deck/cart components; no human character'},'review':'SEQUENTIAL_SELF_REVIEW_PENDING','gate':'NO_AUTOMATIC_PASS'}
++manifest={'candidate':'R01_PROVISIONAL','contract_version':'1.0.0','source_sha':SC['source_sha'],'blender':bpy.app.version_string,'seed':SEED,'geometry':{'ring_radius_m':R,'band_width_m':WIDTH,'shell_thickness_m':64,'city_instances':city_count,'objects':len(SC.objects),'mesh_datablocks':len(bpy.data.meshes)},'scales':{'rail_gauge_m':1.44,'guardrail_height_m':1.1,'cart_length_m':4.5,'freighter_length_m':815,'ring_diameter_m':3200},'functional_route':{'lower_rail':route,'upper_rail_end':[0,1602,162.3],'loader_interfaces':[[198,790,252],[362,790,252],[198,1200,252],[362,1200,252]]},'cameras':{},'external_files':[],'quality_map':{'ring':'complete macro shell and rear edge; not structurally engineered','city':'rigid shared-mesh modular exteriors; no interiors','dock':'full two-pier/crane/loader layout; intersections require visual audit','freighter':'full closed hull and independent parts; preliminary detailing','near_zone':'complete rail/deck/cart components; no human character'},'review':'SEQUENTIAL_SELF_REVIEW_PENDING','gate':'NO_AUTOMATIC_PASS'}
+ bpy.context.view_layer.update()
+ for name,c in CAMERAS.items():manifest['cameras'][name]={'matrix_world':[list(row) for row in c.matrix_world],'lens_mm':c.data.lens,'clip':[c.data.clip_start,c.data.clip_end]}
+ (OUT/'BUILD-MANIFEST.json').write_text(json.dumps(manifest,indent=2))
+ bpy.data.texts.new('BUILD-MANIFEST.json').write(json.dumps(manifest,indent=2))
+-bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'skyfold-r00.blend'),compress=True)
+-manifest['scene_sha256']=hashlib.sha256((OUT/'skyfold-r00.blend').read_bytes()).hexdigest();(OUT/'BUILD-MANIFEST.json').write_text(json.dumps(manifest,indent=2))
++bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'skyfold-r01.blend'),compress=True)
++manifest['scene_sha256']=hashlib.sha256((OUT/'skyfold-r01.blend').read_bytes()).hexdigest();(OUT/'BUILD-MANIFEST.json').write_text(json.dumps(manifest,indent=2))
+ print('SKYFOLD_BUILD_COMPLETE',json.dumps({'objects':len(SC.objects),'city':city_count,'scene_sha256':manifest['scene_sha256'],'status':'REVIEW_REQUIRED'}))
