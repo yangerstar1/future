@@ -1,0 +1,90 @@
+{
+  "render_run_id": 34507267207,
+  "scene_sha256": "831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261",
+  "scene_source_sha": "90363be4ae47d5439b7b91fbc07d859415efcfba",
+  "assembly": "FFmpeg concat demuxer, H.264 packet copy; no resizing, re-render, interpolation or colour grading",
+  "dimensions": [
+    1280,
+    720
+  ],
+  "fps": 24,
+  "frames": 192,
+  "duration_seconds": 8.0,
+  "video_sha256": "15848f4d744c53cc6f1175fd1ab79a3c6ed212b82ad2d8b522704c64e8fa87a0",
+  "video_bytes": 7007872,
+  "audio": false,
+  "verified_still_pngs": 11,
+  "verified_input_files": {
+    "stills": 19,
+    "motion-a": 18,
+    "motion-b": 17
+  },
+  "source_frame_indices_contiguous": true,
+  "unique_source_frame_hashes": 192,
+  "decoded_movie_frames": 192,
+  "unique_decoded_frames": 192,
+  "pts_step_tolerance_seconds": 0.0001,
+  "sample_ssim_minimum_declared": 0.94,
+  "source_png_sample_comparisons": [
+    {
+      "frame": 1,
+      "ssim": 0.974939
+    },
+    {
+      "frame": 5,
+      "ssim": 0.971777
+    },
+    {
+      "frame": 25,
+      "ssim": 0.982985
+    },
+    {
+      "frame": 49,
+      "ssim": 0.983398
+    },
+    {
+      "frame": 73,
+      "ssim": 0.983419
+    },
+    {
+      "frame": 96,
+      "ssim": 0.963255
+    },
+    {
+      "frame": 97,
+      "ssim": 0.977935
+    },
+    {
+      "frame": 121,
+      "ssim": 0.983599
+    },
+    {
+      "frame": 145,
+      "ssim": 0.983587
+    },
+    {
+      "frame": 169,
+      "ssim": 0.98384
+    },
+    {
+      "frame": 192,
+      "ssim": 0.963528
+    }
+  ],
+  "ring_rotation_degrees": [
+    0,
+    6
+  ],
+  "camera_motion_record_count": 192,
+  "stills_seconds": 1118.9352802069998,
+  "motion_seconds": 7451.301841259,
+  "technical_result": "PASS_TRANSPORT_DECODE_AND_ASSEMBLY",
+  "visual_result": "REVIEW_REQUIRED",
+  "contract_P2_1080_pass": false,
+  "auto_qualified": false,
+  "limitations": [
+    "720p motion study, not 1080p P2 delivery",
+    "Selected original PNGs and all frame hashes retained; not all 192 original PNG files",
+    "Technical checks do not prove absence of visually noticeable shimmer or professional art quality"
+  ]
+}

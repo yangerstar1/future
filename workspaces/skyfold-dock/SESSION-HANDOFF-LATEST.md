@@ -1,41 +1,40 @@
-# 回天港当前恢复交接 — R04C 静帧已复验，动画分片与拼接待完成
+# 回天港恢复交接 — R04C 视频已完成，R05B 城市实验已复验
 
-先读 PRODUCTION-STATE.json 与 R04C-TARGET-SIZE-REVIEW.md。不要沿用 R03B 的“没有活动作业”或“三张尺寸图未制作”。当前三张尺寸图已经真实渲染、取回和检查；但城市重复、舰体与近景工艺仍未达专业档。G1 仍有校准缺口，G2 未冻结，best=null，AUTO_QUALIFIED=false。
+先读 PRODUCTION-STATE.json、R05B-REVIEW.md、R04C-MOTION-REVIEW.md、R04C-TARGET-SIZE-REVIEW.md、EVIDENCE-INDEX.json、RUN-LEDGER.json。不要再沿用动画运行中、拼接排队或 R05 仅有源码的旧状态。本轮相关作业全部成功结束，没有活动渲染或待执行后台代理。
 
-## 首要操作：查已有作业，不重开整批渲染
+## 当前双版本工件
 
-原渲染 run 34507267207，源提交 90363be4ae47d5439b7b91fbc07d859415efcfba。prepare 与 stills 已成功；最近回执中 motion_a job 102972587699、motion_b job 102979154276 仍在运行。它们分别逐帧渲染 1–96、97–192，都是 1280×720 / 24 fps，合计目标 8 秒。不是合同的 1080p P2 终版。
+**可编辑工作场景 R05B**：output/r05b-city/skyfold-r05b.blend，2382725 字节，SHA256 890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2。源提交 d00012b9bf8574d950a71803ab1cbd908237e26a；run 34515248217。带控制图及 11 张低成本候选观察，保留为技术工作候选，未晋级。
 
-已提交真实拼接作业 run 34510781990，源提交 38d2ee2e6dda4ae502c73e91a78b0493a3691e4c，工作流 skyfold-r04c-assemble.yml。它与原批次共用 skyfold-r04c-delivery 并发组、cancel-in-progress=false，因此原批次结束前是 pending，不分配第三台渲染机。不要再向同组塞入第二个 pending 作业以免替换现有拼接。
+**完整呈现检查点 R04C**：output/r04c-assembled/source/skyfold-r04c.blend，SHA256 831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261。stills 子目录有 2560×1440 主图、两张 1920×1080 及八张结构图。视频 Skyfold_Dock_R04C_Motion_720p.mp4 为 1280×720、192 帧、24 fps、8 秒、无音轨，SHA256 15848f4d744c53cc6f1175fd1ab79a3c6ed212b82ad2d8b522704c64e8fa87a0。原渲染 run 34507267207，拼接 run 34510781990，均已完成；不重开这一批。
 
-拼接只取回现有四份工件，验证场景、源 SHA、两段各 96 帧、完整 192 帧、时长、PTS、解码和样本 PNG 的色彩一致性，然后 H.264 packet-copy 拼接。没有重渲染、插帧或重新调色。成功与否须查真实 ASSEMBLY-VERIFICATION.json 和日志，不能从代码存在推出完成；技术通过也不是视觉无闪烁。
+视频属于 R04C，不包含 R05/R05B 后续城市修改。不要把两版混称成同源最终交付。已保留所有帧 hash/矩阵/日志和部分原始 PNG，不声称保存了全部 192 张原始 PNG。
 
-## 已取回的真实静帧与场景
+## 结果与下一动作
 
-场景归档提交 79f647a3e26e0b1bb4064fff757d37ac27eeff05：
-`workspaces/skyfold-dock/output/r04c-final/source/skyfold-r04c.blend`
-2124800 字节，SHA256 `831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261`。
+G1 校准证据仍不足，G2 未冻结；G3–G6 未通过，best=null、AUTO_QUALIFIED=false、USER_ACCEPTED=false。城市的规则内壁感、舰体与近景工艺、运输接口、旧失败机位遮挡仍是具体未通过项。视频虽技术完整，前景尺度很快消失，完整 24 fps 时域闪烁未取得充分视觉证明；720p 不是合同 1080p P2 通过。
 
-静帧工件 10165097648，文件名 skyfold-r04c-stills-34507267207.zip，ZIP SHA256 `d1c912375f859c45459732160d9c9717e1fe8a8395a0cffdcfa98a989df7c37f`。已取回聊天容器并核验 19 文件、11 PNG、11 相机矩阵，容差 1e-5。包含主图 2560×1440/96 samples，第二视角与近景 1920×1080/64 samples，以及中性、路线、回程升降、五时点视差图。原始图和场景均未生成式修改。
+两轮城市局部修改没有充分解决宏观观感。下一步先做一轮有明确假设的跨环取景诊断，保护原场景及失败机位，对照舰体侧面长度、城市连续上翻弧线和前景持续可读性；不要继续沿环轴拍出大黑洞后堆楼。新机位未执行，也未冻结。只有这一关系成立，才处理工艺和新的高成本序列。
 
-静帧渲染合计 1118.9353 秒；进程峰值 RSS 3624960 KiB；不是整轮制作耗时或费用账单。五张 O06 是固定场景下的真实侧移，不能被正在制作的环城动画替代。
+## 真实复现入口
 
-## 本轮发现与准备中的 R05
+使用锁定 Blender 4.5.13 LTS / Cycles CPU；provision.sh 保留官方校验链。在仓库根目录运行，输出必须放到新的空目录，不能覆盖归档。
 
-R04C 主图已出现顶部城区与舰船，但城区明显像均匀模块墙；舰体外壳与舱段基础，近景小车仍像箱体加轮组。三张规定尺寸只是尺寸符合，不是整份合同通过。
+```bash
+export SKYFOLD_OUT="$PWD/workspaces/skyfold-dock/output/local-r05b-recheck"
+export R05_PHASE=candidate
+export GITHUB_SHA=d00012b9bf8574d950a71803ab1cbd908237e26a
+blender -b workspaces/skyfold-dock/output/r05b-city/skyfold-r05b.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/render_r05_city.py
+```
 
-新回程升降图已能看到上下平台，不继续重复旧版“上下端点被裁掉”的描述；轨道、升降载台与接口的完整交接仍未得到充分证明。
+以上是已有成功的新进程渲染调用改为独立输出目录；GITHUB_SHA 只适用于未改动的冻结脚本。改代码后记录新签名，不冒用旧来源。R05B 从快照重开不是 G6 完整冷启动终验。
 
-`revise_r05_city.py` 与 `render_r05_city.py` 已提交，但截至本交接尚未执行。R05 从上述已核验 R04C 快照派生，仅调整城区的街区组合、塔楼簇、疏密与刚性原型；复用 build_scene_r01.py 中已校验的 Mesh 帮助函数与十个建筑原型。非城区对象有保护签名，镜头、光照、舰船、船坞、巨环和运动均不得随这一实验改变。
+重建 R05B 时，revise_r05b_city.py 要求精确 R05 输入及相邻 BUILD-MANIFEST：scene hash cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1；它们在 evidence commit 99e13a9a9a86627fa640196c700016c4048daac5 的 output/r05-city，也在聊天恢复包内。脚本还依赖经 hash 核验的 revise_r05_city.py 与 build_scene_r01.py，不要删除断言强行套用。
 
-本轮只在本地用实际原型源码进行了 24 组布局的 footprint 检查，不是假装运行 Blender。必须等 motion_a 已完成，才使用空出的一个 job 槽进行 R05 的真实同机位控制图和候选图渲染；最大两份活动 job 不变。源码改了不等于城市缺陷 FIXED。
+R04C 重渲染使用其 source/.blend 与相邻 manifest、render_r04.py 的 stills 或 motion 模式。现有成片已取回，无必要不重跑。拼接验证入口为 assemble_r04c.py，不渲染新帧。
 
-R04C 的 8 秒动画绑定 R04C 场景。未来 R05 静帧变好，也不能把这个旧视频重命名成 R05 新城市的动画。
+## 保存与资源
 
-## 权限与恢复注意
+原始合同及生成参考 A 随聊天恢复包交付，底层生图型号未核实，不复制私有 Leaf 历史。当前 R04C 和 R05B 工件已经并入生产分支，并有聊天下载包，不只依赖一天有效期的 Actions artifact。
 
-只操作本工作区与 skyfold 前缀工作流；main、其他项目分支及私有 Leaf 历史不动。不启用付费 runner/模型 API、不发 Release/Pages 或对外宣传。现有预算 48 runner-hours，收尾保留 9.6 小时，并发上限 2；用真实完成 job 的起止时间记账，活动作业时间不得漏记或声称结算为零。
-
-场景打开、出图、技术正确、美术达标是四个层次。所有参考图模型底层型号与独立 Critic 未验证部分保持原缺口。当前真实保障为 SEQUENTIAL_SELF_REVIEW。原始合同与生成参考随聊天恢复包保留，不复制私人资料库历史。
-
-恢复时先取回已有工件、核对 hash、阅读最新视觉结论；不要从 G0 重做，不用新的生图替代建模结果。
+全任务已结束 19 个 job、16 个 run，共 11749 作业秒（3.263611 runner-hours），实测峰值并发 2；48 小时规划上限尚余约 44.736389 小时，9.6 小时为收尾预留。不是账单、不是聊天耗时，也不以凑满预算为目标。未启动付费 runner/模型 API、Release 或 Pages；账户总存储费用未暴露，不声称免费存储无限。

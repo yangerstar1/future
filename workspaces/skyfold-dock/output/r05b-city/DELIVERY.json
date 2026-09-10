@@ -1,0 +1,110 @@
+{
+  "candidate": "R05B_INDEPENDENT_CITY_FOUNDATIONS",
+  "source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+  "run_id": "34515248217",
+  "files": {
+    "candidate_R04_PARALLAX_050_001.png": {
+      "bytes": 355165,
+      "sha256": "c4e12237bc3ad40c81d9814a73c01e6a9e2a3082de714b520805a3dd580794a9"
+    },
+    "candidate_R04_PARALLAX_000_001.png": {
+      "bytes": 353242,
+      "sha256": "1622f0d2663b06a957d6aee2a9ad2cad891e2ff6a38962224e34adf12cc96118"
+    },
+    "candidate_R04_SECOND_001.png": {
+      "bytes": 743313,
+      "sha256": "5547a92ad0ebd4b1230ee3927c4fd1ae3bc06665e54e740815c5c740eb01a677"
+    },
+    "build.log": {
+      "bytes": 318,
+      "sha256": "3834af4905113b42eafba8952ee7d7791f71ed1753cd58fbffaf39df9c541669"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 208303,
+      "sha256": "2c21b7ccd7d53262407a27dbd833c4add9ef8dbcfb6c59ea32bbc8bfe019eff2"
+    },
+    "CONTROL-R05-OBSERVATION.json": {
+      "bytes": 1365,
+      "sha256": "298021e36a40b6ca927903b20fcc59a00af37c90907eb7e54f0ba37057435769"
+    },
+    "candidate-OBSERVATIONS.json": {
+      "bytes": 13936,
+      "sha256": "5d3810059ee032bada0e743c973bf661e4a8eab10719515de8cb35ff0db7ec43"
+    },
+    "render.log": {
+      "bytes": 725699,
+      "sha256": "d033d1549f2919aca23df9d255e73a8e271065cc6b4ac39bb00d334907b1a554"
+    },
+    "candidate_R04_PARALLAX_025_001.png": {
+      "bytes": 354156,
+      "sha256": "ef43c6635bcc2351e52ce5c5dd17a50564eed76d0b8ff9afa75cbb139710f351"
+    },
+    "candidate_R04_HERO_097.png": {
+      "bytes": 767899,
+      "sha256": "2985b1085ee37dd90a1db99e2d588d30f2266f8ff34d7065992c9b1d608970e6"
+    },
+    "candidate_R04_PARALLAX_075_001.png": {
+      "bytes": 355198,
+      "sha256": "595d25d29882d511cdce5f100082ef778eb164cb45fa9993b266b1d541415cc8"
+    },
+    "skyfold-r05b.blend": {
+      "bytes": 2382725,
+      "sha256": "890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2"
+    },
+    "PROTECTED-SIGNATURES.json": {
+      "bytes": 297495,
+      "sha256": "371e112bf165b653668894cd8fe03fe8efcf5d6bffcb57649fd4bcd3da0a6b18"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "6030f0d7bbd2bb372cc82098680b4e5e94c1481f7c4dc267af20606c6cb1adc8"
+    },
+    "environment.txt": {
+      "bytes": 582,
+      "sha256": "167353f557d46b5804a46f3f6eb58d5699db6dca05b842c9d51144965c28b5fb"
+    },
+    "candidate_R04_HERO_001_NEUTRAL.png": {
+      "bytes": 1031108,
+      "sha256": "9122344137269134e7361ae6f5733cbab59b2f90a850951c599b33d7ac11785f"
+    },
+    "candidate_R04_PARALLAX_100_001.png": {
+      "bytes": 355928,
+      "sha256": "91a0dffe786333afb9bca4751945c74119bc1a7bfa7500d601f50fd1a5969745"
+    },
+    "provision.log": {
+      "bytes": 8194,
+      "sha256": "a645724b0161c1874e1f5e2f0ab842238da86d81dc38f2c1321137b49be01e8d"
+    },
+    "candidate_R04_HERO_192.png": {
+      "bytes": 772369,
+      "sha256": "98380297cfa7f23ef26797b7b4786d82a6a7780848591d6ad99ae2f8a569942c"
+    },
+    "render-time.txt": {
+      "bytes": 908,
+      "sha256": "076b74f00a5fd19a0dad4ea8a2796dfd605194d1c02ae6d801cddf6fed91e2f3"
+    },
+    "build-time.txt": {
+      "bytes": 868,
+      "sha256": "827e6a1b30f89373650d3930db037541c8960f716426355b5e650f15ea0dccf2"
+    },
+    "candidate_R04_HERO_001.png": {
+      "bytes": 1259117,
+      "sha256": "93a124525ebce342aea72b610ab3466c3ef8078a8b4a759b2ebbf62368ab6496"
+    },
+    "candidate_O01_HERO_001.png": {
+      "bytes": 355865,
+      "sha256": "4046ca2fd7d78c3415570e005b53c5e8e9e1feee447caa7a22b4468df2856564"
+    },
+    "CONTROL_R05_HERO.png": {
+      "bytes": 1251947,
+      "sha256": "772c2b1f0395971824303891ec7a33b09ef8f7ea5ec99c60b96776a112661914"
+    },
+    "previous-job.json": {
+      "bytes": 3077,
+      "sha256": "f7f1ccfaa81770c2f6a71b68a81fbf519e0c2124761346f25bf3b6fbc50a2f97"
+    }
+  },
+  "visual_status": "REVIEW_REQUIRED",
+  "auto_qualified": false,
+  "new_full_video_rendered": false
+}

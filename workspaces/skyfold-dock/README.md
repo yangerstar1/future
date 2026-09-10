@@ -1,15 +1,17 @@
-# 回天港 / SKYFOLD DOCK — R03B 工作检查点
+# 回天港 · SKYFOLD DOCK
 
-**已有真实可编辑 Blender 工程。局部平台遮挡已修复，但整体 G2 构图仍未达标，不是最终成品。**
+**已取得完整真实运动样片及两轮城市修订，整体仍未达到专业合同门槛。**
 
-[当前 Blender 场景](output/r03b/skyfold-r03b.blend) · [同机位实际主图](output/r03b/O01_HERO.png) · [第二空间视角](output/r03b/O01_SECOND.png) · [近景工艺](output/r03b/O04_CRAFT.png) · [结构路径](output/r03b/O05_ROUTE.png)
+[8 秒 R04C 视频](output/r04c-assembled/Skyfold_Dock_R04C_Motion_720p.mp4) · [R04C 主视觉 2560×1440](output/r04c-assembled/stills/R04_HERO_f001.png) · [R04C 第二视角](output/r04c-assembled/stills/R04_SECOND_f001.png) · [R04C 近景](output/r04c-assembled/stills/R04_GALLERY_CRAFT_f001.png)
 
-[最新恢复交接](SESSION-HANDOFF-LATEST.md) · [唯一生产状态](PRODUCTION-STATE.json) · [R03B 复验](R03B-REVIEW.md) · [证据索引](EVIDENCE-INDEX.json) · [作业账本](RUN-LEDGER.json)
+[当前 R05B 可编辑场景](output/r05b-city/skyfold-r05b.blend) · [R05B 主图检查](output/r05b-city/candidate_R04_HERO_001.png) · [最新恢复入口](SESSION-HANDOFF-LATEST.md)
 
-R03 降低近侧作业平台并同步连接，R03B 修正轨道端点和相机清单；舰体、城市、原相机及材质光照未借机重做。原有 16 个观察条件保留，最新 18 张真实渲染已取回核验。完整图包在聊天交付，仓库保留选定工件而非全部历史图。
+R04C 视频为 1280×720、192 个真实帧、24 fps、8 秒，无音轨。已完整解码并与两个原分片逐帧核对，拼接不重渲染、不插帧、不调色。它不是合同 1080p P2 终版。
 
-最新场景源提交 3bf60dbd37a451ea097e67666b9d922ddd4f877b；场景 SHA256 dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68。
+**版本不要混用：**三张高分辨率图和视频来自 R04C；R05B 是之后只改城区的工作候选，带 11 张低成本观察和一张控制图，尚未制作新的完整视频。不能将 R04C 视频改名成 R05B。
 
-当前主图仍空白过大，城市内翻与人类前景层级不足，近景仍是基础工艺；升降链两端观察不完整。G1 部分完成，G2 未冻结，G3–G6 未通过。最高 1200×675 的这些图是诊断图，不是合同三张 2560/1920 成片。
+R05 改街区高低/疏密；R05B 改独立基础与曲面路面。两轮实图仍有规则环筒内壁感，舰体/近景工艺与运输证据仍不足，旧失败机位仍被支撑遮挡。所有相关作业已结束，当前无活动渲染。
 
-复用 Blender 4.5.13 LTS / 原生 bpy / Cycles CPU / 标准公开 Actions；没有新收费服务或通用渲染框架。R03 与 R03B 作业均已结束，全部八个 job 合计 27 分 28 秒；按作业起止计，不是结算账单。当前没有本任务运行中的作业。
+[城市修订评审](R05B-REVIEW.md) · [完整视频评审](R04C-MOTION-REVIEW.md) · [规定尺寸静帧评审](R04C-TARGET-SIZE-REVIEW.md) · [生产状态](PRODUCTION-STATE.json) · [证据索引](EVIDENCE-INDEX.json) · [资源账本](RUN-LEDGER.json)
+
+当前：G1 部分完成，G2 未冻结，G3–G6 未通过，best=null，DELIVERED_UNQUALIFIED。没有独立艺术家评价或用户接受。仅使用本公开仓库标准 CPU Actions 进行生产与检查；未使用付费 runner/API、私有 Leaf 素材历史或生成式补画。
