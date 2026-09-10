@@ -53,13 +53,14 @@ prototypes={}
 for family,plan in plans.items():
     for variant in range(3):
         g=Mesh();g.box((0,0,0),(190,180,8),ROAD if family in ['PLAZA','INDUSTRIAL'] else CONCRETE)
-        g.box((0,-85,4.15),(178,6,.3),ROAD);g.box((88,0,4.15),(5,164,.3),ROAD)
+        g.box((0,-85,4.15),(178,6,.3),ROAD);g.box((92.5,0,4.15),(3,164,.3),ROAD)
         if family=='PLAZA':
             g.box((-18,28,4.3),(70,82,.6),PARK);g.box((49,-37,4.3),(42,66,.6),PARK)
             g.box((-6,-35,4.3),(106,7,.6),CONCRETE)
         else:
-            g.box((-3,0,4.2),(15,158,.4),ROAD)
-            g.box((0,74,4.2),(106,12,.4),PARK)
+            if family in {'RESIDENTIAL','MIXED_CORE','INDUSTRIAL'}:
+                g.box((-3,0,4.2),(10,158,.4),ROAD)
+            g.box((0,78,4.2),(106,6,.4),PARK)
         for n,(k,x,y,scale) in enumerate(plan):
             scale*=.90+.08*variant
             append_building(g,k,x+(variant-1)*(3 if n%2 else -3),y,scale)
