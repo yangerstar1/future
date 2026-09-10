@@ -1,0 +1,74 @@
+name: Skyfold R04B camera and motion cost probe
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r04b-probe.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: skyfold-r04b-probe
+  cancel-in-progress: false
+jobs:
+  probe:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 14
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r04b
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore precise R04 input and existing tools
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin 545e8bad7b1de2690fbaf199ad6effc91a98b296
+          git restore --source=FETCH_HEAD -- workspaces/skyfold-dock/output/r04/skyfold-r04.blend workspaces/skyfold-dock/output/r04/BUILD-MANIFEST.json
+          mkdir -p "$SKYFOLD_OUT"
+          python3 -m py_compile workspaces/skyfold-dock/revise_r04b.py workspaces/skyfold-dock/probe_r04b.py
+          bash workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/provision.log" 2>&1
+          (date -u; free -b; df -B1 .; command -v xvfb-run || true; command -v ffmpeg || true; git rev-parse HEAD) > "$SKYFOLD_OUT/environment.txt"
+      - name: Correct framing and safe coherent motion
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b workspaces/skyfold-dock/output/r04/skyfold-r04.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/revise_r04b.py > "$SKYFOLD_OUT/build.log" 2>&1
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r04b-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r04b
+          git commit -m "skyfold R04B recoverable source ${GITHUB_RUN_ID}; review pending"
+          git push origin HEAD
+      - name: True Cycles pilot including early-frame camera clearance
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/cycles-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r04b.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/probe_r04b.py > "$SKYFOLD_OUT/cycles.log" 2>&1
+      - name: Bounded software OpenGL probe without assuming compatibility
+        continue-on-error: true
+        timeout-minutes: 4
+        env:
+          PROBE_ENGINE: BLENDER_EEVEE_NEXT
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: |
+          set -euo pipefail
+          command -v xvfb-run
+          /usr/bin/time -v -o "$SKYFOLD_OUT/eevee-time.txt" timeout 180s xvfb-run -a -s '-screen 0 1920x1080x24' blender -b "$SKYFOLD_OUT/skyfold-r04b.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/probe_r04b.py > "$SKYFOLD_OUT/eevee.log" 2>&1
+      - name: Preserve exact success and failure evidence
+        if: always()
+        run: |
+          set -euo pipefail
+          if [ "$(git branch --show-current)" != "evidence/skyfold-r04b-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" ]; then exit 0; fi
+          git add workspaces/skyfold-dock/output/r04b
+          git diff --staged --quiet || git commit -m "skyfold R04B camera and engine probe ${GITHUB_RUN_ID}; not artistic approval"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r04b-probe-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r04b
+            workspaces/skyfold-dock/revise_r04b.py
+            workspaces/skyfold-dock/probe_r04b.py
+          retention-days: 1
+          if-no-files-found: error
