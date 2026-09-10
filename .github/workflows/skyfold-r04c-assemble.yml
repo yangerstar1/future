@@ -1,0 +1,100 @@
+name: Skyfold R04C verify and assemble existing movie
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r04c-assemble.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+# Same workflow-level group queues this job behind the original render without
+# allocating a third active renderer or cancelling an existing shard.
+concurrency:
+  group: skyfold-r04c-delivery
+  cancel-in-progress: false
+jobs:
+  assemble:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r04c-assembled
+      RENDER_RUN: '34507267207'
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Verify immutable render run completed, no new rendering
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$SKYFOLD_OUT"
+          command -v gh
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RENDER_RUN" > "$SKYFOLD_OUT/render-run.json"
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RENDER_RUN/jobs?per_page=30" > "$SKYFOLD_OUT/render-jobs.json"
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ['SKYFOLD_OUT']);r=json.loads((p/'render-run.json').read_text());j=json.loads((p/'render-jobs.json').read_text())
+          assert r['head_sha']=='90363be4ae47d5439b7b91fbc07d859415efcfba'
+          assert r['status']=='completed' and r['conclusion']=='success',r['status']
+          assert j['total_count']==4 and all(x['conclusion']=='success' for x in j['jobs'])
+          print('Existing render input verified. No frame rendering will be started.')
+          PY
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          github-token: ${{ github.token }}
+          repository: yangerstar1/future
+          run-id: 34507267207
+          pattern: skyfold-r04c-*-34507267207
+          path: ${{ runner.temp }}/skyfold-r04c-inputs
+          merge-multiple: false
+      - name: Inspect encoder availability, install only missing FFmpeg
+        timeout-minutes: 4
+        run: |
+          set -euo pipefail
+          (date -u; python3 --version; free -b; df -B1 .) > "$SKYFOLD_OUT/environment.txt"
+          if ! command -v ffmpeg || ! command -v ffprobe; then
+            sudo apt-get update -qq -o Acquire::Retries=1 -o Acquire::http::Timeout=20 > "$SKYFOLD_OUT/ffmpeg-install.log" 2>&1
+            sudo apt-get install -y --no-install-recommends -o Acquire::Retries=1 -o Acquire::http::Timeout=20 ffmpeg >> "$SKYFOLD_OUT/ffmpeg-install.log" 2>&1
+          fi
+          ffmpeg -version > "$SKYFOLD_OUT/ffmpeg-version.txt"
+          ffprobe -version > "$SKYFOLD_OUT/ffprobe-version.txt"
+      - name: Decode verify and losslessly join the existing 192 source frames
+        timeout-minutes: 5
+        run: |
+          set -euo pipefail
+          python3 -m py_compile workspaces/skyfold-dock/assemble_r04c.py
+          /usr/bin/time -v -o "$SKYFOLD_OUT/assembly-time.txt" python3 workspaces/skyfold-dock/assemble_r04c.py "$RUNNER_TEMP/skyfold-r04c-inputs" "$SKYFOLD_OUT" > "$SKYFOLD_OUT/assembly.log" 2>&1
+          mkdir -p "$SKYFOLD_OUT/scripts"
+          cp workspaces/skyfold-dock/*.py workspaces/skyfold-dock/*.sh "$SKYFOLD_OUT/scripts/"
+          python3 - <<'PY'
+          import json,hashlib,os,datetime
+          from pathlib import Path
+          p=Path(os.environ['SKYFOLD_OUT']);files={}
+          for f in p.rglob('*'):
+            if f.is_file():
+              assert f.stat().st_size<80000000
+              files[str(f.relative_to(p))]={'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()}
+          assert sum(r['bytes'] for r in files.values())<140000000
+          (p/'DELIVERY.json').write_text(json.dumps({'assembly_run_id':os.environ['GITHUB_RUN_ID'],'assembly_source_sha':os.environ['GITHUB_SHA'],'render_run_id':34507267207,'render_source_sha':'90363be4ae47d5439b7b91fbc07d859415efcfba','scene_sha256':'831c51340a7c81012e517d4ea0ce0da4a6412a1d86940ad74c7a7f0b1f760261','files':files,'visual_status':'REVIEW_REQUIRED_WITH_KNOWN_OPEN_MAJOR_FINDINGS','auto_qualified':False,'P2_1080_pass':False},indent=2))
+          PY
+      - name: Persist recoverable candidate without changing artistic gates
+        if: always()
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r04c-assembly-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r04c-assembled
+          git diff --staged --quiet || git commit -m "skyfold R04C assembly ${GITHUB_RUN_ID}; actual outputs or exact failure, never art PASS"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r04c-assembled-${{ github.run_id }}
+          path: workspaces/skyfold-dock/output/r04c-assembled
+          retention-days: 1
+          if-no-files-found: error
