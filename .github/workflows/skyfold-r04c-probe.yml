@@ -1,0 +1,75 @@
+name: Skyfold R04C deep city and high berth probe
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r04c-probe.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: skyfold-r04c-probe
+  cancel-in-progress: false
+jobs:
+  probe:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r04c
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore precise R04B input and reuse existing toolchain
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin 82de918fa4a1af0f6e8a4a2b949b572ed67e1a14
+          git restore --source=FETCH_HEAD -- workspaces/skyfold-dock/output/r04b/skyfold-r04b.blend workspaces/skyfold-dock/output/r04b/BUILD-MANIFEST.json
+          mkdir -p "$SKYFOLD_OUT"
+          python3 -m py_compile workspaces/skyfold-dock/revise_r04c.py workspaces/skyfold-dock/encode_actual_frames.py
+          bash workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/provision.log" 2>&1
+          (date -u; free -b; df -B1 .; git rev-parse HEAD) > "$SKYFOLD_OUT/environment.txt"
+      - name: Build actual deep inhabited ring and elevated connected berth
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b workspaces/skyfold-dock/output/r04b/skyfold-r04b.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/revise_r04c.py > "$SKYFOLD_OUT/build.log" 2>&1
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r04c-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r04c
+          git commit -m "skyfold R04C actual source ${GITHUB_RUN_ID}; review pending"
+          git push origin HEAD
+      - name: Actual composition and moving-camera samples
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/probe-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r04c.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/probe_r04b.py > "$SKYFOLD_OUT/probe.log" 2>&1
+      - name: Two-frame encoder capability test, not the requested movie
+        continue-on-error: true
+        env:
+          FRAME_DIR: ${{ github.workspace }}/workspaces/skyfold-dock/output/r04c/encoder-test
+          FRAME_START: '1'
+          FRAME_END: '2'
+        run: |
+          set -euo pipefail
+          mkdir -p "$FRAME_DIR"
+          blender -b "$SKYFOLD_OUT/skyfold-r04c.blend" -t 4 --python-exit-code 1 --python-expr "import bpy,os; s=bpy.context.scene;s.render.resolution_x=320;s.render.resolution_y=180;s.render.resolution_percentage=100;s.cycles.samples=4;s.cycles.adaptive_min_samples=1;s.camera=bpy.data.objects['R04_HERO'];[(s.frame_set(f),setattr(s.render,'filepath',os.environ['FRAME_DIR']+'/frame_%04d.png'%f),bpy.ops.render.render(write_still=True)) for f in [1,2]]" > "$FRAME_DIR/render.log" 2>&1
+          blender -b --factory-startup -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/encode_actual_frames.py > "$FRAME_DIR/encode.log" 2>&1
+      - name: Preserve source and exact pilot outcome
+        if: always()
+        run: |
+          set -euo pipefail
+          if [ "$(git branch --show-current)" != "evidence/skyfold-r04c-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" ]; then exit 0; fi
+          git add workspaces/skyfold-dock/output/r04c
+          git diff --staged --quiet || git commit -m "skyfold R04C actual pilot ${GITHUB_RUN_ID}; no core gate promotion"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r04c-probe-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r04c
+            workspaces/skyfold-dock/revise_r04c.py
+            workspaces/skyfold-dock/encode_actual_frames.py
+          retention-days: 1
+          if-no-files-found: error
