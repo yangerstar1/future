@@ -1,0 +1,101 @@
+name: Skyfold R05 city hierarchy controlled comparison
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r05-city.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: skyfold-r05-city
+  cancel-in-progress: false
+jobs:
+  city:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r05-city
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Confirm the earlier motion-a job is complete before using the freed slot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$SKYFOLD_OUT"
+          gh api repos/yangerstar1/future/actions/jobs/102972587699 > "$SKYFOLD_OUT/previous-job.json"
+          python3 - <<'PY'
+          import json,os
+          from pathlib import Path
+          j=json.loads((Path(os.environ['SKYFOLD_OUT'])/'previous-job.json').read_text())
+          assert j['status']=='completed' and j['conclusion']=='success','No free verified render slot; do not proceed'
+          assert j['head_sha']=='90363be4ae47d5439b7b91fbc07d859415efcfba'
+          PY
+          git fetch --depth=1 origin 79f647a3e26e0b1bb4064fff757d37ac27eeff05
+          git restore --source=FETCH_HEAD -- workspaces/skyfold-dock/output/r04c-final/source
+          python3 -m py_compile workspaces/skyfold-dock/revise_r05_city.py workspaces/skyfold-dock/render_r05_city.py
+          (date -u; free -b; df -B1 .; sha256sum workspaces/skyfold-dock/revise_r05_city.py workspaces/skyfold-dock/render_r05_city.py) > "$SKYFOLD_OUT/environment.txt"
+      - name: Reuse official locked Blender toolchain
+        run: bash workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/provision.log" 2>&1
+      - name: Render unchanged R04C control with the declared comparison parameters
+        env:
+          R05_PHASE: control
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/control-time.txt" blender -b workspaces/skyfold-dock/output/r04c-final/source/skyfold-r04c.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/render_r05_city.py > "$SKYFOLD_OUT/control.log" 2>&1
+      - name: Change only city grouping and assert non-city signatures are unchanged
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b workspaces/skyfold-dock/output/r04c-final/source/skyfold-r04c.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/revise_r05_city.py > "$SKYFOLD_OUT/build.log" 2>&1
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r05-city-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r05-city
+          git commit -m "skyfold R05 recoverable city-only candidate ${GITHUB_RUN_ID}; not visually qualified"
+          git push origin HEAD
+      - name: New-process same-camera comparison and movement regression samples
+        env:
+          R05_PHASE: candidate
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r05.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/render_r05_city.py > "$SKYFOLD_OUT/render.log" 2>&1
+      - name: Save bounded complete or partial evidence, never auto-promote art
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,hashlib,os
+          from pathlib import Path
+          p=Path(os.environ['SKYFOLD_OUT']);files={}
+          for f in p.rglob('*'):
+            if f.is_file():
+              assert f.stat().st_size<40000000
+              files[str(f.relative_to(p))]={'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()}
+          assert sum(r['bytes'] for r in files.values())<80000000
+          (p/'DELIVERY.json').write_text(json.dumps({'candidate':'R05_CITY_HIERARCHY_STUDY','source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':files,'visual_status':'REVIEW_REQUIRED','auto_qualified':False,'new_full_video_rendered':False},indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          BRANCH=evidence/skyfold-r05-city-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          [ "$(git branch --show-current)" = "$BRANCH" ] || git switch -c "$BRANCH"
+          git add workspaces/skyfold-dock/output/r05-city
+          git diff --staged --quiet || git commit -m "skyfold R05 actual observations ${GITHUB_RUN_ID}; review required"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r05-city-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r05-city
+            workspaces/skyfold-dock/output/r04c-final/source
+            workspaces/skyfold-dock/revise_r05_city.py
+            workspaces/skyfold-dock/render_r05_city.py
+            workspaces/skyfold-dock/build_scene_r01.py
+            workspaces/skyfold-dock/provision.sh
+          retention-days: 1
+          if-no-files-found: error
