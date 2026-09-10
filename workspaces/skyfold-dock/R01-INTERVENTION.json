@@ -1,0 +1,101 @@
+{
+  "base_build_sha256": "3cd8acd68f766d21ea12997368ae4ae5175c4c8fa663b8349106486917c1548a",
+  "revised_build_sha256": "1bb627df3637886da7e2d89107d6230e1caec87a50501c1d2e0eeb1a2b11249b",
+  "candidate": "R01_PROVISIONAL",
+  "changes": [
+    {
+      "old": "WIDTH=3200.0",
+      "new": "WIDTH=1800.0",
+      "occurrences": 1
+    },
+    {
+      "old": "[480,1040,1600,2160,2720]",
+      "new": "[300,700,1100,1500]",
+      "occurrences": 2
+    },
+    {
+      "old": "[18,800,1600,2400,3182]",
+      "new": "[18,450,900,1350,1782]",
+      "occurrences": 1
+    },
+    {
+      "old": "min(y+760,3200)",
+      "new": "min(y+420,1800)",
+      "occurrences": 1
+    },
+    {
+      "old": "range(27)",
+      "new": "range(15)",
+      "occurrences": 1
+    },
+    {
+      "old": "wrap<.43",
+      "new": "wrap<.60",
+      "occurrences": 1
+    },
+    {
+      "old": "VX,VY,VZ=-168,-288,18.15",
+      "new": "VX,VY,VZ=-168,-288,17.935",
+      "occurrences": 1
+    },
+    {
+      "old": "for xx in [-1.20,1.20]:",
+      "new": "for xx in [-.72,.72]:",
+      "occurrences": 1
+    },
+    {
+      "range_replaced": "lower-rail/elevator/stair block",
+      "reason": "Move maintenance vantage and keep an actually continuous, constant-gauge bridge to dock"
+    },
+    {
+      "range_removed": "optional near overhead framing only",
+      "reason": "R00 O01 actual image showed excessive foreground occlusion"
+    },
+    {
+      "old": "hero_pos=Vector((-174,-323,18.75));hero_target=Vector((260,1960,995))",
+      "new": "hero_pos=Vector((-694,-323,168.75));hero_target=Vector((200,1650,1200))",
+      "occurrences": 1
+    },
+    {
+      "old": "camera('O04_CRAFT',(-179,-308,19.35),(-168,-286,18.5),41)",
+      "new": "camera('O04_CRAFT',(-695,-302,169.35),(-688,-286,168.5),41)",
+      "occurrences": 1
+    },
+    {
+      "old": "camera('O01_HERO',hero_pos,hero_target,18)",
+      "new": "camera('O01_HERO',hero_pos,hero_target,18)\ncamera('O01_R00_FIXED',(-174,-323,18.75),(260,1960,995),18)",
+      "occurrences": 1
+    },
+    {
+      "old": "CAMERAS={}",
+      "new": "# Broad opening skylight approximation exposes the cavity rather than hiding it in fog.\nld=bpy.data.lights.new('Opening diffuse daylight','AREA');ld.energy=70000000;ld.shape='DISK';ld.size=3200;ld.color=(.77,.87,1)\nlo=bpy.data.objects.new('Opening diffuse daylight',ld);COL['07_LIGHTS'].objects.link(lo);lo.location=(0,-1700,1450);lo.rotation_euler=(Vector((0,900,1450))-lo.location).to_track_quat('-Z','Y').to_euler()\nCAMERAS={} ",
+      "occurrences": 1
+    },
+    {
+      "old": "'lift_lower':[0,217,17.3],'lift_upper':[0,217,162.0],",
+      "new": "",
+      "occurrences": 1
+    },
+    {
+      "old": "R00_PROVISIONAL",
+      "new": "R01_PROVISIONAL",
+      "occurrences": 2
+    },
+    {
+      "old": "skyfold-r00.blend",
+      "new": "skyfold-r01.blend",
+      "occurrences": 2
+    },
+    {
+      "old": "Skyfold Dock R00:",
+      "new": "Skyfold Dock R01:",
+      "occurrences": 1
+    },
+    {
+      "old": "'output/r00'",
+      "new": "'output/r01'",
+      "occurrences": 1
+    }
+  ],
+  "status": "SOURCE_PREPARED_VISUAL_RETEST_REQUIRED"
+}
