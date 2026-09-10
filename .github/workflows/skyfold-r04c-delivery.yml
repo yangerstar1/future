@@ -1,0 +1,121 @@
+name: Skyfold R04C stills and actual motion preview
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r04c-delivery.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: skyfold-r04c-delivery
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    outputs:
+      scene_commit: ${{ steps.freeze.outputs.scene_commit }}
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r04c-final/source
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore inspected R04C and pin existing tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin 7d7ef07b3e310ba5137e131f86cd88331947db09
+          git restore --source=FETCH_HEAD -- workspaces/skyfold-dock/output/r04c/skyfold-r04c.blend workspaces/skyfold-dock/output/r04c/BUILD-MANIFEST.json
+          mkdir -p "$SKYFOLD_OUT"
+          python3 -m py_compile workspaces/skyfold-dock/prepare_r04c_presentation.py workspaces/skyfold-dock/render_r04.py workspaces/skyfold-dock/encode_actual_frames.py
+          bash -n workspaces/skyfold-dock/run_r04_delivery_job.sh
+          bash workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/provision.log" 2>&1
+      - name: Freeze minor foreground-material correction and immutable scene
+        id: freeze
+        shell: bash
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b workspaces/skyfold-dock/output/r04c/skyfold-r04c.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/prepare_r04c_presentation.py > "$SKYFOLD_OUT/build.log" 2>&1
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r04c-final-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r04c-final/source
+          git commit -m "skyfold R04C immutable presentation candidate ${GITHUB_RUN_ID}; not qualified"
+          git push origin HEAD
+          echo "scene_commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r04c-source-${{ github.run_id }}
+          path: workspaces/skyfold-dock/output/r04c-final/source
+          retention-days: 1
+          if-no-files-found: error
+  stills:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Render target-size stills and structural controls from immutable source
+        shell: bash
+        env:
+          SCENE_COMMIT: ${{ needs.prepare.outputs.scene_commit }}
+        run: bash workspaces/skyfold-dock/run_r04_delivery_job.sh "$SCENE_COMMIT" stills
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r04c-stills-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r04c-final/source
+            workspaces/skyfold-dock/output/r04c-final/stills
+            workspaces/skyfold-dock/render_r04.py
+            workspaces/skyfold-dock/run_r04_delivery_job.sh
+          retention-days: 1
+          if-no-files-found: error
+  motion_a:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Render every source frame 1-96 and encode actual frames
+        shell: bash
+        env:
+          SCENE_COMMIT: ${{ needs.prepare.outputs.scene_commit }}
+        run: bash workspaces/skyfold-dock/run_r04_delivery_job.sh "$SCENE_COMMIT" motion_a
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r04c-motion-a-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r04c-final/motion_a
+            workspaces/skyfold-dock/render_r04.py
+            workspaces/skyfold-dock/encode_actual_frames.py
+          retention-days: 1
+          if-no-files-found: error
+  motion_b:
+    needs: [prepare, stills]
+    if: always() && needs.prepare.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Render every source frame 97-192; dependency keeps maximum concurrency at two
+        shell: bash
+        env:
+          SCENE_COMMIT: ${{ needs.prepare.outputs.scene_commit }}
+        run: bash workspaces/skyfold-dock/run_r04_delivery_job.sh "$SCENE_COMMIT" motion_b
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r04c-motion-b-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r04c-final/motion_b
+            workspaces/skyfold-dock/render_r04.py
+            workspaces/skyfold-dock/encode_actual_frames.py
+          retention-days: 1
+          if-no-files-found: error
