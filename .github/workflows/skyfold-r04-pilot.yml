@@ -1,0 +1,66 @@
+name: Skyfold R04 coherent motion pilot
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r04-pilot.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: skyfold-r04-pilot
+  cancel-in-progress: false
+jobs:
+  pilot:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r04
+      R04_MODE: pilot
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Reuse pinned tools and record actual source
+        run: |
+          set -euo pipefail
+          mkdir -p "$SKYFOLD_OUT"
+          python3 -m py_compile workspaces/skyfold-dock/build_r04.py workspaces/skyfold-dock/render_r04.py
+          (date -u; free -b; df -B1 .; lscpu; git rev-parse HEAD; sha256sum workspaces/skyfold-dock/*r04.py; command -v ffmpeg || true) > "$SKYFOLD_OUT/environment.txt"
+          bash workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/provision.log" 2>&1
+      - name: Build editable animation from immutable R03B
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b workspaces/skyfold-dock/output/r03b/skyfold-r03b.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/build_r04.py > "$SKYFOLD_OUT/build.log" 2>&1
+      - name: Preserve scene before observations
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r04-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r04
+          git commit -m "skyfold R04 actual scene ${GITHUB_RUN_ID}; not visually passed"
+          git push origin HEAD
+      - name: True 1080p pilot and motion endpoints from a new process
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r04.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/render_r04.py > "$SKYFOLD_OUT/render.log" 2>&1
+      - name: Persist observed candidates without automatic qualification
+        if: success()
+        run: |
+          set -euo pipefail
+          git add workspaces/skyfold-dock/output/r04
+          git commit -m "skyfold R04 actual pilot and structural controls ${GITHUB_RUN_ID}; review required"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r04-pilot-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r04
+            workspaces/skyfold-dock/build_r04.py
+            workspaces/skyfold-dock/render_r04.py
+            workspaces/skyfold-dock/R04-DIRECTION.md
+          retention-days: 1
+          if-no-files-found: error
