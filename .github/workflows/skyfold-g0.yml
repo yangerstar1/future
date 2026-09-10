@@ -1,0 +1,88 @@
+name: Skyfold G0 capability and reproducibility
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-g0.yml, workspaces/skyfold-dock/preflight.py]
+permissions:
+  contents: write
+concurrency:
+  group: skyfold-production
+  cancel-in-progress: false
+jobs:
+  preflight:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/g0
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 1
+      - name: Record actual environment before installing
+        run: |
+          set -euo pipefail
+          mkdir -p "$SKYFOLD_OUT"
+          python3 - <<'PY'
+          import os, platform, shutil, subprocess, json
+          from pathlib import Path
+          def run(args):
+              if not shutil.which(args[0]): return {'available':False}
+              p=subprocess.run(args,capture_output=True,text=True,timeout=15)
+              return {'code':p.returncode,'stdout':p.stdout[:10000],'stderr':p.stderr[:1000]}
+          report={'source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'ref':os.environ['GITHUB_REF'],'python':platform.python_version(),'platform':platform.platform(),'cpu':run(['lscpu']),'memory':run(['free','-b']),'disk':shutil.disk_usage('.')._asdict(),'git_status':run(['git','status','--porcelain']),'blender_before':run(['blender','--version']),'review_mode':'SEQUENTIAL_SELF_REVIEW','budget':{'ceiling_runner_hours':48,'closing_reserve_hours':9.6,'max_concurrency':2,'this_job_timeout_minutes':15,'external_spend':0,'artifact_cache_bytes':0}}
+          Path(os.environ['SKYFOLD_OUT'],'environment.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))
+          PY
+      - name: Verify official Blender binary without apt or paid infrastructure
+        run: |
+          set -euo pipefail
+          ROOT="$RUNNER_TEMP/skyfold-tools"
+          mkdir -p "$ROOT"; cd "$ROOT"
+          VERSION=4.5.13
+          BASE=https://download.blender.org/release/Blender4.5
+          ARCHIVE=blender-${VERSION}-linux-x64.tar.xz
+          curl --fail --location --retry 1 --max-time 90 "$BASE/blender-${VERSION}.sha256" -o official.sha256
+          curl --fail --location --retry 1 --max-time 300 --max-filesize 650000000 "$BASE/$ARCHIVE" -o "$ARCHIVE"
+          grep " $ARCHIVE$" official.sha256 > selected.sha256
+          sha256sum --check selected.sha256 | tee "$SKYFOLD_OUT/checksum.log"
+          cp selected.sha256 "$SKYFOLD_OUT/blender-official.sha256"
+          tar -xf "$ARCHIVE"; rm "$ARCHIVE"
+          BIN="$ROOT/blender-${VERSION}-linux-x64/blender"
+          ldd "$BIN" | tee "$SKYFOLD_OUT/libraries.log"
+          if grep -q 'not found' "$SKYFOLD_OUT/libraries.log"; then echo 'Library mismatch; stop, do not guess dependencies'; exit 3; fi
+          "$BIN" --background --factory-startup --version | tee "$SKYFOLD_OUT/version.log"
+          printf '%s\n' "$ROOT/blender-${VERSION}-linux-x64" >> "$GITHUB_PATH"
+      - name: Build save and render representative instance/material slice
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b --factory-startup -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/preflight.py 2>&1 | tee "$SKYFOLD_OUT/build.log"
+      - name: Reopen saved scene in a new Blender process and render
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/reopen-time.txt" blender -b "$SKYFOLD_OUT/preflight.blend" -t 4 --python-exit-code 1 --python-expr "import bpy,os; from pathlib import Path; s=bpy.context.scene; assert bpy.app.version[:3]==(4,5,13); assert s.render.engine=='CYCLES'; s.render.filepath=str(Path(os.environ['SKYFOLD_OUT'])/'reopen.png'); bpy.ops.render.render(write_still=True); print('NEW_PROCESS_REOPEN_RENDER_OK')" 2>&1 | tee "$SKYFOLD_OUT/reopen.log"
+      - name: Persist small evidence; never automatically pass visual gates
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import os,json,hashlib
+          root=Path(os.environ['SKYFOLD_OUT']);root.mkdir(parents=True,exist_ok=True)
+          files={}
+          for p in root.rglob('*'):
+              if p.is_file():
+                  assert p.stat().st_size<8000000
+                  files[p.name]={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+          assert sum(x['bytes'] for x in files.values())<16000000
+          d={'source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'files':files,'result':'CAPABILITY_EVIDENCE_REVIEW_REQUIRED','G1':'NOT_STARTED','artwork':'NOT_STARTED','final_status':'NOT_QUALIFIED'}
+          (root/'DELIVERY.json').write_text(json.dumps(d,indent=2));print(json.dumps(d,indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-g0-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/g0
+          git diff --staged --quiet || git commit -m "Skyfold G0 actual evidence ${GITHUB_RUN_ID}; no art gate passed"
+          git push origin HEAD
