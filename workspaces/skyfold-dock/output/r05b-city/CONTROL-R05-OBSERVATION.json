@@ -1,0 +1,55 @@
+{
+  "local_file": "CONTROL_R05_HERO.png",
+  "original_observation": {
+    "file": "candidate_R04_HERO_001.png",
+    "phase": "candidate",
+    "candidate": "R05_CITY_HIERARCHY_STUDY",
+    "scene_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "render_source_sha": "3606690a1302b7925e2432c0f2fffb96b7d37ecf",
+    "scene_sha256": "cf54a7be3f679643ff6abd54ca438389bdf4654c206b53bdebca9205d80249c1",
+    "sha256": "772c2b1f0395971824303891ec7a33b09ef8f7ea5ec99c60b96776a112661914",
+    "camera": "R04_HERO",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.0
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.0
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 24,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "seconds": 56.09485032499998,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  "operation": "Byte-for-byte copy, no re-render or rescale"
+}
