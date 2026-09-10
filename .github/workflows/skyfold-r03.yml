@@ -1,0 +1,106 @@
+name: Skyfold R03 fixed-camera near-pier repair
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r03.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: skyfold-r03
+  cancel-in-progress: false
+jobs:
+  repair:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r03
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Record real source and runner; verify syntax
+        run: |
+          set -euo pipefail
+          mkdir -p "$SKYFOLD_OUT"
+          python3 - <<'PY'
+          import json,os,platform,shutil,hashlib,subprocess
+          from pathlib import Path
+          root=Path('workspaces/skyfold-dock');out=Path(os.environ['SKYFOLD_OUT'])
+          names=['revise_r03.py','render_r03.py','render_r02.py','build_scene_r01.py','provision.sh']
+          for n in names:
+              if n.endswith('.py'):compile((root/n).read_text(),n,'exec')
+          data={'source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'python':platform.python_version(),'cpu_count':os.cpu_count(),'memory':subprocess.check_output(['free','-b'],text=True),'disk':shutil.disk_usage('.')._asdict(),'sources':{n:hashlib.sha256((root/n).read_bytes()).hexdigest() for n in names},'artistic_verdict':'NOT_REVIEWED','timeout_minutes':25,'paid_services':False}
+          (out/'environment.json').write_text(json.dumps(data,indent=2));print(json.dumps(data,indent=2))
+          PY
+      - name: Reuse locked official Blender
+        run: |
+          set -euo pipefail
+          bash workspaces/skyfold-dock/provision.sh 2>&1 | tee "$SKYFOLD_OUT/provision.log"
+      - name: Patch only the near pier and dependent connections
+        timeout-minutes: 7
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b workspaces/skyfold-dock/output/r02/skyfold-r02.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/revise_r03.py 2>&1 | tee "$SKYFOLD_OUT/build.log"
+      - name: Checkpoint before true observation rendering
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r03-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r03
+          git commit -m "skyfold R03 recoverable source ${GITHUB_RUN_ID}; review pending"
+          git push origin HEAD
+      - name: New-process fixed observations including original failures
+        timeout-minutes: 13
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r03.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/render_r03.py 2>&1 | tee "$SKYFOLD_OUT/render.log"
+      - name: Preserve precise outputs and partial failure evidence
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,hashlib,os,struct
+          from pathlib import Path
+          out=Path(os.environ['SKYFOLD_OUT']);files={}
+          for p in out.iterdir():
+              if not p.is_file():continue
+              assert p.stat().st_size<40000000,p.name
+              row={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+              if p.suffix=='.png':
+                  h=p.read_bytes()[:24];assert h[:8]==b'\x89PNG\r\n\x1a\n';row['dimensions']=struct.unpack('>II',h[16:24])
+              files[p.name]=row
+          total=sum(r['bytes'] for r in files.values());assert total<80000000,total
+          (out/'DELIVERY.json').write_text(json.dumps({'candidate':'R03_NEAR_PIER_REPAIR','run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'total_bytes':total,'visual_status':'REVIEW_REQUIRED','auto_qualified':False},indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          BR=evidence/skyfold-r03-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          if [ "$(git branch --show-current)" != "$BR" ]; then git switch -c "$BR"; fi
+          for f in skyfold-r03.blend BUILD-MANIFEST.json DELIVERY.json OBSERVATIONS.json environment.json build-time.txt render-time.txt build.log render.log provision.log libraries.log render-resolved.py O01_HERO.png O01_SECOND.png O04_CRAFT.png O05_ROUTE.png; do
+            [ ! -f "$SKYFOLD_OUT/$f" ] || git add "workspaces/skyfold-dock/output/r03/$f"
+          done
+          git diff --staged --quiet || git commit -m "skyfold R03 actual observation checkpoint ${GITHUB_RUN_ID}; no automatic PASS"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r03-observations-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r03
+            workspaces/skyfold-dock/output/r02/skyfold-r02.blend
+            workspaces/skyfold-dock/output/r02/BUILD-MANIFEST.json
+            workspaces/skyfold-dock/revise_r03.py
+            workspaces/skyfold-dock/render_r03.py
+            workspaces/skyfold-dock/render_r02.py
+            workspaces/skyfold-dock/build_scene_r01.py
+            workspaces/skyfold-dock/provision.sh
+            workspaces/skyfold-dock/R02-REVIEW.md
+            workspaces/skyfold-dock/R03-INTERVENTION.md
+          retention-days: 1
+          compression-level: 6
+          if-no-files-found: error
