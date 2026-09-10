@@ -1,0 +1,563 @@
+[
+  {
+    "file": "candidate_R04_HERO_001.png",
+    "phase": "candidate",
+    "candidate": "R05B_INDEPENDENT_CITY_FOUNDATIONS",
+    "scene_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "render_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "scene_sha256": "890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2",
+    "sha256": "93a124525ebce342aea72b610ab3466c3ef8078a8b4a759b2ebbf62368ab6496",
+    "camera": "R04_HERO",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.0
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.0
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 24,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "seconds": 58.722643524999995,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_HERO_001_NEUTRAL.png",
+    "phase": "candidate",
+    "candidate": "R05B_INDEPENDENT_CITY_FOUNDATIONS",
+    "scene_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "render_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "scene_sha256": "890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2",
+    "sha256": "9122344137269134e7361ae6f5733cbab59b2f90a850951c599b33d7ac11785f",
+    "camera": "R04_HERO",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.0
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.0
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 24,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "seconds": 58.87486762399999,
+    "neutral": true,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_SECOND_001.png",
+    "phase": "candidate",
+    "candidate": "R05B_INDEPENDENT_CITY_FOUNDATIONS",
+    "scene_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "render_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "scene_sha256": "890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2",
+    "sha256": "5547a92ad0ebd4b1230ee3927c4fd1ae3bc06665e54e740815c5c740eb01a677",
+    "camera": "R04_SECOND",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.9134947061538696,
+        0.04531445354223251,
+        -0.40431925654411316,
+        -2500.0
+      ],
+      [
+        -0.406850665807724,
+        0.1017436608672142,
+        -0.9078109860420227,
+        -3600.0
+      ],
+      [
+        -2.6841084022066752e-08,
+        0.9937781095504761,
+        0.1113785058259964,
+        2350.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 35.0,
+    "samples": 16,
+    "dimensions": [
+      960,
+      540
+    ],
+    "seconds": 18.399194736,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_HERO_097.png",
+    "phase": "candidate",
+    "candidate": "R05B_INDEPENDENT_CITY_FOUNDATIONS",
+    "scene_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "render_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "scene_sha256": "890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2",
+    "sha256": "2985b1085ee37dd90a1db99e2d588d30f2266f8ff34d7065992c9b1d608970e6",
+    "camera": "R04_HERO",
+    "frame": 97,
+    "camera_matrix": [
+      [
+        0.7885475158691406,
+        -0.1153763085603714,
+        -0.6040539145469666,
+        -876.198974609375
+      ],
+      [
+        -0.6149738430976868,
+        -0.14794081449508667,
+        -0.7745455503463745,
+        -25.2879638671875
+      ],
+      [
+        2.0749244100670694e-08,
+        0.9822432994842529,
+        -0.18761178851127625,
+        1128.060791015625
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 12,
+    "dimensions": [
+      960,
+      540
+    ],
+    "seconds": 19.976461311999998,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_HERO_192.png",
+    "phase": "candidate",
+    "candidate": "R05B_INDEPENDENT_CITY_FOUNDATIONS",
+    "scene_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "render_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "scene_sha256": "890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2",
+    "sha256": "98380297cfa7f23ef26797b7b4786d82a6a7780848591d6ad99ae2f8a569942c",
+    "camera": "R04_HERO",
+    "frame": 192,
+    "camera_matrix": [
+      [
+        0.788118839263916,
+        -0.08527833223342896,
+        -0.6095870137214661,
+        -926.9208984375
+      ],
+      [
+        -0.615523099899292,
+        -0.10919086635112762,
+        -0.7805182933807373,
+        -80.0
+      ],
+      [
+        6.437229416178525e-09,
+        0.9903560280799866,
+        -0.1385461837053299,
+        1199.69677734375
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 12,
+    "dimensions": [
+      960,
+      540
+    ],
+    "seconds": 20.064105474,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_O01_HERO_001.png",
+    "phase": "candidate",
+    "candidate": "R05B_INDEPENDENT_CITY_FOUNDATIONS",
+    "scene_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "render_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "scene_sha256": "890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2",
+    "sha256": "4046ca2fd7d78c3415570e005b53c5e8e9e1feee447caa7a22b4468df2856564",
+    "camera": "O01_HERO",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -310.0
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        196.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "samples": 8,
+    "dimensions": [
+      640,
+      360
+    ],
+    "seconds": 7.598570401999979,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_PARALLAX_000_001.png",
+    "phase": "candidate",
+    "candidate": "R05B_INDEPENDENT_CITY_FOUNDATIONS",
+    "scene_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "render_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "scene_sha256": "890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2",
+    "sha256": "1622f0d2663b06a957d6aee2a9ad2cad891e2ff6a38962224e34adf12cc96118",
+    "camera": "R04_PARALLAX_000",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -821.8973388671875
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        31.469755172729492
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 8,
+    "dimensions": [
+      640,
+      360
+    ],
+    "seconds": 7.4042403509999986,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_PARALLAX_025_001.png",
+    "phase": "candidate",
+    "candidate": "R05B_INDEPENDENT_CITY_FOUNDATIONS",
+    "scene_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "render_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "scene_sha256": "890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2",
+    "sha256": "ef43c6635bcc2351e52ce5c5dd17a50564eed76d0b8ff9afa75cbb139710f351",
+    "camera": "R04_PARALLAX_025",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.9486694335938
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.73487663269043
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 8,
+    "dimensions": [
+      640,
+      360
+    ],
+    "seconds": 7.711836656999992,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_PARALLAX_050_001.png",
+    "phase": "candidate",
+    "candidate": "R05B_INDEPENDENT_CITY_FOUNDATIONS",
+    "scene_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "render_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "scene_sha256": "890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2",
+    "sha256": "c4e12237bc3ad40c81d9814a73c01e6a9e2a3082de714b520805a3dd580794a9",
+    "camera": "R04_PARALLAX_050",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -820.0
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        30.0
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 8,
+    "dimensions": [
+      640,
+      360
+    ],
+    "seconds": 7.614901083999996,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_PARALLAX_075_001.png",
+    "phase": "candidate",
+    "candidate": "R05B_INDEPENDENT_CITY_FOUNDATIONS",
+    "scene_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "render_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "scene_sha256": "890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2",
+    "sha256": "595d25d29882d511cdce5f100082ef778eb164cb45fa9993b266b1d541415cc8",
+    "camera": "R04_PARALLAX_075",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -819.0513305664062
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        29.26512336730957
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 8,
+    "dimensions": [
+      640,
+      360
+    ],
+    "seconds": 7.551994459000014,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  },
+  {
+    "file": "candidate_R04_PARALLAX_100_001.png",
+    "phase": "candidate",
+    "candidate": "R05B_INDEPENDENT_CITY_FOUNDATIONS",
+    "scene_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "render_source_sha": "d00012b9bf8574d950a71803ab1cbd908237e26a",
+    "scene_sha256": "890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2",
+    "sha256": "91a0dffe786333afb9bca4751945c74119bc1a7bfa7500d601f50fd1a5969745",
+    "camera": "R04_PARALLAX_100",
+    "frame": 1,
+    "camera_matrix": [
+      [
+        0.7905498147010803,
+        -0.14570452272891998,
+        -0.5948119163513184,
+        -818.1026611328125
+      ],
+      [
+        -0.6123977899551392,
+        -0.18809126317501068,
+        -0.7678480744361877,
+        28.530244827270508
+      ],
+      [
+        2.010064648061416e-08,
+        0.9712836146354675,
+        -0.23792463541030884,
+        1060.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 20.5,
+    "samples": 8,
+    "dimensions": [
+      640,
+      360
+    ],
+    "seconds": 7.503764549000039,
+    "neutral": false,
+    "color_management": {
+      "view": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.15000000596046448
+    },
+    "art_status": "NOT_REVIEWED"
+  }
+]
