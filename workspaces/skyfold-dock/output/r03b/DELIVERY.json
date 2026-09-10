@@ -1,0 +1,197 @@
+{
+  "candidate": "R03B_NEAR_PIER_REPAIR",
+  "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+  "run_id": "34500065780",
+  "files": {
+    "O05_LIFT_R03_DIAGNOSTIC.png": {
+      "bytes": 550191,
+      "sha256": "1b4f7d44ba08f951d4e03dc07d1c7a4c8df7dd1d749b7f53e486c3a19700a34d",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "O01_SECOND.png": {
+      "bytes": 668376,
+      "sha256": "fb697e71ea4cb0b10929dbfa4e05d8fd8779148f8a23e523fbc4fab4f7978e7b",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "build.log": {
+      "bytes": 315,
+      "sha256": "143db6705cf398d86e234e4a501e1395f33d130fca6d5cf897930d0d2f7194c0"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 53420,
+      "sha256": "fc215c42dc8ed75ba60b1521d7b15e27000f5e300ea4c59e7cbee98a0317818a"
+    },
+    "O06_000.png": {
+      "bytes": 430013,
+      "sha256": "b120e23e94f11eca5981634e1d0705f3eb32835af1e4356b8608adec50c7242f",
+      "dimensions": [
+        800,
+        450
+      ]
+    },
+    "O04_CRAFT.png": {
+      "bytes": 835806,
+      "sha256": "f111a312a8e2ddf03c4f4f5dfbfae6421b3ad94b3a491ffb69a40c6c011b513c",
+      "dimensions": [
+        1200,
+        675
+      ]
+    },
+    "O05_ROUTE.png": {
+      "bytes": 980138,
+      "sha256": "8aede273a9a4ea6767ef303fb06a3291c73f36b9167cc8dc9a4c9ce339ac6aa6",
+      "dimensions": [
+        1200,
+        675
+      ]
+    },
+    "O06_100.png": {
+      "bytes": 428414,
+      "sha256": "f7a7530116d7e5b5e3699d5b7dba5a3f7562eae7c250a8d4a70fac34704bac87",
+      "dimensions": [
+        800,
+        450
+      ]
+    },
+    "O06_025.png": {
+      "bytes": 430103,
+      "sha256": "deabd8bf70e1c8afc0b9e6b37b3d7bfe8d8c0cda7c1fcebe47c6566eee72bd79",
+      "dimensions": [
+        800,
+        450
+      ]
+    },
+    "render.log": {
+      "bytes": 839978,
+      "sha256": "afd21381815e5052ef1826269dc2b6d50b271207fcd938d2ceda24bcdef23f20"
+    },
+    "O01_CAMERA_C.png": {
+      "bytes": 632139,
+      "sha256": "0637ca04bfb6ab701bb9994ab232e747b5038803218391c611728841993bf3c2",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "O06_075.png": {
+      "bytes": 428749,
+      "sha256": "3e04adfaefaa80d7806073628421fd246cbd0c825687b10a504bec693cbce674",
+      "dimensions": [
+        800,
+        450
+      ]
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "9a538b1360612b47fd75ee84f04f8aa38fd341f41282b50f4311c7a7f8bb1cb5"
+    },
+    "R01_O01_HERO.png": {
+      "bytes": 709377,
+      "sha256": "f12bff537ba778c7fb4e71cb1a3c98d5210883a1263281719f1791074f7ce404",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 18227,
+      "sha256": "2a3e56588e184853c8c46936fcc141592336adeabfa7711d5154677f88248fdc"
+    },
+    "O06_050.png": {
+      "bytes": 429436,
+      "sha256": "37cbeb9bc820186c4b3210385a671146b484ffafe831fa130b68e247b6b6da92",
+      "dimensions": [
+        800,
+        450
+      ]
+    },
+    "O04_INTERFACE.png": {
+      "bytes": 507133,
+      "sha256": "ba8f6ee533fef038879ed3eb90e49611c9a533726ee577a403e46d213c8d73a0",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "provision.log": {
+      "bytes": 8273,
+      "sha256": "dfd432c2a79d064b3cc1259f7b8af217dc35f4b369a76d4199ef732b4315f5a0"
+    },
+    "render-resolved.py": {
+      "bytes": 2759,
+      "sha256": "658d9521d9d975ad47baa0e62e52900d6b741f0448fc2c41fe5820c0b429f7b5"
+    },
+    "O01_HERO.png": {
+      "bytes": 912429,
+      "sha256": "78076280aa6b03d5fd40a96611e2822cd4aa38bce3ed97251fbe92b33cd7c187",
+      "dimensions": [
+        1200,
+        675
+      ]
+    },
+    "O01_CAMERA_B.png": {
+      "bytes": 627328,
+      "sha256": "5a3cb6a2ef8cdafffae0d158212cbccaf2aa509a32c44ae84a6f3d1229c68729",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "O05_LIFT.png": {
+      "bytes": 588328,
+      "sha256": "e51b567c8afaa690c36bf27bfb8c8a17816ba20e1222c02abd35c0335868f864",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "skyfold-r03b.blend": {
+      "bytes": 1203557,
+      "sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68"
+    },
+    "render-time.txt": {
+      "bytes": 900,
+      "sha256": "d38b3356c033928bd48a5cd2bfbe40cf5255c106a731a7ace38a310268d11164"
+    },
+    "build-time.txt": {
+      "bytes": 859,
+      "sha256": "2cfc7c584efc8c66bb03b9460624f7369a084053714ca91218ac7fb0b9176452"
+    },
+    "environment.json": {
+      "bytes": 884,
+      "sha256": "557eaa7caded94d2a8d699c489a62958ad103ed2f76ae0652ae6a5d9ee164fa6"
+    },
+    "O03_REAR.png": {
+      "bytes": 635555,
+      "sha256": "09410bd79c0661d8525a4bc690d410700992a3f6653b2e9ef146545e5ca05bba",
+      "dimensions": [
+        960,
+        540
+      ]
+    },
+    "O02_NEUTRAL.png": {
+      "bytes": 804087,
+      "sha256": "1b3a65d84bbb9de7e7eede5ad310d8c242e7c546d29ff3e8d000d00ee03fcfc9",
+      "dimensions": [
+        1200,
+        675
+      ]
+    },
+    "O05_RETURN_LIFT_DIAGNOSTIC.png": {
+      "bytes": 464023,
+      "sha256": "595b369d1d1fcb950c714067f749366f39bc1ca8d649f9fdf61c2066f4692d11",
+      "dimensions": [
+        960,
+        540
+      ]
+    }
+  },
+  "visual_status": "REVIEW_REQUIRED",
+  "auto_qualified": false
+}

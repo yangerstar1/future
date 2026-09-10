@@ -1,0 +1,22 @@
+{
+  "measurement":"GitHub Actions job started_at to completed_at, excluding queue; not settled billing",
+  "runs":[
+    {"run_id":34486735492,"stage":"G0","started_at":"2026-09-10T14:05:12Z","completed_at":"2026-09-10T14:05:46Z","seconds":34},
+    {"run_id":34488579285,"stage":"R00","started_at":"2026-09-10T14:22:08Z","completed_at":"2026-09-10T14:25:14Z","seconds":186},
+    {"run_id":34490878728,"stage":"R01","started_at":"2026-09-10T14:43:05Z","completed_at":"2026-09-10T14:45:30Z","seconds":145},
+    {"run_id":34494159035,"stage":"original_transport","started_at":"2026-09-10T15:13:18Z","completed_at":"2026-09-10T15:13:25Z","seconds":7},
+    {"run_id":34495611703,"stage":"R02","started_at":"2026-09-10T15:26:11Z","completed_at":"2026-09-10T15:32:43Z","seconds":392},
+    {"run_id":34495890819,"stage":"G1_calibration","started_at":"2026-09-10T15:28:47Z","completed_at":"2026-09-10T15:29:36Z","seconds":49},
+    {"run_id":34498166928,"stage":"R03","started_at":"2026-09-10T15:49:35Z","completed_at":"2026-09-10T15:56:25Z","seconds":410},
+    {"run_id":34500065780,"stage":"R03B","started_at":"2026-09-10T16:07:19Z","completed_at":"2026-09-10T16:14:24Z","seconds":425}
+  ],
+  "total_job_seconds":1648,
+  "this_continuation_job_seconds":835,
+  "runner_hours":0.4577777778,
+  "runner_hour_ceiling":48,
+  "closing_reserve_hours":9.6,
+  "remaining_ceiling_hours":47.5422222222,
+  "peak_concurrency":2,
+  "paid_runners_or_model_APIs_started":false,
+  "account_wide_storage_billing":"NOT_EXPOSED_BY_CONNECTOR"
+}

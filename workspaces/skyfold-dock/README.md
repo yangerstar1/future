@@ -1,27 +1,15 @@
-# 回天港 / SKYFOLD DOCK
+# 回天港 / SKYFOLD DOCK — R03B 工作检查点
 
-**已生成真实可编辑Blender工程；当前R01仍未达到任务合同质量要求。不是最终成片，不是AUTO_QUALIFIED。**
+**已有真实可编辑 Blender 工程。局部平台遮挡已修复，但整体 G2 构图仍未达标，不是最终成品。**
 
-[打开当前场景文件](output/r01/skyfold-r01.blend) · [实际主视角PNG](output/r01/O01_HERO.png) · [第二空间视角](output/r01/O01_SECOND.png) · [近景](output/r01/O04_CRAFT.png)
+[当前 Blender 场景](output/r03b/skyfold-r03b.blend) · [同机位实际主图](output/r03b/O01_HERO.png) · [第二空间视角](output/r03b/O01_SECOND.png) · [近景工艺](output/r03b/O04_CRAFT.png) · [结构路径](output/r03b/O05_ROUTE.png)
 
-[继续执行入口](SESSION-HANDOFF-LATEST.md) · [唯一生产状态](PRODUCTION-STATE.json) · [R01严格审查](R01-REVIEW.md) · [证据索引](EVIDENCE-INDEX.json)
+[最新恢复交接](SESSION-HANDOFF-LATEST.md) · [唯一生产状态](PRODUCTION-STATE.json) · [R03B 复验](R03B-REVIEW.md) · [证据索引](EVIDENCE-INDEX.json) · [作业账本](RUN-LEDGER.json)
 
-## 已落地
-使用本公开仓库的标准Ubuntu Actions与Blender4.5.13 Cycles CPU；完成能力预检、R00整体场景、一次有真实图像依据的R01结构修订。单个巨环、内侧城市、船坞、货运舰、检修栈桥及货运路径均为三维对象/可追踪实例，不是参考图贴在平面上。
+R03 降低近侧作业平台并同步连接，R03B 修正轨道端点和相机清单；舰体、城市、原相机及材质光照未借机重做。原有 16 个观察条件保留，最新 18 张真实渲染已取回核验。完整图包在聊天交付，仓库保留选定工件而非全部历史图。
 
-R01交接文件包括.blend、独立构建源码、13张真实结构观察、逐图相机/参数/hash、构建和渲染日志、资源统计。原始PNG最高960×540（近景800×450）；不是合同要求的2560/1920终版图。场景里预设的最终画幅不能当作已完成渲染。
+最新场景源提交 3bf60dbd37a451ea097e67666b9d922ddd4f877b；场景 SHA256 dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68。
 
-## 尚未完成
-G1校准与参考完整归档；G2全观察审查与设计冻结；船舰与船坞的清楚读形；中近景专业工艺；三张规定成片；全部缺陷关闭和G6冷恢复。当前没有阶段best，只有可恢复候选。完整主合同与本轮原始参考在聊天交接包，公开工程没有复制私有Leaf历史。
+当前主图仍空白过大，城市内翻与人类前景层级不足，近景仍是基础工艺；升降链两端观察不完整。G1 部分完成，G2 未冻结，G3–G6 未通过。最高 1200×675 的这些图是诊断图，不是合同三张 2560/1920 成片。
 
-## 文件入口
-- build_scene.py：已实测R00独立生成源码。
-- build_scene_r01.py：已实测R01独立生成源码；render_r01.py：真实观察渲染。
-- prepare_r01.py、R01-INTERVENTION.json、R01-SOURCE.diff：有校验的R00→R01差异。
-- output/r00与output/r01：实际.blend、PNG和不可变候选证据；当前以PRODUCTION-STATE.json与评审裁决为准。
-- DEPENDENCIES-AND-ASSETS.json：锁定Blender与原生资产来源。
-
-## 已结束的实际Actions
-[G0能力预检](https://github.com/yangerstar1/future/actions/runs/34486735492) · [R00场景与观察](https://github.com/yangerstar1/future/actions/runs/34488579285) · [R01修订与回归](https://github.com/yangerstar1/future/actions/runs/34490878728)
-
-3个job合计365秒，按作业起止时间统计。未启用付费算力、第三方模型API、Release、Pages或自动循环渲染。其他项目分支和main不在本任务写入范围。
+复用 Blender 4.5.13 LTS / 原生 bpy / Cycles CPU / 标准公开 Actions；没有新收费服务或通用渲染框架。R03 与 R03B 作业均已结束，全部八个 job 合计 27 分 28 秒；按作业起止计，不是结算账单。当前没有本任务运行中的作业。

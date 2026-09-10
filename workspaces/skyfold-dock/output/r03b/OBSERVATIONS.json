@@ -1,0 +1,794 @@
+[
+  {
+    "observation": "O01_HERO",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "78076280aa6b03d5fd40a96611e2822cd4aa38bce3ed97251fbe92b33cd7c187",
+    "camera": "O01_HERO",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -310.0
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        196.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      1200,
+      675
+    ],
+    "samples": 24,
+    "seconds": 32.23475084,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O01_CAMERA_B",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "5a3cb6a2ef8cdafffae0d158212cbccaf2aa509a32c44ae84a6f3d1229c68729",
+    "camera": "O01_CAMERA_B",
+    "matrix": [
+      [
+        0.9237421154975891,
+        -0.16253049671649933,
+        -0.3468203842639923,
+        -310.0
+      ],
+      [
+        -0.38301506638526917,
+        -0.3919852375984192,
+        -0.8364490270614624,
+        220.0
+      ],
+      [
+        1.4403373604920944e-08,
+        0.9055006504058838,
+        -0.42434489727020264,
+        196.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 17.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 20,
+    "seconds": 18.446147228,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O01_CAMERA_C",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "0637ca04bfb6ab701bb9994ab232e747b5038803218391c611728841993bf3c2",
+    "camera": "O01_CAMERA_C",
+    "matrix": [
+      [
+        0.8660683035850525,
+        -0.24160560965538025,
+        -0.43766701221466064,
+        -310.0
+      ],
+      [
+        -0.4999256730079651,
+        -0.4185561239719391,
+        -0.7582117915153503,
+        220.0
+      ],
+      [
+        7.585876815596748e-09,
+        0.875464141368866,
+        -0.48328304290771484,
+        196.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 17.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 20,
+    "seconds": 19.27603365500002,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O01_SECOND",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "fb697e71ea4cb0b10929dbfa4e05d8fd8779148f8a23e523fbc4fab4f7978e7b",
+    "camera": "O01_SECOND",
+    "matrix": [
+      [
+        0.816923975944519,
+        -0.07588592916727066,
+        0.5717311501502991,
+        3650.0
+      ],
+      [
+        0.576745331287384,
+        0.10748773068189621,
+        -0.8098217248916626,
+        -3750.0
+      ],
+      [
+        -6.962142862221299e-09,
+        0.9913060665130615,
+        0.13157616555690765,
+        2350.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 36.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 20,
+    "seconds": 14.345694412,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "R01_O01_HERO",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "f12bff537ba778c7fb4e71cb1a3c98d5210883a1263281719f1791074f7ce404",
+    "camera": "R01_O01_HERO",
+    "matrix": [
+      [
+        0.9108559489250183,
+        -0.17741276323795319,
+        -0.37264755368232727,
+        -694.0
+      ],
+      [
+        -0.41272446513175964,
+        -0.39153844118118286,
+        -0.8224087953567505,
+        -323.0
+      ],
+      [
+        -2.6623943938375305e-08,
+        0.9028966426849365,
+        -0.42985767126083374,
+        168.75
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 16,
+    "seconds": 17.22086473899998,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O02_NEUTRAL",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "1b3a65d84bbb9de7e7eede5ad310d8c242e7c546d29ff3e8d000d00ee03fcfc9",
+    "camera": "O01_HERO",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -310.0
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        196.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      1200,
+      675
+    ],
+    "samples": 24,
+    "seconds": 28.683544205999993,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O03_REAR",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "09410bd79c0661d8525a4bc690d410700992a3f6653b2e9ef146545e5ca05bba",
+    "camera": "O03_REAR",
+    "matrix": [
+      [
+        -0.7016043066978455,
+        0.22261665761470795,
+        -0.6768997311592102,
+        -3900.0
+      ],
+      [
+        -0.7125667333602905,
+        -0.2191920429468155,
+        0.6664859056472778,
+        5300.0
+      ],
+      [
+        -1.6575030770127341e-07,
+        0.9499456286430359,
+        0.31241530179977417,
+        3300.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 37.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 20,
+    "seconds": 13.989475986000002,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O04_CRAFT",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "f111a312a8e2ddf03c4f4f5dfbfae6421b3ad94b3a491ffb69a40c6c011b513c",
+    "camera": "O04_CRAFT",
+    "matrix": [
+      [
+        0.9161573052406311,
+        0.019485177472233772,
+        -0.4003450274467468,
+        -311.0
+      ],
+      [
+        -0.40081894397735596,
+        0.04453752934932709,
+        -0.9150741100311279,
+        241.0
+      ],
+      [
+        -2.1456116883200593e-09,
+        0.9988176822662354,
+        0.04861341044306755,
+        196.60000610351562
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 41.0,
+    "dimensions": [
+      1200,
+      675
+    ],
+    "samples": 32,
+    "seconds": 55.901385073,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O04_INTERFACE",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "ba8f6ee533fef038879ed3eb90e49611c9a533726ee577a403e46d213c8d73a0",
+    "camera": "O04_INTERFACE",
+    "matrix": [
+      [
+        0.879997730255127,
+        0.0400804728269577,
+        -0.4732837677001953,
+        75.0
+      ],
+      [
+        -0.47497788071632385,
+        0.07425770163536072,
+        -0.8768590688705444,
+        565.0
+      ],
+      [
+        3.7516695527983757e-08,
+        0.9964333176612854,
+        0.08438394963741302,
+        623.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 43.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 24,
+    "seconds": 27.010006842999985,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O05_ROUTE",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "8aede273a9a4ea6767ef303fb06a3291c73f36b9167cc8dc9a4c9ce339ac6aa6",
+    "camera": "O05_ROUTE",
+    "matrix": [
+      [
+        0.8132290244102478,
+        0.15873144567012787,
+        -0.5598775148391724,
+        -650.0
+      ],
+      [
+        -0.5819437503814697,
+        0.22181691229343414,
+        -0.7823929786682129,
+        -50.0
+      ],
+      [
+        -5.47666942907199e-08,
+        0.9620819091796875,
+        0.2727607190608978,
+        740.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 30.0,
+    "dimensions": [
+      1200,
+      675
+    ],
+    "samples": 24,
+    "seconds": 41.157074050999995,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O05_LIFT",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "e51b567c8afaa690c36bf27bfb8c8a17816ba20e1222c02abd35c0335868f864",
+    "camera": "O05_LIFT",
+    "matrix": [
+      [
+        0.7443817257881165,
+        0.05463934317231178,
+        -0.665515124797821,
+        -188.0
+      ],
+      [
+        -0.6677542924880981,
+        0.0609094500541687,
+        -0.7418856024742126,
+        484.0
+      ],
+      [
+        1.738242616511343e-08,
+        0.9966466426849365,
+        0.08182553946971893,
+        375.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 38.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 20,
+    "seconds": 25.357534661999978,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O05_LIFT_R03_DIAGNOSTIC",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "1b4f7d44ba08f951d4e03dc07d1c7a4c8df7dd1d749b7f53e486c3a19700a34d",
+    "camera": "O05_LIFT_R03_DIAGNOSTIC",
+    "matrix": [
+      [
+        0.7443817257881165,
+        0.135975643992424,
+        -0.6537632942199707,
+        -188.0
+      ],
+      [
+        -0.6677542924880981,
+        0.1515793651342392,
+        -0.7287852168083191,
+        484.0
+      ],
+      [
+        -1.8583961036711116e-08,
+        0.9790476560592651,
+        0.2036312371492386,
+        276.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 38.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 20,
+    "seconds": 29.280602605000013,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O05_RETURN_LIFT_DIAGNOSTIC",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "595b369d1d1fcb950c714067f749366f39bc1ca8d649f9fdf61c2066f4692d11",
+    "camera": "O05_RETURN_LIFT_DIAGNOSTIC",
+    "matrix": [
+      [
+        0.699779748916626,
+        0.027750946581363678,
+        -0.7138194441795349,
+        -340.0
+      ],
+      [
+        -0.7143586874008179,
+        0.027184484526515007,
+        -0.6992515325546265,
+        1320.0
+      ],
+      [
+        -7.787322431340726e-08,
+        0.9992451667785645,
+        0.03884728252887726,
+        410.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 38.0,
+    "dimensions": [
+      960,
+      540
+    ],
+    "samples": 20,
+    "seconds": 11.008753565000006,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O06_000",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "b120e23e94f11eca5981634e1d0705f3eb32835af1e4356b8608adec50c7242f",
+    "camera": "O06_000",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -325.0
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        195.75999450683594
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      800,
+      450
+    ],
+    "samples": 16,
+    "seconds": 10.724855664000017,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O06_025",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "deabd8bf70e1c8afc0b9e6b37b3d7bfe8d8c0cda7c1fcebe47c6566eee72bd79",
+    "camera": "O06_025",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -317.5
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        195.8800048828125
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      800,
+      450
+    ],
+    "samples": 16,
+    "seconds": 10.78114578200001,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O06_050",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "37cbeb9bc820186c4b3210385a671146b484ffafe831fa130b68e247b6b6da92",
+    "camera": "O06_050",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -310.0
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        196.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      800,
+      450
+    ],
+    "samples": 16,
+    "seconds": 10.823570925000013,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O06_075",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "3e04adfaefaa80d7806073628421fd246cbd0c825687b10a504bec693cbce674",
+    "camera": "O06_075",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -302.5
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        196.1199951171875
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      800,
+      450
+    ],
+    "samples": 16,
+    "seconds": 10.856435094000005,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  },
+  {
+    "observation": "O06_100",
+    "candidate": "R03B_NEAR_PIER_REPAIR",
+    "source_sha": "3bf60dbd37a451ea097e67666b9d922ddd4f877b",
+    "scene_sha256": "dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68",
+    "image_sha256": "f7a7530116d7e5b5e3699d5b7dba5a3f7562eae7c250a8d4a70fac34704bac87",
+    "camera": "O06_100",
+    "matrix": [
+      [
+        0.9237420558929443,
+        -0.18490177392959595,
+        -0.33542802929878235,
+        -295.0
+      ],
+      [
+        -0.3830151855945587,
+        -0.44593942165374756,
+        -0.8089730739593506,
+        220.0
+      ],
+      [
+        -2.0198081429612103e-08,
+        0.8757564425468445,
+        -0.482753187417984,
+        196.24000549316406
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "lens": 18.0,
+    "dimensions": [
+      800,
+      450
+    ],
+    "samples": 16,
+    "seconds": 10.920920327999966,
+    "engine": "CYCLES_CPU",
+    "compositing": false,
+    "visual_verdict": "NOT_OBSERVED"
+  }
+]

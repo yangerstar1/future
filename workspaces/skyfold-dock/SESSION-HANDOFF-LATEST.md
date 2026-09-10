@@ -1,36 +1,38 @@
-# 《回天港》当前恢复交接 — R01 未达标候选
+# 回天港当前恢复交接 — R03B 已复验，G2 仍未通过
 
-## 先读取
-以PRODUCTION-STATE.json为唯一当前状态，再读EVIDENCE-INDEX.json、R00-REVIEW.md、R01-REVIEW.md、R01-INTERVENTION.json及对应OBSERVATIONS.json。主合同是用户附件SKYFOLD_DOCK_PRODUCTION_CONTRACT_V1(1).md，SHA256 b29cc86937c4667652de7a954871c940e31e1c6493c34575ab8f84db970f7ea7。完整原件保存在本轮聊天交接包；它尚未在公开工程归档。新上下文需要原件时，先用Files检索该上传文件，不重新发明另一份合同，不迁出私有Leaf历史。
+先读 PRODUCTION-STATE.json、R03B-REVIEW.md、EVIDENCE-INDEX.json、RUN-LEDGER.json。不要沿用旧 R01 或 R02 正在运行的状态，不重跑 G0，不直接进入 G3/G4。
 
-## 已经真实完成
-G0只读核对及官方Blender4.5.13校验安装、CPU渲染、保存和新进程重开。一次真实原生生图得到参考A，未验证底层型号，不称其已确定使用Images2.5。R00与R01均有可编辑.blend、构建源码、原始PNG、相机矩阵、hash和成功Actions日志；R01有13张观察图，含五时点真实相机位移和旧机位诊断。
+## 可恢复工件
 
-最新实际场景：output/r01/skyfold-r01.blend，773347字节，SHA256 84f4e77811724dc632de8abd3885b0a87783ccc937b45f2f82473a544e3fb42a。
-实际场景源提交：6fc8f1a73640d18084231e5c58670c72b031ddb9；构建源码SHA256 1bb627df3637886da7e2d89107d6230e1caec87a50501c1d2e0eeb1a2b11249b。后面的文档/未改变工件迁入提交不是新的渲染来源。
+当前 output/r03b/skyfold-r03b.blend，1203557 字节，SHA256 dca722c1cbfada7ce9a5a9b16926b136a29fd1ee256d5073c9b41852e5c64c68。
+真实渲染源提交 3bf60dbd37a451ea097e67666b9d922ddd4f877b；Actions 34500065780 已成功结束；后续归档提交不是新的渲染来源。
+完整 18 张原始 PNG 与日志在已取回的聊天包 skyfold-r03b-observations.zip 和整合恢复包 Skyfold_Dock_R03B_Checkpoint.zip；仓库 output/r03b 仅保留选定五张 PNG、场景及完整清单/日志，不宣称所有历史图都进 Git。临时 artifact 10161747801 于 2026-09-11T16:14:20Z 到期，不是唯一保存介质。
+主合同原件/hash 与生成参考 A 随聊天整合恢复包交付，没有复制私有 Leaf 历史。原图模型底层型号未核实，不能写 Images 2.5 已验证。
 
-R01包含单个有厚度巨环、1137个共享原型城市实例、船坞、货运舰、检修区及交通连接。数量只用于资源和完整性定位，不证明美术达标。主体没有使用参考图投影或生成式修补。
+## 已完成的局部闭环
 
-## 当前明确未通过
-G1评价校准及完整参考归档仍缺；G2主视觉仍未达标，DESIGN_BASELINE未冻结，best=null。主要问题是货运舰与船坞轮廓混在一起、倒悬城市的视觉身份不足。近景轮距与悬空错误已改源码但还没完成图像复验；禁止标FIXED。G3至G6未通过，规定三张2560/1920成片尚未制作；当前PNG是低成本观察图。机器终态不是AUTO_QUALIFIED。P2视频未选做。用户未接受任何版本。
+R03 降低近侧平台 240 米，同步支撑、轨道、货物、入口升降台，并保留远侧高平台与舰体接口；R03B 修正上层回程轨道端点和新增相机的清单矩阵。原 R02 16 个观察的相机、焦距、尺寸、采样与合成状态逐项保持；18 个实际相机矩阵通过新进程验证，下载后 29 文件哈希与 18 PNG 解码通过。
+实际主图、中性版及五时点观察确认舰体不再被平台整体挡住。新增回程升降图仍裁掉上下落点；轨道端点已通过技术坐标检查，但整条运输链未完成视觉终验。不要把代码修正冒充完整接口关闭。
 
-## 下一步
-先读取R01的第二视角、旧相机、O02/O03/O04/O05及五张O06；补齐G1校准。优先把舰体从船坞框架中分离为可读的大形，改善城市从侧壁翻向头顶的剪影。改动建议必须以实际场景和新增观察为准；不要先加螺丝、雾、粒子或大行星。保留当前R01与R00，继续普通内部选择不设用户逐轮审批。
+## 明确未通过
 
-## 真实命令与注意
-以下链路已在新GitHub runner成功执行，Blender进程之间无GUI共享状态：
+best=null，G2 未冻结。主构图空白过大、城市在边缘、人类尺度前景过弱；城市重复感与近景工艺仍未到要求。B/C 和旧 R01 机位已观察，但未偷偷替换主机位。G1 正式校准与优良锚点仍有缺口；当前只是真实顺序自审。三张规定成片、全局缺陷关闭、G4 终版成本门和 G6 冷恢复未完成。P2 未选做，用户未接受任何版本。
+
+## 实际成功命令
+
+以下在上述源提交的新标准 Ubuntu runner 中成功，Blender 为锁定的 4.5.13 LTS，Cycles CPU。重新执行时先另建工作副本保护已有输出。
 
 ```bash
-export SKYFOLD_OUT="$PWD/workspaces/skyfold-dock/output/r01"
-export GITHUB_SHA=6fc8f1a73640d18084231e5c58670c72b031ddb9
-python3 workspaces/skyfold-dock/prepare_r01.py
-blender -b --factory-startup -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/build_scene_r01.py
-blender -b "$SKYFOLD_OUT/skyfold-r01.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/render_r01.py
+# 已安装相同 Blender 后，从已核验的当前场景重渲染
+export GITHUB_SHA=3bf60dbd37a451ea097e67666b9d922ddd4f877b
+export SKYFOLD_OUT="$PWD/workspaces/skyfold-dock/output/r03b"
+blender -b "$SKYFOLD_OUT/skyfold-r03b.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/render_r03b.py
 ```
 
-上述GITHUB_SHA只用于重现未修改R01。编辑源码后必须记录新真实版本/工作区签名，不复用旧来源。prepare_r01.py严格从已知R00重新生成R01，会覆盖同名生成源码；它和skyfold-r01.yml是R01复现链，不应拿来验证未经适配的新候选。已有独立build_scene_r01.py可供新候选派生。不要重跑已通过G0，不要从G3开始，不要覆盖旧项目。
+重做 R03B 修正需要精确 R03 输入：evidence/skyfold-r03-34498166928-1 中 output/r03/skyfold-r03.blend 与 BUILD-MANIFEST.json，场景 hash e1f8815c36bb30b8c245715fb56fd9c3a38c77955535ea99b4011170a95d4787。实际 skyfold-r03-qa-fix.yml 使用 git fetch/restore 取得它；聊天整合恢复包已包含这些输入。finalize_r03b.py 的源场景 hash 断言不能盲目移除。修改源码后记录真实新源版本，不能继续冒用上述 GITHUB_SHA。整链从参数重建后逐字节完全相同未被证明，不把快照重开当作 G6 终验。
 
-## 算力与工具
-3个公开ubuntu-24.04标准CPU作业已结束：G0 34486735492（34秒）、R00 34488579285（186秒）、R01 34490878728（145秒），合计365秒，即约0.101389 runner-hours，按GitHub作业起止时间计算，不是账单结算值。48小时规划上限尚余约47.898611小时；9.6小时收尾预留未动用。峰值并发1。未启动付费runner、外部模型API、Actions artifact/cache存储或Release。
+## 下一步与预算
 
-本地Codex桥bootstrap返回404；当前连接器对二进制blob的直接读取返回UTF-8错误，聊天容器不能联网拉取。已用带Git blob校验的小JPEG成功建立低分辨率观察通路，但全尺寸检查仍未完成。不要把这解释为所有图都看过，也不要用文本日志代替视觉判断。实际.blend与PNG已在公开仓库可取回，不仅保存在临时Actions artifact。当前没有运行中的作业或另行部署的后台代理。
+优先在现有主题内修近景栈桥—船坞—连续内翻城市弧线的构图关系；复用已有几何/机位，不加新的泛化框架或微装饰。保留当前舰体显露和原失败观察用于回归。升降链补包含上下落点的观察，不能用新裁切图宣告完整运行。
+
+八个已结束 job 共 1648 秒，约 0.457778 runner-hours；本轮 R03+R03B 共 835 秒。48 小时为已记录规划上限而非消耗目标；9.6 小时收尾预留未消耗，峰值并发 2。没有本任务活动作业、自动后台代理、付费 runner/API、Release 或 Pages。账户总存储账单未暴露，不声称零存储费用。不要重做已通过链路或改其他项目分支。
