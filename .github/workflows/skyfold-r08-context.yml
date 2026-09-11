@@ -1,4 +1,4 @@
-name: Skyfold R08B low-axial context regression
+name: Skyfold R08B native 2560 observation
 on:
   push:
     branches: [codex/skyfold-dock]
@@ -10,42 +10,35 @@ concurrency:
   group: skyfold-r08-context
   cancel-in-progress: false
 jobs:
-  context:
+  native:
     if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     env:
-      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r08b-context
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r08b-native
     defaults:
       run:
         shell: bash
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Restore inspected R08 and the same renderer
+      - name: Restore inspected immutable low-axis scene and existing renderer
         run: |
           set -euo pipefail
-          git fetch --depth=1 origin 6cf46e7391357341916c073f9359db5fc583a8b7
-          git restore --source=FETCH_HEAD -- workspaces/skyfold-dock/output/r08-context/skyfold-r08.blend workspaces/skyfold-dock/output/r08-context/BUILD-MANIFEST.json
-          echo '2636f1582b1bdbd0d60ab08428f29f8ccc85b27aa2c52086832876aa30eaa6e4  workspaces/skyfold-dock/output/r08-context/skyfold-r08.blend' | sha256sum -c
-          mkdir -p "$SKYFOLD_OUT"
-          python3 -m py_compile workspaces/skyfold-dock/r08_refine_frame.py
+          git fetch --depth=1 origin a609a7535d95fcaa01613d9e2a510d77aece5845
+          git restore --source=FETCH_HEAD -- workspaces/skyfold-dock/output/r08b-context/skyfold-r08b.blend workspaces/skyfold-dock/output/r08b-context/BUILD-MANIFEST.json
+          echo 'e714356e215b7e857adaf29c224cb8d9261ab094f74cfb5e11ada45e0e05d877  workspaces/skyfold-dock/output/r08b-context/skyfold-r08b.blend' | sha256sum -c
+          mkdir -p "$SKYFOLD_OUT/source" "$SKYFOLD_OUT/scripts"
+          cp workspaces/skyfold-dock/output/r08b-context/{skyfold-r08b.blend,BUILD-MANIFEST.json} "$SKYFOLD_OUT/source/"
+          cp workspaces/skyfold-dock/{r08_refine_frame.py,r08_inhabited_flight.py,render_r08_snapshot.py,r06_flight.py,provision.sh} "$SKYFOLD_OUT/scripts/"
+          cp .github/workflows/skyfold-r08-context.yml "$SKYFOLD_OUT/scripts/"
+          python3 -m py_compile workspaces/skyfold-dock/render_r08_snapshot.py
           { date -u; git rev-parse HEAD; free -b; df -B1 .; } > "$SKYFOLD_OUT/environment.txt"
-          sha256sum workspaces/skyfold-dock/{r08_refine_frame.py,r06_flight.py,provision.sh} > "$SKYFOLD_OUT/source-sha256.txt"
           bash workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/provision.log" 2>&1
-      - name: Correct the failed camera-to-ring relationship without remodelling
+      - name: Render native 2560 image and uncomposited control
         run: |
           set -euo pipefail
-          R08B_MODE=build /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b workspaces/skyfold-dock/output/r08-context/skyfold-r08.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/r08_refine_frame.py > "$SKYFOLD_OUT/build.log" 2>&1
-          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git switch -c evidence/skyfold-r08b-context-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
-          git add workspaces/skyfold-dock/output/r08b-context
-          git commit -m "R08B low-axial source and preserved environment; no visual approval"
-          git push origin HEAD
-      - name: Render actual low-axis framing and end-of-motion regression
-        run: |
-          set -euo pipefail
-          R08B_MODE=probe /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r08b.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/r08_refine_frame.py > "$SKYFOLD_OUT/render.log" 2>&1
-      - name: Preserve actual outputs and failures
+          /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b "$SKYFOLD_OUT/source/skyfold-r08b.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/render_r08_snapshot.py > "$SKYFOLD_OUT/render.log" 2>&1
+      - name: Preserve exact rendered output and any failure
         if: always()
         run: |
           set -euo pipefail
@@ -53,25 +46,19 @@ jobs:
           import os,json,hashlib
           from pathlib import Path
           p=Path(os.environ['SKYFOLD_OUT']);p.mkdir(parents=True,exist_ok=True)
-          files={f.name:{'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()} for f in p.iterdir() if f.is_file()}
+          files={str(f.relative_to(p)):{'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()} for f in p.rglob('*') if f.is_file()}
           assert sum(r['bytes'] for r in files.values())<100000000
           (p/'DELIVERY.json').write_text(json.dumps({'run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'auto_qualified':False},indent=2))
           PY
           git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          B=evidence/skyfold-r08b-context-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
-          if [ "$(git branch --show-current)" != "$B" ]; then git switch -c "$B"; fi
-          git add workspaces/skyfold-dock/output/r08b-context
-          git diff --cached --quiet || git commit -m "R08B actual context observations and exact logs; review pending"
+          git switch -c evidence/skyfold-r08b-native-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r08b-native
+          git commit -m "R08B native-size observation, source and logs; artistic qualification not implied"
           git push origin HEAD
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: skyfold-r08b-context-${{ github.run_id }}
-          path: |
-            workspaces/skyfold-dock/output/r08b-context
-            workspaces/skyfold-dock/r08_refine_frame.py
-            workspaces/skyfold-dock/r08_inhabited_flight.py
-            workspaces/skyfold-dock/r06_flight.py
-            workspaces/skyfold-dock/provision.sh
+          name: skyfold-r08b-native-${{ github.run_id }}
+          path: workspaces/skyfold-dock/output/r08b-native
           retention-days: 1
           if-no-files-found: error
