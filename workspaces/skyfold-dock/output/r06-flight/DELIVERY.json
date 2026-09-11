@@ -1,0 +1,83 @@
+{
+  "run_id": "34554894554",
+  "source_sha": "e9b40596a5f91b0073c3092454182c8f6acce586",
+  "files": {
+    "build.log": {
+      "bytes": 295,
+      "sha256": "9cdf6fbbef6318c1ceb5ad7d05d89f0988d6918fcbfb75ce33733c377b599c6c"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 19509,
+      "sha256": "cce66f1353eb2c877d7eb9ece4b9df478e8b8d97564c4f213201c5a233770326"
+    },
+    "R06_CROSS_RING_f097.png": {
+      "bytes": 1027532,
+      "sha256": "dfd2131e6e0ab9fddee4bf0e4970884614ce9a692bdf2c5ea5d4c73d1555fd46"
+    },
+    "R06_CROSS_RING_f001.png": {
+      "bytes": 1041417,
+      "sha256": "071afa2384c13d07e3264ad3be5c5f94ae7cce01b075ed29b306a04358018870"
+    },
+    "skyfold-r06.blend": {
+      "bytes": 2397372,
+      "sha256": "b45e19f934f60c0257bcf28256e470bb15fba23f66f425df9b3832b94290f5fd"
+    },
+    "R06_CROSS_RING_f001_NEUTRAL.png": {
+      "bytes": 585124,
+      "sha256": "9942849390eb8d002ece7e783ce336a4d555a5c56ae2ebe9d7bc23f2012e2781"
+    },
+    "render.log": {
+      "bytes": 588745,
+      "sha256": "8dd7336072950632dab6b8b313bdfed7cf3248e17d8fdaa4507c44f18a90e382"
+    },
+    "COMPLETE.json": {
+      "bytes": 204,
+      "sha256": "ce98c317a22fe00a5156e7e0e382e4d46f66b6432eb392d5adfe9430d810f786"
+    },
+    "READONLY-INPUT-RECON.json": {
+      "bytes": 4432,
+      "sha256": "a9026bba8bee9f9e131c38d83d79724ee25bd93e1ed7710e7793594f99a37c29"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "2776883028c52c3d7c385b219ef933d4fddd0535b62712300aa285f4865a0ee2"
+    },
+    "environment.txt": {
+      "bytes": 3607,
+      "sha256": "12eed56960a55b2a33c574bbf6bcb682910823e76dae6c9d9efa11d8f436c8c3"
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 10170,
+      "sha256": "867ad962224e37095c97e9285b156ac2b1f8aa6c2c4f9f7ab0d69daace23e20f"
+    },
+    "R06_CROSS_RING_f192.png": {
+      "bytes": 1009203,
+      "sha256": "63558b10db45d22471262dd6b4db66e56d710e7c06d82da4e8da1e5aabd9b8c8"
+    },
+    "provision.log": {
+      "bytes": 8115,
+      "sha256": "b091f0feaaf5c5e0789771be0475b11618cc56d1132b556f0ac1f24946110c70"
+    },
+    "source-sha256.txt": {
+      "bytes": 207,
+      "sha256": "41489a33c0eb170926eccc78161cd97467e600f194029c1b37c99fb322b18b82"
+    },
+    "R06_FRONT_QUARTER_f001.png": {
+      "bytes": 1240535,
+      "sha256": "e61455d0fcbd40702c4f2e2a768c1a0a6330548a9cc19aacd592d7253b0499bd"
+    },
+    "render-time.txt": {
+      "bytes": 902,
+      "sha256": "5d8ea612679690878e248f2cd131d8cfb717968ec98ab56b56c411f4c708d42c"
+    },
+    "R06_WIDE_CONTEXT_f001.png": {
+      "bytes": 1212149,
+      "sha256": "483cb476732e5f7617436e2403e504359d0e2d1e4b5497a355116c3aae00e667"
+    },
+    "build-time.txt": {
+      "bytes": 864,
+      "sha256": "3130e0926937a91edf717e01d474178fb220e56a5bab58bbb96f62209ea1b28e"
+    }
+  },
+  "auto_qualified": false
+}
