@@ -1,0 +1,71 @@
+{
+  "run_id": "34555726820",
+  "source_sha": "e455ae94b98c42b8f16644b87ea8b1119ca0af5c",
+  "files": {
+    "R06B_f097.png": {
+      "bytes": 2385480,
+      "sha256": "dc719a7ed171e32f7b302eabcb2dbc6635a004264407b9ab2a9ede92a5933e6e"
+    },
+    "build.log": {
+      "bytes": 296,
+      "sha256": "0bdf5ca4b58d62e1856a8ee7e42e3c39525d94e79fa7a8f53099ab4f7bed660f"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 27965,
+      "sha256": "aaf6211ec73fe4c2024698e5e65fcd464e0ff4ef974b71b20c9b8dc60cce0ac5"
+    },
+    "skyfold-r06.blend": {
+      "bytes": 2450976,
+      "sha256": "f110f64d0efa4557e52eb6b94f86fc8144bfded897ba31021f70d67f63cf81b6"
+    },
+    "render.log": {
+      "bytes": 622917,
+      "sha256": "81b324829ee2be913a82ed637e5e944432fc0d5a938c501882dd04a9ad1c345b"
+    },
+    "COMPLETE.json": {
+      "bytes": 197,
+      "sha256": "e370dcd6f8607e4af5c43b80b947edd9100cf2d1a70b6f69a43f72d1d543cb4a"
+    },
+    "R06B_f192.png": {
+      "bytes": 1086136,
+      "sha256": "4a3cddf0e14367be3a347405fab5a54c1312bcd45c1d08dc8b0f8f0e06581afc"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "eb7ddb6e1a3c44762c815dab4e8d46b46d5a382c755710b23935825e4badb5da"
+    },
+    "environment.txt": {
+      "bytes": 3593,
+      "sha256": "c1a2f52989275f279736469fdd3a1bfd378a8a19d83f915f7f799268fdd29f4c"
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 6825,
+      "sha256": "34c5af7cccd08975e60c4fd7d164aa50655c80a1fdc484b9f4a57d887876af22"
+    },
+    "R06B_f001.png": {
+      "bytes": 1137753,
+      "sha256": "0192fdb23a403dfeda23fc9c55b69f3fdf28b36e95465bc15cc12bb131c2d0b8"
+    },
+    "provision.log": {
+      "bytes": 8194,
+      "sha256": "5f6657a394bc1502e887849006e178bc8732c746f2b728c7fc422cb6715b90c5"
+    },
+    "source-sha256.txt": {
+      "bytes": 441,
+      "sha256": "4425166f4b895040e384ec94e84e119993a666d5a3cb6eefb96f46e61cee0fd1"
+    },
+    "R06B_f001_NEUTRAL.png": {
+      "bytes": 612730,
+      "sha256": "04871ae7381615c2d19d9b49e60f50784d6e7bd128c50fe8496c30ae64aca02f"
+    },
+    "render-time.txt": {
+      "bytes": 918,
+      "sha256": "04ef5d6d7aabb3a4b5a227502bf0f9a2080c5d72459c92fd4ab9b471714f86ca"
+    },
+    "build-time.txt": {
+      "bytes": 875,
+      "sha256": "9eefa4c9315e08e28a138699b5b313993bbff8c61f7e37b0f4fe530c52e0a19a"
+    }
+  },
+  "auto_qualified": false
+}
