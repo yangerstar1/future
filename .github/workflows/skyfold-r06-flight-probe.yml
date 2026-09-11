@@ -21,7 +21,7 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Verify immutable R05B input and source before building
+      - name: Verify immutable R05B and corrected source before building
         run: |
           set -euo pipefail
           mkdir -p "$SKYFOLD_OUT"
@@ -71,5 +71,6 @@ jobs:
             workspaces/skyfold-dock/output/r06-flight
             workspaces/skyfold-dock/r06_flight.py
             workspaces/skyfold-dock/provision.sh
+            workspaces/skyfold-dock/R06-INTERVENTION.md
           retention-days: 1
           if-no-files-found: error
