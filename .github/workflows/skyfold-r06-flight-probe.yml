@@ -1,0 +1,75 @@
+name: Skyfold R06 forward flight and lighting probe
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r06-flight-probe.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: skyfold-r06-flight-probe
+  cancel-in-progress: false
+jobs:
+  probe:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r06-flight
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Verify immutable R05B input and source before building
+        run: |
+          set -euo pipefail
+          mkdir -p "$SKYFOLD_OUT"
+          python3 -m py_compile workspaces/skyfold-dock/r06_flight.py
+          echo '890c7d7d166371fb59627d1ab43bacae36a031c81f3a3eebc5de418e7cb363f2  workspaces/skyfold-dock/output/r05b-city/skyfold-r05b.blend' | sha256sum -c
+          { date -u; git rev-parse HEAD; python3 --version; free -b; df -B1 .; lscpu; } > "$SKYFOLD_OUT/environment.txt"
+          sha256sum workspaces/skyfold-dock/r06_flight.py workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/source-sha256.txt"
+          bash workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/provision.log" 2>&1
+      - name: Build detached ship motion and tracking cameras
+        run: |
+          set -euo pipefail
+          R06_MODE=build /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b workspaces/skyfold-dock/output/r05b-city/skyfold-r05b.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/r06_flight.py > "$SKYFOLD_OUT/build.log" 2>&1
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r06-flight-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r06-flight
+          git commit -m "R06 recoverable free-flight scene; visual review pending"
+          git push origin HEAD
+      - name: New-process three camera study and start middle end renders
+        run: |
+          set -euo pipefail
+          R06_MODE=probe /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r06.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/r06_flight.py > "$SKYFOLD_OUT/render.log" 2>&1
+      - name: Preserve measured outputs and any failure
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          p=Path(os.environ['SKYFOLD_OUT'])
+          files={f.name:{'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()} for f in p.glob('*') if f.is_file()}
+          assert sum(r['bytes'] for r in files.values())<100000000
+          (p/'DELIVERY.json').write_text(json.dumps({'run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'auto_qualified':False},indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          B=evidence/skyfold-r06-flight-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          if [ "$(git branch --show-current)" != "$B" ]; then git switch -c "$B"; fi
+          git add workspaces/skyfold-dock/output/r06-flight
+          git diff --cached --quiet || git commit -m "R06 actual probe output and logs; no artistic gate promotion"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r06-flight-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r06-flight
+            workspaces/skyfold-dock/r06_flight.py
+            workspaces/skyfold-dock/provision.sh
+          retention-days: 1
+          if-no-files-found: error
