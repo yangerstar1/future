@@ -7,91 +7,57 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: chiron-${{ github.ref }}-${{ contains(github.event.head_commit.message, '[source-sync]') }}
+  group: chiron-r04-${{ github.ref }}
   cancel-in-progress: false
 jobs:
-  optics-tools:
-    if: contains(github.event.head_commit.message, '[optics-deps]')
+  persist-source:
+    if: github.ref == 'refs/heads/codex/chiron-sapphire-web'
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22.16.0'
-      - name: Pin the optional optical challenger, not a second product
-        run: |
-          mkdir -p /tmp/chiron-optics-tools
-          cd /tmp/chiron-optics-tools
-          npm init -y
-          npm install --save-exact three@0.180.0 three-gpu-pathtracer@0.0.24 three-mesh-bvh@0.9.5
-          npm ls --all > DEPENDENCIES.txt
-          tar -czf /tmp/chiron-optics-tools.tar.gz node_modules package.json package-lock.json DEPENDENCIES.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: chiron-optics-tools
-          path: /tmp/chiron-optics-tools.tar.gz
-          retention-days: 7
-          if-no-files-found: error
-  studio-asset:
-    if: contains(github.event.head_commit.message, '[studio-asset]')
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: Acquire public CC0 studio lighting; not a watch asset or deployment
-        run: |
-          mkdir -p /tmp/chiron-studio
-          curl --fail --location --retry 2 --max-time 90 'https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/4k/studio_small_03_4k.exr' -o /tmp/chiron-studio/studio_small_03_4k.exr
-          cd /tmp/chiron-studio
-          sha256sum studio_small_03_4k.exr > SHA256SUMS.txt
-          printf 'Studio Small 03\nAuthor: Greg Zaal / Poly Haven\nAsset page: https://polyhaven.com/a/studio_small_03\nLicense: CC0, https://polyhaven.com/license\nAcquired for product-lighting comparison; no model/photo/font rights implied.\n' > SOURCE.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: chiron-studio-cc0
-          path: /tmp/chiron-studio/
-          retention-days: 14
-          if-no-files-found: error
-  source-checkpoint:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - name: Preserve readable source independently of long graphics tests
-        run: |
-          git rev-parse HEAD > SOURCE-COMMIT.txt
-          tar --exclude=.recovery -czf /tmp/chiron-source-checkpoint.tar.gz workspaces/chiron-sapphire-web .github/workflows/chiron-production.yml SOURCE-COMMIT.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: chiron-source-checkpoint
-          path: /tmp/chiron-source-checkpoint.tar.gz
-          retention-days: 14
-          if-no-files-found: error
-  recover-source:
-    if: github.ref == 'refs/heads/codex/chiron-sapphire-web' && !contains(github.event.head_commit.message, '[source-sync]')
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     permissions:
       contents: write
     outputs:
       source_sha: ${{ steps.source.outputs.sha }}
     steps:
       - uses: actions/checkout@v4
-      - name: Restore verified readable source once; protect subsequent edits
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Restore guarded R04 source; refuse a changed baseline
+        run: python workspaces/chiron-sapphire-web/.recovery/r04-structure/restore.py
+      - name: Generate actual bored CAD and vendored CC0 illumination
+        working-directory: workspaces/chiron-sapphire-web
         run: |
-          python3 workspaces/chiron-sapphire-web/.recovery/r02-source/restore.py
+          if ! test -f generated/sapphire-banks.json || ! test -f generated/studio-small-03-1k.hdr; then
+            python -m pip install -r cad/requirements.txt
+            python cad/engine_blocks.py
+            python cad/prepare_studio.py
+          fi
+      - name: Save the readable implementation and generated production assets
+        id: source
+        run: |
           git add -- workspaces/chiron-sapphire-web
           if ! git diff --cached --quiet; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git commit -m 'Chiron R02: persist readable website, editable mechanics, tests and contract'
+            git commit -m 'Chiron R04: persist structural rework, bored CAD, measured fits and live nested optics'
             git push origin HEAD:refs/heads/codex/chiron-sapphire-web
           fi
-      - name: Bind subsequent evidence to actual readable-source commit
-        id: source
-        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Preserve readable checkpoint even if later graphics checks fail
+        if: always()
+        run: |
+          git rev-parse HEAD > SOURCE-COMMIT.txt
+          tar --exclude=.recovery -czf /tmp/chiron-r04-source.tar.gz workspaces/chiron-sapphire-web .github/workflows/chiron-production.yml SOURCE-COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chiron-r04-readable-source
+          path: /tmp/chiron-r04-source.tar.gz
+          retention-days: 14
+          if-no-files-found: error
   verify:
-    needs: recover-source
+    needs: persist-source
     runs-on: ubuntu-latest
     timeout-minutes: 45
     defaults:
@@ -100,40 +66,43 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ needs.recover-source.outputs.source_sha }}
+          ref: ${{ needs.persist-source.outputs.source_sha }}
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22.16.0'
-      - name: Install exactly locked dependencies and build
+      - name: Locked build, solver and actual mesh/interface checks
         run: |
           npm ci
           npm test
           npm run build
-          mkdir -p evidence/R02
-          git rev-parse HEAD > evidence/R02/SOURCE-COMMIT.txt
-          uname -a > evidence/R02/RUNNER.txt
-          node --version >> evidence/R02/RUNNER.txt
+          node tools/geometry-audit.mjs
+          git rev-parse HEAD > evidence/R04/SOURCE-COMMIT.txt
+          uname -a > evidence/R04/RUNNER.txt
           npx playwright install --with-deps chromium
-      - name: Real HTTP normal-interface regression and editable GLB export
+      - name: Preserve build and numerical evidence before long browser tests
+        uses: actions/upload-artifact@v4
+        with:
+          name: chiron-r04-build-${{ needs.persist-source.outputs.source_sha }}
+          path: |
+            workspaces/chiron-sapphire-web/dist/
+            workspaces/chiron-sapphire-web/evidence/R04/
+          retention-days: 14
+          if-no-files-found: error
+      - name: Actual HTTP full normal-UI regression, 100 steps, 50 cycles and GLB export
         run: xvfb-run -a node tools/browser-check.mjs
-      - name: Real HTTP failures, context restoration, background and touch
+      - name: Actual HTTP graphic failure, retry, visibility and touch
         if: ${{ !cancelled() && hashFiles('workspaces/chiron-sapphire-web/dist/build-manifest.json') != '' }}
         run: xvfb-run -a node tools/health-check.mjs
-      - name: Software-renderer peak measurements, not a hardware qualification
+      - name: Software-renderer peak distribution; not hardware qualification
         if: ${{ !cancelled() && hashFiles('workspaces/chiron-sapphire-web/dist/build-manifest.json') != '' }}
         run: xvfb-run -a node tools/performance.mjs
-      - name: Package editable source without dependencies or transport duplicates
-        if: always()
-        run: tar --exclude=node_modules --exclude=dist --exclude=evidence --exclude=assets --exclude=.recovery -czf /tmp/chiron-readable-source.tar.gz .
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: chiron-production-${{ needs.recover-source.outputs.source_sha }}
+          name: chiron-r04-observations-${{ needs.persist-source.outputs.source_sha }}
           path: |
             workspaces/chiron-sapphire-web/evidence/
-            workspaces/chiron-sapphire-web/dist/
             workspaces/chiron-sapphire-web/assets/
-            /tmp/chiron-readable-source.tar.gz
           retention-days: 14
           if-no-files-found: error
