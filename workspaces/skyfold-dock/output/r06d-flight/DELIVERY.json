@@ -1,0 +1,63 @@
+{
+  "run_id": "34556576832",
+  "source_sha": "d229bb2dc498938703dfb5ca712ea29164201186",
+  "files": {
+    "build.log": {
+      "bytes": 297,
+      "sha256": "fe9f68d31a072ff7546977e3bc7b00f0db13f36f75a00f77d997727516d8dcad"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 75679,
+      "sha256": "193eadc559e72801fd057092ba5762dd410e13a0f98e008ae9b62e2ec7076f01"
+    },
+    "skyfold-r06.blend": {
+      "bytes": 2510237,
+      "sha256": "a11cb63ae232672ca92080250f10a6d5ad67c1b5d95e3e575763dfe4014b92dc"
+    },
+    "R06D_INTERIOR_SIDE_f001.png": {
+      "bytes": 1013039,
+      "sha256": "7a33e42d3ad9c244f8ed52be28e39c313229c0e9f16e0dfbf6e794dfe24264fe"
+    },
+    "R06D_INTERIOR_REAR_f192.png": {
+      "bytes": 1035437,
+      "sha256": "6dc1dbdc17fc61075bd07b33904c46955538eea3eee7e099f6d822f1049ca903"
+    },
+    "render.log": {
+      "bytes": 582022,
+      "sha256": "1cc5b54aa6bfc0acdab36b9966eeba2bd22851ba2a24bac66b8202fb0d36a958"
+    },
+    "R06D_INTERIOR_REAR_f001.png": {
+      "bytes": 1051766,
+      "sha256": "6f17a15314a44ea6b9a4b96e4dd75b8ba78d0717a4153be4e520325ed8b05d9f"
+    },
+    "COMPLETE.json": {
+      "bytes": 71,
+      "sha256": "4add1f07f212a55b6186c376516cacfe78fcbfb0cdfd54af810051bf8ecbcd94"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "b8fcaacb360ef0f5d6c64a4f0def423bb1cb78235390966ac8efc5584d6cc3d0"
+    },
+    "environment.txt": {
+      "bytes": 404,
+      "sha256": "59d4eaa2dc2dcb37daee4c984f27801a06179cff4fe67364ba28f1a2d0d6df0f"
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 3922,
+      "sha256": "89052e3676424c94e909df8d16ec4cbae39bce5d53c6f90b87f8b7d3aa7160ae"
+    },
+    "provision.log": {
+      "bytes": 8194,
+      "sha256": "fcf6303df449d163b46213d1575c69ce6701fa5a42f8a4d886eb0fee0cbdf209"
+    },
+    "render-time.txt": {
+      "bytes": 909,
+      "sha256": "fa98319e3f0f75c13c6d76aa760f741895c7b279fe98422ad9c09fa0d15c265d"
+    },
+    "build-time.txt": {
+      "bytes": 874,
+      "sha256": "5035ece41b21210e62b3a843dea28b93fa5843648bc013b7cf8b554af9fdc0a4"
+    }
+  },
+  "auto_qualified": false
+}
