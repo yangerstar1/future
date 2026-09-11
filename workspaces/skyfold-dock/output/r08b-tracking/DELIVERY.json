@@ -1,0 +1,83 @@
+{
+  "run_id": "34582864351",
+  "source_sha": "e65cbad87880a0c70c4ee6745533f595a60c4cd7",
+  "files": {
+    "build.log": {
+      "bytes": 299,
+      "sha256": "7922e01c16a4056b0680b8cfd8b86c6d83150325b7bc93f0c664ef1d80bd7e25"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 372921,
+      "sha256": "9c7e2c41c42ac3c6e9f3d9b1380d57204ee045a8b58920850d047fb827085fae"
+    },
+    "skyfold-r08b.blend": {
+      "bytes": 2947772,
+      "sha256": "e4b91e09d94580e561d3b89580fd1d114c37ee92f84ab5bf8ab7ef1ed74f7c98"
+    },
+    "R08_CITY_TRACK_f001_NEUTRAL.png": {
+      "bytes": 1008273,
+      "sha256": "2fb8071d22bc1b510a62596bf53822c8db7e68e5776456ddabc8a9d777562c0e"
+    },
+    "R08_CITY_TRACK_f001.png": {
+      "bytes": 4061421,
+      "sha256": "75841320cecd03a6a1f87950af79141a621ecb02ccbaf50a94f76904777ea3e7"
+    },
+    "render.log": {
+      "bytes": 584696,
+      "sha256": "54004b90f3e14b9c5a94d7102c767fd2c4d4f1319afc487685704adfa53bbea7"
+    },
+    "R08_CITY_TRACK_f097.png": {
+      "bytes": 2380320,
+      "sha256": "8d420c0e4cb596ea6f5d2d45f0533834efc9d627ea16b5c7fe9c99329d0d6ae7"
+    },
+    "COMPLETE.json": {
+      "bytes": 122,
+      "sha256": "7b2766d36267224034cf0a342e350862916c7df0cf764af5a1725aac49df2266"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "85f4005edd9e405290a28b4701bceabb7fe9a4ad16ed1a8a2be039c03de4f847"
+    },
+    "environment.txt": {
+      "bytes": 404,
+      "sha256": "896a0476f95fc3223595a7222736b6f24ae2203ce7ddd79fb5bf4682ac9d0b7c"
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 5091,
+      "sha256": "43d75fdfe9d59de0bfb75cd8664aacac3dd315766810023719211019f95d4301"
+    },
+    "provision.log": {
+      "bytes": 8273,
+      "sha256": "47ec4c1ac9e7d420920972280f8d426b3474ed2733e7ae4b4c4aa3f7d2855328"
+    },
+    "source-sha256.txt": {
+      "bytes": 435,
+      "sha256": "9edaef2e795b3722dc54f924444ec0a02d564fdd73a3a6a962a571b57519e0be"
+    },
+    "render-time.txt": {
+      "bytes": 918,
+      "sha256": "48523a3e2e7906559c9321478f063d3cc0e38a84ca1616fc30ea466c2b57e81c"
+    },
+    "build-time.txt": {
+      "bytes": 874,
+      "sha256": "c4afa3ff1b6041e8d23477c7e7b2760c7fb8cce0322621fccfe7a45d0a184d49"
+    },
+    "tail/render.log": {
+      "bytes": 322602,
+      "sha256": "bf7b38b9b95b5ac04bf00002df2b85bbb30c025c9f183a62b115ae05c492bb71"
+    },
+    "tail/COMPLETE.json": {
+      "bytes": 118,
+      "sha256": "c47fb6d40c90ba314567bd3ca2fcce54391767648567ea142a15b97b1ee8525a"
+    },
+    "tail/frame_0192.png": {
+      "bytes": 2381455,
+      "sha256": "a586a0f2e1d2ef31a40a458dad866d9275340877aa2b43e449485dab535e7c99"
+    },
+    "tail/OBSERVATIONS.json": {
+      "bytes": 1670,
+      "sha256": "f9d7df95060de475e3fb7651b1959eb3358abc5b0f41e5c39a1df848df8bc5cb"
+    }
+  },
+  "auto_qualified": false
+}
