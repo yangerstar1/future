@@ -1,0 +1,2 @@
+0cf7d8469c98579230afd6d6ba037fc1b267bd70d8d0c2cd07eb431bb6af4449  workspaces/skyfold-dock/r06_flight.py
+0b3a39929af30e6222502793a2c212ee85e13ac64cd0e306905cb282f472d598  workspaces/skyfold-dock/provision.sh

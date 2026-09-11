@@ -1,0 +1,31 @@
+{
+  "run_id": "34554600564",
+  "source_sha": "4e0ab6c04f01cdb3d16b4fb24c4d57633cf60cd0",
+  "files": {
+    "build.log": {
+      "bytes": 1047,
+      "sha256": "d461d7435aed1bc77e6bcaaded51dbf702885e88aab4a045e7515180ca92eb53"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "970fdb1d4555bd1015d989c1d212aea4b5ce510f35e8d94915d9013375cd2deb"
+    },
+    "environment.txt": {
+      "bytes": 3607,
+      "sha256": "1d7c6b2b59450238f7d3036f4ca4ba3754d33cc4ef1494cfc877506a44ae4d69"
+    },
+    "provision.log": {
+      "bytes": 8194,
+      "sha256": "a99cdf37ec81a5cc45536c1373a3743c307f510410668027e3c97ad2b4a78b9b"
+    },
+    "source-sha256.txt": {
+      "bytes": 207,
+      "sha256": "bfaf7284ac6a7fd8025ee7b0bbfa53e119ce98be31c30232c2b90283cca868cb"
+    },
+    "build-time.txt": {
+      "bytes": 898,
+      "sha256": "8334e849378504dd727106bc412e9d129bbe2f24b0963aa06b18f610c48ed685"
+    }
+  },
+  "auto_qualified": false
+}
