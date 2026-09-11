@@ -1,0 +1,78 @@
+name: Skyfold R07 scale and daylight flight test
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r07-scale.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: skyfold-r07-scale
+  cancel-in-progress: false
+jobs:
+  scale:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r07-flight
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore inspected R06D and verify reused sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin 6746dc49a48ec4be23213453dd558008c1a705b8
+          git restore --source=FETCH_HEAD -- workspaces/skyfold-dock/output/r06d-flight/skyfold-r06.blend workspaces/skyfold-dock/output/r06d-flight/BUILD-MANIFEST.json
+          mkdir -p "$SKYFOLD_OUT"
+          python3 -m py_compile workspaces/skyfold-dock/r07_scale_and_daylight.py
+          { date -u; git rev-parse HEAD; free -b; df -B1 .; lscpu; } > "$SKYFOLD_OUT/environment.txt"
+          sha256sum workspaces/skyfold-dock/{r07_scale_and_daylight,revise_r05b_city,revise_r05_city,build_scene_r01,r06_flight}.py > "$SKYFOLD_OUT/source-sha256.txt"
+          bash workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/provision.log" 2>&1
+      - name: Correct ratio and regenerate only radius-dependent city bases
+        shell: bash
+        run: |
+          set -euo pipefail
+          R07_MODE=build /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b workspaces/skyfold-dock/output/r06d-flight/skyfold-r06.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/r07_scale_and_daylight.py > "$SKYFOLD_OUT/build.log" 2>&1
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r07-flight-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r07-flight
+          git commit -m "R07 macro-scale hypothesis source; no gate promotion"
+          git push origin HEAD
+      - name: New-process real beauty neutral and raw observations
+        shell: bash
+        run: |
+          set -euo pipefail
+          R07_MODE=probe /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r07.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/r07_scale_and_daylight.py > "$SKYFOLD_OUT/render.log" 2>&1
+      - name: Preserve bounded observations including failure evidence
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          p=Path(os.environ['SKYFOLD_OUT']);files={f.name:{'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()} for f in p.glob('*') if f.is_file()}
+          assert sum(r['bytes'] for r in files.values())<150000000
+          (p/'DELIVERY.json').write_text(json.dumps({'run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'auto_qualified':False},indent=2))
+          PY
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          B=evidence/skyfold-r07-flight-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          if [ "$(git branch --show-current)" != "$B" ]; then git switch -c "$B"; fi
+          git add workspaces/skyfold-dock/output/r07-flight
+          git diff --cached --quiet || git commit -m "R07 raw and graded real render comparison, measured resources and errors"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r07-flight-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r07-flight
+            workspaces/skyfold-dock/r07_scale_and_daylight.py
+            workspaces/skyfold-dock/r06_flight.py
+            workspaces/skyfold-dock/revise_r05_city.py
+            workspaces/skyfold-dock/revise_r05b_city.py
+            workspaces/skyfold-dock/build_scene_r01.py
+            workspaces/skyfold-dock/provision.sh
+          retention-days: 1
+          if-no-files-found: error
