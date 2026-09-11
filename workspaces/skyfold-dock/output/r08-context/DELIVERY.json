@@ -1,0 +1,75 @@
+{
+  "run_id": "34581812957",
+  "source_sha": "8923f67ec0182ee52712e55055e0f30c35260d1f",
+  "files": {
+    "build.log": {
+      "bytes": 297,
+      "sha256": "f7b2025b8767e657c50909b999a8d54dec7226526d617e444f979619a339eef0"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 14119,
+      "sha256": "b43cb13d82350a1468c9c1b2448fecae057e8b9d0fef5363f86549dc25fa9097"
+    },
+    "render.log": {
+      "bytes": 762700,
+      "sha256": "c49f4f623f34dd24ee903685dcfcb70095e4befe78b70ff2318702cf4e00dea5"
+    },
+    "COMPLETE.json": {
+      "bytes": 175,
+      "sha256": "5062eccca8cbe0b3285777339d0dafa773e6e1ff03951e278cbb596240cbf263"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "58808031d40e6c588881edb60d69c086d491a3f42347afcb7cf41f364f7eee72"
+    },
+    "environment.txt": {
+      "bytes": 404,
+      "sha256": "54d980fff7c0b4761fc3ac1f8f7ea8b872d2156ad045c1f71bd257ea897785e4"
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 6633,
+      "sha256": "f0f5ae4aebe9b52d12d5d1b314de8a35f9920bb833d9be4ddb16e6bd455bafa5"
+    },
+    "R08_CROSS_CITY_f001_BEAUTY.png": {
+      "bytes": 1035982,
+      "sha256": "5893d4d92559b99c665bac86e6f01833f8e1005f973bb5f83b5f8f2f1f910cb4"
+    },
+    "provision.log": {
+      "bytes": 8115,
+      "sha256": "b02cc6e5b97d60ecc46b832dd2f593d463b652ec41e5afe369271d1cfb31f5b7"
+    },
+    "R08_CROSS_CITY_f192_BEAUTY.png": {
+      "bytes": 1024907,
+      "sha256": "3a4be04ab6be94df7c23a4096e67a5c123937b93e5a8b95ba2328bee04f484d9"
+    },
+    "source-sha256.txt": {
+      "bytes": 321,
+      "sha256": "3cef7822a753cd0d0f8b7217d9853c67e01670a1514c97a4b7879a57a84a2bbd"
+    },
+    "R08_CITY_QUARTER_f001_BEAUTY.png": {
+      "bytes": 1031779,
+      "sha256": "4db1822034af14fca404797ee5a646a9d45fffc714236d1c47b1f9a641cff66a"
+    },
+    "render-time.txt": {
+      "bytes": 912,
+      "sha256": "ac1fc2c1a4311b619f66ff9309a058951cfd73740cddb39e682e40b02fa48e47"
+    },
+    "build-time.txt": {
+      "bytes": 877,
+      "sha256": "76208d25dd2aea25850e5ce073eeb18ee1849c231c56c0a8bc912e80deb664e5"
+    },
+    "skyfold-r08.blend": {
+      "bytes": 2953043,
+      "sha256": "2636f1582b1bdbd0d60ab08428f29f8ccc85b27aa2c52086832876aa30eaa6e4"
+    },
+    "R08_CROSS_CITY_f001_NEUTRAL.png": {
+      "bytes": 540047,
+      "sha256": "e7dce0e76c6cd0d5a28f74d95ddf14d491c4fa5dad7130fbfe42832d0725c617"
+    },
+    "RECON.json": {
+      "bytes": 1237,
+      "sha256": "6e2082f73e05a86d9a2fc8fa7eee28fec5742a3d925d35c0ab6521530653b841"
+    }
+  },
+  "auto_qualified": false
+}
