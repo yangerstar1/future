@@ -10,6 +10,28 @@ concurrency:
   group: chiron-${{ github.ref }}-${{ contains(github.event.head_commit.message, '[source-sync]') }}
   cancel-in-progress: false
 jobs:
+  optics-tools:
+    if: contains(github.event.head_commit.message, '[optics-deps]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - name: Pin the optional optical challenger, not a second product
+        run: |
+          mkdir -p /tmp/chiron-optics-tools
+          cd /tmp/chiron-optics-tools
+          npm init -y
+          npm install --save-exact three@0.180.0 three-gpu-pathtracer@0.0.24 three-mesh-bvh@0.9.5
+          npm ls --all > DEPENDENCIES.txt
+          tar -czf /tmp/chiron-optics-tools.tar.gz node_modules package.json package-lock.json DEPENDENCIES.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chiron-optics-tools
+          path: /tmp/chiron-optics-tools.tar.gz
+          retention-days: 7
+          if-no-files-found: error
   studio-asset:
     if: contains(github.event.head_commit.message, '[studio-asset]')
     runs-on: ubuntu-latest
