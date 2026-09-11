@@ -1,0 +1,10 @@
+{
+  "name": "chiron-sapphire-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Independent, unofficial Clear sapphire watch digital study",
+  "scripts": {"build": "node tools/build.mjs", "test": "node --test tools/mechanics.test.mjs", "serve": "node tools/serve.mjs"},
+  "dependencies": {"three": "0.180.0"},
+  "devDependencies": {"esbuild": "0.25.10", "@playwright/test": "1.55.1"}
+}

@@ -1,0 +1,53 @@
+name: Chiron sapphire production evidence
+on:
+  push:
+    branches: [codex/chiron-sapphire-web]
+    paths: ['workspaces/chiron-sapphire-web/**', '.github/workflows/chiron-production.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: chiron-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: workspaces/chiron-sapphire-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - name: Install locked production tools
+        run: |
+          if test -f package-lock.json; then npm ci; else npm install; fi
+      - name: Save dependency recovery package
+        run: tar -czf /tmp/chiron-dependencies.tar.gz node_modules package-lock.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chiron-dependencies
+          path: /tmp/chiron-dependencies.tar.gz
+          retention-days: 7
+      - name: Build and verify when implementation exists
+        run: |
+          if test -f tools/build.mjs; then
+            npm test
+            npm run build
+            npx playwright install --with-deps chromium
+            xvfb-run -a node tools/browser-check.mjs
+          else
+            printf 'G0_DEPENDENCIES_ONLY: no product implementation or product pass claimed.\n'
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chiron-production-${{ github.sha }}
+          path: |
+            workspaces/chiron-sapphire-web/evidence/
+            workspaces/chiron-sapphire-web/dist/
+            workspaces/chiron-sapphire-web/package-lock.json
+          retention-days: 14
+          if-no-files-found: warn
