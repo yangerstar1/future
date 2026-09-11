@@ -7,11 +7,28 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: chiron-${{ github.ref }}
+  group: chiron-${{ github.ref }}-${{ contains(github.event.head_commit.message, '[source-sync]') }}
   cancel-in-progress: false
 jobs:
+  source-checkpoint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Preserve readable source independently of long graphics tests
+        run: |
+          git rev-parse HEAD > SOURCE-COMMIT.txt
+          tar --exclude=.recovery -czf /tmp/chiron-source-checkpoint.tar.gz workspaces/chiron-sapphire-web .github/workflows/chiron-production.yml SOURCE-COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chiron-source-checkpoint
+          path: /tmp/chiron-source-checkpoint.tar.gz
+          retention-days: 14
+          if-no-files-found: error
   recover-source:
-    if: github.ref == 'refs/heads/codex/chiron-sapphire-web'
+    if: github.ref == 'refs/heads/codex/chiron-sapphire-web' && !contains(github.event.head_commit.message, '[source-sync]')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
@@ -68,8 +85,7 @@ jobs:
         run: xvfb-run -a node tools/performance.mjs
       - name: Package editable source without dependencies or transport duplicates
         if: always()
-        run: |
-          tar --exclude=node_modules --exclude=dist --exclude=evidence --exclude=assets --exclude=.recovery -czf /tmp/chiron-readable-source.tar.gz .
+        run: tar --exclude=node_modules --exclude=dist --exclude=evidence --exclude=assets --exclude=.recovery -czf /tmp/chiron-readable-source.tar.gz .
       - uses: actions/upload-artifact@v4
         if: always()
         with:
