@@ -1,0 +1,79 @@
+{
+  "run_id": "34557409694",
+  "source_sha": "d114b7c63e606a277b40a9a0b429c7581cae3470",
+  "files": {
+    "build.log": {
+      "bytes": 301,
+      "sha256": "ef375bfe81470ac188f6ded9319406ddcece92efd4db576042df766f7cd096ea"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 108047,
+      "sha256": "05d258d301045f78511374b555a9751d07163ed820ac84f474945ab46e16bd5f"
+    },
+    "R07_GRAZING_TRACK_f001_RAW.png": {
+      "bytes": 1129402,
+      "sha256": "2c2c4353af43bba8ffb56c670359d50f394e51d68d3e8a6ad4ee7c007ec4a107"
+    },
+    "R07_GRAZING_TRACK_f192_BEAUTY.png": {
+      "bytes": 1099521,
+      "sha256": "71bb653499b1bd7860c74b2ac734741dc6d4e46052a8228f0753b655fa8d8c2c"
+    },
+    "CITY-LAYOUT.json": {
+      "bytes": 748165,
+      "sha256": "d968a5de34cd34f7446ae9412f059bebdb79dfc4eb82e0a082063b50fe1892ae"
+    },
+    "R07_GRAZING_TRACK_f001_BEAUTY.png": {
+      "bytes": 1074062,
+      "sha256": "b640abb82eb1a0bdfd84e85dd41f463ff2b7137028d67b181f0a4178738c126b"
+    },
+    "render.log": {
+      "bytes": 939959,
+      "sha256": "77e772d1a820781b51fd854b6e5d9ff2215780b0e5ab1fcf0ec91e929475b73e"
+    },
+    "COMPLETE.json": {
+      "bytes": 216,
+      "sha256": "162ac4089cd371050e18c332b3d9cdb1c99d420f72ea744899dcdb3b648a556e"
+    },
+    "R07_WIDE_TRACK_f001_BEAUTY.png": {
+      "bytes": 1070100,
+      "sha256": "6508625476e01bbcddd5bac9c90f72b86f63a39d69816262d3e60d045e314a2e"
+    },
+    "R07_GRAZING_TRACK_f001_NEUTRAL.png": {
+      "bytes": 593165,
+      "sha256": "1a1735b045a231a3b32e997c256821525098d54c829f99a5972873bcde21a0a1"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "99e2209997c9c8e4f0ba02dd33cf10b95b29f787aab35a9acfde8abe8e2a2afe"
+    },
+    "environment.txt": {
+      "bytes": 3593,
+      "sha256": "8123f5c831f7ef3ed5481738d813968f443a15e9a6054be116196a835666b136"
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 8684,
+      "sha256": "b7a60e127b9a16f1bc96e7ba2c73733c67c2db7e93fe1aecbc19f39158c290e9"
+    },
+    "provision.log": {
+      "bytes": 8273,
+      "sha256": "abfbf3a9857ca9a966fb9c7cca42e14eea9bb05129a43c99e4e163aaff6e0fb5"
+    },
+    "source-sha256.txt": {
+      "bytes": 548,
+      "sha256": "1f50f548639c6a9d57fc4b797772e7f82c10dbfeb70dd1098a5f79b75923fd51"
+    },
+    "skyfold-r07.blend": {
+      "bytes": 2940194,
+      "sha256": "e633629812f6a51710d711415982f983a5dfff72bdf41f0b454ec3e527389b65"
+    },
+    "render-time.txt": {
+      "bytes": 914,
+      "sha256": "79d7732d56e25d91946c4601901c2c240b9e9828c04d9316dbc7fb5f1ff6a48a"
+    },
+    "build-time.txt": {
+      "bytes": 880,
+      "sha256": "873e53a22691d673f4e19905f000921cfed28c34452ef4b33985da6d6430968f"
+    }
+  },
+  "auto_qualified": false
+}
