@@ -1,0 +1,63 @@
+{
+  "run_id": "34558225183",
+  "source_sha": "2941bcea719fdb7209fc1823dee9e07985f95621",
+  "files": {
+    "build.log": {
+      "bytes": 297,
+      "sha256": "d64d11ac75a6ce8156091f6c570632ed88556c24b9f5b34f7c6b8d0ad724727c"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 104651,
+      "sha256": "46ca2d6390ce7af348666ba0339618be0abe57174c00dfaa5ef2ec43ae927a9d"
+    },
+    "render.log": {
+      "bytes": 810925,
+      "sha256": "405b6bdf619c51354e983f24dffcba97dc09f88fd9b1f7048370786049bc736a"
+    },
+    "R07B_f001_NEUTRAL.png": {
+      "bytes": 831185,
+      "sha256": "ceaeeecf81a702b722338aabe7ddda6a37c805fc49b206fe0d510898e3243d37"
+    },
+    "COMPLETE.json": {
+      "bytes": 213,
+      "sha256": "9877ccada1f96a3d2c75b7880174d5821078639c1286b403fefe032c08bca1cd"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "81a2e9b91a55c3b8c85de2c441de5e792e643cd8d9f9659f7da656bfe2ef541f"
+    },
+    "environment.txt": {
+      "bytes": 404,
+      "sha256": "010131e3b14edbdc2646a7b66ee388b2d18e0ad942d7e9aac942b8b04eb0ed14"
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 5160,
+      "sha256": "46dafc362d1c4e28286c3da0527ce889e28a3073ee5e7f8ebfbbc9b6e353d288"
+    },
+    "R07B_f001_BEAUTY.png": {
+      "bytes": 1973398,
+      "sha256": "0ab86a45c0c8f2b637afcfeb59ff9bc3b7a2b339d7916e5750baffe693c988c1"
+    },
+    "provision.log": {
+      "bytes": 8194,
+      "sha256": "46fd9b447645a0b5ec237427d27c8d58bbec6354d5df3e2505c6e63279950d2b"
+    },
+    "skyfold-r07b.blend": {
+      "bytes": 2906778,
+      "sha256": "870c8f7706fbfc42666eb94301d9c8dced5487b2bfcf9e49100f2380a8349b6b"
+    },
+    "R07B_f192_BEAUTY.png": {
+      "bytes": 906078,
+      "sha256": "7ffe7ff5c12bb27d744b7c1722ac7a2ef05844b029ed76603020d6e8e5c9c7bf"
+    },
+    "render-time.txt": {
+      "bytes": 910,
+      "sha256": "aa8e040a61faf116a94cf73ea6c88898ca1f939d5dd87c533385e514e84d9fcb"
+    },
+    "build-time.txt": {
+      "bytes": 872,
+      "sha256": "a2facd45d686d2eea565b12c9ce6619414dbbbbcf6d671f7a7e82f463bda362f"
+    }
+  },
+  "auto_qualified": false
+}
