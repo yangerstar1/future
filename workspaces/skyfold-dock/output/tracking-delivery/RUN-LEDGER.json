@@ -1,0 +1,326 @@
+{
+  "measurement": "GitHub job timestamps, including failed jobs; not billing or chat wall-clock time",
+  "runs": [
+    {
+      "run_id": 34486735492,
+      "stage": "G0",
+      "started_at": "2026-09-10T14:05:12Z",
+      "completed_at": "2026-09-10T14:05:46Z",
+      "seconds": 34
+    },
+    {
+      "run_id": 34488579285,
+      "stage": "R00",
+      "started_at": "2026-09-10T14:22:08Z",
+      "completed_at": "2026-09-10T14:25:14Z",
+      "seconds": 186
+    },
+    {
+      "run_id": 34490878728,
+      "stage": "R01",
+      "started_at": "2026-09-10T14:43:05Z",
+      "completed_at": "2026-09-10T14:45:30Z",
+      "seconds": 145
+    },
+    {
+      "run_id": 34494159035,
+      "stage": "original_transport",
+      "started_at": "2026-09-10T15:13:18Z",
+      "completed_at": "2026-09-10T15:13:25Z",
+      "seconds": 7
+    },
+    {
+      "run_id": 34495611703,
+      "stage": "R02",
+      "started_at": "2026-09-10T15:26:11Z",
+      "completed_at": "2026-09-10T15:32:43Z",
+      "seconds": 392
+    },
+    {
+      "run_id": 34495890819,
+      "stage": "G1_calibration",
+      "started_at": "2026-09-10T15:28:47Z",
+      "completed_at": "2026-09-10T15:29:36Z",
+      "seconds": 49
+    },
+    {
+      "run_id": 34498166928,
+      "stage": "R03",
+      "started_at": "2026-09-10T15:49:35Z",
+      "completed_at": "2026-09-10T15:56:25Z",
+      "seconds": 410
+    },
+    {
+      "run_id": 34500065780,
+      "stage": "R03B",
+      "started_at": "2026-09-10T16:07:19Z",
+      "completed_at": "2026-09-10T16:14:24Z",
+      "seconds": 425
+    },
+    {
+      "run_id": 34502832645,
+      "stage": "R04_camera",
+      "started_at": "2026-09-10T16:33:33Z",
+      "completed_at": "2026-09-10T16:34:49Z",
+      "seconds": 76
+    },
+    {
+      "run_id": 34503794552,
+      "stage": "R04_pilot",
+      "started_at": "2026-09-10T16:43:06Z",
+      "completed_at": "2026-09-10T16:47:51Z",
+      "seconds": 285
+    },
+    {
+      "run_id": 34504928703,
+      "stage": "R04B_probe",
+      "started_at": "2026-09-10T16:54:17Z",
+      "completed_at": "2026-09-10T16:57:49Z",
+      "seconds": 212
+    },
+    {
+      "run_id": 34506021625,
+      "stage": "R04C_probe",
+      "started_at": "2026-09-10T17:05:06Z",
+      "completed_at": "2026-09-10T17:07:32Z",
+      "seconds": 146
+    },
+    {
+      "run_id": 34507267207,
+      "job_id": 102972406073,
+      "stage": "R04C_prepare",
+      "started_at": "2026-09-10T17:17:13Z",
+      "completed_at": "2026-09-10T17:17:41Z",
+      "seconds": 28
+    },
+    {
+      "run_id": 34507267207,
+      "job_id": 102972587659,
+      "stage": "R04C_stills",
+      "started_at": "2026-09-10T17:17:45Z",
+      "completed_at": "2026-09-10T17:36:59Z",
+      "seconds": 1154
+    },
+    {
+      "run_id": 34507267207,
+      "job_id": 102972587699,
+      "stage": "R04C_motion_a",
+      "started_at": "2026-09-10T17:17:44Z",
+      "completed_at": "2026-09-10T18:21:04Z",
+      "seconds": 3800
+    },
+    {
+      "run_id": 34507267207,
+      "job_id": 102979154276,
+      "stage": "R04C_motion_b",
+      "started_at": "2026-09-10T17:37:03Z",
+      "completed_at": "2026-09-10T18:39:38Z",
+      "seconds": 3755
+    },
+    {
+      "run_id": 34513988233,
+      "job_id": 102994763349,
+      "stage": "R05_city",
+      "started_at": "2026-09-10T18:23:09Z",
+      "completed_at": "2026-09-10T18:28:40Z",
+      "seconds": 331
+    },
+    {
+      "run_id": 34515248217,
+      "job_id": 102998917516,
+      "stage": "R05B_city",
+      "started_at": "2026-09-10T18:35:17Z",
+      "completed_at": "2026-09-10T18:39:36Z",
+      "seconds": 259
+    },
+    {
+      "run_id": 34510781990,
+      "job_id": 103000399614,
+      "stage": "R04C_assembly",
+      "started_at": "2026-09-10T18:39:41Z",
+      "completed_at": "2026-09-10T18:40:36Z",
+      "seconds": 55
+    },
+    {
+      "run_id": 34554600564,
+      "job_id": 103124453631,
+      "stage": "Skyfold R06 forward flight and lighting probe / probe",
+      "source_sha": "4e0ab6c04f01cdb3d16b4fb24c4d57633cf60cd0",
+      "started_at": "2026-09-11T02:26:06Z",
+      "completed_at": "2026-09-11T02:27:11Z",
+      "seconds": 65.0,
+      "conclusion": "failure",
+      "attempt": 1
+    },
+    {
+      "run_id": 34554894554,
+      "job_id": 103125342836,
+      "stage": "Skyfold R06 forward flight and lighting probe / probe",
+      "source_sha": "e9b40596a5f91b0073c3092454182c8f6acce586",
+      "started_at": "2026-09-11T02:30:40Z",
+      "completed_at": "2026-09-11T02:34:33Z",
+      "seconds": 233.0,
+      "conclusion": "success",
+      "attempt": 1
+    },
+    {
+      "run_id": 34555726820,
+      "job_id": 103127901503,
+      "stage": "Skyfold R06B refined forward departure probe / probe",
+      "source_sha": "e455ae94b98c42b8f16644b87ea8b1119ca0af5c",
+      "started_at": "2026-09-11T02:43:46Z",
+      "completed_at": "2026-09-11T02:46:46Z",
+      "seconds": 180.0,
+      "conclusion": "success",
+      "attempt": 1
+    },
+    {
+      "run_id": 34556197487,
+      "job_id": 103129298184,
+      "stage": "Skyfold R06C complete ring and tracked freighter / frame",
+      "source_sha": "9eaab1ee5a2d3136271651eae56757830615a371",
+      "started_at": "2026-09-11T02:51:06Z",
+      "completed_at": "2026-09-11T02:53:39Z",
+      "seconds": 153.0,
+      "conclusion": "success",
+      "attempt": 1
+    },
+    {
+      "run_id": 34556576832,
+      "job_id": 103130409752,
+      "stage": "Skyfold R06D interior flight comparison / compare",
+      "source_sha": "d229bb2dc498938703dfb5ca712ea29164201186",
+      "started_at": "2026-09-11T02:57:10Z",
+      "completed_at": "2026-09-11T02:59:51Z",
+      "seconds": 161.0,
+      "conclusion": "success",
+      "attempt": 1
+    },
+    {
+      "run_id": 34557409694,
+      "job_id": 103132905035,
+      "stage": "Skyfold R07 scale and daylight flight test / scale",
+      "source_sha": "d114b7c63e606a277b40a9a0b429c7581cae3470",
+      "started_at": "2026-09-11T03:10:10Z",
+      "completed_at": "2026-09-11T03:13:32Z",
+      "seconds": 202.0,
+      "conclusion": "success",
+      "attempt": 1
+    },
+    {
+      "run_id": 34558225183,
+      "job_id": 103135363290,
+      "stage": "Skyfold R07B tracked free-flight representative frame / probe",
+      "source_sha": "2941bcea719fdb7209fc1823dee9e07985f95621",
+      "started_at": "2026-09-11T03:23:07Z",
+      "completed_at": "2026-09-11T03:25:01Z",
+      "seconds": 114.0,
+      "conclusion": "success",
+      "attempt": 1
+    },
+    {
+      "run_id": 34559187757,
+      "job_id": 103138212137,
+      "stage": "Skyfold R07B same-camera finishing probe / probe",
+      "source_sha": "6a46b9905188967f618d86fdea6faaf7900afc36",
+      "started_at": "2026-09-11T03:38:16Z",
+      "completed_at": "2026-09-11T03:40:07Z",
+      "seconds": 111.0,
+      "conclusion": "success",
+      "attempt": 1
+    },
+    {
+      "run_id": 34559500985,
+      "job_id": 103139136221,
+      "stage": "Skyfold forward-flight 1080p delivery candidate / budget",
+      "source_sha": "599793ea843b2ebf1d9089b5dd35d1d333cd1d06",
+      "started_at": "2026-09-11T03:43:17Z",
+      "completed_at": "2026-09-11T03:43:26Z",
+      "seconds": 9.0,
+      "conclusion": "success",
+      "attempt": 1
+    },
+    {
+      "run_id": 34559500985,
+      "job_id": 103139170731,
+      "stage": "Skyfold forward-flight 1080p delivery candidate / render (b, motion, 49, 96)",
+      "source_sha": "599793ea843b2ebf1d9089b5dd35d1d333cd1d06",
+      "started_at": "2026-09-11T03:43:28Z",
+      "completed_at": "2026-09-11T04:02:57Z",
+      "seconds": 1169.0,
+      "conclusion": "success",
+      "attempt": 1
+    },
+    {
+      "run_id": 34559500985,
+      "job_id": 103139170767,
+      "stage": "Skyfold forward-flight 1080p delivery candidate / render (c, motion, 97, 144)",
+      "source_sha": "599793ea843b2ebf1d9089b5dd35d1d333cd1d06",
+      "started_at": "2026-09-11T04:03:00Z",
+      "completed_at": "2026-09-11T04:35:44Z",
+      "seconds": 1964.0,
+      "conclusion": "success",
+      "attempt": 1
+    },
+    {
+      "run_id": 34559500985,
+      "job_id": 103139170787,
+      "stage": "Skyfold forward-flight 1080p delivery candidate / render (hero, hero, 1, 1)",
+      "source_sha": "599793ea843b2ebf1d9089b5dd35d1d333cd1d06",
+      "started_at": "2026-09-11T04:35:47Z",
+      "completed_at": "2026-09-11T04:38:08Z",
+      "seconds": 141.0,
+      "conclusion": "success",
+      "attempt": 1
+    },
+    {
+      "run_id": 34559500985,
+      "job_id": 103139170795,
+      "stage": "Skyfold forward-flight 1080p delivery candidate / render (a, motion, 1, 48)",
+      "source_sha": "599793ea843b2ebf1d9089b5dd35d1d333cd1d06",
+      "started_at": "2026-09-11T03:43:29Z",
+      "completed_at": "2026-09-11T04:16:21Z",
+      "seconds": 1972.0,
+      "conclusion": "success",
+      "attempt": 1
+    },
+    {
+      "run_id": 34559500985,
+      "job_id": 103139170801,
+      "stage": "Skyfold forward-flight 1080p delivery candidate / render (d, motion, 145, 192)",
+      "source_sha": "599793ea843b2ebf1d9089b5dd35d1d333cd1d06",
+      "started_at": "2026-09-11T04:16:24Z",
+      "completed_at": "2026-09-11T04:43:33Z",
+      "seconds": 1629.0,
+      "conclusion": "success",
+      "attempt": 1
+    }
+  ],
+  "total_job_seconds": 19852.0,
+  "runner_hours": 5.514444444444444,
+  "runner_hour_ceiling": 48,
+  "closing_reserve_hours": 9.6,
+  "remaining_ceiling_hours": 42.48555555555556,
+  "peak_concurrency": 2,
+  "job_count": 33,
+  "run_count": 25,
+  "active_runs": [
+    34559500985
+  ],
+  "queued_runs": [],
+  "paid_runners_or_model_APIs_started": false,
+  "account_wide_storage_billing": "NOT_EXPOSED",
+  "excluded_time": "Chat reasoning, local extraction/hash/decode/packaging and queue latency; not a bill",
+  "active_jobs_at_measurement": [
+    {
+      "run_id": 34559500985,
+      "job_id": 103150165757,
+      "name": "assemble",
+      "status": "in_progress",
+      "started_at": "2026-09-11T04:43:37Z"
+    }
+  ],
+  "measured_at_utc": "2026-09-11T04:45:00.349527+00:00",
+  "planned_additional_seconds": 0,
+  "planning_note": "1.5x the measured representative 1080p frame plus one hour for stills, tools, QA and retry. Not a statistical percentile or a core G4 quality pass."
+}

@@ -1,0 +1,4 @@
+file '/home/runner/work/future/future/tracking-input/skyfold-tracking-part-a-34559500985/skyfold-motion-001-048.mp4'
+file '/home/runner/work/future/future/tracking-input/skyfold-tracking-part-b-34559500985/skyfold-motion-049-096.mp4'
+file '/home/runner/work/future/future/tracking-input/skyfold-tracking-part-c-34559500985/skyfold-motion-097-144.mp4'
+file '/home/runner/work/future/future/tracking-input/skyfold-tracking-part-d-34559500985/skyfold-motion-145-192.mp4'

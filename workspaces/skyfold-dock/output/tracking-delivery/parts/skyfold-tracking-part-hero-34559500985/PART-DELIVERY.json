@@ -1,0 +1,50 @@
+{
+  "run_id": "34559500985",
+  "source_sha": "599793ea843b2ebf1d9089b5dd35d1d333cd1d06",
+  "scene_sha256": "e9ffbb9051f27fe6c19d6ff7069cd5f419b9517e3b4ee2b0d0f889845e8086c6",
+  "files": {
+    "R07B_f001_RAW.png": {
+      "bytes": 906367,
+      "sha256": "7b3a71032fcef6fbb9895b546d7d8ecbe7bb888477592f52798c13c360b4c9ff"
+    },
+    "render.log": {
+      "bytes": 616425,
+      "sha256": "dd8e33a0b24ee29dbe290564b062c885ade4c89caec90805800c12a1d0a97845"
+    },
+    "COMPLETE.json": {
+      "bytes": 213,
+      "sha256": "590e5e3a953dc58335e43c6799344ea6721a2b312fbf5d854a7e05fde0d37be7"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "5966f854983d33f1be8baa28c0cee74b7802821e1e0d0ec8a1283edc21804bbb"
+    },
+    "environment.txt": {
+      "bytes": 3593,
+      "sha256": "a61b011c3ca5da973b74df13f1e1639e05d80a0c9318d404932a6f38d42ca101"
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 3428,
+      "sha256": "bdeb17a5c203be138b88ae99e696fc908a66d2fde0bb29f66bdd665450b96f1f"
+    },
+    "R07B_f001_BEAUTY.png": {
+      "bytes": 3267738,
+      "sha256": "cc87afefd828bfe0eac312952147c359577c90982b76b716c499f3d21ca60504"
+    },
+    "provision.log": {
+      "bytes": 8115,
+      "sha256": "d646d681ef751e6b9625baf72be0a08fdf42949a1409c9c2b542e5e6af882ab5"
+    },
+    "source-sha256.txt": {
+      "bytes": 433,
+      "sha256": "82efda2bd67db30f6c58712424afb262434551f377846a0c94a24b85279ff4c8"
+    },
+    "render-time.txt": {
+      "bytes": 880,
+      "sha256": "ed070857f207b8fd8c0c6eb15a9573e5f3b31e5cc2f17196d8b993dc5e587cf9"
+    }
+  },
+  "full_png_sequence_stored_in_temporary_runner": true,
+  "durable_archive": "Encoded video, all source hashes/transforms, selected original PNG samples, exact scene and scripts; not every uncompressed PNG",
+  "auto_qualified": false
+}

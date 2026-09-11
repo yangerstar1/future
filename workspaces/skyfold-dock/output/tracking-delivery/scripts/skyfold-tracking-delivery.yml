@@ -1,0 +1,192 @@
+name: Skyfold forward-flight 1080p delivery candidate
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-tracking-delivery.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: skyfold-tracking-delivery
+  cancel-in-progress: false
+env:
+  FLIGHT_SCENE_COMMIT: 3c7b65226dec6fe43261ad1d247cb4ccb9a845e5
+  FLIGHT_SCENE_HASH: e9ffbb9051f27fe6c19d6ff7069cd5f419b9517e3b4ee2b0d0f889845e8086c6
+jobs:
+  budget:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Read known completed jobs and preserve closing budget
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FLIGHT_COST_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/tracking-budget
+          FLIGHT_SAMPLE_SECONDS: '41.879204'
+        run: |
+          set -euo pipefail
+          python3 -m py_compile workspaces/skyfold-dock/{stage_r07_tracking,encode_actual_frames,assemble_tracking_preview,collect_flight_cost}.py
+          python3 workspaces/skyfold-dock/collect_flight_cost.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: skyfold-tracking-budget-${{ github.run_id }}
+          path: workspaces/skyfold-dock/output/tracking-budget
+          retention-days: 1
+          if-no-files-found: error
+  render:
+    needs: budget
+    runs-on: ubuntu-24.04
+    timeout-minutes: 70
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        include:
+          - {part: a, mode: motion, first: 1, last: 48}
+          - {part: b, mode: motion, first: 49, last: 96}
+          - {part: c, mode: motion, first: 97, last: 144}
+          - {part: d, mode: motion, first: 145, last: 192}
+          - {part: hero, mode: hero, first: 1, last: 1}
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/tracking-parts/${{ matrix.part }}
+      R07B_MODE: ${{ matrix.mode }}
+      FRAME_START: ${{ matrix.first }}
+      FRAME_END: ${{ matrix.last }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore exact inspected scene and pinned renderer
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin "$FLIGHT_SCENE_COMMIT"
+          git restore --source=FETCH_HEAD -- workspaces/skyfold-dock/output/r07b-finish/skyfold-r07b.blend workspaces/skyfold-dock/output/r07b-finish/BUILD-MANIFEST.json
+          echo "$FLIGHT_SCENE_HASH  workspaces/skyfold-dock/output/r07b-finish/skyfold-r07b.blend" | sha256sum -c
+          mkdir -p "$SKYFOLD_OUT"
+          { date -u; git rev-parse HEAD; free -b; df -B1 .; lscpu; } > "$SKYFOLD_OUT/environment.txt"
+          sha256sum workspaces/skyfold-dock/{stage_r07_tracking.py,r06_flight.py,encode_actual_frames.py,provision.sh} > "$SKYFOLD_OUT/source-sha256.txt"
+          bash workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/provision.log" 2>&1
+      - name: Render each genuine source frame and preserve its camera and ship transform
+        shell: bash
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b workspaces/skyfold-dock/output/r07b-finish/skyfold-r07b.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/stage_r07_tracking.py > "$SKYFOLD_OUT/render.log" 2>&1
+          if [ "$R07B_MODE" = motion ]; then
+            FRAME_DIR="$SKYFOLD_OUT" /usr/bin/time -v -o "$SKYFOLD_OUT/encode-time.txt" blender -b --factory-startup -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/encode_actual_frames.py > "$SKYFOLD_OUT/encode.log" 2>&1
+          fi
+      - name: Verify outputs and keep declared source-frame samples
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os,json,hashlib,shutil
+          from pathlib import Path
+          p=Path(os.environ['SKYFOLD_OUT']);p.mkdir(parents=True,exist_ok=True)
+          if os.environ['R07B_MODE']=='motion':
+            a=int(os.environ['FRAME_START']);b=int(os.environ['FRAME_END']);sample=p/'samples';sample.mkdir(exist_ok=True)
+            for f in sorted({a,a+1,(a+b)//2,b-1,b}):
+              q=p/('frame_%04d.png'%f)
+              if q.is_file():shutil.copy2(q,sample/q.name)
+          files={str(q.relative_to(p)):{'bytes':q.stat().st_size,'sha256':hashlib.sha256(q.read_bytes()).hexdigest()} for q in p.rglob('*') if q.is_file()}
+          assert sum(r['bytes'] for r in files.values())<350000000
+          (p/'PART-DELIVERY.json').write_text(json.dumps({'run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'scene_sha256':os.environ['FLIGHT_SCENE_HASH'],'files':files,'full_png_sequence_stored_in_temporary_runner':True,'durable_archive':'Encoded video, all source hashes/transforms, selected original PNG samples, exact scene and scripts; not every uncompressed PNG','auto_qualified':False},indent=2))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-tracking-part-${{ matrix.part }}-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/tracking-parts/${{ matrix.part }}/*.json
+            workspaces/skyfold-dock/output/tracking-parts/${{ matrix.part }}/*.txt
+            workspaces/skyfold-dock/output/tracking-parts/${{ matrix.part }}/*.log
+            workspaces/skyfold-dock/output/tracking-parts/${{ matrix.part }}/*.mp4
+            workspaces/skyfold-dock/output/tracking-parts/${{ matrix.part }}/R07B_*.png
+            workspaces/skyfold-dock/output/tracking-parts/${{ matrix.part }}/samples
+          retention-days: 1
+          if-no-files-found: error
+  assemble:
+    needs: render
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      actions: read
+      contents: write
+    env:
+      TRACKING_IN: ${{ github.workspace }}/tracking-input
+      TRACKING_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/tracking-delivery
+      TRACKING_SCENE_SHA: e9ffbb9051f27fe6c19d6ff7069cd5f419b9517e3b4ee2b0d0f889845e8086c6
+      TRACKING_RENDER_SHA: ${{ github.sha }}
+      TRACKING_FRAME_COUNT: '192'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: skyfold-tracking-part-*-${{ github.run_id }}
+          path: tracking-input
+      - name: Reuse FFmpeg for verification and packet-copy assembly
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$TRACKING_OUT"
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends ffmpeg > "$TRACKING_OUT/ffmpeg-install.log" 2>&1
+          fi
+          ffmpeg -version > "$TRACKING_OUT/ffmpeg-version.txt"
+          python3 workspaces/skyfold-dock/assemble_tracking_preview.py > "$TRACKING_OUT/assembly.log" 2>&1
+      - name: Archive editable scene, exact code and rendered stills
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin "$FLIGHT_SCENE_COMMIT"
+          git restore --source=FETCH_HEAD -- workspaces/skyfold-dock/output/r07b-finish/skyfold-r07b.blend workspaces/skyfold-dock/output/r07b-finish/BUILD-MANIFEST.json
+          mkdir -p "$TRACKING_OUT/source" "$TRACKING_OUT/scripts" "$TRACKING_OUT/stills" "$TRACKING_OUT/parts"
+          cp workspaces/skyfold-dock/output/r07b-finish/{skyfold-r07b.blend,BUILD-MANIFEST.json} "$TRACKING_OUT/source/"
+          cp workspaces/skyfold-dock/{r06_flight.py,stage_r07_tracking.py,finish_r07b_look.py,encode_actual_frames.py,assemble_tracking_preview.py,collect_flight_cost.py,provision.sh} "$TRACKING_OUT/scripts/"
+          cp .github/workflows/skyfold-tracking-delivery.yml "$TRACKING_OUT/scripts/"
+          python3 - <<'PY'
+          import os,shutil,json,hashlib,struct
+          from pathlib import Path
+          src=Path(os.environ['TRACKING_IN']);out=Path(os.environ['TRACKING_OUT'])
+          for part in src.iterdir():
+            if not part.is_dir():continue
+            dst=out/'parts'/part.name;shutil.copytree(part,dst,dirs_exist_ok=True)
+          for q in src.rglob('R07B_*.png'):shutil.copy2(q,out/'stills'/q.name)
+          hero=out/'stills/R07B_f001_BEAUTY.png';assert struct.unpack('>II',hero.read_bytes()[16:24])==(2560,1440)
+          (out/'ARCHIVE-SCOPE.md').write_text('This is a rendered forward-flight candidate, not automatic core-contract acceptance. The scene is independently moving and tracked, not a simulated undocking. All 192 encoded frames, their source hashes and transforms are retained; selected original PNGs and decoded samples are retained, not every uncompressed PNG. Prior docked scenes and reviews remain protected.\n')
+          PY
+      - name: Account completed jobs without pretending assembly has ended
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INCLUDE_CURRENT_RUN: '1'
+          FLIGHT_COST_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/tracking-delivery
+        run: python3 workspaces/skyfold-dock/collect_flight_cost.py
+      - name: Preserve verified delivery and failures in a recoverable evidence branch
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$TRACKING_OUT"
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          out=Path(os.environ['TRACKING_OUT']);files={str(p.relative_to(out)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in out.rglob('*') if p.is_file()}
+          assert all(r['bytes']<40000000 for r in files.values())
+          assert sum(r['bytes'] for r in files.values())<180000000
+          (out/'DELIVERY.json').write_text(json.dumps({'run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'scene_sha256':os.environ['FLIGHT_SCENE_HASH'],'files':files,'technical_assembly_report':'ASSEMBLY-VERIFICATION.json','visual_verdict':'REVIEW_REQUIRED','auto_qualified':False},indent=2))
+          PY
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-tracking-delivery-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/tracking-delivery
+          git commit -m "Forward-flight delivery: actual rendered frames and verification, visual review pending"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-tracking-delivery-${{ github.run_id }}
+          path: workspaces/skyfold-dock/output/tracking-delivery
+          retention-days: 1
+          if-no-files-found: error

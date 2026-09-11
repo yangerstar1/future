@@ -1,0 +1,163 @@
+{
+  "scene_sha256": "e9ffbb9051f27fe6c19d6ff7069cd5f419b9517e3b4ee2b0d0f889845e8086c6",
+  "render_source_sha": "599793ea843b2ebf1d9089b5dd35d1d333cd1d06",
+  "assembly_source_sha": "599793ea843b2ebf1d9089b5dd35d1d333cd1d06",
+  "assembly_run_id": "34559500985",
+  "video": "Skyfold_Forward_Flight_1080p.mp4",
+  "frames": 192,
+  "seconds": 8.0,
+  "sha256": "f2c30462e9c9850599f43bd82a3dbcbed710cd9e87c4219695f254d265f34ce8",
+  "bytes": 3389445,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "fps": 24,
+  "source_frame_count": 192,
+  "first_source_frame": 1,
+  "last_source_frame": 192,
+  "full_scene_timeline_frames": 192,
+  "forward_displacement_m": [
+    0.0,
+    -640.0,
+    20.0
+  ],
+  "independent_ship_forward_motion": true,
+  "stationary_habitat": true,
+  "moving_tracking_camera": true,
+  "unique_source_frames": 192,
+  "unique_decoded_frames": 192,
+  "joined_decoded_frames_match_shards": true,
+  "pts_continuous": true,
+  "ssim_minimum_declared": 0.94,
+  "source_png_comparisons": [
+    {
+      "frame": 1,
+      "ssim": 0.97543,
+      "source_sha256": "42c71e29095e9c0c35acfa2659ae07366b67b2af4f4d36920a345783bf6631c1",
+      "decoded_sha256": "6249273486585d8937b50a5f65799d1f5d5cfbeda05feb0548cb4f487d0670c6"
+    },
+    {
+      "frame": 2,
+      "ssim": 0.974918,
+      "source_sha256": "7e1bbd7b3a613b4e6c10c8d8cadbd86603cbf31eec8feecf2928f6643b1f45ad",
+      "decoded_sha256": "89917defb4c5aa1fd774cf67a236e744098f013f8328afe4e3bc2a5a404c951f"
+    },
+    {
+      "frame": 24,
+      "ssim": 0.974758,
+      "source_sha256": "3928487cf2cbccde8a23ed35be77f0aa1376e85464147dc6593bdabc33589769",
+      "decoded_sha256": "e8c4b1d588f03d24f73f4bde32c5cc0231ae165069545f7dbabf4bc06baaa3d5"
+    },
+    {
+      "frame": 47,
+      "ssim": 0.97495,
+      "source_sha256": "dfd8c799e31449c419843baba5e1a7e95e2fdc3faaa47c5ab9385001df6204df",
+      "decoded_sha256": "f20931f1849a5c824f553322e685310d3c245131a248d589346988b1b8156ada"
+    },
+    {
+      "frame": 48,
+      "ssim": 0.974494,
+      "source_sha256": "985113c87d5cea1ce404e5a9c1eed615398e9be167b42c2d070ef482cbac3064",
+      "decoded_sha256": "988102882da55086564b0eda47013cfe3d2eeb31b6c06de51dc050e1cce1e7d2"
+    },
+    {
+      "frame": 49,
+      "ssim": 0.975478,
+      "source_sha256": "64e226e7193346e3f4479dd820f8ce9d62bd233ab5c8d0828c6888d7c25a4a01",
+      "decoded_sha256": "1d0ba1a2177c4479f826850cde0ad0ccf5914346a17bbcef7dec685e32b1d66d"
+    },
+    {
+      "frame": 50,
+      "ssim": 0.974993,
+      "source_sha256": "00f8d4687eb99ae3e488291fe8dec5c8e4b1f989385f4c250b0c4aa79e0cb85d",
+      "decoded_sha256": "6e3b15f66c7d4c95093b30a9a628a13f1fccd3426001f2c04231f23bd29c6633"
+    },
+    {
+      "frame": 72,
+      "ssim": 0.974879,
+      "source_sha256": "f009bbdad98f03f55ac21953ccfd0f65a5947db310cafc3d942bda3c9bb94905",
+      "decoded_sha256": "734386f31eba3707ceeeb7a802639c48a857ae5bdacacabfcff6eaa088741a3d"
+    },
+    {
+      "frame": 95,
+      "ssim": 0.974936,
+      "source_sha256": "765d1af46ab166534df4518666ecdf507b9e78d49f659241666ed754eaa0bf8d",
+      "decoded_sha256": "b9352502903acdc5ba1af55e592fa63df2d59797a2c156682d0553b88c814416"
+    },
+    {
+      "frame": 96,
+      "ssim": 0.974369,
+      "source_sha256": "eab6f872efeadf9cbde76790ff76d18260e614eabf82f5a12f29f2c18a5656e3",
+      "decoded_sha256": "074abaac8759c4cd81a480c3db4ce3cdc4ea1168eafcb24d8f2e41c859d41c1b"
+    },
+    {
+      "frame": 97,
+      "ssim": 0.975444,
+      "source_sha256": "641441163802cbcbf9576e93364f65e3d107d5d4e51d59a35b48445bc732a290",
+      "decoded_sha256": "10c850d4891430b88a274daa681bd7f26f995dcd4d3a6d105690ea52070bc346"
+    },
+    {
+      "frame": 98,
+      "ssim": 0.974939,
+      "source_sha256": "d80009e9d416d69a49661ff2dc41494ffdbe7a67e35039935378e2373bf438ed",
+      "decoded_sha256": "9b674972789587ce0041dc7cbbe7407479e108a9400bf222bd646c854a9c91b9"
+    },
+    {
+      "frame": 120,
+      "ssim": 0.974802,
+      "source_sha256": "38d9f071dc7de565411c6a6c05ec6c9dcbb0ac4adfc88f38e3096fa790ce7aaa",
+      "decoded_sha256": "cc7981e102b666ffbbbc3c13513105b3bd90bc968709005c90c283a1b261ddf1"
+    },
+    {
+      "frame": 143,
+      "ssim": 0.974974,
+      "source_sha256": "92a4e74d91308cb1955f6d53c47cb38826456a1960516c017ccefde51f83a52a",
+      "decoded_sha256": "3cdcc57e3057b586154ef721f09b119405de4f66821c87c84518c8da00fd2c1c"
+    },
+    {
+      "frame": 144,
+      "ssim": 0.974375,
+      "source_sha256": "96f6f183a57872590a9410a3d10b878dde517b789f0cd83153e7b97cdf11992c",
+      "decoded_sha256": "73343c722c7d0328571219eaafcbe1ceca2c6f64f5bb44df4d868fde1a8101f5"
+    },
+    {
+      "frame": 145,
+      "ssim": 0.975451,
+      "source_sha256": "1d6c9a115c0f2b8dd861ad00b94cb84a0d4797b3c0feac63e79c0489508873bc",
+      "decoded_sha256": "c1ee15061154a66152bc80552d9708da8b6e19636375aa6edd129fcfba767fee"
+    },
+    {
+      "frame": 146,
+      "ssim": 0.975007,
+      "source_sha256": "9c13d1412ff7c833da4c9224cadfbe943e0442c04eb2bdf2e590aee9ec1e6d5c",
+      "decoded_sha256": "52a58a62f8d36d62a0364a330c2c47be2912fac14f6064eaed91a7fbaf5409b1"
+    },
+    {
+      "frame": 168,
+      "ssim": 0.974817,
+      "source_sha256": "b56e36e6808824511fafe001545f677f98acd08b2af3ad6aa9ae25a8647ec14f",
+      "decoded_sha256": "9122df7a18043d048e72cc79505835e22d8c268b3e3c53d40e26ab3ce4ff17d7"
+    },
+    {
+      "frame": 191,
+      "ssim": 0.974976,
+      "source_sha256": "b0e375119516ca99e53a8f22399f43ccba24fccbeb08965e428eee9452d569de",
+      "decoded_sha256": "ef054bc3d7f23813e34ca03f59b33293de4669ecd20fabf0072ca5f0705aa819"
+    },
+    {
+      "frame": 192,
+      "ssim": 0.974415,
+      "source_sha256": "ec5353657be9bd38de1ac6fbd46568fd24caccf10eecf18803799291fa34cb89",
+      "decoded_sha256": "ece79f051b00a9481e03f70c7aace537db87e0ef46a47071a1c8bad3a31c4f8f"
+    }
+  ],
+  "audio": false,
+  "assembly": "H264 packet copy only",
+  "generated_or_interpolated_frames": false,
+  "technical_result": "PASS_FILE_PROVENANCE_KINEMATICS_AND_ENCODING",
+  "artistic_result": "REVIEW_REQUIRED",
+  "core_contract_qualified": false,
+  "contract_P2_8_seconds": true,
+  "auto_qualified": false
+}
