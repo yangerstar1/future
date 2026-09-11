@@ -1,0 +1,71 @@
+{
+  "run_id": "34582278543",
+  "source_sha": "1a4cdb1ae04d34625e08900c364d7a82e80271b4",
+  "files": {
+    "build.log": {
+      "bytes": 297,
+      "sha256": "3f839f7589053249008b2e7de5021e8ebb385e57a8219c0ab6f8658e99fbb908"
+    },
+    "BUILD-MANIFEST.json": {
+      "bytes": 378868,
+      "sha256": "54fd46eaad9e1a38954714faebfb89b03761a6cd4909644b7d628d7006bad7aa"
+    },
+    "R08_CITY_TRACK_f001_NEUTRAL.png": {
+      "bytes": 554394,
+      "sha256": "6d6c6a128fc1b3f62aa616731fdd4ab46c8d6171007833c9bf51d95211e5bd81"
+    },
+    "R08_CITY_TRACK_f001.png": {
+      "bytes": 1010132,
+      "sha256": "ca77bf13f4453987e866eacbc93b8cd0885818ee0283789f0ac2d60d52bd0414"
+    },
+    "render.log": {
+      "bytes": 748048,
+      "sha256": "97a5c477a0a5ca8e8eddc3ee2ed4af5b332fc273300b55c1d332ecbfa43277c2"
+    },
+    "COMPLETE.json": {
+      "bytes": 122,
+      "sha256": "0fc36495e75953977ff1961d7b073dc2d0d76a56f9c3ebd1081362ad4948573a"
+    },
+    "R08_CITY_TRACK_f192.png": {
+      "bytes": 1010000,
+      "sha256": "954add0f5ccb6bcc351bb4170dd26ed82fb4ace748be809e57b19d7c656253c8"
+    },
+    "R08_CITY_WIDE_f001.png": {
+      "bytes": 1026047,
+      "sha256": "71cddc358d2d0381a9425dbb9466f4cd78f952c67e1ec687862193dfbdadc2bb"
+    },
+    "libraries.log": {
+      "bytes": 6057,
+      "sha256": "07c4873b814827fed3bbd40ddbe6eca2996192223870d5ed4b970208b1468a20"
+    },
+    "environment.txt": {
+      "bytes": 3593,
+      "sha256": "6a6cff8e74eff5d44aca95512503847a8c81922be6689f6ab169ab2c9458a195"
+    },
+    "OBSERVATIONS.json": {
+      "bytes": 6816,
+      "sha256": "8b0ce981ecac8c07961b2cfd5a1bedf746d2042cbe6bbcdc737f710e49eebfb4"
+    },
+    "provision.log": {
+      "bytes": 8194,
+      "sha256": "d843bdce6ceed59a251d48dcb5337e8494acae05d1e532b10688264ccf657d0d"
+    },
+    "source-sha256.txt": {
+      "bytes": 323,
+      "sha256": "8fb8081cfeb95c2494de9e81857a71608bcec8567c152a677aa8a4dae109ecbb"
+    },
+    "render-time.txt": {
+      "bytes": 914,
+      "sha256": "c1120dd7e200b6b1beec1e0af220a74f07266c1f86e7b77d1d26883fb1edaf58"
+    },
+    "build-time.txt": {
+      "bytes": 879,
+      "sha256": "8a014b8b2d908e8c70f9caa464b86d8d8d2f5185a1a2fd0c3f5aa9af016378d0"
+    },
+    "skyfold-r08.blend": {
+      "bytes": 2944410,
+      "sha256": "a694ad8f00faceced0262b3d848fd2cccd3de6e1b1c63bdf91447c4d93cf6f08"
+    }
+  },
+  "auto_qualified": false
+}
