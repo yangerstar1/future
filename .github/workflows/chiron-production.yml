@@ -1,4 +1,4 @@
-name: Chiron R03 optical and solid diagnostic tools
+name: Chiron R03 robust solid diagnostic tool
 on:
   push:
     branches: [codex/chiron-craft-r03]
@@ -7,26 +7,20 @@ on:
 permissions:
   contents: read
 jobs:
-  diagnostic-tools:
+  diagnostic-tool:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 5
     steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22.16.0'
-      - name: Acquire fixed diagnostic tools, not a website quality pass
+      - name: Download exact public CPython 3.13 wheel; verify published SHA256
         run: |
-          mkdir -p /tmp/chiron-solid-tools
-          cd /tmp/chiron-solid-tools
-          npm init -y
-          npm install --save-exact three@0.180.0 three-gpu-pathtracer@0.0.24 three-bvh-csg@0.0.18
-          npm ls --all > dependency-tree.txt
-          node --version > runtime.txt
-          printf 'Diagnostic only. No website qualification, original CAD, hardware benchmark, public deployment or recurring services. Solid results require validation.\n' > SCOPE.txt
-          tar -czf /tmp/chiron-solid-tools.tar.gz node_modules package.json package-lock.json dependency-tree.txt runtime.txt SCOPE.txt
+          mkdir -p /tmp/chiron-solid-wheel
+          python3 -m pip download manifold3d==3.5.3 --python-version 313 --abi cp313 --implementation cp --platform manylinux_2_27_x86_64 --only-binary=:all: --no-deps -d /tmp/chiron-solid-wheel
+          cd /tmp/chiron-solid-wheel
+          echo '239b300cd1cbe9f8c0397863d2f657800f9c3212316a7e0d60554bf81e4c3617  manifold3d-3.5.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl' | sha256sum --check
+          printf 'Offline geometry diagnostic only. No change to production runtime or visual qualification.\n' > SCOPE.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: chiron-r03-solid-tools
-          path: /tmp/chiron-solid-tools.tar.gz
+          name: chiron-r03-manifold-wheel
+          path: /tmp/chiron-solid-wheel/
           retention-days: 7
           if-no-files-found: error
