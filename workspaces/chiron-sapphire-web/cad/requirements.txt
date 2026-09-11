@@ -1,0 +1,5 @@
+cadquery==2.8.0
+cadquery-ocp==7.9.3.1.1
+numpy==2.3.5
+scipy==1.17.0
+opencv-python-headless==4.13.0.92

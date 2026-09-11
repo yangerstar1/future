@@ -2,14 +2,18 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js';
 import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js';
+import {NestedSapphire} from './nested-sapphire.mjs';
+import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniformsLib.js';
+import { HDRLoader } from 'three/addons/loaders/HDRLoader.js';
+import studioHDR from './generated/studio-small-03-1k.hdr';
 import { makeWatch } from './watch.mjs';
 import { createState, action, tick, clamp, verifyKinematics } from './mechanics.mjs';
 const $=id=>document.getElementById(id),all=q=>[...document.querySelectorAll(q)];
 const state=createState(),canvas=$('watch-canvas'),scene=new THREE.Scene();
-let renderer,watch,controls,pmrem,env,lights,ao,lossExtension,raf=0,last=0,frames=[],totalFrames=0,contextLost=false,initializing=false;
+let renderer,watch,controls,pmrem,env,lights,ao,nested,lossExtension,gpuFence=null,gpuPoll=0,raf=0,last=0,frames=[],totalFrames=0,contextLost=false,initializing=false;
 let camera=new THREE.PerspectiveCamera(32,1,.035,100),cameraTween=null,savedScroll=0,savedFocus=null,lastUi=0,resizeTimer;
 const target=new THREE.Vector3(),raycaster=new THREE.Raycaster();
-const runtime={revision:'R02',backend:null,errors:[],contextLosses:0,contextRestores:0,initializations:0,hiddenEvents:0,network:[],uiEvents:[],resourceState:'loading',rafOutstanding:0};
+const runtime={revision:'R04',backend:null,errors:[],contextLosses:0,contextRestores:0,initializations:0,hiddenEvents:0,network:[],uiEvents:[],resourceState:'loading',rafOutstanding:0};
 const media=matchMedia('(prefers-reduced-motion: reduce)');state.reduced=media.matches;
 const presets={hero:{p:[5.8,-8.4,12.2],t:[0,0,-.35]},front:{p:[0,0,17.5],t:[0,0,-.1]},back:{p:[0,0,-17.5],t:[0,0,-.1]},left:{p:[-17,0,0],t:[0,0,-.1]},right:{p:[17,0,0],t:[0,0,-.1]},engine:{p:[2.2,-3.25,3.25],t:[0,-1.15,.25]},tourbillon:{p:[1.05,2.25,2.72],t:[0,1.82,.38]}};
 const chapters=all('.chapter'),nav=all('#chapter-nav a');
@@ -29,19 +33,27 @@ function physicalLights(){
   lights=new THREE.Group();scene.add(lights);
   const hemi=new THREE.HemisphereLight(0xbad4e7,0x1b2025,1.0);lights.add(hemi);
   for(const [pos,color,intensity] of [[[4,8,10],0xf0f4ff,4], [[-6,1,5],0xd9ebff,2.2], [[3,-5,-7],0xffffff,4]]){const l=new THREE.DirectionalLight(color,intensity);l.position.set(...pos);if(!lights.children.some(c=>c.castShadow)){l.castShadow=true;l.shadow.mapSize.set(1536,1536);Object.assign(l.shadow.camera,{left:-5,right:5,top:6,bottom:-6,near:.5,far:35});l.shadow.normalBias=.009;l.shadow.bias=-.00003;}lights.add(l);}
+  RectAreaLightUniformsLib.init();
+  for(const [pos,w,h,n] of [[[0,3,7],6,5,.65],[[-1,2,-7],5,6,.8]]){const light=new THREE.RectAreaLight(0xffffff,n,w,h);light.position.set(...pos);light.lookAt(0,0,0);lights.add(light);}
   // Locally authored studio panels, no hidden third-party HDRI or network dependency.
   const room=new THREE.Scene();room.background=new THREE.Color(0x080b0f);
   const panel=(w,h,pos,intensity)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:new THREE.Color().setScalar(intensity),side:THREE.DoubleSide}));m.position.set(...pos);m.lookAt(0,0,0);room.add(m);};
-  panel(3,10,[-8,3,5],4.8);panel(1.3,10,[8,-1,4],2.8);panel(8,2,[0,9,4],4);panel(2,9,[1,-3,-9],2.5);panel(10,1.5,[0,-8,0],.25);panel(11,7,[0,1,11],1.05);
-  pmrem=new THREE.PMREMGenerator(renderer);env=pmrem.fromScene(room,.07,.1,40);scene.environment=env.texture;room.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});pmrem.dispose();
+  panel(3,10,[-8,3,5],4.8);panel(1.3,10,[8,-1,4],2.8);panel(8,2,[0,9,4],4);panel(2,9,[1,-3,-9],2.5);panel(10,1.5,[0,-8,0],.25);panel(11,7,[0,1,11],.22);
+  const hdr=new HDRLoader().parse(studioHDR.buffer.slice(studioHDR.byteOffset,studioHDR.byteOffset+studioHDR.byteLength));
+  const map=new THREE.DataTexture(hdr.data,hdr.width,hdr.height,THREE.RGBAFormat,hdr.type);map.colorSpace=THREE.LinearSRGBColorSpace;map.mapping=THREE.EquirectangularReflectionMapping;map.flipY=true;map.needsUpdate=true;
+  pmrem=new THREE.PMREMGenerator(renderer);env=pmrem.fromEquirectangular(map);scene.environment=env.texture;scene.environmentRotation.set(0,.55,0);scene.environmentIntensity=.8;map.dispose();room.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});pmrem.dispose();
 }
 // Three.js 0.180.0 GTAO: only solid mechanical geometry contributes to the depth pass.
 // Blend onto the antialiased scene, rather than making sapphire behave like opaque AO geometry.
-function drawScene(){renderer.info.reset();renderer.shadowMap.needsUpdate=true;renderer.setRenderTarget(null);renderer.render(scene,camera);if(ao){const hidden=[];watch.root.traverse(o=>{if(o.isMesh&&o.visible&&o.material.transparent){hidden.push(o);o.visible=false;}});try{ao.render(renderer,null,null);}finally{for(const o of hidden)o.visible=true;}ao.blendMaterial.uniforms.intensity.value=state.light==='neutral'?.32:.72;ao.blendMaterial.uniforms.tDiffuse.value=ao.pdRenderTarget.texture;ao._renderPass(renderer,ao.blendMaterial,null);}renderer.setRenderTarget(null);}
-function refreshLight(){if(!renderer)return;renderer.toneMappingExposure=state.light==='neutral'?1.14:.94;lights.children[0].intensity=state.light==='neutral'?2.8:1;for(let i=1;i<lights.children.length;i++)lights.children[i].intensity=(state.light==='neutral'?[3.0,2.6,2.6]:[4,2.2,4])[i-1];ui();}
+function drawScene(){renderer.info.reset();renderer.shadowMap.needsUpdate=true;nested?.capture(scene,camera);renderer.setRenderTarget(null);renderer.render(scene,camera);if(ao){const hidden=[];watch.root.traverse(o=>{if(o.isMesh&&o.visible&&(o.material.transparent||o.material.transmission>0)){hidden.push(o);o.visible=false;}});try{ao.render(renderer,null,null);}finally{for(const o of hidden)o.visible=true;}ao.blendMaterial.uniforms.intensity.value=state.light==='neutral'?.32:.72;ao.blendMaterial.uniforms.tDiffuse.value=ao.pdRenderTarget.texture;ao._renderPass(renderer,ao.blendMaterial,null);}renderer.setRenderTarget(null);
+  // Software WebGL must not queue many seconds of obsolete display work while
+  // the user changes a view. Bound outstanding GPU work, not the 16-piston model.
+  if(runtime.backend?.renderer?.includes('SwiftShader')){const gl=renderer.getContext();if(gpuFence)gl.deleteSync(gpuFence);gpuFence=gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE,0);gl.flush();runtime.gpuPending=true;}
+}
+function refreshLight(){if(!renderer)return;renderer.toneMappingExposure=state.light==='neutral'?.97:.89;lights.children[0].intensity=state.light==='neutral'?1.7:.7;for(let i=1;i<4;i++)lights.children[i].intensity=(state.light==='neutral'?[2.2,1.7,2.0]:[3.2,1.8,3.3])[i-1];ui();}
 function updateBounds(){storyBounds=chapters.map(el=>({top:el.offsetTop,height:el.offsetHeight}));}
 function resize(){
-  if(!renderer)return;const dockHeight=$('dock').offsetHeight;document.documentElement.style.setProperty('--dock-height',dockHeight+'px');const rect=$('stage').getBoundingClientRect(),w=rect.width,h=rect.height;renderer.setPixelRatio(Math.min(devicePixelRatio,1.35));renderer.setSize(w,h,false);ao?.setSize(Math.max(1,Math.round(w*.6)),Math.max(1,Math.round(h*.6)));camera.aspect=w/h;
+  if(!renderer)return;const dockHeight=$('dock').offsetHeight;document.documentElement.style.setProperty('--dock-height',dockHeight+'px');const rect=$('stage').getBoundingClientRect(),w=rect.width,h=rect.height;renderer.setPixelRatio(Math.min(devicePixelRatio,1.35));renderer.setSize(w,h,false);ao?.setSize(Math.max(1,Math.round(w*.6)),Math.max(1,Math.round(h*.6)));nested?.setSize(Math.round(w*renderer.getPixelRatio()),Math.round(h*renderer.getPixelRatio()));camera.aspect=w/h;
   camera.clearViewOffset();if(state.mode==='story'){if(innerWidth<650)camera.setViewOffset(w,h,0,-h*.18,w,h);else camera.setViewOffset(w,h,-w*.19,0,w,h);}
   camera.updateProjectionMatrix();updateBounds();if(state.mode==='story')storyCamera(true);needsRender=true;
 }
@@ -123,10 +135,17 @@ function frame(now){raf=0;runtime.rafOutstanding=0;if(document.hidden||contextLo
   const animating=state.engine==='running'||Math.abs(state.explode-state.explodeTarget)>.00001||state.suspensionTime<3||(!state.balancePaused&&(!state.reduced||state.balanceRequested)&&state.clockEnergy>0);
   if(needsRender||animating||cameraTween||beforeCamera.distanceToSquared(camera.position)>1e-9||now-lastRender>1000){drawScene();if(lastRender){renderIntervals.push(now-lastRender);if(renderIntervals.length>6000)renderIntervals.shift();}lastRender=now;totalFrames++;needsRender=false;}if(now-lastUi>140){ui();updateHotspots();lastUi=now;}schedule();
 }
-function schedule(){if(!raf&&state.ready&&!document.hidden&&!contextLost){raf=requestAnimationFrame(frame);runtime.rafOutstanding=1;}}
-document.addEventListener('visibilitychange',()=>{if(document.hidden){runtime.hiddenEvents++;cancelAnimationFrame(raf);raf=0;runtime.rafOutstanding=0;}else{last=0;schedule();}});
-canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();contextLost=true;runtime.resourceState='context-lost';runtime.contextLosses++;disposeStudio();ao?.dispose();ao=null;cancelAnimationFrame(raf);raf=0;runtime.rafOutstanding=0;$('fallback').hidden=false;$('failure-reason').textContent='Graphics context lost. Your watch state is preserved. Restore graphics or retry the view.';ui();});
-canvas.addEventListener('webglcontextrestored',()=>{setTimeout(()=>{try{physicalLights();createAO();resize();refreshLight();lossExtension=renderer.getContext().getExtension('WEBGL_lose_context');contextLost=false;runtime.resourceState='ready';runtime.contextRestores++;$('fallback').hidden=true;last=0;needsRender=true;ui();schedule();}catch(e){fail(e);}},0);});
+function schedule(){
+ if(raf||gpuPoll||!state.ready||document.hidden||contextLost)return;
+ if(gpuFence){const gl=renderer.getContext(),status=gl.clientWaitSync(gpuFence,0,0);
+  if(status===gl.TIMEOUT_EXPIRED){gpuPoll=setTimeout(()=>{gpuPoll=0;runtime.gpuPollOutstanding=0;schedule();},8);runtime.gpuPollOutstanding=1;return;}
+  gl.deleteSync(gpuFence);gpuFence=null;runtime.gpuPending=false;
+ }
+ raf=requestAnimationFrame(frame);runtime.rafOutstanding=1;
+}
+document.addEventListener('visibilitychange',()=>{if(document.hidden){runtime.hiddenEvents++;clearTimeout(gpuPoll);gpuPoll=0;runtime.gpuPollOutstanding=0;cancelAnimationFrame(raf);raf=0;runtime.rafOutstanding=0;}else{last=0;schedule();}});
+canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();contextLost=true;clearTimeout(gpuPoll);gpuPoll=0;gpuFence=null;runtime.gpuPending=false;runtime.gpuPollOutstanding=0;runtime.resourceState='context-lost';runtime.contextLosses++;disposeStudio();ao?.dispose();ao=null;nested?.disposeTarget();cancelAnimationFrame(raf);raf=0;runtime.rafOutstanding=0;$('fallback').hidden=false;$('failure-reason').textContent='Graphics context lost. Your watch state is preserved. Restore graphics or retry the view.';ui();});
+canvas.addEventListener('webglcontextrestored',()=>{setTimeout(()=>{try{physicalLights();createAO();nested?.restoreTarget();resize();refreshLight();lossExtension=renderer.getContext().getExtension('WEBGL_lose_context');contextLost=false;runtime.resourceState='ready';runtime.contextRestores++;$('fallback').hidden=true;last=0;needsRender=true;ui();schedule();}catch(e){fail(e);}},0);});
 window.addEventListener('scroll',()=>{needsRender=true;},{passive:true});
 window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(resize,75);});
 new ResizeObserver(()=>{if(state.mode==='explore')resize();}).observe($('dock'));
@@ -136,20 +155,21 @@ async function init(){if(initializing||state.ready)return;initializing=true;$('f
     $('load-text').textContent='Loading the documented movement parameters…';let config=window.__INLINE_MECHANISM__;
     if(!config){const r=await fetch('./mechanism.json',{cache:'no-store'});runtime.network.push({url:r.url,status:r.status});if(!r.ok)throw new Error(`Movement parameters could not be loaded (HTTP ${r.status}). Product information is available below; retry to restore 3D.`);config=await r.json();}
     if(config.pistons?.length!==16)throw new Error('Movement parameters are incomplete. The 16-piston mechanism was not substituted.');
-    if(!renderer){renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'high-performance'});renderer.info.autoReset=false;renderer.shadowMap.enabled=true;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.transmissionResolutionScale=.75;renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.setClearColor(0x090c10,0);physicalLights();createAO();controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=.08;controls.enablePan=true;controls.screenSpacePanning=true;controls.enableZoom=true;controls.enabled=false;controls.addEventListener('start',()=>{cameraTween=null;});controls.addEventListener('change',()=>{needsRender=true;});
+    if(!renderer){renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'high-performance'});renderer.info.autoReset=false;renderer.shadowMap.enabled=true;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.transmissionResolutionScale=.75;renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.setClearColor(0x090c10,1);physicalLights();createAO();controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=.08;controls.enablePan=true;controls.screenSpacePanning=true;controls.enableZoom=true;controls.enabled=false;controls.addEventListener('start',()=>{cameraTween=null;});controls.addEventListener('change',()=>{needsRender=true;});
       const gl=renderer.getContext(),dbg=gl.getExtension('WEBGL_debug_renderer_info');lossExtension=gl.getExtension('WEBGL_lose_context');runtime.backend={vendor:dbg?gl.getParameter(dbg.UNMASKED_VENDOR_WEBGL):gl.getParameter(gl.VENDOR),renderer:dbg?gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),version:gl.getParameter(gl.VERSION)};
     }
     $('load-text').textContent='Constructing editable geometry and linked mechanical assemblies…';await new Promise(r=>setTimeout(r,20));
-    if(!watch){watch=makeWatch();scene.add(watch.root);}state.ready=true;runtime.initializations++;runtime.resourceState='ready';watch.update(state);resize();refreshLight();drawScene();$('load-state').hidden=true;last=0;schedule();
+    if(!watch){watch=makeWatch();scene.add(watch.root);nested=new NestedSapphire(renderer,watch);}state.ready=true;runtime.initializations++;runtime.resourceState='ready';watch.update(state);resize();refreshLight();drawScene();$('load-state').hidden=true;last=0;schedule();
   }catch(e){fail(e);}finally{initializing=false;}
 }
 function updateHotspots(){const layer=$('hotspot-layer');layer.hidden=state.mode!=='explore'||state.selection!=='all'||!state.ready||state.explode>.05;if(layer.hidden||!watch)return;for(const key of ['engine','tourbillon']){const obj=watch.locations[key],point=obj.localToWorld(new THREE.Vector3(0,0,key==='engine'?.66:.26)),screen=point.clone().project(camera),b=$('hotspot-'+key),dir=point.clone().sub(camera.position),length=dir.length();raycaster.set(camera.position,dir.normalize());raycaster.far=length-.04;const hits=raycaster.intersectObject(watch.root,true);const obstructed=hits.some(h=>{if(h.object.material.transparent||!h.object.visible)return false;let p=h.object;while(p){if(p===obj)return false;if(!p.visible)return false;p=p.parent;}return true;});const rect=canvas.getBoundingClientRect(),x=rect.left+(screen.x*.5+.5)*rect.width,y=rect.top+(-screen.y*.5+.5)*rect.height;b.hidden=obstructed||screen.z>1||x<32||x>innerWidth-32||y<90||y>rect.bottom-22;b.style.transform=`translate(${x-22}px,${y-22}px)`;}raycaster.far=Infinity;}
 window.__chiron={
-  snapshot(){return {revision:runtime.revision,state:{...state},runtime:{...runtime,uiEvents:[...runtime.uiEvents]},camera:{position:camera.position.toArray(),target:controls?.target.toArray(),near:camera.near,far:camera.far,fov:camera.fov,view:camera.view},viewport:{width:innerWidth,height:innerHeight,canvas:{x:canvas.getBoundingClientRect().x,y:canvas.getBoundingClientRect().y,width:canvas.clientWidth,height:canvas.clientHeight},dpr:renderer?.getPixelRatio()},renderer:renderer?{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,memory:{...renderer.info.memory}}:null,assemblyError:watch?.assemblyError(),totalFrames,frameIntervals:[...frames],renderIntervals:[...renderIntervals]};},
+  snapshot(){return {revision:runtime.revision,state:{...state},runtime:{...runtime,uiEvents:[...runtime.uiEvents]},camera:{position:camera.position.toArray(),target:controls?.target.toArray(),near:camera.near,far:camera.far,fov:camera.fov,view:camera.view},viewport:{width:innerWidth,height:innerHeight,canvas:{x:canvas.getBoundingClientRect().x,y:canvas.getBoundingClientRect().y,width:canvas.clientWidth,height:canvas.clientHeight},dpr:renderer?.getPixelRatio()},optics:nested?.snapshot(),renderer:renderer?{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,memory:{...renderer.info.memory}}:null,assemblyError:watch?.assemblyError(),totalFrames,frameIntervals:[...frames],renderIntervals:[...renderIntervals]};},
   passport(){return watch?.passport;},
   constraints:verifyKinematics,
   connections(){return watch?.connectionReport();},
-  async exportGLB(){if(!watch)throw new Error('No asset');return await new GLTFExporter().parseAsync(watch.root,{binary:true,onlyVisible:false,trs:true});}
+  structural(){return watch?.structuralReport();},
+  async exportGLB(){if(!watch)throw new Error('No asset');if(state.explode>1e-8||state.selection!=='all'||state.crystalOff)throw new Error('Reassemble the complete watch before exporting');const assetRoot=new THREE.Group();assetRoot.name='Chiron-Clear-R04-METRES';assetRoot.scale.setScalar(.01);assetRoot.userData={units:'metres',sourceUnits:'1 source unit = 10 mm',asset:'authored non-factory reconstruction'};assetRoot.add(watch.root.clone(true));const instances=[];assetRoot.traverse(o=>{if(o.isInstancedMesh)instances.push(o);});for(const batch of instances){for(let i=0;i<batch.count;i++){const id=batch.userData.instanceNodeIds[i],node=assetRoot.getObjectByName(id);if(!node)throw new Error('Missing editable instance node '+id);const mesh=new THREE.Mesh(batch.geometry,batch.material);mesh.name=id+':'+batch.material.name;mesh.userData.logicalPart=id;node.add(mesh);}batch.removeFromParent();}assetRoot.updateMatrixWorld(true);return await new GLTFExporter().parseAsync(assetRoot,{binary:true,onlyVisible:false,trs:true});}
 };
 window.addEventListener('error',e=>runtime.errors.push(e.message));window.addEventListener('unhandledrejection',e=>runtime.errors.push(String(e.reason)));
 ui();init();

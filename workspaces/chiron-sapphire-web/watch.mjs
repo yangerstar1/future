@@ -1,13 +1,16 @@
 import * as THREE from 'three';
+import sapphireBanks from './generated/sapphire-banks.json';
+import {makeSapphire} from './sapphire.mjs';
+import {chassis,suspension,engineHousing,dialSupports,tourbillonSupport,materialFinish,craftTools} from './craft.mjs';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
-import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { mergeGeometries, mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js';
 import { PISTONS, SPEC, TAU, solvePiston, handAngles, suspensionOffset } from './mechanics.mjs';
 const V=(x=0,y=0,z=0)=>new THREE.Vector3(x,y,z);
 const Y=V(0,1,0),Z=V(0,0,1);let serial=0;
 /** Original, editable procedural production asset. Hidden architecture is a labelled digital approximation. */
 export function makeWatch(){
   const root=new THREE.Group();root.name='Chiron-Sapphire-Clear';
-  const registry=[], critical=[];
+  const registry=[], critical=[],interfaceMeasurements=[];
   const mat={
     rhodium:new THREE.MeshPhysicalMaterial({color:0xc7cbd0,metalness:1,roughness:.225,envMapIntensity:1.15}),
     polished:new THREE.MeshPhysicalMaterial({color:0xe6e9ec,metalness:1,roughness:.105,envMapIntensity:1.1}),
@@ -27,6 +30,7 @@ export function makeWatch(){
   // Intentional real-time alpha optical approximation: nested transparent cylinders remain visible.
   // Avoid screen-space transmission hiding one transparent object behind another.
   mat.cover=mat.crystal.clone();mat.cover.transmission=0;mat.cover.opacity=.022;mat.cover.roughness=.055;
+  materialFinish(mat);
   for(const [name,m] of Object.entries(mat))m.name=name;
   const batchGroups=[];
   function group(parent,name,batch=false){const g=new THREE.Group();g.name=name;parent.add(g);if(batch)batchGroups.push(g);return g;}
@@ -38,7 +42,7 @@ export function makeWatch(){
   const geoCache=new Map();function cached(key,fn){if(!geoCache.has(key))geoCache.set(key,fn());return geoCache.get(key);}
   function box(parent,x,y,z,w,h,d,m=mat.rhodium,r=.03,name){
     const k=`b:${w}:${h}:${d}:${r}`;
-    return mesh(parent,cached(k,()=>new RoundedBoxGeometry(w,h,d,2,Math.min(r,w*.22,h*.22,d*.22))),m,name,V(x,y,z));
+    return mesh(parent,cached(k,()=>new RoundedBoxGeometry(w,h,d,1,Math.min(r,w*.22,h*.22,d*.22))),m,name,V(x,y,z));
   }
   function cyl(parent,x,y,z,r,h,m=mat.rhodium,axis='z',name,segments=48){
     const k=`c:${r}:${h}:${segments}`;const o=mesh(parent,cached(k,()=>new THREE.CylinderGeometry(r,r,h,segments,1)),m,name,V(x,y,z));
@@ -58,11 +62,17 @@ export function makeWatch(){
   }
   function screw(parent,x,y,z,r=.052,reverse=false){
     const g=group(parent,`screw-${++serial}`);g.position.set(x,y,z);if(reverse)g.rotation.y=Math.PI;
-    cyl(g,0,0,-.017,r*.76,.065,mat.dark);cyl(g,0,0,0,r,.024,mat.polished);
-    ring(g,0,0,.013,r*.88,.006,mat.brushed);box(g,0,0,.014,r*1.38,r*.20,.009,mat.black,.002);
+    cyl(g,0,0,-.021,r*.71,.058,mat.brushed,'z','threaded-screw-stem',24);
+    cyl(g,0,0,-.007,r*.87,.007,mat.dark,'z','recessed-slot-floor',24);
+    const geo=cached(`slotted:${r}`,()=>{
+      const s=new THREE.Shape();s.absarc(0,0,r,0,TAU,false);
+      const h=new THREE.Path();h.moveTo(-r*.76,-r*.115);h.lineTo(r*.76,-r*.115);h.lineTo(r*.76,r*.115);h.lineTo(-r*.76,r*.115);h.closePath();s.holes.push(h);
+      return new THREE.ExtrudeGeometry(s,{depth:.018,bevelEnabled:true,bevelSize:Math.min(.003,r*.07),bevelThickness:.0025,bevelSegments:2,steps:1,curveSegments:16});
+    });
+    mesh(g,geo,mat.polished,'machined-slotted-screw-head');ring(g,0,0,.003,r*.97,.003,mat.brushed);
     g.rotation.z=(serial%7)*.38;return g;
   }
-  function jewel(parent,x,y,z,r=.06,reverse=false){cyl(parent,x,y,z,r*1.46,.035,mat.polished);cyl(parent,x,y,z+(reverse?-.026:.026),r,.025,mat.ruby);cyl(parent,x,y,z+(reverse?-.041:.041),r*.26,.032,mat.dark);}
+  function jewel(parent,x,y,z,r=.06,reverse=false){const g=group(parent,'bored-jewel-'+(++serial));g.position.set(x,y,z);if(reverse)g.rotation.y=Math.PI;craftTools(ctx0()).bearing(g,'jewel-chaton-'+serial,0,0,0,r);}
   function contour(w,h){
     const s=new THREE.Shape(),a=w/2,b=h/2;
     s.moveTo(0,b);s.bezierCurveTo(a*.44,b,a*.78,b*.97,a*.88,b*.87);
@@ -75,7 +85,7 @@ export function makeWatch(){
     s.bezierCurveTo(-a*.78,b*.97,-a*.44,b,0,b);return s;
   }
   function extrude(parent,shape,depth,z,m,bevel=.025,name){
-    const g=new THREE.ExtrudeGeometry(shape,{depth,bevelEnabled:bevel>0,bevelSegments:2,steps:1,bevelSize:bevel,bevelThickness:bevel,curveSegments:32});g.translate(0,0,z);
+    const b=Math.min(bevel,depth*.22);const g=new THREE.ExtrudeGeometry(shape,{depth:depth-2*b,bevelEnabled:b>0,bevelSegments:2,steps:1,bevelSize:b,bevelThickness:b,bevelOffset:-b,curveSegments:24});g.translate(0,0,z+b);
     return mesh(parent,g,m,name);
   }
   function rim(parent,w,h,innerW,innerH,d,z,m,bevel=.025,name){const s=contour(w,h);s.holes.push(new THREE.Path(contour(innerW,innerH).getPoints(64).reverse()));return extrude(parent,s,d,z,m,bevel,name);}
@@ -86,28 +96,35 @@ export function makeWatch(){
     const m=new THREE.MeshStandardMaterial({map:tex,metalness:.5,roughness:.3});m.name=`marking:${text}`;
     const o=mesh(parent,new THREE.PlaneGeometry(w,h),m,`inscription-${text}`,V(x,y,z));return o;
   }
-  function gear(parent,x,y,z,r,teeth=60,m=mat.rhodium,spokes=7){
+  function gear(parent,x,y,z,r,teeth=60,m=mat.rhodium,spokes=7,bore=r>.13?.012:.0075){
     const g=group(parent,`gear-${teeth}-${++serial}`);g.position.set(x,y,z);
-    const s=new THREE.Shape(),rootR=r*.935;
-    for(let i=0;i<teeth*4;i++){const a=i/(teeth*4)*TAU;const rr=(i%4===1||i%4===2)?r:rootR;const xx=Math.cos(a)*rr,yy=Math.sin(a)*rr;if(i===0)s.moveTo(xx,yy);else s.lineTo(xx,yy);}s.closePath();
-    const hole=new THREE.Path();hole.absarc(0,0,r*.73,0,TAU,true);s.holes.push(hole);
+    const s=new THREE.Shape(),pitch=r*teeth/(teeth+2),mod=2*pitch/teeth,rootR=pitch-1.25*mod,baseR=pitch*Math.cos(Math.PI/9),invPitch=Math.tan(Math.PI/9)-Math.PI/9;
+    const width=rr=>{const aa=Math.acos(Math.min(1,baseR/Math.max(baseR,rr)));return Math.PI/(2*teeth)+invPitch-(Math.tan(aa)-aa);};
+    let first=true;const point=(rr,a)=>{const x=Math.cos(a)*rr,y=Math.sin(a)*rr;if(first){s.moveTo(x,y);first=false;}else s.lineTo(x,y);};
+    for(let i=0;i<teeth;i++){
+      const a=i/teeth*TAU,lo=Math.max(rootR,baseR),step=TAU/teeth;
+      point(rootR,a-step*.5);point(rootR,a-width(lo));
+      for(let k=0;k<=4;k++){const rr=lo+(r-lo)*k/4;point(rr,a-width(rr));}
+      point(r,a);point(r,a+width(r));
+      for(let k=3;k>=0;k--){const rr=lo+(r-lo)*k/4;point(rr,a+width(rr));}
+      point(rootR,a+width(lo));point(rootR,a+step*.5);
+    }s.closePath();
+    const hole=new THREE.Path();hole.absarc(0,0,teeth<20?bore:Math.min(r*.73,rootR*.82),0,TAU,true);s.holes.push(hole);
     extrude(g,s,.055,-.0275,m,.004,'toothed-rim');ring(g,0,0,.033,r*.83,.007,mat.polished);
-    cyl(g,0,0,0,r*.15,.105,m);cyl(g,0,0,.065,r*.055,.045,mat.polished);
-    for(let i=0;i<spokes;i++){const a=i/spokes*TAU,b=box(g,Math.cos(a)*r*.44,Math.sin(a)*r*.44,0,r*.64,r*.049,.045,m,.008);b.rotation.z=a;}
+    const hubR=Math.max(r*.15,bore*1.65),tool=craftTools(ctx0());
+    tool.washer(g,0,0,0,hubR,bore,.105,m,'z','through-bored-wheel-hub');
+    tool.washer(g,0,0,.065,Math.max(r*.072,bore*1.38),bore,.025,mat.polished,'z','wheel-hub-shoulder');
+    for(let i=0;i<(teeth<20?0:spokes);i++){const a=i/spokes*TAU,b=box(g,Math.cos(a)*r*.44,Math.sin(a)*r*.44,0,r*.64,r*.049,.045,m,.008);b.rotation.z=a;}
     batchGroups.push(g);return g;
   }
+  function ctx0(){return {V,mat,group,mesh,box,cyl,ring,bar,pathTube,screw,jewel,contour,extrude,rim,flatLabel,gear,batchGroups,interfaceMeasurements};}
   const rearCrystal=group(root,'sapphire-back-cover',true);
   const crystal=group(root,'sapphire-shell',true),fixed=group(root,'case-and-crown-carrier',true),straps=group(root,'translucent-rubber-straps',true);
   const carrier=group(root,'suspended-movement');critical.push(carrier);
   const base=group(carrier,'bottom-support',true),power=group(carrier,'winding-and-wheel-train',true),dial=group(carrier,'skeleton-dial',true),eng=group(carrier,'W16-assembly'),tour=group(carrier,'tourbillon-assembly');
   const engStatic=group(eng,'W16-static-cylinders',true),tourStatic=group(tour,'tourbillon-support',true);
   const layers=[{g:rearCrystal,v:V(0,0,-2.3)},{g:crystal,v:V(0,0,3.65)},{g:dial,v:V(0,.15,2.25)},{g:tour,v:V(0,.4,1.55)},{g:eng,v:V(0,-.1,.8)},{g:power,v:V(0,0,-.65)},{g:base,v:V(0,0,-1.6)}];
-  // Clear tonneau: actual continuous volume with an open internal cavity, front and rear crystals.
-  rim(crystal,4.31,5.65,3.95,5.15,1.80,-.925,mat.crystal,.065,'sapphire-case-body');
-  rim(crystal,4.35,5.69,3.92,5.13,.095,.9,mat.crystalEdge,.045,'upper-sapphire-bevel');
-  extrude(crystal,contour(3.97,5.18),.085,.985,mat.cover,.022,'front-crystal');
-  const rearCover=extrude(crystal,contour(3.95,5.14),.045,-1.055,mat.cover,.018,'rear-crystal');
-  for(const z of [.915,-.95]){const pts=contour(4.29,5.65).getPoints(84).map(p=>V(p.x,p.y,z));pathTube(crystal,pts,.016,mat.crystalEdge,`crystal-polished-edge-${z}`,true);}
+  const {rear:rearCover}=makeSapphire(ctx0(),crystal);
   crystal.updateMatrixWorld(true);const cb=new THREE.Box3().setFromObject(crystal),sz=cb.getSize(V());
   crystal.scale.set(SPEC.caseWidth/sz.x,SPEC.caseLength/sz.y,SPEC.caseThickness/sz.z);
   crystal.position.sub(cb.getCenter(V()).multiply(crystal.scale));
@@ -115,18 +132,26 @@ export function makeWatch(){
   rim(fixed,4.02,5.24,3.83,5.03,.11,-.925,mat.rhodium,.022,'titanium-caseback-gasket');
   // Precise visible attachment locations, not a random screw field.
   for(const x of [-1.79,1.79])for(const y of [-2.16,2.14]){screw(fixed,x,y,.934,.065);screw(fixed,x,y,-.988,.056,true);}
-  for(const y of [-2.77,2.77])for(const x of [-.94,.94]){
-    box(fixed,x,y,-.15,.28,.58,.45,mat.polished,.045,'lug-hinge');cyl(fixed,x,y,.092,.07,.027,mat.brushed);
-    cyl(fixed,x,y,-.25,.065,.44,mat.rhodium,'x');
+  // Continuous curved sapphire strap horns, not protruding metal L brackets.
+  // The hidden pin crosses both cheeks AND the rubber end at its true origin.
+  for(const sy of [-1,1]){
+    const pinY=sy*2.76,pinZ=-.55;
+    for(const sx of [-1,1]){
+      const h=group(fixed,`sapphire-strap-horn-${sx}-${sy}`);
+      h.position.set(sx*1.18,pinY,pinZ);h.rotation.y=Math.PI/2;
+      const points=[[-.21,-sy*.30],[-.19,sy*.07],[-.13,sy*.17],[.08,sy*.15],[.15,-sy*.07],[.17,-sy*.30]];
+      craftTools(ctx0()).plate(h,'bored-curved-sapphire-horn',points,-.105,.21,mat.crystal,[[0,0,.036]]);
+      craftTools(ctx0()).washer(h,0,0,sx*.113,.083,.026,.023,mat.polished,'z','strap-pin-end-bearing');
+    }
+    cyl(fixed,0,pinY,pinZ,.023,2.64,mat.polished,'x','continuous-strap-springbar',32);
   }
-  for(const y of [-2.46,2.5]){bar(fixed,V(-1.08,y,-.6),V(1.08,y,-.6),.085,mat.polished,'strap-cross-pin');}
   // Crown collars are attached to the fixed case. Three separate functional targets.
   const crowns=[];
   for(let i=0;i<3;i++){
     const x=(i-1)*1.11,cy=i===1?-3.18:-3.065;
     const cg=group(root,['crown-set-time','crown-wind-two-directions','crown-start-W16'][i]);cg.position.set(x,cy,-.03);crowns.push(cg);critical.push(cg);
-    cyl(cg,0,.20,0,.305,.14,mat.polished,'y','crown-collar');cyl(cg,0,-.01,0,.25,.36,mat.rhodium,'y','crown-grip');
-    for(let j=0;j<28;j++){const a=j/28*TAU;const rib=box(cg,Math.cos(a)*.246,-.035,Math.sin(a)*.246,.035,.29,.045,mat.polished,.011,'crown-flute');rib.rotation.y=-a;}
+    cyl(cg,0,.20,0,.305,.14,mat.polished,'y','crown-collar');craftTools(ctx0()).turned(cg,'sculpted-crown-grip',0,0,0,[[0,-.205],[.18,-.205],[.232,-.17],[.266,-.075],[.27,.015],[.249,.11],[.21,.166],[0,.166]],mat.rhodium,'y');
+    for(let j=0;j<24;j++){const a=j/24*TAU;pathTube(cg,[V(Math.cos(a)*.222,-.175,Math.sin(a)*.222),V(Math.cos(a)*.265,-.07,Math.sin(a)*.265),V(Math.cos(a)*.27,.01,Math.sin(a)*.27),V(Math.cos(a)*.227,.15,Math.sin(a)*.227)],.008,mat.polished,'curved-crown-flute');}
     cyl(cg,0,-.215,0,.198,.046,mat.blue,'y','blue-crown-tip');ring(cg,0,-.239,0,.173,.018,mat.polished,'crown-ring','y');
     const mark=flatLabel(cg,'EB',0,-.264,0,.205,.148,'#edf4f7','#0879b1');mark.rotation.x=Math.PI/2;batchGroups.push(cg);
   }
@@ -154,83 +179,46 @@ export function makeWatch(){
   for(const y of [-.29,.29])box(buckle,0,y,0,1.93,.13,.14,mat.polished,.035);
   for(const x of [-.52,.52])box(buckle,x,.65,-.16,.085,1.25,.065,mat.brushed,.02);
   bar(buckle,V(-.89,.28,0),V(.89,.28,0),.043,mat.polished,'clasp-hinge');box(buckle,0,.08,.08,.095,.41,.055,mat.rhodium,.02,'buckle-tongue');
-  // Main skeleton chassis, open on both sides, with load-bearing rails and machined bridges.
-  rim(base,3.43,4.78,3.05,4.33,.15,-.62,mat.dark,.055,'skeleton-main-plate');
-  for(const x of [-1.45,1.45])box(base,x,0,-.53,.145,4.2,.21,mat.dark,.035,'longitudinal-load-rail');
-  for(const y of [-2.12,2.09])box(base,0,y,-.49,3.0,.16,.17,mat.rhodium,.028,'transverse-bridge');
-  for(const x of [-1.36,1.36])for(const y of [-1.6,1.72]){box(base,x,y,-.4,.38,.40,.15,mat.rhodium,.035);screw(base,x,y,-.307,.089);}
-  for(let k=0;k<5;k++)box(base,0,1.82-k*.08,-.72,2.08,.018,.026,mat.brushed,.004,'back-geneva-stripe');
-  box(base,0,1.85,-.7,2.12,.53,.085,mat.dark,.04,'rear-signature-bridge');
-  const backLabel=flatLabel(base,'JACOB & CO.',0,1.89,-.756,1.21,.18,'#74a9c5','#151a21');backLabel.rotation.y=Math.PI;
-  for(const x of [-.95,.95])screw(base,x,1.86,-.775,.075,true);
-  // Two independent reserve barrels. Wheel centers/tooth counts are a visible approximation, not factory geometry.
-  const wheels=[];
-  for(const x of [-.84,.84]){
-    const gg=gear(power,x*1.25,.08,-.64,.72,86,mat.rhodium,16);wheels.push({g:gg,rate:.012,domain:x<0?'clock':'engine'});
-    cyl(gg,0,0,-.082,.594,.09,mat.dark);ring(gg,0,0,-.137,.533,.015,mat.polished);ring(gg,0,0,-.142,.36,.008,mat.polished);
-    cyl(gg,0,0,-.157,.21,.042,mat.rhodium);screw(gg,0,0,-.187,.065,true);
-    for(let i=0;i<5;i++){const a=TAU*i/5; screw(gg,Math.cos(a)*.44,Math.sin(a)*.44,-.148,.041,true);}
-    jewel(power,x*1.25,.08,-.44,.054);
-  }
-  const train=[[-.41,1.0,.263,30],[.11,.94,.272,31],[.52,1.35,.301,34],[.94,1.68,.254,29],[0,-.85,.25,28]];
-  for(const [i,[x,y,r,n]] of train.entries()){const g=gear(power,x,y,-.40,r,n,mat.brass,5);wheels.push({g,rate:.14*30/n*(i%2?-1:1),domain:i===4?'engine':'clock'});jewel(power,x,y,-.30,.045);}
-  // Reverse-side cutout bridges and retainers remain present when the watch is turned over.
-  const bridgeShape=new THREE.Shape();bridgeShape.moveTo(-.19,1.37);bridgeShape.lineTo(.19,1.37);bridgeShape.lineTo(.27,-.40);bridgeShape.lineTo(.12,-.91);bridgeShape.lineTo(-.12,-.91);bridgeShape.lineTo(-.27,-.40);bridgeShape.closePath();
-  extrude(power,bridgeShape,.105,-.89,mat.dark,.025,'rear-central-bridge');
-  for(const y of [.96,.5,-.53])jewel(power,0,y,-.915,.055,true);
-  for(const x of [-1.19,1.19]){bar(power,V(x,-1.40,-.69),V(x*.65,-.85,-.69),.055,mat.rhodium,'reverse-fork');screw(power,x,-1.4,-.755,.057,true);}
-  box(power,0,-1.6,-.59,1.43,.17,.1,mat.rhodium,.027,'engine-rear-bridge');for(const x of [-.62,.62])screw(power,x,-1.6,-.663,.053,true);
-  // Four springs connect the fixed case to a common suspended carrier. Recomputed endpoints, no floating decoration.
-  const springs=[],springMounts=group(root,'four-point-suspension'),mountMoving=group(carrier,'suspended-bearing-mounts',true);
-  for(const x of [-1.40,1.40])for(const y of [-1.67,1.68]){
-    const fg=group(springMounts,`suspension-${x}-${y}`);fg.position.set(x,y,-.56);
-    cyl(fg,0,0,0,.112,.105,mat.brushed);cyl(fg,0,0,.51,.041,1.04,mat.polished);ring(fg,0,0,.015,.105,.018,mat.dark);
-    const pts=[];for(let j=0;j<=112;j++){const a=j/112*TAU*7;pts.push(V(Math.cos(a)*.087,Math.sin(a)*.087,.055+j/112*1.045));}
-    const coil=pathTube(fg,pts,.015,mat.blue,'blue-suspension-coil');springs.push(coil);
-    cyl(mountMoving,x,y,.54,.112,.123,mat.polished);box(mountMoving,x,y,.58,.35,.24,.10,mat.polished,.027,'suspension-top-bearing');screw(mountMoving,x,y,.65,.074);
-  }
+  const ctx=ctx0();
+  const tooling=craftTools(ctx);
+  const {wheels,trainPairs,motionWorks}=chassis(ctx,base,power);
+  const {springs,springMounts,mountMoving,interfaces}=suspension(ctx,root,carrier,fixed);
   // W16: four explicit banks × four cylinders, eight shared crankpins, sixteen independently constrained rods.
   eng.position.set(0,-1.15,.02);const crank=group(eng,'crankshaft');const pistons=[],rods=[];
   for(let station=0;station<8;station++){
     const d={...PISTONS[station*2],y:(station-3.5)*.205},px=d.radius*Math.cos(d.phase),pz=d.radius*Math.sin(d.phase);
-    cyl(crank,px,d.y,pz,.046,.123,mat.polished,'y',d.sharedPin,32);
-    for(const off of [-.079,.079]){
-      bar(crank,V(0,d.y+off,0),V(px,d.y+off,pz),.056,mat.brushed,'crank-web');
-      cyl(crank,0,d.y+off,0,.064,.028,mat.brushed,'y','main-journal',32);
+    cyl(crank,px,d.y,pz,.0195,.130,mat.polished,'y',d.sharedPin,32);
+    for(const off of [-.0705,.0705]){
+      const a=Math.atan2(pz,px),pts=[];
+      for(let j=0;j<=12;j++){const t=a-Math.PI/2+j/12*Math.PI;pts.push([px+Math.cos(t)*.030,pz+Math.sin(t)*.030]);}
+      for(let j=0;j<=12;j++){const t=a+Math.PI/2+j/12*Math.PI;pts.push([Math.cos(t)*.041,Math.sin(t)*.041]);}
+      const web=tooling.plate(crank,'machined-flat-crank-web',pts,-.009,.018,mat.brushed);web.rotation.x=Math.PI/2;web.position.y=d.y+off;
+      cyl(crank,0,d.y+off,0,.026,.030,mat.polished,'y','main-journal',32);
     }
     if(station<7)cyl(crank,0,d.y+.1025,0,.026,.034,mat.polished,'y','shaft-segment',24);
   }
+  for(const s of [-1,1])cyl(crank,0,s*.859,0,.026,.148,mat.polished,'y','crank-end-journal-'+s,32);
   batchGroups.push(crank);critical.push(crank);
-  for(const b of [0,1,2,3]){
-    const ds=PISTONS.filter(d=>d.bank===b),s=new THREE.Shape();s.moveTo(-.118,-.83);s.lineTo(.118,-.83);s.lineTo(.118,.83);s.lineTo(-.118,.83);s.closePath();
-    for(const d of ds){const h=new THREE.Path();h.absarc(0,d.y,.084,0,TAU,true);s.holes.push(h);}
-    const bank=extrude(engStatic,s,.268,.326,mat.cylinderGlass,.008,`sapphire-cylinder-bank-${b+1}`);bank.rotation.y=ds[0].angle;
-    for(const d of ds){const u=V(Math.sin(d.angle),0,Math.cos(d.angle));
-      const rim1=ring(engStatic,u.x*.594,d.y,u.z*.594,.087,.008,mat.crystalEdge,`cylinder-rim-${d.id}`);rim1.rotation.y=d.angle;
-      const rim2=ring(engStatic,u.x*.331,d.y,u.z*.331,.087,.006,mat.crystalEdge);rim2.rotation.y=d.angle;
-    }
+  for(const data of sapphireBanks){
+    const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(data.position,3));g.setAttribute('normal',new THREE.Float32BufferAttribute(data.normal,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(data.uv,2));g.setIndex(data.index);
+    mesh(engStatic,g,mat.cylinderGlass,data.id);
   }
   for(const d of PISTONS){
     const pg=group(eng,d.id),rg=group(eng,`connecting-rod-${d.id}`);
-    cyl(pg,0,0,0,.071,.105,mat.rhodium,'y','piston-skirt',32);cyl(pg,0,.055,0,.071,.016,mat.polished,'y','piston-head',32);
-    ring(pg,0,.026,0,.071,.0045,mat.dark,'piston-groove','y');ring(pg,0,.041,0,.071,.004,mat.polished,'piston-ring','y');
+    cyl(pg,0,0,0,.078,.105,mat.rhodium,'y','piston-skirt',32);cyl(pg,0,.055,0,.078,.016,mat.polished,'y','piston-head',32);
+    ring(pg,0,.026,0,.077,.0035,mat.dark,'piston-groove','y');ring(pg,0,.041,0,.079,.003,mat.polished,'piston-ring','y');
     cyl(pg,0,0,0,.021,.16,mat.polished,'z','wrist-pin',20);
     pg.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(V(Math.cos(d.angle),0,-Math.sin(d.angle)),V(Math.sin(d.angle),0,Math.cos(d.angle)),V(0,-1,0)));
-    box(rg,0,0,d.length*.5,.045,.038,d.length,mat.rhodium,.014,'connecting-rod-web');
-    for(const z of [0,d.length]){ring(rg,0,0,z,.033,.011,mat.polished,'rod-eye','y');cyl(rg,0,0,z,.021,.049,mat.brass,'y','rod-bearing',24);}
+    box(rg,0,0,d.length*.5,.038,.018,d.length-.030,mat.rhodium,.005,'connecting-rod-web');
+    for(const x of [-.019,.019])box(rg,x,0,d.length*.5,.009,.035,d.length-.055,mat.polished,.003,'connecting-rod-forged-flange');
+    for(const z of [0,d.length]){
+      tooling.washer(rg,0,0,z,z===0?.043:.036,.024,.036,mat.polished,'y','bored-rod-eye');
+      tooling.washer(rg,0,0,z,.0238,.0218,.031,mat.brass,'y','rod-bearing-bush');
+    }
+    for(const x of [-.032,.032])cyl(rg,x,0,-.018,.007,.047,mat.polished,'y','big-end-cap-bolt',12);
     pistons.push({g:pg,d});rods.push({g:rg,d});batchGroups.push(pg,rg);critical.push(pg,rg);
   }
-  for(const x of [-.75,.75]){
-    box(engStatic,x,0,-.015,.10,1.92,.14,mat.dark,.025,'engine-longitudinal-support');
-    for(const y of [-.87,.87]){bar(engStatic,V(x,y,-.05),V(0,y,-.04),.048,mat.rhodium,'crankshaft-bearing-crossmember');screw(engStatic,x,y,.061,.046);}
-    // Two rotating turbine-like components, mechanically associated with the automaton.
-  }
-  const turbos=[];for(const x of [-.96,.96]){
-    const g=group(eng,'turbo-rotor');g.position.set(x,.23,.13);ring(g,0,0,0,.27,.027,mat.polished);ring(g,0,0,0,.22,.008,mat.brushed);
-    for(let i=0;i<13;i++){const a=i/13*TAU;const pts=[V(Math.cos(a)*.06,Math.sin(a)*.06,.008),V(Math.cos(a+.25)*.15,Math.sin(a+.25)*.15,.035),V(Math.cos(a+.45)*.246,Math.sin(a+.45)*.246,0)];pathTube(g,pts,.009,mat.rhodium,'turbine-vane');}
-    cyl(g,0,0,.02,.071,.058,mat.polished);turbos.push(g);batchGroups.push(g);
-  }
-  for(const x of [-1.08,1.08])pathTube(engStatic,[V(x,.51,-.12),V(x,.14,-.19),V(x,-.53,-.10),V(x*.9,-.93,.025)],.043,mat.polished,'engine-exhaust-form');
+  const {turbos,journals,mounts}=engineHousing(ctx,eng,engStatic,PISTONS);
   box(engStatic,0,-.976,.194,.73,.18,.064,mat.rhodium,.016,'engine-maker-plate');flatLabel(engStatic,'JACOB & CO.',0,-.976,.230,.68,.118);flatLabel(engStatic,'GENÈVE',0,-1.035,.232,.28,.032);
   // Skeleton dial and forked hands at the observed upper-center position.
   const dialY=.60;
@@ -239,15 +227,18 @@ export function makeWatch(){
   for(let i=1;i<=11;i++){
     const a=i/12*TAU,x=Math.sin(a),y=Math.cos(a);
     const idx=box(dial,x*1.094,dialY+y*1.094,.697,.078,.286,.045,mat.rhodium,.012,`index-${i}`);idx.rotation.z=-a;
-    const blue=box(dial,x*1.099,dialY+y*1.099,.724,.039,.227,.015,mat.blue,.005,`blue-index-${i}`);blue.rotation.z=-a;
+    const blue=box(dial,x*1.099,dialY+y*1.099,.724,.054,.227,.015,mat.blue,.005,`blue-index-${i}`);blue.rotation.z=-a;
   }
   for(const a of [Math.PI*.33,Math.PI*.70,Math.PI*1.29,Math.PI*1.66]){
-    const x=Math.sin(a)*1.13,y=dialY+Math.cos(a)*1.13;
-    const len=Math.hypot(x,y-dialY),bridge=box(dial,x*.49,dialY+(y-dialY)*.49,.63,.112,len*.96,.054,mat.rhodium,.014,'skeleton-dial-bridge');bridge.rotation.z=-Math.atan2(x,y-dialY);
+    const u=V(Math.sin(a),Math.cos(a),0),n=V(u.y,-u.x,0),pts=[];
+    for(const [r,t] of [[.42,-.076],[.98,-.070],[1.165,-.035],[1.165,.035],[.98,.070],[.42,.060]])pts.push([u.x*r+n.x*t,dialY+u.y*r+n.y*t]);
+    tooling.plate(dial,'milled-dial-bridge-arm',pts,.608,.052,mat.rhodium);
+    bar(dial,V(u.x*.13,dialY+u.y*.13,.633),V(u.x*.48,dialY+u.y*.48,.633),.023,mat.rhodium,'hub-to-annular-bridge-spoke');
   }
   ring(dial,0,dialY,.53,.49,.044,mat.rhodium,'central-open-bearing-bridge');ring(dial,0,dialY,.553,.38,.012,mat.dark);
   cyl(dial,0,dialY,.704,.175,.053,mat.polished);ring(dial,0,dialY,.738,.128,.008,mat.dark);
   box(dial,0,-.306,.696,.36,.26,.055,mat.rhodium,.038,'EB-medallion');flatLabel(dial,'EB',0,-.307,.728,.279,.176,'#0085c6','#d7dee2');
+  dialSupports(ctx,dial,power);
   function hand(length,name){const g=group(carrier,name);g.position.set(0,dialY,name==='minute-hand'?.819:.777);
     const s=new THREE.Shape();s.moveTo(-.063,-.16);s.lineTo(-.063,.21);s.lineTo(-.055,length*.70);s.lineTo(0,length);s.lineTo(.055,length*.70);s.lineTo(.063,.21);s.lineTo(.063,-.16);s.closePath();
     const hole=new THREE.Path();hole.moveTo(-.021,.20);hole.lineTo(0,length*.73);hole.lineTo(.021,.2);hole.closePath();s.holes.push(hole);
@@ -257,13 +248,31 @@ export function makeWatch(){
   // Small fuel-gauge-shaped timekeeping reserve at nine o'clock.
   const gauge=group(dial,'power-reserve-gauge');gauge.position.set(-1.20,-.28,.49);cyl(gauge,0,0,0,.25,.055,mat.dark);ring(gauge,0,0,.038,.235,.016,mat.polished);
   for(let i=0;i<11;i++){const a=(-.72+i/10*1.5)*Math.PI,xx=Math.cos(a)*.184,yy=Math.sin(a)*.184;const t=box(gauge,xx,yy,.038,.032,.07,.01,i<3?mat.ruby:mat.lume,.005);t.rotation.z=a-Math.PI/2;}
+  cyl(dial,-1.20,-.28,.426,.034,.22,mat.polished,'z','reserve-gauge-arbor');bar(dial,V(-1.20,-.28,.388),V(-1.33,-.28,.538),.036,mat.dark,'reserve-gauge-bearing-foot');
   const reserveHand=group(gauge,'reserve-pointer');batchGroups.push(reserveHand);box(reserveHand,0,.083,.057,.018,.17,.016,mat.polished,.004);cyl(gauge,0,0,.061,.027,.02,mat.polished);
   // Inclined flying tourbillon: stationary protective frame, rotating cage, independent oscillating balance.
-  tour.position.set(0,1.82,.33);tour.rotation.x=Math.PI/6;
-  ring(tourStatic,0,0,-.105,.386,.025,mat.dark,'tourbillon-bearing-seat');cyl(tourStatic,0,0,-.17,.068,.20,mat.polished);
+  tour.position.set(0,1.78,.33);tour.rotation.x=Math.PI/6;tour.scale.setScalar(1.38);
+  ring(tourStatic,0,0,-.105,.386,.025,mat.dark,'tourbillon-bearing-seat');
+  tourbillonSupport(ctx,tourStatic);
   const cage=group(tour,'flying-tourbillon-cage');
-  const crownWheel=gear(cage,0,0,-.079,.337,62,mat.brass,5);ring(cage,0,0,.162,.343,.020,mat.polished,'cage-front-ring');ring(cage,0,0,-.05,.355,.018,mat.rhodium);
-  for(let i=0;i<3;i++){const a=i/3*TAU;bar(cage,V(Math.cos(a)*.338,Math.sin(a)*.338,-.065),V(Math.cos(a)*.338,Math.sin(a)*.338,.167),.021,mat.polished,'cage-pillar');bar(cage,V(0,0,.169),V(Math.cos(a)*.338,Math.sin(a)*.338,.169),.016,mat.polished,'cage-spoke');screw(cage,Math.cos(a)*.323,Math.sin(a)*.323,.19,.025);}
+  const crownWheel=gear(cage,0,0,-.079,.337,62,mat.brass,5,.074);
+  tooling.turned(cage,'hollow-revolving-cage-journal',0,0,0,[[.0534,-.212],[.070,-.212],[.072,-.207],[.072,-.032],[.102,-.026],[.104,-.022],[.102,-.018],[.013,-.018],[.013,-.126],[.0534,-.127],[.0534,-.212]],mat.polished);
+
+  // Machined, skeletonized rotating cage: seven slender angular arms and a
+  // chamfered perimeter. There is no stationary upper bridge on this flying cage.
+  tooling.washer(cage,0,0,.152,.353,.331,.026,mat.rhodium,'z','machined-cage-perimeter');
+  tooling.washer(cage,0,0,-.056,.359,.337,.025,mat.brushed,'z','lower-cage-perimeter');
+  for(let i=0;i<7;i++){
+    const a=i/7*TAU,points=[],inset=[];
+    for(const [r,t] of [[.097,-.125],[.170,-.095],[.190,-.235],[.337,-.12],[.337,-.055],[.212,-.16],[.184,.050],[.097,.135]])points.push([Math.cos(a+t)*r,Math.sin(a+t)*r]);
+    tooling.plate(cage,'machined-cage-radial-arm',points,.140,.027,mat.rhodium);
+    for(const [r,t] of [[.176,-.01],[.20,-.201],[.332,-.096],[.332,-.074],[.208,-.18],[.182,.012]])inset.push([Math.cos(a+t)*r,Math.sin(a+t)*r]);
+    tooling.plate(cage,'blue-cage-arm-inlay',inset,.168,.004,mat.blue);
+    const x=Math.cos(a-.087)*.340,y=Math.sin(a-.087)*.340;
+    tooling.post(cage,'cage-through-pillar',x,y,-.058,.150,.014);screw(cage,x,y,.174,.020);
+  }
+  tooling.turned(cage,'cage-central-journal-cap',0,0,.173,[[.013,-.032],[.080,-.032],[.109,-.008],[.114,.016],[.095,.043],[.061,.053],[.013,.053],[.013,-.032]],mat.polished);
+  tooling.washer(cage,0,0,.137,.101,.059,.015,mat.blue,'z','blue-journal-cap-seat');
   const balance=group(cage,'3Hz-balance-wheel');ring(balance,0,0,.048,.255,.016,mat.brass);ring(balance,0,0,.048,.226,.008,mat.brass);
   for(let i=0;i<4;i++){const a=i/4*TAU;bar(balance,V(0,0,.048),V(Math.cos(a)*.252,Math.sin(a)*.252,.048),.010,mat.rhodium,'balance-spoke');cyl(balance,Math.cos(a)*.252,Math.sin(a)*.252,.065,.02,.017,mat.polished);}
   // Bounded elastic-display approximation: inner spring end follows the balance; outer end stays pinned to the cage.
@@ -275,11 +284,21 @@ export function makeWatch(){
   updateHair(0);cyl(cage,-.203,0,.103,.010,.030,mat.polished,'z','hairspring-outer-stud',16);
   const pallet=group(cage,'pallet-fork');pallet.position.set(.075,-.065,.014);box(pallet,0,-.02,0,.02,.095,.015,mat.polished,.004);bar(pallet,V(0,-.05,0),V(.043,-.073,0),.008,mat.polished,'pallet-arm');bar(pallet,V(0,-.05,0),V(-.021,-.08,0),.008,mat.polished,'pallet-arm');box(pallet,.043,-.073,.014,.014,.028,.014,mat.ruby,.003);box(pallet,-.021,-.08,.014,.014,.026,.014,mat.ruby,.003);cyl(cage,.075,-.065,.040,.019,.04,mat.polished,'z','pallet-pivot',16);batchGroups.push(pallet);
 
-  const escape=gear(cage,.16,-.133,-.009,.104,15,mat.rhodium,4);jewel(cage,0,0,.187,.033);
+  tooling.plate(cage,'escapement-bearing-bridge',[[-.019,-.307],[.288,-.208],[.319,-.120],[.184,-.034],[.048,-.024],[-.023,-.104]],-.086,.031,mat.brushed,[[.16,-.133,.018],[.075,-.065,.011]]);
+  for(const [x,y] of [[.16,-.133],[.075,-.065]]){cyl(cage,x,y,-.01,.006,.15,mat.polished,'z','escapement-through-pivot',16);tooling.washer(cage,x,y,-.094,.025,.012,.02,mat.ruby);}
+  cyl(cage,0,0,.10,.011,.31,mat.polished,'z','balance-journal-arbor',16);cyl(balance,0,0,.048,.025,.10,mat.rhodium,'z','balance-collet',24);cyl(balance,.025,0,.103,.006,.018,mat.polished,'z','hairspring-inner-stud',12);
+  const escape=gear(cage,.16,-.133,-.009,.104,15,mat.rhodium,4);jewel(cage,0,0,.237,.033);
   pathTube(tourStatic,[V(-.39,-.30,-.11),V(-.49,.08,.04),V(-.36,.39,.04),V(0,.5,.04),V(.36,.39,.04),V(.49,.08,.04),V(.39,-.30,-.11)],.027,mat.polished,'tourbillon-protective-arch');
   batchGroups.push(cage,balance);critical.push(cage,balance);
   // Telescoping display connection maintains fixed crown to moving mechanism attachment.
-  const coupling=bar(root,V(0,-2.66,-.17),V(0,-2.13,-.17),.038,mat.polished,'winding-display-coupling');
+  const couplings=[];
+  for(let i=0;i<3;i++){
+    const x=(i-1)*1.11,cy=i===1?-3.18:-3.065;
+    cyl(fixed,x,(cy+.2-2.59)/2,-.03,.072,-2.59-(cy+.2),mat.brushed,'y','case-crown-tube-'+i,32);
+    tooling.washer(fixed,x,-2.60,-.03,.120,.070,.068,mat.polished,'y','crown-tube-flange-'+i);
+    const a=V(x,-2.59,-.03),b=V(x,-2.09,-.24),o=bar(root,a,b,.034,mat.polished,'crown-articulated-display-stem-'+i);
+    couplings.push({o,a,b,length:a.distanceTo(b)});
+  }
   const locations={engine:eng,tourbillon:tour};
   // Bake only static meshes within each explicitly registered logical group. Never cross moving parents.
   const batchSet=new Set(batchGroups);
@@ -296,18 +315,48 @@ export function makeWatch(){
         const key=c.material.uuid;if(!lists.has(key))lists.set(key,{mat:c.material,geos:[],order:c.renderOrder});lists.get(key).geos.push(geo);o.remove(c);
       }else visit(c);
     }};visit(g);
-    for(const item of lists.values()){const geo=mergeGeometries(item.geos,false);if(!geo)throw new Error('Static geometry batching failed');const m=new THREE.Mesh(geo,item.mat);m.name=`${g.name}:${item.mat.name}`;m.renderOrder=item.order;g.add(m);for(const x of item.geos)x.dispose();}
+    for(const item of lists.values()){const joined=mergeGeometries(item.geos,false);if(!joined)throw new Error('Static geometry batching failed');const geo=mergeVertices(joined,1e-6);joined.dispose();const m=new THREE.Mesh(geo,item.mat);m.name=`${g.name}:${item.mat.name}`;m.renderOrder=item.order;g.add(m);for(const x of item.geos)x.dispose();}
   }
   root.updateMatrixWorld(true);
   // Children first; excluded dynamic subgroups keep their node identity and pivots.
   for(const g of [...batchGroups].reverse())batch(g);
-  root.traverse(o=>{if(o.isMesh&&!o.material.transparent){o.castShadow=true;o.receiveShadow=true;}});
+  // Identical machined pistons/rods share GPU geometry, but their sixteen
+  // independently solved node transforms and IDs are retained and audited.
+  const instanceSets=[],instanceAudit=[];
+  function instanceFamily(family,items){
+    const groups=items.map(x=>x.g),first=groups[0],plan=[];
+    for(const template of first.children.filter(o=>o.isMesh)){
+      const matches=groups.map(g=>g.children.find(o=>o.isMesh&&o.material===template.material));
+      let delta=0,compatible=true;
+      for(const o of matches){
+        if(!o||o.geometry.index?.count!==template.geometry.index?.count){compatible=false;break;}
+        for(const name of ['position','normal','uv']){
+          const a=o.geometry.attributes[name]?.array,b=template.geometry.attributes[name]?.array;
+          if(a?.length!==b?.length){compatible=false;break;}
+          for(let i=0;i<a.length;i++)delta=Math.max(delta,Math.abs(a[i]-b[i]));
+        }
+        const ia=o.geometry.index?.array,ib=template.geometry.index?.array;
+        if(ia&&ib)for(let i=0;i<ia.length;i++)if(ia[i]!==ib[i]){compatible=false;break;}
+      }
+      if(!compatible||delta>1e-5){instanceAudit.push({family,status:'RETAIN_INDIVIDUAL_GEOMETRY',delta});return;}
+      plan.push({template,matches,delta});
+    }
+    for(const {template,matches,delta} of plan){
+      const mesh=new THREE.InstancedMesh(template.geometry,template.material,groups.length);mesh.name=family+':'+template.material.name;
+      mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);mesh.frustumCulled=false;
+      mesh.userData.instanceNodeIds=groups.map(g=>g.name);mesh.userData.family=family;mesh.renderOrder=template.renderOrder;
+      eng.add(mesh);for(const old of matches){old.parent.remove(old);if(old.geometry!==template.geometry)old.geometry.dispose();}
+      instanceSets.push({mesh,groups});instanceAudit.push({family,material:template.material.name,count:groups.length,delta,status:'IDENTICAL_GEOMETRY_REUSED'});
+    }
+  }
+  instanceFamily('sixteen-pistons',pistons);instanceFamily('sixteen-rods',rods);
+  root.traverse(o=>{if(o.isMesh){const optical=o.material.transparent||o.material.transmission>0;o.castShadow=!optical;o.receiveShadow=!optical;}});
   root.updateMatrixWorld(true);
   const rest=layers.map(({g,v})=>({g,v,p:g.position.clone(),q:g.quaternion.clone()}));
   const handRest=[hour.position.clone(),minute.position.clone()];
   const assembledCaseBox=new THREE.Box3().setFromObject(crystal).expandByObject(rearCrystal),caseSize=assembledCaseBox.getSize(V());
   const passport={units:'1 scene unit = 10 mm',caseMeasuredMm:caseSize.toArray().map(x=>x*10),caseSpecificationMm:[44.4,57.8,21.5],measurementBoundary:'sapphire shell incl. front and back; excludes crowns, strap and lugs',parts:registry,
-    pistons:PISTONS,approximation:'Original visible digital reconstruction. No factory CAD or 578-part manufacturing equivalence. Layered physical transmission and transparent cylinder approximation for nested sapphire; hidden gearing, rod geometry, phases and coupling are digital approximations.'};
+    pistons:PISTONS,instanceAudit,trainPairs,motionWorks:motionWorks.description,interfaceMeasurements,suspensionInterfaces:interfaces,crankJournalStations:journals,engineMounts:mounts,revision:'R04',approximation:'Original visible digital reconstruction. No factory CAD or 578-part manufacturing equivalence. Layered physical transmission and transparent cylinder approximation for nested sapphire; hidden gearing, rod geometry, phases and coupling are digital approximations.'};
   root.userData={identity:'BU210.80.AA.AA.B — Clear visual baseline',units:'10 mm',source:'Original procedural geometry; see REFERENCES.md',approximation:passport.approximation};
   function update(state){
     const bob=suspensionOffset(state.suspensionTime);carrier.position.z=bob;
@@ -315,19 +364,23 @@ export function makeWatch(){
     hour.position.copy(handRest[0]).addScaledVector(V(0,.15,2.25),state.explode);minute.position.copy(handRest[1]).addScaledVector(V(0,.15,2.25),state.explode);
     rearCrystal.visible=crystal.visible=!state.crystalOff&&state.selection==='all';fixed.visible=straps.visible=state.selection==='all';springMounts.visible=state.selection==='all';for(const c of crowns)c.visible=state.selection==='all';
     for(const g of [base,power,dial,hour,minute,mountMoving])g.visible=state.selection==='all';
-    eng.visible=state.selection==='all'||state.selection==='engine';tour.visible=state.selection==='all'||state.selection==='tourbillon';coupling.visible=state.selection==='all'&&state.explode<.03;
+    eng.visible=state.selection==='all'||state.selection==='engine';tour.visible=state.selection==='all'||state.selection==='tourbillon';for(const {o} of couplings)o.visible=state.selection==='all'&&state.explode<.03;
     crank.rotation.y=-state.engineTheta;
     for(const {g,d} of pistons){const p=solvePiston(d,state.engineTheta);g.position.fromArray(p.p);}
     for(const {g,d} of rods){const p=solvePiston(d,state.engineTheta);g.position.fromArray(p.c);g.quaternion.setFromUnitVectors(Z,V(...p.p).sub(V(...p.c)).normalize());}
+    for(const {mesh,groups} of instanceSets){groups.forEach((g,i)=>{g.updateMatrix();mesh.setMatrixAt(i,g.matrix);});mesh.instanceMatrix.needsUpdate=true;}
     for(const g of turbos)g.rotation.z=state.engineTheta*2.2;
     const a=handAngles(state.clockSeconds);hour.rotation.z=a.hour;minute.rotation.z=a.minute;reserveHand.rotation.z=(.72-state.clockEnergy*1.5)*Math.PI;
     cage.rotation.z=state.balanceTime/SPEC.cagePeriod*TAU;balance.rotation.z=Math.sin(state.balanceTime*TAU*SPEC.balanceHz)*2.4;updateHair(balance.rotation.z);pallet.rotation.z=.08*Math.tanh(Math.sin(state.balanceTime*TAU*SPEC.balanceHz)*7);escape.rotation.z=Math.floor(state.balanceTime*6)/15*TAU;
-    for(const {g,rate,domain} of wheels)g.rotation.z=(domain==='engine'?state.engineTheta:state.balanceTime)*rate;
-    for(const s of springs)s.scale.z=1+bob/1.10;
-    const ca=V(0,-2.66,-.17),cb=V(0,-2.13,-.17+bob),delta=cb.clone().sub(ca);coupling.position.copy(ca).add(cb).multiplyScalar(.5);coupling.quaternion.setFromUnitVectors(Y,delta.normalize());coupling.scale.y=ca.distanceTo(cb)/.53;
+    motionWorks.update(state.clockSeconds);
+    for(const {g,rate,domain,offset=0} of wheels)g.rotation.z=offset+(domain==='engine'?state.engineTheta:state.balanceTime)*rate;
+    for(const s of springs)s.update(bob);
+    for(const {o,a,b,length} of couplings){const cb=b.clone().add(V(0,0,bob)),delta=cb.clone().sub(a);o.position.copy(a).add(cb).multiplyScalar(.5);o.quaternion.setFromUnitVectors(Y,delta.normalize());o.scale.y=a.distanceTo(cb)/length;}
   }
   function connectionReport(){root.updateMatrixWorld(true);return pistons.map(({g,d},i)=>{const rod=rods[i].g,start=rod.localToWorld(V()),end=rod.localToWorld(V(0,0,d.length)),pin=g.getWorldPosition(V()),crankpin=crank.localToWorld(V(d.radius*Math.cos(d.phase),d.y,d.radius*Math.sin(d.phase)));return {id:d.id,smallEndResidual:end.distanceTo(pin)/d.length,bigEndResidual:start.distanceTo(crankpin)/d.length,worldRodLength:start.distanceTo(end)};});}
+  function instanceReport(){return instanceSets.map(({mesh,groups})=>{const m=new THREE.Matrix4();let maxDelta=0;groups.forEach((g,i)=>{mesh.getMatrixAt(i,m);g.updateMatrix();for(let j=0;j<16;j++)maxDelta=Math.max(maxDelta,Math.abs(m.elements[j]-g.matrix.elements[j]));});return {family:mesh.userData.family,material:mesh.material.name,ids:mesh.userData.instanceNodeIds,count:mesh.count,maxTransformResidual:maxDelta};});}
+  function structuralReport(){return {revision:'R04',instanceBindings:instanceReport(),motionWorks:motionWorks.description,interfaceMeasurements,trainPairs:trainPairs.map(p=>({...p,residual:Math.abs(Math.hypot(p.centerB[0]-p.centerA[0],p.centerB[1]-p.centerA[1])-p.pitchA-p.pitchB)})),crankpinRadius:.0195,rodBushBoreRadius:.0218,rodEyeBoreRadius:.024,rodBushOuterRadius:.0238,crankWebAxialHalfExtent:.009,crankWebAxialOffset:.0705,pistonRadius:.082,boreRadius:.089,boreRange:[.312,.652],suspension:springs.map(s=>s.report?.()??{registered:true}),warning:'Local geometry/kinematic checks do not certify absence of every collision or factory topology.'};}
   function assemblyError(){let pos=0,rot=0;for(const r of rest){pos=Math.max(pos,r.g.position.distanceTo(r.p));rot=Math.max(rot,r.g.quaternion.angleTo(r.q));}return {position:pos,rotationDegrees:rot*180/Math.PI};}
   function dispose(){const gs=new Set(),ms=new Set(),ts=new Set();root.traverse(o=>{if(o.geometry)gs.add(o.geometry);if(o.material){for(const m of Array.isArray(o.material)?o.material:[o.material])ms.add(m);}});for(const g of gs)g.dispose();for(const m of ms){for(const v of Object.values(m))if(v?.isTexture)ts.add(v);m.dispose();}for(const t of ts)t.dispose();}
-  return {root,update,passport,mat,locations,crowns,critical,connectionReport,assemblyError,dispose};
+  return {root,update,passport,mat,locations,crowns,critical,connectionReport,structuralReport,assemblyError,dispose};
 }

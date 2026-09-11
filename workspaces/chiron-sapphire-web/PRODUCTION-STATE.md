@@ -1,38 +1,32 @@
-# CHIRON SAPPHIRE — R02 recovery candidate
+# CHIRON SAPPHIRE — R04 structural production candidate
 
 Contract SHA256: d84a8f87d8aa60a8d381416fbf152017e7d7ab7fce5d4497d98bc74dede521d9.
-Authorized: yangerstar1/future, codex/chiron-sapphire-web, isolated workspaces/chiron-sapphire-web and its existing workflow; sandbox and Actions. No extra fees or public deployment.
+Authorized: yangerstar1/future / codex/chiron-sapphire-web; workspace and existing
+workflow only, sandbox and standard Actions. No main/unrelated branch changes,
+new fees, commercial asset purchase or public deployment.
 
-## Recovery audit
+Current: G3 structural rework following user's rejection of sparse/unattached R02.
+The authoritative model is now watch.mjs + craft.mjs + sapphire.mjs + CAD-generated
+bored cylinder solids. Rendering is main.mjs + nested-sapphire.mjs + the vendored
+CC0 studio HDR. The seven-chapter document and solver are retained.
 
-Remote recovered head ae310ef5004684b300461a4bf11a8ed183b779b8 held only bootstrap/package/state. The two old R01 screenshots had no recoverable corresponding source in the branch or attached artifacts. They were not accepted as source recovery or used to certify R02. The current workspace is newly reconstructed within the same authorized scope, using the pinned dependency artifact from Actions run 34605235533.
+Checkpoint: R04 pass10. See R04-STRUCTURAL-REVIEW.md and bound build-manifest.json.
+This is an improved authored reconstruction, not original manufacturer CAD.
+All numeric interface dimensions not on the official specification are labelled
+ENGINEERING_APPROXIMATION. Do not claim to reproduce all 578 original components.
 
-## Actual implementation
+Completed locally: pinned Node build and seven existing solver tests; 15 additional
+actual generated geometry/transform checks; seven real Chromium UI view captures
+including both sides/back and isolated mechanisms, neutral/studio. Browser uses
+ANGLE SwiftShader and standalone document injection. Not HTTP cold-start evidence,
+not physical desktop-GPU or mobile performance, not isolated external review.
 
-Seven HTML chapters and one true 3D model. Editable procedural whole watch, sixteen linked pistons, crankshaft/rods, four springs, tourbillon/balance/hairspring, hands/time, independent reserves and crowns, crystal removal, continuous assembly layers, isolation, orbit/back/zoom, mouse/keyboard paths, reduced motion, default mute, load/context failure handling. Models are generated from source; original hidden structure is disclosed approximation, not factory CAD.
+NOT PASSED: CU01/CU06/CU08 Q3; exhaustive visible assembly/collision inspection;
+all final O01–O32; exact final-version normal-UI lifecycle and mobile regressions;
+physical-GPU performance. G5/G6 and all-nine-gate qualification remain unawarded.
+Do not treat a successful source-checkpoint workflow as product qualification.
 
-No claim that all these implementations have passed every visual/dynamic observation. See current browser report rather than counting controls.
-
-## Evidence and current status
-
-G0 environment/authorization recovered. Sandbox uses Chromium 144 under Xvfb with ANGLE SwiftShader; local HTTP and file navigation blocked by browser policy. Actual rendered observation uses literal standalone document injection. This cannot certify HTTP cold start or hardware GPU performance. GitHub Actions must execute the HTTP path separately.
-
-G1 reference/fact register established with adopted/rejected views and approximation fields; official motion-video timing and fully observed evaluator calibration are not complete. G2 complete functional candidate exists and solver unit checks run; all required dynamic/browser gates need their actual reports. G3/G4 implementation in progress; Q3 visual requirements are NOT passed. G5/G6 not passed. Overall status: DELIVERED_UNQUALIFIED candidate, not AUTO_QUALIFIED or USER_ACCEPTED.
-
-721 phases × sixteen sliders passed the numerical tolerance; seven initial unit tests passed. Initial actual browser diagnostics found ambiguous test selectors, reassembly observation synchronization, rear-crystal disassembly path and mobile overlap defects. Their original failed report is preserved under evidence/diagnostics/R02-initial. Current code fixes these items; do not mark them closed until the current browser report establishes the corresponding rendered behaviour.
-
-Current full browser regression is run from the exact dist/build-manifest.json source/build hashes. A passing test-suite process would still NOT confer CU01/CU06/CU08 Q3, all O01—O32 coverage, hardware performance or brand authorization.
-
-## Remaining blockers/major risks
-
-- EX05: product-identity/micro-craft/glass and unified page quality require strict reference-based visual review; no Q3 assertion.
-- EX07: no desktop physical-GPU or real-phone peak performance evidence; complete three-scene, three-repeat frame-time measurements and all recovery cases remain to be bound to the candidate.
-- EX09: full O01—O32 coverage, HTTP cold-start and final normal-UI chain must be checked on this code; not inherited from earlier builds.
-- Read current rendered 50-cycle/seeded100-step result before claiming state/pose stability.
-- Source and GLB should remain jointly recoverable; exporter output is generated by browser-check, not assumed present.
-
-## Resume
-
-Read README.md, REFERENCES.md, this state, build manifest and actual browser report. Do not restart G0 or switch product/framework. Run npm ci, npm test, npm run build, then the actual browser suite. Open fixed front/back/W16/macro/mobile screenshots; prioritize the highest-impact real defect. Keep the current source snapshot before changes. After a render-affecting modification, rebuild and rebind the affected evidence. Only all nine contract gates allow AUTO_QUALIFIED.
-
-Assurance: SEQUENTIAL_SELF_REVIEW + real tool checks. No independently isolated evaluator or real phone was used.
+Prioritize actual case-off oblique/side/macro defects and reference layout. Do not
+add more UI controls or use darkness, alpha invisibility or random gears to hide
+structure. Preserve prior source/evidence. The user has already authorized ongoing
+A0–A2 work; no routine per-stage user confirmation is needed.

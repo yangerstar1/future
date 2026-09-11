@@ -1,0 +1,22 @@
+{
+  "snapshot": "fdd130b709d058d4fb98e3bf44c867b28b5265d86519c0b193deb2813226ed96",
+  "sourceSha256": {
+    "watch.mjs": "66b7b965719bab595fa22cc6a00ba04cfe8a0044f95f6751e3afd06e0b0950bd",
+    "craft.mjs": "5d721805e23794b85816d2ae853eebf9966945869bcc7b80030e04524e1ff001",
+    "sapphire.mjs": "6de9cd0df1a96c13abd898adab4a6c7b5d0d6563bae9e1d359c2002bd015744f",
+    "nested-sapphire.mjs": "80513e7c79d0ef080f56c5639437427958f8a3ac5a78c809f3e9492ddfb61511",
+    "main.mjs": "f3df4b3a7d8ab5af7822cb698212a8de7ee9f4105c1ca13ca6c449552241913c",
+    "style.css": "a2a761c9154466588b37ec086830b971ce6dd6d55ebbf0a11b33fbdc3b55195e",
+    "tools/build.mjs": "222826c2ce8592af06e9d5e94abc66775da4d089bdaf6c61aa7109bbaea84e47",
+    "tools/craft-observe.mjs": "8be4ca15d8abbaa32a0833277bdf30d6972a523c41604281c7d9d567e07d9046",
+    "tools/geometry-audit.mjs": "b0e4a1e9c5b5fd57600b3c41d020b954f03e858b1007e3718965f7bd0a219a9a",
+    "cad/engine_blocks.py": "12a41d9ba38e2192a68c823d8ea34bb9618044832eb433559ac01a5dfc6b57f1",
+    "cad/prepare_studio.py": "3d6547b8233fbf8f25f7c4228d5bb1dd1164ecdc5ccb4713bced4b772c0c16f3",
+    "cad/requirements.txt": "1143a6d8b7032fda81bfa56e4707d8fb4624e9138f643d2bdcd72b11fd4aba2a",
+    "PRODUCTION-STATE.md": "cfd7637314ff9f8cbeb4c6e6ad128578b1077b42ed908d9c98d03b963cf2f6cd",
+    "README.md": "7977401ae68680a7aae1aca4d4f1c36efd21071ea4d448d0098eb8a6ba916687",
+    "REFERENCES.md": "d692a7bdc5b5f86e4a5bad41212fba4629e03b3ed7a2f6bb4cd2f3ae3217121f",
+    "THIRD-PARTY-NOTICES.txt": "6196e6a9f17207ae9c5198a3327fa77034d701d50b06ea7b150b82ae99c389c8",
+    "R04-STRUCTURAL-REVIEW.md": "4f7a381f0817e8b76d5b5bb89ce07f1a4cc0f395b4cc74c110bd52ac942db144"
+  }
+}

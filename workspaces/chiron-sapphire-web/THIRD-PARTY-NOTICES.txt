@@ -252,3 +252,15 @@ Playwright 1.55.1
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
+R04 ADDITION — PRODUCTION ENVIRONMENT ILLUMINATION
+Studio Small 03, Greg Zaal / Poly Haven, CC0 1.0 Universal.
+Asset page: https://polyhaven.com/a/studio_small_03
+License: https://polyhaven.com/license
+Legal code: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+Bundled derivative: generated/studio-small-03-1k.hdr (1024x512 RGBE).
+Original and result hashes: generated/STUDIO-SOURCE.json.
+CC0 applies to this environment asset, not to the watch brand, product design,
+official reference photographs or other third-party works.
+CAD assets and all modeled product geometry are authored digital approximations;
+no factory CAD, purchased editorial model or copied product photo texture used.

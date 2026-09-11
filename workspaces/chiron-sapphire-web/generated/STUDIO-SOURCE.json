@@ -1,0 +1,13 @@
+{
+  "name": "Studio Small 03",
+  "author": "Greg Zaal / Poly Haven",
+  "source": "https://polyhaven.com/a/studio_small_03",
+  "download": "https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/4k/studio_small_03_4k.exr",
+  "license": "CC0",
+  "licenseSource": "https://polyhaven.com/license",
+  "sourceSHA256": "fbaa5f64cdfddcf2ebbca7aee43457fac74b5f8b0f2755a65185eaa5d9f8e371",
+  "transformation": "OpenCV area resampling to 1024 x 512, unchanged linear HDR radiance, Radiance RGBE serialization",
+  "resultSHA256": "b5dd5b8873ca658ea57353ddf5fe384f9ddd25578ca049a5ff65b9cabb01fc9d",
+  "resultBytes": 1683702,
+  "role": "environment illumination; never product geometry or product photography"
+}
