@@ -1,0 +1,78 @@
+name: Skyfold R08 inhabited-city tracking correction
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r08-reframe.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: skyfold-r08-reframe
+  cancel-in-progress: false
+jobs:
+  probe:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r08-tracking
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore immutable source and verify reused renderer
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin 3c7b65226dec6fe43261ad1d247cb4ccb9a845e5
+          git restore --source=FETCH_HEAD -- workspaces/skyfold-dock/output/r07b-finish/skyfold-r07b.blend workspaces/skyfold-dock/output/r07b-finish/BUILD-MANIFEST.json
+          echo 'e9ffbb9051f27fe6c19d6ff7069cd5f419b9517e3b4ee2b0d0f889845e8086c6  workspaces/skyfold-dock/output/r07b-finish/skyfold-r07b.blend' | sha256sum -c
+          mkdir -p "$SKYFOLD_OUT"
+          python3 -m py_compile workspaces/skyfold-dock/r08_inhabited_tracking.py
+          { date -u; git rev-parse HEAD; free -b; df -B1 .; lscpu; } > "$SKYFOLD_OUT/environment.txt"
+          sha256sum workspaces/skyfold-dock/{r08_inhabited_tracking.py,r06_flight.py,provision.sh} > "$SKYFOLD_OUT/source-sha256.txt"
+          bash workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/provision.log" 2>&1
+      - name: Repair camera staging and protect unchanged geometry
+        run: |
+          set -euo pipefail
+          R08_MODE=build /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b workspaces/skyfold-dock/output/r07b-finish/skyfold-r07b.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/r08_inhabited_tracking.py > "$SKYFOLD_OUT/build.log" 2>&1
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r08-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r08-tracking
+          git commit -m "R08 local shot correction snapshot; visual review pending"
+          git push origin HEAD
+      - name: Render actual first last alternative and neutral observations
+        run: |
+          set -euo pipefail
+          R08_MODE=probe /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r08.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/r08_inhabited_tracking.py > "$SKYFOLD_OUT/render.log" 2>&1
+      - name: Preserve exact output or failure without artistic promotion
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          p=Path(os.environ['SKYFOLD_OUT']);p.mkdir(parents=True,exist_ok=True)
+          files={f.name:{'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()} for f in p.iterdir() if f.is_file()}
+          assert sum(r['bytes'] for r in files.values())<100000000
+          (p/'DELIVERY.json').write_text(json.dumps({'run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'auto_qualified':False},indent=2))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          B=evidence/skyfold-r08-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          if [ "$(git branch --show-current)" != "$B" ]; then git switch -c "$B"; fi
+          git add workspaces/skyfold-dock/output/r08-tracking
+          git diff --cached --quiet || git commit -m "R08 true observations and measured logs, review required"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r08-tracking-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r08-tracking
+            workspaces/skyfold-dock/r08_inhabited_tracking.py
+            workspaces/skyfold-dock/r06_flight.py
+            workspaces/skyfold-dock/provision.sh
+          retention-days: 1
+          if-no-files-found: error
