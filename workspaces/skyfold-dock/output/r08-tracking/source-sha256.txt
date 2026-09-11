@@ -1,0 +1,3 @@
+19cea7de4e00944172ce6842444ea5f4cb49defed2a4249e97497b1863d00eda  workspaces/skyfold-dock/r08_inhabited_tracking.py
+9c5bda5a3af30f3d799ddf80427d2643749859da23ccf7b0eedda1da06141797  workspaces/skyfold-dock/r06_flight.py
+0b3a39929af30e6222502793a2c212ee85e13ac64cd0e306905cb282f472d598  workspaces/skyfold-dock/provision.sh
