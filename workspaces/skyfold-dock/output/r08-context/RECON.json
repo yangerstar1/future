@@ -1,0 +1,67 @@
+{
+  "input_sha256": "e9ffbb9051f27fe6c19d6ff7069cd5f419b9517e3b4ee2b0d0f889845e8086c6",
+  "blender": "4.5.13 LTS",
+  "collections": {
+    "01_RING_STRUCTURE": 399,
+    "02_CITY_INSTANCES": 5460,
+    "03_DOCK": 99,
+    "04_FREIGHTER": 800,
+    "05_MAINTENANCE": 1629,
+    "06_TRANSPORT": 304,
+    "07_LIGHTS": 6,
+    "08_CAMERAS": 71,
+    "09_PROTOTYPES": 94,
+    "10_R04_GALLERY": 178,
+    "11_R04_MOTION": 1,
+    "12_R04_CITY_SERVICE": 0,
+    "13_R06_FLIGHT": 5,
+    "14_R07_FOUNDATION_ADAPTERS": 27,
+    "15_R07_DAYLIGHT": 4
+  },
+  "ship_hull_bounds": [
+    [
+      -20978.0,
+      -40437.5,
+      8051.0
+    ],
+    [
+      -20978.0,
+      -40437.5,
+      8149.0
+    ],
+    [
+      -20978.0,
+      -39562.5,
+      8149.0
+    ],
+    [
+      -20978.0,
+      -39562.5,
+      8051.0
+    ],
+    [
+      -20822.0,
+      -40437.5,
+      8051.0
+    ],
+    [
+      -20822.0,
+      -40437.5,
+      8149.0
+    ],
+    [
+      -20822.0,
+      -39562.5,
+      8149.0
+    ],
+    [
+      -20822.0,
+      -39562.5,
+      8051.0
+    ]
+  ],
+  "ring_diameter_m": 20000,
+  "reused_render_entry": "r06_flight.py / config",
+  "mutation_scope": "Ship root translation, new cameras, existing lighting and world only; no mesh changes",
+  "external_assets": []
+}
