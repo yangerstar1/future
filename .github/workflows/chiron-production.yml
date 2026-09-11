@@ -10,44 +10,74 @@ concurrency:
   group: chiron-${{ github.ref }}
   cancel-in-progress: false
 jobs:
-  verify:
+  recover-source:
+    if: github.ref == 'refs/heads/codex/chiron-sapphire-web'
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    outputs:
+      source_sha: ${{ steps.source.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore verified readable source once; protect subsequent edits
+        run: |
+          python3 workspaces/chiron-sapphire-web/.recovery/r02-source/restore.py
+          git add -- workspaces/chiron-sapphire-web
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Chiron R02: persist readable website, editable mechanics, tests and contract'
+            git push origin HEAD:refs/heads/codex/chiron-sapphire-web
+          fi
+      - name: Bind subsequent evidence to actual readable-source commit
+        id: source
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+  verify:
+    needs: recover-source
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
     defaults:
       run:
         working-directory: workspaces/chiron-sapphire-web
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.recover-source.outputs.source_sha }}
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22.16.0'
-      - name: Install locked production tools
+      - name: Install exactly locked dependencies and build
         run: |
-          if test -f package-lock.json; then npm ci; else npm install; fi
-      - name: Save dependency recovery package
-        run: tar -czf /tmp/chiron-dependencies.tar.gz node_modules package-lock.json
-      - uses: actions/upload-artifact@v4
-        with:
-          name: chiron-dependencies
-          path: /tmp/chiron-dependencies.tar.gz
-          retention-days: 7
-      - name: Build and verify when implementation exists
+          npm ci
+          npm test
+          npm run build
+          mkdir -p evidence/R02
+          git rev-parse HEAD > evidence/R02/SOURCE-COMMIT.txt
+          uname -a > evidence/R02/RUNNER.txt
+          node --version >> evidence/R02/RUNNER.txt
+          npx playwright install --with-deps chromium
+      - name: Real HTTP normal-interface regression and editable GLB export
+        run: xvfb-run -a node tools/browser-check.mjs
+      - name: Real HTTP failures, context restoration, background and touch
+        if: ${{ !cancelled() && hashFiles('workspaces/chiron-sapphire-web/dist/build-manifest.json') != '' }}
+        run: xvfb-run -a node tools/health-check.mjs
+      - name: Software-renderer peak measurements, not a hardware qualification
+        if: ${{ !cancelled() && hashFiles('workspaces/chiron-sapphire-web/dist/build-manifest.json') != '' }}
+        run: xvfb-run -a node tools/performance.mjs
+      - name: Package editable source without dependencies or transport duplicates
+        if: always()
         run: |
-          if test -f tools/build.mjs; then
-            npm test
-            npm run build
-            npx playwright install --with-deps chromium
-            xvfb-run -a node tools/browser-check.mjs
-          else
-            printf 'G0_DEPENDENCIES_ONLY: no product implementation or product pass claimed.\n'
-          fi
+          tar --exclude=node_modules --exclude=dist --exclude=evidence --exclude=assets --exclude=.recovery -czf /tmp/chiron-readable-source.tar.gz .
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: chiron-production-${{ github.sha }}
+          name: chiron-production-${{ needs.recover-source.outputs.source_sha }}
           path: |
             workspaces/chiron-sapphire-web/evidence/
             workspaces/chiron-sapphire-web/dist/
-            workspaces/chiron-sapphire-web/package-lock.json
+            workspaces/chiron-sapphire-web/assets/
+            /tmp/chiron-readable-source.tar.gz
           retention-days: 14
-          if-no-files-found: warn
+          if-no-files-found: error
