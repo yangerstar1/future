@@ -1,0 +1,26 @@
+{
+  "snapshot": "68e1bbf8fffbf89838280ee9e4c8a25ef98bc99f881db3dd0e0ace050672eb04",
+  "patches": "0c2278f4af736a716c495da8ea4b1cfa463ee4ea7cd1a93ce040c254799b6b81",
+  "sourceSha256": {
+    "PRODUCTION-STATE.md": "57b77863b5972da3a2dd8bd08b65b1d660480e32419c99470115f63d7a616408",
+    "README.md": "29dd6d087b44b652e5255002367c70331e8af937a407b6e7052e56b574d0a5e3",
+    "REFERENCES.md": "baca98e7f890ee8804031a4f0ccac555794dd3ae754162a66016dfe1a77c016d",
+    "THIRD-PARTY-NOTICES.txt": "bef30d645cd5dda4f853e1721d0deeafba5361dbcae631d64d3918830e13ab29",
+    "index.html": "a8c76c24ee6d383a3e468bf9874d272ccdb54ed7981c5a6491a0d3f78965e39f",
+    "main.mjs": "9fd24c87e958c2b86e2809220d9519d7908e78abfdfc568f73e08fb1f491d1b9",
+    "mechanics.mjs": "180ddd1450b8f252447fc36e037c6893159671431e27ba07baad6403aa54824d",
+    "package-lock.json": "37b01fbbbbd92651304e534fe981f90dea06dce03a9cb88def1aeddd896a9b94",
+    "package.json": "e8c912528cf90772c7314c2f6b7065e5293227c750d0b63819d2715be861174e",
+    "references/CONTRACT-V1.md": "d84a8f87d8aa60a8d381416fbf152017e7d7ab7fce5d4497d98bc74dede521d9",
+    "style.css": "eeccbc7651d2eee1a906611606c0546ab62c38ebae5fab697910650c6618566e",
+    "tools/browser-check.mjs": "9bea5dbd3a36c9e2bff432406096e94a3e29728d70455cb2ad6d53d31432aaf1",
+    "tools/build.mjs": "f678d1ce3917064f011c4992d3df79a664fa94a1a7b138f71a9f99aa3a25e402",
+    "tools/health-check.mjs": "04fc48500b297559f5461e627ac975c241ef0d229cc1e9ee3220b759ba2cbc70",
+    "tools/mechanics.test.mjs": "d6876d2fcfae78c60758467ff26c5b8d123e15fcab39508f8f77ba5626295f3e",
+    "tools/performance.mjs": "2e0cf6047979bc3631f37568c7f31951b2495d257c28623a7e3af2a35d19ec9b",
+    "tools/preview-multi.mjs": "dd44a98bdc1f02b6ff8cec413221860c433ecaa87bb103d7278765482cf534d6",
+    "tools/preview.mjs": "195f026223798649b10d15d7c1821180ac7c88376ede9aea0d0eb58e5a718f34",
+    "tools/serve.mjs": "8c5ec19646f44b83b9d73461522cfc849fb25f33210da971fcbc11da8d15643b",
+    "watch.mjs": "ec06abdd7337d7affed7c7c97294a63992ddce55d38e626acef7b2493d05552f"
+  }
+}

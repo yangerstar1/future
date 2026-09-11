@@ -1,13 +1,38 @@
-# Chiron Sapphire — production state
+# CHIRON SAPPHIRE — R02 recovery candidate
 
-Contract: CHIRON_SAPPHIRE_WEB_PRODUCTION_CONTRACT_V1(1).md, SHA256 d84a8f87d8aa60a8d381416fbf152017e7d7ab7fce5d4497d98bc74dede521d9.
+Contract SHA256: d84a8f87d8aa60a8d381416fbf152017e7d7ab7fce5d4497d98bc74dede521d9.
+Authorized: yangerstar1/future, codex/chiron-sapphire-web, isolated workspaces/chiron-sapphire-web and its existing workflow; sandbox and Actions. No extra fees or public deployment.
 
-User authorized future repository, a new branch, existing Actions and sandbox work on 2026-09-11. No new fees or website deployment authorized.
+## Recovery audit
 
-G0: repository main read at 96f6321e6cef2ef37b97c85b460025079f006c12. Only README.md exists on this baseline; no AGENTS.md, dependencies, entrypoints or existing product implementation. Existing README and other branches must remain unchanged.
+Remote recovered head ae310ef5004684b300461a4bf11a8ed183b779b8 held only bootstrap/package/state. The two old R01 screenshots had no recoverable corresponding source in the branch or attached artifacts. They were not accepted as source recovery or used to certify R02. The current workspace is newly reconstructed within the same authorized scope, using the pinned dependency artifact from Actions run 34605235533.
 
-New isolated branch: codex/chiron-sapphire-web. New isolated workspace: workspaces/chiron-sapphire-web. Allowed root change: .github/workflows/chiron-production.yml only.
+## Actual implementation
 
-Local runtime: Node 22.16.0, Python 3.13.5, Chromium 144.0.7559.96. Headless WebGL2 failed. A real headed Chromium launched under xvfb-run now obtains WebGL2 using ANGLE SwiftShader. This is software rendering, not physical GPU or mobile hardware evidence. Sandbox network cannot download dependencies; Actions supplies pinned npm dependencies. No original or paid watch asset acquired. Production geometry will be locally authored using Three.js geometry utilities, not a copied editorial model.
+Seven HTML chapters and one true 3D model. Editable procedural whole watch, sixteen linked pistons, crankshaft/rods, four springs, tourbillon/balance/hairspring, hands/time, independent reserves and crowns, crystal removal, continuous assembly layers, isolation, orbit/back/zoom, mouse/keyboard paths, reduced motion, default mute, load/context failure handling. Models are generated from source; original hidden structure is disclosed approximation, not factory CAD.
 
-Current: G0 bootstrap / source baseline in progress. G1–G6 not passed. No website, model or product-quality claim in this commit. Assurance: SEQUENTIAL_SELF_REVIEW + actual tool checks; no independent agent called.
+No claim that all these implementations have passed every visual/dynamic observation. See current browser report rather than counting controls.
+
+## Evidence and current status
+
+G0 environment/authorization recovered. Sandbox uses Chromium 144 under Xvfb with ANGLE SwiftShader; local HTTP and file navigation blocked by browser policy. Actual rendered observation uses literal standalone document injection. This cannot certify HTTP cold start or hardware GPU performance. GitHub Actions must execute the HTTP path separately.
+
+G1 reference/fact register established with adopted/rejected views and approximation fields; official motion-video timing and fully observed evaluator calibration are not complete. G2 complete functional candidate exists and solver unit checks run; all required dynamic/browser gates need their actual reports. G3/G4 implementation in progress; Q3 visual requirements are NOT passed. G5/G6 not passed. Overall status: DELIVERED_UNQUALIFIED candidate, not AUTO_QUALIFIED or USER_ACCEPTED.
+
+721 phases × sixteen sliders passed the numerical tolerance; seven initial unit tests passed. Initial actual browser diagnostics found ambiguous test selectors, reassembly observation synchronization, rear-crystal disassembly path and mobile overlap defects. Their original failed report is preserved under evidence/diagnostics/R02-initial. Current code fixes these items; do not mark them closed until the current browser report establishes the corresponding rendered behaviour.
+
+Current full browser regression is run from the exact dist/build-manifest.json source/build hashes. A passing test-suite process would still NOT confer CU01/CU06/CU08 Q3, all O01—O32 coverage, hardware performance or brand authorization.
+
+## Remaining blockers/major risks
+
+- EX05: product-identity/micro-craft/glass and unified page quality require strict reference-based visual review; no Q3 assertion.
+- EX07: no desktop physical-GPU or real-phone peak performance evidence; complete three-scene, three-repeat frame-time measurements and all recovery cases remain to be bound to the candidate.
+- EX09: full O01—O32 coverage, HTTP cold-start and final normal-UI chain must be checked on this code; not inherited from earlier builds.
+- Read current rendered 50-cycle/seeded100-step result before claiming state/pose stability.
+- Source and GLB should remain jointly recoverable; exporter output is generated by browser-check, not assumed present.
+
+## Resume
+
+Read README.md, REFERENCES.md, this state, build manifest and actual browser report. Do not restart G0 or switch product/framework. Run npm ci, npm test, npm run build, then the actual browser suite. Open fixed front/back/W16/macro/mobile screenshots; prioritize the highest-impact real defect. Keep the current source snapshot before changes. After a render-affecting modification, rebuild and rebind the affected evidence. Only all nine contract gates allow AUTO_QUALIFIED.
+
+Assurance: SEQUENTIAL_SELF_REVIEW + real tool checks. No independently isolated evaluator or real phone was used.
