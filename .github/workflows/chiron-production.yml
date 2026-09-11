@@ -10,6 +10,24 @@ concurrency:
   group: chiron-${{ github.ref }}-${{ contains(github.event.head_commit.message, '[source-sync]') }}
   cancel-in-progress: false
 jobs:
+  studio-asset:
+    if: contains(github.event.head_commit.message, '[studio-asset]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Acquire public CC0 studio lighting; not a watch asset or deployment
+        run: |
+          mkdir -p /tmp/chiron-studio
+          curl --fail --location --retry 2 --max-time 90 'https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/4k/studio_small_03_4k.exr' -o /tmp/chiron-studio/studio_small_03_4k.exr
+          cd /tmp/chiron-studio
+          sha256sum studio_small_03_4k.exr > SHA256SUMS.txt
+          printf 'Studio Small 03\nAuthor: Greg Zaal / Poly Haven\nAsset page: https://polyhaven.com/a/studio_small_03\nLicense: CC0, https://polyhaven.com/license\nAcquired for product-lighting comparison; no model/photo/font rights implied.\n' > SOURCE.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chiron-studio-cc0
+          path: /tmp/chiron-studio/
+          retention-days: 14
+          if-no-files-found: error
   source-checkpoint:
     runs-on: ubuntu-latest
     timeout-minutes: 5
