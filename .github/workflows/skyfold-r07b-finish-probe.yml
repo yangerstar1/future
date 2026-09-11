@@ -1,0 +1,69 @@
+name: Skyfold R07B same-camera finishing probe
+on:
+  push:
+    branches: [codex/skyfold-dock]
+    paths: [.github/workflows/skyfold-r07b-finish-probe.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: skyfold-r07b-finish-probe
+  cancel-in-progress: false
+jobs:
+  probe:
+    if: github.repository == 'yangerstar1/future' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      SKYFOLD_OUT: ${{ github.workspace }}/workspaces/skyfold-dock/output/r07b-finish
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore inspected immutable R07B
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin 823e6d8bb663f0ae7c788bcad773fd2920f16502
+          git restore --source=FETCH_HEAD -- workspaces/skyfold-dock/output/r07b-flight/skyfold-r07b.blend workspaces/skyfold-dock/output/r07b-flight/BUILD-MANIFEST.json
+          mkdir -p "$SKYFOLD_OUT"
+          python3 -m py_compile workspaces/skyfold-dock/finish_r07b_look.py workspaces/skyfold-dock/stage_r07_tracking.py
+          { date -u; git rev-parse HEAD; free -b; df -B1 .; lscpu; } > "$SKYFOLD_OUT/environment.txt"
+          sha256sum workspaces/skyfold-dock/{finish_r07b_look.py,stage_r07_tracking.py,r06_flight.py,provision.sh} > "$SKYFOLD_OUT/source-sha256.txt"
+          bash workspaces/skyfold-dock/provision.sh > "$SKYFOLD_OUT/provision.log" 2>&1
+      - name: Revise look while asserting geometry camera and movement are unchanged
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o "$SKYFOLD_OUT/build-time.txt" blender -b workspaces/skyfold-dock/output/r07b-flight/skyfold-r07b.blend -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/finish_r07b_look.py > "$SKYFOLD_OUT/build.log" 2>&1
+      - name: Render true first last and neutral views with existing presets
+        run: |
+          set -euo pipefail
+          R07B_MODE=probe /usr/bin/time -v -o "$SKYFOLD_OUT/render-time.txt" blender -b "$SKYFOLD_OUT/skyfold-r07b.blend" -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/stage_r07_tracking.py > "$SKYFOLD_OUT/render.log" 2>&1
+      - name: Persist bounded evidence and any failure
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          p=Path(os.environ['SKYFOLD_OUT']);files={f.name:{'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()} for f in p.glob('*') if f.is_file()}
+          assert sum(r['bytes'] for r in files.values())<100000000
+          (p/'DELIVERY.json').write_text(json.dumps({'run_id':os.environ['GITHUB_RUN_ID'],'source_sha':os.environ['GITHUB_SHA'],'files':files,'auto_qualified':False},indent=2))
+          PY
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c evidence/skyfold-r07b-finish-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          git add workspaces/skyfold-dock/output/r07b-finish
+          git commit -m "R07B same-camera look probe and exact logs; no art promotion"
+          git push origin HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: skyfold-r07b-finish-${{ github.run_id }}
+          path: |
+            workspaces/skyfold-dock/output/r07b-finish
+            workspaces/skyfold-dock/finish_r07b_look.py
+            workspaces/skyfold-dock/stage_r07_tracking.py
+            workspaces/skyfold-dock/r06_flight.py
+            workspaces/skyfold-dock/provision.sh
+          retention-days: 1
+          if-no-files-found: error
