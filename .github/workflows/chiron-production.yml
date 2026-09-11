@@ -1,4 +1,4 @@
-name: Chiron R03 optical diagnostic tools
+name: Chiron R03 optical and solid diagnostic tools
 on:
   push:
     branches: [codex/chiron-craft-r03]
@@ -7,26 +7,26 @@ on:
 permissions:
   contents: read
 jobs:
-  optical-tools:
+  diagnostic-tools:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.16.0'
-      - name: Acquire fixed optical diagnostic tools, not a website quality pass
+      - name: Acquire fixed diagnostic tools, not a website quality pass
         run: |
-          mkdir -p /tmp/chiron-optical-tools
-          cd /tmp/chiron-optical-tools
+          mkdir -p /tmp/chiron-solid-tools
+          cd /tmp/chiron-solid-tools
           npm init -y
-          npm install --save-exact three@0.180.0 three-gpu-pathtracer@0.0.24
+          npm install --save-exact three@0.180.0 three-gpu-pathtracer@0.0.24 three-bvh-csg@0.0.18
           npm ls --all > dependency-tree.txt
           node --version > runtime.txt
-          printf 'Diagnostic only. Not a production renderer decision, original CAD, hardware benchmark, or visual qualification.\n' > SCOPE.txt
-          tar -czf /tmp/chiron-optical-tools.tar.gz node_modules package.json package-lock.json dependency-tree.txt runtime.txt SCOPE.txt
+          printf 'Diagnostic only. No website qualification, original CAD, hardware benchmark, public deployment or recurring services. Solid results require validation.\n' > SCOPE.txt
+          tar -czf /tmp/chiron-solid-tools.tar.gz node_modules package.json package-lock.json dependency-tree.txt runtime.txt SCOPE.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: chiron-r03-optical-tools
-          path: /tmp/chiron-optical-tools.tar.gz
+          name: chiron-r03-solid-tools
+          path: /tmp/chiron-solid-tools.tar.gz
           retention-days: 7
           if-no-files-found: error
