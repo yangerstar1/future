@@ -1,0 +1,3 @@
+cc8fd20acd6b4f774eb8913c741092356b3fc476a69f258d2882fbe4536b359e  workspaces/skyfold-dock/r08_refine_frame.py
+9c5bda5a3af30f3d799ddf80427d2643749859da23ccf7b0eedda1da06141797  workspaces/skyfold-dock/r06_flight.py
+0b3a39929af30e6222502793a2c212ee85e13ac64cd0e306905cb282f472d598  workspaces/skyfold-dock/provision.sh

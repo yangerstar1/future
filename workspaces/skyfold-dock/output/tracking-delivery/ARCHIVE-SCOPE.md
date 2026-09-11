@@ -1,0 +1,1 @@
+This is a rendered forward-flight candidate, not automatic core-contract acceptance. The scene is independently moving and tracked, not a simulated undocking. All 192 encoded frames, their source hashes and transforms are retained; selected original PNGs and decoded samples are retained, not every uncompressed PNG. Prior docked scenes and reviews remain protected.

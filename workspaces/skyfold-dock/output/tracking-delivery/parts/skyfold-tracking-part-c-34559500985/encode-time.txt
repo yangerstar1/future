@@ -1,0 +1,23 @@
+	Command being timed: "blender -b --factory-startup -t 4 --python-exit-code 1 -P workspaces/skyfold-dock/encode_actual_frames.py"
+	User time (seconds): 5.54
+	System time (seconds): 0.45
+	Percent of CPU this job got: 195%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.06
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 686152
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 115634
+	Voluntary context switches: 1594
+	Involuntary context switches: 4036
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 1680
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

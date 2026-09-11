@@ -1,0 +1,514 @@
+{
+  "run_id": "34559500985",
+  "source_sha": "599793ea843b2ebf1d9089b5dd35d1d333cd1d06",
+  "scene_sha256": "e9ffbb9051f27fe6c19d6ff7069cd5f419b9517e3b4ee2b0d0f889845e8086c6",
+  "files": {
+    "SOURCE-FRAME-HASHES.json": {
+      "bytes": 30614,
+      "sha256": "c32f6d3efeead31af137ffeb5310d8a4ada6981765f22e6f871eea7dd0f2ce7f"
+    },
+    "ASSEMBLY-VERIFICATION.json": {
+      "bytes": 6064,
+      "sha256": "d76f15451aab13bd5012e8c336b096679954f90da81b96160dd90561c9f773e1"
+    },
+    "Skyfold_Forward_Flight_1080p.mp4": {
+      "bytes": 3389445,
+      "sha256": "f2c30462e9c9850599f43bd82a3dbcbed710cd9e87c4219695f254d265f34ce8"
+    },
+    "assembly.log": {
+      "bytes": 6065,
+      "sha256": "2259352e1f3e18d351a42147174261efc91ffe5a31c73a8c567914dd512e247f"
+    },
+    "decoded-framemd5.txt": {
+      "bytes": 15577,
+      "sha256": "5ae33d3615143d0bd8fb14f56546b4cc4db176113124e403b8a15dab3a2b3a7d"
+    },
+    "concat.txt": {
+      "bytes": 468,
+      "sha256": "0a604b0c9df285b27b8ba1fdce1b4b258687160466efd5a219cbac893850318f"
+    },
+    "ffmpeg-version.txt": {
+      "bytes": 1838,
+      "sha256": "5b320c97f515e79171f10a2147d875ffb6b14bd2b25681047b73c46fe0a527ee"
+    },
+    "RUN-LEDGER.json": {
+      "bytes": 10065,
+      "sha256": "5e656c93a2361943217819f7aebaa7f13865bb4777d09806b219d9322c36900f"
+    },
+    "MOTION-OBSERVATIONS.json": {
+      "bytes": 336638,
+      "sha256": "bdd0151e1e083a67de7d726e863f485218a65107d203dd091edb26f99ed52cac"
+    },
+    "ARCHIVE-SCOPE.md": {
+      "bytes": 367,
+      "sha256": "e5bde65d5df24ca9b187908e474d6c794c7fee8cdc43ffeee9fa08e7fd947c72"
+    },
+    "ffmpeg-install.log": {
+      "bytes": 34519,
+      "sha256": "f4f5b6962a6929bf747e6a72b6b0c840eb58f4ae5dbf279837cd20bd73aa44b9"
+    },
+    "stills/R07B_f001_RAW.png": {
+      "bytes": 906367,
+      "sha256": "7b3a71032fcef6fbb9895b546d7d8ecbe7bb888477592f52798c13c360b4c9ff"
+    },
+    "stills/R07B_f001_BEAUTY.png": {
+      "bytes": 3267738,
+      "sha256": "cc87afefd828bfe0eac312952147c359577c90982b76b716c499f3d21ca60504"
+    },
+    "source/BUILD-MANIFEST.json": {
+      "bytes": 374986,
+      "sha256": "046f094547e8207e7baac361ddfd057cd85cc4b861d1b9fdde40b457c3695a4c"
+    },
+    "source/skyfold-r07b.blend": {
+      "bytes": 2927015,
+      "sha256": "e9ffbb9051f27fe6c19d6ff7069cd5f419b9517e3b4ee2b0d0f889845e8086c6"
+    },
+    "samples/frame_0097.png": {
+      "bytes": 636504,
+      "sha256": "10c850d4891430b88a274daa681bd7f26f995dcd4d3a6d105690ea52070bc346"
+    },
+    "samples/frame_0191.png": {
+      "bytes": 976338,
+      "sha256": "ef054bc3d7f23813e34ca03f59b33293de4669ecd20fabf0072ca5f0705aa819"
+    },
+    "samples/frame_0143.png": {
+      "bytes": 960008,
+      "sha256": "3cdcc57e3057b586154ef721f09b119405de4f66821c87c84518c8da00fd2c1c"
+    },
+    "samples/frame_0002.png": {
+      "bytes": 655377,
+      "sha256": "89917defb4c5aa1fd774cf67a236e744098f013f8328afe4e3bc2a5a404c951f"
+    },
+    "samples/frame_0145.png": {
+      "bytes": 639904,
+      "sha256": "c1ee15061154a66152bc80552d9708da8b6e19636375aa6edd129fcfba767fee"
+    },
+    "samples/frame_0096.png": {
+      "bytes": 983316,
+      "sha256": "074abaac8759c4cd81a480c3db4ce3cdc4ea1168eafcb24d8f2e41c859d41c1b"
+    },
+    "samples/frame_0048.png": {
+      "bytes": 974201,
+      "sha256": "988102882da55086564b0eda47013cfe3d2eeb31b6c06de51dc050e1cce1e7d2"
+    },
+    "samples/frame_0072.png": {
+      "bytes": 697842,
+      "sha256": "734386f31eba3707ceeeb7a802639c48a857ae5bdacacabfcff6eaa088741a3d"
+    },
+    "samples/frame_0098.png": {
+      "bytes": 653007,
+      "sha256": "9b674972789587ce0041dc7cbbe7407479e108a9400bf222bd646c854a9c91b9"
+    },
+    "samples/frame_0144.png": {
+      "bytes": 960452,
+      "sha256": "73343c722c7d0328571219eaafcbe1ceca2c6f64f5bb44df4d868fde1a8101f5"
+    },
+    "samples/frame_0120.png": {
+      "bytes": 693690,
+      "sha256": "cc7981e102b666ffbbbc3c13513105b3bd90bc968709005c90c283a1b261ddf1"
+    },
+    "samples/frame_0192.png": {
+      "bytes": 978106,
+      "sha256": "ece79f051b00a9481e03f70c7aace537db87e0ef46a47071a1c8bad3a31c4f8f"
+    },
+    "samples/frame_0146.png": {
+      "bytes": 656579,
+      "sha256": "52a58a62f8d36d62a0364a330c2c47be2912fac14f6064eaed91a7fbaf5409b1"
+    },
+    "samples/frame_0001.png": {
+      "bytes": 638587,
+      "sha256": "6249273486585d8937b50a5f65799d1f5d5cfbeda05feb0548cb4f487d0670c6"
+    },
+    "samples/frame_0047.png": {
+      "bytes": 974514,
+      "sha256": "f20931f1849a5c824f553322e685310d3c245131a248d589346988b1b8156ada"
+    },
+    "samples/frame_0050.png": {
+      "bytes": 654198,
+      "sha256": "6e3b15f66c7d4c95093b30a9a628a13f1fccd3426001f2c04231f23bd29c6633"
+    },
+    "samples/frame_0168.png": {
+      "bytes": 695915,
+      "sha256": "9122df7a18043d048e72cc79505835e22d8c268b3e3c53d40e26ab3ce4ff17d7"
+    },
+    "samples/frame_0095.png": {
+      "bytes": 983159,
+      "sha256": "b9352502903acdc5ba1af55e592fa63df2d59797a2c156682d0553b88c814416"
+    },
+    "samples/frame_0049.png": {
+      "bytes": 639416,
+      "sha256": "1d0ba1a2177c4479f826850cde0ad0ccf5914346a17bbcef7dec685e32b1d66d"
+    },
+    "samples/frame_0024.png": {
+      "bytes": 698918,
+      "sha256": "e8c4b1d588f03d24f73f4bde32c5cc0231ae165069545f7dbabf4bc06baaa3d5"
+    },
+    "scripts/skyfold-tracking-delivery.yml": {
+      "bytes": 11149,
+      "sha256": "2f666f1ae17331f261a6f0aa220db95e37ea034f004cbc73b1da6ec61241aa76"
+    },
+    "scripts/collect_flight_cost.py": {
+      "bytes": 3259,
+      "sha256": "a05df5471d0802593044f0bf6d3f82cd1f98cc637c1215fe3fc1171fc174bc63"
+    },
+    "scripts/finish_r07b_look.py": {
+      "bytes": 7595,
+      "sha256": "d2105be44ae47fd6960611ffb34abd1886f71121e677809325845bbe6da06c75"
+    },
+    "scripts/stage_r07_tracking.py": {
+      "bytes": 6753,
+      "sha256": "703b9c1a214b600f31a39471310f92db39986a51fea761f3cd38a0a7527b976b"
+    },
+    "scripts/provision.sh": {
+      "bytes": 857,
+      "sha256": "0b3a39929af30e6222502793a2c212ee85e13ac64cd0e306905cb282f472d598"
+    },
+    "scripts/r06_flight.py": {
+      "bytes": 14378,
+      "sha256": "9c5bda5a3af30f3d799ddf80427d2643749859da23ccf7b0eedda1da06141797"
+    },
+    "scripts/encode_actual_frames.py": {
+      "bytes": 3139,
+      "sha256": "780c2f95d21944d37680a76972db39a142ed24557b4e82238636d7064700c353"
+    },
+    "scripts/assemble_tracking_preview.py": {
+      "bytes": 6445,
+      "sha256": "8860db3f54ba97adda5d200b7175ad7bc594e08cbc732ddd375963a41f91d511"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/render.log": {
+      "bytes": 15132713,
+      "sha256": "ad59a4596cf723b0b2fc4e48b66b946fd775f48b27ae599aa2a7720ee39b8be1"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/COMPLETE.json": {
+      "bytes": 216,
+      "sha256": "43e8c3bcc17e903a69ac2a9944b89072d2c7f3f3be5d4af44f6e7d16c0ebce2e"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/skyfold-motion-145-192.mp4": {
+      "bytes": 853502,
+      "sha256": "cfb7db722b7731232c5f98dda7df466fd8a8c23e232f0a311d7966f9063ae2b6"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/VIDEO-MANIFEST.json": {
+      "bytes": 8981,
+      "sha256": "0eb440f5ab829b186313d09ca6571b1ffdad93a8ffd12ad247eea8dceff6151f"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/libraries.log": {
+      "bytes": 6057,
+      "sha256": "4d3898bbac9f76323213f95fd949b6acea1d72f15eb16ee5568253883ca2d4b5"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/environment.txt": {
+      "bytes": 3743,
+      "sha256": "42ca7c6b01c4cd827e132045bfc3ed672449ca1e649ad1b68dba37a21da08924"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/OBSERVATIONS.json": {
+      "bytes": 84249,
+      "sha256": "f0da4a123030d2c417fc56c064d28744aed231ab10e4b1eb948ffcd9184b2fcd"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/provision.log": {
+      "bytes": 8115,
+      "sha256": "0f078c9bd151797bdae50c6e787a01ea669ca14908e5dfac1b064328ef8b705f"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/encode.log": {
+      "bytes": 2580,
+      "sha256": "55285adaa5587a5f2bdbb2595e6105058fe3cf1dfa963fa411e0de9b88386161"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/source-sha256.txt": {
+      "bytes": 433,
+      "sha256": "82efda2bd67db30f6c58712424afb262434551f377846a0c94a24b85279ff4c8"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/encode-time.txt": {
+      "bytes": 833,
+      "sha256": "b02ea29abd0d481cd1d652b5230ba6d67c5ed8015d6daedf832f0a661ecab2b4"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/render-time.txt": {
+      "bytes": 890,
+      "sha256": "35a9bcb146d65dac42d65b6d21a57539b665bdde03b6015a760756fca6161a9f"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/PART-DELIVERY.json": {
+      "bytes": 9419,
+      "sha256": "83280a2afe62215579144d5afe790b32968ed68e7158f0ede72612dce692aba1"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/render.log": {
+      "bytes": 14531225,
+      "sha256": "7c6e489b805fad304672f51da2ba526e91160fd413a2275a3b1e9570f6fa2479"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/skyfold-motion-001-048.mp4": {
+      "bytes": 844109,
+      "sha256": "4d4927248fbf71465ada708210d99548639bd7f1b0bdd6b179ace2b5b6bd87fd"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/COMPLETE.json": {
+      "bytes": 216,
+      "sha256": "edb781955cf3a75fa8d7155ac2a2e6a1a66993a8b9e28c5db3d082213b59074b"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/VIDEO-MANIFEST.json": {
+      "bytes": 8921,
+      "sha256": "dc2755b352c648c1e0b7420f12c16beaed5ade2794f353cefe8b40d10f548806"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/libraries.log": {
+      "bytes": 6057,
+      "sha256": "7fdad5d02a5c37f52450063d59ea59dc56c0a6b512c93ce7905069716966d8f8"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/environment.txt": {
+      "bytes": 3593,
+      "sha256": "181221c4ed47c524b523fe303805950fee4c441c7afc5031ebf047a2e0f8b993"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/OBSERVATIONS.json": {
+      "bytes": 84087,
+      "sha256": "1eb3246f076be56c46a31903a92810b02f7a468d5fb4e2ca95c15ee7f9759a61"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/provision.log": {
+      "bytes": 8352,
+      "sha256": "6041cb36d00b9960dac5c6b8221b7a1648e1b53b8002816b8a313e4a4026f55f"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/encode.log": {
+      "bytes": 2580,
+      "sha256": "b08711fad41a75e724c88dc06497a8487989892f481207610e5b2f0c5c1516bb"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/source-sha256.txt": {
+      "bytes": 433,
+      "sha256": "82efda2bd67db30f6c58712424afb262434551f377846a0c94a24b85279ff4c8"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/encode-time.txt": {
+      "bytes": 833,
+      "sha256": "09e1a4795f87f12e5ca9e81f2363548834241fb63f79d9db666c41c858f0da62"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/render-time.txt": {
+      "bytes": 890,
+      "sha256": "d06e39507eeb55522c0a95691ba333b68ee3318c2cc6b5740b0d13aa2c314899"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/PART-DELIVERY.json": {
+      "bytes": 9419,
+      "sha256": "41d3b644f39165c95d9712dd66532cd4b17f79b64b898e2d2e1874dd20c7c317"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/render.log": {
+      "bytes": 15275589,
+      "sha256": "d09fa6148375914f26142ef94a9efd2c353c71f8d0b9f577adee97f68f24223b"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/COMPLETE.json": {
+      "bytes": 216,
+      "sha256": "eda841eb76c043b8c692a5f9cd2892d7b4a757311d6c1a7d78c63c1f57d2b370"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/VIDEO-MANIFEST.json": {
+      "bytes": 8931,
+      "sha256": "b5e0d87095141b44fde3e957fda0614378bd8e9c01f7af0141b0f45bc66af38a"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/libraries.log": {
+      "bytes": 6057,
+      "sha256": "43ba7e631f4a7f17054c06cb03f39847f94dc60194bb82649367b9b7881591ba"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/environment.txt": {
+      "bytes": 3863,
+      "sha256": "8d158d91065693b846b304954ab9c2bb9d6b7b9b8da84b23a20df8ef8d7318e9"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/OBSERVATIONS.json": {
+      "bytes": 84198,
+      "sha256": "7ada080d134557a49f3193dd04ca35e6730dd0023221d9bd5267a68a3bde3ddd"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/provision.log": {
+      "bytes": 8194,
+      "sha256": "fd34f7b08ad0fe397a09a0daa862f7a6b813c5e56fa6f6c47eccb6e86b5ef213"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/encode.log": {
+      "bytes": 2580,
+      "sha256": "d744a242f22f078af130ad78460a30473f4b57de14fe12ae6205d6a9f8b139c8"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/source-sha256.txt": {
+      "bytes": 433,
+      "sha256": "82efda2bd67db30f6c58712424afb262434551f377846a0c94a24b85279ff4c8"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/encode-time.txt": {
+      "bytes": 833,
+      "sha256": "d5ecc7921b8796bc11315c27effc625eca30538fb74c2a6e2cea97febbecafa1"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/render-time.txt": {
+      "bytes": 889,
+      "sha256": "d6ae135f83ff8d7e3d4faadbb831d7bc6125e6b9264abd08060533eb15bddc04"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/skyfold-motion-049-096.mp4": {
+      "bytes": 851451,
+      "sha256": "1d7709baba1850e960e716f8f1764b0bfdaba374a80cc629e2695b2d8539debe"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/PART-DELIVERY.json": {
+      "bytes": 9419,
+      "sha256": "17f6e896e57ca79341a7898f4996e1ed408722ad1afc1e0f7979061ec2bb721e"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/render.log": {
+      "bytes": 14650172,
+      "sha256": "8ef8d3bb9f4d65cc1d2904d48b80f5f7263b76f7cd3c2b4c270e4ad3c984aa0a"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/COMPLETE.json": {
+      "bytes": 216,
+      "sha256": "6b0075d3723bc2799d6b492ba9e91edb4d468f3b2a448e65fc615f3706e514b0"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/skyfold-motion-097-144.mp4": {
+      "bytes": 842793,
+      "sha256": "14eecd1ca05b2279bbb4fd72fb66f8690a9fe897e995b543db15142ce3b90be8"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/VIDEO-MANIFEST.json": {
+      "bytes": 8976,
+      "sha256": "bda10f3c2b48f762ff256d825d84d440e3606eb400303c2914f07efc147507dd"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/libraries.log": {
+      "bytes": 6057,
+      "sha256": "ef961b9fbc9f0d705761b0642b3bb498630b8d02ddc76ea47ac288883d837e70"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/environment.txt": {
+      "bytes": 3593,
+      "sha256": "f4e91b089fdeec699c975b80f60f4810866ddba0fa446af29274ab96b9dd129b"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/OBSERVATIONS.json": {
+      "bytes": 84110,
+      "sha256": "1d49db3653a9ca4617cb9fa5b7a60a28220e864992a83d881e14bb81a02a071d"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/provision.log": {
+      "bytes": 8115,
+      "sha256": "605d426582a557f4917649d8d326b61910c672c6c8ad3164eba0fb1370c9f432"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/encode.log": {
+      "bytes": 2580,
+      "sha256": "4fb9d220b571ea569e30fabae7251cd70bfc705ea78b24998c27962ea4ac3927"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/source-sha256.txt": {
+      "bytes": 433,
+      "sha256": "82efda2bd67db30f6c58712424afb262434551f377846a0c94a24b85279ff4c8"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/encode-time.txt": {
+      "bytes": 833,
+      "sha256": "20af040ca88cce714bd0177376bbd667b7e141bf3556f69d4193aabaa7cfcf46"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/render-time.txt": {
+      "bytes": 890,
+      "sha256": "92f7af7ae72fe6a353e6a9fe284a787858c5403e09861c2e340f8568497ca786"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/PART-DELIVERY.json": {
+      "bytes": 9419,
+      "sha256": "e59f59bee50fb6268bee32ad2fd8225c88778718e6c895021a4eb3f269ebb645"
+    },
+    "parts/skyfold-tracking-part-hero-34559500985/R07B_f001_RAW.png": {
+      "bytes": 906367,
+      "sha256": "7b3a71032fcef6fbb9895b546d7d8ecbe7bb888477592f52798c13c360b4c9ff"
+    },
+    "parts/skyfold-tracking-part-hero-34559500985/render.log": {
+      "bytes": 616425,
+      "sha256": "dd8e33a0b24ee29dbe290564b062c885ade4c89caec90805800c12a1d0a97845"
+    },
+    "parts/skyfold-tracking-part-hero-34559500985/COMPLETE.json": {
+      "bytes": 213,
+      "sha256": "590e5e3a953dc58335e43c6799344ea6721a2b312fbf5d854a7e05fde0d37be7"
+    },
+    "parts/skyfold-tracking-part-hero-34559500985/libraries.log": {
+      "bytes": 6057,
+      "sha256": "5966f854983d33f1be8baa28c0cee74b7802821e1e0d0ec8a1283edc21804bbb"
+    },
+    "parts/skyfold-tracking-part-hero-34559500985/environment.txt": {
+      "bytes": 3593,
+      "sha256": "a61b011c3ca5da973b74df13f1e1639e05d80a0c9318d404932a6f38d42ca101"
+    },
+    "parts/skyfold-tracking-part-hero-34559500985/OBSERVATIONS.json": {
+      "bytes": 3428,
+      "sha256": "bdeb17a5c203be138b88ae99e696fc908a66d2fde0bb29f66bdd665450b96f1f"
+    },
+    "parts/skyfold-tracking-part-hero-34559500985/R07B_f001_BEAUTY.png": {
+      "bytes": 3267738,
+      "sha256": "cc87afefd828bfe0eac312952147c359577c90982b76b716c499f3d21ca60504"
+    },
+    "parts/skyfold-tracking-part-hero-34559500985/provision.log": {
+      "bytes": 8115,
+      "sha256": "d646d681ef751e6b9625baf72be0a08fdf42949a1409c9c2b542e5e6af882ab5"
+    },
+    "parts/skyfold-tracking-part-hero-34559500985/source-sha256.txt": {
+      "bytes": 433,
+      "sha256": "82efda2bd67db30f6c58712424afb262434551f377846a0c94a24b85279ff4c8"
+    },
+    "parts/skyfold-tracking-part-hero-34559500985/render-time.txt": {
+      "bytes": 880,
+      "sha256": "ed070857f207b8fd8c0c6eb15a9573e5f3b31e5cc2f17196d8b993dc5e587cf9"
+    },
+    "parts/skyfold-tracking-part-hero-34559500985/PART-DELIVERY.json": {
+      "bytes": 1791,
+      "sha256": "152c538afae4dd25b1bfa20c8c93d1f5dda778b583a1f5fd67a5e2c212b41b83"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/samples/frame_0191.png": {
+      "bytes": 1867582,
+      "sha256": "b0e375119516ca99e53a8f22399f43ccba24fccbeb08965e428eee9452d569de"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/samples/frame_0145.png": {
+      "bytes": 1869363,
+      "sha256": "1d6c9a115c0f2b8dd861ad00b94cb84a0d4797b3c0feac63e79c0489508873bc"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/samples/frame_0192.png": {
+      "bytes": 1867931,
+      "sha256": "ec5353657be9bd38de1ac6fbd46568fd24caccf10eecf18803799291fa34cb89"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/samples/frame_0146.png": {
+      "bytes": 1867074,
+      "sha256": "9c13d1412ff7c833da4c9224cadfbe943e0442c04eb2bdf2e590aee9ec1e6d5c"
+    },
+    "parts/skyfold-tracking-part-d-34559500985/samples/frame_0168.png": {
+      "bytes": 1868250,
+      "sha256": "b56e36e6808824511fafe001545f677f98acd08b2af3ad6aa9ae25a8647ec14f"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/samples/frame_0002.png": {
+      "bytes": 1872290,
+      "sha256": "7e1bbd7b3a613b4e6c10c8d8cadbd86603cbf31eec8feecf2928f6643b1f45ad"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/samples/frame_0048.png": {
+      "bytes": 1872945,
+      "sha256": "985113c87d5cea1ce404e5a9c1eed615398e9be167b42c2d070ef482cbac3064"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/samples/frame_0001.png": {
+      "bytes": 1871487,
+      "sha256": "42c71e29095e9c0c35acfa2659ae07366b67b2af4f4d36920a345783bf6631c1"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/samples/frame_0047.png": {
+      "bytes": 1871023,
+      "sha256": "dfd8c799e31449c419843baba5e1a7e95e2fdc3faaa47c5ab9385001df6204df"
+    },
+    "parts/skyfold-tracking-part-a-34559500985/samples/frame_0024.png": {
+      "bytes": 1869842,
+      "sha256": "3928487cf2cbccde8a23ed35be77f0aa1376e85464147dc6593bdabc33589769"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/samples/frame_0096.png": {
+      "bytes": 1871327,
+      "sha256": "eab6f872efeadf9cbde76790ff76d18260e614eabf82f5a12f29f2c18a5656e3"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/samples/frame_0072.png": {
+      "bytes": 1869655,
+      "sha256": "f009bbdad98f03f55ac21953ccfd0f65a5947db310cafc3d942bda3c9bb94905"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/samples/frame_0050.png": {
+      "bytes": 1871725,
+      "sha256": "00f8d4687eb99ae3e488291fe8dec5c8e4b1f989385f4c250b0c4aa79e0cb85d"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/samples/frame_0095.png": {
+      "bytes": 1869981,
+      "sha256": "765d1af46ab166534df4518666ecdf507b9e78d49f659241666ed754eaa0bf8d"
+    },
+    "parts/skyfold-tracking-part-b-34559500985/samples/frame_0049.png": {
+      "bytes": 1871443,
+      "sha256": "64e226e7193346e3f4479dd820f8ce9d62bd233ab5c8d0828c6888d7c25a4a01"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/samples/frame_0097.png": {
+      "bytes": 1870241,
+      "sha256": "641441163802cbcbf9576e93364f65e3d107d5d4e51d59a35b48445bc732a290"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/samples/frame_0143.png": {
+      "bytes": 1869216,
+      "sha256": "92a4e74d91308cb1955f6d53c47cb38826456a1960516c017ccefde51f83a52a"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/samples/frame_0098.png": {
+      "bytes": 1870170,
+      "sha256": "d80009e9d416d69a49661ff2dc41494ffdbe7a67e35039935378e2373bf438ed"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/samples/frame_0144.png": {
+      "bytes": 1870814,
+      "sha256": "96f6f183a57872590a9410a3d10b878dde517b789f0cd83153e7b97cdf11992c"
+    },
+    "parts/skyfold-tracking-part-c-34559500985/samples/frame_0120.png": {
+      "bytes": 1869204,
+      "sha256": "38d9f071dc7de565411c6a6c05ec6c9dcbb0ac4adfc88f38e3096fa790ce7aaa"
+    }
+  },
+  "technical_assembly_report": "ASSEMBLY-VERIFICATION.json",
+  "visual_verdict": "REVIEW_REQUIRED",
+  "auto_qualified": false
+}
