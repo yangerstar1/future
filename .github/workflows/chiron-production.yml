@@ -122,7 +122,7 @@ jobs:
           retention-days: 14
           if-no-files-found: error
   health:
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[full-check]') || contains(github.event.head_commit.message, '[health-check]')
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[full-check]') || contains(github.event.head_commit.message, '[health-check]') || contains(github.event.head_commit.message, '[route-check]')
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -145,7 +145,7 @@ jobs:
           npm ci --no-audit --no-fund
           npx playwright install --with-deps chromium
       - name: Actual HTTP graphic failure, retry, visibility and touch
-        run: xvfb-run -a node tools/health-check.mjs
+        run: xvfb-run -a node tools/health-runner.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -183,5 +183,38 @@ jobs:
         with:
           name: chiron-r05-performance-${{ github.sha }}
           path: workspaces/chiron-sapphire-web/evidence/R05/performance/
+          retention-days: 14
+          if-no-files-found: error
+
+  route:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[route-check]')
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: workspaces/chiron-sapphire-web
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - uses: actions/download-artifact@v4
+        with:
+          name: chiron-r05-build-${{ github.sha }}
+          path: workspaces/chiron-sapphire-web
+      - name: Install locked renderer and browser
+        run: |
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Final HTTP continuous user route and video
+        run: xvfb-run -a node tools/route-check.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chiron-r05-route-${{ github.sha }}
+          path: workspaces/chiron-sapphire-web/evidence/R05/route/
           retention-days: 14
           if-no-files-found: error

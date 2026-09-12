@@ -133,3 +133,23 @@ The [health-check] run rebuilds the unchanged render inputs and reruns health on
 b4's visual, full ordinary-UI and performance runs remain in progress/preserved.
 Do not describe skipped jobs as passing. Both source SHAs and their shared app
 build hash must be retained in the final evidence record.
+
+
+b4 independent review closed the four-seat story framing defect, but detected a
+new CH02 product/text collision and a phone CH03 note touching the strap. The
+candidate increases only CH02 story-camera distance along the same sightline and
+reduces two CH03 mobile text margins. All frozen inspector cameras stay unchanged.
+The final-build observer repeats all 28 frames; a separate ordinary-UI O32 route
+records actual video and state. It does not relabel b4's 100-step/50-cycle suite or
+performance samples with the new build hash.
+
+b5 O25 still failed without capture. Locked Playwright 1.55.1 source was inspected:
+lib/server/chromium/crPage.js sends focus emulation TRUE from its OWN main-frame
+session. The prior NEW-session false calls did not remove this override. The new
+health-runner disables that single default override before importing the driver,
+records package version, exact change and both hashes, then restores the disposable
+test file. No app source, document.hidden, events or test thresholds are changed.
+The CDP reference describes this as simulating a focused/active page:
+https://chromedevtools.github.io/devtools-protocol/tot/Emulation/#method-setFocusEmulationEnabled
+Real same-window activation and document.hidden remain mandatory. This diagnosis
+still needs the real run; old failures remain in their original artifacts.

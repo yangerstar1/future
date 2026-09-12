@@ -20,7 +20,7 @@ const chapters=all('.chapter'),nav=all('#chapter-nav a');
 let storyBounds=[],activeChapter=0,needsRender=true,lastRender=0,renderIntervals=[];
 // Story composition is independent of the frozen inspection presets. The W16
 // chapter centres its own mechanism; the suspension chapter shows all four seats.
-const storyShots=[presets.hero,{p:[2.9,-3.5,5.2],t:[0,-1.15,0]},{p:[3.8,3.0,11],t:[0,0,0]},{p:[7.4,-2.8,12.3],t:[0,0,0]},{p:[8,-3.8,15.8],t:[0,0,1.3]},{p:[-4.1,2.7,16.1],t:[0,0,-.2]},presets.hero];
+const storyShots=[presets.hero,{p:[3.625,-4.0875,6.5],t:[0,-1.15,0]},{p:[3.8,3.0,11],t:[0,0,0]},{p:[7.4,-2.8,12.3],t:[0,0,0]},{p:[8,-3.8,15.8],t:[0,0,1.3]},{p:[-4.1,2.7,16.1],t:[0,0,-.2]},presets.hero];
 function track(type,value){needsRender=true;runtime.uiEvents.push({time:performance.now(),type,value});if(runtime.uiEvents.length>1600)runtime.uiEvents.shift();}
 function toast(text){$('toast').textContent=text;$('toast').classList.add('visible');clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').classList.remove('visible'),4200);}
 let ac;function sound(){if(state.muted)return;try{ac??=new AudioContext();ac.resume();const o=ac.createOscillator(),g=ac.createGain();o.type='triangle';o.frequency.value=420;g.gain.setValueAtTime(.018,ac.currentTime);g.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+.055);o.connect(g).connect(ac.destination);o.start();o.stop(ac.currentTime+.06);}catch(e){runtime.errors.push('Audio unavailable: '+e.message);}}
