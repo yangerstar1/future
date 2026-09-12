@@ -117,3 +117,19 @@ b1 actual software performance at 1920 x 1080 / DPR 1: whole-watch 0.164–0.178
 W16 0.465–0.472 FPS, exploded 0.211 FPS across three samples each. All miss the frozen
 project budget; no physical-device guarantee is awarded. The unused transmission
 prepass reduction requires measurement on the new build before an improvement claim.
+
+5d70cab health exposed two remaining observation failures. O25 reported the SAME
+real browser window ID for both tabs, but both stayed visible, disproving the
+separate-window diagnosis as the remaining cause. The next probe removes video
+capture for O25 only (the other health cases retain video), keeps actual tab
+activation and all hidden-state assertions, and records the result. No visibility
+property or event is synthesized. This is a test-environment hypothesis until run.
+O11's fixed 3.6-second polling window ended before the software-rendered simulation
+returned. The corrected observer keeps the >3-second simulated-time assertion,
+records every sample before asserting, and bounds completion at 30 real seconds.
+That wall-time allowance never awards the performance gate.
+
+The [health-check] run rebuilds the unchanged render inputs and reruns health only;
+b4's visual, full ordinary-UI and performance runs remain in progress/preserved.
+Do not describe skipped jobs as passing. Both source SHAs and their shared app
+build hash must be retained in the final evidence record.
