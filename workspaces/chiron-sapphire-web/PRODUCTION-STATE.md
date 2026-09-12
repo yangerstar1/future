@@ -1,73 +1,18 @@
-# CHIRON SAPPHIRE — R05, active production candidate
+# CHIRON SAPPHIRE — R07 delivery checkpoint
 
-Contract SHA256: d84a8f87d8aa60a8d381416fbf152017e7d7ab7fce5d4497d98bc74dede521d9.
-Authorized: yangerstar1/future / codex/chiron-sapphire-web; this workspace and its
-existing workflow only. Source persistence and standard Actions are authorized;
-main, other projects, new fees, purchased models and public deployment are outside scope.
+Status: **DELIVERED_UNQUALIFIED**, not AUTO_QUALIFIED or USER_ACCEPTED.
+Application commit: 201e894ca9f987e3eecb157bbb6b9be4052e0713.
+Test-source commit: 5db41587eeb7503a68e29cad341f2a86d9fef5f6.
+Application build hash: 69363d8e2c92cca91bec0ce9539818e13998c355072e95f1bb4420152b7eb92a.
+Browser runs: 34693318358 (full R07), 34693630111 (same-build HTTP and actual standalone file).
+Recovered R06: 916dcb5ddb2e27114f99b020ee719cfb701f45fe, run 34692638543.
 
-## Current R06 local checkpoint — 2026-09-12
+The current user resumed execution. Complete source was recovered and pushed to the original codex/chiron-sapphire-web branch. Earlier local-only/authorization-blocked notes in R06-REVIEW.md are historical, not the current status. Git history and prior review files are retained.
 
-Remote checkpoint: `254dc45f92d59c12a5b421cd7ce0914551d17300`. The local candidate
-adds actual-visibility recovery, one connected three-bore main case, two recessed
-lens seats, and a smoother regulator protective arch. CadQuery 2.8.0 generated the
-authored STEP/mesh; eight state tests and seventeen geometry checks passed locally.
-Build hash: `281f1df0a95339a0b27988a4b04ec190acf0a50cee6d0291dd1c9b36cc6eaf63`.
+Verified: 10 unit checks (8 mechanics + 2 optical resource configuration), 17 actual geometry checks, 15 browser checks including 100 ordinary actions and 50 actual UI assembly cycles, 6 health checks, 28 observation frames, 14 continuous-route checkpoints, zero-external-HTTP standalone cold open, and editable GLB export/reimport. Reports bind the application hash above. Two R07 builds and 71 latest CI source files were compared byte-for-byte. No independent-agent or physical-device review is claimed.
 
-Automatic approval review rejected the GitHub push because task-specific original
-user authorization could not be verified from the exported assistant messages.
-No remote mutation is claimed for these local fixes; prior authorization wording
-above does not override the concrete rejection. Explicit permission to push this
-branch and run its existing Actions is the next required input. Browser evidence,
-material/lighting revisions and final qualification remain pending; see R06-REVIEW.md.
+The original locked dependencies, CAD mesh/STEP, mechanical solver, cameras, lighting and transmission resolution are retained. CAD source/asset audit hashes and actual rendered geometry were rechecked; this continuation did not rerun CadQuery. R07 adds HDR colour/depth MSAA, stricter natural-finish versus genuine-pause testing, shared revision labels and direct standalone-delivery validation.
 
-## Earlier R05 production history
+OPEN MAJOR: macro finish/shape/reference fidelity has not reached CU01/CU06/CU08 Q3. Software performance fails the frozen budget; 4x MSAA is slower than R06 on SwiftShader. Physical GPU and phone performance remain unverified. R07 is a recorded image-quality candidate, not a demonstrated overall performance improvement. No exhaustive collision, factory 578-part equivalence, manufacturing precision or brand authorization claim.
 
-The resumed baseline is R04 / 23649dc33121d117dbe4e1c6aa1c335d9601fe68.
-No user changes were present in the fresh checkout. R05 preserves the full seven
-chapters, editable procedural watch, STEP cylinder solids and locked dependencies.
-Its source is watch.mjs + craft.mjs + sapphire.mjs + generated CAD; mechanics.mjs
-owns the kinematics and separate time/energy domains. These are authored digital
-approximations, not the original 578-part factory CAD.
-
-## Verified observations so far
-
-- Local Node 24.19.0: npm ci, seven numerical solver checks, build and 15 actual
-  geometry/transform checks passed. CI separately pins Node 22.16.0.
-- b1d4de99 / run 34672504478: exact-source HTTP build, 16 multi-angle screenshots,
-  GLB export and independent GLTFLoader re-import passed. The full ordinary-UI
-  suite passed all 14 checks, including 100 seeded operations and 50 real UI
-  assembly cycles. This certifies that version only.
-- b1 health: resource failure/retry, actual graphics context loss/restore,
-  simulated touch, bounded suspension and no-WebGL document passed. O25 FAILED:
-  both pages remained visible; the tab-background behavior was not exercised.
-- b1 software performance: at 1920 x 1080 / DPR 1, whole-watch medians were
-  0.164–0.178 FPS, isolated W16 0.465–0.472 FPS, disassembled 0.211 FPS. These are
-  failed project budgets on SwiftShader, not hardware equivalence or a GPU pass.
-- b2 / 02a634e: 22 actual HTTP screenshots and GLB round trip passed as operations.
-  Independent visual review REJECTED the excessive sapphire glare; CU08 Q1.
-  Two mistakenly changed inspection cameras are restored in d25ad8b. This is an
-  observation-condition correction, not permission to award a higher score.
-- d25ad8b: narrowed reflection sources and lowered lens reflection, preserving
-  fixed inspector poses. Visual comparison must decide whether this repair works.
-
-## Pending candidate validation
-
-The latest source also centres the W16 story shot, frames all four suspension
-seats, excludes transmissive glass from opaque hotspot occlusion, and extends
-observations to all seven mobile chapters. These changes are not yet visually
-accepted. Full-cycle W16 and slow-regulator traces are recorded through normal UI.
-The revised O25 test opens an actual same-window browser tab, records both window
-IDs, and still requires document.hidden; it never forges a visibility property/event.
-
-The authorized Actions runner performs all browser navigation through actual HTTP.
-The host Cloud Browser rejected local HTTP by URL policy, so no alternate local
-browser or policy workaround is used. Desktop/narrow viewports and touch protocol
-are emulations; no physical GPU, phone or human study is claimed.
-
-## Qualification
-
-IN_PROGRESS. G5/G6 and AUTO_QUALIFIED are not awarded. CU01/CU06/CU08 Q3 and zero
-MAJOR defects have not been established. Exhaustive close-range finish/assembly,
-full O01–O32 dynamic evidence, mobile narrative continuity, measured accessibility
-and hardware performance remain separate obligations. See R05-REVIEW.md for
-specific failed observations. A green build or screenshot job is not final acceptance.
+Scope remains yangerstar1/future, this workspace and its existing workflow only. No main change, other project modification, public deployment, new paid service or credentials. Current findings, evidence locations and open gates are in R07-REVIEW.md. Contract SHA256: d84a8f87d8aa60a8d381416fbf152017e7d7ab7fce5d4497d98bc74dede521d9.
