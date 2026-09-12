@@ -153,3 +153,13 @@ The CDP reference describes this as simulating a focused/active page:
 https://chromedevtools.github.io/devtools-protocol/tot/Emulation/#method-setFocusEmulationEnabled
 Real same-window activation and document.hidden remain mandatory. This diagnosis
 still needs the real run; old failures remain in their original artifacts.
+
+
+3e4656e O32 observer failed after the second screenshot: observed idle / 15 seconds,
+then incorrectly asserted paused. The 27-second observation interval on SwiftShader
+had let the normal cycle finish; the failure was not a stalled or fake W16 timer.
+The corrected route requires real progress and exactly one initial start; if the
+cycle finished, it requires idle / 15 and later starts slow motion by the ordinary
+Start button. Otherwise it pauses/resumes through the ordinary Pause button. The
+original failed video/report are preserved. A [route-only] test commit reruns this
+route on unchanged render inputs; its skipped visual/health jobs are not passes.
