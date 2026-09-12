@@ -113,16 +113,74 @@ jobs:
         env:
           CHIRON_SMALL: '1'
         run: xvfb-run -a node tools/browser-check.mjs
-      - name: Actual HTTP graphic failure, retry, visibility and touch
-        if: ${{ !cancelled() }}
-        run: xvfb-run -a node tools/health-check.mjs
-      - name: Software-renderer distribution; never physical-GPU qualification
-        if: ${{ !cancelled() }}
-        run: xvfb-run -a node tools/performance.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: chiron-r05-regression-${{ github.sha }}
           path: workspaces/chiron-sapphire-web/evidence/R05/
+          retention-days: 14
+          if-no-files-found: error
+  health:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[full-check]')
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: workspaces/chiron-sapphire-web
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - uses: actions/download-artifact@v4
+        with:
+          name: chiron-r05-build-${{ github.sha }}
+          path: workspaces/chiron-sapphire-web
+      - name: Install locked renderer and browser
+        run: |
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Actual HTTP graphic failure, retry, visibility and touch
+        run: xvfb-run -a node tools/health-check.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chiron-r05-health-${{ github.sha }}
+          path: workspaces/chiron-sapphire-web/evidence/R05/health/
+          retention-days: 14
+          if-no-files-found: error
+  performance:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[full-check]')
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: workspaces/chiron-sapphire-web
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - uses: actions/download-artifact@v4
+        with:
+          name: chiron-r05-build-${{ github.sha }}
+          path: workspaces/chiron-sapphire-web
+      - name: Install locked renderer and browser
+        run: |
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Software-renderer distribution; never physical-GPU qualification
+        run: xvfb-run -a node tools/performance.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chiron-r05-performance-${{ github.sha }}
+          path: workspaces/chiron-sapphire-web/evidence/R05/performance/
           retention-days: 14
           if-no-files-found: error

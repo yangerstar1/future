@@ -32,6 +32,7 @@ try{
  for(const viewport of [{width:390,height:844},{width:844,height:390},{width:360,height:800}]){
   await page.setViewportSize(viewport);await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await snap(`hero-${viewport.width}x${viewport.height}`);
   await page.locator('#the-object [data-do=explore]').click();await snap(`explore-${viewport.width}x${viewport.height}`);await page.locator('#explorer [data-do=exit]').click();
+  if(viewport.width===390)for(const id of ['mechanical-pulse','suspended-precision','sapphire-revealed','anatomy','explore-chapter','the-record']){await page.locator('#'+id).scrollIntoViewIfNeeded();await snap(`mobile-${id}`);}
  }
  report.structural=await page.evaluate(()=>window.__chiron.structural());
  report.passport=await page.evaluate(()=>window.__chiron.passport());

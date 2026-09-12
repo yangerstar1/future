@@ -1,33 +1,56 @@
-# CHIRON SAPPHIRE — R05 production repair in progress
+# CHIRON SAPPHIRE — R05, active production candidate
 
 Contract SHA256: d84a8f87d8aa60a8d381416fbf152017e7d7ab7fce5d4497d98bc74dede521d9.
-Authorized: yangerstar1/future / codex/chiron-sapphire-web; workspace and existing
-workflow only, sandbox and standard Actions. No main/unrelated branch changes,
-new fees, commercial asset purchase or public deployment.
+Authorized: yangerstar1/future / codex/chiron-sapphire-web; this workspace and its
+existing workflow only. Source persistence and standard Actions are authorized;
+main, other projects, new fees, purchased models and public deployment are outside scope.
 
-Current: G3 structural rework following user's rejection of sparse/unattached R02.
-The authoritative model is now watch.mjs + craft.mjs + sapphire.mjs + CAD-generated
-bored cylinder solids. Rendering is main.mjs + nested-sapphire.mjs + the vendored
-CC0 studio HDR. The seven-chapter document and solver are retained.
+The resumed baseline is R04 / 23649dc33121d117dbe4e1c6aa1c335d9601fe68.
+No user changes were present in the fresh checkout. R05 preserves the full seven
+chapters, editable procedural watch, STEP cylinder solids and locked dependencies.
+Its source is watch.mjs + craft.mjs + sapphire.mjs + generated CAD; mechanics.mjs
+owns the kinematics and separate time/energy domains. These are authored digital
+approximations, not the original 578-part factory CAD.
 
-Preserved baseline: R04 / 23649dc. R05 is a new repair candidate; see R05-REVIEW.md.
-The current workflow checks its immutable Git commit; no recovery script rewrites it.
-This is an improved authored reconstruction, not original manufacturer CAD.
-All numeric interface dimensions not on the official specification are labelled
-ENGINEERING_APPROXIMATION. Do not claim to reproduce all 578 original components.
+## Verified observations so far
 
-Completed locally: pinned Node build and seven existing solver tests; 15 additional
-actual generated geometry/transform checks; seven real Chromium UI view captures
-including both sides/back and isolated mechanisms, neutral/studio. Browser uses
-ANGLE SwiftShader and standalone document injection. Not HTTP cold-start evidence,
-not physical desktop-GPU or mobile performance, not isolated external review.
+- Local Node 24.19.0: npm ci, seven numerical solver checks, build and 15 actual
+  geometry/transform checks passed. CI separately pins Node 22.16.0.
+- b1d4de99 / run 34672504478: exact-source HTTP build, 16 multi-angle screenshots,
+  GLB export and independent GLTFLoader re-import passed. The full ordinary-UI
+  suite passed all 14 checks, including 100 seeded operations and 50 real UI
+  assembly cycles. This certifies that version only.
+- b1 health: resource failure/retry, actual graphics context loss/restore,
+  simulated touch, bounded suspension and no-WebGL document passed. O25 FAILED:
+  both pages remained visible; the tab-background behavior was not exercised.
+- b1 software performance: at 1920 x 1080 / DPR 1, whole-watch medians were
+  0.164–0.178 FPS, isolated W16 0.465–0.472 FPS, disassembled 0.211 FPS. These are
+  failed project budgets on SwiftShader, not hardware equivalence or a GPU pass.
+- b2 / 02a634e: 22 actual HTTP screenshots and GLB round trip passed as operations.
+  Independent visual review REJECTED the excessive sapphire glare; CU08 Q1.
+  Two mistakenly changed inspection cameras are restored in d25ad8b. This is an
+  observation-condition correction, not permission to award a higher score.
+- d25ad8b: narrowed reflection sources and lowered lens reflection, preserving
+  fixed inspector poses. Visual comparison must decide whether this repair works.
 
-NOT PASSED: CU01/CU06/CU08 Q3; exhaustive visible assembly/collision inspection;
-all final O01–O32; exact final-version normal-UI lifecycle and mobile regressions;
-physical-GPU performance. G5/G6 and all-nine-gate qualification remain unawarded.
-Do not treat a successful source-checkpoint workflow as product qualification.
+## Pending candidate validation
 
-Prioritize actual case-off oblique/side/macro defects and reference layout. Do not
-add more UI controls or use darkness, alpha invisibility or random gears to hide
-structure. Preserve prior source/evidence. The user has already authorized ongoing
-A0–A2 work; no routine per-stage user confirmation is needed.
+The latest source also centres the W16 story shot, frames all four suspension
+seats, excludes transmissive glass from opaque hotspot occlusion, and extends
+observations to all seven mobile chapters. These changes are not yet visually
+accepted. Full-cycle W16 and slow-regulator traces are recorded through normal UI.
+The revised O25 test opens an actual same-window browser tab, records both window
+IDs, and still requires document.hidden; it never forges a visibility property/event.
+
+The authorized Actions runner performs all browser navigation through actual HTTP.
+The host Cloud Browser rejected local HTTP by URL policy, so no alternate local
+browser or policy workaround is used. Desktop/narrow viewports and touch protocol
+are emulations; no physical GPU, phone or human study is claimed.
+
+## Qualification
+
+IN_PROGRESS. G5/G6 and AUTO_QUALIFIED are not awarded. CU01/CU06/CU08 Q3 and zero
+MAJOR defects have not been established. Exhaustive close-range finish/assembly,
+full O01–O32 dynamic evidence, mobile narrative continuity, measured accessibility
+and hardware performance remain separate obligations. See R05-REVIEW.md for
+specific failed observations. A green build or screenshot job is not final acceptance.

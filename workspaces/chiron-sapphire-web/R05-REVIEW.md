@@ -96,3 +96,24 @@ reduces those sources, with a declared lower-reflection front-lens approximation
 No exposure or fixed inspector-camera change is used to claim this correction.
 Its front case fasteners are also batched inside their actual assembly, preserving
 individual source records, visibility and explosion behavior.
+
+Independent b2 full-page review covered seven desktop chapters and three narrow /
+landscape Hero+Explore pairs. CU08 remained Q1 because of the optical regression
+and two story camera defects: the W16 chapter did not centre its mechanism; the
+suspension chapter clipped the lower two seats. Story-only shot definitions are
+revised accordingly, without changing fixed inspector presets. The observer now
+also records all six remaining chapters at 390 x 844; absent phone hardware and
+continuous transition evidence are not inferred from those static captures.
+
+b1 final regression (run 34672504478): 14/14 ordinary-UI checks passed; 5/6 health
+checks passed. O25 failed because both pages actually stayed visible. The next
+probe opens a same-window tab with window.open, records actual browser window IDs
+and retains document.hidden as a hard assertion. It does not fake Page Visibility.
+Full W16-cycle and slow-regulator traces now supplement the existing four phase
+screenshots and actual video. Independent health/performance jobs consume the same
+immutable build and upload results on failure, without waiting for the long UI suite.
+
+b1 actual software performance at 1920 x 1080 / DPR 1: whole-watch 0.164–0.178 FPS,
+W16 0.465–0.472 FPS, exploded 0.211 FPS across three samples each. All miss the frozen
+project budget; no physical-device guarantee is awarded. The unused transmission
+prepass reduction requires measurement on the new build before an improvement claim.

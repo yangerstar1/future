@@ -68,10 +68,12 @@ npx playwright install --with-deps chromium
 xvfb-run -a node tools/craft-observe.mjs
 xvfb-run -a node tools/browser-check.mjs
 xvfb-run -a node tools/health-check.mjs
+xvfb-run -a node tools/performance.mjs
 ```
 
-当前生产验证使用真实 HTTP。现有 Actions 在固定提交上分别运行构建、视觉与完整回归，
-不再执行旧恢复脚本或自动改写源码。浏览器策略拒绝本地导航的宿主不应绕过该限制；
+当前生产验证使用真实 HTTP。带 `[full-check]` 的提交在同一固定版本上分别运行构建、视觉、
+完整 UI 回归、故障恢复和性能分布；普通艺术迭代仅运行构建与视觉。SKIPPED 不等于通过。
+工作流不执行旧恢复脚本或自动改写源码。浏览器策略拒绝本地导航的宿主不应绕过该限制；
 本轮浏览器证据来自用户已授权的 GitHub Actions 执行环境。
 软件 SwiftShader / 手机视口模拟，不可作为真实 GPU / 手机性能证明。
 
