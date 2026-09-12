@@ -15,7 +15,7 @@ let camera=new THREE.PerspectiveCamera(32,1,.035,100),cameraTween=null,savedScro
 const target=new THREE.Vector3(),raycaster=new THREE.Raycaster();
 const runtime={revision:'R05',backend:null,errors:[],contextLosses:0,contextRestores:0,initializations:0,hiddenEvents:0,network:[],uiEvents:[],resourceState:'loading',rafOutstanding:0,presentedFrame:0,lastDraw:null};
 const media=matchMedia('(prefers-reduced-motion: reduce)');state.reduced=media.matches;
-const presets={hero:{p:[5.8,-8.4,13.2],t:[0,0,-.9]},front:{p:[0,0,17.5],t:[0,0,-.1]},back:{p:[0,0,-17.5],t:[0,0,-.1]},left:{p:[-17,0,0],t:[0,0,-.1]},right:{p:[17,0,0],t:[0,0,-.1]},engine:{p:[2.2,-3.25,3.25],t:[0,-1.15,.25]},tourbillon:{p:[.7,1.7,3.6],t:[0,1.78,.33]}};
+const presets={hero:{p:[5.8,-8.4,12.2],t:[0,0,-.35]},front:{p:[0,0,17.5],t:[0,0,-.1]},back:{p:[0,0,-17.5],t:[0,0,-.1]},left:{p:[-17,0,0],t:[0,0,-.1]},right:{p:[17,0,0],t:[0,0,-.1]},engine:{p:[2.2,-3.25,3.25],t:[0,-1.15,.25]},tourbillon:{p:[1.05,2.25,2.72],t:[0,1.82,.38]}};
 const chapters=all('.chapter'),nav=all('#chapter-nav a');
 let storyBounds=[],activeChapter=0,needsRender=true,lastRender=0,renderIntervals=[];
 const storyShots=[presets.hero,{p:[3.5,-3.7,7.7],t:[0,-.75,.1]},{p:[3.8,3.65,9.4],t:[0,1.05,.05]},{p:[7.4,-2.8,12.3],t:[0,0,0]},{p:[8,-3.8,15.8],t:[0,0,1.3]},{p:[-4.1,2.7,16.1],t:[0,0,-.2]},presets.hero];
@@ -38,10 +38,13 @@ function physicalLights(){
   // Authored reflection cards over the credited, vendored CC0 studio HDR.
   const room=new THREE.Scene();room.background=new THREE.Color(0x080b0f);
   const panel=(w,h,pos,intensity)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:new THREE.Color().setScalar(intensity),side:THREE.DoubleSide}));m.position.set(...pos);m.lookAt(0,0,0);room.add(m);};
-  panel(3,10,[-8,3,5],4.8);panel(1.3,10,[8,-1,4],2.8);panel(8,2,[0,9,4],4);panel(2,9,[1,-3,-9],2.5);panel(10,1.5,[0,-8,0],.25);panel(11,7,[0,1,11],.22);
+  // Narrow strip sources define curved edges without painting a white studio
+  // wall across the front lens. Radiance is deliberately below the rejected b2
+  // lighting study; inspection cameras and exposure stay fixed for comparison.
+  panel(1.4,8,[-8,3,5],1.7);panel(.7,8,[8,-1,4],1.1);panel(6,.8,[0,9,4],1.4);panel(1,7,[1,-3,-9],1.3);panel(10,1.5,[0,-8,0],.18);panel(11,7,[0,1,11],.09);
   const hdr=new HDRLoader().parse(studioHDR.buffer.slice(studioHDR.byteOffset,studioHDR.byteOffset+studioHDR.byteLength));
   const map=new THREE.DataTexture(hdr.data,hdr.width,hdr.height,THREE.RGBAFormat,hdr.type);map.colorSpace=THREE.LinearSRGBColorSpace;map.mapping=THREE.EquirectangularReflectionMapping;map.flipY=true;map.needsUpdate=true;
-  room.background=map;panel(3.6,10,[-6,7,11],6.5);panel(1.8,8,[8,-2,7],4.2);
+  room.background=map;panel(.8,6,[-6,7,11],1.5);panel(.6,6,[8,-2,7],1.25);
   pmrem=new THREE.PMREMGenerator(renderer);env=pmrem.fromScene(room,.015,.1,60);scene.environment=env.texture;scene.environmentRotation.set(0,0,0);scene.environmentIntensity=1.0;map.dispose();room.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});pmrem.dispose();
 }
 // Three.js 0.180.0 GTAO: only solid mechanical geometry contributes to the depth pass.
@@ -74,6 +77,7 @@ function resize(){
 }
 function adjusted(shot){
  const p=new THREE.Vector3(...shot.p),t=new THREE.Vector3(...shot.t);
+ if(shot===presets.hero&&state.mode==='story'&&innerWidth>=650){p.set(5.8,-8.4,13.2);t.set(0,0,-.9);}
  if(innerWidth<650&&state.mode==='story'){
    // Mobile has a dedicated art area below the copy. Keep the object three-quarter,
    // recompute its projection from that area, never reuse desktop view offsets.

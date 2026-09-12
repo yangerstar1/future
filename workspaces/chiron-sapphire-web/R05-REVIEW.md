@@ -81,3 +81,18 @@ small portrait product scale. Numerical/asset checks did not raise visual scores
 Art iterations run build + observation. Full lifecycle checks run on an explicitly
 labelled [full-check] commit or workflow_dispatch; SKIPPED is not PASS. The prior
 full run is preserved. No final quality or physical-GPU gate has been awarded.
+
+
+Observation-condition correction: 02a634e briefly changed the explorer's Object
+and Tourbillon presets while fixing story framing. These changed inspection
+cameras cannot close fixed-view defects. The next candidate restores the b1d4de99
+Object/Tourbillon inspector poses and keeps the intentional story-only framing
+repair. Front/back/sides/W16 inspector poses were unchanged. No Q increase is
+inferred from a smaller regulator image.
+
+02a634e optical study was rejected: high-radiance cards covered the front lens
+with a broad white veil and washed out the rhodium. The next study narrows and
+reduces those sources, with a declared lower-reflection front-lens approximation.
+No exposure or fixed inspector-camera change is used to claim this correction.
+Its front case fasteners are also batched inside their actual assembly, preserving
+individual source records, visibility and explosion behavior.

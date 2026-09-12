@@ -365,7 +365,9 @@ export function materialFinish(mat){
   mat[key].color.set(0xffffff);mat[key].clearcoat=0;mat[key].transmission=1;
   mat[key].opacity=1;mat[key].transparent=false;mat[key].depthWrite=true;
  }
- mat.cover.thickness=.045;mat.cover.roughness=.025;mat.cover.specularIntensity=1.0;
+ // A display approximation of a low-reflection viewing lens. This is not a
+ // measured factory coating; the case walls retain their stronger Fresnel edge.
+ mat.cover.thickness=.045;mat.cover.roughness=.025;mat.cover.specularIntensity=.38;
  mat.crystal.roughness=.033;mat.crystal.thickness=.19;mat.crystal.envMapIntensity=1.55;
  mat.crystalEdge.envMapIntensity=1.65;
 }

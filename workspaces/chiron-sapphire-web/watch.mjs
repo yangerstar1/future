@@ -119,7 +119,7 @@ export function makeWatch(){
   }
   function ctx0(){return {V,mat,group,mesh,box,cyl,ring,bar,pathTube,screw,jewel,contour,extrude,rim,flatLabel,gear,batchGroups,interfaceMeasurements};}
   const rearCrystal=group(root,'sapphire-back-cover',true);
-  const crystalLayer=group(root,'sapphire-case-assembly'),crystal=group(crystalLayer,'sapphire-shell',true),fixed=group(root,'case-and-crown-carrier',true),straps=group(root,'translucent-rubber-straps',true);
+  const crystalLayer=group(root,'sapphire-case-assembly',true),crystal=group(crystalLayer,'sapphire-shell',true),fixed=group(root,'case-and-crown-carrier',true),straps=group(root,'translucent-rubber-straps',true);
   const carrier=group(root,'suspended-movement');critical.push(carrier);
   const base=group(carrier,'bottom-support',true),power=group(carrier,'winding-and-wheel-train',true),dial=group(carrier,'skeleton-dial',true),eng=group(carrier,'W16-assembly'),tour=group(carrier,'tourbillon-assembly');
   const engStatic=group(eng,'W16-static-cylinders',true),tourStatic=group(tour,'tourbillon-support',true);
