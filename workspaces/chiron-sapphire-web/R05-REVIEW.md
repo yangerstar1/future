@@ -163,3 +163,13 @@ cycle finished, it requires idle / 15 and later starts slow motion by the ordina
 Start button. Otherwise it pauses/resumes through the ordinary Pause button. The
 original failed video/report are preserved. A [route-only] test commit reruns this
 route on unchanged render inputs; its skipped visual/health jobs are not passes.
+
+
+3e4656e health: 6/6 original assertions passed and the real page became hidden;
+the disposable Playwright source was restored. Manual trace review found that
+O25 still hid at engineTime=0 and the 400 ms return sample also remained zero on
+SwiftShader. This proves visibility/loop suppression, but not observed motion
+before and after hiding. The next observer therefore requires a presented moving
+frame before hiding and an advancing engine clock plus a new presented frame after
+return. The original no-jump/one-loop assertions remain, with visible wall time
+recorded for the later sample. No app code or existing evidence is changed.

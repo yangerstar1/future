@@ -3,9 +3,10 @@
 独立、非官方的 Bugatti Chiron Tourbillon Sapphire Crystal — Clear 数字研究。
 本版本正在按用户反馈进行结构返工，**不是已通过合同终验的成品，也不是原厂 CAD**。
 
-## 运行已准备的源码包
+## 从仓库运行
 
-Node.js 22.16.0；Three.js 0.180.0、esbuild 0.25.10、Playwright 1.55.1。
+仓库分支：`codex/chiron-sapphire-web`；应用目录：`workspaces/chiron-sapphire-web`。
+在该目录执行以下命令。Node.js 22.16.0；Three.js 0.180.0、esbuild 0.25.10、Playwright 1.55.1。
 
 ```sh
 npm ci
@@ -67,13 +68,17 @@ GLB 是静态可编辑快照（米），实时运动的权威来源是源码，�
 npx playwright install --with-deps chromium
 xvfb-run -a node tools/craft-observe.mjs
 xvfb-run -a node tools/browser-check.mjs
-xvfb-run -a node tools/health-check.mjs
+xvfb-run -a node tools/health-runner.mjs
+xvfb-run -a node tools/route-check.mjs
 xvfb-run -a node tools/performance.mjs
 ```
 
 当前生产验证使用真实 HTTP。带 `[full-check]` 的提交在同一固定版本上分别运行构建、视觉、
 完整 UI 回归、故障恢复和性能分布；普通艺术迭代仅运行构建与视觉。SKIPPED 不等于通过。
-工作流不执行旧恢复脚本或自动改写源码。浏览器策略拒绝本地导航的宿主不应绕过该限制；
+`[route-check]` 增加完整路线录屏与健康复验；`[route-only]` 只复跑路线。
+`health-runner.mjs` 会在一次性测试依赖中关闭 Playwright 自身的强制焦点模拟，记录原始/测量哈希，
+运行后恢复依赖文件，以观察真实标签页隐藏。它不改应用代码或可见性事件，不放宽通过条件。
+工作流不执行旧恢复脚本或自动改写应用源码。浏览器策略拒绝本地导航的宿主不应绕过该限制；
 本轮浏览器证据来自用户已授权的 GitHub Actions 执行环境。
 软件 SwiftShader / 手机视口模拟，不可作为真实 GPU / 手机性能证明。
 
