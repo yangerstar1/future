@@ -41,18 +41,20 @@ try{
  const browserClient=await browser.newBrowserCDPSession();
  report.visibilityProbe={method:'No screencast; window.open without popup features; actual tab activation',watchWindow:await browserClient.send('Browser.getWindowForTarget',{targetId:watchTarget}),otherWindow:await browserClient.send('Browser.getWindowForTarget',{targetId:otherTarget}),watch:await p.evaluate(()=>({hidden:document.hidden,visibility:document.visibilityState})),other:await other.evaluate(()=>({hidden:document.hidden,visibility:document.visibilityState}))};save();
  await p.waitForFunction(()=>document.hidden,{},{timeout:15000,polling:100});
- // A visibility property read can overtake a queued native event while the
- // software GPU completes a frame. Observe that event before timing the hidden
- // interval; never switch back early and then demand a coalesced event existed.
- await p.waitForFunction(count=>window.__chiron.snapshot().runtime.hiddenEvents>count,idle.runtime.hiddenEvents,{timeout:30000,polling:100});
+ // The baseline genuinely became hidden, but Chromium did not deliver the
+ // hidden event. The contract requires stopped work and safe recovery, not a
+ // particular event delivery. Keep native event counts unmodified as evidence,
+ // and require a separately recorded observation of actual document.hidden.
+ await p.waitForFunction(count=>window.__chiron.snapshot().runtime.hiddenTransitions>count,idle.runtime.hiddenTransitions||0,{timeout:15000,polling:100});
  const a=await snap(p);await other.waitForTimeout(1200);const b=await snap(p);
  report.nativeVisibilityTrace=await p.evaluate(()=>window.__visibilityAudit);save();
- assert.equal(b.state.engineTime,a.state.engineTime);assert.equal(b.runtime.rafOutstanding,0);assert.equal(b.runtime.gpuPollOutstanding||0,0);
+ assert.equal(b.state.engineTime,a.state.engineTime);assert.equal(b.state.engineEnergy,a.state.engineEnergy);assert.equal(b.totalFrames,a.totalFrames);assert.equal(b.runtime.rafOutstanding,0);assert.equal(b.runtime.gpuPollOutstanding||0,0);assert(await p.evaluate(()=>document.hidden));
  const resumedAt=Date.now();await p.bringToFront();await p.waitForFunction(()=>!document.hidden,{},{polling:100});await p.waitForTimeout(400);
  const immediate=await snap(p);assert.equal(immediate.runtime.initializations,1);assert(immediate.runtime.rafOutstanding<=1);assert(immediate.state.engineTime-b.state.engineTime<1.1);
  await p.waitForFunction(frozen=>{const s=window.__chiron.snapshot();return s.state.engineTime>frozen.time&&s.runtime.presentedFrame>frozen.frame;},{time:b.state.engineTime,frame:b.runtime.presentedFrame},{timeout:30000,polling:100});
  const d=await snap(p),visibleMs=Date.now()-resumedAt;report.background={active,idle,before:a,hidden:b,immediate,resumed:d,visibleMs};report.nativeVisibilityTrace=await p.evaluate(()=>window.__visibilityAudit);save();
- assert.equal(d.runtime.initializations,1);assert(d.runtime.rafOutstanding<=1);assert(d.state.engineTime-b.state.engineTime<=visibleMs/1000+.4);assert(b.runtime.hiddenEvents>idle.runtime.hiddenEvents);
+ assert.equal(d.runtime.initializations,1);assert(d.runtime.rafOutstanding<=1);assert(d.state.engineTime-b.state.engineTime<=visibleMs/1000+.4);assert(b.runtime.hiddenTransitions>(idle.runtime.hiddenTransitions||0));
+ assert(b.runtime.visibilityTransitions.some(x=>x.hidden));assert(d.runtime.visibilityTransitions.some(x=>!x.hidden));
  await browserClient.detach();await c.close();
  });
  await test('O21 actual touchscreen protocol drag/pinch and keyboard escape',async()=>{const c=await context({viewport:{width:390,height:844},hasTouch:true,isMobile:true}),p=await c.newPage();await load(p);await ready(p);await p.locator('#the-object [data-do=explore]').tap();await p.locator('#motion-toggle').tap();const a=await snap(p),b=await p.locator('#watch-canvas').boundingBox(),client=await c.newCDPSession(p);const x=b.x+b.width*.5,y=b.y+b.height*.5;await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y,id:1}]});for(let i=1;i<=10;i++)await client.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+i*5,y:y+i*2,id:1}]});await client.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await p.waitForTimeout(350);const d=await snap(p);assert.notDeepEqual(a.camera.position,d.camera.position);await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:x-30,y,id:1},{x:x+30,y,id:2}]});for(let i=1;i<=7;i++)await client.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x-30-i*4,y,id:1},{x:x+30+i*4,y,id:2}]});await client.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await p.waitForTimeout(300);const e=await snap(p);assert.notDeepEqual(d.camera.position,e.camera.position);await shot(p,'O21-touch');await p.locator('#watch-canvas').focus();await p.keyboard.press('Escape');assert.equal((await snap(p)).state.mode,'story');assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));report.touch={before:a,afterDrag:d,afterPinch:e};await c.close();});

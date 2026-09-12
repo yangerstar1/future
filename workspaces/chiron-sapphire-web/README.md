@@ -24,6 +24,7 @@ npm run serve
 ```sh
 python -m pip install -r cad/requirements.txt
 python cad/engine_blocks.py
+python cad/main_case.py
 python cad/prepare_studio.py
 npm ci
 npm test
@@ -31,7 +32,8 @@ npm run build
 node tools/geometry-audit.mjs
 ```
 
-CAD 脚本生成两个有实体厚度、各八个径向缸孔的蓝宝石缸体；STEP 输出为毫米。
+CAD 脚本生成两个各带八个径向缸孔的蓝宝石缸体，以及带三冠通孔和镜片安装台阶的单一连通主壳；STEP 输出为毫米。
+`main_case.py` 要求锁定的 CadQuery 2.8.0，并在输出前验证主壳、表冠套管和镜片包络的实体交集。
 灯光脚本下载公开 CC0 原件，验证源 SHA256，面积缩放到 1024x512 并验证 RGBE 哈希。
 已有原件时可传入其本地路径：`python cad/prepare_studio.py /path/to/studio_small_03_4k.exr`。
 不要以另一份 HDR 代替却继续沿用旧画面证据。
@@ -40,7 +42,7 @@ CAD 脚本生成两个有实体厚度、各八个径向缸孔的蓝宝石缸体�
 
 - `watch.mjs`：整表、所有活动节点、实例化活塞/连杆、装配层级。
 - `craft.mjs`：承载框架、桥板、轴承、发条盒、悬挂、涡轮固定座、微距工艺。
-- `sapphire.mjs`：连续弧面透明表壳与双面表镜。
+- `sapphire.mjs`：载入主壳 CAD 网格与解析法线，生成带平整安装面的双面表镜。
 - `nested-sapphire.mjs`：同一场景的实时内层 HDR 捕获与外层物理透射；屏幕空间近似，不是光线追踪。
 - `mechanics.mjs`：16 活塞约束、时钟、能量、装配状态；具体内部数值属数字近似。
 - `main.mjs`、`index.html`、`style.css`：真实网页、普通输入、相机、资源/图形恢复。

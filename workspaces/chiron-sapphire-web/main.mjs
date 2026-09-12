@@ -14,6 +14,21 @@ let renderer,watch,controls,pmrem,env,lights,ao,nested,lossExtension,gpuFence=nu
 let camera=new THREE.PerspectiveCamera(32,1,.035,100),cameraTween=null,savedScroll=0,savedFocus=null,lastUi=0,resizeTimer;
 const target=new THREE.Vector3(),raycaster=new THREE.Raycaster();
 const runtime={revision:'R05',backend:null,errors:[],contextLosses:0,contextRestores:0,initializations:0,hiddenEvents:0,network:[],uiEvents:[],resourceState:'loading',rafOutstanding:0,presentedFrame:0,lastDraw:null};
+let observedHidden=document.hidden;
+runtime.hiddenTransitions=0;runtime.visibilityTransitions=[];
+// Page Visibility is authoritative even if a browser coalesces or misses its
+// event. Observe it before work and with a lightweight lifecycle watchdog; do
+// not synthesize visibility events or use focus as a substitute for hiding.
+function observeVisibility(source){
+ const hidden=document.hidden;
+ if(hidden!==observedHidden){
+  observedHidden=hidden;last=0;needsRender=true;
+  runtime.visibilityTransitions.push({hidden,source,time:performance.now()});
+  if(runtime.visibilityTransitions.length>32)runtime.visibilityTransitions.shift();
+  if(hidden){runtime.hiddenTransitions++;clearTimeout(gpuPoll);gpuPoll=0;runtime.gpuPollOutstanding=0;cancelAnimationFrame(raf);raf=0;runtime.rafOutstanding=0;}
+ }
+ return hidden;
+}
 const media=matchMedia('(prefers-reduced-motion: reduce)');state.reduced=media.matches;
 const presets={hero:{p:[5.8,-8.4,12.2],t:[0,0,-.35]},front:{p:[0,0,17.5],t:[0,0,-.1]},back:{p:[0,0,-17.5],t:[0,0,-.1]},left:{p:[-17,0,0],t:[0,0,-.1]},right:{p:[17,0,0],t:[0,0,-.1]},engine:{p:[2.2,-3.25,3.25],t:[0,-1.15,.25]},tourbillon:{p:[1.05,2.25,2.72],t:[0,1.82,.38]}};
 const chapters=all('.chapter'),nav=all('#chapter-nav a');
@@ -179,7 +194,7 @@ canvas.addEventListener('pointerup',e=>{if(state.mode!=='explore'||!down||Math.h
   const rect=canvas.getBoundingClientRect(),p=new THREE.Vector2((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);raycaster.setFromCamera(p,camera);const hits=raycaster.intersectObjects(watch.crowns,true);if(!hits.length)return;let o=hits[0].object;while(o&&!watch.crowns.includes(o))o=o.parent;const i=watch.crowns.indexOf(o);if(i===2)perform('start');else if(i>=0){$('crown-panel').hidden=false;$('crown-toggle').setAttribute('aria-expanded','true');if(i===0)$('set-time').focus();else toast('Centre crown: clockwise winds timekeeping; counterclockwise winds W16.');}track('crown-hit',i);
 });
 function fail(e){state.ready=false;runtime.resourceState='failed';runtime.errors.push(String(e?.message||e));$('load-state').hidden=true;$('fallback').hidden=false;$('failure-reason').textContent=e?.message||String(e);if(state.mode==='explore')exit();ui();}
-function frame(now){raf=0;runtime.rafOutstanding=0;if(document.hidden||contextLost||!state.ready)return;
+function frame(now){raf=0;runtime.rafOutstanding=0;if(observeVisibility('frame')||contextLost||!state.ready)return;
   const stageRect=$('stage').getBoundingClientRect();if(lastStageSize!==`${stageRect.width}:${stageRect.height}:${state.mode}:${innerWidth}`)resize();
   const dt=last?(now-last)/1000:0;last=now;if(dt>0){frames.push(dt*1000);if(frames.length>6000)frames.shift();}
   for(let left=Math.min(dt,10);left>1e-7;left-=.05)tick(state,Math.min(left,.05));watch.update(state);
@@ -190,14 +205,15 @@ function frame(now){raf=0;runtime.rafOutstanding=0;if(document.hidden||contextLo
   if(needsRender||animating||cameraTween||beforeCamera.distanceToSquared(camera.position)>1e-9||now-lastRender>1000){drawScene();if(lastRender){renderIntervals.push(now-lastRender);if(renderIntervals.length>6000)renderIntervals.shift();}lastRender=now;totalFrames++;runtime.lastDraw={frame:totalFrames,mode:state.mode,selection:state.selection,explode:state.explode,crystalOff:state.crystalOff,light:state.light,width:canvas.clientWidth,height:canvas.clientHeight,camera:camera.position.toArray(),zoom:camera.zoom,view:camera.view?{...camera.view}:null};if(!gpuFence)runtime.presentedFrame=totalFrames;needsRender=false;}if(now-lastUi>140){ui();updateHotspots();lastUi=now;}schedule();
 }
 function schedule(){
- if(raf||gpuPoll||!state.ready||document.hidden||contextLost)return;
+ if(observeVisibility('schedule')||raf||gpuPoll||!state.ready||contextLost)return;
  if(gpuFence){const gl=renderer.getContext(),status=gl.clientWaitSync(gpuFence,0,0);
   if(status===gl.TIMEOUT_EXPIRED){gpuPoll=setTimeout(()=>{gpuPoll=0;runtime.gpuPollOutstanding=0;schedule();},8);runtime.gpuPollOutstanding=1;return;}
   gl.deleteSync(gpuFence);gpuFence=null;runtime.gpuPending=false;runtime.presentedFrame=totalFrames;runtime.presentedDraw=runtime.lastDraw;
  }
  raf=requestAnimationFrame(frame);runtime.rafOutstanding=1;
 }
-document.addEventListener('visibilitychange',()=>{if(document.hidden){runtime.hiddenEvents++;clearTimeout(gpuPoll);gpuPoll=0;runtime.gpuPollOutstanding=0;cancelAnimationFrame(raf);raf=0;runtime.rafOutstanding=0;}else{last=0;schedule();}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)runtime.hiddenEvents++;observeVisibility('native-event');if(!document.hidden)schedule();});
+setInterval(()=>{observeVisibility('watchdog');if(state.ready&&!document.hidden&&!contextLost)schedule();},500);
 canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();contextLost=true;clearTimeout(gpuPoll);gpuPoll=0;gpuFence=null;runtime.gpuPending=false;runtime.gpuPollOutstanding=0;runtime.resourceState='context-lost';runtime.contextLosses++;disposeStudio();ao?.dispose();ao=null;nested?.disposeTarget();cancelAnimationFrame(raf);raf=0;runtime.rafOutstanding=0;$('fallback').hidden=false;$('failure-reason').textContent='Graphics context lost. Your watch state is preserved. Restore graphics or retry the view.';ui();});
 canvas.addEventListener('webglcontextrestored',()=>{setTimeout(()=>{try{physicalLights();createAO();nested?.restoreTarget();resize();refreshLight();lossExtension=renderer.getContext().getExtension('WEBGL_lose_context');contextLost=false;runtime.resourceState='ready';runtime.contextRestores++;$('fallback').hidden=true;last=0;needsRender=true;ui();schedule();}catch(e){fail(e);}},0);});
 window.addEventListener('scroll',()=>{needsRender=true;},{passive:true});

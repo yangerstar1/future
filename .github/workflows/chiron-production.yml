@@ -49,6 +49,20 @@ jobs:
           path: /tmp/chiron-readable-source.tar.gz
           retention-days: 14
           if-no-files-found: error
+      - name: Archive locked build dependencies for offline reproduction
+        run: |
+          mkdir -p /tmp/chiron-toolchain
+          npm ls --all --json > /tmp/chiron-toolchain/npm-tree.json
+          cp package-lock.json /tmp/chiron-toolchain/package-lock.json
+          node --version > /tmp/chiron-toolchain/node-version.txt
+          tar -czf /tmp/chiron-toolchain/node_modules-linux-x64.tar.gz node_modules
+          sha256sum /tmp/chiron-toolchain/node_modules-linux-x64.tar.gz > /tmp/chiron-toolchain/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chiron-locked-toolchain-${{ github.sha }}
+          path: /tmp/chiron-toolchain/
+          retention-days: 3
+          if-no-files-found: error
   observe:
     if: ${{ !contains(github.event.head_commit.message, '[health-check]') && !contains(github.event.head_commit.message, '[route-only]') }}
     needs: build

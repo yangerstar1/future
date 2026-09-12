@@ -5,6 +5,23 @@ Authorized: yangerstar1/future / codex/chiron-sapphire-web; this workspace and i
 existing workflow only. Source persistence and standard Actions are authorized;
 main, other projects, new fees, purchased models and public deployment are outside scope.
 
+## Current R06 local checkpoint — 2026-09-12
+
+Remote checkpoint: `254dc45f92d59c12a5b421cd7ce0914551d17300`. The local candidate
+adds actual-visibility recovery, one connected three-bore main case, two recessed
+lens seats, and a smoother regulator protective arch. CadQuery 2.8.0 generated the
+authored STEP/mesh; eight state tests and seventeen geometry checks passed locally.
+Build hash: `281f1df0a95339a0b27988a4b04ec190acf0a50cee6d0291dd1c9b36cc6eaf63`.
+
+Automatic approval review rejected the GitHub push because task-specific original
+user authorization could not be verified from the exported assistant messages.
+No remote mutation is claimed for these local fixes; prior authorization wording
+above does not override the concrete rejection. Explicit permission to push this
+branch and run its existing Actions is the next required input. Browser evidence,
+material/lighting revisions and final qualification remain pending; see R06-REVIEW.md.
+
+## Earlier R05 production history
+
 The resumed baseline is R04 / 23649dc33121d117dbe4e1c6aa1c335d9601fe68.
 No user changes were present in the fresh checkout. R05 preserves the full seven
 chapters, editable procedural watch, STEP cylinder solids and locked dependencies.

@@ -1,0 +1,137 @@
+{
+  "cadquery": "2.8.0",
+  "units": "browser: 10 mm per unit; STEP: millimetres",
+  "status": "AUTHORED_DISPLAY_GEOMETRY_NOT_FACTORY_CAD",
+  "valid": true,
+  "solids": 1,
+  "volume": 8.571273844920922,
+  "boundsMm": [
+    44.41694007445042,
+    57.83173059499173,
+    19.450001999999998
+  ],
+  "faces": 41,
+  "triangles": 40422,
+  "allEdgeFilletApplied": false,
+  "tessellation": {
+    "deflectionMm": 0.05,
+    "angularToleranceRadians": 0.2,
+    "relative": false,
+    "normals": "analytic per CAD face"
+  },
+  "ports": [
+    {
+      "axisOrigin": [
+        -1.11,
+        -3.5,
+        -0.03
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius": 0.322,
+      "length": 1.3
+    },
+    {
+      "axisOrigin": [
+        0,
+        -3.5,
+        -0.03
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius": 0.322,
+      "length": 1.3
+    },
+    {
+      "axisOrigin": [
+        1.11,
+        -3.5,
+        -0.03
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius": 0.322,
+      "length": 1.3
+    }
+  ],
+  "crownIntersections": [
+    {
+      "crown": 0,
+      "collarOverlapVolume": 0.0,
+      "tubeOverlapVolume": 0.0,
+      "portRadius": 0.322,
+      "collarRadius": 0.305,
+      "nominalRadialClearanceMm": 0.17
+    },
+    {
+      "crown": 1,
+      "collarOverlapVolume": 0.0,
+      "tubeOverlapVolume": 0.0,
+      "portRadius": 0.322,
+      "collarRadius": 0.305,
+      "nominalRadialClearanceMm": 0.17
+    },
+    {
+      "crown": 2,
+      "collarOverlapVolume": 0.0,
+      "tubeOverlapVolume": 0.0,
+      "portRadius": 0.322,
+      "collarRadius": 0.305,
+      "nominalRadialClearanceMm": 0.17
+    }
+  ],
+  "lensEnvelopeIntersections": [
+    {
+      "lens": "front",
+      "envelopeOverlapVolume": 0.0,
+      "axialSeatClearanceMm": 0.01,
+      "envelopeBounds": [
+        [
+          -1.9428454333333334,
+          -2.5750001,
+          0.9349999000000001
+        ],
+        [
+          1.9428454333333334,
+          2.5750001,
+          1.0750001
+        ]
+      ]
+    },
+    {
+      "lens": "rear",
+      "envelopeOverlapVolume": 0.0,
+      "axialSeatClearanceMm": 0.01,
+      "envelopeBounds": [
+        [
+          -1.9103396555555556,
+          -2.5150001,
+          -1.0750001
+        ],
+        [
+          1.9103396555555556,
+          2.5150001,
+          -0.9949999
+        ]
+      ]
+    }
+  ],
+  "generatorSha256": "7dbf61ae145a8d59a36cdf194bed47de314ab473b96cfaf5dc0253bf1cd5bbd4",
+  "meshSha256": "c4a4921ef6218dc6960b049c7b66fee676df8f15e6858cd5db031855f75d2c69",
+  "stepSha256": "2d95c0b92d0ddc9ccfd1ab0acb41eca68c84c3959d7a635071b4f868436483d4",
+  "limitations": [
+    "Visible-shape approximation, not OEM manufacturing tolerance",
+    "Intersection checks cover crown collars/tubes and conservative lens envelopes only",
+    "Web front and rear lenses complete the 21.5 mm frozen measurement boundary",
+    "Crown port edges are not filleted; visual inspection remains required"
+  ]
+}

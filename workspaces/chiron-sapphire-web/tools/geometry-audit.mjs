@@ -13,6 +13,41 @@ const report={buildHash:manifest.buildHash,method:'ACTUAL_GENERATED_GEOMETRY_AND
 function check(name,fn){try{const details=fn();report.checks.push({name,status:'PASS',details});}catch(e){report.checks.push({name,status:'FAIL',error:e.stack});}}
 function fit(name,matcher,shaft){const measurements=watch.passport.interfaceMeasurements.filter(matcher);assert(measurements.length>0,name+' has no measured geometry');const bore=Math.min(...measurements.map(m=>m.actual.minimumFacetBore)),gap=bore-shaft;report.clearances.push({name,instances:measurements.length,minimumMeshFacetBore:bore,maximumShaftRadius:shaft,radialGap:gap,units:'10 mm'});assert(gap>0,name+' intersects');return gap;}
 check('Case dimensions use the frozen boundary, exclude straps and crowns',()=>{const measured=watch.passport.caseMeasuredMm,target=[44.4,57.8,21.5],relative=measured.map((v,i)=>Math.abs(v-target[i])/target[i]);assert(Math.max(...relative)<.01);return {measured,target,relative};});
+check('Rendered main shell is the verified single CAD solid in unchanged assembly coordinates',()=>{
+ const cad=JSON.parse(fs.readFileSync('generated/sapphire-main-case-audit.json'));
+ for(const [file,key] of [['cad/main_case.py','generatorSha256'],['generated/sapphire-main-case.json','meshSha256'],['generated/sapphire-main-case.step','stepSha256']])assert.equal(crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'),cad[key],file+' does not match its CAD audit');
+ assert.equal(cad.cadquery,'2.8.0');assert.equal(cad.valid,true);assert.equal(cad.solids,1);assert.equal(cad.crownIntersections.length,3);
+ assert(watch.passport.parts.some(p=>p.id==='continuous-bored-sapphire-case'));assert(!watch.passport.parts.some(p=>p.id==='three-bore-sapphire-crown-shoulder'));
+ const shell=watch.root.getObjectByName('sapphire-shell:crystal');assert(shell?.isMesh);assert(shell.matrixWorld.equals(new THREE.Matrix4()));
+ const geo=shell.geometry,ids=geo.index,p=geo.attributes.position,n=geo.attributes.normal;assert.equal(ids.count/3,cad.triangles);
+ let volume=0,normalError=0;const a=new THREE.Vector3(),b=new THREE.Vector3(),c=new THREE.Vector3();
+ for(let i=0;i<ids.count;i+=3){a.fromBufferAttribute(p,ids.getX(i));b.fromBufferAttribute(p,ids.getX(i+1));c.fromBufferAttribute(p,ids.getX(i+2));volume+=a.dot(b.cross(c))/6;}
+ for(let i=0;i<n.count;i++)normalError=Math.max(normalError,Math.abs(a.fromBufferAttribute(n,i).length()-1));
+ assert(volume>0);assert(Math.abs(volume-cad.volume)/cad.volume<.01);assert(normalError<1e-5);
+ for(let i=0;i<3;i++){
+  const crown=watch.crowns[i],port=cad.ports[i],measured=crown.getWorldPosition(new THREE.Vector3());assert(Math.abs(measured.x-port.axisOrigin[0])<1e-8);assert(Math.abs(measured.z-port.axisOrigin[2])<1e-8);
+  const collar=crown.getObjectByName(crown.name+':polished');assert(collar?.isMesh);const vertices=collar.geometry.attributes.position;let radius=0,ringVertices=0;
+  for(let j=0;j<vertices.count;j++)if(Math.abs(vertices.getY(j)-.13)<1e-6||Math.abs(vertices.getY(j)-.27)<1e-6){radius=Math.max(radius,Math.hypot(vertices.getX(j),vertices.getZ(j)));ringVertices++;}
+  assert(ringVertices>=96);assert(Math.abs(radius-.305)<1e-6);assert(radius<port.radius);
+  assert.equal(cad.crownIntersections[i].collarOverlapVolume,0);assert.equal(cad.crownIntersections[i].tubeOverlapVolume,0);
+ }
+ return {triangles:cad.triangles,cadVolume:cad.volume,actualMeshSignedVolume:volume,maxNormalLengthError:normalError,crownIntersections:cad.crownIntersections};
+});
+check('Both actual lenses fit the CAD-checked envelopes with flat assembly faces',()=>{
+ const cad=JSON.parse(fs.readFileSync('generated/sapphire-main-case-audit.json')),asset=JSON.parse(fs.readFileSync('generated/sapphire-main-case.json'));
+ return ['front','rear'].map(name=>{
+  const part=watch.passport.parts.find(p=>p.id===name+'-crystal'),mesh=watch.root.getObjectByName(part.parent+':cover');assert(mesh?.isMesh);
+  const box=new THREE.Box3().setFromObject(mesh),spec=asset.lenses[name],top=spec.surfaceZ+(spec.curved?.125:0),p=mesh.geometry.attributes.position;
+  assert(Math.abs(box.min.z-spec.baseZ)<1e-6);assert(Math.abs(box.max.z-top)<1e-6);assert(box.max.z>box.min.z);
+  // The cubic tonneau outline slightly exceeds its width parameter. Compare
+  // actual CAD envelope bounds, not a fictitious rectangle of nominal width.
+  const fit=cad.lensEnvelopeIntersections.find(p=>p.lens===name);
+  for(let axis=0;axis<3;axis++){assert(box.min.getComponent(axis)>=fit.envelopeBounds[0][axis]-1e-6);assert(box.max.getComponent(axis)<=fit.envelopeBounds[1][axis]+1e-6);}
+  let flatVertices=0;for(let i=0;i<p.count;i++)if(Math.abs(p.getZ(i)-spec.baseZ)<1e-6)flatVertices++;assert(flatVertices>=2881);
+  assert.equal(fit.envelopeOverlapVolume,0);assert(fit.axialSeatClearanceMm>0);
+  return {name,actualBounds:[box.min.toArray(),box.max.toArray()],flatVertices,...fit};
+ });
+});
 check('Bored bearing geometry contains rather than invades the design clearance',()=>{for(const m of watch.passport.interfaceMeasurements){assert(Math.abs(m.actual.minimumVertexRadius-m.nominal.bore)<1e-6,m.id);assert(Math.abs(m.actual.depth-m.nominal.depth)<1e-6,m.id);}return {measuredRings:watch.passport.interfaceMeasurements.length};});
 check('Crankpin to rod bush physical fit',()=>fit('crankpin / bush',m=>m.id==='rod-bearing-bush',.0195));
 check('Bush to rod eye physical fit',()=>fit('bush / eye',m=>m.id==='bored-rod-eye',.0238));

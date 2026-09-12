@@ -58,7 +58,8 @@ export function makeWatch(){
   }
   function pathTube(parent,pts,r,m=mat.polished,name,closed=false){
     const curve=new THREE.CatmullRomCurve3(pts,closed,'centripetal');
-    return mesh(parent,new THREE.TubeGeometry(curve,Math.min(300,Math.max(40,pts.length*3)),r,6,closed),m,name);
+    const macro=name==='tourbillon-protective-arch';
+    return mesh(parent,new THREE.TubeGeometry(curve,macro?192:Math.min(300,Math.max(40,pts.length*3)),r,macro?12:6,closed),m,name);
   }
   function screw(parent,x,y,z,r=.052,reverse=false){
     const g=group(parent,`screw-${++serial}`);g.position.set(x,y,z);if(reverse)g.rotation.y=Math.PI;
@@ -125,9 +126,8 @@ export function makeWatch(){
   const engStatic=group(eng,'W16-static-cylinders',true),tourStatic=group(tour,'tourbillon-support',true);
   const layers=[{g:rearCrystal,v:V(0,0,-2.3)},{g:crystalLayer,v:V(0,0,3.65)},{g:dial,v:V(0,.15,2.25)},{g:tour,v:V(0,.4,1.55)},{g:eng,v:V(0,-.1,.8)},{g:power,v:V(0,0,-.65)},{g:base,v:V(0,0,-1.6)}];
   const {rear:rearCover}=makeSapphire(ctx0(),crystal);
-  crystal.updateMatrixWorld(true);const cb=new THREE.Box3().setFromObject(crystal),sz=cb.getSize(V());
-  crystal.scale.set(SPEC.caseWidth/sz.x,SPEC.caseLength/sz.y,SPEC.caseThickness/sz.z);
-  crystal.position.sub(cb.getCenter(V()).multiply(crystal.scale));
+  // CAD coordinates are the assembly coordinates. Re-normalizing just the
+  // sapphire would move its bores relative to the independently mounted crowns.
   root.updateMatrixWorld(true);rearCrystal.attach(rearCover);registry.find(x=>x.id==='rear-crystal').parent=rearCrystal.name;
   rim(fixed,4.02,5.24,3.83,5.03,.11,-.925,mat.rhodium,.022,'titanium-caseback-gasket');
   // Precise visible attachment locations, not a random screw field.
@@ -155,16 +155,7 @@ export function makeWatch(){
     cyl(cg,0,-.215,0,.198,.046,mat.blue,'y','blue-crown-tip');ring(cg,0,-.239,0,.173,.018,mat.polished,'crown-ring','y');
     const mark=flatLabel(cg,'EB',0,-.264,0,.205,.148,'#edf4f7','#0879b1');mark.rotation.x=Math.PI/2;batchGroups.push(cg);
   }
-  // A bored sapphire shoulder wraps the three crown-tube entries. The clear
-  // front source supports this continuous volume; port dimensions are authored.
-  // It belongs to the removable shell, so crystal-off cannot leave it floating.
-  const crownShoulder=new THREE.Shape();
-  crownShoulder.moveTo(-1.86,-.64);crownShoulder.bezierCurveTo(-1.96,-.23,-1.91,.24,-1.69,.37);
-  crownShoulder.bezierCurveTo(-.88,.51,.88,.51,1.69,.37);crownShoulder.bezierCurveTo(1.91,.24,1.96,-.23,1.86,-.64);
-  crownShoulder.quadraticCurveTo(0,-.71,-1.86,-.64);
-  for(const x of [-1.11,0,1.11]){const port=new THREE.Path();port.absarc(x,-.03,.318,0,TAU,true);crownShoulder.holes.push(port);}
-  const shoulder=extrude(crystalLayer,crownShoulder,.15,0,mat.crystal,.018,'three-bore-sapphire-crown-shoulder');
-  shoulder.rotation.x=Math.PI/2;shoulder.position.y=-2.70;
+  // Crown entry material and bores now belong to the continuous main CAD shell.
   const frontRibs=group(fixed,'front-case-ribs');for(let k=0;k<7;k++)box(frontRibs,0,-2.705,-.63+k*.135,3.02,.047,.026,mat.rhodium,.008);
   box(fixed,0,-2.805,.37,.85,.07,.21,mat.blue,.035);
   const chiron=flatLabel(fixed,'Chiron',0,-2.847,.38,.73,.15,'#d9e4e9','#0879b1');chiron.rotation.x=Math.PI/2;
