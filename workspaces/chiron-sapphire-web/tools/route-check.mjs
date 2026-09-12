@@ -59,4 +59,11 @@ try{
  report.final=await snap();assert.equal(report.final.runtime.initializations,1);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));report.pass=report.errors.length===0;
 }catch(e){report.errors.push(e.stack);console.error(e);report.pass=false;process.exitCode=1;}
 finally{report.finished=new Date().toISOString();save();await context.close();await browser.close();server.kill();}
+if(report.pass){
+ await import('./standalone-check.mjs');
+ const standalone=JSON.parse(fs.readFileSync(out+'/standalone-report.json'));
+ report.standalone={pass:standalone.pass,buildHash:standalone.buildHash};
+ report.pass=standalone.pass&&standalone.buildHash===report.buildHash;
+ report.finished=new Date().toISOString();save();
+}
 if(!report.pass)process.exitCode=1;
