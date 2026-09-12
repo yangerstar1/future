@@ -41,6 +41,10 @@ try{
  const browserClient=await browser.newBrowserCDPSession();
  report.visibilityProbe={method:'No screencast; window.open without popup features; actual tab activation',watchWindow:await browserClient.send('Browser.getWindowForTarget',{targetId:watchTarget}),otherWindow:await browserClient.send('Browser.getWindowForTarget',{targetId:otherTarget}),watch:await p.evaluate(()=>({hidden:document.hidden,visibility:document.visibilityState})),other:await other.evaluate(()=>({hidden:document.hidden,visibility:document.visibilityState}))};save();
  await p.waitForFunction(()=>document.hidden,{},{timeout:15000,polling:100});
+ // A visibility property read can overtake a queued native event while the
+ // software GPU completes a frame. Observe that event before timing the hidden
+ // interval; never switch back early and then demand a coalesced event existed.
+ await p.waitForFunction(count=>window.__chiron.snapshot().runtime.hiddenEvents>count,idle.runtime.hiddenEvents,{timeout:30000,polling:100});
  const a=await snap(p);await other.waitForTimeout(1200);const b=await snap(p);
  report.nativeVisibilityTrace=await p.evaluate(()=>window.__visibilityAudit);save();
  assert.equal(b.state.engineTime,a.state.engineTime);assert.equal(b.runtime.rafOutstanding,0);assert.equal(b.runtime.gpuPollOutstanding||0,0);
