@@ -47,7 +47,7 @@ export function action(s,type,value){
     case 'pause': if(s.engine==='running')s.engine='paused';else if(s.engine==='paused')s.engine='running';return `W16 ${s.engine}.`;
     case 'windEngine':s.engineEnergy=Math.min(3,s.engineEnergy+1);if(s.engine==='exhausted')s.engine='idle';return 'Automaton wound counterclockwise. One display cycle added.';
     case 'windClock':s.clockEnergy=clamp(s.clockEnergy+.25,0,1);return 'Timekeeping wound clockwise. Independent reserve increased.';
-    case 'exhaust':s.engine='idle';s.engineEnergy=0;s.clockEnergy=.5;return 'Operation demonstration: automaton empty, timekeeping still powered.';
+    case 'exhaust':s.engine='idle';s.engineEnergy=0;return 'Operation demonstration: automaton empty. Timekeeping reserve unchanged.';
     case 'phase':if(s.engine==='running')s.engine='paused';s.engineTheta=Math.floor(s.engineTheta/TAU)*TAU+clamp(Number(value)||0,0,360)/360*TAU;return 'Manual crank-phase inspection. Not a factory operating control.';
     case 'setTime': {const m=/^(\d{1,2}):(\d{2})$/.exec(value||'');if(!m||+m[1]>23||+m[2]>59)return 'Enter a valid time.';s.clockSeconds=+m[1]*3600+(+m[2])*60;return `Hands set to ${value}.`;}
     case 'restore':s.explodeTarget=0;s.crystalOff=false;s.selection='all';s.autoOrbit=false;return 'Same watch reassembled. Winding history preserved.';

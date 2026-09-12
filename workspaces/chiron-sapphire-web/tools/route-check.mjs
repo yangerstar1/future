@@ -31,6 +31,9 @@ try{
  if((await snap()).state.engine==='running'){await click('#pause-control');assert.equal((await snap()).state.engine,'paused');}
  else{const done=await snap();assert.equal(done.state.engine,'idle');assert.equal(done.state.engineTime,15);report.naturalCycleCompletion=done;}
  const links=await page.evaluate(()=>window.__chiron.connections());assert.equal(links.length,16);assert(links.every(x=>Math.max(x.bigEndResidual,x.smallEndResidual)<1e-4));report.connections=links;
+ await click('#crown-toggle');const reserveBefore=await snap(),emptyAt=Date.now();await click('#crown-panel [data-do=exhaust]');const reserveAfter=await snap(),emptyElapsedMs=Date.now()-emptyAt;
+ assert.equal(reserveAfter.state.engineEnergy,0);assert(reserveAfter.state.clockEnergy<=reserveBefore.state.clockEnergy);assert(Math.abs((reserveBefore.state.clockEnergy-reserveAfter.state.clockEnergy)-(reserveAfter.state.clockSeconds-reserveBefore.state.clockSeconds)/(60*3600))<1e-9);assert((await page.locator('#reserve-status').textContent()).includes('W16: 0 display cycles'));
+ report.independentEmpty={before:reserveBefore,after:reserveAfter,elapsedMs:emptyElapsedMs,ui:await page.locator('#reserve-status').textContent()};save();await click('#crown-panel [data-do=windEngine]');await click('#crown-toggle');
  await click('#explorer .explore-top [data-do=restore]');
  await page.locator('#watch-canvas').focus();const before=await snap();await page.keyboard.press('ArrowRight');await page.keyboard.press('+');const after=await snap();assert.notDeepEqual(before.camera.position,after.camera.position);
  await click('[data-view=back]');await checkpoint('03-back','Restore watch → keyboard rotation/zoom → Back');

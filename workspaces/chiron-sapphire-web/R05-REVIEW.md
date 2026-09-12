@@ -199,3 +199,33 @@ note still touched the light strap: collapsed text margins moved it only about
 region for CH03 only. A chapter data attribute follows the existing active-camera
 chapter. Other chapters and all explorer/inspector geometry/cameras retain their
 previous layout. The final 390px and 360px captures must verify the actual gap.
+
+
+Independent dynamic review of 5d70cab read the O08/O10/O12 PNGs and sampled the
+recorded browser video at 180, 187, 201 and 204 seconds; it did not watch all
+24 minutes. Verdict: UI assertions supported, continuous visual quality INCONCLUSIVE.
+W16: 41 polls / 11 presented frames; sampled endpoint residual <=1.78e-15, 15 seconds
+completed in about 16.8 seconds. This does not prove smoothness or all-phase clearance.
+Regulator: ~4 clock seconds / ~0.4 regulator seconds at 0.1x; pause/time independence
+supported. Crowded macro/control-panel views do not certify visually resolved
+frequency, cage, escapement or hairspring relationships. Disassembly: 0/33/66/100
+separations visible, but changing display zoom prevents same-scale path comparison;
+50 zero-drift cycles and stable 186/22 geometry/texture counts do not prove every
+collision-free path or all GPU/heap memory. The video container's 25 fps is not 3D FPS.
+
+Independent b6 review covered all 28 frames: 1440px CH02 overlap closed within that
+viewport; 1100px case/text overlap remained; mobile CH03 note still touched the
+strap. No new MAJOR appeared elsewhere. Three craft MAJORs and CU01/CU06 Q1 remain;
+CU08 stayed Q1 pending cross-width repair. The final 0de1be5 is reviewed separately.
+
+
+Final reserve-domain inspection found a real inherited defect: Empty W16 also set
+clockEnergy to 0.5. A new test on 0 / 0.37 / 1 clock reserves failed on the old code
+(expected 0, observed 0.5). The repair removes only that cross-domain assignment and
+states that the timekeeping reserve is unchanged. Eight solver/state tests then pass.
+The ordinary-UI route now empties W16, observes the displayed 0-cycle reserve, checks
+that clock depletion matches its own elapsed timekeeping clock at the documented
+60-hour display reserve,
+and rewinds W16 before continuing. Geometry, materials and all camera/layout code
+are unchanged. The final route/health/visual run binds the repaired application,
+with earlier observation hashes retained under their original sources.
