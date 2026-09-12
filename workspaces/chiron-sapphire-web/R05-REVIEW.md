@@ -173,3 +173,21 @@ before and after hiding. The next observer therefore requires a presented moving
 frame before hiding and an advancing engine clock plus a new presented frame after
 return. The original no-jump/one-loop assertions remain, with visible wall time
 recorded for the later sample. No app code or existing evidence is changed.
+
+
+720f18c final-route functional assertions passed (14 presented checkpoints, zero
+errors), but its 1100 x 800 CH02 screenshot still showed the sapphire edge crossing
+the body copy. Fixed camera-distance guesses therefore failed across widths. The
+next repair measures the actual sapphire assembly world bounds and the actual
+chapter-copy rectangle, then fits the story shot along its existing sightline to
+leave at least 24 CSS pixels. Inspector cameras, geometry and optical materials
+are unchanged. The route asserts this measured gap; screenshots still decide visual
+acceptance. Full route, health and all 28 visual views repeat on the new app hash.
+
+
+2a04b37 O25 reached the stronger moving/resumed samples but FAILED its native
+hidden-event counter assertion. Therefore 6/6 closure is withdrawn: 5/6 health
+checks pass, and O25 remains incomplete. The next same-suite observation saves
+all those samples before the assertion so the actual counter/clock discrepancy is
+reviewable; the strict failure condition remains. No further speculative focus
+change or fabricated visibility event is introduced.

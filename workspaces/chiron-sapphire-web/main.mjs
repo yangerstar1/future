@@ -88,6 +88,25 @@ function adjusted(shot){
    p.sub(t).multiplyScalar(fit).add(t);
  }
  if(innerHeight<500&&innerWidth>650&&state.mode==='story')p.sub(t).multiplyScalar(1.18).add(t);
+ if(shot===storyShots[1]&&state.mode==='story'&&innerWidth>650){
+   // A fixed distance cleared 1440px copy but failed at 1100px. Fit the ACTUAL
+   // sapphire assembly bounds to this chapter's copy region, along the same
+   // sightline. This affects only story composition, never inspector presets.
+   const shell=watch?.root.getObjectByName('sapphire-case-assembly');
+   if(shell){
+     const area=$('stage').getBoundingClientRect(),copy=document.querySelector('#mechanical-pulse .copy').getBoundingClientRect();
+     const bounds=new THREE.Box3().setFromObject(shell),corners=[];
+     for(const x of [bounds.min.x,bounds.max.x])for(const y of [bounds.min.y,bounds.max.y])for(const z of [bounds.min.z,bounds.max.z])corners.push(new THREE.Vector3(x,y,z));
+     const testCamera=camera.clone();testCamera.zoom=1;testCamera.updateProjectionMatrix();let minimumX=-Infinity;
+     for(let i=0;i<36;i++){
+       testCamera.position.copy(p);testCamera.lookAt(t);testCamera.updateMatrixWorld();
+       minimumX=Math.min(...corners.map(v=>area.x+(v.clone().project(testCamera).x+1)*area.width/2));
+       if(minimumX>=copy.right+24)break;
+       p.sub(t).multiplyScalar(1.04).add(t);
+     }
+     runtime.storyFit={chapter:'mechanical-pulse',minimumProductX:minimumX,copyRight:copy.right,gap:minimumX-copy.right,boundsMin:bounds.min.toArray(),boundsMax:bounds.max.toArray(),method:'Actual case bounding-box corners; story-only camera distance along fixed sightline'};
+   }
+ }
  return{p,t};
 }
 function goView(key,instant=false){const shot=adjusted(presets[key]||presets.hero);if(instant||state.reduced){camera.position.copy(shot.p);target.copy(shot.t);controls?.target.copy(target);camera.lookAt(target);cameraTween=null;}else cameraTween={from:camera.position.clone(),to:shot.p,tf:target.clone(),tt:shot.t,start:performance.now(),duration:850};

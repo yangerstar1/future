@@ -41,7 +41,7 @@ try{
  await click('#pause-control');await click('#crown-toggle');await click('#dock [data-do=inspect-tourbillon]');await checkpoint('07-regulator','Pause W16 → Tourbillon');
  await click('#explorer .explore-top [data-do=restore]');const assembled=await checkpoint('08-reassembled','Restore watch');assert.equal(assembled.state.selection,'all');assert.equal(assembled.state.explode,0);assert.equal(assembled.state.crystalOff,false);assert(assembled.assemblyError.position<5.78e-5);assert(assembled.assemblyError.rotationDegrees<.01);
  await click('#explorer [data-do=exit]');assert.equal((await snap()).state.mode,'story');
- for(const id of ['mechanical-pulse','suspended-precision','sapphire-revealed','anatomy','explore-chapter','the-record']){await page.locator('#'+id).scrollIntoViewIfNeeded();await checkpoint('09-story-'+id,'Back to story → scroll to '+id);}
+ for(const id of ['mechanical-pulse','suspended-precision','sapphire-revealed','anatomy','explore-chapter','the-record']){await page.locator('#'+id).scrollIntoViewIfNeeded();const s=await checkpoint('09-story-'+id,'Back to story → scroll to '+id);if(id==='mechanical-pulse')assert(s.runtime.storyFit.gap>=24,'The projected case must clear the actual story copy');}
  assert.equal(await page.locator('.specifications dd').count(),8);assert(await page.locator('#the-record a.primary').getAttribute('href'));
  await click('#the-record [data-do=explore]');await page.locator('#watch-canvas').focus();await page.keyboard.press('Escape');assert.equal((await snap()).state.mode,'story');
  report.final=await snap();assert.equal(report.final.runtime.initializations,1);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));report.pass=report.errors.length===0;
