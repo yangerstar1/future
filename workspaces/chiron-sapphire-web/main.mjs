@@ -119,7 +119,7 @@ function storyCamera(instant=false){if(state.mode!=='story'||!state.ready)return
   const b=storyBounds[idx],u=clamp((y-b.top)/b.height,0,1),blend=state.reduced?0:clamp((u-.7)/.3,0,1),v=blend*blend*(3-2*blend);
   const a=adjusted(storyShots[idx]),n=adjusted(storyShots[Math.min(idx+1,6)]);a.p.lerp(n.p,v);a.t.lerp(n.t,v);
   if(instant||state.reduced){camera.position.copy(a.p);target.copy(a.t);}else{camera.position.lerp(a.p,.095);target.lerp(a.t,.095);}camera.lookAt(target);controls.target.copy(target);
-  if(idx!==activeChapter){activeChapter=idx;nav.forEach((a,i)=>a.classList.toggle('active',i===idx));}
+  if(idx!==activeChapter){activeChapter=idx;document.body.dataset.chapter=String(idx);nav.forEach((a,i)=>a.classList.toggle('active',i===idx));}
 }
 function enter(selection='all'){
   if(!state.ready){toast('The 3D movement is not ready. Product information remains available.');return;}

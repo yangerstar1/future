@@ -21,6 +21,7 @@ body.exploring #stage{top:90px;bottom:calc(var(--dock-height,132px) + 92px);heig
  .chapter.hero{min-height:800px}
  #suspended-precision .actions{margin-bottom:3px}
  #suspended-precision .micro{margin-top:4px}
+ body[data-chapter="2"]:not(.exploring) #stage{top:clamp(436px,calc(50svh + 24px),480px)}
 }
 @media(min-width:651px) and (max-height:500px){
  .chapter.hero{height:100svh;min-height:390px;align-items:flex-start;padding-top:83px;padding-bottom:64px}

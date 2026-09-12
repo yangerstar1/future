@@ -191,3 +191,11 @@ checks pass, and O25 remains incomplete. The next same-suite observation saves
 all those samples before the assertion so the actual counter/clock discrepancy is
 reviewable; the strict failure condition remains. No further speculative focus
 change or fabricated visibility event is introduced.
+
+
+Independent b6 review found the 1440px CH02 repair effective, but the mobile CH03
+note still touched the light strap: collapsed text margins moved it only about
+10px. The final composition reserves an additional 24px above the mobile art
+region for CH03 only. A chapter data attribute follows the existing active-camera
+chapter. Other chapters and all explorer/inspector geometry/cameras retain their
+previous layout. The final 390px and 360px captures must verify the actual gap.
