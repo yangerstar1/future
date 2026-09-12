@@ -19,7 +19,7 @@ export class NestedSapphire {
    m.customProgramCacheKey=()=>`chiron-two-layer-transmission-three-${THREE.REVISION}`;m.needsUpdate=true;
   }
  }
- restoreTarget(){this.disposeTarget();this.target=new THREE.WebGLRenderTarget(this.size.x,this.size.y,{type:THREE.HalfFloatType,format:THREE.RGBAFormat,generateMipmaps:true,minFilter:THREE.LinearMipmapLinearFilter,magFilter:THREE.LinearFilter,depthBuffer:true,samples:2});this.target.texture.name='live-inner-watch-radiance';this.target.texture.colorSpace=THREE.LinearSRGBColorSpace;this.mapUniform.value=this.target.texture;}
+ restoreTarget(){this.disposeTarget();this.target=new THREE.WebGLRenderTarget(this.size.x,this.size.y,{type:THREE.HalfFloatType,format:THREE.RGBAFormat,generateMipmaps:false,minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,depthBuffer:true,samples:0});this.target.texture.name='live-inner-watch-radiance';this.target.texture.colorSpace=THREE.LinearSRGBColorSpace;this.mapUniform.value=this.target.texture;}
  setSize(w,h){const width=Math.max(1,Math.round(w)),height=Math.max(1,Math.round(h));if(this.size.x!==width||this.size.y!==height){this.size.set(width,height);this.target?.setSize(width,height);}}
  capture(scene,camera){
   if(!this.target)return;const meshes=[];

@@ -1,4 +1,4 @@
-# CHIRON SAPPHIRE — R04 structural production candidate
+# CHIRON SAPPHIRE — R05 production repair in progress
 
 Contract SHA256: d84a8f87d8aa60a8d381416fbf152017e7d7ab7fce5d4497d98bc74dede521d9.
 Authorized: yangerstar1/future / codex/chiron-sapphire-web; workspace and existing
@@ -10,7 +10,8 @@ The authoritative model is now watch.mjs + craft.mjs + sapphire.mjs + CAD-genera
 bored cylinder solids. Rendering is main.mjs + nested-sapphire.mjs + the vendored
 CC0 studio HDR. The seven-chapter document and solver are retained.
 
-Checkpoint: R04 pass10. See R04-STRUCTURAL-REVIEW.md and bound build-manifest.json.
+Preserved baseline: R04 / 23649dc. R05 is a new repair candidate; see R05-REVIEW.md.
+The current workflow checks its immutable Git commit; no recovery script rewrites it.
 This is an improved authored reconstruction, not original manufacturer CAD.
 All numeric interface dimensions not on the official specification are labelled
 ENGINEERING_APPROXIMATION. Do not claim to reproduce all 578 original components.

@@ -7,102 +7,121 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: chiron-r04-${{ github.ref }}
+  group: chiron-r05-${{ github.ref }}
   cancel-in-progress: false
 jobs:
-  persist-source:
+  build:
     if: github.ref == 'refs/heads/codex/chiron-sapphire-web'
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    permissions:
-      contents: write
-    outputs:
-      source_sha: ${{ steps.source.outputs.sha }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-      - name: Restore guarded R04 source; refuse a changed baseline
-        run: python workspaces/chiron-sapphire-web/.recovery/r04-structure/restore.py
-      - name: Generate actual bored CAD and vendored CC0 illumination
-        working-directory: workspaces/chiron-sapphire-web
-        run: |
-          if ! test -f generated/sapphire-banks.json || ! test -f generated/studio-small-03-1k.hdr; then
-            python -m pip install -r cad/requirements.txt
-            python cad/engine_blocks.py
-            python cad/prepare_studio.py
-          fi
-      - name: Save the readable implementation and generated production assets
-        id: source
-        run: |
-          git add -- workspaces/chiron-sapphire-web
-          if ! git diff --cached --quiet; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git commit -m 'Chiron R04: persist structural rework, bored CAD, measured fits and live nested optics'
-            git push origin HEAD:refs/heads/codex/chiron-sapphire-web
-          fi
-          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-      - name: Preserve readable checkpoint even if later graphics checks fail
-        if: always()
-        run: |
-          git rev-parse HEAD > SOURCE-COMMIT.txt
-          tar --exclude=.recovery -czf /tmp/chiron-r04-source.tar.gz workspaces/chiron-sapphire-web .github/workflows/chiron-production.yml SOURCE-COMMIT.txt
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: chiron-r04-readable-source
-          path: /tmp/chiron-r04-source.tar.gz
-          retention-days: 14
-          if-no-files-found: error
-  verify:
-    needs: persist-source
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
     defaults:
       run:
         working-directory: workspaces/chiron-sapphire-web
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ needs.persist-source.outputs.source_sha }}
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22.16.0'
-      - name: Locked build, solver and actual mesh/interface checks
+      - name: Build the immutable checkout and verify actual mechanical geometry
         run: |
-          npm ci
+          npm ci --no-audit --no-fund
           npm test
           npm run build
           node tools/geometry-audit.mjs
-          git rev-parse HEAD > evidence/R04/SOURCE-COMMIT.txt
-          uname -a > evidence/R04/RUNNER.txt
-          npx playwright install --with-deps chromium
-      - name: Preserve build and numerical evidence before long browser tests
-        uses: actions/upload-artifact@v4
+          git rev-parse HEAD > evidence/R05/SOURCE-COMMIT.txt
+          uname -a > evidence/R05/RUNNER.txt
+          node --version >> evidence/R05/RUNNER.txt
+          git -C ../.. archive --format=tar HEAD workspaces/chiron-sapphire-web .github/workflows/chiron-production.yml | gzip > /tmp/chiron-readable-source.tar.gz
+      - uses: actions/upload-artifact@v4
         with:
-          name: chiron-r04-build-${{ needs.persist-source.outputs.source_sha }}
+          name: chiron-r05-build-${{ github.sha }}
           path: |
             workspaces/chiron-sapphire-web/dist/
-            workspaces/chiron-sapphire-web/evidence/R04/
+            workspaces/chiron-sapphire-web/evidence/R04/geometry-audit/
+            workspaces/chiron-sapphire-web/evidence/R05/
           retention-days: 14
           if-no-files-found: error
-      - name: Actual HTTP full normal-UI regression, 100 steps, 50 cycles and GLB export
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chiron-r05-source-${{ github.sha }}
+          path: /tmp/chiron-readable-source.tar.gz
+          retention-days: 14
+          if-no-files-found: error
+  observe:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: workspaces/chiron-sapphire-web
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - uses: actions/download-artifact@v4
+        with:
+          name: chiron-r05-build-${{ github.sha }}
+          path: workspaces/chiron-sapphire-web
+      - name: Install locked renderer and browser
+        run: |
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: HTTP multi-view observation and editable GLB round trip
+        run: xvfb-run -a node tools/craft-observe.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chiron-r05-visual-${{ github.sha }}
+          path: workspaces/chiron-sapphire-web/evidence/R05/visual/
+          retention-days: 14
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chiron-r05-assets-${{ github.sha }}
+          path: workspaces/chiron-sapphire-web/assets/
+          retention-days: 14
+  regression:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    defaults:
+      run:
+        working-directory: workspaces/chiron-sapphire-web
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - uses: actions/download-artifact@v4
+        with:
+          name: chiron-r05-build-${{ github.sha }}
+          path: workspaces/chiron-sapphire-web
+      - name: Install locked renderer and browser
+        run: |
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Full HTTP ordinary-UI regression, 100 steps and 50 assembly cycles
+        env:
+          CHIRON_SMALL: '1'
         run: xvfb-run -a node tools/browser-check.mjs
       - name: Actual HTTP graphic failure, retry, visibility and touch
-        if: ${{ !cancelled() && hashFiles('workspaces/chiron-sapphire-web/dist/build-manifest.json') != '' }}
+        if: ${{ !cancelled() }}
         run: xvfb-run -a node tools/health-check.mjs
-      - name: Software-renderer peak distribution; not hardware qualification
-        if: ${{ !cancelled() && hashFiles('workspaces/chiron-sapphire-web/dist/build-manifest.json') != '' }}
+      - name: Software-renderer distribution; never physical-GPU qualification
+        if: ${{ !cancelled() }}
         run: xvfb-run -a node tools/performance.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: chiron-r04-observations-${{ needs.persist-source.outputs.source_sha }}
-          path: |
-            workspaces/chiron-sapphire-web/evidence/
-            workspaces/chiron-sapphire-web/assets/
+          name: chiron-r05-regression-${{ github.sha }}
+          path: workspaces/chiron-sapphire-web/evidence/R05/
           retention-days: 14
           if-no-files-found: error

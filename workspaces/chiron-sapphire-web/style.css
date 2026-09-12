@@ -14,3 +14,17 @@ body.exploring #stage{top:90px;bottom:calc(var(--dock-height,132px) + 92px);heig
 
 /* R04: markers must not permanently label over the inspected mechanisms. */
 .part-hotspot{background:transparent;border-color:transparent;font-size:14px;color:#aec3d0a8}.part-hotspot small{opacity:0;transition:opacity .15s}.part-hotspot:hover,.part-hotspot:focus-visible{background:#0e171d99;border-color:#8bafc870}.part-hotspot:hover small,.part-hotspot:focus-visible small{opacity:1}
+
+/* R05: dedicated portrait art region and reachable landscape actions. */
+@media(max-width:650px){
+ body:not(.exploring) #stage{top:clamp(412px,50svh,456px);bottom:58px;height:auto}
+ .chapter.hero{min-height:800px}
+}
+@media(min-width:651px) and (max-height:500px){
+ .chapter.hero{height:100svh;min-height:390px;align-items:flex-start;padding-top:83px;padding-bottom:64px}
+ .hero h1{font-size:32px;line-height:1.02;margin-bottom:12px}
+ .hero h1 em br{display:none}
+ .hero .eyebrow{font-size:8px;margin-bottom:9px}
+ .hero .intro{display:none}
+ .hero .actions{margin-top:14px;margin-bottom:0}
+}

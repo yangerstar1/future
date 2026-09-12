@@ -199,7 +199,14 @@ export function suspension(c,root,carrier,fixed){
   cyl(fg,0,0,0,.124,.12,mat.polished,'z',name+'-fixed-bearing');screw(fg,0,0,.073,.069);
   const movingPad=plate(mountMoving,name+'-moving-pad',[[sx*1.14,sy*1.24],[sx*1.57,sy*1.39],[sx*1.56,sy*1.72],[sx*1.17,sy*1.64]],.455,.102,mat.rhodium,[[b.x,b.y,.049]]);
   // Load path from the pad to the continuous chassis side rail.
-  bar(mountMoving,V(sx*1.49,sy*1.63,-.42),V(sx*1.49,sy*1.63,.50),.061,mat.brushed,name+'-moving-post');
+  // A bored side web replaces the thin isolated rod. It lands on the chassis
+  // rail below and the existing shock pad above; the window retains inspection.
+  const web=group(mountMoving,name+'-side-bearing-web');
+  web.position.set(sx*1.49,sy*1.63,0);web.rotation.y=Math.PI/2;
+  plate(web,name+'-machined-support',[[.43,-.15],[.43,.15],[-.455,.15],[-.455,-.15]],-.052,.104,mat.brushed,
+   [[[.31,-.061],[.31,.061],[-.30,.061],[-.30,-.061]]]);
+  box(mountMoving,sx*1.49,sy*1.63,-.404,.23,.38,.083,mat.dark,.018,name+'-rail-saddle');
+  for(const yy of [-.12,.12])screw(mountMoving,sx*1.49,sy*1.63+yy,.558,.031);
   // Journal through the .049 pad bore, shoulder beneath the .079 fork bore,
   // and a .050 threaded neck through the .056 retaining washer. No intersections.
   turned(mountMoving,name+'-stepped-top-seat',b.x,b.y,0,[[0,.455],[.046,.455],[.046,.552],[.073,.554],[.077,.558],[.077,.601],[.050,.605],[.050,.672],[0,.672]],mat.polished);
@@ -329,11 +336,27 @@ export function materialFinish(mat){
  }
  const tex=new THREE.DataTexture(data,n,n);tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.repeat.set(2,2);tex.minFilter=THREE.LinearMipmapLinearFilter;tex.magFilter=THREE.LinearFilter;tex.generateMipmaps=true;tex.anisotropy=4;tex.needsUpdate=true;tex.name='authored-machining-roughness';
  for(const key of ['brushed','rhodium']){mat[key].roughnessMap=tex;mat[key].needsUpdate=true;}
- mat.rhodium.roughness=.265;mat.polished.roughness=.145;mat.brushed.roughness=.39;mat.dark.roughness=.39;
- mat.rubber.color.set(0xaebbc1);mat.rubber.opacity=.62;mat.rubber.roughness=.34;
- mat.cylinderGlass.opacity=1;mat.cylinderGlass.transparent=false;mat.cylinderGlass.depthWrite=true;mat.cylinderGlass.transmission=1;mat.cylinderGlass.ior=1.76;mat.cylinderGlass.side=THREE.FrontSide;mat.cylinderGlass.thickness=.036;mat.cylinderGlass.roughness=.027;mat.cylinderGlass.color.set(0xffffff);mat.cylinderGlass.envMapIntensity=.48;mat.crystal.color.set(0xffffff);mat.crystalEdge.color.set(0xffffff);
- for(const key of ['crystal','crystalEdge','cover']){mat[key].clearcoat=0;mat[key].transmission=1;mat[key].opacity=1;mat[key].transparent=false;mat[key].depthWrite=true;}
- mat.cover.thickness=.058;mat.cover.roughness=.016;mat.cover.specularIntensity=.20;
- mat.rhodium.roughness=.23;mat.polished.roughness=.115;
-
+ mat.rhodium.color.set(0xb5bcc1);mat.rhodium.roughness=.30;
+ mat.polished.color.set(0xe0e3e6);mat.polished.roughness=.105;
+ mat.brushed.color.set(0x8c979f);mat.brushed.roughness=.43;
+ mat.dark.color.set(0x343c43);mat.dark.metalness=.65;mat.dark.roughness=.43;
+ mat.rubber.color.set(0xc8cdd0);mat.rubber.opacity=.88;mat.rubber.roughness=.48;
+ mat.rubber.side=THREE.FrontSide;
+ // Inner bore geometry remains closed and present. A Fresnel-weighted clear
+ // surface avoids a second refractive image of each tiny linkage. This is a
+ // declared real-time optical approximation, not sapphire ray tracing.
+ const inner=mat.cylinderGlass;
+ inner.transmission=0;inner.opacity=.32;inner.transparent=true;inner.depthWrite=false;
+ inner.side=THREE.FrontSide;inner.roughness=.045;inner.color.set(0xffffff);
+ inner.envMapIntensity=1.15;inner.clearcoat=1;inner.clearcoatRoughness=.035;
+ inner.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>',
+  'diffuseColor.a *= 0.18 + 0.82 * pow(1.0 - abs(dot(normal, normalize(vViewPosition))), 2.0);\n#include <opaque_fragment>');};
+ inner.customProgramCacheKey=()=> 'chiron-inner-sapphire-fresnel-v1';
+ for(const key of ['crystal','crystalEdge','cover']){
+  mat[key].color.set(0xffffff);mat[key].clearcoat=0;mat[key].transmission=1;
+  mat[key].opacity=1;mat[key].transparent=false;mat[key].depthWrite=true;
+ }
+ mat.cover.thickness=.045;mat.cover.roughness=.025;mat.cover.specularIntensity=.65;
+ mat.crystal.roughness=.033;mat.crystal.thickness=.19;mat.crystal.envMapIntensity=1.55;
+ mat.crystalEdge.envMapIntensity=1.65;
 }
