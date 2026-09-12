@@ -1,4 +1,4 @@
-# CHIRON SAPPHIRE — R04
+# CHIRON SAPPHIRE — R05
 
 独立、非官方的 Bugatti Chiron Tourbillon Sapphire Crystal — Clear 数字研究。
 本版本正在按用户反馈进行结构返工，**不是已通过合同终验的成品，也不是原厂 CAD**。
@@ -14,7 +14,7 @@ npm run build
 npm run serve
 ```
 
-服务端口 4173。`dist/Chiron-Sapphire-R04.html` 是自包含离线网页，需要 WebGL2。
+服务端口 4173。`dist/Chiron-Sapphire-R05.html` 是自包含离线网页，需要 WebGL2。
 正式静态 HTTP 入口为 `dist/index.html`，同时保留 app.js、style.css、mechanism.json。
 没有运行时 CDN、字体文件、模型 API 或用户数据收集。
 
@@ -45,8 +45,11 @@ CAD 脚本生成两个有实体厚度、各八个径向缸孔的蓝宝石缸体�
 - `main.mjs`、`index.html`、`style.css`：真实网页、普通输入、相机、资源/图形恢复。
 - `cad/`、`generated/`：可再生成的连续实体、STEP、灯光和来源校验。
 - `tools/geometry-audit.mjs`：实际几何间隙、721 相位、四点世界坐标连接；不是视觉评审。
-- `tools/craft-observe.mjs`：通过普通 UI 得到固定七视角。
-- `R04-STRUCTURAL-REVIEW.md`：发现的根因、实际修复、证据边界和未完成项。
+- `export-asset.mjs`：在独立副本中导出带表面贴图的可编辑 GLB；不改动实时模型。
+- `tools/craft-observe.mjs`：真实 HTTP、普通 UI、多面/微距/手机视口截图。
+- `tools/verify-asset.mjs`：GLB 导出后重新载入，验证 16 组独立活塞/连杆及米制尺度。
+- `tools/observed-frame.mjs`：等待画面完成并核对 UI 状态、相机与视口，避免旧帧证据。
+- `R04-STRUCTURAL-REVIEW.md`、`R05-REVIEW.md`：历史缺陷、实际修复、证据边界和未完成项。
 
 ## 操作及事实边界
 
@@ -62,12 +65,14 @@ GLB 是静态可编辑快照（米），实时运动的权威来源是源码，�
 
 ```sh
 npx playwright install --with-deps chromium
+xvfb-run -a node tools/craft-observe.mjs
 xvfb-run -a node tools/browser-check.mjs
 xvfb-run -a node tools/health-check.mjs
 ```
 
-正常路径是 HTTP；受限沙箱可加 `CHIRON_LOCAL_DOCUMENT=1`，但这明确是文档注入，
-不能称为 HTTP 冷启动。`tools/craft-observe.mjs` 同样明确标注该注入模式。
+当前生产验证使用真实 HTTP。现有 Actions 在固定提交上分别运行构建、视觉与完整回归，
+不再执行旧恢复脚本或自动改写源码。浏览器策略拒绝本地导航的宿主不应绕过该限制；
+本轮浏览器证据来自用户已授权的 GitHub Actions 执行环境。
 软件 SwiftShader / 手机视口模拟，不可作为真实 GPU / 手机性能证明。
 
 完整验收标准见 `references/CONTRACT-V1.md`。构建成功、接口间隙通过、零件数量和

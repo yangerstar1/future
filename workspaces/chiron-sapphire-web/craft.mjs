@@ -61,6 +61,15 @@ export function chassis(c,base,power){
  plate(base,'lower-keyless-deck',[[-1.48,-2.22],[1.48,-2.22],[1.52,-1.35],[1.13,-1.17],[.72,-1.50],[-.66,-1.50],[-1.11,-1.17],[-1.52,-1.35]],-.55,.13,mat.dark,
   [[[-1.28,-2.05],[-.83,-2.05],[-.83,-1.67],[-1.18,-1.50]],[[1.28,-2.05],[.83,-2.05],[.83,-1.67],[1.18,-1.50]],[0,-1.86,.18]]);
  for(const y of [-2.20,2.16]){box(base,0,y,-.45,2.89,.13,.17,mat.rhodium,.025,'frame-crossmember');for(const x of [-1.35,-.56,.56,1.35]){screw(base,x,y,-.347,.046);screw(base,x,y,-.559,.045,true);}}
+ // Bored upper carrier webs connect the side rail to the index/suspension
+ // fork. Their lower rear edge clears the existing barrel sweep; they are
+ // support material, not added decorative gears or an opaque cavity filler.
+ for(const sx of [-1,1]){
+  const web=group(base,'upper-index-carrier-web-'+sx);web.position.x=sx*1.49;web.rotation.y=Math.PI/2;
+  plate(web,'milled-stepped-carrier-web',[[.49,.65],[.49,1.50],[-.554,1.50],[-.554,.80],[-.35,.30],[-.30,-.20],[-.20,-.20],[.10,.65]],-.053,.106,mat.brushed,
+    [[[.31,.88],[.31,1.29],[-.36,1.29],[-.36,.95]], [[-.03,.66],[-.24,.49],[-.34,.72],[-.17,.88]]]);
+  for(const y of [.79,1.38])screw(base,sx*1.49,y,.581,.037);
+ }
  // Barrel axles are held by the shared frame, not merely parented to a rotating wheel.
  for(const x of [-1.035,1.035]){
   plate(power,'barrel-fixed-saddle-'+x,[[x-.30,.34],[x+.30,.34],[x+.34,-.21],[x+.15,-.33],[x-.20,-.33],[x-.34,-.21]],-.53,.105,mat.dark,[[x,.065,.085]]);
@@ -319,8 +328,8 @@ export function tourbillonSupport(c,tourStatic){
  plate(tourStatic,'tourbillon-cantilever',[[-.29,-.22],[.29,-.22],[.34,.09],[.18,.18],[-.18,.18],[-.34,.09]],-.332,.102,mat.brushed,[[0,0,.076]]);
  // Local tilted pedestal lands on upper-carrier-deck after tour.rotation.x=30deg.
  for(const sx of [-1,1]){
-  bar(tourStatic,V(sx*.275,-.10,-.28),V(sx*.48,-.09,-.616),.061,mat.dark,'tourbillon-cantilever-leg');
-  box(tourStatic,sx*.48,-.09,-.615,.19,.26,.14,mat.brushed,.022,'tourbillon-carrier-foot');
+  bar(tourStatic,V(sx*.275,-.10,-.28),V(sx*.48,-.09,-.616),.039,mat.dark,'tourbillon-cantilever-leg');
+  const x=sx*.48;plate(tourStatic,'bored-tourbillon-carrier-foot',[[x-.095,-.22],[x+.075,-.22],[x+.105,-.14],[x+.08,.035],[x-.08,.035],[x-.105,-.14]],-.685,.14,mat.brushed,[[x,-.09,.036]]);
   screw(tourStatic,sx*.48,-.09,-.525,.042);
   bar(tourStatic,V(sx*.39,-.30,-.11),V(sx*.28,-.18,-.31),.022,mat.polished,'protective-arch-foot');
  }
@@ -339,7 +348,7 @@ export function materialFinish(mat){
  mat.rhodium.color.set(0xb5bcc1);mat.rhodium.roughness=.30;
  mat.polished.color.set(0xe0e3e6);mat.polished.roughness=.105;
  mat.brushed.color.set(0x8c979f);mat.brushed.roughness=.43;
- mat.dark.color.set(0x343c43);mat.dark.metalness=.65;mat.dark.roughness=.43;
+ mat.dark.color.set(0x1b2228);mat.dark.metalness=.55;mat.dark.roughness=.37;
  mat.rubber.color.set(0xc8cdd0);mat.rubber.opacity=.88;mat.rubber.roughness=.48;
  mat.rubber.side=THREE.FrontSide;
  // Inner bore geometry remains closed and present. A Fresnel-weighted clear
@@ -356,7 +365,7 @@ export function materialFinish(mat){
   mat[key].color.set(0xffffff);mat[key].clearcoat=0;mat[key].transmission=1;
   mat[key].opacity=1;mat[key].transparent=false;mat[key].depthWrite=true;
  }
- mat.cover.thickness=.045;mat.cover.roughness=.025;mat.cover.specularIntensity=.65;
+ mat.cover.thickness=.045;mat.cover.roughness=.025;mat.cover.specularIntensity=1.0;
  mat.crystal.roughness=.033;mat.crystal.thickness=.19;mat.crystal.envMapIntensity=1.55;
  mat.crystalEdge.envMapIntensity=1.65;
 }

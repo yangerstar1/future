@@ -28,6 +28,7 @@ try{
  await snap('oblique-neutral');await page.locator('#crystal-control').click();await snap('oblique-crystal-off');await page.locator('#crystal-control').click();
  await page.locator('#anatomy-toggle').click();await page.locator('#explode').focus();await page.keyboard.press('End');await snap('exploded-100');await page.locator('#anatomy-panel [data-do=restore]').click();await page.locator('#anatomy-toggle').click();
  await page.locator('#light-toggle').click();await page.locator('#explorer [data-do=exit]').click();
+ for(const id of ['mechanical-pulse','suspended-precision','sapphire-revealed','anatomy','explore-chapter','the-record']){await page.locator('#'+id).scrollIntoViewIfNeeded();await snap('chapter-'+id);}
  for(const viewport of [{width:390,height:844},{width:844,height:390},{width:360,height:800}]){
   await page.setViewportSize(viewport);await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await snap(`hero-${viewport.width}x${viewport.height}`);
   await page.locator('#the-object [data-do=explore]').click();await snap(`explore-${viewport.width}x${viewport.height}`);await page.locator('#explorer [data-do=exit]').click();

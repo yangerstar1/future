@@ -7,7 +7,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: chiron-r05-${{ github.ref }}
+  group: chiron-r05-${{ github.sha }}
   cancel-in-progress: false
 jobs:
   build:
@@ -87,6 +87,7 @@ jobs:
           path: workspaces/chiron-sapphire-web/assets/
           retention-days: 14
   regression:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[full-check]')
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 55

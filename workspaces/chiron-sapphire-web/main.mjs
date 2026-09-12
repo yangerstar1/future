@@ -15,7 +15,7 @@ let camera=new THREE.PerspectiveCamera(32,1,.035,100),cameraTween=null,savedScro
 const target=new THREE.Vector3(),raycaster=new THREE.Raycaster();
 const runtime={revision:'R05',backend:null,errors:[],contextLosses:0,contextRestores:0,initializations:0,hiddenEvents:0,network:[],uiEvents:[],resourceState:'loading',rafOutstanding:0,presentedFrame:0,lastDraw:null};
 const media=matchMedia('(prefers-reduced-motion: reduce)');state.reduced=media.matches;
-const presets={hero:{p:[5.8,-8.4,12.2],t:[0,0,-.35]},front:{p:[0,0,17.5],t:[0,0,-.1]},back:{p:[0,0,-17.5],t:[0,0,-.1]},left:{p:[-17,0,0],t:[0,0,-.1]},right:{p:[17,0,0],t:[0,0,-.1]},engine:{p:[2.2,-3.25,3.25],t:[0,-1.15,.25]},tourbillon:{p:[1.05,2.25,2.72],t:[0,1.82,.38]}};
+const presets={hero:{p:[5.8,-8.4,13.2],t:[0,0,-.9]},front:{p:[0,0,17.5],t:[0,0,-.1]},back:{p:[0,0,-17.5],t:[0,0,-.1]},left:{p:[-17,0,0],t:[0,0,-.1]},right:{p:[17,0,0],t:[0,0,-.1]},engine:{p:[2.2,-3.25,3.25],t:[0,-1.15,.25]},tourbillon:{p:[.7,1.7,3.6],t:[0,1.78,.33]}};
 const chapters=all('.chapter'),nav=all('#chapter-nav a');
 let storyBounds=[],activeChapter=0,needsRender=true,lastRender=0,renderIntervals=[];
 const storyShots=[presets.hero,{p:[3.5,-3.7,7.7],t:[0,-.75,.1]},{p:[3.8,3.65,9.4],t:[0,1.05,.05]},{p:[7.4,-2.8,12.3],t:[0,0,0]},{p:[8,-3.8,15.8],t:[0,0,1.3]},{p:[-4.1,2.7,16.1],t:[0,0,-.2]},presets.hero];
@@ -35,13 +35,14 @@ function physicalLights(){
   for(const [pos,color,intensity] of [[[4,8,10],0xf0f4ff,4], [[-6,1,5],0xd9ebff,2.2], [[3,-5,-7],0xffffff,4]]){const l=new THREE.DirectionalLight(color,intensity);l.position.set(...pos);if(!lights.children.some(c=>c.castShadow)){l.castShadow=true;l.shadow.mapSize.set(1024,1024);Object.assign(l.shadow.camera,{left:-5,right:5,top:6,bottom:-6,near:.5,far:35});l.shadow.normalBias=.009;l.shadow.bias=-.00003;}lights.add(l);}
   RectAreaLightUniformsLib.init();
   for(const [pos,w,h,n] of [[[0,3,7],6,5,.65],[[-1,2,-7],5,6,.8]]){const light=new THREE.RectAreaLight(0xffffff,n,w,h);light.position.set(...pos);light.lookAt(0,0,0);lights.add(light);}
-  // Locally authored studio panels, no hidden third-party HDRI or network dependency.
+  // Authored reflection cards over the credited, vendored CC0 studio HDR.
   const room=new THREE.Scene();room.background=new THREE.Color(0x080b0f);
   const panel=(w,h,pos,intensity)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:new THREE.Color().setScalar(intensity),side:THREE.DoubleSide}));m.position.set(...pos);m.lookAt(0,0,0);room.add(m);};
   panel(3,10,[-8,3,5],4.8);panel(1.3,10,[8,-1,4],2.8);panel(8,2,[0,9,4],4);panel(2,9,[1,-3,-9],2.5);panel(10,1.5,[0,-8,0],.25);panel(11,7,[0,1,11],.22);
   const hdr=new HDRLoader().parse(studioHDR.buffer.slice(studioHDR.byteOffset,studioHDR.byteOffset+studioHDR.byteLength));
   const map=new THREE.DataTexture(hdr.data,hdr.width,hdr.height,THREE.RGBAFormat,hdr.type);map.colorSpace=THREE.LinearSRGBColorSpace;map.mapping=THREE.EquirectangularReflectionMapping;map.flipY=true;map.needsUpdate=true;
-  pmrem=new THREE.PMREMGenerator(renderer);env=pmrem.fromEquirectangular(map);scene.environment=env.texture;scene.environmentRotation.set(0,.55,0);scene.environmentIntensity=1.0;map.dispose();room.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});pmrem.dispose();
+  room.background=map;panel(3.6,10,[-6,7,11],6.5);panel(1.8,8,[8,-2,7],4.2);
+  pmrem=new THREE.PMREMGenerator(renderer);env=pmrem.fromScene(room,.015,.1,60);scene.environment=env.texture;scene.environmentRotation.set(0,0,0);scene.environmentIntensity=1.0;map.dispose();room.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});pmrem.dispose();
 }
 // Three.js 0.180.0 GTAO: only solid mechanical geometry contributes to the depth pass.
 // Blend onto the antialiased scene, rather than making sapphire behave like opaque AO geometry.
@@ -76,11 +77,11 @@ function adjusted(shot){
  if(innerWidth<650&&state.mode==='story'){
    // Mobile has a dedicated art area below the copy. Keep the object three-quarter,
    // recompute its projection from that area, never reuse desktop view offsets.
-   if(shot===presets.hero){p.set(3.8,-5.1,15);t.set(0,0,-.45);}
+   if(shot===presets.hero){p.set(3.4,-4.6,13.6);t.set(0,0,-.9);}
    const aspect=Math.max(.3,camera.aspect),fit=Math.max(1,.80/aspect);
    p.sub(t).multiplyScalar(fit).add(t);
  }
- if(innerHeight<500&&innerWidth>650&&state.mode==='story')p.sub(t).multiplyScalar(1.12).add(t);
+ if(innerHeight<500&&innerWidth>650&&state.mode==='story')p.sub(t).multiplyScalar(1.18).add(t);
  return{p,t};
 }
 function goView(key,instant=false){const shot=adjusted(presets[key]||presets.hero);if(instant||state.reduced){camera.position.copy(shot.p);target.copy(shot.t);controls?.target.copy(target);camera.lookAt(target);cameraTween=null;}else cameraTween={from:camera.position.clone(),to:shot.p,tf:target.clone(),tt:shot.t,start:performance.now(),duration:850};
@@ -155,12 +156,13 @@ canvas.addEventListener('pointerup',e=>{if(state.mode!=='explore'||!down||Math.h
 function fail(e){state.ready=false;runtime.resourceState='failed';runtime.errors.push(String(e?.message||e));$('load-state').hidden=true;$('fallback').hidden=false;$('failure-reason').textContent=e?.message||String(e);if(state.mode==='explore')exit();ui();}
 function frame(now){raf=0;runtime.rafOutstanding=0;if(document.hidden||contextLost||!state.ready)return;
   const stageRect=$('stage').getBoundingClientRect();if(lastStageSize!==`${stageRect.width}:${stageRect.height}:${state.mode}:${innerWidth}`)resize();
-  const framing=state.selection==='all'?1/(1+state.explode*.48):1;if(camera.zoom!==framing){camera.zoom=framing;camera.updateProjectionMatrix();needsRender=true;}
   const dt=last?(now-last)/1000:0;last=now;if(dt>0){frames.push(dt*1000);if(frames.length>6000)frames.shift();}
-  for(let left=Math.min(dt,10);left>1e-7;left-=.05)tick(state,Math.min(left,.05));watch.update(state);controls.minDistance=state.selection==='all'?4.7+state.explode*3.2:.85;const beforeCamera=camera.position.clone();
+  for(let left=Math.min(dt,10);left>1e-7;left-=.05)tick(state,Math.min(left,.05));watch.update(state);
+  const framing=state.selection==='all'?1/(1+state.explode*.48):1;if(camera.zoom!==framing){camera.zoom=framing;camera.updateProjectionMatrix();needsRender=true;}
+  controls.minDistance=state.selection==='all'?4.7+state.explode*3.2:.85;const beforeCamera=camera.position.clone();
   if(state.mode==='story')storyCamera();else if(cameraTween){const v=clamp((now-cameraTween.start)/cameraTween.duration,0,1),t=v*v*(3-2*v);camera.position.lerpVectors(cameraTween.from,cameraTween.to,t);target.lerpVectors(cameraTween.tf,cameraTween.tt,t);controls.target.copy(target);camera.lookAt(target);if(v===1)cameraTween=null;}else{controls.update();target.copy(controls.target);}
   const animating=state.engine==='running'||Math.abs(state.explode-state.explodeTarget)>.00001||state.suspensionTime<3||(!state.balancePaused&&(!state.reduced||state.balanceRequested)&&state.clockEnergy>0);
-  if(needsRender||animating||cameraTween||beforeCamera.distanceToSquared(camera.position)>1e-9||now-lastRender>1000){drawScene();if(lastRender){renderIntervals.push(now-lastRender);if(renderIntervals.length>6000)renderIntervals.shift();}lastRender=now;totalFrames++;runtime.lastDraw={frame:totalFrames,mode:state.mode,selection:state.selection,explode:state.explode,crystalOff:state.crystalOff,light:state.light,width:canvas.clientWidth,height:canvas.clientHeight,camera:camera.position.toArray(),view:camera.view?{...camera.view}:null};if(!gpuFence)runtime.presentedFrame=totalFrames;needsRender=false;}if(now-lastUi>140){ui();updateHotspots();lastUi=now;}schedule();
+  if(needsRender||animating||cameraTween||beforeCamera.distanceToSquared(camera.position)>1e-9||now-lastRender>1000){drawScene();if(lastRender){renderIntervals.push(now-lastRender);if(renderIntervals.length>6000)renderIntervals.shift();}lastRender=now;totalFrames++;runtime.lastDraw={frame:totalFrames,mode:state.mode,selection:state.selection,explode:state.explode,crystalOff:state.crystalOff,light:state.light,width:canvas.clientWidth,height:canvas.clientHeight,camera:camera.position.toArray(),zoom:camera.zoom,view:camera.view?{...camera.view}:null};if(!gpuFence)runtime.presentedFrame=totalFrames;needsRender=false;}if(now-lastUi>140){ui();updateHotspots();lastUi=now;}schedule();
 }
 function schedule(){
  if(raf||gpuPoll||!state.ready||document.hidden||contextLost)return;

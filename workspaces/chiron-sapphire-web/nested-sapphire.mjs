@@ -12,6 +12,12 @@ export class NestedSapphire {
   this.mapUniform={value:null};this.sizeUniform={value:this.size};this.restoreTarget();
   const source=THREE.ShaderChunk.transmission_pars_fragment;
   if(!source.includes('transmissionSamplerMap'))throw new Error('Unsupported Three.js transmission shader');
+  const outer=['crystal','crystalEdge','cover'];
+  if(Object.entries(watch.mat).some(([name,m])=>m.transmission>0&&!outer.includes(name)))throw new Error('An unregistered transmission material would use the reduced compatibility buffer');
+  // These three materials sample our full-resolution live capture. r180 still
+  // renders its built-in, unused transmission target; retain a small compatibility
+  // buffer instead of shading a second full-screen opaque image and four MSAA samples.
+  renderer.transmissionResolutionScale=.125;
   const replacement=source.replaceAll('transmissionSamplerMap','chironInnerScene').replaceAll('transmissionSamplerSize','chironInnerSize').replace('return textureBicubic( chironInnerScene, fragCoord.xy, lod );','return textureLod( chironInnerScene, fragCoord.xy, 0.0 );');
   for(const name of ['crystal','crystalEdge','cover']){
    const m=watch.mat[name];

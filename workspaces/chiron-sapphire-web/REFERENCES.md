@@ -1,7 +1,7 @@
-# Reference, approximation and rights register — R02
+# Reference, approximation and rights register — R05
 
 Contract SHA256: d84a8f87d8aa60a8d381416fbf152017e7d7ab7fce5d4497d98bc74dede521d9.
-Review date: 2026-09-11. Assurance: SEQUENTIAL_SELF_REVIEW, actual tools; no independently isolated evaluator.
+Review date: 2026-09-12. Technical checks use actual tools. R04 was separately reviewed by a visual agent with its own context; see R05-REVIEW.md. No human or physical-device study is claimed.
 
 ## VERIFIED_SOURCE
 
@@ -36,7 +36,7 @@ These show upper tourbillon, upper-centre skeleton dial, lower W16 with longitud
 - Three.js 0.180.0, MIT: WebGLRenderer, OrbitControls, MeshPhysicalMaterial, RoundedBoxGeometry, BufferGeometryUtils, GLTFExporter, GTAOPass. https://threejs.org/docs/pages/MeshPhysicalMaterial.html and https://threejs.org/docs/pages/OrbitControls.html
 - GTAOPass source in the locked `node_modules/three/examples/jsm/postprocessing/GTAOPass.js` was read. Current AO blend uses the pinned version's `_renderPass`; a Three upgrade requires regression, because that helper is not a stable public API.
 - esbuild 0.25.10, MIT; Playwright 1.55.1, Apache-2.0. Lock file retains registry/integrity records. Relevant license texts are packaged in `THIRD-PARTY-NOTICES.txt`.
-- No React/Next.js/GSAP added to this plain JavaScript workspace. No external HDRI/texture/font/sound pack bought or bundled. Environment and click sounds are generated locally; only installed system fonts are referenced.
+- No React/Next.js/GSAP added to this plain JavaScript workspace. No asset pack was purchased. The CC0 Poly Haven studio HDR listed below is bundled; click sounds are authored and only installed system fonts are referenced.
 - Casquette production case, layout/360/information organization reference: https://immersive-g.com/projects/girard-perregaux-casquette-1 . Read case material, not a complete live interaction or performance test. No case assets/code copied.
 - Mechanical-watch explanatory reference in the original contract: https://ciechanow.ski/mechanical-watch/ . No source code copied or its movement dimensions substituted.
 
@@ -50,11 +50,11 @@ Four springs support a common carrier with bounded, damped displacement. Absolut
 
 All disassembly is explicitly digital, not a factory assembly sequence or physical user-openable case. Rear crystal exits down while front/side enclosure exits up; functional assemblies remain intact internally. A static GLB export does not replace the source model/kinematics.
 
-Real-time sapphire uses hybrid optical approximation: physical-transmission edge/body volumes plus lightly alpha-blended cover and cylinder surfaces to avoid nested transmission hiding internal components. This is NOT a physically exact light-transport simulation. Strong full front-cover screen-space transmission was rejected after actual screenshots visibly blurred mechanics.
+R05 sapphire uses a live linear-HDR capture of the same inner watch, sampled by the physical outer case and cover. Inner CAD cylinder surfaces use a Fresnel-weighted alpha approximation so that the 16 linked mechanisms remain legible. This is screen-space light transport, with no multi-bounce caustics or factory coating simulation. Source material clones export to portable glTF approximations.
 
 ## Rights and distribution boundary
 
-All production geometry, locally generated studio environment and procedural sounds are authored in this workspace. No hidden brand GLB extraction, paid model, Editorial Uses Only asset or official image file is bundled. TurboSquid 1933410 was not acquired. Model creation does not grant trademark, trade dress or publicity rights. Text explicitly identifies this as an independent, unofficial digital study. No brand commission/endorsement or public commercial-use permission is claimed. The authorized scope is source/asset development and repository storage; public deployment remains unapproved.
+All production geometry and procedural sounds are authored in this workspace. The studio environment is the credited CC0 Poly Haven HDR below. No hidden brand GLB extraction, paid model, Editorial Uses Only asset or official image file is bundled. TurboSquid 1933410 was not acquired. Model creation does not grant trademark, trade dress or publicity rights. Text explicitly identifies this as an independent, unofficial digital study. No brand commission/endorsement or public commercial-use permission is claimed. The authorized scope is source/asset development and repository storage; public deployment remains unapproved.
 
 The fonts used are local Arial/Georgia/system fallbacks. No font bytes are included in the release or source archive. Geometry/texture source and exported-asset SHA256 are recorded in the build/evidence manifest and asset export result, respectively.
 

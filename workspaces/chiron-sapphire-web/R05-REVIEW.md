@@ -41,3 +41,43 @@ overall, desktop static page approximately Q2. No motion or hardware PASS inferr
 
 Status: IN_PROGRESS. Implementation is not closure. R05 observations and regressions
 must bind to its final build hash before promotion; all nine gates remain required.
+
+
+## b1d4de99 observation — 2026-09-12
+
+Actions run 34672504478 built the exact source commit. Build hash:
+`9b1ae9ef7c83c20c75111b56f0c002d8e1790d71b9e4c8aed85683451c28ec7a`.
+All 16 HTTP visual observations completed without JavaScript/console errors.
+Visual ZIP SHA256: 93180f75674966b89d022560309148244ebea51f9159624c4f865188d94a60c9.
+Assets ZIP SHA256: 8c4c041e4a967b8e23ce20b73de705a6fa096e389d690315a8d5bbc53fb5e47b.
+Both downloaded archives matched the runner's upload hash and passed ZIP CRC checks.
+GLB export and normal GLTFLoader re-import PASSED: 29,079,208 bytes, SHA256
+6cff48848019429d680c4c70724802271b71fba0999ba7be52df70877c48a9dc.
+All 16 piston and 16 rod nodes retained independent editable geometry and transforms.
+
+Separate-context visual evaluator reviewed all 16 frames. Actual result: REVISE.
+Mobile projection/CTA defects and static W16 blur were resolved in this sample.
+CU01 Q1; CU06 Q1 approaching Q2; covered static CU08 Q2, full seven chapters not yet observed.
+Remaining MAJORs: black-reading sapphire shell; side cavity and bridge relationships;
+shell fasteners suspended in crystal-off state; coarse regulator hub/arch/feet;
+insufficient sapphire/metal finish distinction. Minor: hero strap clipping and
+small portrait product scale. Numerical/asset checks did not raise visual scores.
+
+## Next bounded repair
+
+- Case fasteners belong to the front/rear case assemblies and share their visibility
+  and explosion transform; do not leave shell screws in space when removing glass.
+- Bored upper carrier webs connect existing side rails to index/suspension forks,
+  with rear clearance around the existing barrel sweep. No random gears added.
+- Lower-profile, counterbored cage cap; finer protective arch, bearing rim and
+  tapered/bored support feet. Front cap appearance is informed by the official
+  photo; dimensions remain ENGINEERING_APPROXIMATION.
+- Authored reflection cards are composited over the credited CC0 HDR to reveal
+  curved sapphire boundaries. The existing opaque compatibility prepass is reduced
+  because all outer transmission samples the full-resolution live capture.
+- Frame zoom follows the updated assembly state; portrait/landscape/desktop
+  complete-object framing is adjusted, and all seven story sections are observed.
+
+Art iterations run build + observation. Full lifecycle checks run on an explicitly
+labelled [full-check] commit or workflow_dispatch; SKIPPED is not PASS. The prior
+full run is preserved. No final quality or physical-GPU gate has been awarded.

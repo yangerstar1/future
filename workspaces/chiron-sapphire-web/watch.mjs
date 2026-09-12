@@ -119,11 +119,11 @@ export function makeWatch(){
   }
   function ctx0(){return {V,mat,group,mesh,box,cyl,ring,bar,pathTube,screw,jewel,contour,extrude,rim,flatLabel,gear,batchGroups,interfaceMeasurements};}
   const rearCrystal=group(root,'sapphire-back-cover',true);
-  const crystal=group(root,'sapphire-shell',true),fixed=group(root,'case-and-crown-carrier',true),straps=group(root,'translucent-rubber-straps',true);
+  const crystalLayer=group(root,'sapphire-case-assembly'),crystal=group(crystalLayer,'sapphire-shell',true),fixed=group(root,'case-and-crown-carrier',true),straps=group(root,'translucent-rubber-straps',true);
   const carrier=group(root,'suspended-movement');critical.push(carrier);
   const base=group(carrier,'bottom-support',true),power=group(carrier,'winding-and-wheel-train',true),dial=group(carrier,'skeleton-dial',true),eng=group(carrier,'W16-assembly'),tour=group(carrier,'tourbillon-assembly');
   const engStatic=group(eng,'W16-static-cylinders',true),tourStatic=group(tour,'tourbillon-support',true);
-  const layers=[{g:rearCrystal,v:V(0,0,-2.3)},{g:crystal,v:V(0,0,3.65)},{g:dial,v:V(0,.15,2.25)},{g:tour,v:V(0,.4,1.55)},{g:eng,v:V(0,-.1,.8)},{g:power,v:V(0,0,-.65)},{g:base,v:V(0,0,-1.6)}];
+  const layers=[{g:rearCrystal,v:V(0,0,-2.3)},{g:crystalLayer,v:V(0,0,3.65)},{g:dial,v:V(0,.15,2.25)},{g:tour,v:V(0,.4,1.55)},{g:eng,v:V(0,-.1,.8)},{g:power,v:V(0,0,-.65)},{g:base,v:V(0,0,-1.6)}];
   const {rear:rearCover}=makeSapphire(ctx0(),crystal);
   crystal.updateMatrixWorld(true);const cb=new THREE.Box3().setFromObject(crystal),sz=cb.getSize(V());
   crystal.scale.set(SPEC.caseWidth/sz.x,SPEC.caseLength/sz.y,SPEC.caseThickness/sz.z);
@@ -131,7 +131,7 @@ export function makeWatch(){
   root.updateMatrixWorld(true);rearCrystal.attach(rearCover);registry.find(x=>x.id==='rear-crystal').parent=rearCrystal.name;
   rim(fixed,4.02,5.24,3.83,5.03,.11,-.925,mat.rhodium,.022,'titanium-caseback-gasket');
   // Precise visible attachment locations, not a random screw field.
-  for(const x of [-1.79,1.79])for(const y of [-2.16,2.14]){screw(fixed,x,y,.934,.065);screw(fixed,x,y,-.988,.056,true);}
+  for(const x of [-1.79,1.79])for(const y of [-2.16,2.14]){screw(crystalLayer,x,y,.934,.065);screw(rearCrystal,x,y,-.988,.056,true);}
   // Continuous curved sapphire strap horns, not protruding metal L brackets.
   // The hidden pin crosses both cheeks AND the rubber end at its true origin.
   for(const sy of [-1,1]){
@@ -178,6 +178,8 @@ export function makeWatch(){
   for(const x of [-.91,.91])box(buckle,x,0,0,.13,.68,.14,mat.polished,.045);
   for(const y of [-.29,.29])box(buckle,0,y,0,1.93,.13,.14,mat.polished,.035);
   for(const x of [-.52,.52]){
+    const ear=group(buckle,'deployant-proximal-hinge-ear');ear.position.x=x;ear.rotation.y=Math.PI/2;
+    craftTools(ctx0()).plate(ear,'bored-folding-blade-ear',[[-.076,.19],[-.076,.37],[.204,.37],[.204,.19]],-.065,.13,mat.brushed,[[0,.28,.060]]);
     const shape=new THREE.Shape();shape.moveTo(x-.064,.25);shape.lineTo(x+.064,.25);shape.lineTo(x+.067,.90);shape.quadraticCurveTo(x+.061,1.12,x+.045,1.20);shape.lineTo(x-.045,1.20);shape.quadraticCurveTo(x-.06,1.12,x-.067,.90);shape.closePath();
     extrude(buckle,shape,.073,-.198,mat.brushed,.014,'deployant-folding-blade');
     cyl(buckle,x,1.17,-.148,.063,.12,mat.polished,'x','deployant-distal-hinge');
@@ -262,7 +264,7 @@ export function makeWatch(){
   const reserveHand=group(gauge,'reserve-pointer');batchGroups.push(reserveHand);box(reserveHand,0,.083,.057,.018,.17,.016,mat.polished,.004);cyl(gauge,0,0,.061,.027,.02,mat.polished);
   // Inclined flying tourbillon: stationary protective frame, rotating cage, independent oscillating balance.
   tour.position.set(0,1.78,.33);tour.rotation.x=Math.PI/6;tour.scale.setScalar(1.38);
-  ring(tourStatic,0,0,-.105,.386,.025,mat.dark,'tourbillon-bearing-seat');
+  ring(tourStatic,0,0,-.105,.386,.014,mat.dark,'tourbillon-bearing-seat');
   tourbillonSupport(ctx,tourStatic);
   const cage=group(tour,'flying-tourbillon-cage');
   const crownWheel=gear(cage,0,0,-.079,.337,62,mat.brass,5,.074);
@@ -274,15 +276,15 @@ export function makeWatch(){
   tooling.washer(cage,0,0,-.056,.359,.337,.025,mat.brushed,'z','lower-cage-perimeter');
   for(let i=0;i<7;i++){
     const a=i/7*TAU,points=[],inset=[];
-    for(const [r,t] of [[.097,-.125],[.170,-.095],[.190,-.235],[.337,-.12],[.337,-.055],[.212,-.16],[.184,.050],[.097,.135]])points.push([Math.cos(a+t)*r,Math.sin(a+t)*r]);
+    for(const [r,t] of [[.078,-.125],[.170,-.095],[.190,-.235],[.337,-.12],[.337,-.055],[.212,-.16],[.184,.050],[.078,.135]])points.push([Math.cos(a+t)*r,Math.sin(a+t)*r]);
     tooling.plate(cage,'machined-cage-radial-arm',points,.140,.027,mat.rhodium);
     for(const [r,t] of [[.176,-.01],[.20,-.201],[.332,-.096],[.332,-.074],[.208,-.18],[.182,.012]])inset.push([Math.cos(a+t)*r,Math.sin(a+t)*r]);
     tooling.plate(cage,'blue-cage-arm-inlay',inset,.168,.004,mat.blue);
     const x=Math.cos(a-.087)*.340,y=Math.sin(a-.087)*.340;
     tooling.post(cage,'cage-through-pillar',x,y,-.058,.150,.014);screw(cage,x,y,.174,.020);
   }
-  tooling.turned(cage,'cage-central-journal-cap',0,0,.173,[[.013,-.032],[.080,-.032],[.109,-.008],[.114,.016],[.095,.043],[.061,.053],[.013,.053],[.013,-.032]],mat.polished);
-  tooling.washer(cage,0,0,.137,.101,.059,.015,mat.blue,'z','blue-journal-cap-seat');
+  tooling.turned(cage,'cage-central-journal-cap',0,0,.173,[[.013,-.032],[.070,-.032],[.087,-.012],[.091,.004],[.084,.027],[.065,.037],[.0575,.037],[.0575,.008],[.013,.008],[.013,-.032]],mat.polished);
+  tooling.washer(cage,0,0,.137,.082,.059,.015,mat.blue,'z','blue-journal-cap-seat');
   const balance=group(cage,'3Hz-balance-wheel');ring(balance,0,0,.048,.255,.016,mat.brass);ring(balance,0,0,.048,.226,.008,mat.brass);
   for(let i=0;i<4;i++){const a=i/4*TAU;bar(balance,V(0,0,.048),V(Math.cos(a)*.252,Math.sin(a)*.252,.048),.010,mat.rhodium,'balance-spoke');cyl(balance,Math.cos(a)*.252,Math.sin(a)*.252,.065,.02,.017,mat.polished);}
   // Bounded elastic-display approximation: inner spring end follows the balance; outer end stays pinned to the cage.
@@ -297,8 +299,8 @@ export function makeWatch(){
   tooling.plate(cage,'escapement-bearing-bridge',[[-.019,-.307],[.288,-.208],[.319,-.120],[.184,-.034],[.048,-.024],[-.023,-.104]],-.086,.031,mat.brushed,[[.16,-.133,.018],[.075,-.065,.011]]);
   for(const [x,y] of [[.16,-.133],[.075,-.065]]){cyl(cage,x,y,-.01,.006,.15,mat.polished,'z','escapement-through-pivot',16);tooling.washer(cage,x,y,-.094,.025,.012,.02,mat.ruby);}
   cyl(cage,0,0,.10,.011,.31,mat.polished,'z','balance-journal-arbor',16);cyl(balance,0,0,.048,.025,.10,mat.rhodium,'z','balance-collet',24);cyl(balance,.025,0,.103,.006,.018,mat.polished,'z','hairspring-inner-stud',12);
-  const escape=gear(cage,.16,-.133,-.009,.104,15,mat.rhodium,4);jewel(cage,0,0,.237,.033);
-  pathTube(tourStatic,[V(-.39,-.30,-.11),V(-.49,.08,.04),V(-.36,.39,.04),V(0,.5,.04),V(.36,.39,.04),V(.49,.08,.04),V(.39,-.30,-.11)],.027,mat.polished,'tourbillon-protective-arch');
+  const escape=gear(cage,.16,-.133,-.009,.104,15,mat.rhodium,4);tooling.washer(cage,0,0,.200,.056,.014,.033,mat.polished,'z','cage-central-bearing-setting');cyl(cage,0,0,.221,.018,.035,mat.polished,'z','faceted-balance-end-cap',12);
+  pathTube(tourStatic,[V(-.39,-.30,-.11),V(-.49,.08,.04),V(-.36,.39,.04),V(0,.5,.04),V(.36,.39,.04),V(.49,.08,.04),V(.39,-.30,-.11)],.018,mat.polished,'tourbillon-protective-arch');
   batchGroups.push(cage,balance);critical.push(cage,balance);
   // Telescoping display connection maintains fixed crown to moving mechanism attachment.
   const couplings=[];
@@ -372,7 +374,7 @@ export function makeWatch(){
     const bob=suspensionOffset(state.suspensionTime);carrier.position.z=bob;
     for(const r of rest){r.g.position.copy(r.p).addScaledVector(r.v,state.explode);r.g.quaternion.copy(r.q);}
     hour.position.copy(handRest[0]).addScaledVector(V(0,.15,2.25),state.explode);minute.position.copy(handRest[1]).addScaledVector(V(0,.15,2.25),state.explode);
-    rearCrystal.visible=crystal.visible=!state.crystalOff&&state.selection==='all';fixed.visible=straps.visible=state.selection==='all';springMounts.visible=state.selection==='all';for(const c of crowns)c.visible=state.selection==='all';
+    rearCrystal.visible=crystalLayer.visible=!state.crystalOff&&state.selection==='all';fixed.visible=straps.visible=state.selection==='all';springMounts.visible=state.selection==='all';for(const c of crowns)c.visible=state.selection==='all';
     for(const g of [base,power,dial,hour,minute,mountMoving])g.visible=state.selection==='all';
     eng.visible=state.selection==='all'||state.selection==='engine';tour.visible=state.selection==='all'||state.selection==='tourbillon';for(const {o} of couplings)o.visible=state.selection==='all'&&state.explode<.03;
     crank.rotation.y=-state.engineTheta;
