@@ -49,6 +49,9 @@ export function craftTools(c){
 export function chassis(c,base,power){
  const {V,mat,group,box,cyl,ring,bar,pathTube,screw,jewel,gear,flatLabel,rim,batchGroups}=c;
  const {plate,washer,turned,post,leaf,bearing}=craftTools(c),wheels=[];
+ // Face-projected UVs keep a radial brushed finish aligned with each turned
+ // drum, instead of stretching the generic linear finish around a lathe seam.
+ function turnedFace(o,r){const p=o.geometry.attributes.position,u=o.geometry.attributes.uv;for(let i=0;i<p.count;i++)u.setXY(i,p.getX(i)/(2*r)+.5,p.getZ(i)/(2*r)+.5);return o;}
  // The outer black frame carries ALL internal bridge feet. A lower tier provides
  // bearing material between the open front skeleton and the finished caseback.
  rim(base,3.52,4.81,3.08,4.33,.17,-.61,mat.dark,.040,'continuous-movement-frame');
@@ -88,17 +91,26 @@ export function chassis(c,base,power){
   }
 
   // Solid turned caseback drum: this is deliberately NOT an open spoke disc on both faces.
-  turned(g,'turned-barrel-drum',0,0,-.010,[[.012,-.008],[.56,-.008],[.636,-.018],[.659,-.035],[.659,-.133],[.642,-.150],[.56,-.156],[.012,-.156],[.012,-.008]],mat.brushed);
-  washer(g,0,0,-.164,.607,.50,.014,mat.polished,'z','barrel-cover-annulus');
-  const ratchet=gear(g,0,0,-.202,.446,46,mat.polished,6);washer(ratchet,0,0,-.033,.367,.012,.045,mat.brushed,'z','ratchet-bored-web');
-  washer(ratchet,0,0,-.062,.121,.055,.019,mat.polished);screw(ratchet,0,0,-.090,.052,true);
-  for(const [xx,yy] of [[-.125,-.07],[.12,-.07],[0,.17]])screw(ratchet,xx,yy,-.071,.053,true);
-  for(const a0 of [1.25,4.40]){
-   const pts=[];for(let j=0;j<=18;j++){const a=a0+j/18*.88;pts.push([Math.cos(a)*.58,Math.sin(a)*.58]);}for(let j=18;j>=0;j--){const a=a0+j/18*.88;pts.push([Math.cos(a)*.475,Math.sin(a)*.475]);}
-   plate(g,'curved-barrel-retainer',pts,-.186,.022,mat.rhodium);
-   screw(g,Math.cos(a0+.16)*.535,Math.sin(a0+.16)*.535,-.217,.035,true);
+  turnedFace(turned(g,'recessed-turned-barrel-drum',0,0,-.010,[[.012,-.008],[.56,-.008],[.636,-.018],[.659,-.035],[.659,-.157],[.640,-.177],[.611,-.177],[.583,-.148],[.486,-.135],[.012,-.135],[.012,-.008]],mat.circularBrushed),.66);
+  washer(g,0,0,-.180,.633,.608,.014,mat.polished,'z','barrel-cover-polished-lip');
+  // The visible back source has directional ratchet teeth and a solid recessed
+  // cover. Tooth number/profile remain a display approximation, not an OEM ratio.
+  const ratchet=group(g,'directional-barrel-ratchet');ratchet.position.z=-.223;
+  const teeth=[];for(let i=0;i<32;i++){const a=i/32*TAU;for(const [da,r] of [[0,.402],[.026,.446],[.151,.425],[.196,.402]])teeth.push([Math.cos(a+da)*r,Math.sin(a+da)*r]);}
+  const cover=plate(ratchet,'bored-sawtooth-ratchet-cover',teeth,-.033,.050,mat.circularBrushed,[[0,0,.016],[-.141,.028,.027],[.134,.023,.027],[.018,-.166,.019]]);
+  const p=cover.geometry.attributes.position,u=cover.geometry.attributes.uv;for(let i=0;i<p.count;i++)u.setXY(i,p.getX(i)/.90+.5,p.getY(i)/.90+.5);
+  washer(ratchet,0,0,-.041,.084,.055,.020,mat.polished,'z','ratchet-central-counterbore');screw(ratchet,0,0,-.066,.052,true);
+  for(const [xx,yy] of [[-.141,.028],[.134,.023]]){washer(ratchet,xx,yy,-.036,.054,.028,.016,mat.brushed);screw(ratchet,xx,yy,-.057,.026,true);}
+  // Tapered curved retainers with bored round ends, layered above the concave
+  // drum. Their visible shape follows the back photo; concealed interfaces do not.
+  for(const a0 of [1.01,4.13]){
+   const pts=[];for(let j=0;j<=24;j++){const t=j/24,a=a0+t*1.04,r=.568+.046*Math.sin(Math.PI*t);pts.push([Math.cos(a)*r,Math.sin(a)*r]);}
+   for(let j=24;j>=0;j--){const t=j/24,a=a0+t*1.04,r=.458+.080*Math.abs(t-.5)*2;pts.push([Math.cos(a)*r,Math.sin(a)*r]);}
+   const ax=Math.cos(a0+.21)*.551,ay=Math.sin(a0+.21)*.551;
+   plate(g,'tapered-bored-barrel-retainer',pts,-.216,.027,mat.rhodium,[[ax,ay,.022]]);
+   washer(g,ax,ay,-.220,.041,.023,.012,mat.polished,'z','retainer-recess-rim');screw(g,ax,ay,-.235,.021,true);
   }
-  for(let i=0;i<4;i++){const a=TAU*i/4+.29;washer(g,Math.cos(a)*.529,Math.sin(a)*.529,-.17,.046,.027,.012,mat.brushed);screw(g,Math.cos(a)*.529,Math.sin(a)*.529,-.182,.032,true);}
+  batchGroups.push(ratchet);
   for(const a of [1.15,3.70]){const px=x+Math.cos(a)*.58,py=.065+Math.sin(a)*.58;screw(power,px,py,-.865,.041,true);}
   // A fixed click, its pivot and spring; its free tip terminates on the ratchet ring.
   const sign=Math.sign(x),px=x-sign*.50,py=.50;
@@ -128,10 +140,10 @@ export function chassis(c,base,power){
  }
  // Back signature bridge: open triangular windows, bevelled edges and real feet.
  plate(power,'rear-signature-bridge',[[-1.13,2.06],[1.13,2.06],[1.17,1.33],[.43,1.16],[-.43,1.16],[-1.17,1.33]],-.825,.105,mat.dark,
-  [[[-.98,1.91],[-.64,1.91],[-.98,1.64]],[[-.52,1.91],[-.52,1.66],[-.22,1.91]],[[.98,1.91],[.64,1.91],[.98,1.64]],[[.52,1.91],[.52,1.66],[.22,1.91]],[[-.99,1.51],[-.99,1.36],[-.61,1.36],[-.72,1.51]],[[.99,1.51],[.99,1.36],[.61,1.36],[.72,1.51]]]);
+  [[[-.98,1.91],[-.64,1.91],[-.98,1.64]],[[-.52,1.91],[-.52,1.66],[-.22,1.91]],[[.98,1.91],[.64,1.91],[.98,1.64]],[[.52,1.91],[.52,1.66],[.22,1.91]],[[-.99,1.51],[-.99,1.36],[-.61,1.36],[-.72,1.51]],[[.99,1.51],[.99,1.36],[.61,1.36],[.72,1.51]],[[-.41,1.95],[.41,1.95],[.41,1.82],[-.41,1.82]],[[-.42,1.39],[.42,1.39],[.40,1.25],[-.40,1.25]]]);
  for(const sign of [-1,1]){bar(power,V(sign*1.10,1.79,-.77),V(sign*1.51,1.79,-.52),.079,mat.brushed,'signature-bridge-foot');screw(power,sign*1.03,1.41,-.856,.072,true);}
  const brand=flatLabel(power,'JACOB & CO.',0,1.675,-.842,1.12,.22,'#59a3c1','#181d23');brand.rotation.y=Math.PI;
- const swiss=flatLabel(power,'SWISS MADE',0,1.407,-.844,.61,.068,'#6f9fb4','#181d23');swiss.rotation.y=Math.PI;
+ const swiss=flatLabel(power,'SWISS MADE',0,1.477,-.844,.61,.068,'#6f9fb4','#181d23');swiss.rotation.y=Math.PI;
  plate(power,'rear-centre-bearing-bridge',[[-.25,1.26],[.26,1.26],[.22,.72],[.17,.29],[.28,-.12],[.39,-.44],[.40,-.75],[.19,-.95],[-.22,-.95],[-.40,-.73],[-.28,-.28],[-.16,.34],[-.20,.79]],-.905,.088,mat.dark,
   [[0,.88,.070],[0,-.55,.081]]);
  jewel(power,0,.87,-.933,.045,true);jewel(power,0,-.55,-.939,.051,true);screw(power,.265,-.828,-.943,.061,true);
@@ -328,9 +340,10 @@ export function tourbillonSupport(c,tourStatic){
  plate(tourStatic,'tourbillon-cantilever',[[-.29,-.22],[.29,-.22],[.34,.09],[.18,.18],[-.18,.18],[-.34,.09]],-.332,.102,mat.brushed,[[0,0,.076]]);
  // Local tilted pedestal lands on upper-carrier-deck after tour.rotation.x=30deg.
  for(const sx of [-1,1]){
-  bar(tourStatic,V(sx*.275,-.10,-.28),V(sx*.48,-.09,-.616),.039,mat.dark,'tourbillon-cantilever-leg');
-  const x=sx*.48;plate(tourStatic,'bored-tourbillon-carrier-foot',[[x-.095,-.22],[x+.075,-.22],[x+.105,-.14],[x+.08,.035],[x-.08,.035],[x-.105,-.14]],-.685,.14,mat.brushed,[[x,-.09,.036]]);
-  screw(tourStatic,sx*.48,-.09,-.525,.042);
+  const web=plate(tourStatic,'tapered-cantilever-web',[[sx*.245,-.27],[sx*.325,-.285],[sx*.524,-.60],[sx*.49,-.64],[sx*.438,-.625],[sx*.25,-.365]],-.033,.066,mat.brushed,[[sx*.367,-.458,.025]]);
+  web.rotation.x=Math.PI/2;web.position.y=-.095;
+  const x=sx*.48;plate(tourStatic,'bored-tourbillon-carrier-foot',[[x-.085,-.19],[x+.063,-.19],[x+.085,-.13],[x+.065,.018],[x-.065,.018],[x-.085,-.13]],-.685,.065,mat.brushed,[[x,-.09,.036]]);
+  washer(tourStatic,x,-.09,-.615,.051,.037,.014,mat.polished,'z','tourbillon-foot-counterbore');screw(tourStatic,x,-.09,-.597,.034);
   bar(tourStatic,V(sx*.39,-.30,-.11),V(sx*.28,-.18,-.31),.022,mat.polished,'protective-arch-foot');
  }
 }
@@ -349,6 +362,10 @@ export function materialFinish(mat){
  mat.polished.color.set(0xe0e3e6);mat.polished.roughness=.105;
  mat.brushed.color.set(0x8c979f);mat.brushed.roughness=.43;
  mat.dark.color.set(0x1b2228);mat.dark.metalness=.55;mat.dark.roughness=.37;
+ const radial=new Uint8Array(n*n*4);
+ for(let y=0;y<n;y++)for(let x=0;x<n;x++){const a=Math.atan2(y-(n-1)/2,x-(n-1)/2),i=(y*n+x)*4;radial[i]=Math.round(127.5+127.5*Math.cos(a));radial[i+1]=Math.round(127.5+127.5*Math.sin(a));radial[i+2]=255;radial[i+3]=255;}
+ const grain=new THREE.DataTexture(radial,n,n,THREE.RGBAFormat);grain.minFilter=THREE.LinearMipmapLinearFilter;grain.generateMipmaps=true;grain.needsUpdate=true;grain.name='authored-radial-metal-grain-direction';
+ mat.circularBrushed=new THREE.MeshPhysicalMaterial({color:0xc0c5c9,metalness:1,roughness:.285,anisotropy:.82,anisotropyMap:grain,envMapIntensity:1.2});
  mat.rubber.color.set(0xc8cdd0);mat.rubber.opacity=.88;mat.rubber.roughness=.48;
  mat.rubber.side=THREE.FrontSide;
  // Inner bore geometry remains closed and present. A Fresnel-weighted clear

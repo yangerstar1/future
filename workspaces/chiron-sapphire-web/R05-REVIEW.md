@@ -229,3 +229,35 @@ that clock depletion matches its own elapsed timekeeping clock at the documented
 and rewinds W16 before continuing. Geometry, materials and all camera/layout code
 are unchanged. The final route/health/visual run binds the repaired application,
 with earlier observation hashes retained under their original sources.
+
+
+## R05 b11 state isolation confirmation / b12 craft challenger
+
+b11 (`e564710`, build `9d21e9f9…`, Actions 34676696854) completed the
+ordinary-UI route after emptying W16. The empty control left the clock reserve
+unchanged apart from actual elapsed time; eight unit/state checks and fifteen
+actual geometry checks passed. HTTP observation/export completed. Health stays
+5/6: the native-hidden-event assertion still fails and is not waived.
+
+b10 independent inspection covered all 28 frames plus the 1100-wide route frame:
+CH02 copy clearance and phone CH03 footnote separation are closed within those
+viewports; CU08 static organization is Q2, not a continuous-animation Q3. CU01 and
+CU06 remain Q1 with three open MAJOR groups. The reviewer identified five
+source-supported targets: rolled case/crown shoulder, recessed barrel layering,
+rear bridge windows, tapered regulator cap/arm machining, and clear W16 bore edges.
+
+The b12 challenger changes physical case sections from a nearly vertical sleeve
+to a convex flank with a rolled shoulder, adds the three bored crown entries to
+the removable sapphire assembly, and replaces concentric rear cover decoration
+with recessed drums, directional ratchet covers, tapered bored retainers and two
+additional source-visible bridge windows. Radial anisotropic metal uses an
+authored direction map with face UVs; the same map is included in GLB export.
+Regulator feet become thin bored plates connected by tapered webs; a conical cap
+replaces the short cylindrical tip. Rear support geometry, bore dimensions and
+ratchet tooth counts remain explicit engineering approximations. No Inspector
+camera, kinematic solver, part count claim or source specification was changed.
+
+Local eight state tests, build and fifteen actual-geometry checks pass. These do
+not award visual acceptance; immutable HTTP observation must compare b11/b12.
+The health observer also records native visibility/focus events independently,
+without changing document.hidden, dispatching events, or relaxing O25.

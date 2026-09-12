@@ -42,7 +42,7 @@ export async function exportWatchGLB(watch) {
     const source=o.material;
     if(!materials.has(source)){
       const m=source.clone();
-      for(const key of ['map','roughnessMap','metalnessMap','normalMap','bumpMap','alphaMap'])if(m[key])m[key]=portableTexture(m[key]);
+      for(const key of ['map','roughnessMap','metalnessMap','normalMap','bumpMap','alphaMap','anisotropyMap'])if(m[key])m[key]=portableTexture(m[key]);
       if(source.name==='cylinderGlass'){m.transmission=.94;m.opacity=1;m.transparent=false;m.thickness=.012;}
       materials.set(source,m);
     }

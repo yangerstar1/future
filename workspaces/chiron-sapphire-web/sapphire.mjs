@@ -4,7 +4,10 @@ import * as THREE from 'three';
 export function makeSapphire(c,crystal){
  const {V,mat,mesh,contour,pathTube}=c;
  const N=144,verts=[],uv=[],ids=[];
- const levels=[[-.99,4.19,5.50,3.79,4.99],[-.955,4.31,5.64,3.82,5.03],[-.865,4.41,5.73,3.88,5.10],[-.65,4.44,5.77,3.93,5.15],[.54,4.425,5.76,3.95,5.17],[.78,4.39,5.72,3.96,5.18],[.92,4.33,5.66,3.97,5.19],[.964,4.23,5.57,3.97,5.19]];
+ // The Clear source shows a broad rolled shoulder and a convex flank, not a
+ // vertical transparent sleeve. These authored sections keep the frozen outer
+ // envelope; their thickness distribution is a visible-shape approximation.
+ const levels=[[-.99,4.10,5.44,3.79,4.99],[-.955,4.21,5.56,3.81,5.02],[-.865,4.31,5.66,3.85,5.07],[-.65,4.405,5.75,3.90,5.13],[-.32,4.44,5.78,3.94,5.17],[.12,4.42,5.77,3.95,5.19],[.43,4.355,5.70,3.94,5.19],[.66,4.26,5.60,3.92,5.18],[.83,4.145,5.47,3.90,5.17],[.94,4.055,5.35,3.88,5.15],[.979,4.015,5.29,3.88,5.15]];
  const warp=(x,y,z)=>z+.085*(1-(y/2.9)**2)+.018*(x/2.22)**2;
  for(let side=0;side<2;side++)for(let k=0;k<levels.length;k++){
   const l=levels[k],points=contour(l[side?3:1],l[side?4:2]).getSpacedPoints(N).slice(0,N);
@@ -39,8 +42,8 @@ export function makeSapphire(c,crystal){
   for(let i=0;i<M;i++){const j=(i+1)%M,a=1+(R-1)*M+i,b=1+(R-1)*M+j;ix.push(a,L+a,b,b,L+a,L+b);}
   const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(v,3));geo.setAttribute('uv',new THREE.Float32BufferAttribute(t,2));geo.setIndex(ix);geo.computeVertexNormals();return mesh(crystal,geo,mat.cover,name);
  }
- const front=lens(3.976,5.19,1.01,.061,'front-crystal',true),rear=lens(3.86,5.06,-.965,.045,'rear-crystal',false);
- for(const [w,h,z] of [[4.233,5.573,.963],[4.31,5.64,-.955]]){
+ const front=lens(3.885,5.15,1.01,.061,'front-crystal',true),rear=lens(3.82,5.03,-.965,.045,'rear-crystal',false);
+ for(const [w,h,z] of [[4.016,5.291,.978],[4.21,5.56,-.955]]){
   const points=contour(w,h).getSpacedPoints(144).slice(0,144).map(p=>V(p.x,p.y,warp(p.x,p.y,z)));pathTube(crystal,points,.008,mat.crystalEdge,'polished-sapphire-arris',true);
  }
  return {front,rear};

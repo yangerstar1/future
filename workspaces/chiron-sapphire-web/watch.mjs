@@ -155,6 +155,16 @@ export function makeWatch(){
     cyl(cg,0,-.215,0,.198,.046,mat.blue,'y','blue-crown-tip');ring(cg,0,-.239,0,.173,.018,mat.polished,'crown-ring','y');
     const mark=flatLabel(cg,'EB',0,-.264,0,.205,.148,'#edf4f7','#0879b1');mark.rotation.x=Math.PI/2;batchGroups.push(cg);
   }
+  // A bored sapphire shoulder wraps the three crown-tube entries. The clear
+  // front source supports this continuous volume; port dimensions are authored.
+  // It belongs to the removable shell, so crystal-off cannot leave it floating.
+  const crownShoulder=new THREE.Shape();
+  crownShoulder.moveTo(-1.86,-.64);crownShoulder.bezierCurveTo(-1.96,-.23,-1.91,.24,-1.69,.37);
+  crownShoulder.bezierCurveTo(-.88,.51,.88,.51,1.69,.37);crownShoulder.bezierCurveTo(1.91,.24,1.96,-.23,1.86,-.64);
+  crownShoulder.quadraticCurveTo(0,-.71,-1.86,-.64);
+  for(const x of [-1.11,0,1.11]){const port=new THREE.Path();port.absarc(x,-.03,.318,0,TAU,true);crownShoulder.holes.push(port);}
+  const shoulder=extrude(crystalLayer,crownShoulder,.15,0,mat.crystal,.018,'three-bore-sapphire-crown-shoulder');
+  shoulder.rotation.x=Math.PI/2;shoulder.position.y=-2.70;
   const frontRibs=group(fixed,'front-case-ribs');for(let k=0;k<7;k++)box(frontRibs,0,-2.705,-.63+k*.135,3.02,.047,.026,mat.rhodium,.008);
   box(fixed,0,-2.805,.37,.85,.07,.21,mat.blue,.035);
   const chiron=flatLabel(fixed,'Chiron',0,-2.847,.38,.73,.15,'#d9e4e9','#0879b1');chiron.rotation.x=Math.PI/2;
@@ -299,7 +309,8 @@ export function makeWatch(){
   tooling.plate(cage,'escapement-bearing-bridge',[[-.019,-.307],[.288,-.208],[.319,-.120],[.184,-.034],[.048,-.024],[-.023,-.104]],-.086,.031,mat.brushed,[[.16,-.133,.018],[.075,-.065,.011]]);
   for(const [x,y] of [[.16,-.133],[.075,-.065]]){cyl(cage,x,y,-.01,.006,.15,mat.polished,'z','escapement-through-pivot',16);tooling.washer(cage,x,y,-.094,.025,.012,.02,mat.ruby);}
   cyl(cage,0,0,.10,.011,.31,mat.polished,'z','balance-journal-arbor',16);cyl(balance,0,0,.048,.025,.10,mat.rhodium,'z','balance-collet',24);cyl(balance,.025,0,.103,.006,.018,mat.polished,'z','hairspring-inner-stud',12);
-  const escape=gear(cage,.16,-.133,-.009,.104,15,mat.rhodium,4);tooling.washer(cage,0,0,.200,.056,.014,.033,mat.polished,'z','cage-central-bearing-setting');cyl(cage,0,0,.221,.018,.035,mat.polished,'z','faceted-balance-end-cap',12);
+  const escape=gear(cage,.16,-.133,-.009,.104,15,mat.rhodium,4);tooling.washer(cage,0,0,.200,.056,.014,.033,mat.polished,'z','cage-central-bearing-setting');
+  tooling.turned(cage,'conical-balance-end-cap',0,0,.224,[[.012,-.023],[.055,-.023],[.061,-.018],[.060,-.011],[.030,.035],[.023,.047],[.012,.047],[.012,-.023]],mat.polished);
   pathTube(tourStatic,[V(-.39,-.30,-.11),V(-.49,.08,.04),V(-.36,.39,.04),V(0,.5,.04),V(.36,.39,.04),V(.49,.08,.04),V(.39,-.30,-.11)],.018,mat.polished,'tourbillon-protective-arch');
   batchGroups.push(cage,balance);critical.push(cage,balance);
   // Telescoping display connection maintains fixed crown to moving mechanism attachment.
