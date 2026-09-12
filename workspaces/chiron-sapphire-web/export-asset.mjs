@@ -1,3 +1,4 @@
+import {REVISION} from './version.mjs';
 import * as THREE from 'three';
 import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js';
 
@@ -5,7 +6,7 @@ import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js';
  * must never be changed to make an offline asset export succeed. */
 export async function exportWatchGLB(watch) {
   const assetRoot = new THREE.Group();
-  assetRoot.name = 'Chiron-Clear-R05-METRES';
+  assetRoot.name = `Chiron-Clear-${REVISION}-METRES`;
   assetRoot.scale.setScalar(.01);
   assetRoot.userData = {units:'metres', sourceUnits:'1 source unit = 10 mm',
     asset:'authored non-factory reconstruction', animation:'static pose; editable movement in source',

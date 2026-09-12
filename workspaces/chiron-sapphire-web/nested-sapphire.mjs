@@ -39,7 +39,15 @@ export class NestedSapphire {
    m.customProgramCacheKey=()=>`chiron-two-layer-transmission-three-${THREE.REVISION}`;m.needsUpdate=true;
   }
  }
- restoreTarget(){this.disposeTarget();this.target=new THREE.WebGLRenderTarget(this.size.x,this.size.y,{type:THREE.HalfFloatType,format:THREE.RGBAFormat,generateMipmaps:false,minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,depthBuffer:true,samples:0});this.target.depthTexture=new THREE.DepthTexture(this.size.x,this.size.y,THREE.UnsignedIntType);this.target.texture.name='live-inner-watch-radiance';this.target.texture.colorSpace=THREE.LinearSRGBColorSpace;this.mapUniform.value=this.target.texture;if(this.copyMaterial)this.copyMaterial.uniforms.depthMap.value=this.target.depthTexture;}
+ supportedSamples(){
+  // Antialiasing the final canvas cannot repair an aliased offscreen capture.
+  // Use only a sample count supported by BOTH HDR colour and copied depth.
+  const gl=this.renderer.getContext();
+  const colour=Array.from(gl.getInternalformatParameter(gl.RENDERBUFFER,gl.RGBA16F,gl.SAMPLES)||[]);
+  const depth=Array.from(gl.getInternalformatParameter(gl.RENDERBUFFER,gl.DEPTH_COMPONENT24,gl.SAMPLES)||[]);
+  return Math.max(0,...colour.filter(n=>n>=2&&n<=4&&depth.includes(n)));
+ }
+ restoreTarget(){this.disposeTarget();this.samples=this.supportedSamples();this.target=new THREE.WebGLRenderTarget(this.size.x,this.size.y,{type:THREE.HalfFloatType,format:THREE.RGBAFormat,generateMipmaps:false,minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,depthBuffer:true,samples:this.samples,resolveDepthBuffer:true});this.target.depthTexture=new THREE.DepthTexture(this.size.x,this.size.y,THREE.UnsignedIntType);this.target.texture.name='live-inner-watch-radiance';this.target.texture.colorSpace=THREE.LinearSRGBColorSpace;this.mapUniform.value=this.target.texture;if(this.copyMaterial)this.copyMaterial.uniforms.depthMap.value=this.target.depthTexture;}
  setSize(w,h){const width=Math.max(1,Math.round(w)),height=Math.max(1,Math.round(h));if(this.size.x!==width||this.size.y!==height){this.size.set(width,height);this.target?.setSize(width,height);}}
  capture(scene,camera){
   if(!this.target)return false;const meshes=[];
@@ -58,5 +66,5 @@ export class NestedSapphire {
   try{r.autoClear=false;r.render(scene,camera);}finally{for(const o of hidden)o.visible=true;r.autoClear=auto;}
  }
  disposeTarget(){this.target?.dispose();this.target=null;if(this.mapUniform)this.mapUniform.value=null;}
- snapshot(){return {mode:'live two-layer screen-space physical transmission',resolution:this.size.toArray(),captures:this.captures,textureLive:!!this.target,limitations:'No multi-bounce caustics or factory anti-reflective coating simulation'};}
+ snapshot(){return {mode:'live two-layer screen-space physical transmission',resolution:this.size.toArray(),antialiasing:{method:this.samples?'native MSAA HDR + depth resolve':'single-sample fallback',samples:this.samples},captures:this.captures,textureLive:!!this.target,limitations:'No multi-bounce caustics or factory anti-reflective coating simulation'};}
 }

@@ -1,3 +1,4 @@
+import {REVISION} from './version.mjs';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js';
@@ -13,7 +14,7 @@ const state=createState(),canvas=$('watch-canvas'),scene=new THREE.Scene();
 let renderer,watch,controls,pmrem,env,lights,ao,nested,lossExtension,gpuFence=null,gpuPoll=0,raf=0,last=0,frames=[],totalFrames=0,contextLost=false,initializing=false;
 let camera=new THREE.PerspectiveCamera(32,1,.035,100),cameraTween=null,savedScroll=0,savedFocus=null,lastUi=0,resizeTimer;
 const target=new THREE.Vector3(),raycaster=new THREE.Raycaster();
-const runtime={revision:'R05',backend:null,errors:[],contextLosses:0,contextRestores:0,initializations:0,hiddenEvents:0,network:[],uiEvents:[],resourceState:'loading',rafOutstanding:0,presentedFrame:0,lastDraw:null};
+const runtime={revision:REVISION,backend:null,errors:[],contextLosses:0,contextRestores:0,initializations:0,hiddenEvents:0,network:[],uiEvents:[],resourceState:'loading',rafOutstanding:0,presentedFrame:0,lastDraw:null};
 let observedHidden=document.hidden;
 runtime.hiddenTransitions=0;runtime.visibilityTransitions=[];
 // Page Visibility is authoritative even if a browser coalesces or misses its
