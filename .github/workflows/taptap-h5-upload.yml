@@ -24,10 +24,11 @@ jobs:
       - name: Install official TapTap CLI
         run: npm i -g @taptap/cli@2026.9.11
 
-      - name: Validate staged H5 package
+      - name: Reconstruct and validate staged H5 package
         shell: bash
         run: |
           set -euo pipefail
+          base64 -d .taptap/liushuxiang-r3/package.complete.b64 > "$H5_ZIP"
           test -f "$H5_ZIP"
           echo "$H5_SHA256  $H5_ZIP" | sha256sum -c -
           unzip -t "$H5_ZIP" >/dev/null
@@ -139,10 +140,8 @@ jobs:
               elif isinstance(x,list):
                   for v in x: walk(v)
           walk(d)
-          if vals:
-              s=str(vals).lower()
-              if 'h5' not in s:
-                  raise SystemExit('This app does not expose an H5 package tab; no upload performed')
+          if vals and 'h5' not in str(vals).lower():
+              raise SystemExit('This app does not expose an H5 package tab; no upload performed')
           print('H5 package capability check: OK')
           PY
 
