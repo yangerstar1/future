@@ -1,0 +1,38 @@
+name: TapTap Auth And Package Verify
+on:
+  push:
+    branches:
+      - codex/taptap-liushuxiang-r3
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install official TapTap CLI
+        run: npm i -g @taptap/cli@2026.9.11
+      - name: Inspect auth commands
+        run: |
+          echo '=== auth help ==='
+          taptap-cli auth --help
+          echo '=== auth login help ==='
+          taptap-cli auth login --help
+          echo '=== auth status help ==='
+          taptap-cli auth status --help
+      - name: Reconstruct and verify H5 package
+        shell: bash
+        run: |
+          set -euo pipefail
+          base64 -d .taptap/liushuxiang-r3/pkgA.b64 > /tmp/liushuxiang-r3-h5.zip
+          echo "SIZE=$(stat -c%s /tmp/liushuxiang-r3-h5.zip)"
+          echo "SHA256=$(sha256sum /tmp/liushuxiang-r3-h5.zip | awk '{print $1}')"
+          test "$(stat -c%s /tmp/liushuxiang-r3-h5.zip)" = "81743"
+          test "$(sha256sum /tmp/liushuxiang-r3-h5.zip | awk '{print $1}')" = "89d5af374b496233e94fc51e7e723bdabce24a5dce129eb98ef761b64c08bf6f"
+          unzip -t /tmp/liushuxiang-r3-h5.zip
+          unzip -l /tmp/liushuxiang-r3-h5.zip
