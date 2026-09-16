@@ -1,0 +1,268 @@
+name: TapTap H5 Secure Upload
+on:
+  push:
+    branches:
+      - codex/taptap-liushuxiang-r3
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  upload-h5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      EXPECTED_DEV_ID: '445339'
+      EXPECTED_APP_ID: '937710'
+      H5_ZIP: 'taptap-upload/liushuxiang-netcafe-r3-h5.zip'
+      H5_SHA256: '89d5af374b496233e94fc51e7e723bdabce24a5dce129eb98ef761b64c08bf6f'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install official TapTap CLI
+        run: npm i -g @taptap/cli@2026.9.11
+
+      - name: Validate staged H5 package
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f "$H5_ZIP"
+          echo "$H5_SHA256  $H5_ZIP" | sha256sum -c -
+          unzip -t "$H5_ZIP" >/dev/null
+          unzip -Z1 "$H5_ZIP" | grep -Fx 'index.html' >/dev/null
+          echo 'H5 package integrity: OK'
+
+      - name: Start TapTap login without leaking device code
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          taptap-cli auth login --no-wait --json > /tmp/taptap-login.json 2>/tmp/taptap-login.err
+          python3 - <<'PY'
+          import json
+          p='/tmp/taptap-login.json'
+          try:
+              data=json.load(open(p,encoding='utf-8'))
+          except Exception:
+              raise SystemExit('TapTap login JSON could not be parsed')
+          strings=[]
+          def walk(x):
+              if isinstance(x,dict):
+                  for v in x.values(): walk(v)
+              elif isinstance(x,list):
+                  for v in x: walk(v)
+              elif isinstance(x,str): strings.append(x)
+          walk(data)
+          cmds=[s for s in strings if 'taptap-cli auth login' in s and '--device-code' in s]
+          urls=[s for s in strings if s.startswith(('https://','http://'))]
+          if not cmds:
+              raise SystemExit('TapTap recovery command missing')
+          if not urls:
+              raise SystemExit('TapTap login URL missing')
+          open('/tmp/taptap-recovery.txt','w',encoding='utf-8').write(cmds[0])
+          PY
+          openssl cms -encrypt -aes256 -binary \
+            -in /tmp/taptap-login.json \
+            -outform DER \
+            -out /tmp/taptap-login.cms \
+            .taptap/taptap-auth-public.crt
+          rm -f /tmp/taptap-login.json /tmp/taptap-login.err
+          echo 'TapTap login challenge created; encrypted handoff ready.'
+
+      - name: Publish encrypted login handoff
+        uses: actions/upload-artifact@v4
+        with:
+          name: taptap-login-encrypted
+          path: /tmp/taptap-login.cms
+          retention-days: 1
+          if-no-files-found: error
+
+      - name: Wait for TapTap authorization
+        timeout-minutes: 15
+        shell: bash
+        run: |
+          set -euo pipefail
+          RECOVERY="$(cat /tmp/taptap-recovery.txt)"
+          set +e
+          eval "$RECOVERY" >/tmp/taptap-auth-recovery.log 2>&1
+          RC=$?
+          set -e
+          rm -f /tmp/taptap-recovery.txt /tmp/taptap-auth-recovery.log
+          if [ "$RC" -ne 0 ]; then
+            echo 'TapTap authorization did not complete before the login challenge ended.'
+            exit "$RC"
+          fi
+          taptap-cli auth status >/tmp/taptap-auth-status.txt 2>&1
+          rm -f /tmp/taptap-auth-status.txt
+          echo 'TapTap authorization: OK'
+
+      - name: Verify developer and game scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          taptap-cli developer +list --page-all --format json > /tmp/taptap-developers.json
+          taptap-cli app +list --dev-id "$EXPECTED_DEV_ID" --page-all --format json > /tmp/taptap-apps.json
+          python3 - <<'PY'
+          import json, os
+          did=os.environ['EXPECTED_DEV_ID']; aid=os.environ['EXPECTED_APP_ID']
+          dev=json.load(open('/tmp/taptap-developers.json',encoding='utf-8'))
+          apps=json.load(open('/tmp/taptap-apps.json',encoding='utf-8'))
+          def contains(x, needle):
+              if isinstance(x,dict): return any(contains(v,needle) for v in x.values())
+              if isinstance(x,list): return any(contains(v,needle) for v in x)
+              return str(x)==needle
+          if not contains(dev,did): raise SystemExit(f'Expected developer {did} is not visible to this TapTap login')
+          if not contains(apps,aid): raise SystemExit(f'Expected app {aid} is not visible under developer {did}')
+          print(f'Verified TapTap scope: developer={did}, app={aid}')
+          PY
+          rm -f /tmp/taptap-developers.json /tmp/taptap-apps.json
+
+      - name: Check H5 capability before any write
+        shell: bash
+        run: |
+          set -euo pipefail
+          taptap-cli package-management get-package-overview \
+            --dev-id "$EXPECTED_DEV_ID" --app-id "$EXPECTED_APP_ID" \
+            --data '{"package_type":"h5"}' --format json > /tmp/h5-before.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('/tmp/h5-before.json',encoding='utf-8'))
+          if not d.get('ok',False): raise SystemExit('H5 package overview is not available; no upload performed')
+          vals=[]
+          def walk(x):
+              if isinstance(x,dict):
+                  for k,v in x.items():
+                      if k=='available_tabs': vals.append(v)
+                      walk(v)
+              elif isinstance(x,list):
+                  for v in x: walk(v)
+          walk(d)
+          if vals:
+              s=str(vals).lower()
+              if 'h5' not in s:
+                  raise SystemExit('This app does not expose an H5 package tab; no upload performed')
+          print('H5 package capability check: OK')
+          PY
+
+      - name: Dry-run H5 upload
+        shell: bash
+        run: |
+          set -euo pipefail
+          taptap-cli upload-h5-package "$H5_ZIP" \
+            --dev-id "$EXPECTED_DEV_ID" --app-id "$EXPECTED_APP_ID" \
+            --screen-orientation 1 --dry-run --json > /tmp/h5-dry-run.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('/tmp/h5-dry-run.json',encoding='utf-8'))
+          if not d.get('ok',False): raise SystemExit('TapTap H5 dry-run failed')
+          print('TapTap H5 dry-run: OK')
+          PY
+          rm -f /tmp/h5-dry-run.json
+
+      - name: Upload H5 package to TapTap
+        shell: bash
+        run: |
+          set -euo pipefail
+          taptap-cli upload-h5-package "$H5_ZIP" \
+            --dev-id "$EXPECTED_DEV_ID" --app-id "$EXPECTED_APP_ID" \
+            --screen-orientation 1 --yes --json > /tmp/h5-upload.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('/tmp/h5-upload.json',encoding='utf-8'))
+          if not d.get('ok',False): raise SystemExit('TapTap H5 upload returned ok=false')
+          print('TapTap H5 upload: OK')
+          PY
+
+      - name: Verify uploaded package and select exact self-test target
+        shell: bash
+        run: |
+          set -euo pipefail
+          taptap-cli package-management get-package-overview \
+            --dev-id "$EXPECTED_DEV_ID" --app-id "$EXPECTED_APP_ID" \
+            --data '{"package_type":"h5"}' --format json > /tmp/h5-after.json
+          python3 - <<'PY'
+          import json, os
+          up=json.load(open('/tmp/h5-upload.json',encoding='utf-8'))
+          ov=json.load(open('/tmp/h5-after.json',encoding='utf-8'))
+          if not ov.get('ok',False): raise SystemExit('Post-upload H5 overview failed')
+          ids=set()
+          def collect_ids(x):
+              if isinstance(x,dict):
+                  for k,v in x.items():
+                      if k in {'package_id','version_id','h5_package_id','artifact_id'} and isinstance(v,(str,int)):
+                          ids.add(str(v))
+                      collect_ids(v)
+              elif isinstance(x,list):
+                  for v in x: collect_ids(v)
+          collect_ids(up)
+          targets=[]
+          def collect_targets(x):
+              if isinstance(x,dict):
+                  if str(x.get('package_type','')).lower()=='h5' and str(x.get('kind','')).lower()=='h5_version':
+                      targets.append(x)
+                  for v in x.values(): collect_targets(v)
+              elif isinstance(x,list):
+                  for v in x: collect_targets(v)
+          collect_targets(ov)
+          uniq=[]; seen=set()
+          for t in targets:
+              sig=json.dumps(t,sort_keys=True,ensure_ascii=False)
+              if sig not in seen: seen.add(sig); uniq.append(t)
+          targets=uniq
+          match=[]
+          for t in targets:
+              tid={str(v) for k,v in t.items() if k in {'package_id','version_id','id'} and isinstance(v,(str,int))}
+              if ids & tid: match.append(t)
+          if len(match)==1:
+              target=match[0]
+          elif len(targets)==1:
+              target=targets[0]
+          else:
+              raise SystemExit(f'Could not uniquely identify uploaded H5 self-test target (targets={len(targets)}, matches={len(match)})')
+          open('/tmp/h5-target.json','w',encoding='utf-8').write(json.dumps(target,ensure_ascii=False,separators=(',',':')))
+          safe={
+              'ok': True,
+              'developer_id': os.environ['EXPECTED_DEV_ID'],
+              'app_id': os.environ['EXPECTED_APP_ID'],
+              'screen_orientation': 'portrait',
+              'source_sha256': os.environ['H5_SHA256'],
+              'self_test_target': target,
+          }
+          open('/tmp/taptap-upload-summary.json','w',encoding='utf-8').write(json.dumps(safe,ensure_ascii=False,indent=2))
+          print('Post-upload package verification: OK')
+          PY
+
+      - name: Generate H5 self-test QR
+        shell: bash
+        run: |
+          set -euo pipefail
+          TARGET="$(cat /tmp/h5-target.json)"
+          taptap-cli test-qr-code \
+            --dev-id "$EXPECTED_DEV_ID" --app-id "$EXPECTED_APP_ID" \
+            --data "$TARGET" --output /tmp/taptap-h5-test-qr.png --json > /tmp/taptap-qr-result.json
+          test -s /tmp/taptap-h5-test-qr.png
+          openssl cms -encrypt -aes256 -binary \
+            -in /tmp/taptap-h5-test-qr.png \
+            -outform DER \
+            -out /tmp/taptap-h5-test-qr.cms \
+            .taptap/taptap-auth-public.crt
+          rm -f /tmp/taptap-qr-result.json /tmp/taptap-h5-test-qr.png /tmp/h5-upload.json /tmp/h5-after.json /tmp/h5-before.json /tmp/h5-target.json
+          echo 'TapTap H5 self-test QR: generated and encrypted.'
+
+      - name: Publish encrypted self-test QR
+        uses: actions/upload-artifact@v4
+        with:
+          name: taptap-h5-test-qr-encrypted
+          path: /tmp/taptap-h5-test-qr.cms
+          retention-days: 1
+          if-no-files-found: error
+
+      - name: Publish non-sensitive upload summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: taptap-h5-upload-summary
+          path: /tmp/taptap-upload-summary.json
+          retention-days: 1
+          if-no-files-found: error
